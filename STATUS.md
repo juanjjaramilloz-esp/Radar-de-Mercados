@@ -13,8 +13,11 @@ contrato, app Streamlit que solo lee el snapshot.
 
 ## Estado actual
 
-- **Última fase completada:** F4 — filtro macro de estabilidad (2026-07-05).
-- **En curso:** F5 — narrativa por reglas + recomendaciones.
+- **Última fase completada:** F5 — narrativa por reglas (2026-07-05).
+- **En curso:** F6 — export PDF/Excel + pulido.
+- **Narrativa:** `domain/narrative.py` (puro) → `data/processed/narrative.json`;
+  cada frase cita su número (test lo verifica con regex); top-3 con porqué =
+  las 2 métricas de mayor contribución peso×norm, con valor crudo y posición.
 - **Modo de trabajo:** libertades creativas post-MVP acordadas — mejoras de
   buen costo/beneficio se implementan sin preguntar (ver CLAUDE.md).
 - **Filtro macro:** WDI (inflación, PIB, cuenta corriente) → rampas lineales
@@ -68,5 +71,5 @@ pytest ; ruff check . ; mypy src                # puerta de calidad
 
 ## Pendientes conocidos
 
-- F5: narrativa por reglas en `domain/` (cada frase con su número) + top-3
-  recomendaciones con porqué.
+- F6: export Excel (openpyxl) y PDF (reportlab) desde la app, leyendo solo el
+  snapshot; pulido de UX.

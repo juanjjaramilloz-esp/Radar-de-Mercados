@@ -1,0 +1,11 @@
+country_iso3,country_name,year,imports_usd
+USA,Estados Unidos,2021,999
+USA,Estados Unidos,2022,100
+USA,Estados Unidos,2023,200
+USA,Estados Unidos,2024,300
+DEU,Alemania,2022,40
+DEU,Alemania,2023,50
+DEU,Alemania,2024,60
+JPN,Japón,2022,10
+JPN,Japón,2023,10
+JPN,Japón,2024,10

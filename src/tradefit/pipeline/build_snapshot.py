@@ -17,6 +17,7 @@ from tradefit import config
 from tradefit.contracts import MarketInputs, ranking_schema
 from tradefit.domain import indices
 from tradefit.domain.macro_filter import apply_stability_penalty, stability_score
+from tradefit.domain.narrative import build_narrative
 from tradefit.domain.scoring import rank_markets
 from tradefit.ingest import comtrade, stub, worldbank
 
@@ -115,6 +116,12 @@ def build_snapshot(source: str = "comtrade") -> pd.DataFrame:
 
     config.PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
     validated.to_parquet(config.RANKING_PARQUET, index=False)
+
+    narrative = build_narrative(validated, config.WEIGHTS)
+    config.NARRATIVE_JSON.write_text(
+        json.dumps(narrative, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
 
     meta = {
         "hs_code": config.HS_CODE,

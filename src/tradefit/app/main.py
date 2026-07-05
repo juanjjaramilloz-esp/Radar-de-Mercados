@@ -13,18 +13,50 @@ import streamlit as st
 from tradefit import config
 
 
-def _load_snapshot() -> tuple[pd.DataFrame, dict[str, object]]:
-    """Lee ranking y metadatos del snapshot.
+def _load_snapshot() -> tuple[pd.DataFrame, dict[str, object], dict[str, object]]:
+    """Lee ranking, metadatos y narrativa del snapshot.
 
     Returns:
-        Tupla (ranking, meta) leída de ``data/processed/``.
+        Tupla (ranking, meta, narrative) leída de ``data/processed/``. Si el
+        snapshot es viejo y no trae narrativa, ``narrative`` queda vacío y la
+        app omite esa sección (degradar con gracia).
 
     Raises:
         FileNotFoundError: si el snapshot todavía no fue construido.
     """
     ranking = pd.read_parquet(config.RANKING_PARQUET)
     meta: dict[str, object] = json.loads(config.SNAPSHOT_META_JSON.read_text(encoding="utf-8"))
-    return ranking, meta
+    narrative: dict[str, object] = {}
+    if config.NARRATIVE_JSON.exists():
+        narrative = json.loads(config.NARRATIVE_JSON.read_text(encoding="utf-8"))
+    return ranking, meta, narrative
+
+
+def _recommendations_section(narrative: dict[str, object]) -> None:
+    """Top-N recomendado con el porqué (drivers del score, con números)."""
+    recommendations = narrative.get("recommendations")
+    if not isinstance(recommendations, list) or not recommendations:
+        return
+    st.subheader("Recomendación: dónde enfocarse")
+    for i, rec in enumerate(recommendations, start=1):
+        reasons = " · ".join(rec["reasons"]) if rec["reasons"] else ""
+        st.markdown(f"**{i}. {rec['name']}** (score final {rec['final_score']:.3f}) — {reasons}")
+
+
+def _market_detail_section(ranking: pd.DataFrame, narrative: dict[str, object]) -> None:
+    """Ficha narrativa por mercado: frases por reglas, cada una con su número."""
+    markets = narrative.get("markets")
+    if not isinstance(markets, dict) or not markets:
+        return
+    st.subheader("Lectura por mercado")
+    names = ranking.set_index(config.COL_COUNTRY)[config.COL_COUNTRY_NAME]
+    selected = st.selectbox(
+        "Mercado",
+        options=list(ranking[config.COL_COUNTRY]),
+        format_func=lambda iso3: f"{names.get(iso3, iso3)} ({iso3})",
+    )
+    for sentence in markets.get(selected, []):
+        st.markdown(f"- {sentence}")
 
 
 def _top3_cards(ranking: pd.DataFrame) -> None:
@@ -47,7 +79,7 @@ def main() -> None:
     st.title("📡 Radar de Mercados")
 
     try:
-        ranking, meta = _load_snapshot()
+        ranking, meta, narrative = _load_snapshot()
     except FileNotFoundError:
         st.error(
             "No hay snapshot en `data/processed/`. Genera uno con:\n\n"
@@ -64,6 +96,7 @@ def main() -> None:
     )
 
     _top3_cards(ranking)
+    _recommendations_section(narrative)
 
     st.subheader("Ranking de mercados destino")
     st.caption(
@@ -122,6 +155,8 @@ def main() -> None:
             ranking.set_index(config.COL_COUNTRY_NAME)[config.COL_MARKET_SIZE],
             horizontal=True,
         )
+
+    _market_detail_section(ranking, narrative)
 
 
 if __name__ == "__main__":

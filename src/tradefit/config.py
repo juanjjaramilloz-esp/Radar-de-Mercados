@@ -21,6 +21,10 @@ STUB_BASKETS_CSV: Final = SAMPLE_DIR / "stub_baskets.csv"
 STUB_EXPORT_TOTALS_CSV: Final = SAMPLE_DIR / "stub_export_totals.csv"
 RANKING_PARQUET: Final = PROCESSED_DIR / "ranking.parquet"
 SNAPSHOT_META_JSON: Final = PROCESSED_DIR / "meta.json"
+NARRATIVE_JSON: Final = PROCESSED_DIR / "narrative.json"
+
+# Cantidad de mercados recomendados en la narrativa (top-N del ranking).
+TOP_RECOMMENDATIONS: Final = 3
 
 # --- Producto y origen del MVP (fijos hasta el backlog "selección libre") ---
 HS_CODE: Final = "0901"

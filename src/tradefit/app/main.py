@@ -11,6 +11,7 @@ import pandas as pd
 import streamlit as st
 
 from tradefit import config
+from tradefit.app.export import ranking_to_excel, ranking_to_pdf
 
 
 def _load_snapshot() -> tuple[pd.DataFrame, dict[str, object], dict[str, object]]:
@@ -133,12 +134,29 @@ def main() -> None:
             ),
         },
     )
-    st.download_button(
-        "⬇️ Descargar ranking (CSV)",
-        data=ranking.to_csv(index=False).encode("utf-8"),
-        file_name=f"radar_{meta['hs_code']}_{meta['origin_iso3']}.csv",
-        mime="text/csv",
-    )
+    base_name = f"radar_{meta['hs_code']}_{meta['origin_iso3']}"
+    col_csv, col_xlsx, col_pdf, _ = st.columns([1, 1, 1, 3])
+    with col_csv:
+        st.download_button(
+            "⬇️ CSV",
+            data=ranking.to_csv(index=False).encode("utf-8"),
+            file_name=f"{base_name}.csv",
+            mime="text/csv",
+        )
+    with col_xlsx:
+        st.download_button(
+            "⬇️ Excel",
+            data=ranking_to_excel(ranking, meta, narrative),
+            file_name=f"{base_name}.xlsx",
+            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        )
+    with col_pdf:
+        st.download_button(
+            "⬇️ PDF",
+            data=ranking_to_pdf(ranking, meta, narrative),
+            file_name=f"{base_name}.pdf",
+            mime="application/pdf",
+        )
 
     tab_scores, tab_size = st.tabs(["Oportunidad vs. score final", "Tamaño de mercado"])
     with tab_scores:

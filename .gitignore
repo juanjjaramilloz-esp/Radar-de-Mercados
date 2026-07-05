@@ -1,0 +1,24 @@
+# Secretos
+.env
+
+# Datos (los snapshots no se versionan; data/sample/ SÍ se versiona)
+data/raw/
+data/interim/
+data/processed/
+
+# Entornos y caches de Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Notebooks: checkpoints
+.ipynb_checkpoints/

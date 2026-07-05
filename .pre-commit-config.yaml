@@ -1,0 +1,25 @@
+# Hooks locales: usan las herramientas del entorno activo (.venv) vía PATH.
+# Instalar con: pre-commit install
+repos:
+  - repo: local
+    hooks:
+      - id: ruff-check
+        name: ruff check
+        entry: ruff check --force-exclude
+        language: system
+        types: [python]
+      - id: ruff-format
+        name: ruff format --check
+        entry: ruff format --check --force-exclude
+        language: system
+        types: [python]
+      - id: mypy
+        name: mypy src
+        entry: mypy src
+        language: system
+        pass_filenames: false
+      - id: pytest
+        name: pytest
+        entry: pytest
+        language: system
+        pass_filenames: false

@@ -7,8 +7,14 @@ con un filtro de estabilidad macro del destino.
 - Arquitectura y convenciones: [CLAUDE.md](CLAUDE.md) (fuente de verdad).
 - Plan por fases y estado: [PLAN.md](PLAN.md).
 
-MVP actual: producto fijo **café (HS 0901)**, origen **Colombia**, 15 mercados
-destino con datos stub (Fase 1; ver PLAN.md).
+Estado actual: producto fijo **café (HS 0901)**, origen **Colombia**, 18
+mercados destino con **datos reales** (UN Comtrade Plus + World Bank WDI):
+5 métricas de oportunidad + filtro macro de estabilidad + narrativa por
+reglas donde cada frase cita su número (Fases 1–5 completas; ver PLAN.md).
+
+El repo incluye un snapshot pequeño de ejemplo en `data/processed/` para que
+la demo funcione sin descargar datos; para regenerarlo con datos frescos se
+necesita una key gratuita de Comtrade en `.env` (ver `.env.example`).
 
 ## Instalar (Windows)
 

@@ -1,0 +1,8 @@
+# Dependencias de runtime para Streamlit Community Cloud.
+# Fuente de verdad de versiones: pyproject.toml (mantener en sincronía).
+pandas==2.3.3
+pandera==0.26.1
+pyarrow==21.0.0
+streamlit==1.49.1
+python-dotenv==1.1.1
+requests==2.32.5

@@ -4,7 +4,12 @@
 # Datos (los snapshots no se versionan; data/sample/ SÍ se versiona)
 data/raw/
 data/interim/
-data/processed/
+# Excepción explícita (CLAUDE.md): snapshot pequeño de ejemplo versionado para
+# que la demo en Streamlit Community Cloud tenga datos sin llamar APIs.
+data/processed/*
+!data/processed/ranking.parquet
+!data/processed/meta.json
+!data/processed/narrative.json
 
 # Entornos y caches de Python
 .venv/

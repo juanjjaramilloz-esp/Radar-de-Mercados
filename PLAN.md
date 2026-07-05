@@ -10,7 +10,7 @@
 - [x] **Fase 1 — Esqueleto caminante** (completada 2026-07-05)
 - [x] **Fase 2 — Ingesta real (Comtrade)** (completada 2026-07-05)
 - [x] **Fase 3 — Motor de oportunidad completo** (completada 2026-07-05)
-- [ ] Fase 4 — Filtro macro de estabilidad
+- [x] **Fase 4 — Filtro macro de estabilidad** (completada 2026-07-05)
 - [ ] Fase 5 — Narrativa por reglas + recomendaciones
 - [ ] Fase 6 — Export PDF/Excel + pulido
 

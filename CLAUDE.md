@@ -157,6 +157,17 @@ tradefit/
 - **IMF (data.imf.org, SDMX 3.0)** — opcional y frágil (migración reciente rompió librerías
   viejas). No es dependencia crítica del MVP; usar solo si WDI no cubre algo.
 
+## Libertades creativas (post-MVP, desde F4)
+
+Regla acordada: cuando Claude Code detecte una mejora a la app con **buen
+costo/beneficio**, la implementa **sin preguntar**. Ya no estamos atados al
+MVP mínimo. Límites que siguen vigentes:
+
+- Las reglas de higiene y la separación en capas no se negocian.
+- Toda mejora se commitea aparte (atómica) para poder revertirla sola.
+- Si una mejora es cara o irreversible (cambiar de framework, borrar datos,
+  servicios pagos), eso sí se consulta antes.
+
 ## Qué NO hacer
 
 - No llamar APIs desde `app/` ni desde `domain/`.

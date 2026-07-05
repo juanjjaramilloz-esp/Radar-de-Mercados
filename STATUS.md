@@ -13,16 +13,22 @@ contrato, app Streamlit que solo lee el snapshot.
 
 ## Estado actual
 
-- **Última fase completada:** F3 — motor de oportunidad completo (2026-07-05).
-- **En curso:** F4 — filtro macro de estabilidad (WDI).
+- **Última fase completada:** F4 — filtro macro de estabilidad (2026-07-05).
+- **En curso:** F5 — narrativa por reglas + recomendaciones.
+- **Modo de trabajo:** libertades creativas post-MVP acordadas — mejoras de
+  buen costo/beneficio se implementan sin preguntar (ver CLAUDE.md).
+- **Filtro macro:** WDI (inflación, PIB, cuenta corriente) → rampas lineales
+  (`config.MACRO_BOUNDS`) → `final_score = score × (0.5 + 0.5·estabilidad)`.
+  Con datos reales: USA pierde ventaja (estabilidad 0.66) y ESP/KOR/ITA casi
+  lo alcanzan en score final.
+- **`COMTRADE_API_KEY` ya configurada en `.env`:** endpoint autenticado
+  activo, cachés re-descargados completos (canastas: 1841 filas).
 - **Métricas vivas:** `market_size`, `import_growth` (CAGR), `market_share`,
   `share_trend`, `complementarity` (Michaely); RCA de Balassa como columna de
   contexto (constante entre destinos, no pondera). Pesos en `config.WEIGHTS`.
-- **Datos:** reales, cacheados en `data/raw/` (4 JSONs: imports, bilateral
-  COL, canastas HS2, totales de exportación; 2022–2024, 18 mercados). Sin
-  `COMTRADE_API_KEY` en `.env`: usa el preview público (tope 500 registros,
-  **1 período por request**, rate-limit 429 → retry integrado). Snapshot real:
-  RCA de Colombia en café = 35.66 (2024); USA lidera el ranking.
+- **Datos:** reales, cacheados en `data/raw/` (5 JSONs: imports, bilateral
+  COL, canastas HS2, totales de exportación, macro WDI; 2022–2024, 18
+  mercados). Snapshot real: RCA de Colombia en café = 35.66 (2024).
 
 ## Cómo correr (Windows)
 
@@ -35,6 +41,11 @@ pytest ; ruff check . ; mypy src                # puerta de calidad
 
 ## Decisiones no obvias (log)
 
+- 2026-07-05 · F4: destino sin datos WDI = **warning + estabilidad neutra
+  (0.5)**, no error — la ausencia en WDI es hueco de fuente, no evidencia de
+  inestabilidad. El piso 0.5 de la penalización evita que el filtro macro
+  anule la oportunidad comercial (destinos MVP = economías desarrolladas).
+  El API de WDI a veces da timeout en frío: reintentar el build.
 - 2026-07-05 · F3: el RCA es constante entre destinos → columna de contexto,
   NO pondera en el score. El "mundo" de exportaciones = suma de lo que
   reportan los países (consulta sin `reporterCode`); las canastas HS2 se
@@ -57,7 +68,5 @@ pytest ; ruff check . ; mypy src                # puerta de calidad
 
 ## Pendientes conocidos
 
-- Registrar key gratuita de Comtrade (https://comtradeplus.un.org/) y ponerla
-  en `.env` como `COMTRADE_API_KEY=` (el código ya la usa si existe).
-- F4: `ingest/worldbank.py` (WDI, sin key) + `domain/macro_filter.py` con
-  penalización multiplicativa sobre el score de oportunidad.
+- F5: narrativa por reglas en `domain/` (cada frase con su número) + top-3
+  recomendaciones con porqué.

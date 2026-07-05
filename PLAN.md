@@ -8,7 +8,7 @@
 ## Estado
 
 - [x] **Fase 1 — Esqueleto caminante** (completada 2026-07-05)
-- [ ] Fase 2 — Ingesta real (Comtrade + WDI)
+- [x] **Fase 2 — Ingesta real (Comtrade)** (completada 2026-07-05)
 - [ ] Fase 3 — Motor de oportunidad completo (4 métricas + scoring)
 - [ ] Fase 4 — Filtro macro de estabilidad
 - [ ] Fase 5 — Narrativa por reglas + recomendaciones
@@ -35,12 +35,17 @@ el snapshot y muestra el ranking.
   sintético con orden obvio. pytest + ruff + mypy en verde.
 - Commits Conventional Commits.
 
-## Fase 2 — Ingesta real (Comtrade + WDI)
+## Fase 2 — Ingesta real (Comtrade)
 
 **Entrega:** `ingest/comtrade.py` (importaciones HS 0901 por destino; key
-gratuita leída de `COMTRADE_API_KEY`) y `ingest/worldbank.py` (WDI, sin key);
-descargas crudas cacheadas en `data/raw/`; 15–20 mercados reales. El contrato
-del snapshot NO cambia: `domain/` y `app/` no se tocan.
+gratuita leída de `COMTRADE_API_KEY`, con fallback al preview público de
+máx. 500 registros y 1 período por request); descarga cruda cacheada en
+`data/raw/`; 18 mercados reales. El contrato del snapshot NO cambia:
+`domain/` y `app/` no se tocan. El pipeline acepta `--source comtrade|stub`.
+
+> Nota de re-alcance: `ingest/worldbank.py` (WDI) se movió a la Fase 4, que es
+> donde el filtro macro lo consume — las fases son cortes verticales y no se
+> construye ingesta sin consumidor.
 
 **Hecho cuando:** el pipeline construye el snapshot con datos reales cacheados;
 ingest testeado con respuestas guardadas/mockeadas (tests sin red); fallo
@@ -64,10 +69,11 @@ con un caso sintético de orden obvio; la app muestra las métricas; verde + com
 
 ## Fase 4 — Filtro macro de estabilidad
 
-**Entrega:** `domain/macro_filter.py`: score de estabilidad del destino con
-indicadores WDI (p. ej. inflación, crecimiento del PIB, balanza por cuenta
-corriente), aplicado como **penalización multiplicativa** sobre el score de
-oportunidad; umbrales/parámetros documentados en `config.py`.
+**Entrega:** `ingest/worldbank.py` (WDI, sin key, caché en `data/raw/`) +
+`domain/macro_filter.py`: score de estabilidad del destino con indicadores WDI
+(p. ej. inflación, crecimiento del PIB, balanza por cuenta corriente),
+aplicado como **penalización multiplicativa** sobre el score de oportunidad;
+umbrales/parámetros documentados en `config.py`.
 
 **Hecho cuando:** filtro testeado con caso a mano (país estable vs. inestable,
 orden esperado); el snapshot incluye score bruto y penalizado; la app los

@@ -1,0 +1,72 @@
+{
+  "elapsedTime": "0.05 secs",
+  "count": 5,
+  "data": [
+    {
+      "typeCode": "C",
+      "freqCode": "A",
+      "refYear": 2023,
+      "period": "2023",
+      "reporterCode": 842,
+      "reporterISO": "USA",
+      "flowCode": "M",
+      "partnerCode": 0,
+      "partnerISO": "W00",
+      "cmdCode": "0901",
+      "primaryValue": 6800000000.0
+    },
+    {
+      "typeCode": "C",
+      "freqCode": "A",
+      "refYear": 2024,
+      "period": "2024",
+      "reporterCode": 842,
+      "reporterISO": "USA",
+      "flowCode": "M",
+      "partnerCode": 0,
+      "partnerISO": "W00",
+      "cmdCode": "0901",
+      "primaryValue": 6700000000.0
+    },
+    {
+      "typeCode": "C",
+      "freqCode": "A",
+      "refYear": 2023,
+      "period": "2023",
+      "reporterCode": 276,
+      "reporterISO": "DEU",
+      "flowCode": "M",
+      "partnerCode": 0,
+      "partnerISO": "W00",
+      "cmdCode": "0901",
+      "primaryValue": 4400000000.0
+    },
+    {
+      "typeCode": "C",
+      "freqCode": "A",
+      "refYear": 2024,
+      "period": "2024",
+      "reporterCode": 276,
+      "reporterISO": "DEU",
+      "flowCode": "M",
+      "partnerCode": 0,
+      "partnerISO": "W00",
+      "cmdCode": "0901",
+      "primaryValue": 4200000000.0
+    },
+    {
+      "typeCode": "C",
+      "freqCode": "A",
+      "refYear": 2023,
+      "period": "2023",
+      "reporterCode": 999,
+      "reporterISO": "XXX",
+      "flowCode": "M",
+      "partnerCode": 0,
+      "partnerISO": "W00",
+      "cmdCode": "0901",
+      "primaryValue": 123.0
+    }
+  ],
+  "error": ""
+}

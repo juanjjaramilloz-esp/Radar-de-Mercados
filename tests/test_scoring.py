@@ -5,7 +5,11 @@ import pytest
 
 from tradefit import config
 from tradefit.contracts import MarketInputs, ranking_schema
+from tradefit.domain.macro_filter import apply_stability_penalty
 from tradefit.domain.scoring import rank_markets
+
+#: Estabilidad de juguete para completar el contrato del ranking en los tests.
+STABILITY_SMALL = pd.Series({"USA": 0.8, "DEU": 0.9, "JPN": 0.7})
 
 
 def test_orden_obvio_por_tamanio(market_inputs_small: MarketInputs) -> None:
@@ -48,13 +52,16 @@ def test_destino_sin_canasta_no_rompe(market_inputs_small: MarketInputs) -> None
         baskets=sin_jpn,
         rca=market_inputs_small.rca,
     )
-    ranking = rank_markets(data, config.WEIGHTS)
+    ranking = apply_stability_penalty(rank_markets(data, config.WEIGHTS), STABILITY_SMALL)
     ranking_schema.validate(ranking)
     assert len(ranking) == 3
 
 
 def test_ranking_cumple_contrato(market_inputs_small: MarketInputs) -> None:
-    ranking_schema.validate(rank_markets(market_inputs_small, config.WEIGHTS))
+    ranking = apply_stability_penalty(
+        rank_markets(market_inputs_small, config.WEIGHTS), STABILITY_SMALL
+    )
+    ranking_schema.validate(ranking)
 
 
 def test_peso_desconocido_falla(market_inputs_small: MarketInputs) -> None:

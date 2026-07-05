@@ -17,6 +17,7 @@ from tradefit.contracts import (
     bilateral_schema,
     export_totals_schema,
     imports_schema,
+    macro_schema,
 )
 
 logger = logging.getLogger(__name__)
@@ -62,6 +63,18 @@ def load_stub_baskets() -> pd.DataFrame:
     # dtype=str preserva el cero inicial de capítulos como "09".
     raw = pd.read_csv(config.STUB_BASKETS_CSV, dtype={config.COL_CMD: str})
     validated: pd.DataFrame = basket_schema.validate(raw)
+    return validated
+
+
+def load_stub_macro() -> pd.DataFrame:
+    """Carga los indicadores macro stub de los destinos.
+
+    Returns:
+        DataFrame validado contra ``macro_schema``.
+    """
+    logger.info("Leyendo stub macro desde %s", config.STUB_MACRO_CSV)
+    raw = pd.read_csv(config.STUB_MACRO_CSV)
+    validated: pd.DataFrame = macro_schema.validate(raw)
     return validated
 
 

@@ -16,8 +16,9 @@ from dotenv import load_dotenv
 from tradefit import config
 from tradefit.contracts import MarketInputs, ranking_schema
 from tradefit.domain import indices
+from tradefit.domain.macro_filter import apply_stability_penalty, stability_score
 from tradefit.domain.scoring import rank_markets
-from tradefit.ingest import comtrade, stub
+from tradefit.ingest import comtrade, stub, worldbank
 
 logger = logging.getLogger(__name__)
 
@@ -55,24 +56,31 @@ def _rca_from_totals(export_totals: pd.DataFrame) -> float:
     )
 
 
-def _load_inputs(source: str) -> MarketInputs:
-    """Carga y valida los cuatro insumos del ranking desde la fuente elegida."""
+def _load_inputs(source: str) -> tuple[MarketInputs, pd.DataFrame]:
+    """Carga y valida los insumos del ranking + macro desde la fuente elegida.
+
+    El macro real viene de WDI (sin key) aunque el comercio venga de Comtrade;
+    con ``source="stub"`` todo sale de ``data/sample/`` (cero red).
+    """
     if source == "comtrade":
         imports = comtrade.load_comtrade_imports()
         bilateral = comtrade.load_bilateral_imports()
         baskets = comtrade.load_baskets()
         export_totals = comtrade.load_export_totals()
+        macro = worldbank.load_wdi_macro()
     else:
         imports = stub.load_stub_imports()
         bilateral = stub.load_stub_bilateral()
         baskets = stub.load_stub_baskets()
         export_totals = stub.load_stub_export_totals()
-    return MarketInputs(
+        macro = stub.load_stub_macro()
+    data = MarketInputs(
         imports=imports,
         bilateral=bilateral,
         baskets=baskets,
         rca=_rca_from_totals(export_totals),
     )
+    return data, macro
 
 
 def build_snapshot(source: str = "comtrade") -> pd.DataFrame:
@@ -91,7 +99,7 @@ def build_snapshot(source: str = "comtrade") -> pd.DataFrame:
     """
     if source not in SOURCES:
         raise ValueError(f"Fuente desconocida: {source!r}; opciones: {SOURCES}")
-    data = _load_inputs(source)
+    data, macro = _load_inputs(source)
     imports = data.imports
     logger.info(
         "Insumos cargados: %d filas de importaciones, %d mercados, RCA=%.2f",
@@ -101,6 +109,8 @@ def build_snapshot(source: str = "comtrade") -> pd.DataFrame:
     )
 
     ranking = rank_markets(data, config.WEIGHTS)
+    stability = stability_score(macro, config.MACRO_BOUNDS)
+    ranking = apply_stability_penalty(ranking, stability, config.MACRO_FLOOR)
     validated: pd.DataFrame = ranking_schema.validate(ranking)
 
     config.PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
@@ -118,6 +128,10 @@ def build_snapshot(source: str = "comtrade") -> pd.DataFrame:
         "n_markets": int(len(validated)),
         "rca_balassa": round(data.rca, 4),
         "weights": dict(config.WEIGHTS),
+        "macro_indicators": dict(config.WDI_INDICATORS),
+        "macro_bounds": {k: list(v) for k, v in config.MACRO_BOUNDS.items()},
+        "macro_floor": config.MACRO_FLOOR,
+        "macro_years": config.MACRO_YEARS,
     }
     config.SNAPSHOT_META_JSON.write_text(
         json.dumps(meta, indent=2, sort_keys=True, ensure_ascii=False) + "\n",

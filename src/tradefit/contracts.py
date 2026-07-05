@@ -68,7 +68,24 @@ export_totals_schema = pa.DataFrameSchema(
     name="export_totals",
 )
 
-#: Ranking de mercados destino (el snapshot que consume la app).
+#: Indicadores macro WDI por destino y año (solo años con dato: los null de
+#: la API se descartan en ingest; la ausencia se maneja en domain).
+macro_schema = pa.DataFrameSchema(
+    {
+        config.COL_COUNTRY: pa.Column(str, pa.Check.str_length(3, 3)),
+        config.COL_INDICATOR: pa.Column(str, pa.Check.isin(list(config.WDI_INDICATORS.values()))),
+        config.COL_YEAR: pa.Column(int, pa.Check.in_range(1990, 2100)),
+        config.COL_MACRO_VALUE: pa.Column(float),
+    },
+    unique=[config.COL_COUNTRY, config.COL_INDICATOR, config.COL_YEAR],
+    coerce=True,
+    strict=True,
+    name="macro",
+)
+
+#: Ranking de mercados destino (el snapshot que consume la app). El orden lo
+#: define ``final_score`` (oportunidad × penalización de estabilidad macro);
+#: ``opportunity_score`` queda como score bruto para poder compararlos.
 ranking_schema = pa.DataFrameSchema(
     {
         config.COL_RANK: pa.Column(int, pa.Check.ge(1)),
@@ -80,7 +97,9 @@ ranking_schema = pa.DataFrameSchema(
         config.COL_SHARE_TREND: pa.Column(float, pa.Check.in_range(-1.0, 1.0)),
         config.COL_COMPLEMENTARITY: pa.Column(float, pa.Check.in_range(0.0, 1.0)),
         config.COL_RCA: pa.Column(float, pa.Check.ge(0)),
+        config.COL_STABILITY: pa.Column(float, pa.Check.in_range(0.0, 1.0)),
         config.COL_SCORE: pa.Column(float, pa.Check.in_range(0.0, 1.0)),
+        config.COL_FINAL_SCORE: pa.Column(float, pa.Check.in_range(0.0, 1.0)),
     },
     unique=[config.COL_COUNTRY],
     coerce=True,

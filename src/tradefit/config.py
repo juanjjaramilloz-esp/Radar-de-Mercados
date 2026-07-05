@@ -93,6 +93,41 @@ COMTRADE_CMD_ALL_HS2: Final = "AG2"  # todos los capítulos HS a 2 dígitos
 # Año de las canastas comerciales para complementariedad (el más reciente).
 BASKET_YEAR: Final = max(IMPORT_YEARS)
 
+# --- World Bank WDI (filtro macro de estabilidad; sin API key) ---
+WDI_URL: Final = "https://api.worldbank.org/v2/country/{countries}/indicator/{indicator}"
+WDI_CACHE_FILE: Final = RAW_DIR / "wdi_macro.json"
+STUB_MACRO_CSV: Final = SAMPLE_DIR / "stub_macro.csv"
+# Rango de años a descargar; el score usa los últimos MACRO_YEARS con dato.
+WDI_DATE_RANGE: Final = "2020:2024"
+MACRO_YEARS: Final = 3
+
+# Indicadores WDI del filtro (código → nombre corto usado en el contrato).
+WDI_INDICATORS: Final[dict[str, str]] = {
+    "FP.CPI.TOTL.ZG": "inflation",  # inflación anual, precios al consumidor (%)
+    "NY.GDP.MKTP.KD.ZG": "gdp_growth",  # crecimiento real del PIB (%)
+    "BN.CAB.XOKA.GD.ZS": "current_account",  # cuenta corriente (% del PIB)
+}
+
+# Rampas de estabilidad por indicador: (peor, mejor) → score lineal en [0, 1].
+# Valores en el peor extremo o más allá puntúan 0; en el mejor o más allá, 1.
+# Justificación: inflación ≤2% es la meta típica de bancos centrales de la
+# OCDE y ≥15% es estrés macro severo; crecimiento del PIB ≤−2% es recesión
+# marcada y ≥3% expansión sólida; cuenta corriente ≤−5% del PIB es el umbral
+# clásico de vulnerabilidad externa (cf. los "twin deficits") y ≥0% elimina
+# esa vulnerabilidad. Rampas lineales: transparentes y defendibles.
+MACRO_BOUNDS: Final[dict[str, tuple[float, float]]] = {
+    "inflation": (15.0, 2.0),  # peor: 15% o más; mejor: 2% o menos
+    "gdp_growth": (-2.0, 3.0),  # peor: −2% o menos; mejor: 3% o más
+    "current_account": (-5.0, 0.0),  # peor: −5% del PIB o menos; mejor: ≥0%
+}
+
+# Piso de la penalización multiplicativa: score_final = score_oportunidad ×
+# (MACRO_FLOOR + (1 − MACRO_FLOOR) × estabilidad). Con 0.5, un mercado
+# totalmente inestable conserva la mitad de su score: el filtro macro modula
+# la oportunidad comercial pero no la anula (los 18 destinos del MVP son
+# economías desarrolladas; el filtro gana peso al abrir la selección de países).
+MACRO_FLOOR: Final = 0.5
+
 # --- Nombres de columnas (contrato entre capas; esquemas en contracts.py) ---
 COL_COUNTRY: Final = "country_iso3"
 COL_COUNTRY_NAME: Final = "country_name"
@@ -108,7 +143,11 @@ COL_SHARE: Final = "market_share"
 COL_SHARE_TREND: Final = "share_trend"
 COL_COMPLEMENTARITY: Final = "complementarity"
 COL_RCA: Final = "rca_balassa"
+COL_INDICATOR: Final = "indicator"
+COL_MACRO_VALUE: Final = "value"  # % u otras unidades según el indicador (no USD)
+COL_STABILITY: Final = "stability_score"
 COL_SCORE: Final = "opportunity_score"
+COL_FINAL_SCORE: Final = "final_score"
 COL_RANK: Final = "rank"
 
 # --- Parámetros de métricas ---

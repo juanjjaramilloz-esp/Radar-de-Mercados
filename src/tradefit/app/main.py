@@ -27,6 +27,20 @@ def _load_snapshot() -> tuple[pd.DataFrame, dict[str, object]]:
     return ranking, meta
 
 
+def _top3_cards(ranking: pd.DataFrame) -> None:
+    """Tarjetas del podio: los 3 mercados con mejor score final."""
+    top3 = ranking.nsmallest(3, config.COL_RANK)
+    medals = ["🥇", "🥈", "🥉"]
+    for column, (_, row), medal in zip(st.columns(3), top3.iterrows(), medals, strict=False):
+        with column:
+            st.metric(
+                label=f"{medal} {row[config.COL_COUNTRY_NAME]}",
+                value=f"{row[config.COL_FINAL_SCORE]:.3f}",
+                delta=f"estabilidad {row[config.COL_STABILITY]:.2f}",
+                delta_color="off",
+            )
+
+
 def main() -> None:
     """Renderiza la página principal: ranking de mercados destino."""
     st.set_page_config(page_title="Radar de Mercados", page_icon="📡", layout="wide")
@@ -49,7 +63,14 @@ def main() -> None:
         f"{meta['n_markets']} mercados{rca_text}"
     )
 
+    _top3_cards(ranking)
+
     st.subheader("Ranking de mercados destino")
+    st.caption(
+        "Score final = oportunidad comercial × penalización por estabilidad macro "
+        f"(piso {meta.get('macro_floor', '—')}; indicadores WDI: inflación, "
+        "crecimiento del PIB y cuenta corriente)."
+    )
     st.dataframe(
         ranking.drop(columns=[config.COL_RCA]),
         hide_index=True,
@@ -72,17 +93,35 @@ def main() -> None:
             config.COL_COMPLEMENTARITY: st.column_config.NumberColumn(
                 "Complementariedad", format="%.2f"
             ),
-            config.COL_SCORE: st.column_config.ProgressColumn(
-                "Score de oportunidad", min_value=0.0, max_value=1.0, format="%.3f"
+            config.COL_STABILITY: st.column_config.NumberColumn("Estabilidad macro", format="%.2f"),
+            config.COL_SCORE: st.column_config.NumberColumn("Score bruto", format="%.3f"),
+            config.COL_FINAL_SCORE: st.column_config.ProgressColumn(
+                "Score final", min_value=0.0, max_value=1.0, format="%.3f"
             ),
         },
     )
-
-    st.subheader("Tamaño de mercado (USD)")
-    st.bar_chart(
-        ranking.set_index(config.COL_COUNTRY_NAME)[config.COL_MARKET_SIZE],
-        horizontal=True,
+    st.download_button(
+        "⬇️ Descargar ranking (CSV)",
+        data=ranking.to_csv(index=False).encode("utf-8"),
+        file_name=f"radar_{meta['hs_code']}_{meta['origin_iso3']}.csv",
+        mime="text/csv",
     )
+
+    tab_scores, tab_size = st.tabs(["Oportunidad vs. score final", "Tamaño de mercado"])
+    with tab_scores:
+        st.caption(
+            "La distancia entre las barras es la penalización macro: donde el score "
+            "final se acerca al bruto, el destino es estable."
+        )
+        scores = ranking.set_index(config.COL_COUNTRY_NAME)[
+            [config.COL_SCORE, config.COL_FINAL_SCORE]
+        ].rename(columns={config.COL_SCORE: "Score bruto", config.COL_FINAL_SCORE: "Score final"})
+        st.bar_chart(scores, horizontal=True)
+    with tab_size:
+        st.bar_chart(
+            ranking.set_index(config.COL_COUNTRY_NAME)[config.COL_MARKET_SIZE],
+            horizontal=True,
+        )
 
 
 if __name__ == "__main__":

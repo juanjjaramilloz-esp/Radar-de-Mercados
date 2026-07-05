@@ -41,15 +41,17 @@ def main() -> None:
         )
         return
 
+    rca = meta.get("rca_balassa")
+    rca_text = f" · RCA del origen en el producto: **{rca}**" if rca is not None else ""
     st.caption(
         f"Producto: **{meta['hs_label']}** · Origen: **{meta['origin_iso3']}** · "
         f"Fuente: {meta['source']} · Datos {meta['data_year_min']}–{meta['data_year_max']} · "
-        f"{meta['n_markets']} mercados"
+        f"{meta['n_markets']} mercados{rca_text}"
     )
 
     st.subheader("Ranking de mercados destino")
     st.dataframe(
-        ranking,
+        ranking.drop(columns=[config.COL_RCA]),
         hide_index=True,
         width="stretch",
         column_config={
@@ -59,6 +61,16 @@ def main() -> None:
             config.COL_MARKET_SIZE: st.column_config.NumberColumn(
                 f"Importaciones prom. {meta['market_size_years']} años (USD)",
                 format="%.0f",
+            ),
+            config.COL_GROWTH: st.column_config.NumberColumn(
+                "Crecimiento (CAGR)", format="percent"
+            ),
+            config.COL_SHARE: st.column_config.NumberColumn("Cuota del origen", format="percent"),
+            config.COL_SHARE_TREND: st.column_config.NumberColumn(
+                "Δ cuota (ventana)", format="percent"
+            ),
+            config.COL_COMPLEMENTARITY: st.column_config.NumberColumn(
+                "Complementariedad", format="%.2f"
             ),
             config.COL_SCORE: st.column_config.ProgressColumn(
                 "Score de oportunidad", min_value=0.0, max_value=1.0, format="%.3f"

@@ -1,0 +1,13 @@
+scope,cmd_code,year,value_usd
+origin,product,2022,3900000000
+origin,product,2023,4100000000
+origin,product,2024,4300000000
+origin,total,2022,57000000000
+origin,total,2023,49500000000
+origin,total,2024,50000000000
+world,product,2022,45000000000
+world,product,2023,42000000000
+world,product,2024,48000000000
+world,total,2022,24900000000000
+world,total,2023,23800000000000
+world,total,2024,24400000000000

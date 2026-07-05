@@ -16,6 +16,9 @@ PROCESSED_DIR: Final = DATA_DIR / "processed"
 SAMPLE_DIR: Final = DATA_DIR / "sample"
 
 STUB_IMPORTS_CSV: Final = SAMPLE_DIR / "stub_imports.csv"
+STUB_BILATERAL_CSV: Final = SAMPLE_DIR / "stub_bilateral.csv"
+STUB_BASKETS_CSV: Final = SAMPLE_DIR / "stub_baskets.csv"
+STUB_EXPORT_TOTALS_CSV: Final = SAMPLE_DIR / "stub_export_totals.csv"
 RANKING_PARQUET: Final = PROCESSED_DIR / "ranking.parquet"
 SNAPSHOT_META_JSON: Final = PROCESSED_DIR / "meta.json"
 
@@ -78,13 +81,33 @@ ENV_COMTRADE_KEY: Final = "COMTRADE_API_KEY"
 COMTRADE_URL_AUTH: Final = "https://comtradeapi.un.org/data/v1/get/C/A/HS"
 COMTRADE_URL_PREVIEW: Final = "https://comtradeapi.un.org/public/v1/preview/C/A/HS"
 COMTRADE_CACHE_FILE: Final = RAW_DIR / f"comtrade_{HS_CODE}_imports.json"
+COMTRADE_BILATERAL_CACHE: Final = RAW_DIR / f"comtrade_{HS_CODE}_bilateral_{ORIGIN_ISO3}.json"
+COMTRADE_EXPORTS_CACHE: Final = RAW_DIR / f"comtrade_{HS_CODE}_export_totals.json"
+COMTRADE_BASKETS_CACHE: Final = RAW_DIR / "comtrade_baskets_hs2.json"
+
+# Código de reporter/partner de Comtrade para el país de origen (Colombia).
+ORIGIN_COMTRADE_CODE: Final = 170
+# Códigos de commodity especiales de Comtrade.
+COMTRADE_CMD_TOTAL: Final = "TOTAL"  # comercio total del reporter
+COMTRADE_CMD_ALL_HS2: Final = "AG2"  # todos los capítulos HS a 2 dígitos
+# Año de las canastas comerciales para complementariedad (el más reciente).
+BASKET_YEAR: Final = max(IMPORT_YEARS)
 
 # --- Nombres de columnas (contrato entre capas; esquemas en contracts.py) ---
 COL_COUNTRY: Final = "country_iso3"
 COL_COUNTRY_NAME: Final = "country_name"
 COL_YEAR: Final = "year"
 COL_IMPORTS_USD: Final = "imports_usd"
+COL_IMPORTS_FROM_ORIGIN: Final = "imports_from_origin_usd"
+COL_CMD: Final = "cmd_code"
+COL_VALUE: Final = "value_usd"
+COL_SCOPE: Final = "scope"
 COL_MARKET_SIZE: Final = "market_size_usd"
+COL_GROWTH: Final = "import_growth"
+COL_SHARE: Final = "market_share"
+COL_SHARE_TREND: Final = "share_trend"
+COL_COMPLEMENTARITY: Final = "complementarity"
+COL_RCA: Final = "rca_balassa"
 COL_SCORE: Final = "opportunity_score"
 COL_RANK: Final = "rank"
 
@@ -94,7 +117,16 @@ COL_RANK: Final = "rank"
 MARKET_SIZE_YEARS: Final = 3
 
 # --- Pesos del scoring (consumidos por domain/scoring.rank_markets) ---
-# Fase 1: una sola métrica, peso 1.0 (trivialmente el 100% del score).
-# Al agregar métricas (Fase 3), los pesos se documentan y justifican AQUÍ,
-# nunca dentro de la lógica.
-WEIGHTS: Final[dict[str, float]] = {"market_size": 1.0}
+# Score = promedio ponderado de métricas min-max normalizadas. Justificación:
+# la demanda existente (nivel + dinámica) pesa la mitad porque sin demanda no
+# hay mercado; la posición ya ganada por el origen (cuota + momentum) y el
+# encaje estructural oferta-demanda reparten la otra mitad. Suman 1.0.
+WEIGHTS: Final[dict[str, float]] = {
+    "market_size": 0.30,  # demanda actual del destino (nivel)
+    "import_growth": 0.20,  # dinámica de la demanda (CAGR de la ventana)
+    "market_share": 0.15,  # cuota ya ganada por el origen (último año)
+    "share_trend": 0.15,  # momentum de esa cuota (Δ en la ventana)
+    "complementarity": 0.20,  # encaje canasta origen ↔ demanda destino
+}
+# El RCA de Balassa del origen es constante entre destinos: se reporta como
+# contexto en el snapshot (columna rca_balassa) pero NO pondera en el ranking.

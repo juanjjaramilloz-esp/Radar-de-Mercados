@@ -1,9 +1,9 @@
 """Construye el snapshot que consume la app.
 
-Orquesta: ingest (stub en Fase 1) → domain (scoring) → validación de contrato
-→ escritura en ``data/processed/`` (``ranking.parquet`` + ``meta.json``).
-Idempotente: con el mismo input produce el mismo snapshot (no escribe
-timestamps ni ningún otro valor no determinístico).
+Orquesta: ingest (Comtrade o stub) → domain (índices + scoring) → validación
+de contrato → escritura en ``data/processed/`` (``ranking.parquet`` +
+``meta.json``). Idempotente: con el mismo input produce el mismo snapshot (no
+escribe timestamps ni ningún otro valor no determinístico).
 """
 
 import argparse
@@ -14,22 +14,73 @@ import pandas as pd
 from dotenv import load_dotenv
 
 from tradefit import config
-from tradefit.contracts import ranking_schema
+from tradefit.contracts import MarketInputs, ranking_schema
+from tradefit.domain import indices
 from tradefit.domain.scoring import rank_markets
-from tradefit.ingest.comtrade import load_comtrade_imports
-from tradefit.ingest.stub import load_stub_imports
+from tradefit.ingest import comtrade, stub
 
 logger = logging.getLogger(__name__)
 
 SOURCES = ("comtrade", "stub")
 
 
+def _rca_from_totals(export_totals: pd.DataFrame) -> float:
+    """RCA del origen usando el año más reciente con las cuatro series.
+
+    Args:
+        export_totals: DataFrame validado contra ``export_totals_schema``.
+
+    Returns:
+        RCA de Balassa (escalar) calculado por ``domain.indices.rca_balassa``.
+
+    Raises:
+        RuntimeError: si ningún año trae las cuatro series completas.
+    """
+    pivot = export_totals.pivot_table(
+        index=config.COL_YEAR,
+        columns=[config.COL_SCOPE, config.COL_CMD],
+        values=config.COL_VALUE,
+    )
+    complete = pivot.dropna()
+    if complete.empty:
+        raise RuntimeError("Ningún año tiene las cuatro series de exportación para el RCA")
+    year = int(complete.index.max())
+    row = complete.loc[year]
+    logger.info("RCA calculado con datos de exportación de %d", year)
+    return indices.rca_balassa(
+        product_exports_origin=float(row[("origin", "product")]),
+        total_exports_origin=float(row[("origin", "total")]),
+        product_exports_world=float(row[("world", "product")]),
+        total_exports_world=float(row[("world", "total")]),
+    )
+
+
+def _load_inputs(source: str) -> MarketInputs:
+    """Carga y valida los cuatro insumos del ranking desde la fuente elegida."""
+    if source == "comtrade":
+        imports = comtrade.load_comtrade_imports()
+        bilateral = comtrade.load_bilateral_imports()
+        baskets = comtrade.load_baskets()
+        export_totals = comtrade.load_export_totals()
+    else:
+        imports = stub.load_stub_imports()
+        bilateral = stub.load_stub_bilateral()
+        baskets = stub.load_stub_baskets()
+        export_totals = stub.load_stub_export_totals()
+    return MarketInputs(
+        imports=imports,
+        bilateral=bilateral,
+        baskets=baskets,
+        rca=_rca_from_totals(export_totals),
+    )
+
+
 def build_snapshot(source: str = "comtrade") -> pd.DataFrame:
     """Construye y escribe el snapshot; devuelve el ranking escrito.
 
     Args:
-        source: fuente de importaciones — ``"comtrade"`` (real, con caché en
-            ``data/raw/``) o ``"stub"`` (CSV local, sin red).
+        source: fuente de datos — ``"comtrade"`` (real, con caché en
+            ``data/raw/``) o ``"stub"`` (CSVs locales, sin red).
 
     Returns:
         DataFrame conforme a ``ranking_schema``, ya persistido en
@@ -40,14 +91,16 @@ def build_snapshot(source: str = "comtrade") -> pd.DataFrame:
     """
     if source not in SOURCES:
         raise ValueError(f"Fuente desconocida: {source!r}; opciones: {SOURCES}")
-    imports = load_comtrade_imports() if source == "comtrade" else load_stub_imports()
+    data = _load_inputs(source)
+    imports = data.imports
     logger.info(
-        "Importaciones cargadas: %d filas, %d mercados",
+        "Insumos cargados: %d filas de importaciones, %d mercados, RCA=%.2f",
         len(imports),
         imports[config.COL_COUNTRY].nunique(),
+        data.rca,
     )
 
-    ranking = rank_markets(imports, config.WEIGHTS)
+    ranking = rank_markets(data, config.WEIGHTS)
     validated: pd.DataFrame = ranking_schema.validate(ranking)
 
     config.PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
@@ -59,9 +112,11 @@ def build_snapshot(source: str = "comtrade") -> pd.DataFrame:
         "origin_iso3": config.ORIGIN_ISO3,
         "source": source,
         "market_size_years": config.MARKET_SIZE_YEARS,
+        "basket_year": config.BASKET_YEAR,
         "data_year_min": int(imports[config.COL_YEAR].min()),
         "data_year_max": int(imports[config.COL_YEAR].max()),
         "n_markets": int(len(validated)),
+        "rca_balassa": round(data.rca, 4),
         "weights": dict(config.WEIGHTS),
     }
     config.SNAPSHOT_META_JSON.write_text(

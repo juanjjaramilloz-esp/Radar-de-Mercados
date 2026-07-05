@@ -1,9 +1,10 @@
-"""Fuente de datos stub para la Fase 1 (cero red).
+"""Fuente de datos stub (cero red).
 
-Expone la misma interfaz que tendrán las fuentes reales (función que devuelve
-un DataFrame validado contra ``imports_schema``), pero lee un CSV pequeño y
-explícito versionado en ``data/sample/``. En la Fase 2 se reemplaza por
-Comtrade/WDI sin tocar ``domain/`` ni ``app/``.
+Expone la misma interfaz que las fuentes reales (funciones que devuelven
+DataFrames validados contra los esquemas de ``contracts``), pero lee CSVs
+pequeños y explícitos versionados en ``data/sample/``. Sirve de fallback sin
+red y de dato de demostración; se intercambia por Comtrade sin tocar
+``domain/`` ni ``app/``.
 """
 
 import logging
@@ -11,7 +12,12 @@ import logging
 import pandas as pd
 
 from tradefit import config
-from tradefit.contracts import imports_schema
+from tradefit.contracts import (
+    basket_schema,
+    bilateral_schema,
+    export_totals_schema,
+    imports_schema,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -30,4 +36,42 @@ def load_stub_imports() -> pd.DataFrame:
     logger.info("Leyendo stub de importaciones desde %s", config.STUB_IMPORTS_CSV)
     raw = pd.read_csv(config.STUB_IMPORTS_CSV)
     validated: pd.DataFrame = imports_schema.validate(raw)
+    return validated
+
+
+def load_stub_bilateral() -> pd.DataFrame:
+    """Carga las importaciones stub desde el origen (flujo bilateral).
+
+    Returns:
+        DataFrame validado contra ``bilateral_schema``; los (país, año)
+        ausentes significan flujo cero.
+    """
+    logger.info("Leyendo stub bilateral desde %s", config.STUB_BILATERAL_CSV)
+    raw = pd.read_csv(config.STUB_BILATERAL_CSV)
+    validated: pd.DataFrame = bilateral_schema.validate(raw)
+    return validated
+
+
+def load_stub_baskets() -> pd.DataFrame:
+    """Carga las canastas HS2 stub del origen y los destinos.
+
+    Returns:
+        DataFrame validado contra ``basket_schema``.
+    """
+    logger.info("Leyendo stub de canastas desde %s", config.STUB_BASKETS_CSV)
+    # dtype=str preserva el cero inicial de capítulos como "09".
+    raw = pd.read_csv(config.STUB_BASKETS_CSV, dtype={config.COL_CMD: str})
+    validated: pd.DataFrame = basket_schema.validate(raw)
+    return validated
+
+
+def load_stub_export_totals() -> pd.DataFrame:
+    """Carga los totales de exportación stub (origen y mundo) para el RCA.
+
+    Returns:
+        DataFrame validado contra ``export_totals_schema``.
+    """
+    logger.info("Leyendo stub de totales de exportación desde %s", config.STUB_EXPORT_TOTALS_CSV)
+    raw = pd.read_csv(config.STUB_EXPORT_TOTALS_CSV)
+    validated: pd.DataFrame = export_totals_schema.validate(raw)
     return validated

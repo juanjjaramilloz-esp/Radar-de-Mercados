@@ -72,3 +72,93 @@ def test_load_descarga_y_cachea_si_no_hay_cache(
     df = comtrade.load_comtrade_imports(cache_file=cache)
     assert cache.exists(), "Debe cachear la respuesta cruda"
     assert len(df) == 4
+
+
+# --- parse_bilateral_response ------------------------------------------------
+
+
+def test_parse_bilateral_normaliza_al_contrato() -> None:
+    payload = {
+        "data": [
+            {"reporterCode": 842, "refYear": 2024, "primaryValue": 60.0},
+            {"reporterCode": 276, "refYear": 2024, "primaryValue": 15.0},
+            {"reporterCode": 999, "refYear": 2024, "primaryValue": 1.0},  # desconocido
+        ]
+    }
+    df = comtrade.parse_bilateral_response(payload)
+    assert sorted(df[config.COL_COUNTRY]) == ["DEU", "USA"]
+    usa = df[df[config.COL_COUNTRY] == "USA"]
+    assert usa[config.COL_IMPORTS_FROM_ORIGIN].item() == 60.0
+
+
+def test_parse_bilateral_falla_sin_destinos_conocidos() -> None:
+    payload = {"data": [{"reporterCode": 999, "refYear": 2024, "primaryValue": 1.0}]}
+    with pytest.raises(RuntimeError, match="destinos"):
+        comtrade.parse_bilateral_response(payload)
+
+
+# --- parse_baskets_response ---------------------------------------------------
+
+
+def test_parse_baskets_normaliza_y_filtra_agregados() -> None:
+    payload = {
+        "data": [
+            {"reporterCode": config.ORIGIN_COMTRADE_CODE, "cmdCode": "09", "primaryValue": 90.0},
+            {"reporterCode": config.ORIGIN_COMTRADE_CODE, "cmdCode": "27", "primaryValue": 10.0},
+            # Un agregado (no es capítulo de 2 dígitos) debe filtrarse
+            {
+                "reporterCode": config.ORIGIN_COMTRADE_CODE,
+                "cmdCode": "TOTAL",
+                "primaryValue": 100.0,
+            },
+            {"reporterCode": 842, "cmdCode": "09", "primaryValue": 50.0},
+        ]
+    }
+    df = comtrade.parse_baskets_response(payload)
+    assert sorted(df[config.COL_COUNTRY].unique()) == [config.ORIGIN_ISO3, "USA"]
+    assert "TOTAL" not in set(df[config.COL_CMD])
+    col = df[df[config.COL_COUNTRY] == config.ORIGIN_ISO3]
+    assert col[config.COL_VALUE].sum() == 100.0
+
+
+def test_parse_baskets_falla_sin_canasta_del_origen() -> None:
+    payload = {"data": [{"reporterCode": 842, "cmdCode": "09", "primaryValue": 50.0}]}
+    with pytest.raises(RuntimeError, match="origen"):
+        comtrade.parse_baskets_response(payload)
+
+
+# --- parse_export_totals_response ---------------------------------------------
+
+
+def test_parse_export_totals_agrega_el_mundo() -> None:
+    payload = {
+        "data": [
+            {"_scope": "origin", "cmdCode": config.HS_CODE, "refYear": 2024, "primaryValue": 900.0},
+            {"_scope": "origin", "cmdCode": "TOTAL", "refYear": 2024, "primaryValue": 1000.0},
+            # El mundo llega desagregado por reporter: debe sumarse
+            {"_scope": "world", "cmdCode": config.HS_CODE, "refYear": 2024, "primaryValue": 60.0},
+            {"_scope": "world", "cmdCode": config.HS_CODE, "refYear": 2024, "primaryValue": 40.0},
+            {"_scope": "world", "cmdCode": "TOTAL", "refYear": 2024, "primaryValue": 1000.0},
+        ]
+    }
+    df = comtrade.parse_export_totals_response(payload).set_index(
+        [config.COL_SCOPE, config.COL_CMD]
+    )
+    assert df.loc[("world", "product"), config.COL_VALUE].item() == 100.0
+    assert df.loc[("origin", "total"), config.COL_VALUE].item() == 1000.0
+
+
+def test_parse_export_totals_falla_si_falta_una_serie() -> None:
+    payload = {
+        "data": [
+            {"_scope": "origin", "cmdCode": config.HS_CODE, "refYear": 2024, "primaryValue": 900.0}
+        ]
+    }
+    with pytest.raises(RuntimeError, match="RCA"):
+        comtrade.parse_export_totals_response(payload)
+
+
+def test_parse_export_totals_falla_sin_scope() -> None:
+    payload = {"data": [{"cmdCode": config.HS_CODE, "refYear": 2024, "primaryValue": 1.0}]}
+    with pytest.raises(RuntimeError, match="formato inesperado"):
+        comtrade.parse_export_totals_response(payload)

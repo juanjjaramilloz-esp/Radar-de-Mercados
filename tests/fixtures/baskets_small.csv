@@ -1,0 +1,8 @@
+country_iso3,cmd_code,value_usd
+COL,09,90
+COL,27,10
+USA,09,50
+USA,27,50
+DEU,09,90
+DEU,27,10
+JPN,84,100

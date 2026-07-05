@@ -13,8 +13,16 @@ contrato, app Streamlit que solo lee el snapshot.
 
 ## Estado actual
 
-- **Última fase completada:** F5 — narrativa por reglas (2026-07-05).
-- **En curso:** F6 — export PDF/Excel + pulido.
+- **Última fase completada:** F6 — export PDF/Excel (2026-07-05). **MVP completo.**
+- **En curso:** backlog post-MVP (aranceles WITS, selección libre de
+  producto/origen) + mejoras de buen costo/beneficio sin preguntar.
+- **Web:** repo público https://github.com/juanjosejaramillozarate-png/radar-de-mercados;
+  deploy en Streamlit Community Cloud (entry point `streamlit_app.py`, snapshot
+  de ejemplo versionado). `git push` está denegado para Claude Code: los push
+  los hace el usuario.
+- **Export:** `app/export.py` — Excel (openpyxl: hojas Ranking + Narrativa,
+  formatos numéricos) y PDF (reportlab: top-3, tabla, lectura por mercado),
+  funciones puras (ranking, meta, narrative) → bytes, testeadas sin Streamlit.
 - **Narrativa:** `domain/narrative.py` (puro) → `data/processed/narrative.json`;
   cada frase cita su número (test lo verifica con regex); top-3 con porqué =
   las 2 métricas de mayor contribución peso×norm, con valor crudo y posición.
@@ -71,5 +79,7 @@ pytest ; ruff check . ; mypy src                # puerta de calidad
 
 ## Pendientes conocidos
 
-- F6: export Excel (openpyxl) y PDF (reportlab) desde la app, leyendo solo el
-  snapshot; pulido de UX.
+- `git push` pendiente del usuario (regla de permisos): fix de requirements
+  para el cloud + export F6.
+- Backlog: aranceles (WITS), selección libre de producto HS/origen en la app,
+  IMF SDMX como macro complementaria.

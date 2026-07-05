@@ -12,7 +12,10 @@
 - [x] **Fase 3 — Motor de oportunidad completo** (completada 2026-07-05)
 - [x] **Fase 4 — Filtro macro de estabilidad** (completada 2026-07-05)
 - [x] **Fase 5 — Narrativa por reglas + recomendaciones** (completada 2026-07-05)
-- [ ] Fase 6 — Export PDF/Excel + pulido
+- [x] **Fase 6 — Export PDF/Excel + pulido** (completada 2026-07-05)
+
+**MVP completo.** Lo que sigue vive en el Backlog (y en las libertades
+creativas post-MVP acordadas en CLAUDE.md).
 
 ## Fase 1 — Esqueleto caminante (end-to-end mínimo)
 

@@ -13,13 +13,16 @@ contrato, app Streamlit que solo lee el snapshot.
 
 ## Estado actual
 
-- **Última fase completada:** F2 — ingesta real Comtrade (2026-07-05).
-- **En curso:** F3 — motor de oportunidad completo (4 métricas + scoring).
-- **Métricas vivas:** `market_size` (promedio de importaciones, 3 años).
-- **Datos:** reales, cacheados en `data/raw/comtrade_0901_imports.json`
-  (2022–2024, 18 mercados). Sin `COMTRADE_API_KEY` en `.env`: usa el preview
-  público (tope 500 registros, **1 período por request**, rate-limit 429 →
-  retry integrado).
+- **Última fase completada:** F3 — motor de oportunidad completo (2026-07-05).
+- **En curso:** F4 — filtro macro de estabilidad (WDI).
+- **Métricas vivas:** `market_size`, `import_growth` (CAGR), `market_share`,
+  `share_trend`, `complementarity` (Michaely); RCA de Balassa como columna de
+  contexto (constante entre destinos, no pondera). Pesos en `config.WEIGHTS`.
+- **Datos:** reales, cacheados en `data/raw/` (4 JSONs: imports, bilateral
+  COL, canastas HS2, totales de exportación; 2022–2024, 18 mercados). Sin
+  `COMTRADE_API_KEY` en `.env`: usa el preview público (tope 500 registros,
+  **1 período por request**, rate-limit 429 → retry integrado). Snapshot real:
+  RCA de Colombia en café = 35.66 (2024); USA lidera el ranking.
 
 ## Cómo correr (Windows)
 
@@ -32,6 +35,14 @@ pytest ; ruff check . ; mypy src                # puerta de calidad
 
 ## Decisiones no obvias (log)
 
+- 2026-07-05 · F3: el RCA es constante entre destinos → columna de contexto,
+  NO pondera en el score. El "mundo" de exportaciones = suma de lo que
+  reportan los países (consulta sin `reporterCode`); las canastas HS2 se
+  piden en trozos de 4 reporters para no rozar el tope de 500 del preview.
+- 2026-07-05 · F3: (país, año) ausente en el flujo bilateral = cuota 0;
+  destino sin canasta = complementariedad NaN → aporta 0 al score. Ojo:
+  `pow(1.0, NaN) = 1.0` (IEEE 754) — el CAGR enmascara explícitamente las
+  ventanas inválidas para que queden en NaN.
 - 2026-07-05 · Comtrade Plus: Italia es reporter **380** (no 381 legacy);
   `reporterISO` llega **null** en el preview → los países se identifican por
   `reporterCode` numérico mapeado en `config.COMTRADE_REPORTER_CODES`.
@@ -48,5 +59,5 @@ pytest ; ruff check . ; mypy src                # puerta de calidad
 
 - Registrar key gratuita de Comtrade (https://comtradeplus.un.org/) y ponerla
   en `.env` como `COMTRADE_API_KEY=` (el código ya la usa si existe).
-- F3 amplía la ingesta: flujos bilaterales Colombia→destino, canasta
-  exportadora de Colombia, totales mundiales (para RCA y complementariedad).
+- F4: `ingest/worldbank.py` (WDI, sin key) + `domain/macro_filter.py` con
+  penalización multiplicativa sobre el score de oportunidad.

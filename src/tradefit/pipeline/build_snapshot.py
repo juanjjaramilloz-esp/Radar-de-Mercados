@@ -123,6 +123,7 @@ def build_snapshot(source: str = "comtrade", hs: str = config.HS_CODE) -> pd.Dat
 
     config.processed_dir(hs).mkdir(parents=True, exist_ok=True)
     validated.to_parquet(config.ranking_parquet(hs), index=False)
+    imports.to_parquet(config.imports_timeseries_parquet(hs), index=False)
 
     narrative = build_narrative(validated, config.WEIGHTS)
     config.narrative_json(hs).write_text(

@@ -2,157 +2,157 @@
   "markets": {
     "AUS": [
       "Importa USD 0 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 6.5 % anual (CAGR).",
-      "El origen no registra ventas del producto en este destino (cuota 0 %).",
+      "La demanda crece al 58.1 % anual (CAGR).",
+      "El origen ya tiene 11.1 % del mercado y gana 6.8 pp de cuota en la ventana.",
       "La canasta exportadora del origen encaja 0.40 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.86: el filtro deja el score en 0.257 (bruto 0.275)."
+      "Estabilidad macro 0.77: el filtro deja el score en 0.351 (bruto 0.397)."
     ],
     "AUT": [
-      "Importa USD 154 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 6.8 % anual (CAGR).",
-      "El origen ya tiene 25.9 % del mercado y gana 6.0 pp de cuota en la ventana.",
+      "Importa USD 161 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda se contrae al 1.8 % anual (CAGR).",
+      "El origen ya tiene 25.9 % del mercado y gana 5.2 pp de cuota en la ventana.",
       "La canasta exportadora del origen encaja 0.37 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.77: el filtro deja el score en 0.438 (bruto 0.494)."
+      "Estabilidad macro 0.71: el filtro deja el score en 0.202 (bruto 0.236)."
     ],
     "BEL": [
-      "Importa USD 234 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 11.9 % anual (CAGR).",
-      "El origen ya tiene 11.6 % del mercado y gana 0.3 pp de cuota en la ventana.",
+      "Importa USD 263 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda crece al 6.3 % anual (CAGR).",
+      "El origen ya tiene 21.5 % del mercado y gana 8.4 pp de cuota en la ventana.",
       "La canasta exportadora del origen encaja 0.45 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.81: el filtro deja el score en 0.446 (bruto 0.493)."
+      "Estabilidad macro 0.80: el filtro deja el score en 0.334 (bruto 0.370)."
     ],
     "CAN": [
-      "Importa USD 505 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 3.3 % anual (CAGR).",
-      "El origen ya tiene 9.4 % del mercado y pierde 1.9 pp de cuota en la ventana.",
+      "Importa USD 529 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda crece al 5.6 % anual (CAGR).",
+      "El origen ya tiene 12.4 % del mercado y gana 1.4 pp de cuota en la ventana.",
       "La canasta exportadora del origen encaja 0.37 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.90: el filtro deja el score en 0.329 (bruto 0.347)."
+      "Estabilidad macro 0.86: el filtro deja el score en 0.212 (bruto 0.228)."
     ],
     "CHE": [
-      "Importa USD 120 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 7.4 % anual (CAGR).",
-      "El origen ya tiene 33.9 % del mercado y pierde 0.1 pp de cuota en la ventana.",
+      "Importa USD 129 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda crece al 5.1 % anual (CAGR).",
+      "El origen ya tiene 41.7 % del mercado y gana 12.4 pp de cuota en la ventana.",
       "La canasta exportadora del origen encaja 0.32 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.93: el filtro deja el score en 0.384 (bruto 0.398)."
+      "Estabilidad macro 0.88: el filtro deja el score en 0.273 (bruto 0.290)."
     ],
     "DEU": [
-      "Importa USD 1.072 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 5.8 % anual (CAGR).",
-      "El origen ya tiene 28.2 % del mercado y gana 5.3 pp de cuota en la ventana.",
+      "Importa USD 1.166 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda crece al 2.6 % anual (CAGR).",
+      "El origen ya tiene 32.3 % del mercado y gana 8.0 pp de cuota en la ventana.",
       "La canasta exportadora del origen encaja 0.37 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.73: el filtro deja el score en 0.502 (bruto 0.580)."
+      "Estabilidad macro 0.74: el filtro deja el score en 0.330 (bruto 0.379)."
     ],
     "ESP": [
-      "Importa USD 342 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 10.2 % anual (CAGR).",
-      "El origen ya tiene 21.8 % del mercado y gana 5.1 pp de cuota en la ventana.",
+      "Importa USD 381 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda crece al 6.0 % anual (CAGR).",
+      "El origen ya tiene 17.3 % del mercado y pierde 5.1 pp de cuota en la ventana.",
       "La canasta exportadora del origen encaja 0.42 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.93: el filtro deja el score en 0.542 (bruto 0.563)."
+      "Estabilidad macro 0.97: el filtro deja el score en 0.257 (bruto 0.261)."
     ],
     "FIN": [
-      "Importa USD 63 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda se contrae al 27.1 % anual (CAGR).",
-      "El origen ya tiene 1.1 % del mercado y gana 1.0 pp de cuota en la ventana.",
+      "Importa USD 59 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda se contrae al 6.3 % anual (CAGR).",
+      "El origen ya tiene 23.6 % del mercado y gana 23.5 pp de cuota en la ventana.",
       "La canasta exportadora del origen encaja 0.40 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.63: el filtro deja el score en 0.163 (bruto 0.199)."
+      "Estabilidad macro 0.76: el filtro deja el score en 0.299 (bruto 0.339)."
     ],
     "FRA": [
-      "Importa USD 834 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 8.8 % anual (CAGR).",
-      "El origen ya tiene 17.9 % del mercado y gana 1.1 pp de cuota en la ventana.",
+      "Importa USD 883 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda se contrae al 2.6 % anual (CAGR).",
+      "El origen ya tiene 17.9 % del mercado y gana 0.4 pp de cuota en la ventana.",
       "La canasta exportadora del origen encaja 0.42 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.81: el filtro deja el score en 0.481 (bruto 0.531)."
+      "Estabilidad macro 0.83: el filtro deja el score en 0.278 (bruto 0.303)."
     ],
     "GBR": [
-      "Importa USD 690 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 4.1 % anual (CAGR).",
-      "El origen ya tiene 27.2 % del mercado y pierde 1.7 pp de cuota en la ventana.",
+      "Importa USD 767 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda crece al 9.1 % anual (CAGR).",
+      "El origen ya tiene 35.9 % del mercado y gana 5.0 pp de cuota en la ventana.",
       "La canasta exportadora del origen encaja 0.43 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.65: el filtro deja el score en 0.425 (bruto 0.515)."
+      "Estabilidad macro 0.59: el filtro deja el score en 0.342 (bruto 0.429)."
     ],
     "ITA": [
-      "Importa USD 578 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 5.9 % anual (CAGR).",
-      "El origen ya tiene 27.4 % del mercado y pierde 4.9 pp de cuota en la ventana.",
+      "Importa USD 619 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda crece al 3.3 % anual (CAGR).",
+      "El origen ya tiene 31.8 % del mercado y gana 0.1 pp de cuota en la ventana.",
       "La canasta exportadora del origen encaja 0.43 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.86: el filtro deja el score en 0.447 (bruto 0.481)."
+      "Estabilidad macro 0.83: el filtro deja el score en 0.332 (bruto 0.363)."
     ],
     "JPN": [
-      "Importa USD 941 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 4.5 % anual (CAGR).",
+      "Importa USD 985 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda crece al 3.3 % anual (CAGR).",
       "El origen no registra ventas del producto en este destino (cuota 0 %).",
       "La canasta exportadora del origen encaja 0.46 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.82: el filtro deja el score en 0.439 (bruto 0.482)."
+      "Estabilidad macro 0.81: el filtro deja el score en 0.287 (bruto 0.317)."
     ],
     "KOR": [
-      "Importa USD 324 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 16.0 % anual (CAGR).",
-      "El origen ya tiene 0.4 % del mercado y pierde 5.2 pp de cuota en la ventana.",
+      "Importa USD 334 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda crece al 1.8 % anual (CAGR).",
+      "El origen no registra ventas del producto en este destino (cuota 0 %).",
       "La canasta exportadora del origen encaja 0.49 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.90: el filtro deja el score en 0.426 (bruto 0.449)."
+      "Estabilidad macro 0.88: el filtro deja el score en 0.259 (bruto 0.274)."
     ],
     "NLD": [
-      "Importa USD 846 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 14.0 % anual (CAGR).",
-      "El origen ya tiene 7.0 % del mercado y pierde 1.0 pp de cuota en la ventana.",
+      "Importa USD 914 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda crece al 3.6 % anual (CAGR).",
+      "El origen ya tiene 10.5 % del mercado y gana 3.3 pp de cuota en la ventana.",
       "La canasta exportadora del origen encaja 0.46 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.83: el filtro deja el score en 0.488 (bruto 0.535)."
+      "Estabilidad macro 0.81: el filtro deja el score en 0.330 (bruto 0.364)."
     ],
     "POL": [
-      "Importa USD 375 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 3.5 % anual (CAGR).",
-      "El origen ya tiene 22.8 % del mercado y pierde 6.5 pp de cuota en la ventana.",
+      "Importa USD 388 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda crece al 3.7 % anual (CAGR).",
+      "El origen ya tiene 24.7 % del mercado y pierde 3.1 pp de cuota en la ventana.",
       "La canasta exportadora del origen encaja 0.36 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.78: el filtro deja el score en 0.294 (bruto 0.331)."
+      "Estabilidad macro 0.84: el filtro deja el score en 0.203 (bruto 0.221)."
     ],
     "PRT": [
-      "Importa USD 170 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 1.3 % anual (CAGR).",
-      "El origen ya tiene 23.0 % del mercado y gana 1.1 pp de cuota en la ventana.",
+      "Importa USD 178 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda crece al 0.5 % anual (CAGR).",
+      "El origen ya tiene 25.4 % del mercado y gana 8.5 pp de cuota en la ventana.",
       "La canasta exportadora del origen encaja 0.39 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.93: el filtro deja el score en 0.413 (bruto 0.428)."
+      "Estabilidad macro 0.93: el filtro deja el score en 0.280 (bruto 0.289)."
     ],
     "SWE": [
       "Importa USD 154 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda se contrae al 3.7 % anual (CAGR).",
-      "El origen ya tiene 15.0 % del mercado y gana 3.2 pp de cuota en la ventana.",
+      "La demanda crece al 3.3 % anual (CAGR).",
+      "El origen ya tiene 12.1 % del mercado y pierde 5.7 pp de cuota en la ventana.",
       "La canasta exportadora del origen encaja 0.37 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.73: el filtro deja el score en 0.311 (bruto 0.360)."
+      "Estabilidad macro 0.80: el filtro deja el score en 0.129 (bruto 0.143)."
     ],
     "USA": [
-      "Importa USD 3.091 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 5.7 % anual (CAGR).",
-      "El origen ya tiene 9.6 % del mercado y gana 1.0 pp de cuota en la ventana.",
+      "Importa USD 3.249 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda crece al 3.4 % anual (CAGR).",
+      "El origen ya tiene 10.8 % del mercado y gana 1.7 pp de cuota en la ventana.",
       "La canasta exportadora del origen encaja 0.33 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.66: el filtro deja el score en 0.493 (bruto 0.596)."
+      "Estabilidad macro 0.65: el filtro deja el score en 0.346 (bruto 0.418)."
     ]
   },
   "recommendations": [
     {
-      "final_score": 0.542,
-      "iso3": "ESP",
-      "name": "España",
+      "final_score": 0.351,
+      "iso3": "AUS",
+      "name": "Australia",
       "reasons": [
-        "4.º destino por crecimiento de la demanda (10.2 % anual)",
-        "3.º destino por momentum de la cuota (+5.1 pp en la ventana)"
+        "1.º destino por crecimiento de la demanda (58.1 % anual)",
+        "10.º destino por complementariedad de canastas (índice 0.40 (escala 0–1))"
       ]
     },
     {
-      "final_score": 0.502,
-      "iso3": "DEU",
-      "name": "Alemania",
-      "reasons": [
-        "10.º destino por crecimiento de la demanda (5.8 % anual)",
-        "2.º destino por momentum de la cuota (+5.3 pp en la ventana)"
-      ]
-    },
-    {
-      "final_score": 0.493,
+      "final_score": 0.346,
       "iso3": "USA",
       "name": "Estados Unidos",
       "reasons": [
-        "1.º destino por tamaño de mercado (USD 3.091 M/año)",
-        "11.º destino por crecimiento de la demanda (5.7 % anual)"
+        "1.º destino por tamaño de mercado (USD 3.249 M/año)",
+        "15.º destino por cuota ya ganada (cuota de 10.8 %)"
+      ]
+    },
+    {
+      "final_score": 0.342,
+      "iso3": "GBR",
+      "name": "Reino Unido",
+      "reasons": [
+        "2.º destino por cuota ya ganada (cuota de 35.9 %)",
+        "6.º destino por complementariedad de canastas (índice 0.43 (escala 0–1))"
       ]
     }
   ]

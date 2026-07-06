@@ -12,6 +12,7 @@ data/processed/*/*
 !data/processed/*/ranking.parquet
 !data/processed/*/meta.json
 !data/processed/*/narrative.json
+!data/processed/*/imports_timeseries.parquet
 
 # Entornos y caches de Python
 .venv/

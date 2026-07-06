@@ -44,6 +44,18 @@ def _load_snapshot(hs: str) -> tuple[pd.DataFrame, dict[str, object], dict[str, 
     return ranking, meta, narrative
 
 
+def _load_imports_timeseries(hs: str) -> pd.DataFrame | None:
+    """Lee la serie anual de importaciones del producto, si el snapshot la trae.
+
+    Snapshots generados antes de que este artefacto existiera no lo tienen:
+    la app degrada con gracia omitiendo la pestaña de evolución.
+    """
+    path = config.imports_timeseries_parquet(hs)
+    if not path.exists():
+        return None
+    return pd.read_parquet(path)
+
+
 def _recommendations_section(narrative: dict[str, object]) -> None:
     """Top-N recomendado con el porqué (drivers del score, con números)."""
     recommendations = narrative.get("recommendations")
@@ -250,7 +262,12 @@ def main() -> None:
             mime="application/pdf",
         )
 
-    tab_scores, tab_size = st.tabs(["Oportunidad vs. score final", "Tamaño de mercado"])
+    timeseries = _load_imports_timeseries(hs)
+    tab_labels = ["Oportunidad vs. score final", "Tamaño de mercado"]
+    if timeseries is not None:
+        tab_labels.append("Evolución del mercado")
+    tabs = st.tabs(tab_labels)
+    tab_scores, tab_size = tabs[0], tabs[1]
     with tab_scores:
         st.caption(
             "La distancia entre las barras es la penalización macro: donde el score "
@@ -274,6 +291,34 @@ def main() -> None:
             }
         )
         st.bar_chart(size_chart, horizontal=True, color=["#93C5FD", "#1D4ED8"])
+
+    if timeseries is not None:
+        with tabs[2]:
+            st.caption(
+                "Importaciones anuales del producto por destino (USD); "
+                f"periodo disponible: {meta['data_year_min']}–{meta['data_year_max']}."
+            )
+            names = ranking.set_index(config.COL_COUNTRY)[config.COL_COUNTRY_NAME]
+            default_markets = list(ranking.nsmallest(5, config.COL_RANK)[config.COL_COUNTRY_NAME])
+            selected_names = st.multiselect(
+                "Mercados a mostrar",
+                options=list(names.sort_values()),
+                default=default_markets,
+            )
+            selected_iso3 = [iso3 for iso3, name in names.items() if name in selected_names]
+            if selected_iso3:
+                by_year = (
+                    timeseries[timeseries[config.COL_COUNTRY].isin(selected_iso3)]
+                    .assign(**{config.COL_COUNTRY_NAME: lambda d: d[config.COL_COUNTRY].map(names)})
+                    .pivot(
+                        index=config.COL_YEAR,
+                        columns=config.COL_COUNTRY_NAME,
+                        values=config.COL_IMPORTS_USD,
+                    )
+                )
+                st.line_chart(by_year)
+            else:
+                st.info("Selecciona al menos un mercado para ver su evolución.")
 
     _market_detail_section(ranking, narrative)
 

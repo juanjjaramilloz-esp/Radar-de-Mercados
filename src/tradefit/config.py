@@ -56,6 +56,11 @@ def narrative_json(hs: str) -> Path:
     return processed_dir(hs) / "narrative.json"
 
 
+def imports_timeseries_parquet(hs: str) -> Path:
+    """Ruta de la serie anual de importaciones (por destino y año) de ``hs``."""
+    return processed_dir(hs) / "imports_timeseries.parquet"
+
+
 # --- Mercados destino del MVP (ISO3 → nombre en español) ---
 DESTINATIONS: Final[dict[str, str]] = {
     "USA": "Estados Unidos",
@@ -103,7 +108,7 @@ COMTRADE_REPORTER_CODES: Final[dict[str, int]] = {
 }
 
 # Años de importaciones a descargar (fijos para que el snapshot sea reproducible).
-IMPORT_YEARS: Final[tuple[int, ...]] = (2022, 2023, 2024)
+IMPORT_YEARS: Final[tuple[int, ...]] = (2023, 2024, 2025)
 
 # --- UN Comtrade Plus ---
 ENV_COMTRADE_KEY: Final = "COMTRADE_API_KEY"
@@ -132,15 +137,19 @@ ORIGIN_COMTRADE_CODE: Final = 170
 # Códigos de commodity especiales de Comtrade.
 COMTRADE_CMD_TOTAL: Final = "TOTAL"  # comercio total del reporter
 COMTRADE_CMD_ALL_HS2: Final = "AG2"  # todos los capítulos HS a 2 dígitos
-# Año de las canastas comerciales para complementariedad (el más reciente).
-BASKET_YEAR: Final = max(IMPORT_YEARS)
+# Año de las canastas comerciales para complementariedad. Colombia (origen)
+# reporta a Comtrade con más rezago que la mayoría de los destinos del MVP:
+# no necesariamente el último año de IMPORT_YEARS tiene ya la canasta
+# exportadora de Colombia disponible, así que este año se fija por separado
+# (verificar disponibilidad del origen antes de adelantarlo).
+BASKET_YEAR: Final = 2024
 
 # --- World Bank WDI (filtro macro de estabilidad; sin API key) ---
 WDI_URL: Final = "https://api.worldbank.org/v2/country/{countries}/indicator/{indicator}"
 WDI_CACHE_FILE: Final = RAW_DIR / "wdi_macro.json"
 STUB_MACRO_CSV: Final = SAMPLE_DIR / "stub_macro.csv"
 # Rango de años a descargar; el score usa los últimos MACRO_YEARS con dato.
-WDI_DATE_RANGE: Final = "2020:2024"
+WDI_DATE_RANGE: Final = "2021:2025"
 MACRO_YEARS: Final = 3
 
 # Indicadores WDI del filtro (código → nombre corto usado en el contrato).

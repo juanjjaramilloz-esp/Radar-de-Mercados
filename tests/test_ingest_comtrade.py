@@ -52,7 +52,7 @@ def test_parse_falla_si_ningun_destino_conocido() -> None:
 def test_load_usa_cache_sin_tocar_la_red(
     tmp_path: Path, comtrade_payload: dict[str, Any], monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    def _explota() -> dict[str, Any]:
+    def _explota(hs: str = config.HS_CODE) -> dict[str, Any]:
         raise AssertionError("No debe tocar la red si hay caché")
 
     monkeypatch.setattr(comtrade, "fetch_comtrade_imports", _explota)
@@ -66,7 +66,7 @@ def test_load_usa_cache_sin_tocar_la_red(
 def test_load_descarga_y_cachea_si_no_hay_cache(
     tmp_path: Path, comtrade_payload: dict[str, Any], monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    monkeypatch.setattr(comtrade, "fetch_comtrade_imports", lambda: comtrade_payload)
+    monkeypatch.setattr(comtrade, "fetch_comtrade_imports", lambda hs: comtrade_payload)
     cache = tmp_path / "comtrade_cache.json"
 
     df = comtrade.load_comtrade_imports(cache_file=cache)

@@ -19,17 +19,42 @@ STUB_IMPORTS_CSV: Final = SAMPLE_DIR / "stub_imports.csv"
 STUB_BILATERAL_CSV: Final = SAMPLE_DIR / "stub_bilateral.csv"
 STUB_BASKETS_CSV: Final = SAMPLE_DIR / "stub_baskets.csv"
 STUB_EXPORT_TOTALS_CSV: Final = SAMPLE_DIR / "stub_export_totals.csv"
-RANKING_PARQUET: Final = PROCESSED_DIR / "ranking.parquet"
-SNAPSHOT_META_JSON: Final = PROCESSED_DIR / "meta.json"
-NARRATIVE_JSON: Final = PROCESSED_DIR / "narrative.json"
 
 # Cantidad de mercados recomendados en la narrativa (top-N del ranking).
 TOP_RECOMMENDATIONS: Final = 3
 
-# --- Producto y origen del MVP (fijos hasta el backlog "selección libre") ---
-HS_CODE: Final = "0901"
-HS_LABEL: Final = "Café (HS 0901)"
+# --- Productos y origen ---
+# Canasta de productos con snapshot propio (HS4 → etiqueta). El origen sigue
+# fijo (Colombia); la selección libre de origen queda en el backlog.
+PRODUCTS: Final[dict[str, str]] = {
+    "0901": "Café (HS 0901)",
+    "0603": "Flores cortadas (HS 0603)",
+    "0803": "Bananos y plátanos (HS 0803)",
+}
+HS_CODE: Final = "0901"  # producto por defecto (pipeline sin --hs, stub, tests)
+HS_LABEL: Final = PRODUCTS[HS_CODE]
 ORIGIN_ISO3: Final = "COL"
+
+
+def processed_dir(hs: str) -> Path:
+    """Directorio del snapshot de un producto: ``data/processed/<hs>/``."""
+    return PROCESSED_DIR / hs
+
+
+def ranking_parquet(hs: str) -> Path:
+    """Ruta del ranking parquet del producto ``hs``."""
+    return processed_dir(hs) / "ranking.parquet"
+
+
+def snapshot_meta_json(hs: str) -> Path:
+    """Ruta del meta.json del producto ``hs``."""
+    return processed_dir(hs) / "meta.json"
+
+
+def narrative_json(hs: str) -> Path:
+    """Ruta del narrative.json del producto ``hs``."""
+    return processed_dir(hs) / "narrative.json"
+
 
 # --- Mercados destino del MVP (ISO3 → nombre en español) ---
 DESTINATIONS: Final[dict[str, str]] = {
@@ -84,10 +109,23 @@ IMPORT_YEARS: Final[tuple[int, ...]] = (2022, 2023, 2024)
 ENV_COMTRADE_KEY: Final = "COMTRADE_API_KEY"
 COMTRADE_URL_AUTH: Final = "https://comtradeapi.un.org/data/v1/get/C/A/HS"
 COMTRADE_URL_PREVIEW: Final = "https://comtradeapi.un.org/public/v1/preview/C/A/HS"
-COMTRADE_CACHE_FILE: Final = RAW_DIR / f"comtrade_{HS_CODE}_imports.json"
-COMTRADE_BILATERAL_CACHE: Final = RAW_DIR / f"comtrade_{HS_CODE}_bilateral_{ORIGIN_ISO3}.json"
-COMTRADE_EXPORTS_CACHE: Final = RAW_DIR / f"comtrade_{HS_CODE}_export_totals.json"
 COMTRADE_BASKETS_CACHE: Final = RAW_DIR / "comtrade_baskets_hs2.json"
+
+
+def comtrade_imports_cache(hs: str) -> Path:
+    """Caché crudo de importaciones (destinos ← mundo) del producto ``hs``."""
+    return RAW_DIR / f"comtrade_{hs}_imports.json"
+
+
+def comtrade_bilateral_cache(hs: str) -> Path:
+    """Caché crudo de importaciones desde el origen del producto ``hs``."""
+    return RAW_DIR / f"comtrade_{hs}_bilateral_{ORIGIN_ISO3}.json"
+
+
+def comtrade_exports_cache(hs: str) -> Path:
+    """Caché crudo de totales de exportación (RCA) del producto ``hs``."""
+    return RAW_DIR / f"comtrade_{hs}_export_totals.json"
+
 
 # Código de reporter/partner de Comtrade para el país de origen (Colombia).
 ORIGIN_COMTRADE_CODE: Final = 170

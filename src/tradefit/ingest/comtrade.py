@@ -90,13 +90,16 @@ def _fetch_records(params: dict[str, str], label: str) -> list[dict[str, Any]]:
     return records
 
 
-def fetch_comtrade_imports() -> dict[str, Any]:
+def fetch_comtrade_imports(hs: str = config.HS_CODE) -> dict[str, Any]:
     """Descarga las importaciones del producto (destinos ← mundo), por año.
 
     Consulta: flujo M, partner World, reporters
     ``config.COMTRADE_REPORTER_CODES``, un request por año de
     ``config.IMPORT_YEARS`` (límite del preview público), fusionados en un
     único payload con la clave ``data``.
+
+    Args:
+        hs: código HS del producto (default: ``config.HS_CODE``).
 
     Returns:
         Payload JSON con la clave ``data`` (registros de todos los años).
@@ -109,14 +112,14 @@ def fetch_comtrade_imports() -> dict[str, Any]:
         params = _BASE_PARAMS | {
             "reporterCode": ",".join(str(c) for c in config.COMTRADE_REPORTER_CODES.values()),
             "period": str(year),
-            "cmdCode": config.HS_CODE,
+            "cmdCode": hs,
             "flowCode": "M",
         }
-        merged.extend(_fetch_records(params, f"importaciones {year}"))
+        merged.extend(_fetch_records(params, f"importaciones {hs} {year}"))
     return {"data": merged}
 
 
-def fetch_bilateral_imports() -> dict[str, Any]:
+def fetch_bilateral_imports(hs: str = config.HS_CODE) -> dict[str, Any]:
     """Descarga las importaciones de cada destino DESDE el origen, por año.
 
     Igual que :func:`fetch_comtrade_imports` pero con partner = origen
@@ -127,22 +130,22 @@ def fetch_bilateral_imports() -> dict[str, Any]:
         params = _BASE_PARAMS | {
             "reporterCode": ",".join(str(c) for c in config.COMTRADE_REPORTER_CODES.values()),
             "period": str(year),
-            "cmdCode": config.HS_CODE,
+            "cmdCode": hs,
             "flowCode": "M",
             "partnerCode": str(config.ORIGIN_COMTRADE_CODE),
         }
-        merged.extend(_fetch_records(params, f"bilateral {year}"))
+        merged.extend(_fetch_records(params, f"bilateral {hs} {year}"))
     return {"data": merged}
 
 
-def fetch_export_totals() -> dict[str, Any]:
+def fetch_export_totals(hs: str = config.HS_CODE) -> dict[str, Any]:
     """Descarga exportaciones del origen y del mundo (producto y TOTAL), por año.
 
     Para el "mundo" se consulta sin ``reporterCode`` (todos los reporters) y
     aguas abajo se suma: el total mundial es la suma de lo que reportan los
     países exportadores.
     """
-    cmd = f"{config.HS_CODE},{config.COMTRADE_CMD_TOTAL}"
+    cmd = f"{hs},{config.COMTRADE_CMD_TOTAL}"
     merged: list[dict[str, Any]] = []
     for year in config.IMPORT_YEARS:
         origin_params = _BASE_PARAMS | {
@@ -151,7 +154,7 @@ def fetch_export_totals() -> dict[str, Any]:
             "cmdCode": cmd,
             "flowCode": "X",
         }
-        for record in _fetch_records(origin_params, f"exportaciones origen {year}"):
+        for record in _fetch_records(origin_params, f"exportaciones origen {hs} {year}"):
             record["_scope"] = "origin"
             merged.append(record)
         world_params = _BASE_PARAMS | {
@@ -159,7 +162,7 @@ def fetch_export_totals() -> dict[str, Any]:
             "cmdCode": cmd,
             "flowCode": "X",
         }
-        for record in _fetch_records(world_params, f"exportaciones mundo {year}"):
+        for record in _fetch_records(world_params, f"exportaciones mundo {hs} {year}"):
             record["_scope"] = "world"
             merged.append(record)
     return {"data": merged}
@@ -363,7 +366,7 @@ def parse_baskets_response(payload: dict[str, Any]) -> pd.DataFrame:
     return validated
 
 
-def parse_export_totals_response(payload: dict[str, Any]) -> pd.DataFrame:
+def parse_export_totals_response(payload: dict[str, Any], hs: str = config.HS_CODE) -> pd.DataFrame:
     """Normaliza los totales de exportación a ``export_totals_schema``.
 
     Cada registro trae ``_scope`` (``origin``/``world``, inyectado por
@@ -373,6 +376,7 @@ def parse_export_totals_response(payload: dict[str, Any]) -> pd.DataFrame:
 
     Args:
         payload: JSON con la clave ``data`` (registros anotados con ``_scope``).
+        hs: código HS del producto (mapea su ``cmdCode`` a ``product``).
 
     Returns:
         DataFrame validado contra ``export_totals_schema``: una fila por
@@ -387,7 +391,7 @@ def parse_export_totals_response(payload: dict[str, Any]) -> pd.DataFrame:
     if records is None:
         raise RuntimeError(f"Payload de Comtrade sin clave 'data'; claves: {sorted(payload)}")
 
-    cmd_names = {config.HS_CODE: "product", config.COMTRADE_CMD_TOTAL: "total"}
+    cmd_names = {hs: "product", config.COMTRADE_CMD_TOTAL: "total"}
     rows: list[dict[str, object]] = []
     for record in records:
         try:
@@ -447,35 +451,42 @@ def _load_cached(
 
 
 def load_comtrade_imports(
-    cache_file: Path = config.COMTRADE_CACHE_FILE, force: bool = False
+    hs: str = config.HS_CODE, cache_file: Path | None = None, force: bool = False
 ) -> pd.DataFrame:
     """Carga las importaciones reales, descargando solo si no hay caché.
 
     Args:
-        cache_file: ruta del JSON crudo cacheado (default: ``data/raw/``).
+        hs: código HS del producto.
+        cache_file: ruta del JSON crudo cacheado; default: la de ``hs`` en
+            ``data/raw/``.
         force: si es True, re-descarga aunque exista caché.
 
     Returns:
         DataFrame validado contra ``imports_schema``.
     """
-    return _load_cached(cache_file, fetch_comtrade_imports, parse_comtrade_response, force)
+    cache = cache_file or config.comtrade_imports_cache(hs)
+    return _load_cached(cache, lambda: fetch_comtrade_imports(hs), parse_comtrade_response, force)
 
 
 def load_bilateral_imports(
-    cache_file: Path = config.COMTRADE_BILATERAL_CACHE, force: bool = False
+    hs: str = config.HS_CODE, cache_file: Path | None = None, force: bool = False
 ) -> pd.DataFrame:
     """Carga las importaciones desde el origen (caché en ``data/raw/``).
 
     Returns:
         DataFrame validado contra ``bilateral_schema``.
     """
-    return _load_cached(cache_file, fetch_bilateral_imports, parse_bilateral_response, force)
+    cache = cache_file or config.comtrade_bilateral_cache(hs)
+    return _load_cached(cache, lambda: fetch_bilateral_imports(hs), parse_bilateral_response, force)
 
 
 def load_baskets(
     cache_file: Path = config.COMTRADE_BASKETS_CACHE, force: bool = False
 ) -> pd.DataFrame:
     """Carga las canastas HS2 de origen y destinos (caché en ``data/raw/``).
+
+    Las canastas son independientes del producto analizado: un solo caché
+    compartido entre todos los snapshots.
 
     Returns:
         DataFrame validado contra ``basket_schema``.
@@ -484,11 +495,14 @@ def load_baskets(
 
 
 def load_export_totals(
-    cache_file: Path = config.COMTRADE_EXPORTS_CACHE, force: bool = False
+    hs: str = config.HS_CODE, cache_file: Path | None = None, force: bool = False
 ) -> pd.DataFrame:
     """Carga los totales de exportación para el RCA (caché en ``data/raw/``).
 
     Returns:
         DataFrame validado contra ``export_totals_schema``.
     """
-    return _load_cached(cache_file, fetch_export_totals, parse_export_totals_response, force)
+    cache = cache_file or config.comtrade_exports_cache(hs)
+    return _load_cached(
+        cache, lambda: fetch_export_totals(hs), lambda p: parse_export_totals_response(p, hs), force
+    )

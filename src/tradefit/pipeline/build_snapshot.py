@@ -57,17 +57,17 @@ def _rca_from_totals(export_totals: pd.DataFrame) -> float:
     )
 
 
-def _load_inputs(source: str) -> tuple[MarketInputs, pd.DataFrame]:
+def _load_inputs(source: str, hs: str) -> tuple[MarketInputs, pd.DataFrame]:
     """Carga y valida los insumos del ranking + macro desde la fuente elegida.
 
     El macro real viene de WDI (sin key) aunque el comercio venga de Comtrade;
     con ``source="stub"`` todo sale de ``data/sample/`` (cero red).
     """
     if source == "comtrade":
-        imports = comtrade.load_comtrade_imports()
-        bilateral = comtrade.load_bilateral_imports()
+        imports = comtrade.load_comtrade_imports(hs)
+        bilateral = comtrade.load_bilateral_imports(hs)
         baskets = comtrade.load_baskets()
-        export_totals = comtrade.load_export_totals()
+        export_totals = comtrade.load_export_totals(hs)
         macro = worldbank.load_wdi_macro()
     else:
         imports = stub.load_stub_imports()
@@ -84,23 +84,30 @@ def _load_inputs(source: str) -> tuple[MarketInputs, pd.DataFrame]:
     return data, macro
 
 
-def build_snapshot(source: str = "comtrade") -> pd.DataFrame:
-    """Construye y escribe el snapshot; devuelve el ranking escrito.
+def build_snapshot(source: str = "comtrade", hs: str = config.HS_CODE) -> pd.DataFrame:
+    """Construye y escribe el snapshot de un producto; devuelve el ranking.
 
     Args:
         source: fuente de datos — ``"comtrade"`` (real, con caché en
-            ``data/raw/``) o ``"stub"`` (CSVs locales, sin red).
+            ``data/raw/``) o ``"stub"`` (CSVs locales, sin red; solo soporta
+            el producto por defecto).
+        hs: código HS del producto (debe estar en ``config.PRODUCTS``).
 
     Returns:
         DataFrame conforme a ``ranking_schema``, ya persistido en
-        ``data/processed/ranking.parquet``.
+        ``data/processed/<hs>/ranking.parquet``.
 
     Raises:
-        ValueError: si ``source`` no es una fuente conocida.
+        ValueError: si ``source`` o ``hs`` no son conocidos, o si se pide el
+            stub para un producto distinto del por defecto.
     """
     if source not in SOURCES:
         raise ValueError(f"Fuente desconocida: {source!r}; opciones: {SOURCES}")
-    data, macro = _load_inputs(source)
+    if hs not in config.PRODUCTS:
+        raise ValueError(f"Producto desconocido: {hs!r}; opciones: {sorted(config.PRODUCTS)}")
+    if source == "stub" and hs != config.HS_CODE:
+        raise ValueError(f"El stub solo tiene datos del producto {config.HS_CODE}")
+    data, macro = _load_inputs(source, hs)
     imports = data.imports
     logger.info(
         "Insumos cargados: %d filas de importaciones, %d mercados, RCA=%.2f",
@@ -114,18 +121,18 @@ def build_snapshot(source: str = "comtrade") -> pd.DataFrame:
     ranking = apply_stability_penalty(ranking, stability, config.MACRO_FLOOR)
     validated: pd.DataFrame = ranking_schema.validate(ranking)
 
-    config.PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
-    validated.to_parquet(config.RANKING_PARQUET, index=False)
+    config.processed_dir(hs).mkdir(parents=True, exist_ok=True)
+    validated.to_parquet(config.ranking_parquet(hs), index=False)
 
     narrative = build_narrative(validated, config.WEIGHTS)
-    config.NARRATIVE_JSON.write_text(
+    config.narrative_json(hs).write_text(
         json.dumps(narrative, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
 
     meta = {
-        "hs_code": config.HS_CODE,
-        "hs_label": config.HS_LABEL,
+        "hs_code": hs,
+        "hs_label": config.PRODUCTS[hs],
         "origin_iso3": config.ORIGIN_ISO3,
         "source": source,
         "market_size_years": config.MARKET_SIZE_YEARS,
@@ -140,11 +147,11 @@ def build_snapshot(source: str = "comtrade") -> pd.DataFrame:
         "macro_floor": config.MACRO_FLOOR,
         "macro_years": config.MACRO_YEARS,
     }
-    config.SNAPSHOT_META_JSON.write_text(
+    config.snapshot_meta_json(hs).write_text(
         json.dumps(meta, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
-    logger.info("Snapshot escrito en %s (%d mercados)", config.PROCESSED_DIR, len(validated))
+    logger.info("Snapshot escrito en %s (%d mercados)", config.processed_dir(hs), len(validated))
     return validated
 
 
@@ -160,5 +167,18 @@ if __name__ == "__main__":
         default="comtrade",
         help="fuente de importaciones (default: comtrade)",
     )
+    parser.add_argument(
+        "--hs",
+        choices=sorted(config.PRODUCTS),
+        default=None,
+        help="código HS del producto; sin --hs construye TODOS los de config.PRODUCTS",
+    )
     args = parser.parse_args()
-    build_snapshot(source=args.source)
+    if args.hs:
+        products = [args.hs]
+    elif args.source == "stub":
+        products = [config.HS_CODE]  # el stub solo tiene datos del producto default
+    else:
+        products = sorted(config.PRODUCTS)
+    for product in products:
+        build_snapshot(source=args.source, hs=product)

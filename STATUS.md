@@ -14,8 +14,13 @@ contrato, app Streamlit que solo lee el snapshot.
 ## Estado actual
 
 - **Última fase completada:** F6 — export PDF/Excel (2026-07-05). **MVP completo.**
-- **En curso:** backlog post-MVP (aranceles WITS, selección libre de
-  producto/origen) + mejoras de buen costo/beneficio sin preguntar.
+- **Post-MVP hecho:** metodología visible en la app (expander con fórmulas y
+  citas) + **multi-producto**: snapshots por HS en `data/processed/<hs>/`
+  (café 0901, flores 0603, banano 0803; `--hs` en el pipeline, selector en la
+  app). RCA reales: flores 96.8, banano 40.8, café 35.7. Cuota de flores
+  COL→USA: 59 % (cuadra con la realidad, ~60 %).
+- **En curso:** backlog (aranceles WITS, selección libre de origen) + mejoras
+  de buen costo/beneficio sin preguntar.
 - **Web:** repo público https://github.com/juanjosejaramillozarate-png/radar-de-mercados;
   deploy en Streamlit Community Cloud (entry point `streamlit_app.py`, snapshot
   de ejemplo versionado). `git push` está denegado para Claude Code: los push

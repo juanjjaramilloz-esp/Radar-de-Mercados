@@ -14,22 +14,33 @@ from tradefit import config
 from tradefit.app.export import ranking_to_excel, ranking_to_pdf
 
 
-def _load_snapshot() -> tuple[pd.DataFrame, dict[str, object], dict[str, object]]:
-    """Lee ranking, metadatos y narrativa del snapshot.
+def _available_products() -> dict[str, str]:
+    """Productos con snapshot construido: ``{hs: etiqueta}`` desde meta.json."""
+    products: dict[str, str] = {}
+    for hs in sorted(config.PRODUCTS):
+        meta_path = config.snapshot_meta_json(hs)
+        if meta_path.exists() and config.ranking_parquet(hs).exists():
+            meta = json.loads(meta_path.read_text(encoding="utf-8"))
+            products[hs] = str(meta.get("hs_label", hs))
+    return products
+
+
+def _load_snapshot(hs: str) -> tuple[pd.DataFrame, dict[str, object], dict[str, object]]:
+    """Lee ranking, metadatos y narrativa del snapshot de un producto.
 
     Returns:
-        Tupla (ranking, meta, narrative) leída de ``data/processed/``. Si el
-        snapshot es viejo y no trae narrativa, ``narrative`` queda vacío y la
-        app omite esa sección (degradar con gracia).
+        Tupla (ranking, meta, narrative) leída de ``data/processed/<hs>/``.
+        Si el snapshot no trae narrativa, ``narrative`` queda vacío y la app
+        omite esa sección (degradar con gracia).
 
     Raises:
         FileNotFoundError: si el snapshot todavía no fue construido.
     """
-    ranking = pd.read_parquet(config.RANKING_PARQUET)
-    meta: dict[str, object] = json.loads(config.SNAPSHOT_META_JSON.read_text(encoding="utf-8"))
+    ranking = pd.read_parquet(config.ranking_parquet(hs))
+    meta: dict[str, object] = json.loads(config.snapshot_meta_json(hs).read_text(encoding="utf-8"))
     narrative: dict[str, object] = {}
-    if config.NARRATIVE_JSON.exists():
-        narrative = json.loads(config.NARRATIVE_JSON.read_text(encoding="utf-8"))
+    if config.narrative_json(hs).exists():
+        narrative = json.loads(config.narrative_json(hs).read_text(encoding="utf-8"))
     return ranking, meta, narrative
 
 
@@ -151,14 +162,19 @@ def main() -> None:
     st.set_page_config(page_title="Radar de Mercados", page_icon="📡", layout="wide")
     st.title("📡 Radar de Mercados")
 
-    try:
-        ranking, meta, narrative = _load_snapshot()
-    except FileNotFoundError:
+    products = _available_products()
+    if not products:
         st.error(
-            "No hay snapshot en `data/processed/`. Genera uno con:\n\n"
+            "No hay snapshots en `data/processed/`. Genera uno con:\n\n"
             "```\npython -m tradefit.pipeline.build_snapshot\n```"
         )
         return
+    hs = st.selectbox(
+        "Producto",
+        options=list(products),
+        format_func=lambda code: products[code],
+    )
+    ranking, meta, narrative = _load_snapshot(hs)
 
     rca = meta.get("rca_balassa")
     rca_text = f" · RCA del origen en el producto: **{rca}**" if rca is not None else ""

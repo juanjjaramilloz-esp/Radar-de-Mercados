@@ -194,8 +194,11 @@ def main() -> None:
         f"(piso {meta.get('macro_floor', '—')}; indicadores WDI: inflación, "
         "crecimiento del PIB y cuenta corriente)."
     )
+    display = ranking.drop(columns=[config.COL_RCA]).assign(
+        **{config.COL_MARKET_SIZE: ranking[config.COL_MARKET_SIZE].round().astype("int64")}
+    )
     st.dataframe(
-        ranking.drop(columns=[config.COL_RCA]),
+        display,
         hide_index=True,
         width="stretch",
         column_config={
@@ -204,7 +207,7 @@ def main() -> None:
             config.COL_COUNTRY_NAME: st.column_config.TextColumn("Mercado"),
             config.COL_MARKET_SIZE: st.column_config.NumberColumn(
                 f"Importaciones prom. {meta['market_size_years']} años (USD)",
-                format="%.0f",
+                format="localized",
             ),
             config.COL_GROWTH: st.column_config.NumberColumn(
                 "Crecimiento (CAGR)", format="percent"
@@ -258,10 +261,19 @@ def main() -> None:
         ].rename(columns={config.COL_SCORE: "Score bruto", config.COL_FINAL_SCORE: "Score final"})
         st.bar_chart(scores, horizontal=True)
     with tab_size:
-        st.bar_chart(
-            ranking.set_index(config.COL_COUNTRY_NAME)[config.COL_MARKET_SIZE],
-            horizontal=True,
+        st.caption(
+            f"La porción clara es lo que ya vende {meta['origin_iso3']} en cada mercado "
+            "(cuota del último año × tamaño promedio); la oscura, el resto del mercado."
         )
+        by_market = ranking.set_index(config.COL_COUNTRY_NAME)
+        from_origin = by_market[config.COL_MARKET_SIZE] * by_market[config.COL_SHARE]
+        size_chart = pd.DataFrame(
+            {
+                f"Desde {meta['origin_iso3']}": from_origin,
+                "Resto del mercado": by_market[config.COL_MARKET_SIZE] - from_origin,
+            }
+        )
+        st.bar_chart(size_chart, horizontal=True, color=["#93C5FD", "#1D4ED8"])
 
     _market_detail_section(ranking, narrative)
 

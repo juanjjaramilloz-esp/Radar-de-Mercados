@@ -294,16 +294,22 @@ def main() -> None:
 
     if timeseries is not None:
         with tabs[2]:
-            st.caption(
-                "Importaciones anuales del producto por destino (USD); "
-                f"periodo disponible: {meta['data_year_min']}–{meta['data_year_max']}."
-            )
             names = ranking.set_index(config.COL_COUNTRY)[config.COL_COUNTRY_NAME]
             default_markets = list(ranking.nsmallest(5, config.COL_RANK)[config.COL_COUNTRY_NAME])
             selected_names = st.multiselect(
                 "Mercados a mostrar",
                 options=list(names.sort_values()),
                 default=default_markets,
+            )
+            view = st.radio(
+                "Vista",
+                options=["Variación (año base = 100)", "Valor absoluto (USD)"],
+                horizontal=True,
+                help=(
+                    "En valor absoluto, un mercado grande (p. ej. Estados Unidos) "
+                    "aplasta en el eje a los mercados chicos aunque estos crezcan más "
+                    "rápido; la variación indexada pone a todos en la misma escala."
+                ),
             )
             selected_iso3 = [iso3 for iso3, name in names.items() if name in selected_names]
             if selected_iso3:
@@ -316,7 +322,19 @@ def main() -> None:
                         values=config.COL_IMPORTS_USD,
                     )
                 )
-                st.line_chart(by_year)
+                if view == "Variación (año base = 100)":
+                    st.caption(
+                        f"Importaciones anuales del producto, indexadas a "
+                        f"{meta['data_year_min']} = 100 (periodo disponible: "
+                        f"{meta['data_year_min']}–{meta['data_year_max']})."
+                    )
+                    st.line_chart(by_year.div(by_year.iloc[0]).mul(100.0))
+                else:
+                    st.caption(
+                        "Importaciones anuales del producto por destino (USD); "
+                        f"periodo disponible: {meta['data_year_min']}–{meta['data_year_max']}."
+                    )
+                    st.line_chart(by_year)
             else:
                 st.info("Selecciona al menos un mercado para ver su evolución.")
 

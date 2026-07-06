@@ -60,6 +60,78 @@ def _market_detail_section(ranking: pd.DataFrame, narrative: dict[str, object]) 
         st.markdown(f"- {sentence}")
 
 
+def _methodology_section(meta: dict[str, object]) -> None:
+    """Metodología: fórmula y cita de cada métrica, y cómo se combinan."""
+    weights_obj = meta.get("weights")
+    weights: dict[str, object] = weights_obj if isinstance(weights_obj, dict) else {}
+    bounds_obj = meta.get("macro_bounds")
+    bounds: dict[str, object] = bounds_obj if isinstance(bounds_obj, dict) else {}
+    definitions = [
+        (
+            "Tamaño de mercado",
+            f"Promedio de importaciones del producto en el destino, últimos "
+            f"{meta.get('market_size_years')} años (cf. ITC Export Potential "
+            "Indicator, Decreux & Spies 2016)",
+            "market_size",
+        ),
+        (
+            "Crecimiento",
+            "CAGR de esas importaciones en la ventana: (V_final/V_inicial)^(1/n) − 1",
+            "import_growth",
+        ),
+        (
+            "Cuota del origen",
+            "Participación del origen en las importaciones del destino, "
+            "M_d←o / M_d (cf. WITS *partner share*)",
+            "market_share",
+        ),
+        (
+            "Momentum de cuota",
+            "Δ de esa cuota entre el primer y el último año de la ventana",
+            "share_trend",
+        ),
+        (
+            "Complementariedad",
+            "Índice de Michaely (1996): C = 1 − Σ\\|m_dk − x_ok\\|/2 sobre "
+            "capítulos HS2 (usado por el Banco Mundial en WITS)",
+            "complementarity",
+        ),
+    ]
+    table = "\n".join(
+        f"| {name} | {definition} | {weights.get(key, '—')} |"
+        for name, definition, key in definitions
+    )
+    with st.expander("📖 Metodología: de dónde sale cada número"):
+        st.markdown(
+            f"""
+**Métricas de oportunidad** (min-max normalizadas y combinadas con los pesos
+documentados en `config.py`; suman 1.0):
+
+| Métrica | Definición | Peso |
+|---|---|---|
+{table}
+
+**RCA de Balassa (1965)** — (X_ok/X_o)/(X_wk/X_w) — se reporta como contexto:
+es constante entre destinos, así que no pondera en el ranking.
+
+**Filtro macro de estabilidad** (World Bank WDI, promedio de los últimos
+{meta.get("macro_years")} años con dato): cada indicador se normaliza con una
+rampa lineal entre umbrales fijos (normalización min-max con umbrales, cf.
+OECD/JRC *Handbook on Constructing Composite Indicators*, 2008):
+inflación {bounds.get("inflation", "—")}, crecimiento del PIB
+{bounds.get("gdp_growth", "—")}, cuenta corriente {bounds.get("current_account", "—")}
+(formato [peor, mejor], en %).
+
+**Score final** = score de oportunidad × ({meta.get("macro_floor")} +
+{round(1 - float(str(meta.get("macro_floor") or 0.5)), 2)} × estabilidad): un
+destino totalmente inestable conserva el piso, no se anula.
+
+Cada métrica tiene su test con un valor calculado a mano; los datos crudos se
+cachean en `data/raw/` y el snapshot es reproducible (mismo input → mismo output).
+"""
+        )
+
+
 def _top3_cards(ranking: pd.DataFrame) -> None:
     """Tarjetas del podio: los 3 mercados con mejor score final."""
     top3 = ranking.nsmallest(3, config.COL_RANK)
@@ -96,6 +168,7 @@ def main() -> None:
         f"{meta['n_markets']} mercados{rca_text}"
     )
 
+    _methodology_section(meta)
     _top3_cards(ranking)
     _recommendations_section(narrative)
 

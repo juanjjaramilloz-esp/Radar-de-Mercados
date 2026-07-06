@@ -1,5 +1,7 @@
 # Radar de Mercados (`tradefit`)
 
+**Demo en vivo: <https://radar-de-mercados.streamlit.app/>**
+
 Screener de mercados de exportación: dado un producto (código HS) y un país de
 origen, rankea mercados destino combinando métricas de oportunidad comercial
 con un filtro de estabilidad macro del destino.

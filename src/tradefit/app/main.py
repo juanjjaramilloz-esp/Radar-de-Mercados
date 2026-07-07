@@ -52,6 +52,26 @@ def _hero_section() -> None:
         )
 
 
+def _about_sidebar() -> None:
+    """Tarjeta de credibilidad: qué es el proyecto, con qué está hecho y dónde vive."""
+    with st.sidebar:
+        st.header("Sobre el proyecto")
+        st.markdown(
+            "Screener de mercados de exportación con un motor económico "
+            "defendible: **cada métrica cita su definición académica y tiene "
+            "test con un valor calculado a mano**.\n\n"
+            "**Stack** · Python · Streamlit · pandas\n\n"
+            "**Datos** · UN Comtrade Plus · World Bank WDI\n\n"
+            "**Código** · [GitHub: radar-de-mercados]"
+            "(https://github.com/juanjosejaramillozarate-png/radar-de-mercados)"
+        )
+        st.caption(
+            "Arquitectura en capas con dependencias en una sola dirección: "
+            "`ingest` (red) → `domain` (cálculo puro y testeado) → `app` "
+            "(solo presentación)."
+        )
+
+
 def _available_products() -> dict[str, str]:
     """Productos con snapshot construido: ``{hs: etiqueta}`` desde meta.json.
 
@@ -389,6 +409,7 @@ def main() -> None:
     """Renderiza la página principal: ranking de mercados destino."""
     st.set_page_config(page_title="Radar de Mercados", page_icon="📡", layout="wide")
     st.title("📡 Radar de Mercados")
+    _about_sidebar()
     _hero_section()
 
     products = _available_products()

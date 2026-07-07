@@ -340,6 +340,11 @@ def _methodology_section(meta: dict[str, object]) -> None:
             t("methodology_def_complementarity"),
             "complementarity",
         ),
+        (
+            t("methodology_metric_tariff"),
+            t("methodology_def_tariff"),
+            "tariff_faced",
+        ),
     ]
     header = (
         f"| {t('methodology_col_metric')} | {t('methodology_col_definition')} | "
@@ -623,6 +628,9 @@ def main() -> None:
             config.COL_COMPLEMENTARITY: st.column_config.NumberColumn(
                 t("col_complementarity"), format="%.2f"
             ),
+            # Los snapshots previos a la métrica no traen la columna;
+            # Streamlit ignora la config de columnas ausentes.
+            config.COL_TARIFF: st.column_config.NumberColumn(t("col_tariff"), format="percent"),
             config.COL_STABILITY: st.column_config.NumberColumn(t("col_stability"), format="%.2f"),
             config.COL_SCORE: st.column_config.NumberColumn(t("col_score_raw"), format="%.3f"),
             config.COL_FINAL_SCORE: st.column_config.ProgressColumn(

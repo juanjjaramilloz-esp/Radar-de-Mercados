@@ -368,6 +368,24 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
             "chapters (used by the World Bank in WITS)"
         ),
     },
+    "methodology_metric_tariff": {
+        "es": "Arancel enfrentado",
+        "en": "Tariff faced",
+    },
+    "methodology_def_tariff": {
+        "es": (
+            "Arancel efectivamente aplicado al origen: mín(MFN, "
+            "preferencial), promedio simple de las subpartidas HS6 "
+            "(cf. WITS *effectively applied — AHS*; invertido: menos "
+            "arancel = mejor)"
+        ),
+        "en": (
+            "Tariff effectively applied to the origin: min(MFN, "
+            "preferential), simple average over HS6 subheadings "
+            "(cf. WITS *effectively applied — AHS*; inverted: lower "
+            "tariff = better)"
+        ),
+    },
     "methodology_rca_note": {
         "es": (
             "**RCA de Balassa (1965)** — (X_ok/X_o)/(X_wk/X_w) — se reporta "
@@ -524,6 +542,7 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
     "col_share": {"es": "Cuota del origen", "en": "Origin's share"},
     "col_share_trend": {"es": "Δ cuota (ventana)", "en": "Δ share (window)"},
     "col_complementarity": {"es": "Complementariedad", "en": "Complementarity"},
+    "col_tariff": {"es": "Arancel enfrentado", "en": "Tariff faced"},
     "col_stability": {"es": "Estabilidad macro", "en": "Macro stability"},
     "col_score_raw": {"es": "Score bruto", "en": "Raw score"},
     "col_score_final": {"es": "Score final", "en": "Final score"},

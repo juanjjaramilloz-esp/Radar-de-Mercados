@@ -31,6 +31,7 @@ EXPORT_COLUMNS: dict[str, str] = {
     config.COL_SHARE: "Cuota del origen",
     config.COL_SHARE_TREND: "Δ cuota",
     config.COL_COMPLEMENTARITY: "Complementariedad",
+    config.COL_TARIFF: "Arancel enfrentado",
     config.COL_STABILITY: "Estabilidad macro",
     config.COL_SCORE: "Score bruto",
     config.COL_FINAL_SCORE: "Score final",
@@ -43,6 +44,7 @@ _EXCEL_FORMATS: dict[str, str] = {
     config.COL_SHARE: "0.0%",
     config.COL_SHARE_TREND: "0.0%",
     config.COL_COMPLEMENTARITY: "0.00",
+    config.COL_TARIFF: "0.0%",
     config.COL_STABILITY: "0.00",
     config.COL_SCORE: "0.000",
     config.COL_FINAL_SCORE: "0.000",
@@ -76,18 +78,21 @@ def ranking_to_excel(
     """
     workbook = Workbook()
 
+    # Snapshots construidos antes de una métrica nueva pueden no traer su
+    # columna: se exporta solo lo presente.
+    columns = {col: label for col, label in EXPORT_COLUMNS.items() if col in ranking.columns}
     sheet = workbook.active
     sheet.title = "Ranking"
-    sheet.append(list(EXPORT_COLUMNS.values()))
+    sheet.append(list(columns.values()))
     for cell in sheet[1]:
         cell.fill = _HEADER_FILL
         cell.font = _HEADER_FONT
         cell.alignment = Alignment(horizontal="center")
     for _, row in ranking.iterrows():
-        sheet.append([row[col] if pd.notna(row[col]) else None for col in EXPORT_COLUMNS])
-    for idx, col in enumerate(EXPORT_COLUMNS, start=1):
+        sheet.append([row[col] if pd.notna(row[col]) else None for col in columns])
+    for idx, col in enumerate(columns, start=1):
         letter = get_column_letter(idx)
-        sheet.column_dimensions[letter].width = max(12, len(EXPORT_COLUMNS[col]) + 2)
+        sheet.column_dimensions[letter].width = max(12, len(columns[col]) + 2)
         number_format = _EXCEL_FORMATS.get(col)
         if number_format:
             for cell in sheet[letter][1:]:

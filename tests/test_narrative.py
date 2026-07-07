@@ -75,35 +75,41 @@ def _ranking_small() -> pd.DataFrame:
     )
 
 
+def _sentences(row: pd.Series, window_years: int = 3) -> list[str]:
+    return market_sentences(
+        row, window_years, product_label="Café (HS 0901)", origin_name="Colombia"
+    )
+
+
 def test_frases_esperadas_con_sus_numeros() -> None:
-    sentences = market_sentences(_row(), window_years=3)
-    text = " ".join(sentences)
-    assert "USD 9.000 M" in text  # tamaño con separador de miles
-    assert "crece al 9.2 % anual" in text  # signo positivo → "crece"
-    assert "16.8 %" in text  # cuota
-    assert "pierde 3.5 pp" in text  # tendencia negativa → "pierde"
-    assert "0.33" in text  # complementariedad
-    assert "0.458 (bruto 0.552)" in text  # score final vs bruto
+    text = " ".join(_sentences(_row()))
+    assert "Estados Unidos importa USD 9.000 M" in text  # destino + miles con punto
+    assert "de Café (HS 0901)" in text  # producto con nombre
+    assert "crece al 9,2 % anual" in text  # signo positivo → "crece"; coma decimal
+    assert "Colombia ya tiene 16,8 %" in text  # origen con nombre + cuota
+    assert "pierde 3,5 pp" in text  # tendencia negativa → "pierde"
+    assert "canasta exportadora de Colombia encaja 0,33" in text  # complementariedad
+    assert "Estabilidad macro de Estados Unidos" in text
+    assert "0,458 (bruto 0,552)" in text  # score final vs bruto
 
 
 def test_demanda_en_contraccion_y_cuota_ganando() -> None:
-    sentences = market_sentences(_row(**{config.COL_GROWTH: -0.043, config.COL_SHARE_TREND: 0.012}))
-    text = " ".join(sentences)
-    assert "se contrae al 4.3 % anual" in text
-    assert "gana 1.2 pp" in text
+    text = " ".join(_sentences(_row(**{config.COL_GROWTH: -0.043, config.COL_SHARE_TREND: 0.012})))
+    assert "se contrae al 4,3 % anual" in text
+    assert "gana 1,2 pp" in text
 
 
 def test_sin_crecimiento_y_sin_cuota() -> None:
-    sentences = market_sentences(_row(**{config.COL_GROWTH: float("nan"), config.COL_SHARE: 0.0}))
-    text = " ".join(sentences)
+    text = " ".join(_sentences(_row(**{config.COL_GROWTH: float("nan"), config.COL_SHARE: 0.0})))
     assert "Sin dato suficiente de crecimiento" in text
+    assert "Colombia no registra ventas de Café (HS 0901) en Estados Unidos" in text
     assert "cuota 0 %" in text
 
 
 def test_ninguna_frase_sin_numero() -> None:
     """Regla de oro de la fase: cada afirmación lleva el número que la respalda."""
     ranking = _ranking_small()
-    narrative = build_narrative(ranking, config.WEIGHTS)
+    narrative = build_narrative(ranking, config.WEIGHTS, product_label="Café (HS 0901)")
     all_sentences = [s for sentences in narrative["markets"].values() for s in sentences]
     for rec in narrative["recommendations"]:
         all_sentences.extend(rec["reasons"])

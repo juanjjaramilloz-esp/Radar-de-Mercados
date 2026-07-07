@@ -1,130 +1,130 @@
 {
   "markets": {
     "AUS": [
-      "Importa USD 89 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 11.5 % anual (CAGR).",
-      "El origen ya tiene 7.0 % del mercado y pierde 5.2 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.40 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.77: el filtro deja el score en 0.205 (bruto 0.231)."
+      "Australia importa USD 89 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
+      "La demanda crece al 11,5 % anual (CAGR).",
+      "Colombia ya tiene 7,0 % del mercado y pierde 5,2 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Australia.",
+      "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,205 (bruto 0,231)."
     ],
     "AUT": [
-      "Importa USD 115 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 7.8 % anual (CAGR).",
-      "El origen ya tiene 0.7 % del mercado y pierde 0.1 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.37 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.71: el filtro deja el score en 0.181 (bruto 0.212)."
+      "Austria importa USD 115 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
+      "La demanda crece al 7,8 % anual (CAGR).",
+      "Colombia ya tiene 0,7 % del mercado y pierde 0,1 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Austria.",
+      "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,181 (bruto 0,212)."
     ],
     "BEL": [
-      "Importa USD 114 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 3.3 % anual (CAGR).",
-      "El origen ya tiene 0.0 % del mercado y pierde 0.1 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.45 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.80: el filtro deja el score en 0.244 (bruto 0.271)."
+      "Bélgica importa USD 114 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
+      "La demanda crece al 3,3 % anual (CAGR).",
+      "Colombia ya tiene 0,0 % del mercado y pierde 0,1 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Bélgica.",
+      "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,244 (bruto 0,271)."
     ],
     "CAN": [
-      "Importa USD 164 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 6.2 % anual (CAGR).",
-      "El origen ya tiene 56.5 % del mercado y gana 0.2 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.37 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.86: el filtro deja el score en 0.327 (bruto 0.352)."
+      "Canadá importa USD 164 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
+      "La demanda crece al 6,2 % anual (CAGR).",
+      "Colombia ya tiene 56,5 % del mercado y gana 0,2 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Canadá.",
+      "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,327 (bruto 0,352)."
     ],
     "CHE": [
-      "Importa USD 215 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 6.2 % anual (CAGR).",
-      "El origen ya tiene 0.3 % del mercado y gana 0.0 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.32 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.88: el filtro deja el score en 0.143 (bruto 0.152)."
+      "Suiza importa USD 215 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
+      "La demanda crece al 6,2 % anual (CAGR).",
+      "Colombia ya tiene 0,3 % del mercado y gana 0,0 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de Suiza.",
+      "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,143 (bruto 0,152)."
     ],
     "DEU": [
-      "Importa USD 1.402 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 13.0 % anual (CAGR).",
-      "El origen ya tiene 0.5 % del mercado y gana 0.3 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.37 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.74: el filtro deja el score en 0.354 (bruto 0.407)."
+      "Alemania importa USD 1.402 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
+      "La demanda crece al 13,0 % anual (CAGR).",
+      "Colombia ya tiene 0,5 % del mercado y gana 0,3 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Alemania.",
+      "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,354 (bruto 0,407)."
     ],
     "ESP": [
-      "Importa USD 171 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 20.2 % anual (CAGR).",
-      "El origen ya tiene 42.8 % del mercado y gana 7.7 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.42 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.97: el filtro deja el score en 0.576 (bruto 0.585)."
+      "España importa USD 171 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
+      "La demanda crece al 20,2 % anual (CAGR).",
+      "Colombia ya tiene 42,8 % del mercado y gana 7,7 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de España.",
+      "Estabilidad macro de España 0,97: el filtro deja el score en 0,576 (bruto 0,585)."
     ],
     "FIN": [
-      "Importa USD 62 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 2.4 % anual (CAGR).",
-      "El origen ya tiene 1.9 % del mercado y pierde 0.6 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.40 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.76: el filtro deja el score en 0.174 (bruto 0.197)."
+      "Finlandia importa USD 62 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
+      "La demanda crece al 2,4 % anual (CAGR).",
+      "Colombia ya tiene 1,9 % del mercado y pierde 0,6 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Finlandia.",
+      "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,174 (bruto 0,197)."
     ],
     "FRA": [
-      "Importa USD 384 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda se contrae al 2.2 % anual (CAGR).",
-      "El origen ya tiene 1.8 % del mercado y pierde 0.1 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.42 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.83: el filtro deja el score en 0.199 (bruto 0.217)."
+      "Francia importa USD 384 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
+      "La demanda se contrae al 2,2 % anual (CAGR).",
+      "Colombia ya tiene 1,8 % del mercado y pierde 0,1 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de Francia.",
+      "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,199 (bruto 0,217)."
     ],
     "GBR": [
-      "Importa USD 822 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 8.1 % anual (CAGR).",
-      "El origen ya tiene 10.4 % del mercado y pierde 0.5 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.43 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.59: el filtro deja el score en 0.305 (bruto 0.382)."
+      "Reino Unido importa USD 822 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
+      "La demanda crece al 8,1 % anual (CAGR).",
+      "Colombia ya tiene 10,4 % del mercado y pierde 0,5 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Reino Unido.",
+      "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,305 (bruto 0,382)."
     ],
     "ITA": [
-      "Importa USD 227 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 15.0 % anual (CAGR).",
-      "El origen ya tiene 0.8 % del mercado y pierde 0.6 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.43 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.83: el filtro deja el score en 0.324 (bruto 0.354)."
+      "Italia importa USD 227 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
+      "La demanda crece al 15,0 % anual (CAGR).",
+      "Colombia ya tiene 0,8 % del mercado y pierde 0,6 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Italia.",
+      "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,324 (bruto 0,354)."
     ],
     "JPN": [
-      "Importa USD 319 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 0.6 % anual (CAGR).",
-      "El origen ya tiene 22.8 % del mercado y pierde 1.6 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.46 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.81: el filtro deja el score en 0.291 (bruto 0.321)."
+      "Japón importa USD 319 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
+      "La demanda crece al 0,6 % anual (CAGR).",
+      "Colombia ya tiene 22,8 % del mercado y pierde 1,6 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Japón.",
+      "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,291 (bruto 0,321)."
     ],
     "KOR": [
-      "Importa USD 75 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 5.5 % anual (CAGR).",
-      "El origen ya tiene 41.8 % del mercado y gana 2.8 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.49 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.88: el filtro deja el score en 0.441 (bruto 0.468)."
+      "Corea del Sur importa USD 75 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
+      "La demanda crece al 5,5 % anual (CAGR).",
+      "Colombia ya tiene 41,8 % del mercado y gana 2,8 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,49 (escala 0–1) con la demanda importadora de Corea del Sur.",
+      "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,441 (bruto 0,468)."
     ],
     "NLD": [
-      "Importa USD 1.193 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 7.2 % anual (CAGR).",
-      "El origen ya tiene 7.0 % del mercado y pierde 0.6 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.46 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.81: el filtro deja el score en 0.405 (bruto 0.447)."
+      "Países Bajos importa USD 1.193 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
+      "La demanda crece al 7,2 % anual (CAGR).",
+      "Colombia ya tiene 7,0 % del mercado y pierde 0,6 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Países Bajos.",
+      "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,405 (bruto 0,447)."
     ],
     "POL": [
-      "Importa USD 257 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 21.4 % anual (CAGR).",
-      "El origen ya tiene 11.2 % del mercado y pierde 0.1 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.36 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.84: el filtro deja el score en 0.335 (bruto 0.364)."
+      "Polonia importa USD 257 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
+      "La demanda crece al 21,4 % anual (CAGR).",
+      "Colombia ya tiene 11,2 % del mercado y pierde 0,1 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,36 (escala 0–1) con la demanda importadora de Polonia.",
+      "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,335 (bruto 0,364)."
     ],
     "PRT": [
-      "Importa USD 46 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 7.6 % anual (CAGR).",
-      "El origen ya tiene 0.3 % del mercado y pierde 0.2 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.39 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.93: el filtro deja el score en 0.222 (bruto 0.229)."
+      "Portugal importa USD 46 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
+      "La demanda crece al 7,6 % anual (CAGR).",
+      "Colombia ya tiene 0,3 % del mercado y pierde 0,2 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,39 (escala 0–1) con la demanda importadora de Portugal.",
+      "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,222 (bruto 0,229)."
     ],
     "SWE": [
-      "Importa USD 89 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 7.6 % anual (CAGR).",
-      "El origen no registra ventas del producto en este destino (cuota 0 %).",
-      "La canasta exportadora del origen encaja 0.37 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.80: el filtro deja el score en 0.179 (bruto 0.199)."
+      "Suecia importa USD 89 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
+      "La demanda crece al 7,6 % anual (CAGR).",
+      "Colombia no registra ventas de Flores cortadas (HS 0603) en Suecia (cuota 0 %).",
+      "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Suecia.",
+      "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,179 (bruto 0,199)."
     ],
     "USA": [
-      "Importa USD 2.670 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 2.9 % anual (CAGR).",
-      "El origen ya tiene 59.0 % del mercado y gana 0.3 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.33 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.65: el filtro deja el score en 0.470 (bruto 0.568)."
+      "Estados Unidos importa USD 2.670 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
+      "La demanda crece al 2,9 % anual (CAGR).",
+      "Colombia ya tiene 59,0 % del mercado y gana 0,3 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,33 (escala 0–1) con la demanda importadora de Estados Unidos.",
+      "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,470 (bruto 0,568)."
     ]
   },
   "recommendations": [
@@ -133,8 +133,8 @@
       "iso3": "ESP",
       "name": "España",
       "reasons": [
-        "2.º destino por crecimiento de la demanda (20.2 % anual)",
-        "1.º destino por momentum de la cuota (+7.7 pp en la ventana)"
+        "2.º destino por crecimiento de la demanda (20,2 % anual)",
+        "1.º destino por momentum de la cuota (+7,7 pp en la ventana)"
       ]
     },
     {
@@ -143,7 +143,7 @@
       "name": "Estados Unidos",
       "reasons": [
         "1.º destino por tamaño de mercado (USD 2.670 M/año)",
-        "1.º destino por cuota ya ganada (cuota de 59.0 %)"
+        "1.º destino por cuota ya ganada (cuota de 59,0 %)"
       ]
     },
     {
@@ -151,8 +151,8 @@
       "iso3": "KOR",
       "name": "Corea del Sur",
       "reasons": [
-        "1.º destino por complementariedad de canastas (índice 0.49 (escala 0–1))",
-        "4.º destino por cuota ya ganada (cuota de 41.8 %)"
+        "1.º destino por complementariedad de canastas (índice 0,49 (escala 0–1))",
+        "4.º destino por cuota ya ganada (cuota de 41,8 %)"
       ]
     }
   ]

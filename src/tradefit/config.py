@@ -45,6 +45,7 @@ PRODUCTS_EN: Final[dict[str, str]] = {
 HS_CODE: Final = "0901"  # producto por defecto (pipeline sin --hs, stub, tests)
 HS_LABEL: Final = PRODUCTS[HS_CODE]
 ORIGIN_ISO3: Final = "COL"
+ORIGIN_NAME: Final = "Colombia"  # nombre legible del origen (narrativa y app)
 
 
 def processed_dir(hs: str) -> Path:

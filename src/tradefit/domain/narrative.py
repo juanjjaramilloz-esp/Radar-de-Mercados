@@ -42,9 +42,20 @@ def _fmt_millions(usd: float) -> str:
     return f"USD {millions:,.0f} M".replace(",", ".")
 
 
+def _fmt_decimal(value: float, decimals: int) -> str:
+    """Decimales con coma, convención española de la narrativa: ``0.42 → 0,42``."""
+    return f"{value:.{decimals}f}".replace(".", ",")
+
+
 def _fmt_pct(fraction: float, decimals: int = 1) -> str:
-    """Formatea una fracción como porcentaje: ``0.092 → 9.2 %``."""
-    return f"{fraction * 100:.{decimals}f} %"
+    """Formatea una fracción como porcentaje español: ``0.092 → 9,2 %``."""
+    return f"{_fmt_decimal(fraction * 100, decimals)} %"
+
+
+def _fmt_pp_signed(fraction: float) -> str:
+    """Puntos porcentuales con signo explícito: ``0.077 → +7,7 pp``."""
+    sign = "+" if fraction >= 0 else "−"
+    return f"{sign}{_fmt_decimal(abs(fraction) * 100, 1)} pp"
 
 
 #: Formateador del valor crudo de cada métrica para las frases del porqué.
@@ -52,33 +63,41 @@ _METRIC_FORMATTERS: dict[str, Callable[[float], str]] = {
     "market_size": lambda v: f"{_fmt_millions(v)}/año",
     "import_growth": lambda v: f"{_fmt_pct(v)} anual",
     "market_share": lambda v: f"cuota de {_fmt_pct(v)}",
-    "share_trend": lambda v: f"{v * 100:+.1f} pp en la ventana",
-    "complementarity": lambda v: f"índice {v:.2f} (escala 0–1)",
+    "share_trend": lambda v: f"{_fmt_pp_signed(v)} en la ventana",
+    "complementarity": lambda v: f"índice {_fmt_decimal(v, 2)} (escala 0–1)",
 }
 
 
 def market_sentences(
-    row: "Mapping[str, Any] | pd.Series[Any]", window_years: int = config.MARKET_SIZE_YEARS
+    row: "Mapping[str, Any] | pd.Series[Any]",
+    window_years: int = config.MARKET_SIZE_YEARS,
+    *,
+    product_label: str,
+    origin_name: str,
 ) -> list[str]:
     """Frases de narrativa para un mercado (una fila del ranking).
 
     Reglas transparentes: cada frase cita el número del snapshot que la
     respalda; los verbos ("crece"/"se contrae", "gana"/"pierde") se deciden
-    solo por el signo de ese número.
+    solo por el signo de ese número. Producto, origen y destino aparecen con
+    su nombre (el destino sale de la propia fila).
 
     Args:
         row: fila del ranking (Series o dict) con las columnas de
             ``ranking_schema``.
         window_years: ventana de años de las métricas (para citarla).
+        product_label: nombre legible del producto, p. ej. ``"Café (HS 0901)"``.
+        origin_name: nombre del país de origen, p. ej. ``"Colombia"``.
 
     Returns:
         Lista de frases en español, todas con al menos un número.
     """
     sentences: list[str] = []
+    destination = str(row[config.COL_COUNTRY_NAME])
 
     size = float(row[config.COL_MARKET_SIZE])
     sentences.append(
-        f"Importa {_fmt_millions(size)} al año del producto "
+        f"{destination} importa {_fmt_millions(size)} al año de {product_label} "
         f"(promedio de los últimos {window_years} años)."
     )
 
@@ -95,26 +114,28 @@ def market_sentences(
     share = float(row[config.COL_SHARE])
     trend = float(row[config.COL_SHARE_TREND])
     if share == 0:
-        sentences.append("El origen no registra ventas del producto en este destino (cuota 0 %).")
+        sentences.append(
+            f"{origin_name} no registra ventas de {product_label} en {destination} (cuota 0 %)."
+        )
     else:
         verb = "gana" if trend >= 0 else "pierde"
         sentences.append(
-            f"El origen ya tiene {_fmt_pct(share)} del mercado y {verb} "
-            f"{abs(trend) * 100:.1f} pp de cuota en la ventana."
+            f"{origin_name} ya tiene {_fmt_pct(share)} del mercado y {verb} "
+            f"{_fmt_decimal(abs(trend) * 100, 1)} pp de cuota en la ventana."
         )
 
     comp = float(row[config.COL_COMPLEMENTARITY])
     sentences.append(
-        f"La canasta exportadora del origen encaja {comp:.2f} (escala 0–1) "
-        f"con la demanda importadora del destino."
+        f"La canasta exportadora de {origin_name} encaja {_fmt_decimal(comp, 2)} "
+        f"(escala 0–1) con la demanda importadora de {destination}."
     )
 
     stability = float(row[config.COL_STABILITY])
     raw = float(row[config.COL_SCORE])
     final = float(row[config.COL_FINAL_SCORE])
     sentences.append(
-        f"Estabilidad macro {stability:.2f}: el filtro deja el score en "
-        f"{final:.3f} (bruto {raw:.3f})."
+        f"Estabilidad macro de {destination} {_fmt_decimal(stability, 2)}: el filtro "
+        f"deja el score en {_fmt_decimal(final, 3)} (bruto {_fmt_decimal(raw, 3)})."
     )
     return sentences
 
@@ -188,6 +209,9 @@ def build_narrative(
     weights: Mapping[str, float],
     window_years: int = config.MARKET_SIZE_YEARS,
     top_n: int = config.TOP_RECOMMENDATIONS,
+    *,
+    product_label: str,
+    origin_name: str = config.ORIGIN_NAME,
 ) -> dict[str, Any]:
     """Narrativa completa del snapshot, lista para serializar a JSON.
 
@@ -196,13 +220,17 @@ def build_narrative(
         weights: peso por métrica (fuente: ``config.WEIGHTS``).
         window_years: ventana de años de las métricas.
         top_n: cuántos mercados recomendar.
+        product_label: nombre legible del producto, p. ej. ``"Café (HS 0901)"``.
+        origin_name: nombre del país de origen (fijo: Colombia).
 
     Returns:
         Dict determinístico ``{"recommendations": [...], "markets":
         {iso3: [frases...]}}``.
     """
     markets = {
-        str(row[config.COL_COUNTRY]): market_sentences(row, window_years)
+        str(row[config.COL_COUNTRY]): market_sentences(
+            row, window_years, product_label=product_label, origin_name=origin_name
+        )
         for _, row in ranking.iterrows()
     }
     return {

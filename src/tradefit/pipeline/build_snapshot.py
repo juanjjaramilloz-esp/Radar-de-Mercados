@@ -162,7 +162,10 @@ def build_snapshot(
     validated.to_parquet(config.ranking_parquet(hs), index=False)
     imports.to_parquet(config.imports_timeseries_parquet(hs), index=False)
 
-    narrative = build_narrative(validated, config.WEIGHTS)
+    hs_label = hs_codes.hs_label(hs)
+    narrative = build_narrative(
+        validated, config.WEIGHTS, product_label=hs_label, origin_name=config.ORIGIN_NAME
+    )
     config.narrative_json(hs).write_text(
         json.dumps(narrative, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
         encoding="utf-8",
@@ -170,7 +173,7 @@ def build_snapshot(
 
     meta = {
         "hs_code": hs,
-        "hs_label": hs_codes.hs_label(hs),
+        "hs_label": hs_label,
         "origin_iso3": config.ORIGIN_ISO3,
         "source": source,
         "market_size_years": config.MARKET_SIZE_YEARS,
@@ -191,6 +194,35 @@ def build_snapshot(
     )
     logger.info("Snapshot escrito en %s (%d mercados)", config.processed_dir(hs), len(validated))
     return validated
+
+
+def refresh_narrative(hs: str) -> None:
+    """Reescribe solo ``narrative.json`` desde un snapshot ya construido (sin red).
+
+    Para propagar cambios del generador de narrativa a snapshots existentes
+    sin re-descargar nada: lee ``ranking.parquet`` + ``meta.json`` y vuelve a
+    serializar la narrativa con los pesos y la ventana del propio snapshot.
+
+    Args:
+        hs: partida HS cuyo snapshot ya existe en ``data/processed/<hs>/``.
+
+    Raises:
+        FileNotFoundError: si el snapshot no fue construido todavía.
+    """
+    ranking = pd.read_parquet(config.ranking_parquet(hs))
+    meta = json.loads(config.snapshot_meta_json(hs).read_text(encoding="utf-8"))
+    narrative = build_narrative(
+        ranking,
+        {str(k): float(v) for k, v in meta["weights"].items()},
+        window_years=int(meta["market_size_years"]),
+        product_label=str(meta["hs_label"]),
+        origin_name=config.ORIGIN_NAME,
+    )
+    config.narrative_json(hs).write_text(
+        json.dumps(narrative, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    logger.info("Narrativa de %s regenerada en %s", hs, config.narrative_json(hs))
 
 
 def ensure_snapshot(hs: str, source: str = "comtrade", on_stage: OnStage = None) -> str:
@@ -241,12 +273,26 @@ if __name__ == "__main__":
         default=None,
         help="partida HS (2/4/6 dígitos, cualquiera); sin --hs construye los de config.PRODUCTS",
     )
+    parser.add_argument(
+        "--refresh-narrative",
+        action="store_true",
+        help="solo reescribe narrative.json de snapshots ya construidos (sin red); "
+        "con --hs uno, sin --hs todos los de data/processed/",
+    )
     args = parser.parse_args()
-    if args.hs:
-        products = [args.hs]
-    elif args.source == "stub":
-        products = [config.HS_CODE]  # el stub solo tiene datos del producto default
+    if args.refresh_narrative:
+        if args.hs:
+            targets = [hs_codes.normalize_hs(args.hs)]
+        else:
+            targets = sorted(p.parent.name for p in config.PROCESSED_DIR.glob("*/meta.json"))
+        for product in targets:
+            refresh_narrative(product)
     else:
-        products = sorted(config.PRODUCTS)
-    for product in products:
-        build_snapshot(source=args.source, hs=product)
+        if args.hs:
+            products = [args.hs]
+        elif args.source == "stub":
+            products = [config.HS_CODE]  # el stub solo tiene datos del producto default
+        else:
+            products = sorted(config.PRODUCTS)
+        for product in products:
+            build_snapshot(source=args.source, hs=product)

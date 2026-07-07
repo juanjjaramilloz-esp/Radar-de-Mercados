@@ -1,130 +1,130 @@
 {
   "markets": {
     "AUS": [
-      "Importa USD 779 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 26.5 % anual (CAGR).",
-      "El origen ya tiene 12.9 % del mercado y gana 2.8 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.40 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.77: el filtro deja el score en 0.383 (bruto 0.432)."
+      "Australia importa USD 779 M al año de Café (HS 0901) (promedio de los últimos 3 años).",
+      "La demanda crece al 26,5 % anual (CAGR).",
+      "Colombia ya tiene 12,9 % del mercado y gana 2,8 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Australia.",
+      "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,383 (bruto 0,432)."
     ],
     "AUT": [
-      "Importa USD 525 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 2.7 % anual (CAGR).",
-      "El origen ya tiene 0.3 % del mercado y gana 0.0 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.37 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.71: el filtro deja el score en 0.071 (bruto 0.083)."
+      "Austria importa USD 525 M al año de Café (HS 0901) (promedio de los últimos 3 años).",
+      "La demanda crece al 2,7 % anual (CAGR).",
+      "Colombia ya tiene 0,3 % del mercado y gana 0,0 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Austria.",
+      "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,071 (bruto 0,083)."
     ],
     "BEL": [
-      "Importa USD 1.090 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 28.4 % anual (CAGR).",
-      "El origen ya tiene 3.2 % del mercado y pierde 0.4 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.45 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.80: el filtro deja el score en 0.324 (bruto 0.359)."
+      "Bélgica importa USD 1.090 M al año de Café (HS 0901) (promedio de los últimos 3 años).",
+      "La demanda crece al 28,4 % anual (CAGR).",
+      "Colombia ya tiene 3,2 % del mercado y pierde 0,4 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Bélgica.",
+      "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,324 (bruto 0,359)."
     ],
     "CAN": [
-      "Importa USD 2.103 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 24.2 % anual (CAGR).",
-      "El origen ya tiene 20.9 % del mercado y gana 4.7 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.37 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.86: el filtro deja el score en 0.500 (bruto 0.538)."
+      "Canadá importa USD 2.103 M al año de Café (HS 0901) (promedio de los últimos 3 años).",
+      "La demanda crece al 24,2 % anual (CAGR).",
+      "Colombia ya tiene 20,9 % del mercado y gana 4,7 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Canadá.",
+      "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,500 (bruto 0,538)."
     ],
     "CHE": [
-      "Importa USD 1.512 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 23.5 % anual (CAGR).",
-      "El origen ya tiene 18.0 % del mercado y gana 1.1 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.32 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.88: el filtro deja el score en 0.313 (bruto 0.333)."
+      "Suiza importa USD 1.512 M al año de Café (HS 0901) (promedio de los últimos 3 años).",
+      "La demanda crece al 23,5 % anual (CAGR).",
+      "Colombia ya tiene 18,0 % del mercado y gana 1,1 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de Suiza.",
+      "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,313 (bruto 0,333)."
     ],
     "DEU": [
-      "Importa USD 5.822 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 36.5 % anual (CAGR).",
-      "El origen ya tiene 6.2 % del mercado y gana 1.2 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.37 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.74: el filtro deja el score en 0.453 (bruto 0.521)."
+      "Alemania importa USD 5.822 M al año de Café (HS 0901) (promedio de los últimos 3 años).",
+      "La demanda crece al 36,5 % anual (CAGR).",
+      "Colombia ya tiene 6,2 % del mercado y gana 1,2 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Alemania.",
+      "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,453 (bruto 0,521)."
     ],
     "ESP": [
-      "Importa USD 1.919 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 36.0 % anual (CAGR).",
-      "El origen ya tiene 5.8 % del mercado y gana 1.0 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.42 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.97: el filtro deja el score en 0.445 (bruto 0.452)."
+      "España importa USD 1.919 M al año de Café (HS 0901) (promedio de los últimos 3 años).",
+      "La demanda crece al 36,0 % anual (CAGR).",
+      "Colombia ya tiene 5,8 % del mercado y gana 1,0 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de España.",
+      "Estabilidad macro de España 0,97: el filtro deja el score en 0,445 (bruto 0,452)."
     ],
     "FIN": [
-      "Importa USD 383 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 23.3 % anual (CAGR).",
-      "El origen ya tiene 13.4 % del mercado y gana 2.2 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.40 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.76: el filtro deja el score en 0.348 (bruto 0.395)."
+      "Finlandia importa USD 383 M al año de Café (HS 0901) (promedio de los últimos 3 años).",
+      "La demanda crece al 23,3 % anual (CAGR).",
+      "Colombia ya tiene 13,4 % del mercado y gana 2,2 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Finlandia.",
+      "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,348 (bruto 0,395)."
     ],
     "FRA": [
-      "Importa USD 3.377 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 2.4 % anual (CAGR).",
-      "El origen ya tiene 0.9 % del mercado y pierde 0.1 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.42 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.83: el filtro deja el score en 0.208 (bruto 0.227)."
+      "Francia importa USD 3.377 M al año de Café (HS 0901) (promedio de los últimos 3 años).",
+      "La demanda crece al 2,4 % anual (CAGR).",
+      "Colombia ya tiene 0,9 % del mercado y pierde 0,1 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de Francia.",
+      "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,208 (bruto 0,227)."
     ],
     "GBR": [
-      "Importa USD 1.601 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 24.9 % anual (CAGR).",
-      "El origen ya tiene 6.3 % del mercado y gana 1.5 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.43 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.59: el filtro deja el score en 0.319 (bruto 0.401)."
+      "Reino Unido importa USD 1.601 M al año de Café (HS 0901) (promedio de los últimos 3 años).",
+      "La demanda crece al 24,9 % anual (CAGR).",
+      "Colombia ya tiene 6,3 % del mercado y gana 1,5 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Reino Unido.",
+      "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,319 (bruto 0,401)."
     ],
     "ITA": [
-      "Importa USD 3.386 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 35.5 % anual (CAGR).",
-      "El origen ya tiene 1.9 % del mercado y pierde 0.7 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.43 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.83: el filtro deja el score en 0.394 (bruto 0.431)."
+      "Italia importa USD 3.386 M al año de Café (HS 0901) (promedio de los últimos 3 años).",
+      "La demanda crece al 35,5 % anual (CAGR).",
+      "Colombia ya tiene 1,9 % del mercado y pierde 0,7 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Italia.",
+      "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,394 (bruto 0,431)."
     ],
     "JPN": [
-      "Importa USD 1.943 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 27.9 % anual (CAGR).",
-      "El origen ya tiene 12.1 % del mercado y gana 0.2 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.46 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.81: el filtro deja el score en 0.428 (bruto 0.473)."
+      "Japón importa USD 1.943 M al año de Café (HS 0901) (promedio de los últimos 3 años).",
+      "La demanda crece al 27,9 % anual (CAGR).",
+      "Colombia ya tiene 12,1 % del mercado y gana 0,2 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Japón.",
+      "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,428 (bruto 0,473)."
     ],
     "KOR": [
-      "Importa USD 1.351 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 23.7 % anual (CAGR).",
-      "El origen ya tiene 15.0 % del mercado y gana 1.2 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.49 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.88: el filtro deja el score en 0.482 (bruto 0.512)."
+      "Corea del Sur importa USD 1.351 M al año de Café (HS 0901) (promedio de los últimos 3 años).",
+      "La demanda crece al 23,7 % anual (CAGR).",
+      "Colombia ya tiene 15,0 % del mercado y gana 1,2 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,49 (escala 0–1) con la demanda importadora de Corea del Sur.",
+      "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,482 (bruto 0,512)."
     ],
     "NLD": [
-      "Importa USD 1.734 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 22.8 % anual (CAGR).",
-      "El origen ya tiene 5.0 % del mercado y gana 1.4 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.46 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.81: el filtro deja el score en 0.379 (bruto 0.419)."
+      "Países Bajos importa USD 1.734 M al año de Café (HS 0901) (promedio de los últimos 3 años).",
+      "La demanda crece al 22,8 % anual (CAGR).",
+      "Colombia ya tiene 5,0 % del mercado y gana 1,4 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Países Bajos.",
+      "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,379 (bruto 0,419)."
     ],
     "POL": [
-      "Importa USD 1.369 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 36.3 % anual (CAGR).",
-      "El origen ya tiene 1.0 % del mercado y gana 0.4 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.36 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.84: el filtro deja el score en 0.293 (bruto 0.319)."
+      "Polonia importa USD 1.369 M al año de Café (HS 0901) (promedio de los últimos 3 años).",
+      "La demanda crece al 36,3 % anual (CAGR).",
+      "Colombia ya tiene 1,0 % del mercado y gana 0,4 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,36 (escala 0–1) con la demanda importadora de Polonia.",
+      "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,293 (bruto 0,319)."
     ],
     "PRT": [
-      "Importa USD 477 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 25.4 % anual (CAGR).",
-      "El origen ya tiene 3.3 % del mercado y gana 1.7 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.39 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.93: el filtro deja el score en 0.302 (bruto 0.313)."
+      "Portugal importa USD 477 M al año de Café (HS 0901) (promedio de los últimos 3 años).",
+      "La demanda crece al 25,4 % anual (CAGR).",
+      "Colombia ya tiene 3,3 % del mercado y gana 1,7 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,39 (escala 0–1) con la demanda importadora de Portugal.",
+      "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,302 (bruto 0,313)."
     ],
     "SWE": [
-      "Importa USD 668 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 28.8 % anual (CAGR).",
-      "El origen ya tiene 6.9 % del mercado y gana 3.5 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.37 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.80: el filtro deja el score en 0.344 (bruto 0.383)."
+      "Suecia importa USD 668 M al año de Café (HS 0901) (promedio de los últimos 3 años).",
+      "La demanda crece al 28,8 % anual (CAGR).",
+      "Colombia ya tiene 6,9 % del mercado y gana 3,5 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Suecia.",
+      "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,344 (bruto 0,383)."
     ],
     "USA": [
-      "Importa USD 9.997 M al año del producto (promedio de los últimos 3 años).",
-      "La demanda crece al 24.9 % anual (CAGR).",
-      "El origen ya tiene 21.5 % del mercado y gana 4.3 pp de cuota en la ventana.",
-      "La canasta exportadora del origen encaja 0.33 (escala 0–1) con la demanda importadora del destino.",
-      "Estabilidad macro 0.65: el filtro deja el score en 0.606 (bruto 0.734)."
+      "Estados Unidos importa USD 9.997 M al año de Café (HS 0901) (promedio de los últimos 3 años).",
+      "La demanda crece al 24,9 % anual (CAGR).",
+      "Colombia ya tiene 21,5 % del mercado y gana 4,3 pp de cuota en la ventana.",
+      "La canasta exportadora de Colombia encaja 0,33 (escala 0–1) con la demanda importadora de Estados Unidos.",
+      "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,606 (bruto 0,734)."
     ]
   },
   "recommendations": [
@@ -134,7 +134,7 @@
       "name": "Estados Unidos",
       "reasons": [
         "1.º destino por tamaño de mercado (USD 9.997 M/año)",
-        "1.º destino por cuota ya ganada (cuota de 21.5 %)"
+        "1.º destino por cuota ya ganada (cuota de 21,5 %)"
       ]
     },
     {
@@ -142,8 +142,8 @@
       "iso3": "CAN",
       "name": "Canadá",
       "reasons": [
-        "1.º destino por momentum de la cuota (+4.7 pp en la ventana)",
-        "2.º destino por cuota ya ganada (cuota de 20.9 %)"
+        "1.º destino por momentum de la cuota (+4,7 pp en la ventana)",
+        "2.º destino por cuota ya ganada (cuota de 20,9 %)"
       ]
     },
     {
@@ -151,8 +151,8 @@
       "iso3": "KOR",
       "name": "Corea del Sur",
       "reasons": [
-        "1.º destino por complementariedad de canastas (índice 0.49 (escala 0–1))",
-        "13.º destino por crecimiento de la demanda (23.7 % anual)"
+        "1.º destino por complementariedad de canastas (índice 0,49 (escala 0–1))",
+        "13.º destino por crecimiento de la demanda (23,7 % anual)"
       ]
     }
   ]

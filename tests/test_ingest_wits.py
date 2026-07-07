@@ -63,6 +63,18 @@ def test_parse_sin_registro_alguno_devuelve_vacio() -> None:
     ]
 
 
+def test_parse_descarta_observaciones_sin_ave(wits_payload: dict[str, Any]) -> None:
+    # Aranceles específicos sin equivalente ad-valorem: WITS reporta "NaN"
+    responses = wits_payload["responses"][str(config.WITS_EU_CODE)]
+    responses["mfn"] = responses["mfn"].replace(
+        '<generic:ObsValue value="8.5" />', '<generic:ObsValue value="NaN" />', 1
+    )
+    df = wits.parse_wits_response(wits_payload)
+    assert df[config.COL_RATE_PCT].notna().all()
+    deu_mfn = df[(df[config.COL_COUNTRY] == "DEU") & (df[config.COL_TARIFF_TYPE] == "MFN")]
+    assert len(deu_mfn) == 5  # 6 años en el fixture, 1 descartado
+
+
 def test_parse_falla_sin_responses() -> None:
     with pytest.raises(RuntimeError, match="responses"):
         wits.parse_wits_response({"data": []})

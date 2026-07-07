@@ -16,6 +16,7 @@ error HTTP o cambio de formato falla ruidosamente aquí.
 
 import json
 import logging
+import math
 import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import Any
@@ -76,7 +77,9 @@ def fetch_wits_tariffs(hs: str) -> dict[str, Any]:
     products = "+".join(hs_codes.hs6_children(hs))
     start, end = config.WITS_YEARS
     responses: dict[str, dict[str, str | None]] = {}
-    for reporter in sorted(set(config.WITS_REPORTER_CODES.values())):
+    for reporter_code in sorted(set(config.WITS_REPORTER_CODES.values())):
+        # WITS exige el código de país a 3 dígitos (Australia = "036", no "36").
+        reporter = f"{reporter_code:03d}"
         pair: dict[str, str | None] = {}
         for kind, partner in (
             ("mfn", config.WITS_PARTNER_WORLD),
@@ -134,6 +137,13 @@ def _parse_generic_data(xml_text: str, destinations: list[str]) -> list[dict[str
                 raise RuntimeError(f"Observación de WITS sin año, valor o TARIFFTYPE: {key}")
             if tariff_type not in ("MFN", "PREF"):
                 raise RuntimeError(f"Tipo de arancel desconocido en WITS: {tariff_type!r}")
+            rate = float(str(value.get("value")))
+            if not math.isfinite(rate):
+                # Líneas no ad-valorem sin equivalente AVE (p. ej. aranceles
+                # específicos del azúcar): WITS reporta ObsValue "NaN" — la
+                # observación no aporta dato.
+                logger.debug("Observación sin AVE (%s, %s): descartada", product, tariff_type)
+                continue
             for iso3 in destinations:
                 rows.append(
                     {
@@ -141,7 +151,7 @@ def _parse_generic_data(xml_text: str, destinations: list[str]) -> list[dict[str
                         config.COL_CMD: product,
                         config.COL_TARIFF_TYPE: tariff_type,
                         config.COL_YEAR: int(str(dimension.get("value"))),
-                        config.COL_RATE_PCT: float(str(value.get("value"))),
+                        config.COL_RATE_PCT: rate,
                     }
                 )
     return rows
@@ -173,7 +183,7 @@ def parse_wits_response(payload: dict[str, Any]) -> pd.DataFrame:
 
     by_reporter: dict[str, list[str]] = {}
     for iso3, code in config.WITS_REPORTER_CODES.items():
-        by_reporter.setdefault(str(code), []).append(iso3)
+        by_reporter.setdefault(f"{code:03d}", []).append(iso3)
 
     rows: list[dict[str, object]] = []
     for reporter, pair in responses.items():

@@ -173,6 +173,23 @@ def _advanced_search_section(products: dict[str, str]) -> None:
             st.rerun()
 
 
+def _sync_product_from_url(products: dict[str, str]) -> None:
+    """Deep link: ``?hs=0901`` en la URL selecciona ese producto al cargar.
+
+    Solo actúa en la primera carga de la sesión (después manda el selector) y
+    solo si el snapshot de la partida existe; un ``hs`` desconocido se ignora
+    en silencio (degradar con gracia).
+    """
+    if _PRODUCT_SELECT_KEY in st.session_state:
+        return
+    url_hs = st.query_params.get("hs")
+    if not url_hs:
+        return
+    normalized = hs_codes.normalize_hs(url_hs)
+    if normalized in products:
+        st.session_state[_PRODUCT_SELECT_KEY] = normalized
+
+
 def _load_snapshot(hs: str) -> tuple[pd.DataFrame, dict[str, object], dict[str, object]]:
     """Lee ranking, metadatos y narrativa del snapshot de un producto.
 
@@ -383,12 +400,14 @@ def main() -> None:
             "```\npython -m tradefit.pipeline.build_snapshot\n```"
         )
         return
+    _sync_product_from_url(products)
     hs = st.selectbox(
         "Producto",
         options=list(products),
         format_func=lambda code: products[code],
         key=_PRODUCT_SELECT_KEY,
     )
+    st.query_params["hs"] = hs  # URL compartible: ?hs=<partida>
     ranking, meta, narrative = _load_snapshot(hs)
 
     rca = meta.get("rca_balassa")

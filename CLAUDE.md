@@ -11,6 +11,10 @@ destino combinando **métricas de oportunidad comercial** (cuota de mercado, RCA
 Balassa, complementariedad, arancel) con un **filtro de estabilidad macro** del
 destino. Entrega: ranking + narrativa interpretada + export (PDF/Excel).
 
+**El país de origen es Colombia, fijo, para todo el proyecto** (decisión del
+usuario, 2026-07). Vive en `config.ORIGIN_ISO3` / `config.ORIGIN_NAME`; no se
+planea selección libre de origen en la app.
+
 Dos objetivos de calidad que mandan sobre todo lo demás:
 
 1. **Motor defendible**: cada métrica económica está documentada (cita su definición)
@@ -131,6 +135,18 @@ tradefit/
 - El scoring/ranking se prueba con un caso sintético donde el orden esperado es obvio.
 - Prioridad de cobertura: `domain/` por encima de todo. `ingest/` se prueba con
   respuestas mockeadas o guardadas.
+
+## Verificación de cambios (ahorro de créditos)
+
+Regla pedida por el usuario (2026-07): **no usar el preview del navegador,
+screenshots ni herramientas de browser para revisar cambios de la app**, salvo
+que el usuario lo pida explícitamente — consumen créditos.
+
+- Verificar con lo barato: `pytest`, `ruff`, `mypy`, y si hace falta un
+  script corto que ejerza la función cambiada.
+- Al terminar, entregar al usuario una **lista concreta de qué revisar
+  manualmente** en la app (`streamlit run src/tradefit/app/main.py`): qué
+  pantalla abrir, qué debería verse. El usuario revisa y da feedback.
 
 ## Git
 

@@ -17,6 +17,19 @@
 **MVP completo.** Lo que sigue vive en el Backlog (y en las libertades
 creativas post-MVP acordadas en CLAUDE.md).
 
+### Post-MVP (2026-07-07)
+
+- [x] Toggle de idioma ES/EN en la app (`app/i18n.py`).
+- [x] Formato numérico según idioma (es: «.» miles, «,» decimales) —
+  `app/format.py` + wrappers en `i18n.py`; aplica a KPIs, podio, PDF y Plotly.
+- [x] Narrativa personalizada: producto con nombre, origen «Colombia»
+  (`config.ORIGIN_NAME`), destino nombrado; coma decimal. Flag
+  `--refresh-narrative` para regenerar `narrative.json` sin red.
+- [x] Gráfica «Evolución del mercado» con Plotly: años enteros, hover
+  unificado, referencia 100, absolutos en millones de USD.
+- [ ] **Aranceles (WITS)** como métrica del motor — siguiente candidato del
+  backbone; ver Backlog. Se consulta antes de empezar (API frágil).
+
 ## Fase 1 — Esqueleto caminante (end-to-end mínimo)
 
 **Entrega:** estructura completa del repo + tooling (ruff, mypy, pytest,
@@ -100,6 +113,10 @@ ninguna afirmación sin número; verde + commit.
 
 ## Backlog (fuera del MVP)
 
-- Aranceles (WITS) como métrica adicional del motor de oportunidad.
-- Selección libre de producto HS y país de origen en la app.
+- Aranceles (WITS) como métrica adicional del motor de oportunidad:
+  `ingest/wits.py` (arancel efectivamente aplicado que enfrenta Colombia en
+  cada destino, caché en `data/raw/`, tests con respuestas guardadas) +
+  `domain/indices.tariff_faced` (docstring con cita, test a mano, normalizado
+  invertido: menos arancel = mejor) + rebalanceo documentado de `WEIGHTS`.
+- Selección libre de producto HS en la app (el origen queda fijo: Colombia).
 - IMF SDMX como fuente macro complementaria (frágil; solo si WDI no cubre algo).

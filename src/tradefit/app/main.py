@@ -20,6 +20,35 @@ from tradefit.app.export import ranking_to_excel, ranking_to_pdf
 from tradefit.pipeline.build_snapshot import ensure_snapshot
 
 _PRODUCT_SELECT_KEY = "product_select"
+_TOUR_SEEN_KEY = "tour_seen"
+
+
+def _hero_section() -> None:
+    """Propuesta de valor y mini-tour: el usuario aterriza sin contexto.
+
+    El expander del tour llega abierto solo en la primera carga de la sesión
+    (``st.session_state``); después queda plegado y disponible.
+    """
+    st.markdown(
+        "Dado un **producto** (partida arancelaria HS) y un **país de origen**, "
+        "esta herramienta rankea mercados destino combinando la **oportunidad "
+        "comercial** (tamaño, crecimiento, cuota, complementariedad) con un "
+        "**filtro de estabilidad macroeconómica** del destino."
+    )
+    first_load = _TOUR_SEEN_KEY not in st.session_state
+    st.session_state[_TOUR_SEEN_KEY] = True
+    with st.expander("🧭 ¿Cómo leo esto? — tour de 30 segundos", expanded=first_load):
+        st.markdown(
+            "- **Podio y ranking**: los mercados destino ordenados por **score "
+            "final** (0–1) = oportunidad comercial × estabilidad macro.\n"
+            "- **Recomendación**: el porqué de cada top, con sus números "
+            "(crecimiento de la demanda, cuota ya ganada, complementariedad).\n"
+            "- **🔎 Buscador avanzado**: escribe cualquier partida (p. ej. "
+            "`1701` o «coffee») y la app descarga los datos de UN Comtrade y "
+            "construye el análisis al momento.\n"
+            "- **📖 Metodología**: la fórmula y la cita académica de cada "
+            "métrica; el ranking se exporta a CSV, Excel o PDF."
+        )
 
 
 def _available_products() -> dict[str, str]:
@@ -291,6 +320,7 @@ def main() -> None:
     """Renderiza la página principal: ranking de mercados destino."""
     st.set_page_config(page_title="Radar de Mercados", page_icon="📡", layout="wide")
     st.title("📡 Radar de Mercados")
+    _hero_section()
 
     products = _available_products()
     _advanced_search_section(products)

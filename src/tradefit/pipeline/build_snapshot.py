@@ -13,7 +13,7 @@ import logging
 import pandas as pd
 from dotenv import load_dotenv
 
-from tradefit import config
+from tradefit import config, hs_codes
 from tradefit.contracts import MarketInputs, ranking_schema
 from tradefit.domain import indices
 from tradefit.domain.macro_filter import apply_stability_penalty, stability_score
@@ -29,6 +29,10 @@ SOURCES = ("comtrade", "stub")
 def _rca_from_totals(export_totals: pd.DataFrame) -> float:
     """RCA del origen usando el año más reciente con las cuatro series.
 
+    La serie ``(origin, product)`` puede faltar (total o parcialmente) si el
+    origen no exporta el producto: se toma como 0 y el RCA resulta 0, que es
+    el valor correcto del índice de Balassa en ese caso.
+
     Args:
         export_totals: DataFrame validado contra ``export_totals_schema``.
 
@@ -36,13 +40,17 @@ def _rca_from_totals(export_totals: pd.DataFrame) -> float:
         RCA de Balassa (escalar) calculado por ``domain.indices.rca_balassa``.
 
     Raises:
-        RuntimeError: si ningún año trae las cuatro series completas.
+        RuntimeError: si ningún año trae las tres series restantes completas.
     """
     pivot = export_totals.pivot_table(
         index=config.COL_YEAR,
         columns=[config.COL_SCOPE, config.COL_CMD],
         values=config.COL_VALUE,
     )
+    origin_product = ("origin", "product")
+    if origin_product not in pivot.columns:
+        pivot[origin_product] = 0.0
+    pivot[origin_product] = pivot[origin_product].fillna(0.0)
     complete = pivot.dropna()
     if complete.empty:
         raise RuntimeError("Ningún año tiene las cuatro series de exportación para el RCA")
@@ -91,20 +99,23 @@ def build_snapshot(source: str = "comtrade", hs: str = config.HS_CODE) -> pd.Dat
         source: fuente de datos — ``"comtrade"`` (real, con caché en
             ``data/raw/``) o ``"stub"`` (CSVs locales, sin red; solo soporta
             el producto por defecto).
-        hs: código HS del producto (debe estar en ``config.PRODUCTS``).
+        hs: partida HS del producto (2, 4 o 6 dígitos; cualquier código
+            válido, no solo los curados de ``config.PRODUCTS``).
 
     Returns:
         DataFrame conforme a ``ranking_schema``, ya persistido en
         ``data/processed/<hs>/ranking.parquet``.
 
     Raises:
-        ValueError: si ``source`` o ``hs`` no son conocidos, o si se pide el
-            stub para un producto distinto del por defecto.
+        ValueError: si ``source`` no es conocida, ``hs`` no tiene formato de
+            partida HS, o se pide el stub para un producto distinto del
+            por defecto.
     """
     if source not in SOURCES:
         raise ValueError(f"Fuente desconocida: {source!r}; opciones: {SOURCES}")
-    if hs not in config.PRODUCTS:
-        raise ValueError(f"Producto desconocido: {hs!r}; opciones: {sorted(config.PRODUCTS)}")
+    hs = hs_codes.normalize_hs(hs)
+    if not hs_codes.is_valid_hs(hs):
+        raise ValueError(f"Partida HS inválida: {hs!r}; se esperan 2, 4 o 6 dígitos")
     if source == "stub" and hs != config.HS_CODE:
         raise ValueError(f"El stub solo tiene datos del producto {config.HS_CODE}")
     data, macro = _load_inputs(source, hs)
@@ -133,7 +144,7 @@ def build_snapshot(source: str = "comtrade", hs: str = config.HS_CODE) -> pd.Dat
 
     meta = {
         "hs_code": hs,
-        "hs_label": config.PRODUCTS[hs],
+        "hs_label": hs_codes.hs_label(hs),
         "origin_iso3": config.ORIGIN_ISO3,
         "source": source,
         "market_size_years": config.MARKET_SIZE_YEARS,
@@ -156,6 +167,36 @@ def build_snapshot(source: str = "comtrade", hs: str = config.HS_CODE) -> pd.Dat
     return validated
 
 
+def ensure_snapshot(hs: str, source: str = "comtrade") -> str:
+    """Garantiza que exista el snapshot de una partida; lo construye si falta.
+
+    Punto de entrada para la construcción on-demand (p. ej. el buscador de la
+    app): si el snapshot ya está en ``data/processed/<hs>/`` no toca la red
+    (los datos crudos además quedan cacheados en ``data/raw/``, así que
+    reconstruir tampoco re-descarga).
+
+    Args:
+        hs: partida HS (2, 4 o 6 dígitos; se normaliza).
+        source: fuente de datos (ver :func:`build_snapshot`).
+
+    Returns:
+        La partida normalizada cuyo snapshot quedó disponible.
+
+    Raises:
+        ValueError: partida con formato inválido.
+        RuntimeError: la fuente falló o no tiene datos para la partida.
+    """
+    load_dotenv()
+    hs = hs_codes.normalize_hs(hs)
+    if not hs_codes.is_valid_hs(hs):
+        raise ValueError(f"Partida HS inválida: {hs!r}; se esperan 2, 4 o 6 dígitos")
+    if config.ranking_parquet(hs).exists() and config.snapshot_meta_json(hs).exists():
+        logger.info("Snapshot de %s ya existe; no se reconstruye", hs)
+        return hs
+    build_snapshot(source=source, hs=hs)
+    return hs
+
+
 if __name__ == "__main__":
     logging.basicConfig(
         level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s"
@@ -170,9 +211,8 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--hs",
-        choices=sorted(config.PRODUCTS),
         default=None,
-        help="código HS del producto; sin --hs construye TODOS los de config.PRODUCTS",
+        help="partida HS (2/4/6 dígitos, cualquiera); sin --hs construye los de config.PRODUCTS",
     )
     args = parser.parse_args()
     if args.hs:

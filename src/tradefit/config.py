@@ -16,6 +16,9 @@ PROCESSED_DIR: Final = DATA_DIR / "processed"
 SAMPLE_DIR: Final = DATA_DIR / "sample"
 
 STUB_IMPORTS_CSV: Final = SAMPLE_DIR / "stub_imports.csv"
+# Catálogo HS versionado (código → descripción, niveles 2/4/6 dígitos) para el
+# buscador de partidas de la app; se regenera con ingest/hs_reference.py.
+HS_REFERENCE_CSV: Final = SAMPLE_DIR / "hs_reference.csv.gz"
 STUB_BILATERAL_CSV: Final = SAMPLE_DIR / "stub_bilateral.csv"
 STUB_BASKETS_CSV: Final = SAMPLE_DIR / "stub_baskets.csv"
 STUB_EXPORT_TOTALS_CSV: Final = SAMPLE_DIR / "stub_export_totals.csv"
@@ -115,6 +118,8 @@ ENV_COMTRADE_KEY: Final = "COMTRADE_API_KEY"
 COMTRADE_URL_AUTH: Final = "https://comtradeapi.un.org/data/v1/get/C/A/HS"
 COMTRADE_URL_PREVIEW: Final = "https://comtradeapi.un.org/public/v1/preview/C/A/HS"
 COMTRADE_BASKETS_CACHE: Final = RAW_DIR / "comtrade_baskets_hs2.json"
+# Codebook oficial de códigos HS (H6) de Comtrade; alimenta HS_REFERENCE_CSV.
+COMTRADE_HS_REFERENCE_URL: Final = "https://comtradeapi.un.org/files/v1/app/reference/HS.json"
 
 
 def comtrade_imports_cache(hs: str) -> Path:

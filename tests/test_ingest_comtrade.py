@@ -91,10 +91,17 @@ def test_parse_bilateral_normaliza_al_contrato() -> None:
     assert usa[config.COL_IMPORTS_FROM_ORIGIN].item() == 60.0
 
 
-def test_parse_bilateral_falla_sin_destinos_conocidos() -> None:
+def test_parse_bilateral_vacio_es_flujo_cero_no_error() -> None:
+    # El origen puede no exportar el producto a ningún destino: DataFrame
+    # vacío válido (cuota 0 aguas abajo), no un error.
     payload = {"data": [{"reporterCode": 999, "refYear": 2024, "primaryValue": 1.0}]}
-    with pytest.raises(RuntimeError, match="destinos"):
-        comtrade.parse_bilateral_response(payload)
+    df = comtrade.parse_bilateral_response(payload)
+    assert df.empty
+    assert list(df.columns) == [
+        config.COL_COUNTRY,
+        config.COL_YEAR,
+        config.COL_IMPORTS_FROM_ORIGIN,
+    ]
 
 
 # --- parse_baskets_response ---------------------------------------------------
@@ -156,6 +163,22 @@ def test_parse_export_totals_falla_si_falta_una_serie() -> None:
     }
     with pytest.raises(RuntimeError, match="RCA"):
         comtrade.parse_export_totals_response(payload)
+
+
+def test_parse_export_totals_tolera_origen_sin_producto() -> None:
+    # El origen puede no exportar el producto (RCA 0 aguas abajo): las otras
+    # tres series bastan.
+    payload = {
+        "data": [
+            {"_scope": "origin", "cmdCode": "TOTAL", "refYear": 2024, "primaryValue": 1000.0},
+            {"_scope": "world", "cmdCode": config.HS_CODE, "refYear": 2024, "primaryValue": 50.0},
+            {"_scope": "world", "cmdCode": "TOTAL", "refYear": 2024, "primaryValue": 900.0},
+        ]
+    }
+    df = comtrade.parse_export_totals_response(payload)
+    present = set(zip(df[config.COL_SCOPE], df[config.COL_CMD], strict=True))
+    assert ("origin", "product") not in present
+    assert ("origin", "total") in present
 
 
 def test_parse_export_totals_falla_sin_scope() -> None:

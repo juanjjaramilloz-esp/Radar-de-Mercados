@@ -266,7 +266,9 @@ def parse_bilateral_response(payload: dict[str, Any]) -> pd.DataFrame:
     Misma identificación por ``reporterCode`` que
     :func:`parse_comtrade_response`. Los (país, año) ausentes significan flujo
     cero y NO se rellenan aquí: eso lo resuelve ``domain`` al cruzar con las
-    importaciones totales.
+    importaciones totales. Cero filas es un resultado legítimo (el origen
+    puede no exportar el producto a ningún destino): se devuelve un DataFrame
+    vacío con advertencia, no un error.
 
     Args:
         payload: JSON de la API con la clave ``data`` (lista de registros).
@@ -275,10 +277,8 @@ def parse_bilateral_response(payload: dict[str, Any]) -> pd.DataFrame:
         DataFrame validado contra ``bilateral_schema``, ordenado por país y año.
 
     Raises:
-        RuntimeError: si el payload no tiene ``data``, un registro viene
-            malformado, o ningún registro corresponde a los destinos del MVP
-            (el origen exporta el producto a varios de ellos: cero filas
-            delata una consulta rota, no flujos cero).
+        RuntimeError: si el payload no tiene ``data`` o un registro viene
+            malformado.
     """
     records = payload.get("data")
     if records is None:
@@ -304,11 +304,20 @@ def parse_bilateral_response(payload: dict[str, Any]) -> pd.DataFrame:
             }
         )
     if not rows:
-        raise RuntimeError(
-            "Ningún registro bilateral corresponde a los destinos del MVP; "
-            "¿cambiaron los códigos de reporter o el partner del origen?"
+        logger.warning(
+            "Sin flujo bilateral del origen hacia los destinos: cuota 0 en todos los mercados"
         )
-    df = pd.DataFrame(rows).sort_values([config.COL_COUNTRY, config.COL_YEAR], ignore_index=True)
+        df = pd.DataFrame(
+            {
+                config.COL_COUNTRY: pd.Series(dtype=str),
+                config.COL_YEAR: pd.Series(dtype=int),
+                config.COL_IMPORTS_FROM_ORIGIN: pd.Series(dtype=float),
+            }
+        )
+    else:
+        df = pd.DataFrame(rows).sort_values(
+            [config.COL_COUNTRY, config.COL_YEAR], ignore_index=True
+        )
     validated: pd.DataFrame = bilateral_schema.validate(df)
     return validated
 
@@ -385,7 +394,9 @@ def parse_export_totals_response(payload: dict[str, Any], hs: str = config.HS_CO
     Raises:
         RuntimeError: si el payload no tiene ``data``, un registro viene sin
             ``_scope`` o con ``cmdCode`` inesperado, o falta alguna de las
-            cuatro series que exige el RCA.
+            series del mundo o el total del origen. La serie
+            ``(origin, product)`` puede faltar legítimamente (el origen no
+            exporta el producto → RCA 0 aguas abajo): solo se advierte.
     """
     records = payload.get("data")
     if records is None:
@@ -419,7 +430,6 @@ def parse_export_totals_response(payload: dict[str, Any], hs: str = config.HS_CO
         .sort_values([config.COL_SCOPE, config.COL_CMD, config.COL_YEAR], ignore_index=True)
     )
     required = {
-        ("origin", "product"),
         ("origin", "total"),
         ("world", "product"),
         ("world", "total"),
@@ -428,6 +438,8 @@ def parse_export_totals_response(payload: dict[str, Any], hs: str = config.HS_CO
     missing = required - present
     if missing:
         raise RuntimeError(f"Faltan series de exportación para el RCA: {sorted(missing)}")
+    if ("origin", "product") not in present:
+        logger.warning("El origen no reporta exportaciones del producto: RCA será 0")
     validated: pd.DataFrame = export_totals_schema.validate(df)
     return validated
 

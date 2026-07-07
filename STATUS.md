@@ -19,6 +19,14 @@ contrato, app Streamlit que solo lee el snapshot.
   (café 0901, flores 0603, banano 0803; `--hs` en el pipeline, selector en la
   app). RCA reales: flores 96.8, banano 40.8, café 35.7. Cuota de flores
   COL→USA: 59 % (cuadra con la realidad, ~60 %).
+- **Buscador avanzado (2026-07-07):** la app analiza CUALQUIER partida HS
+  (2/4/6 dígitos) — búsqueda por código o descripción (catálogo versionado
+  `data/sample/hs_reference.csv.gz`, 8261 códigos H6, módulo `hs_codes.py`
+  sin red) → `pipeline.ensure_snapshot(hs)` construye on-demand con caché
+  (excepción sancionada en CLAUDE.md). Tolerancias para partidas arbitrarias:
+  bilateral vacío = cuota 0 (no error) y origen sin exportaciones del
+  producto = RCA 0. En el cloud la key llega por `st.secrets` (puente en la
+  app hacia la variable de entorno).
 - **En curso:** backlog (aranceles WITS, selección libre de origen) + mejoras
   de buen costo/beneficio sin preguntar.
 - **Web:** repo público https://github.com/juanjosejaramillozarate-png/radar-de-mercados;

@@ -1,28 +1,146 @@
 """App Streamlit del Radar de Mercados.
 
-Capa de presentación: SOLO lee el snapshot de ``data/processed/``. No llama
-APIs, no importa ``ingest`` y no calcula índices. Si el snapshot no existe,
-degrada con gracia mostrando cómo generarlo.
+Capa de presentación: lee los snapshots de ``data/processed/`` y no calcula
+índices ni llama APIs directamente. La única excepción sancionada es el
+buscador avanzado, que invoca ``pipeline.ensure_snapshot`` para construir
+on-demand el snapshot de una partida nueva (la red sigue viviendo en
+``ingest/`` y el cálculo en ``domain/``; la app solo dispara la orquestación
+y luego lee el resultado). Si algo falla, degrada con gracia.
 """
 
 import json
+import os
 
 import pandas as pd
 import streamlit as st
+from dotenv import load_dotenv
 
-from tradefit import config
+from tradefit import config, hs_codes
 from tradefit.app.export import ranking_to_excel, ranking_to_pdf
+from tradefit.pipeline.build_snapshot import ensure_snapshot
+
+_PRODUCT_SELECT_KEY = "product_select"
 
 
 def _available_products() -> dict[str, str]:
-    """Productos con snapshot construido: ``{hs: etiqueta}`` desde meta.json."""
+    """Productos con snapshot construido: ``{hs: etiqueta}`` desde meta.json.
+
+    Escanea ``data/processed/`` completo: incluye tanto los productos curados
+    como las partidas construidas on-demand por el buscador.
+    """
     products: dict[str, str] = {}
-    for hs in sorted(config.PRODUCTS):
-        meta_path = config.snapshot_meta_json(hs)
-        if meta_path.exists() and config.ranking_parquet(hs).exists():
+    if not config.PROCESSED_DIR.exists():
+        return products
+    for meta_path in sorted(config.PROCESSED_DIR.glob("*/meta.json")):
+        hs = meta_path.parent.name
+        if config.ranking_parquet(hs).exists():
             meta = json.loads(meta_path.read_text(encoding="utf-8"))
             products[hs] = str(meta.get("hs_label", hs))
     return products
+
+
+def _bridge_comtrade_key() -> None:
+    """Copia ``COMTRADE_API_KEY`` de ``st.secrets`` al entorno si hace falta.
+
+    En Streamlit Community Cloud los secretos llegan por ``st.secrets``, pero
+    ``ingest/`` (capa de red) lee variables de entorno: este puente evita que
+    la capa de datos conozca Streamlit. Sin secreto configurado, no hace nada.
+    """
+    load_dotenv()  # en local la key vive en .env; cargarla antes de chequear
+    if os.environ.get(config.ENV_COMTRADE_KEY):
+        return
+    try:
+        key = st.secrets[config.ENV_COMTRADE_KEY]
+    except Exception:  # noqa: BLE001 — sin secrets.toml st.secrets lanza; es opcional
+        return
+    os.environ[config.ENV_COMTRADE_KEY] = str(key)
+
+
+@st.cache_data
+def _hs_catalog() -> pd.DataFrame:
+    """Catálogo HS versionado, cacheado por sesión de la app."""
+    return hs_codes.load_hs_reference()
+
+
+def _build_on_demand(hs: str) -> bool:
+    """Construye el snapshot de una partida nueva con feedback en pantalla.
+
+    Returns:
+        True si el snapshot quedó disponible; False si falló (el error ya se
+        mostró al usuario — degradar con gracia, la app sigue viva).
+    """
+    _bridge_comtrade_key()
+    if not os.environ.get(config.ENV_COMTRADE_KEY):
+        st.warning(
+            "Sin `COMTRADE_API_KEY` configurada el análisis usa el preview "
+            "público de Comtrade y puede fallar por su tope de registros."
+        )
+    try:
+        with st.spinner(
+            f"Descargando datos de UN Comtrade para la partida {hs} "
+            "(≈12 consultas; puede tardar un minuto)…"
+        ):
+            ensure_snapshot(hs)
+    except ValueError as exc:
+        st.error(f"Partida inválida: {exc}")
+        return False
+    except Exception as exc:  # noqa: BLE001 — presentación: degradar con gracia
+        st.error(
+            f"No se pudo construir el análisis de la partida {hs}. "
+            f"Puede que no exista en la nomenclatura o que la fuente no tenga "
+            f"datos para el periodo. Detalle: {exc}"
+        )
+        return False
+    return True
+
+
+def _advanced_search_section(products: dict[str, str]) -> None:
+    """Buscador avanzado: cualquier partida HS → snapshot on-demand → análisis.
+
+    El usuario escribe un código (2/4/6 dígitos) o palabras de la descripción
+    (en inglés, idioma del catálogo de Comtrade); al confirmar, se descargan
+    los datos de esa partida, se construye el snapshot y la app entera (ranking,
+    gráficas, narrativa, export) pasa a mostrarla. Con caché: repetir una
+    partida ya analizada es instantáneo.
+    """
+    with st.expander("🔎 Buscador avanzado: analiza cualquier partida arancelaria"):
+        query = st.text_input(
+            "Partida HS o palabras de la descripción (catálogo en inglés)",
+            placeholder="p. ej. 1701, 09.01 o «sugar cane»",
+            help="Niveles soportados: capítulo (2 dígitos), partida (4) y subpartida (6).",
+        )
+        if not query.strip():
+            return
+        selected: str | None = None
+        try:
+            matches = hs_codes.search_hs(query, _hs_catalog())
+        except FileNotFoundError:
+            matches = None  # sin catálogo local: se acepta el código a ciegas
+        normalized = hs_codes.normalize_hs(query)
+        if matches is not None and not matches.empty:
+            labels = dict(zip(matches[hs_codes.COL_HS], matches[hs_codes.COL_DESC], strict=True))
+            selected = st.selectbox(
+                "Coincidencias",
+                options=list(labels),
+                format_func=lambda code: f"{code} — {labels[code]}",
+            )
+        elif hs_codes.is_valid_hs(normalized):
+            selected = normalized
+            st.caption(
+                f"La partida {normalized} no aparece en el catálogo local; "
+                "se intentará consultar igual."
+            )
+        else:
+            st.info("Sin coincidencias: prueba con el código HS o términos en inglés.")
+            return
+        if selected is None:
+            return
+        already_built = selected in products
+        action = "Ver análisis" if already_built else "Descargar datos y analizar"
+        go = st.button(action, type="primary", key="advanced_search_go")
+        if go and (already_built or _build_on_demand(selected)):
+            st.session_state[_PRODUCT_SELECT_KEY] = selected
+            st.rerun()
 
 
 def _load_snapshot(hs: str) -> tuple[pd.DataFrame, dict[str, object], dict[str, object]]:
@@ -175,9 +293,11 @@ def main() -> None:
     st.title("📡 Radar de Mercados")
 
     products = _available_products()
+    _advanced_search_section(products)
     if not products:
         st.error(
-            "No hay snapshots en `data/processed/`. Genera uno con:\n\n"
+            "No hay snapshots en `data/processed/`. Usa el buscador avanzado "
+            "de arriba o genera uno con:\n\n"
             "```\npython -m tradefit.pipeline.build_snapshot\n```"
         )
         return
@@ -185,6 +305,7 @@ def main() -> None:
         "Producto",
         options=list(products),
         format_func=lambda code: products[code],
+        key=_PRODUCT_SELECT_KEY,
     )
     ranking, meta, narrative = _load_snapshot(hs)
 

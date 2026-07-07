@@ -45,6 +45,12 @@ Reglas de oro:
 - ¿Haces un cálculo económico? → va en `domain/`, es una función pura y **lleva test**.
 - `domain/` no importa `ingest/` ni `app/`. `app/` no importa `ingest/`.
 - La app no calcula ni descarga: solo lee `data/processed/` y muestra.
+- **Excepción sancionada (buscador avanzado):** la app puede invocar
+  `pipeline.ensure_snapshot(hs)` como único punto de entrada para construir
+  on-demand el snapshot de una partida que el usuario pide y aún no existe.
+  La red sigue en `ingest/`, el cálculo en `domain/` y la app luego lee el
+  snapshot como siempre; la app jamás importa `ingest/` directamente ni
+  contiene lógica de red o de cálculo.
 
 Esto es lo que hace el proyecto fácil de mejorar después: la lógica económica queda
 aislada de dónde vienen los datos y de cómo se ven.
@@ -69,9 +75,11 @@ tradefit/
 │       ├── __init__.py
 │       ├── config.py          # paths, constantes, nombres de columnas, PESOS
 │       ├── contracts.py       # esquemas de validación (pandera) de los DataFrames
+│       ├── hs_codes.py        # catálogo HS local: validar/buscar/etiquetar (SIN red)
 │       ├── ingest/            # CAPA 1 — red
 │       │   ├── worldbank.py
 │       │   ├── comtrade.py
+│       │   ├── hs_reference.py  # regenera el catálogo HS versionado
 │       │   └── wits.py
 │       ├── domain/            # CAPA 2 — puro
 │       │   ├── indices.py     # RCA, complementariedad, cuota...

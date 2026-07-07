@@ -30,11 +30,16 @@
   "origin_iso3": "COL",
   "rca_balassa": 0.2713,
   "source": "comtrade",
+  "tariff_years": [
+    2018,
+    2025
+  ],
   "weights": {
     "complementarity": 0.2,
     "import_growth": 0.2,
     "market_share": 0.15,
-    "market_size": 0.3,
-    "share_trend": 0.15
+    "market_size": 0.25,
+    "share_trend": 0.1,
+    "tariff_faced": 0.1
   }
 }

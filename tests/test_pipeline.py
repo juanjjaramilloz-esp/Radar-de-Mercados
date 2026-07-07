@@ -68,7 +68,9 @@ def test_ensure_construye_si_falta(tmp_path: Path, monkeypatch: pytest.MonkeyPat
     monkeypatch.setattr(config, "PROCESSED_DIR", tmp_path)
     built: list[str] = []
     monkeypatch.setattr(
-        pipeline, "build_snapshot", lambda source, hs: built.append(hs) or pd.DataFrame()
+        pipeline,
+        "build_snapshot",
+        lambda source, hs, on_stage=None: built.append(hs) or pd.DataFrame(),
     )
     pipeline.ensure_snapshot("1701")
     assert built == ["1701"]
@@ -77,3 +79,18 @@ def test_ensure_construye_si_falta(tmp_path: Path, monkeypatch: pytest.MonkeyPat
 def test_ensure_rechaza_partida_invalida() -> None:
     with pytest.raises(ValueError, match="Partida HS inválida"):
         pipeline.ensure_snapshot("no-es-hs")
+
+
+def test_build_reporta_etapas_en_orden(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(config, "PROCESSED_DIR", tmp_path)
+    stages: list[str] = []
+    pipeline.build_snapshot(source="stub", hs=config.HS_CODE, on_stage=stages.append)
+    assert stages[0] == "Insumos locales de ejemplo (stub, sin red)"
+    assert stages[-2] == "Calculando índices, estabilidad macro y ranking"
+    assert stages[-1] == "Escribiendo el snapshot"
+
+
+def test_build_sin_callback_no_falla(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(config, "PROCESSED_DIR", tmp_path)
+    ranking = pipeline.build_snapshot(source="stub", hs=config.HS_CODE)
+    assert not ranking.empty

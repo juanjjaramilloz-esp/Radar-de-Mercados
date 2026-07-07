@@ -9,6 +9,7 @@ escribe timestamps ni ningún otro valor no determinístico).
 import argparse
 import json
 import logging
+from collections.abc import Callable
 
 import pandas as pd
 from dotenv import load_dotenv
@@ -24,6 +25,16 @@ from tradefit.ingest import comtrade, stub, worldbank
 logger = logging.getLogger(__name__)
 
 SOURCES = ("comtrade", "stub")
+
+#: Callback opcional de progreso: recibe la descripción de la etapa que inicia.
+OnStage = Callable[[str], None] | None
+
+
+def _notify(on_stage: OnStage, stage: str) -> None:
+    """Avisa el inicio de una etapa al callback (si hay) y al log."""
+    logger.info("%s", stage)
+    if on_stage is not None:
+        on_stage(stage)
 
 
 def _rca_from_totals(export_totals: pd.DataFrame) -> float:
@@ -65,19 +76,27 @@ def _rca_from_totals(export_totals: pd.DataFrame) -> float:
     )
 
 
-def _load_inputs(source: str, hs: str) -> tuple[MarketInputs, pd.DataFrame]:
+def _load_inputs(
+    source: str, hs: str, on_stage: OnStage = None
+) -> tuple[MarketInputs, pd.DataFrame]:
     """Carga y valida los insumos del ranking + macro desde la fuente elegida.
 
     El macro real viene de WDI (sin key) aunque el comercio venga de Comtrade;
     con ``source="stub"`` todo sale de ``data/sample/`` (cero red).
     """
     if source == "comtrade":
+        _notify(on_stage, "Importaciones del producto por destino (UN Comtrade)")
         imports = comtrade.load_comtrade_imports(hs)
+        _notify(on_stage, "Flujo bilateral desde el origen")
         bilateral = comtrade.load_bilateral_imports(hs)
+        _notify(on_stage, "Canastas exportadora e importadora (complementariedad)")
         baskets = comtrade.load_baskets()
+        _notify(on_stage, "Totales de exportación para el RCA")
         export_totals = comtrade.load_export_totals(hs)
+        _notify(on_stage, "Indicadores macro (World Bank WDI)")
         macro = worldbank.load_wdi_macro()
     else:
+        _notify(on_stage, "Insumos locales de ejemplo (stub, sin red)")
         imports = stub.load_stub_imports()
         bilateral = stub.load_stub_bilateral()
         baskets = stub.load_stub_baskets()
@@ -92,7 +111,9 @@ def _load_inputs(source: str, hs: str) -> tuple[MarketInputs, pd.DataFrame]:
     return data, macro
 
 
-def build_snapshot(source: str = "comtrade", hs: str = config.HS_CODE) -> pd.DataFrame:
+def build_snapshot(
+    source: str = "comtrade", hs: str = config.HS_CODE, on_stage: OnStage = None
+) -> pd.DataFrame:
     """Construye y escribe el snapshot de un producto; devuelve el ranking.
 
     Args:
@@ -101,6 +122,9 @@ def build_snapshot(source: str = "comtrade", hs: str = config.HS_CODE) -> pd.Dat
             el producto por defecto).
         hs: partida HS del producto (2, 4 o 6 dígitos; cualquier código
             válido, no solo los curados de ``config.PRODUCTS``).
+        on_stage: callback opcional de progreso; recibe la descripción de
+            cada etapa cuando esta inicia (lo usa la app para pintar el
+            avance — el pipeline sigue sin conocer Streamlit).
 
     Returns:
         DataFrame conforme a ``ranking_schema``, ya persistido en
@@ -118,7 +142,7 @@ def build_snapshot(source: str = "comtrade", hs: str = config.HS_CODE) -> pd.Dat
         raise ValueError(f"Partida HS inválida: {hs!r}; se esperan 2, 4 o 6 dígitos")
     if source == "stub" and hs != config.HS_CODE:
         raise ValueError(f"El stub solo tiene datos del producto {config.HS_CODE}")
-    data, macro = _load_inputs(source, hs)
+    data, macro = _load_inputs(source, hs, on_stage)
     imports = data.imports
     logger.info(
         "Insumos cargados: %d filas de importaciones, %d mercados, RCA=%.2f",
@@ -127,11 +151,13 @@ def build_snapshot(source: str = "comtrade", hs: str = config.HS_CODE) -> pd.Dat
         data.rca,
     )
 
+    _notify(on_stage, "Calculando índices, estabilidad macro y ranking")
     ranking = rank_markets(data, config.WEIGHTS)
     stability = stability_score(macro, config.MACRO_BOUNDS)
     ranking = apply_stability_penalty(ranking, stability, config.MACRO_FLOOR)
     validated: pd.DataFrame = ranking_schema.validate(ranking)
 
+    _notify(on_stage, "Escribiendo el snapshot")
     config.processed_dir(hs).mkdir(parents=True, exist_ok=True)
     validated.to_parquet(config.ranking_parquet(hs), index=False)
     imports.to_parquet(config.imports_timeseries_parquet(hs), index=False)
@@ -167,7 +193,7 @@ def build_snapshot(source: str = "comtrade", hs: str = config.HS_CODE) -> pd.Dat
     return validated
 
 
-def ensure_snapshot(hs: str, source: str = "comtrade") -> str:
+def ensure_snapshot(hs: str, source: str = "comtrade", on_stage: OnStage = None) -> str:
     """Garantiza que exista el snapshot de una partida; lo construye si falta.
 
     Punto de entrada para la construcción on-demand (p. ej. el buscador de la
@@ -178,6 +204,7 @@ def ensure_snapshot(hs: str, source: str = "comtrade") -> str:
     Args:
         hs: partida HS (2, 4 o 6 dígitos; se normaliza).
         source: fuente de datos (ver :func:`build_snapshot`).
+        on_stage: callback opcional de progreso (ver :func:`build_snapshot`).
 
     Returns:
         La partida normalizada cuyo snapshot quedó disponible.
@@ -193,7 +220,7 @@ def ensure_snapshot(hs: str, source: str = "comtrade") -> str:
     if config.ranking_parquet(hs).exists() and config.snapshot_meta_json(hs).exists():
         logger.info("Snapshot de %s ya existe; no se reconstruye", hs)
         return hs
-    build_snapshot(source=source, hs=hs)
+    build_snapshot(source=source, hs=hs, on_stage=on_stage)
     return hs
 
 

@@ -126,22 +126,24 @@ def _build_on_demand(hs: str) -> bool:
             "Sin `COMTRADE_API_KEY` configurada el análisis usa el preview "
             "público de Comtrade y puede fallar por su tope de registros."
         )
+    status = st.status(
+        f"Construyendo el análisis de la partida {hs} (puede tardar un minuto)…",
+        expanded=True,
+    )
     try:
-        with st.spinner(
-            f"Descargando datos de UN Comtrade para la partida {hs} "
-            "(≈12 consultas; puede tardar un minuto)…"
-        ):
-            ensure_snapshot(hs)
+        ensure_snapshot(hs, on_stage=lambda stage: status.write(f"▸ {stage}…"))
     except ValueError as exc:
-        st.error(f"Partida inválida: {exc}")
+        status.update(label=f"Partida inválida: {exc}", state="error")
         return False
     except Exception as exc:  # noqa: BLE001 — presentación: degradar con gracia
+        status.update(label=f"No se pudo construir el análisis de {hs}", state="error")
         st.error(
             f"No se pudo construir el análisis de la partida {hs}. "
             f"Puede que no exista en la nomenclatura o que la fuente no tenga "
             f"datos para el periodo. Detalle: {exc}"
         )
         return False
+    status.update(label=f"Análisis de la partida {hs} listo ✅", state="complete", expanded=False)
     return True
 
 

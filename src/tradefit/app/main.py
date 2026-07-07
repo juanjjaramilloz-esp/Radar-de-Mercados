@@ -303,6 +303,56 @@ cachean en `data/raw/` y el snapshot es reproducible (mismo input → mismo outp
         )
 
 
+def _usd_compact(value: float) -> str:
+    """Monto USD legible: millones o miles de millones según magnitud."""
+    if value >= 1e9:
+        return f"USD {value / 1e9:,.1f} B/año"
+    return f"USD {value / 1e6:,.0f} M/año"
+
+
+def _kpi_row(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
+    """Resumen ejecutivo de una mirada: agregaciones del ranking ya calculado.
+
+    Solo agrega columnas presentes en el snapshot (presentación, no cálculo
+    económico nuevo): demanda total, CAGR y cuota ponderados por tamaño de
+    mercado, y el RCA que el pipeline dejó en ``meta``.
+    """
+    total = float(ranking[config.COL_MARKET_SIZE].sum())
+    if total <= 0:
+        return
+    weights = ranking[config.COL_MARKET_SIZE] / total
+    growth = float((ranking[config.COL_GROWTH] * weights).sum())
+    share = float((ranking[config.COL_SHARE] * weights).sum())
+    col_demand, col_growth, col_share, col_rca = st.columns(4)
+    col_demand.metric(
+        "Demanda analizada",
+        _usd_compact(total),
+        delta=f"{len(ranking)} mercados destino",
+        delta_color="off",
+    )
+    col_growth.metric(
+        "Crecimiento de la demanda",
+        f"{growth:+.1%}",
+        delta="CAGR ponderado por tamaño",
+        delta_color="off",
+    )
+    col_share.metric(
+        "Cuota agregada del origen",
+        f"{share:.1%}",
+        delta="de la demanda analizada",
+        delta_color="off",
+    )
+    rca = meta.get("rca_balassa")
+    if rca is not None:
+        rca_value = float(str(rca))
+        col_rca.metric(
+            "RCA del origen",
+            f"{rca_value:.1f}",
+            delta="ventaja revelada" if rca_value > 1 else "sin ventaja revelada",
+            delta_color="off",
+        )
+
+
 def _top3_cards(ranking: pd.DataFrame) -> None:
     """Tarjetas del podio: los 3 mercados con mejor score final."""
     top3 = ranking.nsmallest(3, config.COL_RANK)
@@ -350,6 +400,7 @@ def main() -> None:
         f"{meta['n_markets']} mercados{rca_text}"
     )
 
+    _kpi_row(ranking, meta)
     _methodology_section(meta)
     _top3_cards(ranking)
     _recommendations_section(narrative)

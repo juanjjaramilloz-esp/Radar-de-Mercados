@@ -17,6 +17,7 @@ dependencies = [
     "requests==2.32.5",
     "openpyxl==3.1.5",
     "reportlab==5.0.0",
+    "plotly==6.8.0",
 ]
 
 [project.optional-dependencies]
@@ -58,7 +59,7 @@ warn_return_any = true
 warn_unused_ignores = true
 
 [[tool.mypy.overrides]]
-module = ["streamlit.*", "pandera.*", "pyarrow.*", "openpyxl.*", "reportlab.*"]
+module = ["streamlit.*", "pandera.*", "pyarrow.*", "openpyxl.*", "reportlab.*", "plotly.*"]
 ignore_missing_imports = true
 
 [tool.pytest.ini_options]

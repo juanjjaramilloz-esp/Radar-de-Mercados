@@ -12,6 +12,7 @@ import json
 import os
 
 import pandas as pd
+import plotly.express as px
 import streamlit as st
 from dotenv import load_dotenv
 
@@ -340,6 +341,57 @@ cachean en `data/raw/` y el snapshot es reproducible (mismo input → mismo outp
         )
 
 
+def _map_tab(ranking: pd.DataFrame) -> None:
+    """Choropleth del score final por destino (plotly acepta ISO3 directo).
+
+    Presentación pura: pinta columnas ya presentes en el ranking; el color es
+    el score final y el hover trae las métricas que lo explican.
+    """
+    st.caption(
+        "Score final por mercado destino: más oscuro = mejor oportunidad "
+        "ajustada por estabilidad. Pasa el cursor para ver las métricas."
+    )
+    fig = px.choropleth(
+        ranking,
+        locations=config.COL_COUNTRY,
+        color=config.COL_FINAL_SCORE,
+        hover_name=config.COL_COUNTRY_NAME,
+        hover_data={
+            config.COL_COUNTRY: False,
+            config.COL_FINAL_SCORE: ":.3f",
+            config.COL_MARKET_SIZE: ":,.0f",
+            config.COL_GROWTH: ":.1%",
+            config.COL_SHARE: ":.1%",
+            config.COL_STABILITY: ":.2f",
+        },
+        labels={
+            config.COL_FINAL_SCORE: "Score final",
+            config.COL_MARKET_SIZE: "Importaciones (USD/año)",
+            config.COL_GROWTH: "Crecimiento (CAGR)",
+            config.COL_SHARE: "Cuota del origen",
+            config.COL_STABILITY: "Estabilidad macro",
+        },
+        color_continuous_scale="Blues",
+        projection="natural earth",
+    )
+    fig.update_traces(marker_line_color="#FFFFFF", marker_line_width=0.6)
+    fig.update_layout(
+        margin={"l": 0, "r": 0, "t": 0, "b": 0},
+        height=480,
+        coloraxis_colorbar={"title": "Score final"},
+        geo={
+            "bgcolor": "rgba(0,0,0,0)",
+            "showframe": False,
+            "showland": True,
+            "landcolor": "#E2E8F0",
+            "showcountries": True,
+            "countrycolor": "#FFFFFF",
+            "coastlinecolor": "#CBD5E1",
+        },
+    )
+    st.plotly_chart(fig, use_container_width=True)
+
+
 def _usd_compact(value: float) -> str:
     """Monto USD legible: millones o miles de millones según magnitud."""
     if value >= 1e9:
@@ -513,11 +565,13 @@ def main() -> None:
         )
 
     timeseries = _load_imports_timeseries(hs)
-    tab_labels = ["Oportunidad vs. score final", "Tamaño de mercado"]
+    tab_labels = ["🗺️ Mapa", "Oportunidad vs. score final", "Tamaño de mercado"]
     if timeseries is not None:
         tab_labels.append("Evolución del mercado")
     tabs = st.tabs(tab_labels)
-    tab_scores, tab_size = tabs[0], tabs[1]
+    tab_map, tab_scores, tab_size = tabs[0], tabs[1], tabs[2]
+    with tab_map:
+        _map_tab(ranking)
     with tab_scores:
         st.caption(
             "La distancia entre las barras es la penalización macro: donde el score "
@@ -543,7 +597,7 @@ def main() -> None:
         st.bar_chart(size_chart, horizontal=True, color=["#93C5FD", "#1D4ED8"])
 
     if timeseries is not None:
-        with tabs[2]:
+        with tabs[3]:
             names = ranking.set_index(config.COL_COUNTRY)[config.COL_COUNTRY_NAME]
             default_markets = list(ranking.nsmallest(5, config.COL_RANK)[config.COL_COUNTRY_NAME])
             selected_names = st.multiselect(

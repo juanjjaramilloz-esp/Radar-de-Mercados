@@ -17,6 +17,7 @@ from dotenv import load_dotenv
 
 from tradefit import config, hs_codes
 from tradefit.app.export import ranking_to_excel, ranking_to_pdf
+from tradefit.app.flags import flag_emoji
 from tradefit.pipeline.build_snapshot import ensure_snapshot
 
 _PRODUCT_SELECT_KEY = "product_select"
@@ -224,7 +225,7 @@ def _market_detail_section(ranking: pd.DataFrame, narrative: dict[str, object]) 
     selected = st.selectbox(
         "Mercado",
         options=list(ranking[config.COL_COUNTRY]),
-        format_func=lambda iso3: f"{names.get(iso3, iso3)} ({iso3})",
+        format_func=lambda iso3: f"{flag_emoji(iso3)} {names.get(iso3, iso3)} ({iso3})".strip(),
     )
     for sentence in markets.get(selected, []):
         st.markdown(f"- {sentence}")
@@ -308,8 +309,9 @@ def _top3_cards(ranking: pd.DataFrame) -> None:
     medals = ["🥇", "🥈", "🥉"]
     for column, (_, row), medal in zip(st.columns(3), top3.iterrows(), medals, strict=False):
         with column:
+            flag = flag_emoji(row[config.COL_COUNTRY])
             st.metric(
-                label=f"{medal} {row[config.COL_COUNTRY_NAME]}",
+                label=f"{medal} {flag} {row[config.COL_COUNTRY_NAME]}".replace("  ", " "),
                 value=f"{row[config.COL_FINAL_SCORE]:.3f}",
                 delta=f"estabilidad {row[config.COL_STABILITY]:.2f}",
                 delta_color="off",
@@ -341,8 +343,9 @@ def main() -> None:
 
     rca = meta.get("rca_balassa")
     rca_text = f" · RCA del origen en el producto: **{rca}**" if rca is not None else ""
+    origin_flag = flag_emoji(str(meta["origin_iso3"]))
     st.caption(
-        f"Producto: **{meta['hs_label']}** · Origen: **{meta['origin_iso3']}** · "
+        f"Producto: **{meta['hs_label']}** · Origen: **{origin_flag} {meta['origin_iso3']}** · "
         f"Fuente: {meta['source']} · Datos {meta['data_year_min']}–{meta['data_year_max']} · "
         f"{meta['n_markets']} mercados{rca_text}"
     )
@@ -357,8 +360,13 @@ def main() -> None:
         f"(piso {meta.get('macro_floor', '—')}; indicadores WDI: inflación, "
         "crecimiento del PIB y cuenta corriente)."
     )
-    display = ranking.drop(columns=[config.COL_RCA]).assign(
-        **{config.COL_MARKET_SIZE: ranking[config.COL_MARKET_SIZE].round().astype("int64")}
+    flagged_names = (
+        ranking[config.COL_COUNTRY].map(flag_emoji) + " " + ranking[config.COL_COUNTRY_NAME]
+    ).str.strip()
+    display = (
+        ranking.drop(columns=[config.COL_RCA])
+        .assign(**{config.COL_MARKET_SIZE: ranking[config.COL_MARKET_SIZE].round().astype("int64")})
+        .assign(**{config.COL_COUNTRY_NAME: flagged_names})
     )
     st.dataframe(
         display,

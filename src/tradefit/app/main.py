@@ -236,7 +236,8 @@ def _recommendations_section(narrative: dict[str, object]) -> None:
         reasons = " · ".join(rec["reasons"]) if rec["reasons"] else ""
         name = i18n.country_name(str(rec["iso3"]), str(rec["name"]))
         score_label = t("col_score_final").lower()
-        st.markdown(f"**{i}. {name}** ({score_label} {rec['final_score']:.3f}) — {reasons}")
+        score = i18n.fmt_number(float(rec["final_score"]), 3)
+        st.markdown(f"**{i}. {name}** ({score_label} {score}) — {reasons}")
 
 
 def _market_detail_section(ranking: pd.DataFrame, narrative: dict[str, object]) -> None:
@@ -289,11 +290,12 @@ def _comparator_section(products: dict[str, str]) -> None:
             label = i18n.product_label(code, str(meta["hs_label"]))
             st.markdown(f"**{label}**")
             demand = float(ranking[config.COL_MARKET_SIZE].sum())
+            rca = meta.get("rca_balassa")
             st.caption(
                 t(
                     "comparator_rca_demand",
-                    rca=meta.get("rca_balassa", "—"),
-                    demand=_usd_compact(demand),
+                    rca=i18n.fmt_number(float(str(rca)), 1) if rca is not None else "—",
+                    demand=i18n.fmt_usd_compact(demand),
                 )
             )
             top5 = ranking.nsmallest(5, config.COL_RANK)
@@ -302,7 +304,7 @@ def _comparator_section(products: dict[str, str]) -> None:
                     f"{int(row[config.COL_RANK])}. "
                     f"{flag_emoji(row[config.COL_COUNTRY])} "
                     f"{row[config.COL_COUNTRY_NAME]} — "
-                    f"**{row[config.COL_FINAL_SCORE]:.3f}**"
+                    f"**{i18n.fmt_number(row[config.COL_FINAL_SCORE], 3)}**"
                 )
 
 
@@ -411,6 +413,7 @@ def _map_tab(ranking: pd.DataFrame) -> None:
     )
     fig.update_traces(marker_line_color="#FFFFFF", marker_line_width=0.6)
     fig.update_layout(
+        separators=i18n.active_plotly_separators(),
         margin={"l": 0, "r": 0, "t": 0, "b": 0},
         height=480,
         coloraxis_colorbar={"title": t("map_label_final_score")},
@@ -425,13 +428,6 @@ def _map_tab(ranking: pd.DataFrame) -> None:
         },
     )
     st.plotly_chart(fig, use_container_width=True)
-
-
-def _usd_compact(value: float) -> str:
-    """Monto USD legible: millones o miles de millones según magnitud."""
-    if value >= 1e9:
-        return t("usd_billion", value=f"{value / 1e9:,.1f}")
-    return t("usd_million", value=f"{value / 1e6:,.0f}")
 
 
 def _kpi_row(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
@@ -450,19 +446,19 @@ def _kpi_row(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
     col_demand, col_growth, col_share, col_rca = st.columns(4)
     col_demand.metric(
         t("kpi_demand_label"),
-        _usd_compact(total),
+        i18n.fmt_usd_compact(total),
         delta=t("kpi_demand_delta", n=len(ranking)),
         delta_color="off",
     )
     col_growth.metric(
         t("kpi_growth_label"),
-        f"{growth:+.1%}",
+        i18n.fmt_pct(growth, signed=True),
         delta=t("kpi_growth_delta"),
         delta_color="off",
     )
     col_share.metric(
         t("kpi_share_label"),
-        f"{share:.1%}",
+        i18n.fmt_pct(share),
         delta=t("kpi_share_delta"),
         delta_color="off",
     )
@@ -471,7 +467,7 @@ def _kpi_row(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
         rca_value = float(str(rca))
         col_rca.metric(
             t("kpi_rca_label"),
-            f"{rca_value:.1f}",
+            i18n.fmt_number(rca_value, 1),
             delta=t("kpi_rca_delta_yes") if rca_value > 1 else t("kpi_rca_delta_no"),
             delta_color="off",
         )
@@ -486,8 +482,11 @@ def _top3_cards(ranking: pd.DataFrame) -> None:
             flag = flag_emoji(row[config.COL_COUNTRY])
             st.metric(
                 label=f"{medal} {flag} {row[config.COL_COUNTRY_NAME]}".replace("  ", " "),
-                value=f"{row[config.COL_FINAL_SCORE]:.3f}",
-                delta=t("top3_stability_delta", value=f"{row[config.COL_STABILITY]:.2f}"),
+                value=i18n.fmt_number(row[config.COL_FINAL_SCORE], 3),
+                delta=t(
+                    "top3_stability_delta",
+                    value=i18n.fmt_number(row[config.COL_STABILITY], 2),
+                ),
                 delta_color="off",
             )
 

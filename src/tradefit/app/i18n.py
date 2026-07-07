@@ -9,13 +9,12 @@ implicaría un narrador en inglés y reconstruir cada snapshot, fuera del
 alcance de este toggle.
 """
 
-from typing import Final, Literal
+from typing import Final
 
 import streamlit as st
 
 from tradefit import config
-
-Lang = Literal["es", "en"]
+from tradefit.app.format import Lang, format_number, format_pct, plotly_separators
 
 _LANG_KEY: Final = "app_lang"
 _DEFAULT_LANG: Final[Lang] = "es"
@@ -42,6 +41,28 @@ def t(key: str, **kwargs: object) -> str:
     """Texto de ``key`` en el idioma activo; formatea con ``kwargs`` si se pasan."""
     text = _STRINGS[key][get_language()]
     return text.format(**kwargs) if kwargs else text
+
+
+def fmt_number(value: float, decimals: int = 0, signed: bool = False) -> str:
+    """Número formateado en el idioma activo (es → ``1.234,5``; en → ``1,234.5``)."""
+    return format_number(value, decimals, get_language(), signed)
+
+
+def fmt_pct(fraction: float, decimals: int = 1, signed: bool = False) -> str:
+    """Fracción como porcentaje en el idioma activo (``0.202 → "20,2 %"`` en español)."""
+    return format_pct(fraction, decimals, get_language(), signed)
+
+
+def fmt_usd_compact(value: float) -> str:
+    """Monto USD legible en el idioma activo: millones o miles de millones."""
+    if value >= 1e9:
+        return t("usd_billion", value=fmt_number(value / 1e9, 1))
+    return t("usd_million", value=fmt_number(value / 1e6, 0))
+
+
+def active_plotly_separators() -> str:
+    """Cadena ``separators`` de Plotly (decimal + miles) para el idioma activo."""
+    return plotly_separators(get_language())
 
 
 def product_label(hs: str, fallback: str) -> str:

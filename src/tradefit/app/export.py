@@ -19,6 +19,7 @@ from reportlab.lib.units import cm
 from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
 from tradefit import config
+from tradefit.app.format import format_number, format_pct
 
 #: Etiquetas de columna para los exports (subconjunto legible del ranking).
 EXPORT_COLUMNS: dict[str, str] = {
@@ -103,9 +104,8 @@ def ranking_to_excel(
         notes["A3"].font = Font(bold=True, size=12)
         for i, rec in enumerate(recommendations, start=1):
             reasons = "; ".join(rec.get("reasons", []))
-            notes.append(
-                [f"{i}. {rec.get('name')} (score final {rec.get('final_score')}): {reasons}"]
-            )
+            score = format_number(float(rec.get("final_score", 0.0)), 3)
+            notes.append([f"{i}. {rec.get('name')} (score final {score}): {reasons}"])
         notes.append([])
     markets = narrative.get("markets") or {}
     names = ranking.set_index(config.COL_COUNTRY)[config.COL_COUNTRY_NAME]
@@ -155,10 +155,10 @@ def ranking_to_pdf(ranking: pd.DataFrame, meta: dict[str, Any], narrative: dict[
         story.append(Paragraph("Recomendación: dónde enfocarse", h2))
         for i, rec in enumerate(recommendations, start=1):
             reasons = "; ".join(rec.get("reasons", []))
+            score = format_number(float(rec.get("final_score", 0.0)), 3)
             story.append(
                 Paragraph(
-                    f"<b>{i}. {rec.get('name')}</b> (score final {rec.get('final_score')}): "
-                    f"{reasons}",
+                    f"<b>{i}. {rec.get('name')}</b> (score final {score}): {reasons}",
                     body,
                 )
             )
@@ -173,11 +173,11 @@ def ranking_to_pdf(ranking: pd.DataFrame, meta: dict[str, Any], narrative: dict[
             [
                 str(int(row[config.COL_RANK])),
                 str(row[config.COL_COUNTRY_NAME]),
-                f"{row[config.COL_MARKET_SIZE] / 1e6:,.0f}",
-                "s/d" if pd.isna(growth) else f"{growth * 100:.1f} %",
-                f"{row[config.COL_SHARE] * 100:.1f} %",
-                f"{row[config.COL_STABILITY]:.2f}",
-                f"{row[config.COL_FINAL_SCORE]:.3f}",
+                format_number(row[config.COL_MARKET_SIZE] / 1e6),
+                "s/d" if pd.isna(growth) else format_pct(float(growth)),
+                format_pct(float(row[config.COL_SHARE])),
+                format_number(float(row[config.COL_STABILITY]), 2),
+                format_number(float(row[config.COL_FINAL_SCORE]), 3),
             ]
         )
     table = Table(rows, repeatRows=1)

@@ -27,8 +27,13 @@ creativas post-MVP acordadas en CLAUDE.md).
   `--refresh-narrative` para regenerar `narrative.json` sin red.
 - [x] Gráfica «Evolución del mercado» con Plotly: años enteros, hover
   unificado, referencia 100, absolutos en millones de USD.
-- [ ] **Aranceles (WITS)** como métrica del motor — siguiente candidato del
-  backbone; ver Backlog. Se consulta antes de empezar (API frágil).
+- [x] **Aranceles (WITS)** como métrica del motor (2026-07-07):
+  `ingest/wits.py` (dataflow SDMX `DF_WITS_Tariff_TRAINS`: MFN + preferencial
+  hacia Colombia por HS6, caché en `data/raw/`, tests con XML reales
+  guardados) + `domain/indices.tariff_faced` (AHS: mín(MFN, PREF) por
+  subpartida, promedio simple; invertido en el scoring; sin dato → aporte
+  neutro 0.5) + `WEIGHTS` rebalanceados: 0.10 al arancel (−5 pp tamaño de
+  mercado, −5 pp momentum de cuota), justificado en `config.py`.
 
 ## Fase 1 — Esqueleto caminante (end-to-end mínimo)
 
@@ -113,10 +118,7 @@ ninguna afirmación sin número; verde + commit.
 
 ## Backlog (fuera del MVP)
 
-- Aranceles (WITS) como métrica adicional del motor de oportunidad:
-  `ingest/wits.py` (arancel efectivamente aplicado que enfrenta Colombia en
-  cada destino, caché en `data/raw/`, tests con respuestas guardadas) +
-  `domain/indices.tariff_faced` (docstring con cita, test a mano, normalizado
-  invertido: menos arancel = mejor) + rebalanceo documentado de `WEIGHTS`.
-- Selección libre de producto HS en la app (el origen queda fijo: Colombia).
+- ~~Aranceles (WITS)~~ — hecho 2026-07-07 (ver Post-MVP).
+- ~~Selección libre de producto HS en la app~~ — hecho (buscador avanzado;
+  el origen queda fijo: Colombia).
 - IMF SDMX como fuente macro complementaria (frágil; solo si WDI no cubre algo).

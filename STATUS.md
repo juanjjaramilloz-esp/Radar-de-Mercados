@@ -27,8 +27,14 @@ contrato, app Streamlit que solo lee el snapshot.
   bilateral vacío = cuota 0 (no error) y origen sin exportaciones del
   producto = RCA 0. En el cloud la key llega por `st.secrets` (puente en la
   app hacia la variable de entorno).
-- **En curso:** backlog (aranceles WITS, selección libre de origen) + mejoras
-  de buen costo/beneficio sin preguntar.
+- **Aranceles WITS (2026-07-07):** métrica `tariff_faced` — arancel
+  efectivamente aplicado a Colombia (AHS: mín(MFN, preferencial) por HS6,
+  promedio simple), invertida en el scoring (menos = mejor), peso 0.10 en
+  `WEIGHTS` rebalanceados. Sin dato de WITS → aporte neutro 0.5 (mismo
+  criterio que el macro). Con datos reales: el café entra libre en 17
+  destinos y Japón cobra 6 % (sin acuerdo → MFN); banano: Japón 12,75 %.
+- **En curso:** backlog (IMF SDMX como macro complementaria) + mejoras de
+  buen costo/beneficio sin preguntar.
 - **Web:** repo público https://github.com/juanjosejaramillozarate-png/radar-de-mercados;
   deploy en Streamlit Community Cloud (entry point `streamlit_app.py`, snapshot
   de ejemplo versionado). `git push` está denegado para Claude Code: los push
@@ -48,11 +54,13 @@ contrato, app Streamlit que solo lee el snapshot.
 - **`COMTRADE_API_KEY` ya configurada en `.env`:** endpoint autenticado
   activo, cachés re-descargados completos (canastas: 1841 filas).
 - **Métricas vivas:** `market_size`, `import_growth` (CAGR), `market_share`,
-  `share_trend`, `complementarity` (Michaely); RCA de Balassa como columna de
-  contexto (constante entre destinos, no pondera). Pesos en `config.WEIGHTS`.
-- **Datos:** reales, cacheados en `data/raw/` (5 JSONs: imports, bilateral
-  COL, canastas HS2, totales de exportación, macro WDI; 2022–2024, 18
-  mercados). Snapshot real: RCA de Colombia en café = 35.66 (2024).
+  `share_trend`, `complementarity` (Michaely), `tariff_faced` (AHS de WITS,
+  invertida); RCA de Balassa como columna de contexto (constante entre
+  destinos, no pondera). Pesos en `config.WEIGHTS`.
+- **Datos:** reales, cacheados en `data/raw/` (por producto: imports,
+  bilateral COL, totales de exportación y aranceles WITS; compartidos:
+  canastas HS2 y macro WDI; 2022–2024, 18 mercados). Snapshot real: RCA de
+  Colombia en café = 35.66 (2024).
 
 ## Cómo correr (Windows)
 
@@ -89,10 +97,19 @@ pytest ; ruff check . ; mypy src                # puerta de calidad
   usar `py` o activar `.venv`. Los hooks de pre-commit son `language: system`
   → necesitan `.venv\Scripts` en el PATH al commitear.
 - El snapshot es idempotente a propósito: `meta.json` no lleva timestamps.
+- 2026-07-07 · WITS TRAINS: el endpoint SDMX solo acepta subpartidas **HS6**
+  (una partida se expande con `hs_codes.hs6_children`), los códigos de país
+  van a **3 dígitos** ("036") y son ISO numéricos (Suiza 756, no el 757 de
+  Comtrade); la UE reporta como bloque (**918**) — una consulta cubre a los
+  11 destinos comunitarios. `format=JSON` se ignora: la respuesta es XML
+  SDMX GenericData. Aranceles específicos sin equivalente ad-valorem llegan
+  como ObsValue `"NaN"` (azúcar en Canadá) → observación descartada.
+- 2026-07-07 · Arancel sin dato = **NaN → aporte neutro 0.5** en el scoring
+  (no 0): que WITS no publique el arancel no es evidencia de arancel alto —
+  mismo criterio que la estabilidad macro neutra.
 
 ## Pendientes conocidos
 
-- `git push` pendiente del usuario (regla de permisos): fix de requirements
-  para el cloud + export F6.
-- Backlog: aranceles (WITS), selección libre de producto HS/origen en la app,
-  IMF SDMX como macro complementaria.
+- `git push` pendiente del usuario (regla de permisos): idioma ES/EN,
+  narrativa personalizada, gráfica Plotly y la métrica de aranceles WITS.
+- Backlog: IMF SDMX como macro complementaria.

@@ -1,0 +1,40 @@
+{
+  "basket_year": 2024,
+  "data_year_max": 2025,
+  "data_year_min": 2023,
+  "hs_code": "8802",
+  "hs_label": "Aircraft n.e.c. in heading no. 8801, except unmanned aircraft of heading 8806, (e.g. helicopters, aeroplanes); spacecraft (including satellites) and suborbital and spacecraft launch vehicles (HS 8802)",
+  "macro_bounds": {
+    "current_account": [
+      -5.0,
+      0.0
+    ],
+    "gdp_growth": [
+      -2.0,
+      3.0
+    ],
+    "inflation": [
+      15.0,
+      2.0
+    ]
+  },
+  "macro_floor": 0.5,
+  "macro_indicators": {
+    "BN.CAB.XOKA.GD.ZS": "current_account",
+    "FP.CPI.TOTL.ZG": "inflation",
+    "NY.GDP.MKTP.KD.ZG": "gdp_growth"
+  },
+  "macro_years": 3,
+  "market_size_years": 3,
+  "n_markets": 18,
+  "origin_iso3": "COL",
+  "rca_balassa": 0.2713,
+  "source": "comtrade",
+  "weights": {
+    "complementarity": 0.2,
+    "import_growth": 0.2,
+    "market_share": 0.15,
+    "market_size": 0.3,
+    "share_trend": 0.15
+  }
+}

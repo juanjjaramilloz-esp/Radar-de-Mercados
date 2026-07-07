@@ -1,0 +1,159 @@
+{
+  "markets": {
+    "AUS": [
+      "Importa USD 1.269 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda se contrae al 14.1 % anual (CAGR).",
+      "El origen no registra ventas del producto en este destino (cuota 0 %).",
+      "La canasta exportadora del origen encaja 0.40 (escala 0–1) con la demanda importadora del destino.",
+      "Estabilidad macro 0.77: el filtro deja el score en 0.427 (bruto 0.483)."
+    ],
+    "AUT": [
+      "Importa USD 624 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda se contrae al 31.1 % anual (CAGR).",
+      "El origen no registra ventas del producto en este destino (cuota 0 %).",
+      "La canasta exportadora del origen encaja 0.37 (escala 0–1) con la demanda importadora del destino.",
+      "Estabilidad macro 0.71: el filtro deja el score en 0.350 (bruto 0.409)."
+    ],
+    "BEL": [
+      "Importa USD 383 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda crece al 6.4 % anual (CAGR).",
+      "El origen no registra ventas del producto en este destino (cuota 0 %).",
+      "La canasta exportadora del origen encaja 0.45 (escala 0–1) con la demanda importadora del destino.",
+      "Estabilidad macro 0.80: el filtro deja el score en 0.505 (bruto 0.560)."
+    ],
+    "CAN": [
+      "Importa USD 3.046 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda se contrae al 18.2 % anual (CAGR).",
+      "El origen no registra ventas del producto en este destino (cuota 0 %).",
+      "La canasta exportadora del origen encaja 0.37 (escala 0–1) con la demanda importadora del destino.",
+      "Estabilidad macro 0.86: el filtro deja el score en 0.445 (bruto 0.479)."
+    ],
+    "CHE": [
+      "Importa USD 1.210 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda crece al 9.0 % anual (CAGR).",
+      "El origen no registra ventas del producto en este destino (cuota 0 %).",
+      "La canasta exportadora del origen encaja 0.32 (escala 0–1) con la demanda importadora del destino.",
+      "Estabilidad macro 0.88: el filtro deja el score en 0.398 (bruto 0.424)."
+    ],
+    "DEU": [
+      "Importa USD 5.495 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda crece al 19.7 % anual (CAGR).",
+      "El origen no registra ventas del producto en este destino (cuota 0 %).",
+      "La canasta exportadora del origen encaja 0.37 (escala 0–1) con la demanda importadora del destino.",
+      "Estabilidad macro 0.74: el filtro deja el score en 0.503 (bruto 0.580)."
+    ],
+    "ESP": [
+      "Importa USD 1.723 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda crece al 4.9 % anual (CAGR).",
+      "El origen no registra ventas del producto en este destino (cuota 0 %).",
+      "La canasta exportadora del origen encaja 0.42 (escala 0–1) con la demanda importadora del destino.",
+      "Estabilidad macro 0.97: el filtro deja el score en 0.541 (bruto 0.549)."
+    ],
+    "FIN": [
+      "Importa USD 209 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda se contrae al 60.2 % anual (CAGR).",
+      "El origen no registra ventas del producto en este destino (cuota 0 %).",
+      "La canasta exportadora del origen encaja 0.40 (escala 0–1) con la demanda importadora del destino.",
+      "Estabilidad macro 0.76: el filtro deja el score en 0.351 (bruto 0.398)."
+    ],
+    "FRA": [
+      "Importa USD 1.929 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda se contrae al 38.4 % anual (CAGR).",
+      "El origen no registra ventas del producto en este destino (cuota 0 %).",
+      "La canasta exportadora del origen encaja 0.42 (escala 0–1) con la demanda importadora del destino.",
+      "Estabilidad macro 0.83: el filtro deja el score en 0.440 (bruto 0.480)."
+    ],
+    "GBR": [
+      "Importa USD 6.996 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda se contrae al 21.5 % anual (CAGR).",
+      "El origen no registra ventas del producto en este destino (cuota 0 %).",
+      "La canasta exportadora del origen encaja 0.43 (escala 0–1) con la demanda importadora del destino.",
+      "Estabilidad macro 0.59: el filtro deja el score en 0.490 (bruto 0.615)."
+    ],
+    "ITA": [
+      "Importa USD 472 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda se contrae al 14.1 % anual (CAGR).",
+      "El origen no registra ventas del producto en este destino (cuota 0 %).",
+      "La canasta exportadora del origen encaja 0.43 (escala 0–1) con la demanda importadora del destino.",
+      "Estabilidad macro 0.83: el filtro deja el score en 0.463 (bruto 0.506)."
+    ],
+    "JPN": [
+      "Importa USD 2.869 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda crece al 21.8 % anual (CAGR).",
+      "El origen no registra ventas del producto en este destino (cuota 0 %).",
+      "La canasta exportadora del origen encaja 0.46 (escala 0–1) con la demanda importadora del destino.",
+      "Estabilidad macro 0.81: el filtro deja el score en 0.580 (bruto 0.641)."
+    ],
+    "KOR": [
+      "Importa USD 2.567 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda crece al 4.9 % anual (CAGR).",
+      "El origen no registra ventas del producto en este destino (cuota 0 %).",
+      "La canasta exportadora del origen encaja 0.49 (escala 0–1) con la demanda importadora del destino.",
+      "Estabilidad macro 0.88: el filtro deja el score en 0.465 (bruto 0.494)."
+    ],
+    "NLD": [
+      "Importa USD 2.497 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda se contrae al 6.2 % anual (CAGR).",
+      "El origen no registra ventas del producto en este destino (cuota 0 %).",
+      "La canasta exportadora del origen encaja 0.46 (escala 0–1) con la demanda importadora del destino.",
+      "Estabilidad macro 0.81: el filtro deja el score en 0.535 (bruto 0.590)."
+    ],
+    "POL": [
+      "Importa USD 1.771 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda se contrae al 7.3 % anual (CAGR).",
+      "El origen no registra ventas del producto en este destino (cuota 0 %).",
+      "La canasta exportadora del origen encaja 0.36 (escala 0–1) con la demanda importadora del destino.",
+      "Estabilidad macro 0.84: el filtro deja el score en 0.425 (bruto 0.462)."
+    ],
+    "PRT": [
+      "Importa USD 673 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda se contrae al 18.7 % anual (CAGR).",
+      "El origen no registra ventas del producto en este destino (cuota 0 %).",
+      "La canasta exportadora del origen encaja 0.39 (escala 0–1) con la demanda importadora del destino.",
+      "Estabilidad macro 0.93: el filtro deja el score en 0.444 (bruto 0.459)."
+    ],
+    "SWE": [
+      "Importa USD 1.105 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda crece al 72.7 % anual (CAGR).",
+      "El origen no registra ventas del producto en este destino (cuota 0 %).",
+      "La canasta exportadora del origen encaja 0.37 (escala 0–1) con la demanda importadora del destino.",
+      "Estabilidad macro 0.80: el filtro deja el score en 0.515 (bruto 0.572)."
+    ],
+    "USA": [
+      "Importa USD 15.745 M al año del producto (promedio de los últimos 3 años).",
+      "La demanda crece al 6.5 % anual (CAGR).",
+      "El origen no registra ventas del producto en este destino (cuota 0 %).",
+      "La canasta exportadora del origen encaja 0.33 (escala 0–1) con la demanda importadora del destino.",
+      "Estabilidad macro 0.65: el filtro deja el score en 0.588 (bruto 0.711)."
+    ]
+  },
+  "recommendations": [
+    {
+      "final_score": 0.588,
+      "iso3": "USA",
+      "name": "Estados Unidos",
+      "reasons": [
+        "1.º destino por tamaño de mercado (USD 15.745 M/año)",
+        "1.º destino por cuota ya ganada (cuota de 0.0 %)"
+      ]
+    },
+    {
+      "final_score": 0.58,
+      "iso3": "JPN",
+      "name": "Japón",
+      "reasons": [
+        "2.º destino por complementariedad de canastas (índice 0.46 (escala 0–1))",
+        "1.º destino por momentum de la cuota (+0.0 pp en la ventana)"
+      ]
+    },
+    {
+      "final_score": 0.541,
+      "iso3": "ESP",
+      "name": "España",
+      "reasons": [
+        "1.º destino por cuota ya ganada (cuota de 0.0 %)",
+        "1.º destino por momentum de la cuota (+0.0 pp en la ventana)"
+      ]
+    }
+  ]
+}

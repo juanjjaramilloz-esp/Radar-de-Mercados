@@ -43,6 +43,24 @@ def test_metricas_crudas_en_el_ranking(market_inputs_small: MarketInputs) -> Non
     assert set(ranking[config.COL_RCA]) == {9.0}
 
 
+def test_orden_obvio_por_arancel(market_inputs_small: MarketInputs) -> None:
+    ranking = rank_markets(market_inputs_small, {"tariff_faced": 1.0})
+    # Invertido: DEU (0 %) = 1.0 > JPN (sin dato → neutro 0.5) > USA (3 %) = 0.0
+    assert list(ranking[config.COL_COUNTRY]) == ["DEU", "JPN", "USA"]
+    scores = ranking.set_index(config.COL_COUNTRY)[config.COL_SCORE]
+    assert scores["DEU"] == pytest.approx(1.0)
+    assert scores["JPN"] == pytest.approx(0.5)
+    assert scores["USA"] == pytest.approx(0.0)
+
+
+def test_arancel_crudo_conserva_nan(market_inputs_small: MarketInputs) -> None:
+    ranking = rank_markets(market_inputs_small, config.WEIGHTS).set_index(config.COL_COUNTRY)
+    # La columna expone la fracción cruda; sin dato de WITS queda NaN, no 0
+    assert ranking.loc["USA", config.COL_TARIFF] == pytest.approx(0.03)
+    assert ranking.loc["DEU", config.COL_TARIFF] == pytest.approx(0.0)
+    assert pd.isna(ranking.loc["JPN", config.COL_TARIFF])
+
+
 def test_destino_sin_canasta_no_rompe(market_inputs_small: MarketInputs) -> None:
     # JPN sin canasta → complementariedad NaN → aporta 0, el ranking sigue válido
     sin_jpn = market_inputs_small.baskets[market_inputs_small.baskets[config.COL_COUNTRY] != "JPN"]
@@ -50,6 +68,7 @@ def test_destino_sin_canasta_no_rompe(market_inputs_small: MarketInputs) -> None
         imports=market_inputs_small.imports,
         bilateral=market_inputs_small.bilateral,
         baskets=sin_jpn,
+        tariffs=market_inputs_small.tariffs,
         rca=market_inputs_small.rca,
     )
     ranking = apply_stability_penalty(rank_markets(data, config.WEIGHTS), STABILITY_SMALL)

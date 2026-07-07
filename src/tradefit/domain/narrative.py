@@ -16,6 +16,7 @@ from typing import Any, cast
 import pandas as pd
 
 from tradefit import config
+from tradefit.domain import scoring
 
 #: Etiquetas en español de cada métrica ponderada (para el "porqué" del top-3).
 METRIC_LABELS: dict[str, str] = {
@@ -24,6 +25,7 @@ METRIC_LABELS: dict[str, str] = {
     "market_share": "cuota ya ganada",
     "share_trend": "momentum de la cuota",
     "complementarity": "complementariedad de canastas",
+    "tariff_faced": "arancel enfrentado",
 }
 
 #: Columna del ranking donde vive el valor crudo de cada métrica ponderada.
@@ -33,6 +35,7 @@ _METRIC_COLUMNS: dict[str, str] = {
     "market_share": config.COL_SHARE,
     "share_trend": config.COL_SHARE_TREND,
     "complementarity": config.COL_COMPLEMENTARITY,
+    "tariff_faced": config.COL_TARIFF,
 }
 
 
@@ -65,6 +68,7 @@ _METRIC_FORMATTERS: dict[str, Callable[[float], str]] = {
     "market_share": lambda v: f"cuota de {_fmt_pct(v)}",
     "share_trend": lambda v: f"{_fmt_pp_signed(v)} en la ventana",
     "complementarity": lambda v: f"índice {_fmt_decimal(v, 2)} (escala 0–1)",
+    "tariff_faced": lambda v: f"{_fmt_pct(v)} efectivamente aplicado",
 }
 
 
@@ -130,6 +134,20 @@ def market_sentences(
         f"(escala 0–1) con la demanda importadora de {destination}."
     )
 
+    # Snapshots construidos antes de la métrica de aranceles no traen la
+    # columna; NaN = WITS no publica el dato para ese destino.
+    if config.COL_TARIFF in row and not pd.isna(row[config.COL_TARIFF]):
+        tariff = float(row[config.COL_TARIFF])
+        if tariff == 0:
+            sentences.append(
+                f"{product_label} entra a {destination} sin arancel (0 % efectivamente aplicado)."
+            )
+        else:
+            sentences.append(
+                f"{product_label} paga en {destination} un arancel efectivamente "
+                f"aplicado de {_fmt_pct(tariff)}."
+            )
+
     stability = float(row[config.COL_STABILITY])
     raw = float(row[config.COL_SCORE])
     final = float(row[config.COL_FINAL_SCORE])
@@ -172,12 +190,12 @@ def top_recommendations(
     positions = pd.DataFrame(index=by_country.index)
     for metric, weight in weights.items():
         values = by_country[_METRIC_COLUMNS[metric]]
-        spread = values.max() - values.min()
-        norm = (
-            (values - values.min()) / spread if spread > 0 else pd.Series(1.0, index=values.index)
-        )
-        contributions[metric] = norm.fillna(0.0) * weight
-        positions[metric] = values.rank(ascending=False, method="min")
+        # La normalización (incluida la dirección: en el arancel menos es
+        # mejor) es la misma del scoring, para que el "porqué" cite las
+        # contribuciones reales al score.
+        contributions[metric] = scoring.normalized_metric(metric, values) * weight
+        ascending = metric in scoring.INVERTED_METRICS
+        positions[metric] = values.rank(ascending=ascending, method="min")
 
     top_iso3 = ranking.sort_values(config.COL_RANK).head(n)[config.COL_COUNTRY]
     recommendations: list[dict[str, Any]] = []

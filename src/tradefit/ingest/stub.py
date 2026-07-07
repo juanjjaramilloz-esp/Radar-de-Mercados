@@ -18,6 +18,7 @@ from tradefit.contracts import (
     export_totals_schema,
     imports_schema,
     macro_schema,
+    tariffs_schema,
 )
 
 logger = logging.getLogger(__name__)
@@ -75,6 +76,22 @@ def load_stub_macro() -> pd.DataFrame:
     logger.info("Leyendo stub macro desde %s", config.STUB_MACRO_CSV)
     raw = pd.read_csv(config.STUB_MACRO_CSV)
     validated: pd.DataFrame = macro_schema.validate(raw)
+    return validated
+
+
+def load_stub_tariffs() -> pd.DataFrame:
+    """Carga los aranceles stub que enfrenta el origen en los destinos.
+
+    Los destinos ausentes del CSV quedan sin dato a propósito: ejercitan el
+    camino "sin arancel publicado" (NaN neutro en el scoring).
+
+    Returns:
+        DataFrame validado contra ``tariffs_schema``.
+    """
+    logger.info("Leyendo stub de aranceles desde %s", config.STUB_TARIFFS_CSV)
+    # dtype=str preserva el cero inicial de subpartidas como "090111".
+    raw = pd.read_csv(config.STUB_TARIFFS_CSV, dtype={config.COL_CMD: str})
+    validated: pd.DataFrame = tariffs_schema.validate(raw)
     return validated
 
 

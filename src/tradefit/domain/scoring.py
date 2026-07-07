@@ -15,6 +15,34 @@ from tradefit import config
 from tradefit.contracts import MarketInputs
 from tradefit.domain import indices
 
+#: Métricas donde menos es mejor: se normalizan invertidas (mínimo → 1.0).
+INVERTED_METRICS: frozenset[str] = frozenset({"tariff_faced"})
+
+#: Relleno del NaN normalizado por métrica. El default (0.0) trata la
+#: ausencia como falta de evidencia de oportunidad; el arancel sin dato se
+#: rellena neutro (0.5) porque "WITS no publica el arancel" no es evidencia
+#: de arancel alto — mismo criterio que la estabilidad macro neutra.
+_NAN_FILL: dict[str, float] = {"tariff_faced": 0.5}
+
+
+def normalized_metric(name: str, values: pd.Series) -> pd.Series:
+    """Normaliza una métrica a [0, 1] según su semántica (más o menos = mejor).
+
+    Min-max directo para las métricas de oportunidad; invertido (el mínimo
+    recibe 1.0) para las de ``INVERTED_METRICS``. El NaN se rellena con el
+    valor de ``_NAN_FILL`` (0.0 por defecto). Lo comparten el scoring y la
+    narrativa para que ambas lean cada métrica en la misma dirección.
+
+    Args:
+        name: nombre de la métrica (clave de ``config.WEIGHTS``).
+        values: valores crudos indexados por destino.
+
+    Returns:
+        Series en [0, 1] sin NaN, alineada al índice de entrada.
+    """
+    normalized = _min_max(-values) if name in INVERTED_METRICS else _min_max(values)
+    return normalized.fillna(_NAN_FILL.get(name, 0.0))
+
 
 def _min_max(values: pd.Series) -> pd.Series:
     """Normaliza una serie al rango [0, 1] con min-max (ignora NaN).
@@ -47,10 +75,13 @@ def rank_markets(data: MarketInputs, weights: Mapping[str, float]) -> pd.DataFra
 
     Definición: ``score(d) = Σᵢ wᵢ · normᵢ(métricaᵢ(d)) / Σᵢ wᵢ`` — promedio
     ponderado de métricas min-max normalizadas. Métricas disponibles:
-    ``market_size``, ``import_growth``, ``market_share``, ``share_trend`` y
-    ``complementarity``. Un NaN en una métrica (p. ej. destino sin canasta)
-    se trata como ausencia de evidencia: aporta 0 tras normalizar. Empates se
-    desempatan por código ISO3 para que el ranking sea determinístico.
+    ``market_size``, ``import_growth``, ``market_share``, ``share_trend``,
+    ``complementarity`` y ``tariff_faced`` (esta última invertida: menos
+    arancel = mejor). Un NaN en una métrica (p. ej. destino sin canasta) se
+    trata como ausencia de evidencia: aporta 0 tras normalizar, salvo el
+    arancel sin dato, que aporta neutro (0.5 — ver ``normalized_metric``).
+    Empates se desempatan por código ISO3 para que el ranking sea
+    determinístico.
 
     Args:
         data: insumos validados (``contracts.MarketInputs``).
@@ -71,6 +102,7 @@ def rank_markets(data: MarketInputs, weights: Mapping[str, float]) -> pd.DataFra
         "market_share": indices.market_share(data.imports, data.bilateral),
         "share_trend": indices.market_share_trend(data.imports, data.bilateral),
         "complementarity": _complementarity_by_destination(data),
+        "tariff_faced": indices.tariff_faced(data.tariffs),
     }
 
     unknown = set(weights) - set(metric_values)
@@ -84,7 +116,7 @@ def rank_markets(data: MarketInputs, weights: Mapping[str, float]) -> pd.DataFra
     score = pd.Series(0.0, index=countries)
     for name, weight in weights.items():
         aligned = metric_values[name].reindex(countries)
-        score = score + _min_max(aligned).fillna(0.0) * weight
+        score = score + normalized_metric(name, aligned) * weight
     score = score / total_weight
 
     names = data.imports.drop_duplicates(config.COL_COUNTRY).set_index(config.COL_COUNTRY)[
@@ -100,6 +132,8 @@ def rank_markets(data: MarketInputs, weights: Mapping[str, float]) -> pd.DataFra
             config.COL_COMPLEMENTARITY: (
                 metric_values["complementarity"].reindex(countries).fillna(0.0)
             ),
+            # El arancel conserva el NaN: "sin dato en WITS" no es arancel 0.
+            config.COL_TARIFF: metric_values["tariff_faced"].reindex(countries),
             config.COL_RCA: data.rca,
             config.COL_SCORE: score,
         }

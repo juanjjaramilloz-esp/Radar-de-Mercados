@@ -132,6 +132,42 @@ def market_share_trend(
     return trend.rename(config.COL_SHARE_TREND)
 
 
+def tariff_faced(tariffs: pd.DataFrame) -> pd.Series:
+    """Arancel efectivamente aplicado que enfrenta el origen en cada destino.
+
+    Definición: el "effectively applied tariff" (AHS) de WITS — para cada
+    línea, el menor arancel disponible: el preferencial si existe un acuerdo
+    con el origen, el MFN en caso contrario (cf. WITS Glossary, World Bank).
+    A nivel de partida se agrega como promedio simple de las subpartidas HS6,
+    la convención de agregación "simple average" de WITS.
+
+    De cada serie (destino, subpartida, tipo) se toma el último año
+    disponible: los preferenciales se publican con más rezago que el MFN y
+    las preferencias de un acuerdo vigente persisten entre años, así que
+    comparar el último MFN con el último preferencial (aunque sean de años
+    distintos) es la lectura razonable del arancel vigente.
+
+    Args:
+        tariffs: DataFrame validado contra ``tariffs_schema`` (tasas en %,
+            tipos MFN/PREF). La ausencia de un destino significa "sin dato".
+
+    Returns:
+        Series indexada por país destino (ISO3) con el arancel en fracción
+        (0.085 = 8,5 %), nombrada ``config.COL_TARIFF``. Los destinos sin
+        filas no aparecen (el scoring los trata como sin evidencia).
+    """
+    if tariffs.empty:
+        return pd.Series(dtype=float, name=config.COL_TARIFF)
+    latest = (
+        tariffs.sort_values(config.COL_YEAR)
+        .groupby([config.COL_COUNTRY, config.COL_CMD, config.COL_TARIFF_TYPE])[config.COL_RATE_PCT]
+        .last()
+    )
+    effective = latest.groupby([config.COL_COUNTRY, config.COL_CMD]).min()
+    per_country = effective.groupby(config.COL_COUNTRY).mean() / 100.0
+    return per_country.rename(config.COL_TARIFF)
+
+
 def rca_balassa(
     product_exports_origin: float,
     total_exports_origin: float,

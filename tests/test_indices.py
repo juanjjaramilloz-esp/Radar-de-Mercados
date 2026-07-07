@@ -10,6 +10,7 @@ from tradefit.domain.indices import (
     market_share_trend,
     market_size,
     rca_balassa,
+    tariff_faced,
 )
 
 # --- market_size -----------------------------------------------------------
@@ -155,3 +156,28 @@ def test_complementarity_canastas_disjuntas() -> None:
 def test_complementarity_canasta_vacia_falla() -> None:
     with pytest.raises(ValueError, match="positivo"):
         complementarity(pd.Series({"09": 0.0}), pd.Series({"09": 100.0}))
+
+
+# --- tariff_faced (AHS de WITS: min(MFN, PREF), promedio simple HS6) ---------
+
+
+def test_tariff_faced_a_mano(tariffs_small: pd.DataFrame) -> None:
+    result = tariff_faced(tariffs_small)
+    # USA: 090111 → min(MFN último año 10, PREF 2) = 2; 090121 → 4;
+    # promedio simple = 3 % = 0.03
+    assert result["USA"] == pytest.approx(0.03)
+    # DEU: MFN 0 sin preferencial → 0
+    assert result["DEU"] == pytest.approx(0.0)
+    # JPN sin filas → no aparece (sin dato ≠ arancel 0)
+    assert "JPN" not in result.index
+
+
+def test_tariff_faced_toma_el_ultimo_anio_del_mfn(tariffs_small: pd.DataFrame) -> None:
+    # Sin el preferencial, USA/090111 usa el MFN de 2023 (10 %), no el de 2022 (12 %)
+    sin_pref = tariffs_small[tariffs_small["tariff_type"] == "MFN"]
+    result = tariff_faced(sin_pref)
+    assert result["USA"] == pytest.approx((10.0 + 4.0) / 2 / 100)
+
+
+def test_tariff_faced_vacio_devuelve_serie_vacia() -> None:
+    assert tariff_faced(pd.DataFrame()).empty

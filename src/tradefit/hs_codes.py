@@ -198,6 +198,32 @@ def search_hs(query: str, catalog: pd.DataFrame, limit: int = 20, lang: str = "e
     return catalog[mask].head(limit)
 
 
+def hs6_children(hs: str) -> list[str]:
+    """Subpartidas HS6 bajo una partida de 2 o 4 dígitos (o ella misma si ya es HS6).
+
+    Lo consume la ingesta de aranceles: el dataflow TRAINS de WITS solo acepta
+    códigos de 6 dígitos, así que una partida se consulta como la lista de sus
+    subpartidas.
+
+    Args:
+        hs: código HS normalizado de 2, 4 o 6 dígitos.
+
+    Returns:
+        Lista ordenada de códigos HS6 (la propia entrada si ya tiene 6 dígitos).
+
+    Raises:
+        ValueError: si la partida no tiene subpartidas HS6 en el catálogo.
+        FileNotFoundError: si el catálogo no está en ``data/sample/``.
+    """
+    if len(hs) == 6:
+        return [hs]
+    codes = load_hs_reference()[COL_HS]
+    children = codes[(codes.str.len() == 6) & codes.str.startswith(hs)]
+    if children.empty:
+        raise ValueError(f"La partida {hs!r} no tiene subpartidas HS6 en el catálogo")
+    return sorted(children)
+
+
 def hs_label(hs: str) -> str:
     """Etiqueta legible de una partida: curada > catálogo > genérica.
 

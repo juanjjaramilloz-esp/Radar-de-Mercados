@@ -22,6 +22,7 @@ HS_REFERENCE_CSV: Final = SAMPLE_DIR / "hs_reference.csv.gz"
 STUB_BILATERAL_CSV: Final = SAMPLE_DIR / "stub_bilateral.csv"
 STUB_BASKETS_CSV: Final = SAMPLE_DIR / "stub_baskets.csv"
 STUB_EXPORT_TOTALS_CSV: Final = SAMPLE_DIR / "stub_export_totals.csv"
+STUB_TARIFFS_CSV: Final = SAMPLE_DIR / "stub_tariffs.csv"
 
 # Cantidad de mercados recomendados en la narrativa (top-N del ranking).
 TOP_RECOMMENDATIONS: Final = 3
@@ -180,6 +181,59 @@ COMTRADE_CMD_ALL_HS2: Final = "AG2"  # todos los capítulos HS a 2 dígitos
 # (verificar disponibilidad del origen antes de adelantarlo).
 BASKET_YEAR: Final = 2024
 
+# --- World Bank WITS (aranceles TRAINS; sin API key) ---
+# Endpoint SDMX REST del dataflow TRAINS. La clave es
+# ``A.{reporter}.{partner}.{productos}.reported``: frecuencia anual, códigos
+# numéricos de país, subpartidas HS6 unidas con "+" (verificado 2026-07: el
+# dataflow NO acepta partidas de 2/4 dígitos ni el parámetro format=JSON —
+# responde XML SDMX GenericData). ObsValue = promedio simple de las líneas
+# ad-valorem, en % (atributo TARIFFTYPE: MFN o PREF).
+WITS_URL: Final = (
+    "https://wits.worldbank.org/API/V1/SDMX/V21/rest/data/DF_WITS_Tariff_TRAINS/"
+    "A.{reporter}.{partner}.{products}.reported/"
+    "?startperiod={start}&endperiod={end}"
+)
+# Rango de años a pedir: los aranceles llegan con rezago y las preferencias
+# suelen publicarse más tarde que el MFN; una ventana ancha permite tomar el
+# último año disponible de cada serie.
+WITS_YEARS: Final[tuple[int, int]] = (2018, 2025)
+# Partner "000" = mundo → arancel MFN del reporter.
+WITS_PARTNER_WORLD: Final = "000"
+# Código WITS del origen (Colombia) como partner → arancel preferencial.
+ORIGIN_WITS_CODE: Final = 170
+
+# Códigos de reporter de WITS por destino. WITS usa códigos ISO numéricos
+# (Suiza=756, a diferencia del 757 de Comtrade) y los miembros de la UE no
+# tienen arancel propio: reportan como el bloque 918 (European Union), así
+# que una sola consulta a 918 cubre a los 11 destinos comunitarios del MVP.
+WITS_EU_CODE: Final = 918
+WITS_REPORTER_CODES: Final[dict[str, int]] = {
+    "USA": 840,
+    "DEU": WITS_EU_CODE,
+    "ITA": WITS_EU_CODE,
+    "FRA": WITS_EU_CODE,
+    "JPN": 392,
+    "CAN": 124,
+    "BEL": WITS_EU_CODE,
+    "NLD": WITS_EU_CODE,
+    "ESP": WITS_EU_CODE,
+    "GBR": 826,
+    "KOR": 410,
+    "CHE": 756,
+    "POL": WITS_EU_CODE,
+    "SWE": WITS_EU_CODE,
+    "AUS": 36,
+    "PRT": WITS_EU_CODE,
+    "FIN": WITS_EU_CODE,
+    "AUT": WITS_EU_CODE,
+}
+
+
+def wits_tariffs_cache(hs: str) -> Path:
+    """Caché crudo de aranceles WITS (MFN + preferencial COL) del producto ``hs``."""
+    return RAW_DIR / f"wits_{hs}_tariffs_{ORIGIN_ISO3}.json"
+
+
 # --- World Bank WDI (filtro macro de estabilidad; sin API key) ---
 WDI_URL: Final = "https://api.worldbank.org/v2/country/{countries}/indicator/{indicator}"
 WDI_CACHE_FILE: Final = RAW_DIR / "wdi_macro.json"
@@ -229,6 +283,9 @@ COL_GROWTH: Final = "import_growth"
 COL_SHARE: Final = "market_share"
 COL_SHARE_TREND: Final = "share_trend"
 COL_COMPLEMENTARITY: Final = "complementarity"
+COL_TARIFF: Final = "tariff_faced"
+COL_TARIFF_TYPE: Final = "tariff_type"
+COL_RATE_PCT: Final = "rate_pct"
 COL_RCA: Final = "rca_balassa"
 COL_INDICATOR: Final = "indicator"
 COL_MACRO_VALUE: Final = "value"  # % u otras unidades según el indicador (no USD)
@@ -244,15 +301,21 @@ MARKET_SIZE_YEARS: Final = 3
 
 # --- Pesos del scoring (consumidos por domain/scoring.rank_markets) ---
 # Score = promedio ponderado de métricas min-max normalizadas. Justificación:
-# la demanda existente (nivel + dinámica) pesa la mitad porque sin demanda no
-# hay mercado; la posición ya ganada por el origen (cuota + momentum) y el
-# encaje estructural oferta-demanda reparten la otra mitad. Suman 1.0.
+# la demanda existente (nivel + dinámica) pesa casi la mitad porque sin
+# demanda no hay mercado; la posición ya ganada por el origen (cuota +
+# momentum) y el encaje estructural oferta-demanda reparten el grueso del
+# resto; el arancel enfrentado entra con peso moderado (0.10) porque es una
+# fricción de costo que condiciona el acceso pero no crea demanda — y entre
+# los destinos del MVP (OCDE, mayormente con TLC con Colombia) discrimina
+# menos que las métricas de demanda. Cede 5 pp el tamaño de mercado y 5 pp el
+# momentum de cuota (la métrica más ruidosa de la ventana). Suman 1.0.
 WEIGHTS: Final[dict[str, float]] = {
-    "market_size": 0.30,  # demanda actual del destino (nivel)
+    "market_size": 0.25,  # demanda actual del destino (nivel)
     "import_growth": 0.20,  # dinámica de la demanda (CAGR de la ventana)
     "market_share": 0.15,  # cuota ya ganada por el origen (último año)
-    "share_trend": 0.15,  # momentum de esa cuota (Δ en la ventana)
+    "share_trend": 0.10,  # momentum de esa cuota (Δ en la ventana)
     "complementarity": 0.20,  # encaje canasta origen ↔ demanda destino
+    "tariff_faced": 0.10,  # arancel efectivamente aplicado (menos = mejor)
 }
 # El RCA de Balassa del origen es constante entre destinos: se reporta como
 # contexto en el snapshot (columna rca_balassa) pero NO pondera en el ranking.

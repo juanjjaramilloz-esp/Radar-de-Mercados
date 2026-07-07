@@ -68,6 +68,24 @@ export_totals_schema = pa.DataFrameSchema(
     name="export_totals",
 )
 
+#: Aranceles TRAINS por destino y subpartida HS6: promedio simple de las
+#: líneas ad-valorem en % (tal como lo reporta WITS), tipo MFN (erga omnes) o
+#: PREF (preferencial hacia el origen). Solo años con dato: un destino o
+#: subpartida ausente se maneja en domain (MFN faltante → arancel NaN).
+tariffs_schema = pa.DataFrameSchema(
+    {
+        config.COL_COUNTRY: pa.Column(str, pa.Check.str_length(3, 3)),
+        config.COL_CMD: pa.Column(str, pa.Check.str_length(6, 6)),
+        config.COL_TARIFF_TYPE: pa.Column(str, pa.Check.isin(["MFN", "PREF"])),
+        config.COL_YEAR: pa.Column(int, pa.Check.in_range(1990, 2100)),
+        config.COL_RATE_PCT: pa.Column(float, pa.Check.ge(0)),
+    },
+    unique=[config.COL_COUNTRY, config.COL_CMD, config.COL_TARIFF_TYPE, config.COL_YEAR],
+    coerce=True,
+    strict=True,
+    name="tariffs",
+)
+
 #: Indicadores macro WDI por destino y año (solo años con dato: los null de
 #: la API se descartan en ingest; la ausencia se maneja en domain).
 macro_schema = pa.DataFrameSchema(
@@ -96,6 +114,9 @@ ranking_schema = pa.DataFrameSchema(
         config.COL_SHARE: pa.Column(float, pa.Check.in_range(0.0, 1.0)),
         config.COL_SHARE_TREND: pa.Column(float, pa.Check.in_range(-1.0, 1.0)),
         config.COL_COMPLEMENTARITY: pa.Column(float, pa.Check.in_range(0.0, 1.0)),
+        # Arancel efectivamente aplicado que enfrenta el origen (fracción;
+        # 0.085 = 8,5 %). NaN = destino sin datos en WITS (no se penaliza).
+        config.COL_TARIFF: pa.Column(float, pa.Check.ge(0), nullable=True),
         config.COL_RCA: pa.Column(float, pa.Check.ge(0)),
         config.COL_STABILITY: pa.Column(float, pa.Check.in_range(0.0, 1.0)),
         config.COL_SCORE: pa.Column(float, pa.Check.in_range(0.0, 1.0)),
@@ -119,10 +140,13 @@ class MarketInputs:
             año, conforme a ``bilateral_schema`` (ausencia = flujo cero).
         baskets: canastas HS2 (origen exporta, destinos importan) conforme a
             ``basket_schema``; incluye la fila del origen.
+        tariffs: aranceles MFN y preferenciales que enfrenta el origen,
+            conforme a ``tariffs_schema`` (ausencia = sin dato, no arancel 0).
         rca: RCA de Balassa del origen en el producto (escalar, contexto).
     """
 
     imports: pd.DataFrame
     bilateral: pd.DataFrame
     baskets: pd.DataFrame
+    tariffs: pd.DataFrame
     rca: float

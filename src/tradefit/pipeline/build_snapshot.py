@@ -20,7 +20,7 @@ from tradefit.domain import indices
 from tradefit.domain.macro_filter import apply_stability_penalty, stability_score
 from tradefit.domain.narrative import build_narrative
 from tradefit.domain.scoring import rank_markets
-from tradefit.ingest import comtrade, stub, worldbank
+from tradefit.ingest import comtrade, stub, wits, worldbank
 
 logger = logging.getLogger(__name__)
 
@@ -93,6 +93,8 @@ def _load_inputs(
         baskets = comtrade.load_baskets()
         _notify(on_stage, "Totales de exportación para el RCA")
         export_totals = comtrade.load_export_totals(hs)
+        _notify(on_stage, "Aranceles que enfrenta el origen (World Bank WITS)")
+        tariffs = wits.load_wits_tariffs(hs)
         _notify(on_stage, "Indicadores macro (World Bank WDI)")
         macro = worldbank.load_wdi_macro()
     else:
@@ -101,11 +103,13 @@ def _load_inputs(
         bilateral = stub.load_stub_bilateral()
         baskets = stub.load_stub_baskets()
         export_totals = stub.load_stub_export_totals()
+        tariffs = stub.load_stub_tariffs()
         macro = stub.load_stub_macro()
     data = MarketInputs(
         imports=imports,
         bilateral=bilateral,
         baskets=baskets,
+        tariffs=tariffs,
         rca=_rca_from_totals(export_totals),
     )
     return data, macro
@@ -183,6 +187,7 @@ def build_snapshot(
         "n_markets": int(len(validated)),
         "rca_balassa": round(data.rca, 4),
         "weights": dict(config.WEIGHTS),
+        "tariff_years": list(config.WITS_YEARS),
         "macro_indicators": dict(config.WDI_INDICATORS),
         "macro_bounds": {k: list(v) for k, v in config.MACRO_BOUNDS.items()},
         "macro_floor": config.MACRO_FLOOR,

@@ -19,6 +19,7 @@ def _row(**overrides: object) -> pd.Series:
         config.COL_SHARE: 0.168,
         config.COL_SHARE_TREND: -0.035,
         config.COL_COMPLEMENTARITY: 0.33,
+        config.COL_TARIFF: 0.085,
         config.COL_RCA: 35.7,
         config.COL_STABILITY: 0.66,
         config.COL_SCORE: 0.552,
@@ -42,6 +43,7 @@ def _ranking_small() -> pd.DataFrame:
                     config.COL_SHARE: 0.5,
                     config.COL_SHARE_TREND: 0.1,
                     config.COL_COMPLEMENTARITY: 0.9,
+                    config.COL_TARIFF: 0.0,  # invertida: el menor arancel domina
                     config.COL_FINAL_SCORE: 0.9,
                 }
             ),
@@ -55,6 +57,7 @@ def _ranking_small() -> pd.DataFrame:
                     config.COL_SHARE: 0.2,
                     config.COL_SHARE_TREND: 0.05,
                     config.COL_COMPLEMENTARITY: 0.5,
+                    config.COL_TARIFF: 0.05,
                     config.COL_FINAL_SCORE: 0.5,
                 }
             ),
@@ -68,6 +71,7 @@ def _ranking_small() -> pd.DataFrame:
                     config.COL_SHARE: 0.0,
                     config.COL_SHARE_TREND: 0.0,
                     config.COL_COMPLEMENTARITY: 0.1,
+                    config.COL_TARIFF: 0.10,
                     config.COL_FINAL_SCORE: 0.1,
                 }
             ),
@@ -89,6 +93,7 @@ def test_frases_esperadas_con_sus_numeros() -> None:
     assert "Colombia ya tiene 16,8 %" in text  # origen con nombre + cuota
     assert "pierde 3,5 pp" in text  # tendencia negativa → "pierde"
     assert "canasta exportadora de Colombia encaja 0,33" in text  # complementariedad
+    assert "arancel efectivamente aplicado de 8,5 %" in text  # arancel con dato
     assert "Estabilidad macro de Estados Unidos" in text
     assert "0,458 (bruto 0,552)" in text  # score final vs bruto
 
@@ -104,6 +109,20 @@ def test_sin_crecimiento_y_sin_cuota() -> None:
     assert "Sin dato suficiente de crecimiento" in text
     assert "Colombia no registra ventas de Café (HS 0901) en Estados Unidos" in text
     assert "cuota 0 %" in text
+
+
+def test_arancel_cero_y_sin_dato() -> None:
+    sin_arancel = " ".join(_sentences(_row(**{config.COL_TARIFF: 0.0})))
+    assert "entra a Estados Unidos sin arancel (0 % efectivamente aplicado)" in sin_arancel
+    sin_dato = " ".join(_sentences(_row(**{config.COL_TARIFF: float("nan")})))
+    assert "arancel" not in sin_dato  # sin dato de WITS → ninguna afirmación
+
+
+def test_snapshot_viejo_sin_columna_de_arancel_no_rompe() -> None:
+    row = _row().drop(config.COL_TARIFF)
+    text = " ".join(_sentences(row))
+    assert "arancel" not in text
+    assert "Estabilidad macro" in text  # el resto de la narrativa sigue completa
 
 
 def test_ninguna_frase_sin_numero() -> None:

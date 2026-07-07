@@ -6,7 +6,13 @@ import pandas as pd
 import pytest
 
 from tradefit import config
-from tradefit.contracts import MarketInputs, basket_schema, bilateral_schema, imports_schema
+from tradefit.contracts import (
+    MarketInputs,
+    basket_schema,
+    bilateral_schema,
+    imports_schema,
+    tariffs_schema,
+)
 
 FIXTURES_DIR = Path(__file__).parent / "fixtures"
 
@@ -52,15 +58,31 @@ def baskets_small() -> pd.DataFrame:
 
 
 @pytest.fixture()
+def tariffs_small() -> pd.DataFrame:
+    """Aranceles de juguete, calculables a mano (tasas en %).
+
+    USA: 090111 MFN 2023=10 (el 2022=12 queda atrás), PREF 2021=2 → efectivo 2;
+         090121 MFN 2023=4 → efectivo 4; promedio = 3 % → 0.03
+    DEU: 090111 MFN 2023=0 → 0.0
+    JPN: sin filas → sin dato (NaN aguas abajo)
+    """
+    raw = pd.read_csv(FIXTURES_DIR / "tariffs_small.csv", dtype={config.COL_CMD: str})
+    validated: pd.DataFrame = tariffs_schema.validate(raw)
+    return validated
+
+
+@pytest.fixture()
 def market_inputs_small(
     imports_small: pd.DataFrame,
     bilateral_small: pd.DataFrame,
     baskets_small: pd.DataFrame,
+    tariffs_small: pd.DataFrame,
 ) -> MarketInputs:
     """Insumos completos de juguete para el ranking (RCA de contexto = 9.0)."""
     return MarketInputs(
         imports=imports_small,
         bilateral=bilateral_small,
         baskets=baskets_small,
+        tariffs=tariffs_small,
         rca=9.0,
     )

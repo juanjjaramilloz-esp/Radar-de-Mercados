@@ -17,8 +17,10 @@ import streamlit as st
 from dotenv import load_dotenv
 
 from tradefit import config, hs_codes
+from tradefit.app import i18n
 from tradefit.app.export import ranking_to_excel, ranking_to_pdf
 from tradefit.app.flags import flag_emoji
+from tradefit.app.i18n import t
 from tradefit.pipeline.build_snapshot import ensure_snapshot
 
 _PRODUCT_SELECT_KEY = "product_select"
@@ -31,46 +33,20 @@ def _hero_section() -> None:
     El expander del tour llega abierto solo en la primera carga de la sesión
     (``st.session_state``); después queda plegado y disponible.
     """
-    st.markdown(
-        "Dado un **producto** (partida arancelaria HS) y un **país de origen**, "
-        "esta herramienta rankea mercados destino combinando la **oportunidad "
-        "comercial** (tamaño, crecimiento, cuota, complementariedad) con un "
-        "**filtro de estabilidad macroeconómica** del destino."
-    )
+    st.markdown(t("hero_value_prop"))
     first_load = _TOUR_SEEN_KEY not in st.session_state
     st.session_state[_TOUR_SEEN_KEY] = True
-    with st.expander("🧭 ¿Cómo leo esto? — tour de 30 segundos", expanded=first_load):
-        st.markdown(
-            "- **Podio y ranking**: los mercados destino ordenados por **score "
-            "final** (0–1) = oportunidad comercial × estabilidad macro.\n"
-            "- **Recomendación**: el porqué de cada top, con sus números "
-            "(crecimiento de la demanda, cuota ya ganada, complementariedad).\n"
-            "- **🔎 Buscador avanzado**: escribe cualquier partida (p. ej. "
-            "`1701` o «café») y la app descarga los datos de UN Comtrade y "
-            "construye el análisis al momento.\n"
-            "- **📖 Metodología**: la fórmula y la cita académica de cada "
-            "métrica; el ranking se exporta a CSV, Excel o PDF."
-        )
+    with st.expander(t("hero_tour_title"), expanded=first_load):
+        st.markdown(t("hero_tour_body"))
 
 
 def _about_sidebar() -> None:
     """Tarjeta de credibilidad: qué es el proyecto, con qué está hecho y dónde vive."""
+    i18n.language_toggle()
     with st.sidebar:
-        st.header("Sobre el proyecto")
-        st.markdown(
-            "Screener de mercados de exportación con un motor económico "
-            "defendible: **cada métrica cita su definición académica y tiene "
-            "test con un valor calculado a mano**.\n\n"
-            "**Stack** · Python · Streamlit · pandas\n\n"
-            "**Datos** · UN Comtrade Plus · World Bank WDI\n\n"
-            "**Código** · [GitHub: radar-de-mercados]"
-            "(https://github.com/juanjosejaramillozarate-png/radar-de-mercados)"
-        )
-        st.caption(
-            "Arquitectura en capas con dependencias en una sola dirección: "
-            "`ingest` (red) → `domain` (cálculo puro y testeado) → `app` "
-            "(solo presentación)."
-        )
+        st.header(t("about_header"))
+        st.markdown(t("about_body"))
+        st.caption(t("about_caption"))
 
 
 def _available_products() -> dict[str, str]:
@@ -86,7 +62,8 @@ def _available_products() -> dict[str, str]:
         hs = meta_path.parent.name
         if config.ranking_parquet(hs).exists():
             meta = json.loads(meta_path.read_text(encoding="utf-8"))
-            products[hs] = str(meta.get("hs_label", hs))
+            label = str(meta.get("hs_label", hs))
+            products[hs] = i18n.product_label(hs, label)
     return products
 
 
@@ -122,28 +99,20 @@ def _build_on_demand(hs: str) -> bool:
     """
     _bridge_comtrade_key()
     if not os.environ.get(config.ENV_COMTRADE_KEY):
-        st.warning(
-            "Sin `COMTRADE_API_KEY` configurada el análisis usa el preview "
-            "público de Comtrade y puede fallar por su tope de registros."
-        )
-    status = st.status(
-        f"Construyendo el análisis de la partida {hs} (puede tardar un minuto)…",
-        expanded=True,
-    )
+        st.warning(t("search_api_key_warning"))
+    status = st.status(t("search_status_building", hs=hs), expanded=True)
     try:
-        ensure_snapshot(hs, on_stage=lambda stage: status.write(f"▸ {stage}…"))
+        ensure_snapshot(
+            hs, on_stage=lambda stage: status.write(f"▸ {i18n.translate_stage(stage)}…")
+        )
     except ValueError as exc:
-        status.update(label=f"Partida inválida: {exc}", state="error")
+        status.update(label=t("search_status_invalid", error=exc), state="error")
         return False
     except Exception as exc:  # noqa: BLE001 — presentación: degradar con gracia
-        status.update(label=f"No se pudo construir el análisis de {hs}", state="error")
-        st.error(
-            f"No se pudo construir el análisis de la partida {hs}. "
-            f"Puede que no exista en la nomenclatura o que la fuente no tenga "
-            f"datos para el periodo. Detalle: {exc}"
-        )
+        status.update(label=t("search_status_failed", hs=hs), state="error")
+        st.error(t("search_error_body", hs=hs, error=exc))
         return False
-    status.update(label=f"Análisis de la partida {hs} listo ✅", state="complete", expanded=False)
+    status.update(label=t("search_status_done", hs=hs), state="complete", expanded=False)
     return True
 
 
@@ -156,43 +125,37 @@ def _advanced_search_section(products: dict[str, str]) -> None:
     gráficas, narrativa, export) pasa a mostrarla. Con caché: repetir una
     partida ya analizada es instantáneo.
     """
-    with st.expander("🔎 Buscador avanzado: analiza cualquier partida arancelaria"):
+    with st.expander(t("search_expander_title")):
         query = st.text_input(
-            "Partida HS o nombre del producto (español o inglés)",
-            placeholder="p. ej. 1701, 09.01, «café» o «sugar cane»",
-            help="Niveles soportados: capítulo (2 dígitos), partida (4) y subpartida (6).",
+            t("search_input_label"),
+            placeholder=t("search_input_placeholder"),
+            help=t("search_input_help"),
         )
         if not query.strip():
             return
         selected: str | None = None
         try:
-            matches = hs_codes.search_hs(query, _hs_catalog())
+            matches = hs_codes.search_hs(query, _hs_catalog(), lang=i18n.get_language())
         except FileNotFoundError:
             matches = None  # sin catálogo local: se acepta el código a ciegas
         normalized = hs_codes.normalize_hs(query)
         if matches is not None and not matches.empty:
             labels = dict(zip(matches[hs_codes.COL_HS], matches[hs_codes.COL_DESC], strict=True))
             selected = st.selectbox(
-                "Coincidencias",
+                t("search_matches_label"),
                 options=list(labels),
                 format_func=lambda code: f"{code} — {labels[code]}",
             )
         elif hs_codes.is_valid_hs(normalized):
             selected = normalized
-            st.caption(
-                f"La partida {normalized} no aparece en el catálogo local; "
-                "se intentará consultar igual."
-            )
+            st.caption(t("search_hs_not_in_catalog", hs=normalized))
         else:
-            st.info(
-                "Sin coincidencias: prueba con el código HS o el nombre del "
-                "producto (español o inglés)."
-            )
+            st.info(t("search_no_matches_info"))
             return
         if selected is None:
             return
         already_built = selected in products
-        action = "Ver análisis" if already_built else "Descargar datos y analizar"
+        action = t("search_button_view") if already_built else t("search_button_download")
         go = st.button(action, type="primary", key="advanced_search_go")
         if go and (already_built or _build_on_demand(selected)):
             st.session_state[_PRODUCT_SELECT_KEY] = selected
@@ -235,6 +198,22 @@ def _load_snapshot(hs: str) -> tuple[pd.DataFrame, dict[str, object], dict[str, 
     return ranking, meta, narrative
 
 
+def _localize_country_names(ranking: pd.DataFrame) -> pd.DataFrame:
+    """Reemplaza ``country_name`` por su versión en inglés si ese es el idioma activo.
+
+    Los 18 destinos del MVP tienen nombre en inglés en
+    ``config.DESTINATIONS_EN``; el resto de países (poco probable, pero
+    posible si el catálogo crece) conserva el nombre ya presente.
+    """
+    if i18n.get_language() != "en":
+        return ranking
+    localized = ranking[config.COL_COUNTRY].combine(
+        ranking[config.COL_COUNTRY_NAME],
+        lambda iso3, name: i18n.country_name(iso3, name),
+    )
+    return ranking.assign(**{config.COL_COUNTRY_NAME: localized})
+
+
 def _load_imports_timeseries(hs: str) -> pd.DataFrame | None:
     """Lee la serie anual de importaciones del producto, si el snapshot la trae.
 
@@ -252,10 +231,12 @@ def _recommendations_section(narrative: dict[str, object]) -> None:
     recommendations = narrative.get("recommendations")
     if not isinstance(recommendations, list) or not recommendations:
         return
-    st.subheader("Recomendación: dónde enfocarse")
+    st.subheader(t("recommendations_subheader"))
     for i, rec in enumerate(recommendations, start=1):
         reasons = " · ".join(rec["reasons"]) if rec["reasons"] else ""
-        st.markdown(f"**{i}. {rec['name']}** (score final {rec['final_score']:.3f}) — {reasons}")
+        name = i18n.country_name(str(rec["iso3"]), str(rec["name"]))
+        score_label = t("col_score_final").lower()
+        st.markdown(f"**{i}. {name}** ({score_label} {rec['final_score']:.3f}) — {reasons}")
 
 
 def _market_detail_section(ranking: pd.DataFrame, narrative: dict[str, object]) -> None:
@@ -263,15 +244,66 @@ def _market_detail_section(ranking: pd.DataFrame, narrative: dict[str, object]) 
     markets = narrative.get("markets")
     if not isinstance(markets, dict) or not markets:
         return
-    st.subheader("Lectura por mercado")
+    st.subheader(t("market_detail_subheader"))
     names = ranking.set_index(config.COL_COUNTRY)[config.COL_COUNTRY_NAME]
     selected = st.selectbox(
-        "Mercado",
+        t("market_detail_select_label"),
         options=list(ranking[config.COL_COUNTRY]),
         format_func=lambda iso3: f"{flag_emoji(iso3)} {names.get(iso3, iso3)} ({iso3})".strip(),
     )
     for sentence in markets.get(selected, []):
         st.markdown(f"- {sentence}")
+
+
+def _comparator_section(products: dict[str, str]) -> None:
+    """Comparador: los mejores mercados de 2–3 partidas, lado a lado.
+
+    Solo lee snapshots ya construidos (nada de red ni cálculo): responde
+    «¿a qué mercado le apuesto con cuál producto?» de una mirada.
+    """
+    if len(products) < 2:
+        return
+    st.divider()
+    st.subheader(t("comparator_subheader"))
+    st.caption(t("comparator_caption"))
+    selected = st.multiselect(
+        t("comparator_select_label"),
+        options=list(products),
+        format_func=lambda code: products[code],
+        max_selections=3,
+        key="comparator_products",
+    )
+    if len(selected) == 1:
+        st.info(t("comparator_select_info"))
+        return
+    if len(selected) < 2:
+        return
+    for column, code in zip(st.columns(len(selected)), selected, strict=True):
+        with column:
+            try:
+                ranking, meta, _ = _load_snapshot(code)
+            except FileNotFoundError:
+                st.warning(t("comparator_missing_warning", code=code))
+                continue
+            ranking = _localize_country_names(ranking)
+            label = i18n.product_label(code, str(meta["hs_label"]))
+            st.markdown(f"**{label}**")
+            demand = float(ranking[config.COL_MARKET_SIZE].sum())
+            st.caption(
+                t(
+                    "comparator_rca_demand",
+                    rca=meta.get("rca_balassa", "—"),
+                    demand=_usd_compact(demand),
+                )
+            )
+            top5 = ranking.nsmallest(5, config.COL_RANK)
+            for _, row in top5.iterrows():
+                st.markdown(
+                    f"{int(row[config.COL_RANK])}. "
+                    f"{flag_emoji(row[config.COL_COUNTRY])} "
+                    f"{row[config.COL_COUNTRY_NAME]} — "
+                    f"**{row[config.COL_FINAL_SCORE]:.3f}**"
+                )
 
 
 def _methodology_section(meta: dict[str, object]) -> None:
@@ -282,66 +314,67 @@ def _methodology_section(meta: dict[str, object]) -> None:
     bounds: dict[str, object] = bounds_obj if isinstance(bounds_obj, dict) else {}
     definitions = [
         (
-            "Tamaño de mercado",
-            f"Promedio de importaciones del producto en el destino, últimos "
-            f"{meta.get('market_size_years')} años (cf. ITC Export Potential "
-            "Indicator, Decreux & Spies 2016)",
+            t("methodology_metric_market_size"),
+            t("methodology_def_market_size", years=meta.get("market_size_years")),
             "market_size",
         ),
         (
-            "Crecimiento",
-            "CAGR de esas importaciones en la ventana: (V_final/V_inicial)^(1/n) − 1",
+            t("methodology_metric_growth"),
+            t("methodology_def_growth"),
             "import_growth",
         ),
         (
-            "Cuota del origen",
-            "Participación del origen en las importaciones del destino, "
-            "M_d←o / M_d (cf. WITS *partner share*)",
+            t("methodology_metric_share"),
+            t("methodology_def_share"),
             "market_share",
         ),
         (
-            "Momentum de cuota",
-            "Δ de esa cuota entre el primer y el último año de la ventana",
+            t("methodology_metric_share_trend"),
+            t("methodology_def_share_trend"),
             "share_trend",
         ),
         (
-            "Complementariedad",
-            "Índice de Michaely (1996): C = 1 − Σ\\|m_dk − x_ok\\|/2 sobre "
-            "capítulos HS2 (usado por el Banco Mundial en WITS)",
+            t("methodology_metric_complementarity"),
+            t("methodology_def_complementarity"),
             "complementarity",
         ),
     ]
+    header = (
+        f"| {t('methodology_col_metric')} | {t('methodology_col_definition')} | "
+        f"{t('methodology_col_weight')} |\n|---|---|---|"
+    )
     table = "\n".join(
         f"| {name} | {definition} | {weights.get(key, '—')} |"
         for name, definition, key in definitions
     )
-    with st.expander("📖 Metodología: de dónde sale cada número"):
+    floor = float(str(meta.get("macro_floor") or 0.5))
+    macro_filter_text = t(
+        "methodology_macro_filter",
+        years=meta.get("macro_years"),
+        inflation=bounds.get("inflation", "—"),
+        gdp=bounds.get("gdp_growth", "—"),
+        current_account=bounds.get("current_account", "—"),
+    )
+    final_score_text = t(
+        "methodology_final_score",
+        floor=meta.get("macro_floor"),
+        floor_complement=round(1 - floor, 2),
+    )
+    with st.expander(t("methodology_expander_title")):
         st.markdown(
             f"""
-**Métricas de oportunidad** (min-max normalizadas y combinadas con los pesos
-documentados en `config.py`; suman 1.0):
+{t("methodology_intro")}
 
-| Métrica | Definición | Peso |
-|---|---|---|
+{header}
 {table}
 
-**RCA de Balassa (1965)** — (X_ok/X_o)/(X_wk/X_w) — se reporta como contexto:
-es constante entre destinos, así que no pondera en el ranking.
+{t("methodology_rca_note")}
 
-**Filtro macro de estabilidad** (World Bank WDI, promedio de los últimos
-{meta.get("macro_years")} años con dato): cada indicador se normaliza con una
-rampa lineal entre umbrales fijos (normalización min-max con umbrales, cf.
-OECD/JRC *Handbook on Constructing Composite Indicators*, 2008):
-inflación {bounds.get("inflation", "—")}, crecimiento del PIB
-{bounds.get("gdp_growth", "—")}, cuenta corriente {bounds.get("current_account", "—")}
-(formato [peor, mejor], en %).
+{macro_filter_text}
 
-**Score final** = score de oportunidad × ({meta.get("macro_floor")} +
-{round(1 - float(str(meta.get("macro_floor") or 0.5)), 2)} × estabilidad): un
-destino totalmente inestable conserva el piso, no se anula.
+{final_score_text}
 
-Cada métrica tiene su test con un valor calculado a mano; los datos crudos se
-cachean en `data/raw/` y el snapshot es reproducible (mismo input → mismo output).
+{t("methodology_footer")}
 """
         )
 
@@ -352,10 +385,7 @@ def _map_tab(ranking: pd.DataFrame) -> None:
     Presentación pura: pinta columnas ya presentes en el ranking; el color es
     el score final y el hover trae las métricas que lo explican.
     """
-    st.caption(
-        "Score final por mercado destino: más oscuro = mejor oportunidad "
-        "ajustada por estabilidad. Pasa el cursor para ver las métricas."
-    )
+    st.caption(t("map_caption"))
     fig = px.choropleth(
         ranking,
         locations=config.COL_COUNTRY,
@@ -370,11 +400,11 @@ def _map_tab(ranking: pd.DataFrame) -> None:
             config.COL_STABILITY: ":.2f",
         },
         labels={
-            config.COL_FINAL_SCORE: "Score final",
-            config.COL_MARKET_SIZE: "Importaciones (USD/año)",
-            config.COL_GROWTH: "Crecimiento (CAGR)",
-            config.COL_SHARE: "Cuota del origen",
-            config.COL_STABILITY: "Estabilidad macro",
+            config.COL_FINAL_SCORE: t("map_label_final_score"),
+            config.COL_MARKET_SIZE: t("map_label_imports"),
+            config.COL_GROWTH: t("map_label_growth"),
+            config.COL_SHARE: t("map_label_share"),
+            config.COL_STABILITY: t("map_label_stability"),
         },
         color_continuous_scale="Blues",
         projection="natural earth",
@@ -383,7 +413,7 @@ def _map_tab(ranking: pd.DataFrame) -> None:
     fig.update_layout(
         margin={"l": 0, "r": 0, "t": 0, "b": 0},
         height=480,
-        coloraxis_colorbar={"title": "Score final"},
+        coloraxis_colorbar={"title": t("map_label_final_score")},
         geo={
             "bgcolor": "rgba(0,0,0,0)",
             "showframe": False,
@@ -400,8 +430,8 @@ def _map_tab(ranking: pd.DataFrame) -> None:
 def _usd_compact(value: float) -> str:
     """Monto USD legible: millones o miles de millones según magnitud."""
     if value >= 1e9:
-        return f"USD {value / 1e9:,.1f} B/año"
-    return f"USD {value / 1e6:,.0f} M/año"
+        return t("usd_billion", value=f"{value / 1e9:,.1f}")
+    return t("usd_million", value=f"{value / 1e6:,.0f}")
 
 
 def _kpi_row(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
@@ -419,30 +449,30 @@ def _kpi_row(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
     share = float((ranking[config.COL_SHARE] * weights).sum())
     col_demand, col_growth, col_share, col_rca = st.columns(4)
     col_demand.metric(
-        "Demanda analizada",
+        t("kpi_demand_label"),
         _usd_compact(total),
-        delta=f"{len(ranking)} mercados destino",
+        delta=t("kpi_demand_delta", n=len(ranking)),
         delta_color="off",
     )
     col_growth.metric(
-        "Crecimiento de la demanda",
+        t("kpi_growth_label"),
         f"{growth:+.1%}",
-        delta="CAGR ponderado por tamaño",
+        delta=t("kpi_growth_delta"),
         delta_color="off",
     )
     col_share.metric(
-        "Cuota agregada del origen",
+        t("kpi_share_label"),
         f"{share:.1%}",
-        delta="de la demanda analizada",
+        delta=t("kpi_share_delta"),
         delta_color="off",
     )
     rca = meta.get("rca_balassa")
     if rca is not None:
         rca_value = float(str(rca))
         col_rca.metric(
-            "RCA del origen",
+            t("kpi_rca_label"),
             f"{rca_value:.1f}",
-            delta="ventaja revelada" if rca_value > 1 else "sin ventaja revelada",
+            delta=t("kpi_rca_delta_yes") if rca_value > 1 else t("kpi_rca_delta_no"),
             delta_color="off",
         )
 
@@ -457,44 +487,50 @@ def _top3_cards(ranking: pd.DataFrame) -> None:
             st.metric(
                 label=f"{medal} {flag} {row[config.COL_COUNTRY_NAME]}".replace("  ", " "),
                 value=f"{row[config.COL_FINAL_SCORE]:.3f}",
-                delta=f"estabilidad {row[config.COL_STABILITY]:.2f}",
+                delta=t("top3_stability_delta", value=f"{row[config.COL_STABILITY]:.2f}"),
                 delta_color="off",
             )
 
 
 def main() -> None:
     """Renderiza la página principal: ranking de mercados destino."""
-    st.set_page_config(page_title="Radar de Mercados", page_icon="📡", layout="wide")
-    st.title("📡 Radar de Mercados")
+    st.set_page_config(page_title=t("page_title"), page_icon="📡", layout="wide")
+    st.title(t("app_title"))
     _about_sidebar()
     _hero_section()
 
     products = _available_products()
     _advanced_search_section(products)
     if not products:
-        st.error(
-            "No hay snapshots en `data/processed/`. Usa el buscador avanzado "
-            "de arriba o genera uno con:\n\n"
-            "```\npython -m tradefit.pipeline.build_snapshot\n```"
-        )
+        st.error(t("no_snapshots_error"))
         return
     _sync_product_from_url(products)
     hs = st.selectbox(
-        "Producto",
+        t("product_select_label"),
         options=list(products),
         format_func=lambda code: products[code],
         key=_PRODUCT_SELECT_KEY,
     )
     st.query_params["hs"] = hs  # URL compartible: ?hs=<partida>
     ranking, meta, narrative = _load_snapshot(hs)
+    ranking = _localize_country_names(ranking)
+    product_label = i18n.product_label(hs, str(meta["hs_label"]))
 
     rca = meta.get("rca_balassa")
-    rca_text = f" · RCA del origen en el producto: **{rca}**" if rca is not None else ""
+    rca_text = t("caption_rca_suffix", rca=rca) if rca is not None else ""
     origin_flag = flag_emoji(str(meta["origin_iso3"]))
     st.caption(
-        f"Producto: **{meta['hs_label']}** · Origen: **{origin_flag} {meta['origin_iso3']}** · "
-        f"Fuente: {meta['source']} · Datos {meta['data_year_min']}–{meta['data_year_max']} · "
-        f"{meta['n_markets']} mercados{rca_text}"
+        t(
+            "caption_line",
+            label=product_label,
+            origin_flag=origin_flag,
+            origin=meta["origin_iso3"],
+            source=meta["source"],
+            min_year=meta["data_year_min"],
+            max_year=meta["data_year_max"],
+            n_markets=meta["n_markets"],
+            rca_text=rca_text,
+        )
     )
 
     _kpi_row(ranking, meta)
@@ -502,12 +538,8 @@ def main() -> None:
     _top3_cards(ranking)
     _recommendations_section(narrative)
 
-    st.subheader("Ranking de mercados destino")
-    st.caption(
-        "Score final = oportunidad comercial × penalización por estabilidad macro "
-        f"(piso {meta.get('macro_floor', '—')}; indicadores WDI: inflación, "
-        "crecimiento del PIB y cuenta corriente)."
-    )
+    st.subheader(t("ranking_subheader"))
+    st.caption(t("ranking_caption", floor=meta.get("macro_floor", "—")))
     flagged_names = (
         ranking[config.COL_COUNTRY].map(flag_emoji) + " " + ranking[config.COL_COUNTRY_NAME]
     ).str.strip()
@@ -523,25 +555,23 @@ def main() -> None:
         column_config={
             config.COL_RANK: st.column_config.NumberColumn("#"),
             config.COL_COUNTRY: st.column_config.TextColumn("ISO3"),
-            config.COL_COUNTRY_NAME: st.column_config.TextColumn("Mercado"),
+            config.COL_COUNTRY_NAME: st.column_config.TextColumn(t("col_market")),
             config.COL_MARKET_SIZE: st.column_config.NumberColumn(
-                f"Importaciones prom. {meta['market_size_years']} años (USD)",
+                t("col_market_size", years=meta["market_size_years"]),
                 format="localized",
             ),
-            config.COL_GROWTH: st.column_config.NumberColumn(
-                "Crecimiento (CAGR)", format="percent"
-            ),
-            config.COL_SHARE: st.column_config.NumberColumn("Cuota del origen", format="percent"),
+            config.COL_GROWTH: st.column_config.NumberColumn(t("col_growth"), format="percent"),
+            config.COL_SHARE: st.column_config.NumberColumn(t("col_share"), format="percent"),
             config.COL_SHARE_TREND: st.column_config.NumberColumn(
-                "Δ cuota (ventana)", format="percent"
+                t("col_share_trend"), format="percent"
             ),
             config.COL_COMPLEMENTARITY: st.column_config.NumberColumn(
-                "Complementariedad", format="%.2f"
+                t("col_complementarity"), format="%.2f"
             ),
-            config.COL_STABILITY: st.column_config.NumberColumn("Estabilidad macro", format="%.2f"),
-            config.COL_SCORE: st.column_config.NumberColumn("Score bruto", format="%.3f"),
+            config.COL_STABILITY: st.column_config.NumberColumn(t("col_stability"), format="%.2f"),
+            config.COL_SCORE: st.column_config.NumberColumn(t("col_score_raw"), format="%.3f"),
             config.COL_FINAL_SCORE: st.column_config.ProgressColumn(
-                "Score final", min_value=0.0, max_value=1.0, format="%.3f"
+                t("col_score_final"), min_value=0.0, max_value=1.0, format="%.3f"
             ),
         },
     )
@@ -570,33 +600,32 @@ def main() -> None:
         )
 
     timeseries = _load_imports_timeseries(hs)
-    tab_labels = ["🗺️ Mapa", "Oportunidad vs. score final", "Tamaño de mercado"]
+    tab_labels = [t("tab_map"), t("tab_scores"), t("tab_size")]
     if timeseries is not None:
-        tab_labels.append("Evolución del mercado")
+        tab_labels.append(t("tab_evolution"))
     tabs = st.tabs(tab_labels)
     tab_map, tab_scores, tab_size = tabs[0], tabs[1], tabs[2]
     with tab_map:
         _map_tab(ranking)
     with tab_scores:
-        st.caption(
-            "La distancia entre las barras es la penalización macro: donde el score "
-            "final se acerca al bruto, el destino es estable."
-        )
+        st.caption(t("tab_scores_caption"))
         scores = ranking.set_index(config.COL_COUNTRY_NAME)[
             [config.COL_SCORE, config.COL_FINAL_SCORE]
-        ].rename(columns={config.COL_SCORE: "Score bruto", config.COL_FINAL_SCORE: "Score final"})
+        ].rename(
+            columns={
+                config.COL_SCORE: t("col_score_raw"),
+                config.COL_FINAL_SCORE: t("col_score_final"),
+            }
+        )
         st.bar_chart(scores, horizontal=True)
     with tab_size:
-        st.caption(
-            f"La porción clara es lo que ya vende {meta['origin_iso3']} en cada mercado "
-            "(cuota del último año × tamaño promedio); la oscura, el resto del mercado."
-        )
+        st.caption(t("tab_size_caption", origin=meta["origin_iso3"]))
         by_market = ranking.set_index(config.COL_COUNTRY_NAME)
         from_origin = by_market[config.COL_MARKET_SIZE] * by_market[config.COL_SHARE]
         size_chart = pd.DataFrame(
             {
-                f"Desde {meta['origin_iso3']}": from_origin,
-                "Resto del mercado": by_market[config.COL_MARKET_SIZE] - from_origin,
+                t("legend_from_origin", origin=meta["origin_iso3"]): from_origin,
+                t("legend_rest"): by_market[config.COL_MARKET_SIZE] - from_origin,
             }
         )
         st.bar_chart(size_chart, horizontal=True, color=["#93C5FD", "#1D4ED8"])
@@ -606,19 +635,16 @@ def main() -> None:
             names = ranking.set_index(config.COL_COUNTRY)[config.COL_COUNTRY_NAME]
             default_markets = list(ranking.nsmallest(5, config.COL_RANK)[config.COL_COUNTRY_NAME])
             selected_names = st.multiselect(
-                "Mercados a mostrar",
+                t("evolution_select_markets_label"),
                 options=list(names.sort_values()),
                 default=default_markets,
             )
+            view_index, view_absolute = t("evolution_view_index"), t("evolution_view_absolute")
             view = st.radio(
-                "Vista",
-                options=["Variación (año base = 100)", "Valor absoluto (USD)"],
+                t("evolution_view_label"),
+                options=[view_index, view_absolute],
                 horizontal=True,
-                help=(
-                    "En valor absoluto, un mercado grande (p. ej. Estados Unidos) "
-                    "aplasta en el eje a los mercados chicos aunque estos crezcan más "
-                    "rápido; la variación indexada pone a todos en la misma escala."
-                ),
+                help=t("evolution_view_help"),
             )
             selected_iso3 = [iso3 for iso3, name in names.items() if name in selected_names]
             if selected_iso3:
@@ -631,23 +657,29 @@ def main() -> None:
                         values=config.COL_IMPORTS_USD,
                     )
                 )
-                if view == "Variación (año base = 100)":
+                if view == view_index:
                     st.caption(
-                        f"Importaciones anuales del producto, indexadas a "
-                        f"{meta['data_year_min']} = 100 (periodo disponible: "
-                        f"{meta['data_year_min']}–{meta['data_year_max']})."
+                        t(
+                            "evolution_caption_index",
+                            min_year=meta["data_year_min"],
+                            max_year=meta["data_year_max"],
+                        )
                     )
                     st.line_chart(by_year.div(by_year.iloc[0]).mul(100.0))
                 else:
                     st.caption(
-                        "Importaciones anuales del producto por destino (USD); "
-                        f"periodo disponible: {meta['data_year_min']}–{meta['data_year_max']}."
+                        t(
+                            "evolution_caption_absolute",
+                            min_year=meta["data_year_min"],
+                            max_year=meta["data_year_max"],
+                        )
                     )
                     st.line_chart(by_year)
             else:
-                st.info("Selecciona al menos un mercado para ver su evolución.")
+                st.info(t("evolution_select_info"))
 
     _market_detail_section(ranking, narrative)
+    _comparator_section(products)
 
 
 if __name__ == "__main__":

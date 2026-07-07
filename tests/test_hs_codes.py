@@ -89,6 +89,16 @@ def test_search_espanol_sin_traduccion_devuelve_vacio(catalog: pd.DataFrame) -> 
     assert hs_codes.search_hs("dirigible", catalog).empty
 
 
+def test_search_lang_en_no_traduce_espanol(catalog: pd.DataFrame) -> None:
+    # En modo inglés, un término en español no debe traducirse ni matchear.
+    assert hs_codes.search_hs("café", catalog, lang="en").empty
+
+
+def test_search_lang_en_matches_ingles_directo(catalog: pd.DataFrame) -> None:
+    result = hs_codes.search_hs("coffee", catalog, lang="en")
+    assert list(result[hs_codes.COL_HS]) == ["09", "0901", "090111"]
+
+
 # --- catálogo versionado y etiquetas ---------------------------------------------
 
 

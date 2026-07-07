@@ -164,19 +164,22 @@ def load_hs_reference() -> pd.DataFrame:
         return pd.read_csv(f, dtype=str)
 
 
-def search_hs(query: str, catalog: pd.DataFrame, limit: int = 20) -> pd.DataFrame:
+def search_hs(query: str, catalog: pd.DataFrame, limit: int = 20, lang: str = "es") -> pd.DataFrame:
     """Busca partidas por código (prefijo) o por descripción (todas las palabras).
 
-    El catálogo está en inglés; si la consulta textual no arroja nada, se
-    reintenta traduciendo término a término con el diccionario curado ES→EN
-    (:data:`_ES_EN_SEARCH_TERMS`), de modo que «café» o «azúcar» también
-    encuentran su partida.
+    El catálogo está en inglés. Con ``lang="es"`` (idioma de la app en
+    español) cada término se traduce primero con el diccionario curado
+    ES→EN (:data:`_ES_EN_SEARCH_TERMS`) — un término sin traducción se usa
+    tal cual, así que un query directo en inglés también funciona en modo
+    español. Con ``lang="en"`` no se traduce nada: la consulta se matchea
+    literal contra el catálogo, de modo que un término en español (p. ej.
+    «café») no encuentra nada mientras la app está en inglés.
 
     Args:
-        query: código HS (o su prefijo) o términos de la descripción, en
-            inglés o en español.
+        query: código HS (o su prefijo) o términos de la descripción.
         catalog: catálogo cargado con :func:`load_hs_reference`.
         limit: máximo de resultados.
+        lang: idioma activo de la búsqueda — ``"es"`` o ``"en"``.
 
     Returns:
         Subconjunto del catálogo (mismas columnas), a lo sumo ``limit`` filas.
@@ -189,11 +192,9 @@ def search_hs(query: str, catalog: pd.DataFrame, limit: int = 20) -> pd.DataFram
         mask = catalog[COL_HS].str.startswith(normalized)
     else:
         terms = [t for t in query.casefold().split() if t]
+        if lang == "es":
+            terms = [_ES_EN_SEARCH_TERMS.get(_fold_accents(t), t) for t in terms]
         mask = _description_mask(catalog, terms)
-        if not mask.any():
-            translated = [_ES_EN_SEARCH_TERMS.get(_fold_accents(t), t) for t in terms]
-            if translated != terms:
-                mask = _description_mask(catalog, translated)
     return catalog[mask].head(limit)
 
 

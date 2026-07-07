@@ -34,6 +34,14 @@ PRODUCTS: Final[dict[str, str]] = {
     "0603": "Flores cortadas (HS 0603)",
     "0803": "Bananos y plátanos (HS 0803)",
 }
+# Etiquetas en inglés de los mismos 3 productos curados, para el toggle de
+# idioma de la app (presentación pura; las partidas construidas on-demand
+# usan la descripción del catálogo, que ya está en inglés).
+PRODUCTS_EN: Final[dict[str, str]] = {
+    "0901": "Coffee (HS 0901)",
+    "0603": "Cut flowers (HS 0603)",
+    "0803": "Bananas and plantains (HS 0803)",
+}
 HS_CODE: Final = "0901"  # producto por defecto (pipeline sin --hs, stub, tests)
 HS_LABEL: Final = PRODUCTS[HS_CODE]
 ORIGIN_ISO3: Final = "COL"
@@ -83,6 +91,28 @@ DESTINATIONS: Final[dict[str, str]] = {
     "AUS": "Australia",
     "PRT": "Portugal",
     "FIN": "Finlandia",
+    "AUT": "Austria",
+}
+
+# Nombres en inglés de los mismos 18 destinos, para el toggle de idioma de la app.
+DESTINATIONS_EN: Final[dict[str, str]] = {
+    "USA": "United States",
+    "DEU": "Germany",
+    "ITA": "Italy",
+    "FRA": "France",
+    "JPN": "Japan",
+    "CAN": "Canada",
+    "BEL": "Belgium",
+    "NLD": "Netherlands",
+    "ESP": "Spain",
+    "GBR": "United Kingdom",
+    "KOR": "South Korea",
+    "CHE": "Switzerland",
+    "POL": "Poland",
+    "SWE": "Sweden",
+    "AUS": "Australia",
+    "PRT": "Portugal",
+    "FIN": "Finland",
     "AUT": "Austria",
 }
 

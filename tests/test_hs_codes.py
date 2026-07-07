@@ -71,6 +71,24 @@ def test_search_respeta_el_limite(catalog: pd.DataFrame) -> None:
     assert len(hs_codes.search_hs("09", catalog, limit=1)) == 1
 
 
+def test_search_en_espanol_con_acento(catalog: pd.DataFrame) -> None:
+    result = hs_codes.search_hs("café", catalog)
+    assert list(result[hs_codes.COL_HS]) == ["09", "0901", "090111"]
+
+
+def test_search_en_espanol_azucar(catalog: pd.DataFrame) -> None:
+    assert list(hs_codes.search_hs("azúcar", catalog)[hs_codes.COL_HS]) == ["1701"]
+
+
+def test_search_espanol_no_pisa_un_match_en_ingles(catalog: pd.DataFrame) -> None:
+    # "cars" matchea directo en inglés: no se debe traducir nada.
+    assert list(hs_codes.search_hs("cars", catalog)[hs_codes.COL_HS]) == ["8703"]
+
+
+def test_search_espanol_sin_traduccion_devuelve_vacio(catalog: pd.DataFrame) -> None:
+    assert hs_codes.search_hs("dirigible", catalog).empty
+
+
 # --- catálogo versionado y etiquetas ---------------------------------------------
 
 
@@ -79,6 +97,12 @@ def test_catalogo_versionado_carga_y_trae_el_cafe() -> None:
     assert set(catalog.columns) == {hs_codes.COL_HS, hs_codes.COL_DESC}
     assert (catalog[hs_codes.COL_HS] == "0901").any()
     assert catalog[hs_codes.COL_HS].str.len().isin([2, 4, 6]).all()
+
+
+def test_busqueda_en_espanol_contra_el_catalogo_real() -> None:
+    catalog = hs_codes.load_hs_reference()
+    result = hs_codes.search_hs("aguacate", catalog)
+    assert result[hs_codes.COL_HS].str.startswith("0804").any()
 
 
 def test_label_prefiere_el_producto_curado() -> None:

@@ -46,7 +46,7 @@ def _hero_section() -> None:
             "- **Recomendación**: el porqué de cada top, con sus números "
             "(crecimiento de la demanda, cuota ya ganada, complementariedad).\n"
             "- **🔎 Buscador avanzado**: escribe cualquier partida (p. ej. "
-            "`1701` o «coffee») y la app descarga los datos de UN Comtrade y "
+            "`1701` o «café») y la app descarga los datos de UN Comtrade y "
             "construye el análisis al momento.\n"
             "- **📖 Metodología**: la fórmula y la cita académica de cada "
             "métrica; el ranking se exporta a CSV, Excel o PDF."
@@ -156,8 +156,8 @@ def _advanced_search_section(products: dict[str, str]) -> None:
     """
     with st.expander("🔎 Buscador avanzado: analiza cualquier partida arancelaria"):
         query = st.text_input(
-            "Partida HS o palabras de la descripción (catálogo en inglés)",
-            placeholder="p. ej. 1701, 09.01 o «sugar cane»",
+            "Partida HS o nombre del producto (español o inglés)",
+            placeholder="p. ej. 1701, 09.01, «café» o «sugar cane»",
             help="Niveles soportados: capítulo (2 dígitos), partida (4) y subpartida (6).",
         )
         if not query.strip():
@@ -182,7 +182,10 @@ def _advanced_search_section(products: dict[str, str]) -> None:
                 "se intentará consultar igual."
             )
         else:
-            st.info("Sin coincidencias: prueba con el código HS o términos en inglés.")
+            st.info(
+                "Sin coincidencias: prueba con el código HS o el nombre del "
+                "producto (español o inglés)."
+            )
             return
         if selected is None:
             return

@@ -598,12 +598,21 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
     },
     "evolution_caption_absolute": {
         "es": (
-            "Importaciones anuales del producto por destino (USD); "
-            "periodo disponible: {min_year}–{max_year}."
+            "Importaciones anuales del producto por destino, en millones de "
+            "USD (periodo disponible: {min_year}–{max_year})."
         ),
         "en": (
-            "Annual product imports by destination (USD); period available: {min_year}–{max_year}."
+            "Annual product imports by destination, USD million "
+            "(period available: {min_year}–{max_year})."
         ),
+    },
+    "evolution_yaxis_index": {
+        "es": "Índice (año base = 100)",
+        "en": "Index (base year = 100)",
+    },
+    "evolution_yaxis_usd_m": {
+        "es": "Importaciones (USD M)",
+        "en": "Imports (USD M)",
     },
     "evolution_select_info": {
         "es": "Selecciona al menos un mercado para ver su evolución.",

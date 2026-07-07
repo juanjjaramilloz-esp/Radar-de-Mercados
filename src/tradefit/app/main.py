@@ -430,6 +430,62 @@ def _map_tab(ranking: pd.DataFrame) -> None:
     st.plotly_chart(fig, use_container_width=True)
 
 
+def _evolution_tab(
+    ranking: pd.DataFrame, meta: dict[str, object], timeseries: pd.DataFrame
+) -> None:
+    """Evolución anual de las importaciones por destino (indexada o absoluta).
+
+    Presentación pura sobre la serie que el pipeline dejó en el snapshot.
+    Vista indexada (default): todos los mercados en la misma escala para
+    comparar ritmos; vista absoluta en millones de USD.
+    """
+    names = ranking.set_index(config.COL_COUNTRY)[config.COL_COUNTRY_NAME]
+    default_markets = list(ranking.nsmallest(5, config.COL_RANK)[config.COL_COUNTRY_NAME])
+    selected_names = st.multiselect(
+        t("evolution_select_markets_label"),
+        options=list(names.sort_values()),
+        default=default_markets,
+    )
+    view_index, view_absolute = t("evolution_view_index"), t("evolution_view_absolute")
+    view = st.radio(
+        t("evolution_view_label"),
+        options=[view_index, view_absolute],
+        horizontal=True,
+        help=t("evolution_view_help"),
+    )
+    selected_iso3 = [iso3 for iso3, name in names.items() if name in selected_names]
+    if not selected_iso3:
+        st.info(t("evolution_select_info"))
+        return
+    by_year = (
+        timeseries[timeseries[config.COL_COUNTRY].isin(selected_iso3)]
+        .assign(**{config.COL_COUNTRY_NAME: lambda d: d[config.COL_COUNTRY].map(names)})
+        .pivot(
+            index=config.COL_YEAR,
+            columns=config.COL_COUNTRY_NAME,
+            values=config.COL_IMPORTS_USD,
+        )
+    )
+    indexed = view == view_index
+    caption_key = "evolution_caption_index" if indexed else "evolution_caption_absolute"
+    st.caption(t(caption_key, min_year=meta["data_year_min"], max_year=meta["data_year_max"]))
+    data = by_year.div(by_year.iloc[0]).mul(100.0) if indexed else by_year / 1e6
+    fig = px.line(data, markers=True)
+    fig.update_traces(line={"width": 2.5}, marker={"size": 7}, hovertemplate="%{y:,.1f}")
+    if indexed:
+        fig.add_hline(y=100.0, line_dash="dot", line_color="#94A3B8", opacity=0.8)
+    fig.update_layout(
+        separators=i18n.active_plotly_separators(),
+        hovermode="x unified",
+        height=440,
+        margin={"l": 0, "r": 0, "t": 10, "b": 0},
+        legend={"orientation": "h", "yanchor": "bottom", "y": -0.35, "title": None},
+        xaxis={"title": None, "dtick": 1, "tickformat": "d"},
+        yaxis={"title": t("evolution_yaxis_index") if indexed else t("evolution_yaxis_usd_m")},
+    )
+    st.plotly_chart(fig, use_container_width=True)
+
+
 def _kpi_row(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
     """Resumen ejecutivo de una mirada: agregaciones del ranking ya calculado.
 
@@ -631,51 +687,7 @@ def main() -> None:
 
     if timeseries is not None:
         with tabs[3]:
-            names = ranking.set_index(config.COL_COUNTRY)[config.COL_COUNTRY_NAME]
-            default_markets = list(ranking.nsmallest(5, config.COL_RANK)[config.COL_COUNTRY_NAME])
-            selected_names = st.multiselect(
-                t("evolution_select_markets_label"),
-                options=list(names.sort_values()),
-                default=default_markets,
-            )
-            view_index, view_absolute = t("evolution_view_index"), t("evolution_view_absolute")
-            view = st.radio(
-                t("evolution_view_label"),
-                options=[view_index, view_absolute],
-                horizontal=True,
-                help=t("evolution_view_help"),
-            )
-            selected_iso3 = [iso3 for iso3, name in names.items() if name in selected_names]
-            if selected_iso3:
-                by_year = (
-                    timeseries[timeseries[config.COL_COUNTRY].isin(selected_iso3)]
-                    .assign(**{config.COL_COUNTRY_NAME: lambda d: d[config.COL_COUNTRY].map(names)})
-                    .pivot(
-                        index=config.COL_YEAR,
-                        columns=config.COL_COUNTRY_NAME,
-                        values=config.COL_IMPORTS_USD,
-                    )
-                )
-                if view == view_index:
-                    st.caption(
-                        t(
-                            "evolution_caption_index",
-                            min_year=meta["data_year_min"],
-                            max_year=meta["data_year_max"],
-                        )
-                    )
-                    st.line_chart(by_year.div(by_year.iloc[0]).mul(100.0))
-                else:
-                    st.caption(
-                        t(
-                            "evolution_caption_absolute",
-                            min_year=meta["data_year_min"],
-                            max_year=meta["data_year_max"],
-                        )
-                    )
-                    st.line_chart(by_year)
-            else:
-                st.info(t("evolution_select_info"))
+            _evolution_tab(ranking, meta, timeseries)
 
     _market_detail_section(ranking, narrative)
     _comparator_section(products)

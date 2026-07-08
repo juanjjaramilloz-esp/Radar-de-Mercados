@@ -124,9 +124,20 @@ DESTINATIONS: Final[dict[str, str]] = {
     "PRT": "Portugal",
     "FIN": "Finlandia",
     "AUT": "Austria",
+    # Destinos LATAM (2026-07-08): socios regionales relevantes de Colombia
+    # con buen reporte a Comtrade; ojo con reporters rezagados (se anota en
+    # STATUS si alguno queda corto en la ventana de años).
+    "MEX": "México",
+    "BRA": "Brasil",
+    "CHL": "Chile",
+    "PER": "Perú",
+    "ECU": "Ecuador",
+    "CRI": "Costa Rica",
+    "PAN": "Panamá",
+    "DOM": "República Dominicana",
 }
 
-# Nombres en inglés de los mismos 18 destinos, para el toggle de idioma de la app.
+# Nombres en inglés de los mismos destinos, para el toggle de idioma de la app.
 DESTINATIONS_EN: Final[dict[str, str]] = {
     "USA": "United States",
     "DEU": "Germany",
@@ -146,6 +157,14 @@ DESTINATIONS_EN: Final[dict[str, str]] = {
     "PRT": "Portugal",
     "FIN": "Finland",
     "AUT": "Austria",
+    "MEX": "Mexico",
+    "BRA": "Brazil",
+    "CHL": "Chile",
+    "PER": "Peru",
+    "ECU": "Ecuador",
+    "CRI": "Costa Rica",
+    "PAN": "Panama",
+    "DOM": "Dominican Republic",
 }
 
 # Códigos de reporter de UN Comtrade (basados en M49; ojo con los códigos
@@ -170,6 +189,14 @@ COMTRADE_REPORTER_CODES: Final[dict[str, int]] = {
     "PRT": 620,
     "FIN": 246,
     "AUT": 40,
+    "MEX": 484,
+    "BRA": 76,
+    "CHL": 152,
+    "PER": 604,
+    "ECU": 218,
+    "CRI": 188,
+    "PAN": 591,
+    "DOM": 214,
 }
 
 # Años de importaciones a descargar (fijos para que el snapshot sea reproducible).
@@ -273,6 +300,15 @@ WITS_REPORTER_CODES: Final[dict[str, int]] = {
     "PRT": WITS_EU_CODE,
     "FIN": WITS_EU_CODE,
     "AUT": WITS_EU_CODE,
+    # LATAM: ISO numérico coincide con el M49 de Comtrade en estos 8.
+    "MEX": 484,
+    "BRA": 76,
+    "CHL": 152,
+    "PER": 604,
+    "ECU": 218,
+    "CRI": 188,
+    "PAN": 591,
+    "DOM": 214,
 }
 
 

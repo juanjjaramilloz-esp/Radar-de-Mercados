@@ -24,6 +24,15 @@ _ISO3_TO_ISO2: Final[dict[str, str]] = {
     "PRT": "PT",
     "SWE": "SE",
     "USA": "US",
+    # Destinos LATAM (2026-07-08)
+    "MEX": "MX",
+    "BRA": "BR",
+    "CHL": "CL",
+    "PER": "PE",
+    "ECU": "EC",
+    "CRI": "CR",
+    "PAN": "PA",
+    "DOM": "DO",
 }
 
 _REGIONAL_INDICATOR_OFFSET: Final = 0x1F1E6 - ord("A")

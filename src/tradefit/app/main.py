@@ -25,7 +25,7 @@ from dotenv import load_dotenv
 from tradefit import config, hs_codes
 from tradefit.app import i18n
 from tradefit.app.export import ranking_to_excel, ranking_to_pdf
-from tradefit.app.flags import flag_emoji
+from tradefit.app.flags import flag_color, flag_emoji
 from tradefit.app.i18n import t
 from tradefit.domain import scoring
 from tradefit.domain.macro_filter import latest_indicator_value
@@ -95,15 +95,18 @@ _METRIC_COLORS: Final[dict[str, str]] = {
     "tariff_faced": "#94A3B8",
 }
 
-#: Colores de los hasta 3 mercados del radar: misma familia cromática que el
-#: resto de la app (azul/ámbar/verde) en lugar de la paleta default de plotly.
-_RADAR_COLORS: Final[tuple[str, str, str]] = ("#1D4ED8", "#F59E0B", "#10B981")
-
 
 def _radar_fill(hex_color: str) -> str:
     """Versión translúcida (rgba) de un color hex para el relleno del radar."""
     r, g, b = (int(hex_color[i : i + 2], 16) for i in (1, 3, 5))
     return f"rgba({r},{g},{b},0.18)"
+
+
+def _contrast_text(hex_color: str) -> str:
+    """Blanco o negro según la luminancia del fondo (chips legibles)."""
+    r, g, b = (int(hex_color[i : i + 2], 16) for i in (1, 3, 5))
+    luminance = 0.299 * r + 0.587 * g + 0.114 * b
+    return "#111827" if luminance > 150 else "#FFFFFF"
 
 
 def _hero_section() -> None:
@@ -862,6 +865,17 @@ def _compare_selector(ranking: pd.DataFrame) -> list[str]:
         help=t("compare_select_help"),
     )
     if selected:
+        # Cada chip toma el color de bandera de su país — el mismo de las
+        # trazas del radar y la evolución: la chip ES la leyenda. Se apunta
+        # por posición (nth-of-type) porque el orden del DOM es el orden de
+        # selección, el mismo con que se dibujan las trazas.
+        rules = "".join(
+            f".st-key-{_COMPARE_KEY} span[data-baseweb='tag']:nth-of-type({position}) {{"
+            f" background-color: {flag_color(iso3)} !important;"
+            f" color: {_contrast_text(flag_color(iso3))} !important; }}"
+            for position, iso3 in enumerate(selected, start=1)
+        )
+        st.markdown(f"<style>{rules}</style>", unsafe_allow_html=True)
         st.caption(t("compare_active_note"))
     return selected
 
@@ -987,6 +1001,13 @@ def _evolution_tab(
     data = by_year.div(by_year.iloc[0]).mul(100.0) if indexed else by_year / 1e6
     fig = px.line(data, markers=True)
     fig.update_traces(line={"width": 2.5}, marker={"size": 7}, hovertemplate="%{y:,.1f}")
+    if compare:
+        # Mismo color de bandera que las chips del comparador y el radar.
+        color_by_name = {str(names.get(iso3, iso3)): flag_color(iso3) for iso3 in selected_iso3}
+        for trace in fig.data:
+            trace_color = color_by_name.get(str(getattr(trace, "name", "")))
+            if trace_color:
+                trace.update(line_color=trace_color, marker_color=trace_color)
     if indexed:
         fig.add_hline(y=100.0, line_dash="dot", line_color="#94A3B8", opacity=0.8)
     fig.update_layout(
@@ -1535,7 +1556,8 @@ def _radar_tab(ranking: pd.DataFrame, compare: list[str] | None = None) -> None:
     }
     axes = [i18n.metric_label(name) for name in available]
     fig = go.Figure()
-    for iso3, color in zip(selected, _RADAR_COLORS, strict=False):
+    for iso3 in selected:
+        color = flag_color(iso3)
         values = [float(normalized[name][iso3]) for name in available]
         fig.add_trace(
             go.Scatterpolar(
@@ -1557,6 +1579,10 @@ def _radar_tab(ranking: pd.DataFrame, compare: list[str] | None = None) -> None:
         },
         height=480,
         margin={"l": 60, "r": 60, "t": 30, "b": 30},
+        # Con el comparador activo las chips coloreadas hacen de leyenda
+        # (mismo color de bandera por país); sin selección (top-3 default)
+        # no hay chips y la leyenda vuelve.
+        showlegend=not compare,
         legend={"orientation": "h", "yanchor": "bottom", "y": -0.2},
     )
     st.plotly_chart(fig, use_container_width=True)

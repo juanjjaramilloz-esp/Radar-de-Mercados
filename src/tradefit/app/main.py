@@ -735,6 +735,62 @@ def _breakdown_tab(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
     st.plotly_chart(fig, use_container_width=True)
 
 
+def _radar_tab(ranking: pd.DataFrame) -> None:
+    """Radar de métricas normalizadas: perfil comparado de hasta 3 mercados.
+
+    Cada eje es una métrica del scoring normalizada con
+    ``domain/scoring.normalized_metric`` sobre TODOS los mercados del
+    ranking (mismas direcciones que el motor: el arancel llega invertido).
+    """
+    available = [name for name, col in scoring.METRIC_COLUMNS.items() if col in ranking.columns]
+    if len(available) < 3:  # un radar con menos de 3 ejes no dice nada
+        return
+    st.caption(t("radar_caption"))
+    names = ranking.set_index(config.COL_COUNTRY)[config.COL_COUNTRY_NAME]
+    top3 = list(ranking.nsmallest(3, config.COL_RANK)[config.COL_COUNTRY])
+    selected = st.multiselect(
+        t("radar_select_label"),
+        options=list(ranking[config.COL_COUNTRY]),
+        default=top3,
+        max_selections=3,
+        format_func=lambda iso3: f"{flag_emoji(iso3)} {names.get(iso3, iso3)}".strip(),
+        key="radar_markets",
+    )
+    if not selected:
+        st.info(t("radar_select_info"))
+        return
+    indexed = ranking.set_index(config.COL_COUNTRY)
+    normalized = {
+        name: scoring.normalized_metric(name, indexed[scoring.METRIC_COLUMNS[name]])
+        for name in available
+    }
+    axes = [i18n.metric_label(name) for name in available]
+    fig = go.Figure()
+    for iso3 in selected:
+        values = [float(normalized[name][iso3]) for name in available]
+        fig.add_trace(
+            go.Scatterpolar(
+                # se repite el primer punto para cerrar el polígono
+                r=[*values, values[0]],
+                theta=[*axes, axes[0]],
+                fill="toself",
+                name=f"{flag_emoji(iso3)} {names.get(iso3, iso3)}".strip(),
+                hovertemplate="%{theta}: %{r:.2f}<extra>%{fullData.name}</extra>",
+            )
+        )
+    fig.update_layout(
+        separators=i18n.active_plotly_separators(),
+        polar={
+            "radialaxis": {"range": [0, 1], "tickvals": [0.25, 0.5, 0.75, 1.0]},
+            "bgcolor": "rgba(0,0,0,0)",
+        },
+        height=480,
+        margin={"l": 60, "r": 60, "t": 30, "b": 30},
+        legend={"orientation": "h", "yanchor": "bottom", "y": -0.2},
+    )
+    st.plotly_chart(fig, use_container_width=True)
+
+
 def _size_tab(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
     """Tamaño de cada mercado partido en «ya lo vende el origen» vs. resto."""
     st.caption(t("tab_size_caption", origin=meta["origin_iso3"]))
@@ -909,7 +965,13 @@ def main() -> None:
     _weight_lab_section(ranking, meta)
 
     timeseries = _load_imports_timeseries(hs)
-    tab_labels = [t("tab_map"), t("tab_breakdown"), t("tab_scores"), t("tab_size")]
+    tab_labels = [
+        t("tab_map"),
+        t("tab_breakdown"),
+        t("tab_radar"),
+        t("tab_scores"),
+        t("tab_size"),
+    ]
     if timeseries is not None:
         tab_labels.append(t("tab_evolution"))
     tabs = st.tabs(tab_labels)
@@ -918,12 +980,14 @@ def main() -> None:
     with tabs[1]:
         _breakdown_tab(ranking, meta)
     with tabs[2]:
-        _scores_tab(ranking)
+        _radar_tab(ranking)
     with tabs[3]:
+        _scores_tab(ranking)
+    with tabs[4]:
         _size_tab(ranking, meta)
 
     if timeseries is not None:
-        with tabs[4]:
+        with tabs[5]:
             _evolution_tab(ranking, meta, timeseries)
 
     _market_detail_section(ranking, narrative)

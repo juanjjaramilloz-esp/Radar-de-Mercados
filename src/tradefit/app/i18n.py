@@ -564,6 +564,29 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
     "col_score_final": {"es": "Score final", "en": "Final score"},
     "tab_map": {"es": "🗺️ Mapa", "en": "🗺️ Map"},
     "tab_breakdown": {"es": "¿Por qué este score?", "en": "Why this score?"},
+    "tab_radar": {"es": "📡 Radar de métricas", "en": "📡 Metric radar"},
+    "radar_caption": {
+        "es": (
+            "Perfil de cada mercado en las métricas del scoring, "
+            "normalizadas a [0, 1] sobre los mercados analizados (min-max, "
+            "las mismas del motor). Más área = mejor perfil; el arancel va "
+            "invertido (más lejos del centro = menos arancel)."
+        ),
+        "en": (
+            "Each market's profile across the scoring metrics, normalized "
+            "to [0, 1] over the analyzed markets (min-max, same as the "
+            "engine). More area = better profile; the tariff is inverted "
+            "(farther from the center = lower tariff)."
+        ),
+    },
+    "radar_select_label": {
+        "es": "Mercados a comparar (máx. 3)",
+        "en": "Markets to compare (max 3)",
+    },
+    "radar_select_info": {
+        "es": "Selecciona al menos un mercado para dibujar el radar.",
+        "en": "Select at least one market to draw the radar.",
+    },
     "breakdown_caption": {
         "es": (
             "Cada barra suma el score de oportunidad (antes de la "

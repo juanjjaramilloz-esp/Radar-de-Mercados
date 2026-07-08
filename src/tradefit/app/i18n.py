@@ -198,17 +198,18 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
     },
     "hero_value_prop": {
         "es": (
-            "Dado un **producto** (partida arancelaria HS) y un **país de "
-            "origen**, esta herramienta rankea mercados destino combinando "
-            "la **oportunidad comercial** (tamaño, crecimiento, cuota, "
-            "complementariedad) con un **filtro de estabilidad "
-            "macroeconómica** del destino."
+            "Dado un **producto** (partida arancelaria HS), esta herramienta "
+            "rankea mercados destino para las exportaciones de **{flag} "
+            "{origin}** combinando la **oportunidad comercial** (tamaño, "
+            "crecimiento, cuota, complementariedad) con un **filtro de "
+            "estabilidad macroeconómica** del destino."
         ),
         "en": (
-            "Given a **product** (HS tariff line) and an **origin country**, "
-            "this tool ranks destination markets by combining **commercial "
-            "opportunity** (size, growth, share, complementarity) with a "
-            "**macroeconomic stability filter** on the destination."
+            "Given a **product** (HS tariff line), this tool ranks "
+            "destination markets for **{flag} {origin}'s** exports by "
+            "combining **commercial opportunity** (size, growth, share, "
+            "complementarity) with a **macroeconomic stability filter** on "
+            "the destination."
         ),
     },
     "hero_tour_title": {
@@ -723,7 +724,7 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
         "en": "no revealed advantage",
     },
     "top3_stability_delta": {"es": "estabilidad {value}", "en": "stability {value}"},
-    "product_select_label": {"es": "Producto", "en": "Product"},
+    "product_select_label": {"es": "📦 Elige el producto", "en": "📦 Choose the product"},
     "product_select_help": {
         "es": (
             "Top 15 de exportaciones de Colombia por partida HS4 "

@@ -31,6 +31,10 @@ from tradefit.domain.macro_filter import latest_indicator_value
 from tradefit.pipeline.build_snapshot import ensure_snapshot
 
 _PRODUCT_SELECT_KEY = "product_select"
+#: Contenedor del selector de producto: la clave le da a Streamlit una clase
+#: CSS propia (``st-key-<key>``) para resaltarlo sin afectar otros
+#: selectbox de la app (buscador avanzado, foco, idioma).
+_PRODUCT_SELECT_CONTAINER_KEY = "product_select_container"
 _TOUR_SEEN_KEY = "tour_seen"
 #: Estado del focus mode: el selectbox de la ficha es la fuente de verdad;
 #: el mapa escribe en él (antes de instanciarlo) y un guard evita que la
@@ -96,11 +100,49 @@ def _hero_section() -> None:
     El expander del tour llega abierto solo en la primera carga de la sesión
     (``st.session_state``); después queda plegado y disponible.
     """
-    st.markdown(t("hero_value_prop"))
+    st.markdown(
+        t(
+            "hero_value_prop",
+            flag=flag_emoji(config.ORIGIN_ISO3),
+            origin=config.ORIGIN_NAME,
+        )
+    )
     first_load = _TOUR_SEEN_KEY not in st.session_state
     st.session_state[_TOUR_SEEN_KEY] = True
     with st.expander(t("hero_tour_title"), expanded=first_load):
         st.markdown(t("hero_tour_body"))
+
+
+def _product_select_css() -> None:
+    """Resalta el selector de producto: es la acción primordial de la app.
+
+    Streamlit da a ``st.container(key=...)`` una clase CSS propia
+    (``st-key-<key>``, ver ``convertKeyToClassName`` en el frontend): el
+    estilo queda acotado a este contenedor y no toca los demás selectbox
+    de la página. Colores en rgba (no hex sólido) para funcionar igual en
+    tema claro y oscuro, igual que el resaltado de foco de la tabla.
+    """
+    st.markdown(
+        f"""
+        <style>
+        .st-key-{_PRODUCT_SELECT_CONTAINER_KEY} {{
+            background-color: rgba(29, 78, 216, 0.12);
+            border: 1px solid rgba(29, 78, 216, 0.4) !important;
+            border-radius: 0.75rem;
+            padding: 0.25rem 1rem 1rem 1rem;
+        }}
+        .st-key-{_PRODUCT_SELECT_CONTAINER_KEY} [data-testid="stWidgetLabel"] p {{
+            font-size: 1.05rem;
+            font-weight: 700;
+        }}
+        .st-key-{_PRODUCT_SELECT_CONTAINER_KEY} [data-baseweb="select"] > div {{
+            background-color: rgba(29, 78, 216, 0.08);
+            border-color: rgba(29, 78, 216, 0.55);
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 def _about_sidebar() -> None:
@@ -1418,13 +1460,15 @@ def main() -> None:
     _advanced_search_section()
     _sync_product_from_url()
     options = _selector_options(_catalog_products())
-    hs = st.selectbox(
-        t("product_select_label"),
-        options=list(options),
-        format_func=lambda code: options[code],
-        key=_PRODUCT_SELECT_KEY,
-        help=t("product_select_help"),
-    )
+    _product_select_css()
+    with st.container(key=_PRODUCT_SELECT_CONTAINER_KEY, border=True):
+        hs = st.selectbox(
+            t("product_select_label"),
+            options=list(options),
+            format_func=lambda code: options[code],
+            key=_PRODUCT_SELECT_KEY,
+            help=t("product_select_help"),
+        )
     st.query_params["hs"] = hs  # URL compartible: ?hs=<partida>
     # Los curados se listan aunque no tengan snapshot: se construye al
     # seleccionarlos (en el demo cloud vienen versionados → instantáneo).

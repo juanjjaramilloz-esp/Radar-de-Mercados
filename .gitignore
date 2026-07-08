@@ -13,6 +13,8 @@ data/processed/*/*
 !data/processed/*/meta.json
 !data/processed/*/narrative.json
 !data/processed/*/imports_timeseries.parquet
+!data/processed/*/competitors.parquet
+!data/processed/macro_context.parquet
 
 # Entornos y caches de Python
 .venv/

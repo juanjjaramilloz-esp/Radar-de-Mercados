@@ -2,8 +2,8 @@
   "basket_year": 2024,
   "data_year_max": 2025,
   "data_year_min": 2023,
-  "hs_code": "0804",
-  "hs_label": "Aguacates, piñas y mangos (HS 0804)",
+  "hs_code": "2101",
+  "hs_label": "Extractos de café (HS 2101)",
   "macro_bounds": {
     "current_account": [
       -5.0,
@@ -28,7 +28,7 @@
   "market_size_years": 3,
   "n_markets": 18,
   "origin_iso3": "COL",
-  "rca_balassa": 10.2189,
+  "rca_balassa": 14.8558,
   "source": "comtrade",
   "tariff_years": [
     2018,

@@ -1,0 +1,356 @@
+{
+  "en": {
+    "markets": {
+      "AUS": [
+        "Australia imports USD 95 M a year of Palm oil (HS 1511) (average of the last 3 years).",
+        "Demand grows at 6.4 % per year (CAGR).",
+        "Colombia already holds 0.8 % of the market and gains 0.6 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Australia at 0.40 (0–1 scale).",
+        "Palm oil (HS 1511) enters Australia duty-free (0 % effectively applied).",
+        "Macro stability of Australia at 0.77: the filter leaves the score at 0.372 (raw 0.420)."
+      ],
+      "AUT": [
+        "Austria imports USD 51 M a year of Palm oil (HS 1511) (average of the last 3 years).",
+        "Demand shrinks at 14.4 % per year (CAGR).",
+        "Colombia already holds 0.2 % of the market and loses 0.1 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Austria at 0.37 (0–1 scale).",
+        "Palm oil (HS 1511) enters Austria duty-free (0 % effectively applied).",
+        "Macro stability of Austria at 0.71: the filter leaves the score at 0.222 (raw 0.260)."
+      ],
+      "BEL": [
+        "Belgium imports USD 437 M a year of Palm oil (HS 1511) (average of the last 3 years).",
+        "Demand shrinks at 5.2 % per year (CAGR).",
+        "Colombia already holds 2.7 % of the market and gains 0.7 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Belgium at 0.45 (0–1 scale).",
+        "Palm oil (HS 1511) enters Belgium duty-free (0 % effectively applied).",
+        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.452 (raw 0.502)."
+      ],
+      "CAN": [
+        "Canada imports USD 168 M a year of Palm oil (HS 1511) (average of the last 3 years).",
+        "Demand grows at 3.0 % per year (CAGR).",
+        "Colombia already holds 5.7 % of the market and gains 0.1 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Canada at 0.37 (0–1 scale).",
+        "Palm oil (HS 1511) enters Canada duty-free (0 % effectively applied).",
+        "Macro stability of Canada at 0.86: the filter leaves the score at 0.418 (raw 0.449)."
+      ],
+      "CHE": [
+        "Switzerland imports USD 18 M a year of Palm oil (HS 1511) (average of the last 3 years).",
+        "Demand shrinks at 18.6 % per year (CAGR).",
+        "Colombia already holds 6.5 % of the market and loses 0.2 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Switzerland at 0.32 (0–1 scale).",
+        "Palm oil (HS 1511) enters Switzerland duty-free (0 % effectively applied).",
+        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.255 (raw 0.271)."
+      ],
+      "DEU": [
+        "Germany imports USD 881 M a year of Palm oil (HS 1511) (average of the last 3 years).",
+        "Demand shrinks at 3.3 % per year (CAGR).",
+        "Colombia already holds 0.9 % of the market and gains 0.6 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Germany at 0.37 (0–1 scale).",
+        "Palm oil (HS 1511) enters Germany duty-free (0 % effectively applied).",
+        "Macro stability of Germany at 0.74: the filter leaves the score at 0.383 (raw 0.441)."
+      ],
+      "ESP": [
+        "Spain imports USD 839 M a year of Palm oil (HS 1511) (average of the last 3 years).",
+        "Demand shrinks at 31.1 % per year (CAGR).",
+        "Colombia already holds 10.0 % of the market and gains 8.8 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Spain at 0.42 (0–1 scale).",
+        "Palm oil (HS 1511) enters Spain duty-free (0 % effectively applied).",
+        "Macro stability of Spain at 0.97: the filter leaves the score at 0.573 (raw 0.582)."
+      ],
+      "FIN": [
+        "Finland imports USD 2 M a year of Palm oil (HS 1511) (average of the last 3 years).",
+        "Demand shrinks at 6.0 % per year (CAGR).",
+        "Colombia records no sales of Palm oil (HS 1511) in Finland (0 % share).",
+        "The export basket of Colombia fits the import demand of Finland at 0.40 (0–1 scale).",
+        "Palm oil (HS 1511) enters Finland duty-free (0 % effectively applied).",
+        "Macro stability of Finland at 0.76: the filter leaves the score at 0.295 (raw 0.334)."
+      ],
+      "FRA": [
+        "France imports USD 214 M a year of Palm oil (HS 1511) (average of the last 3 years).",
+        "Demand shrinks at 12.3 % per year (CAGR).",
+        "Colombia already holds 0.1 % of the market and loses 0.1 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of France at 0.42 (0–1 scale).",
+        "Palm oil (HS 1511) enters France duty-free (0 % effectively applied).",
+        "Macro stability of France at 0.83: the filter leaves the score at 0.317 (raw 0.346)."
+      ],
+      "GBR": [
+        "United Kingdom imports USD 473 M a year of Palm oil (HS 1511) (average of the last 3 years).",
+        "Demand grows at 6.3 % per year (CAGR).",
+        "Colombia already holds 1.5 % of the market and gains 0.7 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of United Kingdom at 0.43 (0–1 scale).",
+        "Palm oil (HS 1511) enters United Kingdom duty-free (0 % effectively applied).",
+        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.410 (raw 0.514)."
+      ],
+      "ITA": [
+        "Italy imports USD 1,280 M a year of Palm oil (HS 1511) (average of the last 3 years).",
+        "Demand shrinks at 18.4 % per year (CAGR).",
+        "Colombia already holds 1.3 % of the market and gains 0.5 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Italy at 0.43 (0–1 scale).",
+        "Palm oil (HS 1511) enters Italy duty-free (0 % effectively applied).",
+        "Macro stability of Italy at 0.83: the filter leaves the score at 0.456 (raw 0.498)."
+      ],
+      "JPN": [
+        "Japan imports USD 701 M a year of Palm oil (HS 1511) (average of the last 3 years).",
+        "Demand grows at 3.1 % per year (CAGR).",
+        "Colombia already holds 0.2 % of the market and gains 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Japan at 0.46 (0–1 scale).",
+        "Palm oil (HS 1511) faces an effectively applied tariff of 3.2 % in Japan.",
+        "Macro stability of Japan at 0.81: the filter leaves the score at 0.400 (raw 0.442)."
+      ],
+      "KOR": [
+        "South Korea imports USD 620 M a year of Palm oil (HS 1511) (average of the last 3 years).",
+        "Demand grows at 3.8 % per year (CAGR).",
+        "Colombia records no sales of Palm oil (HS 1511) in South Korea (0 % share).",
+        "The export basket of Colombia fits the import demand of South Korea at 0.49 (0–1 scale).",
+        "Palm oil (HS 1511) enters South Korea duty-free (0 % effectively applied).",
+        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.533 (raw 0.565)."
+      ],
+      "NLD": [
+        "Netherlands imports USD 1,639 M a year of Palm oil (HS 1511) (average of the last 3 years).",
+        "Demand grows at 9.6 % per year (CAGR).",
+        "Colombia already holds 5.1 % of the market and gains 1.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Netherlands at 0.46 (0–1 scale).",
+        "Palm oil (HS 1511) enters Netherlands duty-free (0 % effectively applied).",
+        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.706 (raw 0.780)."
+      ],
+      "POL": [
+        "Poland imports USD 350 M a year of Palm oil (HS 1511) (average of the last 3 years).",
+        "Demand shrinks at 0.3 % per year (CAGR).",
+        "Colombia records no sales of Palm oil (HS 1511) in Poland (0 % share).",
+        "The export basket of Colombia fits the import demand of Poland at 0.36 (0–1 scale).",
+        "Palm oil (HS 1511) enters Poland duty-free (0 % effectively applied).",
+        "Macro stability of Poland at 0.84: the filter leaves the score at 0.333 (raw 0.362)."
+      ],
+      "PRT": [
+        "Portugal imports USD 62 M a year of Palm oil (HS 1511) (average of the last 3 years).",
+        "Demand shrinks at 4.9 % per year (CAGR).",
+        "Colombia already holds 3.4 % of the market and gains 3.4 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Portugal at 0.39 (0–1 scale).",
+        "Palm oil (HS 1511) enters Portugal duty-free (0 % effectively applied).",
+        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.407 (raw 0.421)."
+      ],
+      "SWE": [
+        "Sweden imports USD 187 M a year of Palm oil (HS 1511) (average of the last 3 years).",
+        "Demand shrinks at 25.1 % per year (CAGR).",
+        "Colombia records no sales of Palm oil (HS 1511) in Sweden (0 % share).",
+        "The export basket of Colombia fits the import demand of Sweden at 0.37 (0–1 scale).",
+        "Palm oil (HS 1511) enters Sweden duty-free (0 % effectively applied).",
+        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.199 (raw 0.221)."
+      ],
+      "USA": [
+        "United States imports USD 1,903 M a year of Palm oil (HS 1511) (average of the last 3 years).",
+        "Demand shrinks at 5.4 % per year (CAGR).",
+        "Colombia already holds 1.0 % of the market and loses 1.3 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of United States at 0.33 (0–1 scale).",
+        "Palm oil (HS 1511) enters United States duty-free (0 % effectively applied).",
+        "Macro stability of United States at 0.65: the filter leaves the score at 0.415 (raw 0.502)."
+      ]
+    },
+    "recommendations": [
+      {
+        "final_score": 0.706,
+        "iso3": "NLD",
+        "name": "Netherlands",
+        "reasons": [
+          "destination #2 by market size (USD 1,639 M/year)",
+          "destination #1 by demand growth (9.6 % per year)"
+        ]
+      },
+      {
+        "final_score": 0.573,
+        "iso3": "ESP",
+        "name": "Spain",
+        "reasons": [
+          "destination #1 by share already won (share of 10.0 %)",
+          "destination #7 by basket complementarity (index 0.42 (0–1 scale))"
+        ]
+      },
+      {
+        "final_score": 0.533,
+        "iso3": "KOR",
+        "name": "South Korea",
+        "reasons": [
+          "destination #1 by basket complementarity (index 0.49 (0–1 scale))",
+          "destination #4 by demand growth (3.8 % per year)"
+        ]
+      }
+    ]
+  },
+  "es": {
+    "markets": {
+      "AUS": [
+        "Australia importa USD 95 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
+        "La demanda crece al 6,4 % anual (CAGR).",
+        "Colombia ya tiene 0,8 % del mercado y gana 0,6 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Australia.",
+        "Aceite de palma (HS 1511) entra a Australia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,372 (bruto 0,420)."
+      ],
+      "AUT": [
+        "Austria importa USD 51 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 14,4 % anual (CAGR).",
+        "Colombia ya tiene 0,2 % del mercado y pierde 0,1 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Austria.",
+        "Aceite de palma (HS 1511) entra a Austria sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,222 (bruto 0,260)."
+      ],
+      "BEL": [
+        "Bélgica importa USD 437 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 5,2 % anual (CAGR).",
+        "Colombia ya tiene 2,7 % del mercado y gana 0,7 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Bélgica.",
+        "Aceite de palma (HS 1511) entra a Bélgica sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,452 (bruto 0,502)."
+      ],
+      "CAN": [
+        "Canadá importa USD 168 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
+        "La demanda crece al 3,0 % anual (CAGR).",
+        "Colombia ya tiene 5,7 % del mercado y gana 0,1 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Canadá.",
+        "Aceite de palma (HS 1511) entra a Canadá sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,418 (bruto 0,449)."
+      ],
+      "CHE": [
+        "Suiza importa USD 18 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 18,6 % anual (CAGR).",
+        "Colombia ya tiene 6,5 % del mercado y pierde 0,2 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de Suiza.",
+        "Aceite de palma (HS 1511) entra a Suiza sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,255 (bruto 0,271)."
+      ],
+      "DEU": [
+        "Alemania importa USD 881 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 3,3 % anual (CAGR).",
+        "Colombia ya tiene 0,9 % del mercado y gana 0,6 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Alemania.",
+        "Aceite de palma (HS 1511) entra a Alemania sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,383 (bruto 0,441)."
+      ],
+      "ESP": [
+        "España importa USD 839 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 31,1 % anual (CAGR).",
+        "Colombia ya tiene 10,0 % del mercado y gana 8,8 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de España.",
+        "Aceite de palma (HS 1511) entra a España sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de España 0,97: el filtro deja el score en 0,573 (bruto 0,582)."
+      ],
+      "FIN": [
+        "Finlandia importa USD 2 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 6,0 % anual (CAGR).",
+        "Colombia no registra ventas de Aceite de palma (HS 1511) en Finlandia (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Finlandia.",
+        "Aceite de palma (HS 1511) entra a Finlandia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,295 (bruto 0,334)."
+      ],
+      "FRA": [
+        "Francia importa USD 214 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 12,3 % anual (CAGR).",
+        "Colombia ya tiene 0,1 % del mercado y pierde 0,1 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de Francia.",
+        "Aceite de palma (HS 1511) entra a Francia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,317 (bruto 0,346)."
+      ],
+      "GBR": [
+        "Reino Unido importa USD 473 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
+        "La demanda crece al 6,3 % anual (CAGR).",
+        "Colombia ya tiene 1,5 % del mercado y gana 0,7 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Reino Unido.",
+        "Aceite de palma (HS 1511) entra a Reino Unido sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,410 (bruto 0,514)."
+      ],
+      "ITA": [
+        "Italia importa USD 1.280 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 18,4 % anual (CAGR).",
+        "Colombia ya tiene 1,3 % del mercado y gana 0,5 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Italia.",
+        "Aceite de palma (HS 1511) entra a Italia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,456 (bruto 0,498)."
+      ],
+      "JPN": [
+        "Japón importa USD 701 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
+        "La demanda crece al 3,1 % anual (CAGR).",
+        "Colombia ya tiene 0,2 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Japón.",
+        "Aceite de palma (HS 1511) paga en Japón un arancel efectivamente aplicado de 3,2 %.",
+        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,400 (bruto 0,442)."
+      ],
+      "KOR": [
+        "Corea del Sur importa USD 620 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
+        "La demanda crece al 3,8 % anual (CAGR).",
+        "Colombia no registra ventas de Aceite de palma (HS 1511) en Corea del Sur (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,49 (escala 0–1) con la demanda importadora de Corea del Sur.",
+        "Aceite de palma (HS 1511) entra a Corea del Sur sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,533 (bruto 0,565)."
+      ],
+      "NLD": [
+        "Países Bajos importa USD 1.639 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
+        "La demanda crece al 9,6 % anual (CAGR).",
+        "Colombia ya tiene 5,1 % del mercado y gana 1,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Países Bajos.",
+        "Aceite de palma (HS 1511) entra a Países Bajos sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,706 (bruto 0,780)."
+      ],
+      "POL": [
+        "Polonia importa USD 350 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 0,3 % anual (CAGR).",
+        "Colombia no registra ventas de Aceite de palma (HS 1511) en Polonia (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,36 (escala 0–1) con la demanda importadora de Polonia.",
+        "Aceite de palma (HS 1511) entra a Polonia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,333 (bruto 0,362)."
+      ],
+      "PRT": [
+        "Portugal importa USD 62 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 4,9 % anual (CAGR).",
+        "Colombia ya tiene 3,4 % del mercado y gana 3,4 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,39 (escala 0–1) con la demanda importadora de Portugal.",
+        "Aceite de palma (HS 1511) entra a Portugal sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,407 (bruto 0,421)."
+      ],
+      "SWE": [
+        "Suecia importa USD 187 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 25,1 % anual (CAGR).",
+        "Colombia no registra ventas de Aceite de palma (HS 1511) en Suecia (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Suecia.",
+        "Aceite de palma (HS 1511) entra a Suecia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,199 (bruto 0,221)."
+      ],
+      "USA": [
+        "Estados Unidos importa USD 1.903 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 5,4 % anual (CAGR).",
+        "Colombia ya tiene 1,0 % del mercado y pierde 1,3 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,33 (escala 0–1) con la demanda importadora de Estados Unidos.",
+        "Aceite de palma (HS 1511) entra a Estados Unidos sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,415 (bruto 0,502)."
+      ]
+    },
+    "recommendations": [
+      {
+        "final_score": 0.706,
+        "iso3": "NLD",
+        "name": "Países Bajos",
+        "reasons": [
+          "2.º destino por tamaño de mercado (USD 1.639 M/año)",
+          "1.º destino por crecimiento de la demanda (9,6 % anual)"
+        ]
+      },
+      {
+        "final_score": 0.573,
+        "iso3": "ESP",
+        "name": "España",
+        "reasons": [
+          "1.º destino por cuota ya ganada (cuota de 10,0 %)",
+          "7.º destino por complementariedad de canastas (índice 0,42 (escala 0–1))"
+        ]
+      },
+      {
+        "final_score": 0.533,
+        "iso3": "KOR",
+        "name": "Corea del Sur",
+        "reasons": [
+          "1.º destino por complementariedad de canastas (índice 0,49 (escala 0–1))",
+          "4.º destino por crecimiento de la demanda (3,8 % anual)"
+        ]
+      }
+    ]
+  }
+}

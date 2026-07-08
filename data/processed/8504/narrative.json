@@ -1,0 +1,356 @@
+{
+  "en": {
+    "markets": {
+      "AUS": [
+        "Australia imports USD 2,132 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
+        "Demand grows at 18.2 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Australia at 0.40 (0–1 scale).",
+        "Electric transformers (HS 8504) faces an effectively applied tariff of 3.6 % in Australia.",
+        "Macro stability of Australia at 0.77: the filter leaves the score at 0.284 (raw 0.321)."
+      ],
+      "AUT": [
+        "Austria imports USD 1,925 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
+        "Demand shrinks at 27.0 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Austria at 0.37 (0–1 scale).",
+        "Electric transformers (HS 8504) enters Austria duty-free (0 % effectively applied).",
+        "Macro stability of Austria at 0.71: the filter leaves the score at 0.157 (raw 0.184)."
+      ],
+      "BEL": [
+        "Belgium imports USD 1,317 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
+        "Demand shrinks at 9.7 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Belgium at 0.45 (0–1 scale).",
+        "Electric transformers (HS 8504) enters Belgium duty-free (0 % effectively applied).",
+        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.320 (raw 0.355)."
+      ],
+      "CAN": [
+        "Canada imports USD 2,956 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
+        "Demand grows at 7.1 % per year (CAGR).",
+        "Colombia already holds 0.3 % of the market and gains 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Canada at 0.37 (0–1 scale).",
+        "Electric transformers (HS 8504) enters Canada duty-free (0 % effectively applied).",
+        "Macro stability of Canada at 0.86: the filter leaves the score at 0.366 (raw 0.393)."
+      ],
+      "CHE": [
+        "Switzerland imports USD 1,379 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
+        "Demand shrinks at 6.8 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Switzerland at 0.32 (0–1 scale).",
+        "Electric transformers (HS 8504) enters Switzerland duty-free (0 % effectively applied).",
+        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.198 (raw 0.211)."
+      ],
+      "DEU": [
+        "Germany imports USD 13,579 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
+        "Demand shrinks at 1.8 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Germany at 0.37 (0–1 scale).",
+        "Electric transformers (HS 8504) enters Germany duty-free (0 % effectively applied).",
+        "Macro stability of Germany at 0.74: the filter leaves the score at 0.340 (raw 0.391)."
+      ],
+      "ESP": [
+        "Spain imports USD 3,004 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
+        "Demand grows at 5.8 % per year (CAGR).",
+        "Colombia already holds 0.1 % of the market and gains 0.1 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Spain at 0.42 (0–1 scale).",
+        "Electric transformers (HS 8504) enters Spain duty-free (0 % effectively applied).",
+        "Macro stability of Spain at 0.97: the filter leaves the score at 0.424 (raw 0.430)."
+      ],
+      "FIN": [
+        "Finland imports USD 892 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
+        "Demand grows at 2.1 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Finland at 0.40 (0–1 scale).",
+        "Electric transformers (HS 8504) enters Finland duty-free (0 % effectively applied).",
+        "Macro stability of Finland at 0.76: the filter leaves the score at 0.304 (raw 0.344)."
+      ],
+      "FRA": [
+        "France imports USD 4,157 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
+        "Demand grows at 0.6 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of France at 0.42 (0–1 scale).",
+        "Electric transformers (HS 8504) enters France duty-free (0 % effectively applied).",
+        "Macro stability of France at 0.83: the filter leaves the score at 0.349 (raw 0.381)."
+      ],
+      "GBR": [
+        "United Kingdom imports USD 4,201 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
+        "Demand grows at 3.3 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and loses 0.1 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of United Kingdom at 0.43 (0–1 scale).",
+        "Electric transformers (HS 8504) enters United Kingdom duty-free (0 % effectively applied).",
+        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.311 (raw 0.390)."
+      ],
+      "ITA": [
+        "Italy imports USD 3,753 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
+        "Demand shrinks at 4.8 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Italy at 0.43 (0–1 scale).",
+        "Electric transformers (HS 8504) enters Italy duty-free (0 % effectively applied).",
+        "Macro stability of Italy at 0.83: the filter leaves the score at 0.341 (raw 0.373)."
+      ],
+      "JPN": [
+        "Japan imports USD 4,051 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
+        "Demand shrinks at 2.1 % per year (CAGR).",
+        "Colombia records no sales of Electric transformers (HS 8504) in Japan (0 % share).",
+        "The export basket of Colombia fits the import demand of Japan at 0.46 (0–1 scale).",
+        "Electric transformers (HS 8504) enters Japan duty-free (0 % effectively applied).",
+        "Macro stability of Japan at 0.81: the filter leaves the score at 0.381 (raw 0.421)."
+      ],
+      "KOR": [
+        "South Korea imports USD 3,810 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
+        "Demand grows at 4.7 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of South Korea at 0.49 (0–1 scale).",
+        "Electric transformers (HS 8504) enters South Korea duty-free (0 % effectively applied).",
+        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.455 (raw 0.483)."
+      ],
+      "NLD": [
+        "Netherlands imports USD 5,283 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
+        "Demand shrinks at 11.4 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Netherlands at 0.46 (0–1 scale).",
+        "Electric transformers (HS 8504) enters Netherlands duty-free (0 % effectively applied).",
+        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.352 (raw 0.388)."
+      ],
+      "POL": [
+        "Poland imports USD 2,464 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
+        "Demand grows at 2.2 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Poland at 0.36 (0–1 scale).",
+        "Electric transformers (HS 8504) enters Poland duty-free (0 % effectively applied).",
+        "Macro stability of Poland at 0.84: the filter leaves the score at 0.287 (raw 0.312)."
+      ],
+      "PRT": [
+        "Portugal imports USD 524 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
+        "Demand grows at 1.1 % per year (CAGR).",
+        "Colombia records no sales of Electric transformers (HS 8504) in Portugal (0 % share).",
+        "The export basket of Colombia fits the import demand of Portugal at 0.39 (0–1 scale).",
+        "Electric transformers (HS 8504) enters Portugal duty-free (0 % effectively applied).",
+        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.316 (raw 0.327)."
+      ],
+      "SWE": [
+        "Sweden imports USD 1,706 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
+        "Demand grows at 4.4 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Sweden at 0.37 (0–1 scale).",
+        "Electric transformers (HS 8504) enters Sweden duty-free (0 % effectively applied).",
+        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.287 (raw 0.319)."
+      ],
+      "USA": [
+        "United States imports USD 30,849 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
+        "Demand grows at 13.7 % per year (CAGR).",
+        "Colombia already holds 1.0 % of the market and gains 0.4 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of United States at 0.33 (0–1 scale).",
+        "Electric transformers (HS 8504) enters United States duty-free (0 % effectively applied).",
+        "Macro stability of United States at 0.65: the filter leaves the score at 0.654 (raw 0.791)."
+      ]
+    },
+    "recommendations": [
+      {
+        "final_score": 0.654,
+        "iso3": "USA",
+        "name": "United States",
+        "reasons": [
+          "destination #1 by market size (USD 30,849 M/year)",
+          "destination #2 by demand growth (13.7 % per year)"
+        ]
+      },
+      {
+        "final_score": 0.455,
+        "iso3": "KOR",
+        "name": "South Korea",
+        "reasons": [
+          "destination #1 by basket complementarity (index 0.49 (0–1 scale))",
+          "destination #5 by demand growth (4.7 % per year)"
+        ]
+      },
+      {
+        "final_score": 0.424,
+        "iso3": "ESP",
+        "name": "Spain",
+        "reasons": [
+          "destination #4 by demand growth (5.8 % per year)",
+          "destination #7 by basket complementarity (index 0.42 (0–1 scale))"
+        ]
+      }
+    ]
+  },
+  "es": {
+    "markets": {
+      "AUS": [
+        "Australia importa USD 2.132 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
+        "La demanda crece al 18,2 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Australia.",
+        "Transformadores eléctricos (HS 8504) paga en Australia un arancel efectivamente aplicado de 3,6 %.",
+        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,284 (bruto 0,321)."
+      ],
+      "AUT": [
+        "Austria importa USD 1.925 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 27,0 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Austria.",
+        "Transformadores eléctricos (HS 8504) entra a Austria sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,157 (bruto 0,184)."
+      ],
+      "BEL": [
+        "Bélgica importa USD 1.317 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 9,7 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Bélgica.",
+        "Transformadores eléctricos (HS 8504) entra a Bélgica sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,320 (bruto 0,355)."
+      ],
+      "CAN": [
+        "Canadá importa USD 2.956 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
+        "La demanda crece al 7,1 % anual (CAGR).",
+        "Colombia ya tiene 0,3 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Canadá.",
+        "Transformadores eléctricos (HS 8504) entra a Canadá sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,366 (bruto 0,393)."
+      ],
+      "CHE": [
+        "Suiza importa USD 1.379 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 6,8 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de Suiza.",
+        "Transformadores eléctricos (HS 8504) entra a Suiza sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,198 (bruto 0,211)."
+      ],
+      "DEU": [
+        "Alemania importa USD 13.579 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 1,8 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Alemania.",
+        "Transformadores eléctricos (HS 8504) entra a Alemania sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,340 (bruto 0,391)."
+      ],
+      "ESP": [
+        "España importa USD 3.004 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
+        "La demanda crece al 5,8 % anual (CAGR).",
+        "Colombia ya tiene 0,1 % del mercado y gana 0,1 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de España.",
+        "Transformadores eléctricos (HS 8504) entra a España sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de España 0,97: el filtro deja el score en 0,424 (bruto 0,430)."
+      ],
+      "FIN": [
+        "Finlandia importa USD 892 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
+        "La demanda crece al 2,1 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Finlandia.",
+        "Transformadores eléctricos (HS 8504) entra a Finlandia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,304 (bruto 0,344)."
+      ],
+      "FRA": [
+        "Francia importa USD 4.157 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
+        "La demanda crece al 0,6 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de Francia.",
+        "Transformadores eléctricos (HS 8504) entra a Francia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,349 (bruto 0,381)."
+      ],
+      "GBR": [
+        "Reino Unido importa USD 4.201 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
+        "La demanda crece al 3,3 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y pierde 0,1 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Reino Unido.",
+        "Transformadores eléctricos (HS 8504) entra a Reino Unido sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,311 (bruto 0,390)."
+      ],
+      "ITA": [
+        "Italia importa USD 3.753 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 4,8 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Italia.",
+        "Transformadores eléctricos (HS 8504) entra a Italia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,341 (bruto 0,373)."
+      ],
+      "JPN": [
+        "Japón importa USD 4.051 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 2,1 % anual (CAGR).",
+        "Colombia no registra ventas de Transformadores eléctricos (HS 8504) en Japón (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Japón.",
+        "Transformadores eléctricos (HS 8504) entra a Japón sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,381 (bruto 0,421)."
+      ],
+      "KOR": [
+        "Corea del Sur importa USD 3.810 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
+        "La demanda crece al 4,7 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,49 (escala 0–1) con la demanda importadora de Corea del Sur.",
+        "Transformadores eléctricos (HS 8504) entra a Corea del Sur sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,455 (bruto 0,483)."
+      ],
+      "NLD": [
+        "Países Bajos importa USD 5.283 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 11,4 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Países Bajos.",
+        "Transformadores eléctricos (HS 8504) entra a Países Bajos sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,352 (bruto 0,388)."
+      ],
+      "POL": [
+        "Polonia importa USD 2.464 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
+        "La demanda crece al 2,2 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,36 (escala 0–1) con la demanda importadora de Polonia.",
+        "Transformadores eléctricos (HS 8504) entra a Polonia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,287 (bruto 0,312)."
+      ],
+      "PRT": [
+        "Portugal importa USD 524 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
+        "La demanda crece al 1,1 % anual (CAGR).",
+        "Colombia no registra ventas de Transformadores eléctricos (HS 8504) en Portugal (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,39 (escala 0–1) con la demanda importadora de Portugal.",
+        "Transformadores eléctricos (HS 8504) entra a Portugal sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,316 (bruto 0,327)."
+      ],
+      "SWE": [
+        "Suecia importa USD 1.706 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
+        "La demanda crece al 4,4 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Suecia.",
+        "Transformadores eléctricos (HS 8504) entra a Suecia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,287 (bruto 0,319)."
+      ],
+      "USA": [
+        "Estados Unidos importa USD 30.849 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
+        "La demanda crece al 13,7 % anual (CAGR).",
+        "Colombia ya tiene 1,0 % del mercado y gana 0,4 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,33 (escala 0–1) con la demanda importadora de Estados Unidos.",
+        "Transformadores eléctricos (HS 8504) entra a Estados Unidos sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,654 (bruto 0,791)."
+      ]
+    },
+    "recommendations": [
+      {
+        "final_score": 0.654,
+        "iso3": "USA",
+        "name": "Estados Unidos",
+        "reasons": [
+          "1.º destino por tamaño de mercado (USD 30.849 M/año)",
+          "2.º destino por crecimiento de la demanda (13,7 % anual)"
+        ]
+      },
+      {
+        "final_score": 0.455,
+        "iso3": "KOR",
+        "name": "Corea del Sur",
+        "reasons": [
+          "1.º destino por complementariedad de canastas (índice 0,49 (escala 0–1))",
+          "5.º destino por crecimiento de la demanda (4,7 % anual)"
+        ]
+      },
+      {
+        "final_score": 0.424,
+        "iso3": "ESP",
+        "name": "España",
+        "reasons": [
+          "4.º destino por crecimiento de la demanda (5,8 % anual)",
+          "7.º destino por complementariedad de canastas (índice 0,42 (escala 0–1))"
+        ]
+      }
+    ]
+  }
+}

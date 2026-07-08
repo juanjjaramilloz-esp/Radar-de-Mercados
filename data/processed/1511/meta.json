@@ -2,8 +2,8 @@
   "basket_year": 2024,
   "data_year_max": 2025,
   "data_year_min": 2023,
-  "hs_code": "0902",
-  "hs_label": "Tea (HS 0902)",
+  "hs_code": "1511",
+  "hs_label": "Aceite de palma (HS 1511)",
   "macro_bounds": {
     "current_account": [
       -5.0,
@@ -28,7 +28,7 @@
   "market_size_years": 3,
   "n_markets": 18,
   "origin_iso3": "COL",
-  "rca_balassa": 0.2416,
+  "rca_balassa": 5.9715,
   "source": "comtrade",
   "tariff_years": [
     2018,

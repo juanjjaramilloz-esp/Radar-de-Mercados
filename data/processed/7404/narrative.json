@@ -1,0 +1,356 @@
+{
+  "en": {
+    "markets": {
+      "AUS": [
+        "Australia imports USD 10 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
+        "Demand grows at 4.0 % per year (CAGR).",
+        "Colombia records no sales of Copper waste and scrap (HS 7404) in Australia (0 % share).",
+        "The export basket of Colombia fits the import demand of Australia at 0.40 (0–1 scale).",
+        "Copper waste and scrap (HS 7404) enters Australia duty-free (0 % effectively applied).",
+        "Macro stability of Australia at 0.77: the filter leaves the score at 0.291 (raw 0.329)."
+      ],
+      "AUT": [
+        "Austria imports USD 697 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
+        "Demand shrinks at 1.6 % per year (CAGR).",
+        "Colombia records no sales of Copper waste and scrap (HS 7404) in Austria (0 % share).",
+        "The export basket of Colombia fits the import demand of Austria at 0.37 (0–1 scale).",
+        "Copper waste and scrap (HS 7404) enters Austria duty-free (0 % effectively applied).",
+        "Macro stability of Austria at 0.71: the filter leaves the score at 0.272 (raw 0.317)."
+      ],
+      "BEL": [
+        "Belgium imports USD 1,893 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
+        "Demand grows at 15.0 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and loses 0.3 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Belgium at 0.45 (0–1 scale).",
+        "Copper waste and scrap (HS 7404) enters Belgium duty-free (0 % effectively applied).",
+        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.495 (raw 0.550)."
+      ],
+      "CAN": [
+        "Canada imports USD 689 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
+        "Demand grows at 23.9 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Canada at 0.37 (0–1 scale).",
+        "Copper waste and scrap (HS 7404) enters Canada duty-free (0 % effectively applied).",
+        "Macro stability of Canada at 0.86: the filter leaves the score at 0.417 (raw 0.449)."
+      ],
+      "CHE": [
+        "Switzerland imports USD 33 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
+        "Demand shrinks at 2.1 % per year (CAGR).",
+        "Colombia records no sales of Copper waste and scrap (HS 7404) in Switzerland (0 % share).",
+        "The export basket of Colombia fits the import demand of Switzerland at 0.32 (0–1 scale).",
+        "Copper waste and scrap (HS 7404) enters Switzerland duty-free (0 % effectively applied).",
+        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.196 (raw 0.208)."
+      ],
+      "DEU": [
+        "Germany imports USD 3,386 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
+        "Demand grows at 7.5 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Germany at 0.37 (0–1 scale).",
+        "Copper waste and scrap (HS 7404) enters Germany duty-free (0 % effectively applied).",
+        "Macro stability of Germany at 0.74: the filter leaves the score at 0.486 (raw 0.559)."
+      ],
+      "ESP": [
+        "Spain imports USD 821 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
+        "Demand grows at 9.2 % per year (CAGR).",
+        "Colombia already holds 0.1 % of the market and loses 0.5 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Spain at 0.42 (0–1 scale).",
+        "Copper waste and scrap (HS 7404) enters Spain duty-free (0 % effectively applied).",
+        "Macro stability of Spain at 0.97: the filter leaves the score at 0.365 (raw 0.370)."
+      ],
+      "FIN": [
+        "Finland imports USD 116 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
+        "Demand grows at 19.9 % per year (CAGR).",
+        "Colombia records no sales of Copper waste and scrap (HS 7404) in Finland (0 % share).",
+        "The export basket of Colombia fits the import demand of Finland at 0.40 (0–1 scale).",
+        "Copper waste and scrap (HS 7404) enters Finland duty-free (0 % effectively applied).",
+        "Macro stability of Finland at 0.76: the filter leaves the score at 0.370 (raw 0.419)."
+      ],
+      "FRA": [
+        "France imports USD 308 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
+        "Demand shrinks at 4.0 % per year (CAGR).",
+        "Colombia records no sales of Copper waste and scrap (HS 7404) in France (0 % share).",
+        "The export basket of Colombia fits the import demand of France at 0.42 (0–1 scale).",
+        "Copper waste and scrap (HS 7404) enters France duty-free (0 % effectively applied).",
+        "Macro stability of France at 0.83: the filter leaves the score at 0.306 (raw 0.333)."
+      ],
+      "GBR": [
+        "United Kingdom imports USD 143 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
+        "Demand shrinks at 7.8 % per year (CAGR).",
+        "Colombia records no sales of Copper waste and scrap (HS 7404) in United Kingdom (0 % share).",
+        "The export basket of Colombia fits the import demand of United Kingdom at 0.43 (0–1 scale).",
+        "Copper waste and scrap (HS 7404) enters United Kingdom duty-free (0 % effectively applied).",
+        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.251 (raw 0.315)."
+      ],
+      "ITA": [
+        "Italy imports USD 1,079 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
+        "Demand grows at 13.7 % per year (CAGR).",
+        "Colombia already holds 0.2 % of the market and gains 0.1 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Italy at 0.43 (0–1 scale).",
+        "Copper waste and scrap (HS 7404) enters Italy duty-free (0 % effectively applied).",
+        "Macro stability of Italy at 0.83: the filter leaves the score at 0.488 (raw 0.533)."
+      ],
+      "JPN": [
+        "Japan imports USD 2,065 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
+        "Demand grows at 33.6 % per year (CAGR).",
+        "Colombia already holds 0.2 % of the market and loses 0.1 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Japan at 0.46 (0–1 scale).",
+        "Copper waste and scrap (HS 7404) enters Japan duty-free (0 % effectively applied).",
+        "Macro stability of Japan at 0.81: the filter leaves the score at 0.631 (raw 0.697)."
+      ],
+      "KOR": [
+        "South Korea imports USD 2,492 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
+        "Demand grows at 8.8 % per year (CAGR).",
+        "Colombia already holds 1.4 % of the market and gains 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of South Korea at 0.49 (0–1 scale).",
+        "Copper waste and scrap (HS 7404) enters South Korea duty-free (0 % effectively applied).",
+        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.748 (raw 0.794)."
+      ],
+      "NLD": [
+        "Netherlands imports USD 355 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
+        "Demand grows at 8.8 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Netherlands at 0.46 (0–1 scale).",
+        "Copper waste and scrap (HS 7404) enters Netherlands duty-free (0 % effectively applied).",
+        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.402 (raw 0.444)."
+      ],
+      "POL": [
+        "Poland imports USD 1,086 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
+        "Demand grows at 15.2 % per year (CAGR).",
+        "Colombia records no sales of Copper waste and scrap (HS 7404) in Poland (0 % share).",
+        "The export basket of Colombia fits the import demand of Poland at 0.36 (0–1 scale).",
+        "Copper waste and scrap (HS 7404) enters Poland duty-free (0 % effectively applied).",
+        "Macro stability of Poland at 0.84: the filter leaves the score at 0.389 (raw 0.422)."
+      ],
+      "PRT": [
+        "Portugal imports USD 128 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
+        "Demand grows at 8.9 % per year (CAGR).",
+        "Colombia records no sales of Copper waste and scrap (HS 7404) in Portugal (0 % share).",
+        "The export basket of Colombia fits the import demand of Portugal at 0.39 (0–1 scale).",
+        "Copper waste and scrap (HS 7404) enters Portugal duty-free (0 % effectively applied).",
+        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.344 (raw 0.356)."
+      ],
+      "SWE": [
+        "Sweden imports USD 436 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
+        "Demand grows at 13.6 % per year (CAGR).",
+        "Colombia records no sales of Copper waste and scrap (HS 7404) in Sweden (0 % share).",
+        "The export basket of Colombia fits the import demand of Sweden at 0.37 (0–1 scale).",
+        "Copper waste and scrap (HS 7404) enters Sweden duty-free (0 % effectively applied).",
+        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.332 (raw 0.369)."
+      ],
+      "USA": [
+        "United States imports USD 771 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
+        "Demand grows at 9.8 % per year (CAGR).",
+        "Colombia already holds 0.2 % of the market and loses 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of United States at 0.33 (0–1 scale).",
+        "Copper waste and scrap (HS 7404) enters United States duty-free (0 % effectively applied).",
+        "Macro stability of United States at 0.65: the filter leaves the score at 0.292 (raw 0.354)."
+      ]
+    },
+    "recommendations": [
+      {
+        "final_score": 0.748,
+        "iso3": "KOR",
+        "name": "South Korea",
+        "reasons": [
+          "destination #1 by basket complementarity (index 0.49 (0–1 scale))",
+          "destination #2 by market size (USD 2,492 M/year)"
+        ]
+      },
+      {
+        "final_score": 0.631,
+        "iso3": "JPN",
+        "name": "Japan",
+        "reasons": [
+          "destination #1 by demand growth (33.6 % per year)",
+          "destination #2 by basket complementarity (index 0.46 (0–1 scale))"
+        ]
+      },
+      {
+        "final_score": 0.495,
+        "iso3": "BEL",
+        "name": "Belgium",
+        "reasons": [
+          "destination #4 by basket complementarity (index 0.45 (0–1 scale))",
+          "destination #4 by market size (USD 1,893 M/year)"
+        ]
+      }
+    ]
+  },
+  "es": {
+    "markets": {
+      "AUS": [
+        "Australia importa USD 10 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
+        "La demanda crece al 4,0 % anual (CAGR).",
+        "Colombia no registra ventas de Chatarra de cobre (HS 7404) en Australia (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Australia.",
+        "Chatarra de cobre (HS 7404) entra a Australia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,291 (bruto 0,329)."
+      ],
+      "AUT": [
+        "Austria importa USD 697 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 1,6 % anual (CAGR).",
+        "Colombia no registra ventas de Chatarra de cobre (HS 7404) en Austria (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Austria.",
+        "Chatarra de cobre (HS 7404) entra a Austria sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,272 (bruto 0,317)."
+      ],
+      "BEL": [
+        "Bélgica importa USD 1.893 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
+        "La demanda crece al 15,0 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y pierde 0,3 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Bélgica.",
+        "Chatarra de cobre (HS 7404) entra a Bélgica sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,495 (bruto 0,550)."
+      ],
+      "CAN": [
+        "Canadá importa USD 689 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
+        "La demanda crece al 23,9 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Canadá.",
+        "Chatarra de cobre (HS 7404) entra a Canadá sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,417 (bruto 0,449)."
+      ],
+      "CHE": [
+        "Suiza importa USD 33 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 2,1 % anual (CAGR).",
+        "Colombia no registra ventas de Chatarra de cobre (HS 7404) en Suiza (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de Suiza.",
+        "Chatarra de cobre (HS 7404) entra a Suiza sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,196 (bruto 0,208)."
+      ],
+      "DEU": [
+        "Alemania importa USD 3.386 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
+        "La demanda crece al 7,5 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Alemania.",
+        "Chatarra de cobre (HS 7404) entra a Alemania sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,486 (bruto 0,559)."
+      ],
+      "ESP": [
+        "España importa USD 821 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
+        "La demanda crece al 9,2 % anual (CAGR).",
+        "Colombia ya tiene 0,1 % del mercado y pierde 0,5 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de España.",
+        "Chatarra de cobre (HS 7404) entra a España sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de España 0,97: el filtro deja el score en 0,365 (bruto 0,370)."
+      ],
+      "FIN": [
+        "Finlandia importa USD 116 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
+        "La demanda crece al 19,9 % anual (CAGR).",
+        "Colombia no registra ventas de Chatarra de cobre (HS 7404) en Finlandia (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Finlandia.",
+        "Chatarra de cobre (HS 7404) entra a Finlandia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,370 (bruto 0,419)."
+      ],
+      "FRA": [
+        "Francia importa USD 308 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 4,0 % anual (CAGR).",
+        "Colombia no registra ventas de Chatarra de cobre (HS 7404) en Francia (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de Francia.",
+        "Chatarra de cobre (HS 7404) entra a Francia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,306 (bruto 0,333)."
+      ],
+      "GBR": [
+        "Reino Unido importa USD 143 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 7,8 % anual (CAGR).",
+        "Colombia no registra ventas de Chatarra de cobre (HS 7404) en Reino Unido (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Reino Unido.",
+        "Chatarra de cobre (HS 7404) entra a Reino Unido sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,251 (bruto 0,315)."
+      ],
+      "ITA": [
+        "Italia importa USD 1.079 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
+        "La demanda crece al 13,7 % anual (CAGR).",
+        "Colombia ya tiene 0,2 % del mercado y gana 0,1 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Italia.",
+        "Chatarra de cobre (HS 7404) entra a Italia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,488 (bruto 0,533)."
+      ],
+      "JPN": [
+        "Japón importa USD 2.065 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
+        "La demanda crece al 33,6 % anual (CAGR).",
+        "Colombia ya tiene 0,2 % del mercado y pierde 0,1 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Japón.",
+        "Chatarra de cobre (HS 7404) entra a Japón sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,631 (bruto 0,697)."
+      ],
+      "KOR": [
+        "Corea del Sur importa USD 2.492 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
+        "La demanda crece al 8,8 % anual (CAGR).",
+        "Colombia ya tiene 1,4 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,49 (escala 0–1) con la demanda importadora de Corea del Sur.",
+        "Chatarra de cobre (HS 7404) entra a Corea del Sur sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,748 (bruto 0,794)."
+      ],
+      "NLD": [
+        "Países Bajos importa USD 355 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
+        "La demanda crece al 8,8 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Países Bajos.",
+        "Chatarra de cobre (HS 7404) entra a Países Bajos sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,402 (bruto 0,444)."
+      ],
+      "POL": [
+        "Polonia importa USD 1.086 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
+        "La demanda crece al 15,2 % anual (CAGR).",
+        "Colombia no registra ventas de Chatarra de cobre (HS 7404) en Polonia (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,36 (escala 0–1) con la demanda importadora de Polonia.",
+        "Chatarra de cobre (HS 7404) entra a Polonia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,389 (bruto 0,422)."
+      ],
+      "PRT": [
+        "Portugal importa USD 128 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
+        "La demanda crece al 8,9 % anual (CAGR).",
+        "Colombia no registra ventas de Chatarra de cobre (HS 7404) en Portugal (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,39 (escala 0–1) con la demanda importadora de Portugal.",
+        "Chatarra de cobre (HS 7404) entra a Portugal sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,344 (bruto 0,356)."
+      ],
+      "SWE": [
+        "Suecia importa USD 436 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
+        "La demanda crece al 13,6 % anual (CAGR).",
+        "Colombia no registra ventas de Chatarra de cobre (HS 7404) en Suecia (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Suecia.",
+        "Chatarra de cobre (HS 7404) entra a Suecia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,332 (bruto 0,369)."
+      ],
+      "USA": [
+        "Estados Unidos importa USD 771 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
+        "La demanda crece al 9,8 % anual (CAGR).",
+        "Colombia ya tiene 0,2 % del mercado y pierde 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,33 (escala 0–1) con la demanda importadora de Estados Unidos.",
+        "Chatarra de cobre (HS 7404) entra a Estados Unidos sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,292 (bruto 0,354)."
+      ]
+    },
+    "recommendations": [
+      {
+        "final_score": 0.748,
+        "iso3": "KOR",
+        "name": "Corea del Sur",
+        "reasons": [
+          "1.º destino por complementariedad de canastas (índice 0,49 (escala 0–1))",
+          "2.º destino por tamaño de mercado (USD 2.492 M/año)"
+        ]
+      },
+      {
+        "final_score": 0.631,
+        "iso3": "JPN",
+        "name": "Japón",
+        "reasons": [
+          "1.º destino por crecimiento de la demanda (33,6 % anual)",
+          "2.º destino por complementariedad de canastas (índice 0,46 (escala 0–1))"
+        ]
+      },
+      {
+        "final_score": 0.495,
+        "iso3": "BEL",
+        "name": "Bélgica",
+        "reasons": [
+          "4.º destino por complementariedad de canastas (índice 0,45 (escala 0–1))",
+          "4.º destino por tamaño de mercado (USD 1.893 M/año)"
+        ]
+      }
+    ]
+  }
+}

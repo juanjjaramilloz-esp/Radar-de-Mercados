@@ -2,8 +2,8 @@
   "basket_year": 2024,
   "data_year_max": 2025,
   "data_year_min": 2023,
-  "hs_code": "8802",
-  "hs_label": "Aircraft n.e.c. in heading no. 8801, except unmanned aircraft of heading 8806, (e.g. helicopters, aeroplanes); spacecraft (including satellites) and suborbital and spacecraft launch vehicles (HS 8802)",
+  "hs_code": "7202",
+  "hs_label": "Ferroaleaciones — ferroníquel (HS 7202)",
   "macro_bounds": {
     "current_account": [
       -5.0,
@@ -28,7 +28,7 @@
   "market_size_years": 3,
   "n_markets": 18,
   "origin_iso3": "COL",
-  "rca_balassa": 0.2713,
+  "rca_balassa": 4.9294,
   "source": "comtrade",
   "tariff_years": [
     2018,

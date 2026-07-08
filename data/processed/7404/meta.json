@@ -2,8 +2,8 @@
   "basket_year": 2024,
   "data_year_max": 2025,
   "data_year_min": 2023,
-  "hs_code": "1704",
-  "hs_label": "Sugar confectionery (including white chocolate), not containing cocoa (HS 1704)",
+  "hs_code": "7404",
+  "hs_label": "Chatarra de cobre (HS 7404)",
   "macro_bounds": {
     "current_account": [
       -5.0,
@@ -28,7 +28,7 @@
   "market_size_years": 3,
   "n_markets": 18,
   "origin_iso3": "COL",
-  "rca_balassa": 6.2024,
+  "rca_balassa": 3.5287,
   "source": "comtrade",
   "tariff_years": [
     2018,

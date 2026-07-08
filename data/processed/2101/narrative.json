@@ -1,0 +1,356 @@
+{
+  "en": {
+    "markets": {
+      "AUS": [
+        "Australia imports USD 256 M a year of Coffee extracts (HS 2101) (average of the last 3 years).",
+        "Demand grows at 19.2 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and loses 0.1 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Australia at 0.40 (0–1 scale).",
+        "Coffee extracts (HS 2101) enters Australia duty-free (0 % effectively applied).",
+        "Macro stability of Australia at 0.77: the filter leaves the score at 0.391 (raw 0.442)."
+      ],
+      "AUT": [
+        "Austria imports USD 64 M a year of Coffee extracts (HS 2101) (average of the last 3 years).",
+        "Demand grows at 9.8 % per year (CAGR).",
+        "Colombia already holds 1.3 % of the market and gains 0.4 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Austria at 0.37 (0–1 scale).",
+        "Coffee extracts (HS 2101) enters Austria duty-free (0 % effectively applied).",
+        "Macro stability of Austria at 0.71: the filter leaves the score at 0.272 (raw 0.317)."
+      ],
+      "BEL": [
+        "Belgium imports USD 108 M a year of Coffee extracts (HS 2101) (average of the last 3 years).",
+        "Demand grows at 19.3 % per year (CAGR).",
+        "Colombia already holds 0.3 % of the market and loses 0.2 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Belgium at 0.45 (0–1 scale).",
+        "Coffee extracts (HS 2101) enters Belgium duty-free (0 % effectively applied).",
+        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.432 (raw 0.480)."
+      ],
+      "CAN": [
+        "Canada imports USD 292 M a year of Coffee extracts (HS 2101) (average of the last 3 years).",
+        "Demand grows at 11.5 % per year (CAGR).",
+        "Colombia already holds 0.9 % of the market and gains 0.2 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Canada at 0.37 (0–1 scale).",
+        "Coffee extracts (HS 2101) enters Canada duty-free (0 % effectively applied).",
+        "Macro stability of Canada at 0.86: the filter leaves the score at 0.345 (raw 0.371)."
+      ],
+      "CHE": [
+        "Switzerland imports USD 50 M a year of Coffee extracts (HS 2101) (average of the last 3 years).",
+        "Demand grows at 17.3 % per year (CAGR).",
+        "Colombia already holds 0.6 % of the market and loses 0.3 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Switzerland at 0.32 (0–1 scale).",
+        "Coffee extracts (HS 2101) enters Switzerland duty-free (0 % effectively applied).",
+        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.281 (raw 0.299)."
+      ],
+      "DEU": [
+        "Germany imports USD 741 M a year of Coffee extracts (HS 2101) (average of the last 3 years).",
+        "Demand grows at 13.7 % per year (CAGR).",
+        "Colombia already holds 6.0 % of the market and gains 1.2 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Germany at 0.37 (0–1 scale).",
+        "Coffee extracts (HS 2101) enters Germany duty-free (0 % effectively applied).",
+        "Macro stability of Germany at 0.74: the filter leaves the score at 0.468 (raw 0.539)."
+      ],
+      "ESP": [
+        "Spain imports USD 207 M a year of Coffee extracts (HS 2101) (average of the last 3 years).",
+        "Demand grows at 19.5 % per year (CAGR).",
+        "Colombia already holds 0.9 % of the market and gains 0.4 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Spain at 0.42 (0–1 scale).",
+        "Coffee extracts (HS 2101) enters Spain duty-free (0 % effectively applied).",
+        "Macro stability of Spain at 0.97: the filter leaves the score at 0.472 (raw 0.479)."
+      ],
+      "FIN": [
+        "Finland imports USD 22 M a year of Coffee extracts (HS 2101) (average of the last 3 years).",
+        "Demand grows at 20.6 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and loses 0.1 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Finland at 0.40 (0–1 scale).",
+        "Coffee extracts (HS 2101) enters Finland duty-free (0 % effectively applied).",
+        "Macro stability of Finland at 0.76: the filter leaves the score at 0.365 (raw 0.413)."
+      ],
+      "FRA": [
+        "France imports USD 415 M a year of Coffee extracts (HS 2101) (average of the last 3 years).",
+        "Demand shrinks at 0.8 % per year (CAGR).",
+        "Colombia already holds 0.2 % of the market and loses 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of France at 0.42 (0–1 scale).",
+        "Coffee extracts (HS 2101) enters France duty-free (0 % effectively applied).",
+        "Macro stability of France at 0.83: the filter leaves the score at 0.315 (raw 0.343)."
+      ],
+      "GBR": [
+        "United Kingdom imports USD 669 M a year of Coffee extracts (HS 2101) (average of the last 3 years).",
+        "Demand grows at 19.3 % per year (CAGR).",
+        "Colombia already holds 0.3 % of the market and loses 2.2 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of United Kingdom at 0.43 (0–1 scale).",
+        "Coffee extracts (HS 2101) enters United Kingdom duty-free (0 % effectively applied).",
+        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.424 (raw 0.533)."
+      ],
+      "ITA": [
+        "Italy imports USD 152 M a year of Coffee extracts (HS 2101) (average of the last 3 years).",
+        "Demand grows at 12.9 % per year (CAGR).",
+        "Colombia already holds 0.2 % of the market and loses 0.2 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Italy at 0.43 (0–1 scale).",
+        "Coffee extracts (HS 2101) enters Italy duty-free (0 % effectively applied).",
+        "Macro stability of Italy at 0.83: the filter leaves the score at 0.378 (raw 0.412)."
+      ],
+      "JPN": [
+        "Japan imports USD 316 M a year of Coffee extracts (HS 2101) (average of the last 3 years).",
+        "Demand grows at 24.1 % per year (CAGR).",
+        "Colombia already holds 10.1 % of the market and loses 4.3 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Japan at 0.46 (0–1 scale).",
+        "Coffee extracts (HS 2101) faces an effectively applied tariff of 16.0 % in Japan.",
+        "Macro stability of Japan at 0.81: the filter leaves the score at 0.475 (raw 0.525)."
+      ],
+      "KOR": [
+        "South Korea imports USD 181 M a year of Coffee extracts (HS 2101) (average of the last 3 years).",
+        "Demand grows at 7.9 % per year (CAGR).",
+        "Colombia already holds 6.9 % of the market and loses 0.8 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of South Korea at 0.49 (0–1 scale).",
+        "Coffee extracts (HS 2101) faces an effectively applied tariff of 4.0 % in South Korea.",
+        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.462 (raw 0.490)."
+      ],
+      "NLD": [
+        "Netherlands imports USD 468 M a year of Coffee extracts (HS 2101) (average of the last 3 years).",
+        "Demand grows at 13.1 % per year (CAGR).",
+        "Colombia already holds 5.4 % of the market and gains 3.9 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Netherlands at 0.46 (0–1 scale).",
+        "Coffee extracts (HS 2101) enters Netherlands duty-free (0 % effectively applied).",
+        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.559 (raw 0.617)."
+      ],
+      "POL": [
+        "Poland imports USD 449 M a year of Coffee extracts (HS 2101) (average of the last 3 years).",
+        "Demand grows at 24.6 % per year (CAGR).",
+        "Colombia already holds 4.5 % of the market and gains 1.3 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Poland at 0.36 (0–1 scale).",
+        "Coffee extracts (HS 2101) enters Poland duty-free (0 % effectively applied).",
+        "Macro stability of Poland at 0.84: the filter leaves the score at 0.502 (raw 0.546)."
+      ],
+      "PRT": [
+        "Portugal imports USD 80 M a year of Coffee extracts (HS 2101) (average of the last 3 years).",
+        "Demand grows at 1.3 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Portugal at 0.39 (0–1 scale).",
+        "Coffee extracts (HS 2101) enters Portugal duty-free (0 % effectively applied).",
+        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.257 (raw 0.266)."
+      ],
+      "SWE": [
+        "Sweden imports USD 111 M a year of Coffee extracts (HS 2101) (average of the last 3 years).",
+        "Demand grows at 20.3 % per year (CAGR).",
+        "Colombia already holds 0.4 % of the market and loses 0.4 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Sweden at 0.37 (0–1 scale).",
+        "Coffee extracts (HS 2101) enters Sweden duty-free (0 % effectively applied).",
+        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.347 (raw 0.385)."
+      ],
+      "USA": [
+        "United States imports USD 1,330 M a year of Coffee extracts (HS 2101) (average of the last 3 years).",
+        "Demand grows at 25.3 % per year (CAGR).",
+        "Colombia already holds 13.6 % of the market and loses 3.1 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of United States at 0.33 (0–1 scale).",
+        "Coffee extracts (HS 2101) enters United States duty-free (0 % effectively applied).",
+        "Macro stability of United States at 0.65: the filter leaves the score at 0.599 (raw 0.725)."
+      ]
+    },
+    "recommendations": [
+      {
+        "final_score": 0.599,
+        "iso3": "USA",
+        "name": "United States",
+        "reasons": [
+          "destination #1 by market size (USD 1,330 M/year)",
+          "destination #1 by demand growth (25.3 % per year)"
+        ]
+      },
+      {
+        "final_score": 0.559,
+        "iso3": "NLD",
+        "name": "Netherlands",
+        "reasons": [
+          "destination #3 by basket complementarity (index 0.46 (0–1 scale))",
+          "destination #12 by demand growth (13.1 % per year)"
+        ]
+      },
+      {
+        "final_score": 0.502,
+        "iso3": "POL",
+        "name": "Poland",
+        "reasons": [
+          "destination #2 by demand growth (24.6 % per year)",
+          "destination #1 by tariff faced (0.0 % effectively applied)"
+        ]
+      }
+    ]
+  },
+  "es": {
+    "markets": {
+      "AUS": [
+        "Australia importa USD 256 M al año de Extractos de café (HS 2101) (promedio de los últimos 3 años).",
+        "La demanda crece al 19,2 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y pierde 0,1 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Australia.",
+        "Extractos de café (HS 2101) entra a Australia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,391 (bruto 0,442)."
+      ],
+      "AUT": [
+        "Austria importa USD 64 M al año de Extractos de café (HS 2101) (promedio de los últimos 3 años).",
+        "La demanda crece al 9,8 % anual (CAGR).",
+        "Colombia ya tiene 1,3 % del mercado y gana 0,4 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Austria.",
+        "Extractos de café (HS 2101) entra a Austria sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,272 (bruto 0,317)."
+      ],
+      "BEL": [
+        "Bélgica importa USD 108 M al año de Extractos de café (HS 2101) (promedio de los últimos 3 años).",
+        "La demanda crece al 19,3 % anual (CAGR).",
+        "Colombia ya tiene 0,3 % del mercado y pierde 0,2 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Bélgica.",
+        "Extractos de café (HS 2101) entra a Bélgica sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,432 (bruto 0,480)."
+      ],
+      "CAN": [
+        "Canadá importa USD 292 M al año de Extractos de café (HS 2101) (promedio de los últimos 3 años).",
+        "La demanda crece al 11,5 % anual (CAGR).",
+        "Colombia ya tiene 0,9 % del mercado y gana 0,2 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Canadá.",
+        "Extractos de café (HS 2101) entra a Canadá sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,345 (bruto 0,371)."
+      ],
+      "CHE": [
+        "Suiza importa USD 50 M al año de Extractos de café (HS 2101) (promedio de los últimos 3 años).",
+        "La demanda crece al 17,3 % anual (CAGR).",
+        "Colombia ya tiene 0,6 % del mercado y pierde 0,3 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de Suiza.",
+        "Extractos de café (HS 2101) entra a Suiza sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,281 (bruto 0,299)."
+      ],
+      "DEU": [
+        "Alemania importa USD 741 M al año de Extractos de café (HS 2101) (promedio de los últimos 3 años).",
+        "La demanda crece al 13,7 % anual (CAGR).",
+        "Colombia ya tiene 6,0 % del mercado y gana 1,2 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Alemania.",
+        "Extractos de café (HS 2101) entra a Alemania sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,468 (bruto 0,539)."
+      ],
+      "ESP": [
+        "España importa USD 207 M al año de Extractos de café (HS 2101) (promedio de los últimos 3 años).",
+        "La demanda crece al 19,5 % anual (CAGR).",
+        "Colombia ya tiene 0,9 % del mercado y gana 0,4 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de España.",
+        "Extractos de café (HS 2101) entra a España sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de España 0,97: el filtro deja el score en 0,472 (bruto 0,479)."
+      ],
+      "FIN": [
+        "Finlandia importa USD 22 M al año de Extractos de café (HS 2101) (promedio de los últimos 3 años).",
+        "La demanda crece al 20,6 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y pierde 0,1 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Finlandia.",
+        "Extractos de café (HS 2101) entra a Finlandia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,365 (bruto 0,413)."
+      ],
+      "FRA": [
+        "Francia importa USD 415 M al año de Extractos de café (HS 2101) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 0,8 % anual (CAGR).",
+        "Colombia ya tiene 0,2 % del mercado y pierde 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de Francia.",
+        "Extractos de café (HS 2101) entra a Francia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,315 (bruto 0,343)."
+      ],
+      "GBR": [
+        "Reino Unido importa USD 669 M al año de Extractos de café (HS 2101) (promedio de los últimos 3 años).",
+        "La demanda crece al 19,3 % anual (CAGR).",
+        "Colombia ya tiene 0,3 % del mercado y pierde 2,2 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Reino Unido.",
+        "Extractos de café (HS 2101) entra a Reino Unido sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,424 (bruto 0,533)."
+      ],
+      "ITA": [
+        "Italia importa USD 152 M al año de Extractos de café (HS 2101) (promedio de los últimos 3 años).",
+        "La demanda crece al 12,9 % anual (CAGR).",
+        "Colombia ya tiene 0,2 % del mercado y pierde 0,2 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Italia.",
+        "Extractos de café (HS 2101) entra a Italia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,378 (bruto 0,412)."
+      ],
+      "JPN": [
+        "Japón importa USD 316 M al año de Extractos de café (HS 2101) (promedio de los últimos 3 años).",
+        "La demanda crece al 24,1 % anual (CAGR).",
+        "Colombia ya tiene 10,1 % del mercado y pierde 4,3 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Japón.",
+        "Extractos de café (HS 2101) paga en Japón un arancel efectivamente aplicado de 16,0 %.",
+        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,475 (bruto 0,525)."
+      ],
+      "KOR": [
+        "Corea del Sur importa USD 181 M al año de Extractos de café (HS 2101) (promedio de los últimos 3 años).",
+        "La demanda crece al 7,9 % anual (CAGR).",
+        "Colombia ya tiene 6,9 % del mercado y pierde 0,8 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,49 (escala 0–1) con la demanda importadora de Corea del Sur.",
+        "Extractos de café (HS 2101) paga en Corea del Sur un arancel efectivamente aplicado de 4,0 %.",
+        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,462 (bruto 0,490)."
+      ],
+      "NLD": [
+        "Países Bajos importa USD 468 M al año de Extractos de café (HS 2101) (promedio de los últimos 3 años).",
+        "La demanda crece al 13,1 % anual (CAGR).",
+        "Colombia ya tiene 5,4 % del mercado y gana 3,9 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Países Bajos.",
+        "Extractos de café (HS 2101) entra a Países Bajos sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,559 (bruto 0,617)."
+      ],
+      "POL": [
+        "Polonia importa USD 449 M al año de Extractos de café (HS 2101) (promedio de los últimos 3 años).",
+        "La demanda crece al 24,6 % anual (CAGR).",
+        "Colombia ya tiene 4,5 % del mercado y gana 1,3 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,36 (escala 0–1) con la demanda importadora de Polonia.",
+        "Extractos de café (HS 2101) entra a Polonia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,502 (bruto 0,546)."
+      ],
+      "PRT": [
+        "Portugal importa USD 80 M al año de Extractos de café (HS 2101) (promedio de los últimos 3 años).",
+        "La demanda crece al 1,3 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,39 (escala 0–1) con la demanda importadora de Portugal.",
+        "Extractos de café (HS 2101) entra a Portugal sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,257 (bruto 0,266)."
+      ],
+      "SWE": [
+        "Suecia importa USD 111 M al año de Extractos de café (HS 2101) (promedio de los últimos 3 años).",
+        "La demanda crece al 20,3 % anual (CAGR).",
+        "Colombia ya tiene 0,4 % del mercado y pierde 0,4 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Suecia.",
+        "Extractos de café (HS 2101) entra a Suecia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,347 (bruto 0,385)."
+      ],
+      "USA": [
+        "Estados Unidos importa USD 1.330 M al año de Extractos de café (HS 2101) (promedio de los últimos 3 años).",
+        "La demanda crece al 25,3 % anual (CAGR).",
+        "Colombia ya tiene 13,6 % del mercado y pierde 3,1 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,33 (escala 0–1) con la demanda importadora de Estados Unidos.",
+        "Extractos de café (HS 2101) entra a Estados Unidos sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,599 (bruto 0,725)."
+      ]
+    },
+    "recommendations": [
+      {
+        "final_score": 0.599,
+        "iso3": "USA",
+        "name": "Estados Unidos",
+        "reasons": [
+          "1.º destino por tamaño de mercado (USD 1.330 M/año)",
+          "1.º destino por crecimiento de la demanda (25,3 % anual)"
+        ]
+      },
+      {
+        "final_score": 0.559,
+        "iso3": "NLD",
+        "name": "Países Bajos",
+        "reasons": [
+          "3.º destino por complementariedad de canastas (índice 0,46 (escala 0–1))",
+          "12.º destino por crecimiento de la demanda (13,1 % anual)"
+        ]
+      },
+      {
+        "final_score": 0.502,
+        "iso3": "POL",
+        "name": "Polonia",
+        "reasons": [
+          "2.º destino por crecimiento de la demanda (24,6 % anual)",
+          "1.º destino por arancel enfrentado (0,0 % efectivamente aplicado)"
+        ]
+      }
+    ]
+  }
+}

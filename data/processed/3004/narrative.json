@@ -1,0 +1,356 @@
+{
+  "en": {
+    "markets": {
+      "AUS": [
+        "Australia imports USD 6,408 M a year of Medicaments (HS 3004) (average of the last 3 years).",
+        "Demand grows at 6.0 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Australia at 0.40 (0–1 scale).",
+        "Medicaments (HS 3004) enters Australia duty-free (0 % effectively applied).",
+        "Macro stability of Australia at 0.77: the filter leaves the score at 0.262 (raw 0.296)."
+      ],
+      "AUT": [
+        "Austria imports USD 4,584 M a year of Medicaments (HS 3004) (average of the last 3 years).",
+        "Demand grows at 6.3 % per year (CAGR).",
+        "Colombia records no sales of Medicaments (HS 3004) in Austria (0 % share).",
+        "The export basket of Colombia fits the import demand of Austria at 0.37 (0–1 scale).",
+        "Medicaments (HS 3004) enters Austria duty-free (0 % effectively applied).",
+        "Macro stability of Austria at 0.71: the filter leaves the score at 0.218 (raw 0.255)."
+      ],
+      "BEL": [
+        "Belgium imports USD 23,296 M a year of Medicaments (HS 3004) (average of the last 3 years).",
+        "Demand grows at 10.6 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Belgium at 0.45 (0–1 scale).",
+        "Medicaments (HS 3004) enters Belgium duty-free (0 % effectively applied).",
+        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.405 (raw 0.450)."
+      ],
+      "CAN": [
+        "Canada imports USD 10,243 M a year of Medicaments (HS 3004) (average of the last 3 years).",
+        "Demand grows at 6.3 % per year (CAGR).",
+        "Colombia already holds 0.2 % of the market and gains 0.1 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Canada at 0.37 (0–1 scale).",
+        "Medicaments (HS 3004) enters Canada duty-free (0 % effectively applied).",
+        "Macro stability of Canada at 0.86: the filter leaves the score at 0.481 (raw 0.518)."
+      ],
+      "CHE": [
+        "Switzerland imports USD 47,595 M a year of Medicaments (HS 3004) (average of the last 3 years).",
+        "Demand grows at 17.9 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Switzerland at 0.32 (0–1 scale).",
+        "Medicaments (HS 3004) enters Switzerland duty-free (0 % effectively applied).",
+        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.407 (raw 0.433)."
+      ],
+      "DEU": [
+        "Germany imports USD 35,776 M a year of Medicaments (HS 3004) (average of the last 3 years).",
+        "Demand grows at 15.8 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Germany at 0.37 (0–1 scale).",
+        "Medicaments (HS 3004) enters Germany duty-free (0 % effectively applied).",
+        "Macro stability of Germany at 0.74: the filter leaves the score at 0.380 (raw 0.438)."
+      ],
+      "ESP": [
+        "Spain imports USD 16,112 M a year of Medicaments (HS 3004) (average of the last 3 years).",
+        "Demand grows at 16.9 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Spain at 0.42 (0–1 scale).",
+        "Medicaments (HS 3004) enters Spain duty-free (0 % effectively applied).",
+        "Macro stability of Spain at 0.97: the filter leaves the score at 0.451 (raw 0.459)."
+      ],
+      "FIN": [
+        "Finland imports USD 1,854 M a year of Medicaments (HS 3004) (average of the last 3 years).",
+        "Demand grows at 1.7 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Finland at 0.40 (0–1 scale).",
+        "Medicaments (HS 3004) enters Finland duty-free (0 % effectively applied).",
+        "Macro stability of Finland at 0.76: the filter leaves the score at 0.214 (raw 0.243)."
+      ],
+      "FRA": [
+        "France imports USD 18,186 M a year of Medicaments (HS 3004) (average of the last 3 years).",
+        "Demand shrinks at 2.0 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of France at 0.42 (0–1 scale).",
+        "Medicaments (HS 3004) enters France duty-free (0 % effectively applied).",
+        "Macro stability of France at 0.83: the filter leaves the score at 0.244 (raw 0.266)."
+      ],
+      "GBR": [
+        "United Kingdom imports USD 18,382 M a year of Medicaments (HS 3004) (average of the last 3 years).",
+        "Demand grows at 11.7 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of United Kingdom at 0.43 (0–1 scale).",
+        "Medicaments (HS 3004) enters United Kingdom duty-free (0 % effectively applied).",
+        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.340 (raw 0.427)."
+      ],
+      "ITA": [
+        "Italy imports USD 20,175 M a year of Medicaments (HS 3004) (average of the last 3 years).",
+        "Demand grows at 4.0 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Italy at 0.43 (0–1 scale).",
+        "Medicaments (HS 3004) enters Italy duty-free (0 % effectively applied).",
+        "Macro stability of Italy at 0.83: the filter leaves the score at 0.320 (raw 0.349)."
+      ],
+      "JPN": [
+        "Japan imports USD 15,312 M a year of Medicaments (HS 3004) (average of the last 3 years).",
+        "Demand shrinks at 0.6 % per year (CAGR).",
+        "Colombia records no sales of Medicaments (HS 3004) in Japan (0 % share).",
+        "The export basket of Colombia fits the import demand of Japan at 0.46 (0–1 scale).",
+        "Medicaments (HS 3004) enters Japan duty-free (0 % effectively applied).",
+        "Macro stability of Japan at 0.81: the filter leaves the score at 0.294 (raw 0.324)."
+      ],
+      "KOR": [
+        "South Korea imports USD 5,050 M a year of Medicaments (HS 3004) (average of the last 3 years).",
+        "Demand shrinks at 0.9 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of South Korea at 0.49 (0–1 scale).",
+        "Medicaments (HS 3004) enters South Korea duty-free (0 % effectively applied).",
+        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.307 (raw 0.326)."
+      ],
+      "NLD": [
+        "Netherlands imports USD 10,716 M a year of Medicaments (HS 3004) (average of the last 3 years).",
+        "Demand grows at 8.3 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Netherlands at 0.46 (0–1 scale).",
+        "Medicaments (HS 3004) enters Netherlands duty-free (0 % effectively applied).",
+        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.374 (raw 0.413)."
+      ],
+      "POL": [
+        "Poland imports USD 8,120 M a year of Medicaments (HS 3004) (average of the last 3 years).",
+        "Demand grows at 16.9 % per year (CAGR).",
+        "Colombia records no sales of Medicaments (HS 3004) in Poland (0 % share).",
+        "The export basket of Colombia fits the import demand of Poland at 0.36 (0–1 scale).",
+        "Medicaments (HS 3004) enters Poland duty-free (0 % effectively applied).",
+        "Macro stability of Poland at 0.84: the filter leaves the score at 0.338 (raw 0.367)."
+      ],
+      "PRT": [
+        "Portugal imports USD 2,900 M a year of Medicaments (HS 3004) (average of the last 3 years).",
+        "Demand grows at 12.5 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Portugal at 0.39 (0–1 scale).",
+        "Medicaments (HS 3004) enters Portugal duty-free (0 % effectively applied).",
+        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.331 (raw 0.342)."
+      ],
+      "SWE": [
+        "Sweden imports USD 3,884 M a year of Medicaments (HS 3004) (average of the last 3 years).",
+        "Demand grows at 17.3 % per year (CAGR).",
+        "Colombia records no sales of Medicaments (HS 3004) in Sweden (0 % share).",
+        "The export basket of Colombia fits the import demand of Sweden at 0.37 (0–1 scale).",
+        "Medicaments (HS 3004) enters Sweden duty-free (0 % effectively applied).",
+        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.325 (raw 0.361)."
+      ],
+      "USA": [
+        "United States imports USD 92,054 M a year of Medicaments (HS 3004) (average of the last 3 years).",
+        "Demand grows at 3.8 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of United States at 0.33 (0–1 scale).",
+        "Medicaments (HS 3004) enters United States duty-free (0 % effectively applied).",
+        "Macro stability of United States at 0.65: the filter leaves the score at 0.349 (raw 0.422)."
+      ]
+    },
+    "recommendations": [
+      {
+        "final_score": 0.481,
+        "iso3": "CAN",
+        "name": "Canada",
+        "reasons": [
+          "destination #1 by share already won (share of 0.2 %)",
+          "destination #1 by share momentum (+0.1 pp over the window)"
+        ]
+      },
+      {
+        "final_score": 0.451,
+        "iso3": "ESP",
+        "name": "Spain",
+        "reasons": [
+          "destination #4 by demand growth (16.9 % per year)",
+          "destination #7 by basket complementarity (index 0.42 (0–1 scale))"
+        ]
+      },
+      {
+        "final_score": 0.407,
+        "iso3": "CHE",
+        "name": "Switzerland",
+        "reasons": [
+          "destination #1 by demand growth (17.9 % per year)",
+          "destination #2 by market size (USD 47,595 M/year)"
+        ]
+      }
+    ]
+  },
+  "es": {
+    "markets": {
+      "AUS": [
+        "Australia importa USD 6.408 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
+        "La demanda crece al 6,0 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Australia.",
+        "Medicamentos (HS 3004) entra a Australia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,262 (bruto 0,296)."
+      ],
+      "AUT": [
+        "Austria importa USD 4.584 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
+        "La demanda crece al 6,3 % anual (CAGR).",
+        "Colombia no registra ventas de Medicamentos (HS 3004) en Austria (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Austria.",
+        "Medicamentos (HS 3004) entra a Austria sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,218 (bruto 0,255)."
+      ],
+      "BEL": [
+        "Bélgica importa USD 23.296 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
+        "La demanda crece al 10,6 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Bélgica.",
+        "Medicamentos (HS 3004) entra a Bélgica sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,405 (bruto 0,450)."
+      ],
+      "CAN": [
+        "Canadá importa USD 10.243 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
+        "La demanda crece al 6,3 % anual (CAGR).",
+        "Colombia ya tiene 0,2 % del mercado y gana 0,1 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Canadá.",
+        "Medicamentos (HS 3004) entra a Canadá sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,481 (bruto 0,518)."
+      ],
+      "CHE": [
+        "Suiza importa USD 47.595 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
+        "La demanda crece al 17,9 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de Suiza.",
+        "Medicamentos (HS 3004) entra a Suiza sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,407 (bruto 0,433)."
+      ],
+      "DEU": [
+        "Alemania importa USD 35.776 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
+        "La demanda crece al 15,8 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Alemania.",
+        "Medicamentos (HS 3004) entra a Alemania sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,380 (bruto 0,438)."
+      ],
+      "ESP": [
+        "España importa USD 16.112 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
+        "La demanda crece al 16,9 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de España.",
+        "Medicamentos (HS 3004) entra a España sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de España 0,97: el filtro deja el score en 0,451 (bruto 0,459)."
+      ],
+      "FIN": [
+        "Finlandia importa USD 1.854 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
+        "La demanda crece al 1,7 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Finlandia.",
+        "Medicamentos (HS 3004) entra a Finlandia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,214 (bruto 0,243)."
+      ],
+      "FRA": [
+        "Francia importa USD 18.186 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 2,0 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de Francia.",
+        "Medicamentos (HS 3004) entra a Francia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,244 (bruto 0,266)."
+      ],
+      "GBR": [
+        "Reino Unido importa USD 18.382 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
+        "La demanda crece al 11,7 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Reino Unido.",
+        "Medicamentos (HS 3004) entra a Reino Unido sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,340 (bruto 0,427)."
+      ],
+      "ITA": [
+        "Italia importa USD 20.175 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
+        "La demanda crece al 4,0 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Italia.",
+        "Medicamentos (HS 3004) entra a Italia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,320 (bruto 0,349)."
+      ],
+      "JPN": [
+        "Japón importa USD 15.312 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 0,6 % anual (CAGR).",
+        "Colombia no registra ventas de Medicamentos (HS 3004) en Japón (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Japón.",
+        "Medicamentos (HS 3004) entra a Japón sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,294 (bruto 0,324)."
+      ],
+      "KOR": [
+        "Corea del Sur importa USD 5.050 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 0,9 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,49 (escala 0–1) con la demanda importadora de Corea del Sur.",
+        "Medicamentos (HS 3004) entra a Corea del Sur sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,307 (bruto 0,326)."
+      ],
+      "NLD": [
+        "Países Bajos importa USD 10.716 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
+        "La demanda crece al 8,3 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Países Bajos.",
+        "Medicamentos (HS 3004) entra a Países Bajos sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,374 (bruto 0,413)."
+      ],
+      "POL": [
+        "Polonia importa USD 8.120 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
+        "La demanda crece al 16,9 % anual (CAGR).",
+        "Colombia no registra ventas de Medicamentos (HS 3004) en Polonia (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,36 (escala 0–1) con la demanda importadora de Polonia.",
+        "Medicamentos (HS 3004) entra a Polonia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,338 (bruto 0,367)."
+      ],
+      "PRT": [
+        "Portugal importa USD 2.900 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
+        "La demanda crece al 12,5 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,39 (escala 0–1) con la demanda importadora de Portugal.",
+        "Medicamentos (HS 3004) entra a Portugal sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,331 (bruto 0,342)."
+      ],
+      "SWE": [
+        "Suecia importa USD 3.884 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
+        "La demanda crece al 17,3 % anual (CAGR).",
+        "Colombia no registra ventas de Medicamentos (HS 3004) en Suecia (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Suecia.",
+        "Medicamentos (HS 3004) entra a Suecia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,325 (bruto 0,361)."
+      ],
+      "USA": [
+        "Estados Unidos importa USD 92.054 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
+        "La demanda crece al 3,8 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,33 (escala 0–1) con la demanda importadora de Estados Unidos.",
+        "Medicamentos (HS 3004) entra a Estados Unidos sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,349 (bruto 0,422)."
+      ]
+    },
+    "recommendations": [
+      {
+        "final_score": 0.481,
+        "iso3": "CAN",
+        "name": "Canadá",
+        "reasons": [
+          "1.º destino por cuota ya ganada (cuota de 0,2 %)",
+          "1.º destino por momentum de la cuota (+0,1 pp en la ventana)"
+        ]
+      },
+      {
+        "final_score": 0.451,
+        "iso3": "ESP",
+        "name": "España",
+        "reasons": [
+          "4.º destino por crecimiento de la demanda (16,9 % anual)",
+          "7.º destino por complementariedad de canastas (índice 0,42 (escala 0–1))"
+        ]
+      },
+      {
+        "final_score": 0.407,
+        "iso3": "CHE",
+        "name": "Suiza",
+        "reasons": [
+          "1.º destino por crecimiento de la demanda (17,9 % anual)",
+          "2.º destino por tamaño de mercado (USD 47.595 M/año)"
+        ]
+      }
+    ]
+  }
+}

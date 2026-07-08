@@ -44,6 +44,7 @@ _FOCUS_SELECT_KEY = "focus_market_select"
 _MAP_KEY = "map_select"
 _MAP_PROCESSED_KEY = "map_selection_processed"
 _TABLE_KEY = "ranking_table_select"
+_COMPARE_KEY = "compare_markets"
 _TABLE_PROCESSED_KEY = "ranking_table_selection_processed"
 #: Prefijos del panel «⚙️ Columnas»: cada columna tiene un checkbox
 #: (``ranking_col_<nombre>``) y una clave de estado PROPIA
@@ -835,7 +836,49 @@ def _methodology_section(meta: dict[str, object]) -> None:
         )
 
 
-def _map_tab(ranking: pd.DataFrame, focus_iso3: str = "") -> None:
+def _compare_selector(ranking: pd.DataFrame) -> list[str]:
+    """Selector global de comparación: hasta 3 mercados para TODAS las gráficas.
+
+    Devuelve los ISO3 elegidos; lista vacía = sin comparación (las pestañas
+    muestran todos los mercados). Las opciones son códigos ISO3 — estables
+    ante el toggle de idioma — y la etiqueta visible se arma con
+    ``format_func``. El estado se depura antes de instanciar el widget: al
+    cambiar de producto un destino puede desaparecer (p. ej. banano sin
+    ECU/MEX) y una selección inválida rompería el multiselect.
+    """
+    names = ranking.set_index(config.COL_COUNTRY)[config.COL_COUNTRY_NAME]
+    options = list(ranking[config.COL_COUNTRY])
+    stored = st.session_state.get(_COMPARE_KEY)
+    if isinstance(stored, list):
+        valid = [iso3 for iso3 in stored if iso3 in options]
+        if valid != stored:
+            st.session_state[_COMPARE_KEY] = valid
+    selected: list[str] = st.multiselect(
+        t("compare_select_label"),
+        options=options,
+        max_selections=3,
+        format_func=lambda iso3: f"{flag_emoji(iso3)} {names.get(iso3, iso3)}".strip(),
+        key=_COMPARE_KEY,
+        help=t("compare_select_help"),
+    )
+    if selected:
+        st.caption(t("compare_active_note"))
+    return selected
+
+
+def _compare_view(ranking: pd.DataFrame, compare: list[str]) -> pd.DataFrame:
+    """Filas de los mercados comparados, o el ranking completo sin selección.
+
+    Solo filtra la PRESENTACIÓN: toda normalización (min-max del desglose y
+    del radar) se calcula antes, sobre el ranking completo, para que
+    comparar 3 mercados no cambie sus valores.
+    """
+    if not compare:
+        return ranking
+    return ranking[ranking[config.COL_COUNTRY].isin(compare)]
+
+
+def _map_tab(ranking: pd.DataFrame, focus_iso3: str = "", compare: list[str] | None = None) -> None:
     """Choropleth del score final por destino (plotly acepta ISO3 directo).
 
     Presentación pura: pinta columnas ya presentes en el ranking; el color es
@@ -846,8 +889,9 @@ def _map_tab(ranking: pd.DataFrame, focus_iso3: str = "") -> None:
     """
     st.caption(t("map_caption"))
     st.caption(t("map_focus_hint"))
+    data = _compare_view(ranking, compare or [])
     fig = px.choropleth(
-        ranking,
+        data,
         locations=config.COL_COUNTRY,
         color=config.COL_FINAL_SCORE,
         hover_name=config.COL_COUNTRY_NAME,
@@ -871,9 +915,9 @@ def _map_tab(ranking: pd.DataFrame, focus_iso3: str = "") -> None:
         projection="natural earth",
     )
     line_colors = [
-        "#F59E0B" if iso == focus_iso3 else "#FFFFFF" for iso in ranking[config.COL_COUNTRY]
+        "#F59E0B" if iso == focus_iso3 else "#FFFFFF" for iso in data[config.COL_COUNTRY]
     ]
-    line_widths = [2.5 if iso == focus_iso3 else 0.6 for iso in ranking[config.COL_COUNTRY]]
+    line_widths = [2.5 if iso == focus_iso3 else 0.6 for iso in data[config.COL_COUNTRY]]
     fig.update_traces(marker_line_color=line_colors, marker_line_width=line_widths)
     fig.update_layout(
         separators=i18n.active_plotly_separators(),
@@ -894,21 +938,30 @@ def _map_tab(ranking: pd.DataFrame, focus_iso3: str = "") -> None:
 
 
 def _evolution_tab(
-    ranking: pd.DataFrame, meta: dict[str, object], timeseries: pd.DataFrame
+    ranking: pd.DataFrame,
+    meta: dict[str, object],
+    timeseries: pd.DataFrame,
+    compare: list[str] | None = None,
 ) -> None:
     """Evolución anual de las importaciones por destino (indexada o absoluta).
 
     Presentación pura sobre la serie que el pipeline dejó en el snapshot.
     Vista indexada (default): todos los mercados en la misma escala para
-    comparar ritmos; vista absoluta en millones de USD.
+    comparar ritmos; vista absoluta en millones de USD. Con el comparador
+    global activo, las líneas son esos mercados y el selector propio se
+    oculta (una sola fuente de verdad).
     """
     names = ranking.set_index(config.COL_COUNTRY)[config.COL_COUNTRY_NAME]
-    default_markets = list(ranking.nsmallest(5, config.COL_RANK)[config.COL_COUNTRY_NAME])
-    selected_names = st.multiselect(
-        t("evolution_select_markets_label"),
-        options=list(names.sort_values()),
-        default=default_markets,
-    )
+    if compare:
+        selected_iso3 = [iso3 for iso3 in compare if iso3 in names.index]
+    else:
+        default_markets = list(ranking.nsmallest(5, config.COL_RANK)[config.COL_COUNTRY_NAME])
+        selected_names = st.multiselect(
+            t("evolution_select_markets_label"),
+            options=list(names.sort_values()),
+            default=default_markets,
+        )
+        selected_iso3 = [str(iso3) for iso3, name in names.items() if name in selected_names]
     view_index, view_absolute = t("evolution_view_index"), t("evolution_view_absolute")
     view = st.radio(
         t("evolution_view_label"),
@@ -916,7 +969,6 @@ def _evolution_tab(
         horizontal=True,
         help=t("evolution_view_help"),
     )
-    selected_iso3 = [iso3 for iso3, name in names.items() if name in selected_names]
     if not selected_iso3:
         st.info(t("evolution_select_info"))
         return
@@ -1367,7 +1419,7 @@ def _weight_lab_section(
     return rescored, weights, floor
 
 
-def _scores_tab(ranking: pd.DataFrame) -> None:
+def _scores_tab(ranking: pd.DataFrame, compare: list[str] | None = None) -> None:
     """Score bruto vs. final por mercado: la brecha es la penalización macro.
 
     Plotly en lugar de ``st.bar_chart`` para que ejes y hover respeten los
@@ -1375,7 +1427,9 @@ def _scores_tab(ranking: pd.DataFrame) -> None:
     evolución.
     """
     st.caption(t("tab_scores_caption"))
-    ordered = ranking.sort_values(config.COL_FINAL_SCORE, ascending=True)
+    ordered = _compare_view(ranking, compare or []).sort_values(
+        config.COL_FINAL_SCORE, ascending=True
+    )
     fig = go.Figure()
     for column, label, color in (
         (config.COL_SCORE, t("col_score_raw"), "#93C5FD"),
@@ -1403,13 +1457,17 @@ def _scores_tab(ranking: pd.DataFrame) -> None:
     st.plotly_chart(fig, use_container_width=True)
 
 
-def _breakdown_tab(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
+def _breakdown_tab(
+    ranking: pd.DataFrame, meta: dict[str, object], compare: list[str] | None = None
+) -> None:
     """Desglose del score de oportunidad: contribución de cada métrica.
 
     Barra apilada por mercado con los sumandos ``w·norm/Σw`` que calcula
     ``domain/scoring.score_contributions`` (puro, testeado): hace visible por
     qué cada mercado puntúa lo que puntúa. La penalización macro no aparece
-    aquí — la muestra la pestaña de scores.
+    aquí — la muestra la pestaña de scores. Las contribuciones se calculan
+    sobre el ranking COMPLETO (la normalización min-max no cambia al
+    comparar); el comparador solo filtra qué barras se dibujan.
     """
     weights_obj = meta.get("weights")
     weights: dict[str, float] = (
@@ -1426,7 +1484,7 @@ def _breakdown_tab(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
         return
     st.caption(t("breakdown_caption"))
     contributions = scoring.score_contributions(ranking, available)
-    ordered = ranking.sort_values(config.COL_SCORE, ascending=True)
+    ordered = _compare_view(ranking, compare or []).sort_values(config.COL_SCORE, ascending=True)
     fig = go.Figure()
     for name in available:
         label = i18n.metric_label(name)
@@ -1453,30 +1511,23 @@ def _breakdown_tab(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
     st.plotly_chart(fig, use_container_width=True)
 
 
-def _radar_tab(ranking: pd.DataFrame) -> None:
+def _radar_tab(ranking: pd.DataFrame, compare: list[str] | None = None) -> None:
     """Radar de métricas normalizadas: perfil comparado de hasta 3 mercados.
 
     Cada eje es una métrica del scoring normalizada con
     ``domain/scoring.normalized_metric`` sobre TODOS los mercados del
     ranking (mismas direcciones que el motor: el arancel llega invertido).
+    Los mercados los define el comparador global («🔍 Mercados a
+    comparar», encima de las pestañas); sin selección, el top-3 del ranking.
     """
     available = [name for name, col in scoring.METRIC_COLUMNS.items() if col in ranking.columns]
     if len(available) < 3:  # un radar con menos de 3 ejes no dice nada
         return
     st.caption(t("radar_caption"))
+    if not compare:
+        st.caption(t("radar_compare_hint"))
     names = ranking.set_index(config.COL_COUNTRY)[config.COL_COUNTRY_NAME]
-    top3 = list(ranking.nsmallest(3, config.COL_RANK)[config.COL_COUNTRY])
-    selected = st.multiselect(
-        t("radar_select_label"),
-        options=list(ranking[config.COL_COUNTRY]),
-        default=top3,
-        max_selections=3,
-        format_func=lambda iso3: f"{flag_emoji(iso3)} {names.get(iso3, iso3)}".strip(),
-        key="radar_markets",
-    )
-    if not selected:
-        st.info(t("radar_select_info"))
-        return
+    selected = compare or list(ranking.nsmallest(3, config.COL_RANK)[config.COL_COUNTRY])
     indexed = ranking.set_index(config.COL_COUNTRY)
     normalized = {
         name: scoring.normalized_metric(name, indexed[scoring.METRIC_COLUMNS[name]])
@@ -1512,7 +1563,10 @@ def _radar_tab(ranking: pd.DataFrame) -> None:
 
 
 def _unit_value_tab(
-    ranking: pd.DataFrame, unit_values: pd.DataFrame, meta: dict[str, object]
+    ranking: pd.DataFrame,
+    unit_values: pd.DataFrame,
+    meta: dict[str, object],
+    compare: list[str] | None = None,
 ) -> None:
     """Valor unitario por destino: barras (promedio) + rombo (el del origen).
 
@@ -1532,7 +1586,9 @@ def _unit_value_tab(
     data = unit_values[unit_values[config.COL_UV_MARKET].notna()].assign(
         **{config.COL_COUNTRY_NAME: lambda d: d[config.COL_COUNTRY].map(names)}
     )
-    data = data[data[config.COL_COUNTRY_NAME].notna()].sort_values(config.COL_UV_MARKET)
+    data = _compare_view(data[data[config.COL_COUNTRY_NAME].notna()], compare or []).sort_values(
+        config.COL_UV_MARKET
+    )
     if data.empty:
         return
     fig = go.Figure()
@@ -1568,10 +1624,14 @@ def _unit_value_tab(
     st.plotly_chart(fig, use_container_width=True)
 
 
-def _size_tab(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
+def _size_tab(
+    ranking: pd.DataFrame, meta: dict[str, object], compare: list[str] | None = None
+) -> None:
     """Tamaño de cada mercado partido en «ya lo vende el origen» vs. resto."""
     st.caption(t("tab_size_caption", origin=meta["origin_iso3"]))
-    ordered = ranking.sort_values(config.COL_MARKET_SIZE, ascending=True)
+    ordered = _compare_view(ranking, compare or []).sort_values(
+        config.COL_MARKET_SIZE, ascending=True
+    )
     from_origin = ordered[config.COL_MARKET_SIZE] * ordered[config.COL_SHARE] / 1e6
     rest = ordered[config.COL_MARKET_SIZE] / 1e6 - from_origin
     fig = go.Figure()
@@ -1781,6 +1841,7 @@ def main() -> None:
         view_meta = {**meta, "weights": sim_weights, "macro_floor": sim_floor}
         st.info(t("lab_live_note"))
 
+    compare = _compare_selector(view_ranking)
     timeseries = _load_imports_timeseries(hs)
     unit_values = _load_unit_values(hs)
     tab_labels = [
@@ -1796,24 +1857,24 @@ def main() -> None:
         tab_labels.append(t("tab_evolution"))
     tabs = st.tabs(tab_labels)
     with tabs[0]:
-        _map_tab(view_ranking, focus_iso3)
+        _map_tab(view_ranking, focus_iso3, compare)
     with tabs[1]:
-        _breakdown_tab(view_ranking, view_meta)
+        _breakdown_tab(view_ranking, view_meta, compare)
     with tabs[2]:
-        _radar_tab(view_ranking)
+        _radar_tab(view_ranking, compare)
     with tabs[3]:
-        _scores_tab(view_ranking)
+        _scores_tab(view_ranking, compare)
     with tabs[4]:
-        _size_tab(view_ranking, view_meta)
+        _size_tab(view_ranking, view_meta, compare)
 
     next_tab = 5
     if unit_values is not None:
         with tabs[next_tab]:
-            _unit_value_tab(view_ranking, unit_values, view_meta)
+            _unit_value_tab(view_ranking, unit_values, view_meta, compare)
         next_tab += 1
     if timeseries is not None:
         with tabs[next_tab]:
-            _evolution_tab(view_ranking, view_meta, timeseries)
+            _evolution_tab(view_ranking, view_meta, timeseries, compare)
 
     _focus_section(view_ranking, view_meta, narrative, timeseries, hs, product_label)
     built = {

@@ -987,13 +987,41 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
             "(farther from the center = lower tariff)."
         ),
     },
-    "radar_select_label": {
-        "es": "Mercados a comparar (máx. 3)",
-        "en": "Markets to compare (max 3)",
+    "compare_select_label": {
+        "es": "🔍 Mercados a comparar (máx. 3)",
+        "en": "🔍 Markets to compare (max 3)",
     },
-    "radar_select_info": {
-        "es": "Selecciona al menos un mercado para dibujar el radar.",
-        "en": "Select at least one market to draw the radar.",
+    "compare_select_help": {
+        "es": (
+            "Elige 2–3 mercados y TODAS las gráficas de abajo (mapa, "
+            "desglose, radar, scores, tamaño, valor unitario, evolución) "
+            "muestran solo esos. Vacío = todos los mercados."
+        ),
+        "en": (
+            "Pick 2–3 markets and ALL the charts below (map, breakdown, "
+            "radar, scores, size, unit value, evolution) show only those. "
+            "Empty = every market."
+        ),
+    },
+    "compare_active_note": {
+        "es": (
+            "Comparación activa: las gráficas muestran solo los mercados "
+            "seleccionados. Vacía la selección para volver a todos."
+        ),
+        "en": (
+            "Comparison active: the charts show only the selected "
+            "markets. Clear the selection to get every market back."
+        ),
+    },
+    "radar_compare_hint": {
+        "es": (
+            "Mostrando el top-3 del ranking; elige otros mercados en "
+            "«🔍 Mercados a comparar», encima de las pestañas."
+        ),
+        "en": (
+            "Showing the ranking's top 3; pick other markets in "
+            "“🔍 Markets to compare”, above the tabs."
+        ),
     },
     "breakdown_caption": {
         "es": (

@@ -12,7 +12,38 @@ ranking de 26 destinos (18 OCDE/Asia + 8 LATAM). Motor económico puro en
 `domain/`, snapshot Parquet como contrato, app Streamlit que solo lee el
 snapshot.
 
-## ✅ Última tanda — comparador global de mercados (2026-07-08, COMPLETA)
+## ✅ Última tanda — accesibilidad logística + perfil arancelario HS6 (2026-07-08, COMPLETA)
+
+1. **Accesibilidad logística** (`f891b3f`): nueva métrica `accessibility`
+   [0,1] que pondera **0.10** en el score — promedio de (a) rampa lineal en
+   **log-distancia** bilateral (CEPII GeoDist `distw` con fallback a `dist`;
+   modelo gravitacional — Tinbergen 1962; elasticidad ≈ −0.9 cf. Disdier &
+   Head 2008) entre extremos físicos (100 km ↔ 20 015 km = media
+   circunferencia) y (b) rampa del LPI sobre su escala completa 1–5 (sin
+   dato = neutro 0.5, mismo criterio que el arancel). Sin distancia →
+   NaN → aporte neutro en el scoring. El extracto CEPII del origen vive
+   **versionado** en `data/sample/geodist_col.csv.gz` (la fuente es final y
+   la geografía no caduca; se regenera con `python -m
+   tradefit.ingest.geodist`). Los demás pesos cedieron 10 pp en total
+   (market_size 0.22, growth 0.18, share 0.14, trend 0.08, compl. 0.18).
+   Columnas nuevas `distance_km` (contexto) y `accessibility` en el ranking
+   (`required=False`: snapshots viejos siguen válidos y la narrativa/app
+   degradan con gracia).
+2. **Perfil arancelario intra-partida** (`e1f97eb`): nueva función pura
+   `tariff_profile` — el AHS por (destino, subpartida HS6) con el tipo que
+   aplica (PREF en empate: documenta el acuerdo) y su año; `tariff_faced`
+   ahora ES su promedio simple (coherencia testeada). El pipeline conserva
+   el detalle en `tariff_profile.parquet` y la ficha del destino lo grafica
+   (barras por subpartida, verde = preferencial / gris = MFN, etiquetas del
+   catálogo HS). Sin dispersión (p. ej. café: todo 0 % por TLC) el bloque
+   muestra una frase en lugar de barras invisibles. Ejemplo real: 8504 en
+   Ecuador esconde **18 pp** de dispersión entre subpartidas.
+3. **Recencia de datos**: el comercio (Comtrade) llega a 2025 en los
+   snapshots reconstruidos (`03f0b61`); los aranceles WITS traen el rezago
+   propio de la fuente (2021–2023 según destino, se cita el año por línea);
+   CEPII es estático por naturaleza (documentado en `ingest/geodist.py`).
+
+## ✅ Tanda anterior — comparador global de mercados (2026-07-08, COMPLETA)
 
 1. **Comparador global** (`9d1c573`): multiselect «🔍 Mercados a comparar
    (máx. 3)» encima de las pestañas (opciones por ISO3 → sobreviven al
@@ -379,7 +410,9 @@ pytest ; ruff check . ; mypy src                # puerta de calidad
 
 - `git push` pendiente del usuario (regla de permisos): narrativa bilingüe +
   tanda "cara al reclutador" + tanda "Profundidad Colombia" Parte 1 completa
-  (LATAM, TLC, HHI, LPI, rebuild 26 mercados). El remoto nuevo
+  (LATAM, TLC, HHI, LPI, rebuild 26 mercados) + valores unitarios/tooltips/
+  piso macro + comparador global + accesibilidad y perfil arancelario HS6
+  (con rebuild de snapshots). El remoto nuevo
   (`juanjjaramilloz-esp/Radar-de-Mercados`) solo tiene hasta aranceles WITS.
 - Screenshots del README (los toma el usuario, antes del push):
   `docs/img/app-overview.png` y `docs/img/weight-lab.png`.

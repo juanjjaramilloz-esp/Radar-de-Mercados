@@ -1245,7 +1245,8 @@ def _scores_tab(ranking: pd.DataFrame) -> None:
         separators=i18n.active_plotly_separators(),
         barmode="group",
         height=max(360, 30 * len(ordered) + 80),
-        margin={"l": 0, "r": 0, "t": 10, "b": 0},
+        # t=60: hueco para la leyenda horizontal (si no, tapa la 1.ª barra)
+        margin={"l": 0, "r": 0, "t": 60, "b": 0},
         legend={"orientation": "h", "yanchor": "bottom", "y": 1.0, "title": None},
         xaxis={"title": None},
         yaxis={"title": None},
@@ -1293,7 +1294,9 @@ def _breakdown_tab(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
         separators=i18n.active_plotly_separators(),
         barmode="stack",
         height=max(360, 30 * len(ordered) + 80),
-        margin={"l": 0, "r": 0, "t": 10, "b": 0},
+        # margen superior amplio: la leyenda horizontal vive ahí (y=1.0);
+        # con t pequeño se dibuja ENCIMA de la primera barra del ranking.
+        margin={"l": 0, "r": 0, "t": 70, "b": 0},
         legend={"orientation": "h", "yanchor": "bottom", "y": 1.0, "title": None},
         xaxis={"title": t("col_score_raw")},
         yaxis={"title": None},
@@ -1381,7 +1384,8 @@ def _size_tab(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
         separators=i18n.active_plotly_separators(),
         barmode="stack",
         height=max(360, 30 * len(ordered) + 80),
-        margin={"l": 0, "r": 0, "t": 10, "b": 0},
+        # t=60: hueco para la leyenda horizontal (si no, tapa la 1.ª barra)
+        margin={"l": 0, "r": 0, "t": 60, "b": 0},
         legend={"orientation": "h", "yanchor": "bottom", "y": 1.0, "title": None},
         xaxis={"title": t("size_xaxis_usd_m")},
         yaxis={"title": None},

@@ -38,6 +38,8 @@ _TOUR_SEEN_KEY = "tour_seen"
 _FOCUS_SELECT_KEY = "focus_market_select"
 _MAP_KEY = "map_select"
 _MAP_PROCESSED_KEY = "map_selection_processed"
+_TABLE_KEY = "ranking_table_select"
+_TABLE_PROCESSED_KEY = "ranking_table_selection_processed"
 #: Prefijos del panel «⚙️ Columnas»: cada columna tiene un checkbox
 #: (``ranking_col_<nombre>``) y una clave de estado PROPIA
 #: (``ranking_col_store_<nombre>``). El estado no puede vivir en el widget:
@@ -885,6 +887,46 @@ def _apply_map_selection(ranking: pd.DataFrame) -> None:
     st.session_state[_FOCUS_SELECT_KEY] = iso3
 
 
+def _selected_table_iso3(ranking: pd.DataFrame) -> str | None:
+    """ISO3 de la fila clicada en la tabla del ranking, si hay alguna.
+
+    Igual que ``_selected_map_iso3``: lee ``st.session_state`` (no el retorno
+    de ``st.dataframe``) para poder aplicar el foco antes de renderizar la
+    tabla. El índice de fila seleccionado corresponde 1:1 con ``ranking``
+    porque la tabla se dibuja en el mismo orden, solo con columnas
+    formateadas/insertadas/ocultadas para presentación.
+    """
+    state = st.session_state.get(_TABLE_KEY)
+    if not state:
+        return None
+    try:
+        rows = state["selection"]["rows"]
+    except (KeyError, TypeError):
+        return None
+    if not rows:
+        return None
+    row_index = rows[0]
+    if row_index < 0 or row_index >= len(ranking):
+        return None
+    return str(ranking.iloc[row_index][config.COL_COUNTRY])
+
+
+def _apply_table_selection(ranking: pd.DataFrame) -> None:
+    """Clic en una fila de la tabla → foco. Debe correr antes de dibujarla.
+
+    Guard análogo a ``_apply_map_selection`` (``_TABLE_PROCESSED_KEY``): sin
+    él, la selección persistente del widget reimpondría el foco en cada
+    rerun y «quitar foco» parecería roto.
+    """
+    iso3 = _selected_table_iso3(ranking)
+    if not iso3 or iso3 not in set(ranking[config.COL_COUNTRY]):
+        return
+    if st.session_state.get(_TABLE_PROCESSED_KEY) == iso3:
+        return
+    st.session_state[_TABLE_PROCESSED_KEY] = iso3
+    st.session_state[_FOCUS_SELECT_KEY] = iso3
+
+
 def _clear_focus() -> None:
     """Callback del botón «quitar foco» (corre antes del rerun)."""
     st.session_state[_FOCUS_SELECT_KEY] = ""
@@ -1009,8 +1051,13 @@ def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object], focus_iso3: s
         styler,
         hide_index=True,
         width="stretch",
+        on_select="rerun",
+        selection_mode="single-row",
+        key=_TABLE_KEY,
         column_config={
-            config.COL_RANK: st.column_config.Column("#", width=45),
+            # width acepta píxeles (int) solo desde Streamlit > 1.49: aquí
+            # se usa "small" para que el "#" no se estire con la tabla.
+            config.COL_RANK: st.column_config.Column("#", width="small"),
             config.COL_COUNTRY: st.column_config.Column("ISO3"),
             config.COL_COUNTRY_NAME: st.column_config.Column(t("col_market")),
             config.COL_MARKET_SIZE: st.column_config.Column(
@@ -1385,6 +1432,7 @@ def main() -> None:
     # El clic en el mapa se aplica AHORA (antes de tabla, mapa y selector):
     # así el resaltado y la ficha reflejan la selección en este mismo run.
     _apply_map_selection(ranking)
+    _apply_table_selection(ranking)
     focus_iso3 = _current_focus()
 
     rca = meta.get("rca_balassa")
@@ -1411,6 +1459,7 @@ def main() -> None:
 
     st.subheader(t("ranking_subheader"))
     st.caption(t("ranking_caption", floor=meta.get("macro_floor", "—")))
+    st.caption(t("table_focus_hint"))
     _ranking_table(ranking, meta, focus_iso3)
     base_name = f"radar_{meta['hs_code']}_{meta['origin_iso3']}"
     # Los exports llevan el idioma activo: etiquetas, números y la narrativa

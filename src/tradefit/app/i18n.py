@@ -337,21 +337,19 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
     "focus_clear": {"es": "✕ Quitar foco", "en": "✕ Clear focus"},
     "focus_hint": {
         "es": (
-            "💡 Elige un mercado arriba o haz clic en un país del mapa "
-            "(pestaña 🗺️ Mapa) para ver su ficha."
+            "💡 Elige un mercado arriba, haz clic en el mapa (🗺️ Mapa) o en "
+            "una fila de la tabla para ver su ficha."
         ),
-        "en": (
-            "💡 Pick a market above or click a country on the map (🗺️ Map tab) to see its profile."
-        ),
+        "en": ("💡 Pick a market above, click the map (🗺️ Map) or a table row to see its profile."),
     },
     "focus_select_help": {
         "es": (
             "Fija el mercado cuya ficha quieres ver; también puedes hacer "
-            "clic en un país del mapa (pestaña 🗺️ Mapa)."
+            "clic en el mapa o en una fila de la tabla del ranking."
         ),
         "en": (
             "Sets the market whose profile you want to see; you can also "
-            "click a country on the map (🗺️ Map tab)."
+            "click the map or a row in the ranking table."
         ),
     },
     "focus_header_rank": {
@@ -410,6 +408,10 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
     "map_focus_hint": {
         "es": "💡 Haz clic en un país para fijar el foco y abrir su ficha (abajo).",
         "en": "💡 Click a country to set focus and open its profile (below).",
+    },
+    "table_focus_hint": {
+        "es": "💡 Haz clic en una fila para fijar el foco y abrir su ficha (abajo).",
+        "en": "💡 Click a row to set focus and open its profile (below).",
     },
     "comparator_subheader": {
         "es": "⚖️ Comparador de productos",

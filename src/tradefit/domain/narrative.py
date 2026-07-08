@@ -90,6 +90,10 @@ _TEMPLATES: dict[str, dict[Lang, str]] = {
             "of share over the window."
         ),
     },
+    "origin_dependence": {
+        "es": "{dest} absorbe el {pct} de las exportaciones de {product} de {origin}.",
+        "en": "{dest} absorbs {pct} of {origin}'s exports of {product}.",
+    },
     "complementarity": {
         "es": (
             "La canasta exportadora de {origin} encaja {comp} (escala 0–1) "
@@ -236,6 +240,22 @@ def market_sentences(
                 pp=_fmt_decimal(abs(trend) * 100, 1, lang),
             )
         )
+
+    # Cuota del destino en las exportaciones del origen: solo si el snapshot
+    # trae la columna (posteriores a 2026-07-08) y hay dato positivo.
+    if config.COL_ORIGIN_EXPORT_SHARE in row and not pd.isna(row[config.COL_ORIGIN_EXPORT_SHARE]):
+        dependence = float(row[config.COL_ORIGIN_EXPORT_SHARE])
+        if dependence > 0:
+            sentences.append(
+                _t(
+                    "origin_dependence",
+                    lang,
+                    dest=destination,
+                    pct=_fmt_pct(dependence, lang),
+                    product=product_label,
+                    origin=origin_name,
+                )
+            )
 
     comp = float(row[config.COL_COMPLEMENTARITY])
     sentences.append(

@@ -420,6 +420,8 @@ def _methodology_section(meta: dict[str, object]) -> None:
 
 {t("methodology_agreement_note")}
 
+{t("methodology_hhi_note")}
+
 {macro_filter_text}
 
 {final_score_text}
@@ -564,6 +566,7 @@ def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
         config.COL_GROWTH: lambda v: i18n.fmt_pct(v, signed=True),
         config.COL_SHARE: lambda v: i18n.fmt_pct(v),
         config.COL_SHARE_TREND: lambda v: i18n.fmt_pct(v, signed=True),
+        config.COL_ORIGIN_EXPORT_SHARE: lambda v: i18n.fmt_pct(v),
         config.COL_COMPLEMENTARITY: lambda v: i18n.fmt_number(v, 2),
         config.COL_TARIFF: lambda v: i18n.fmt_pct(v),
         config.COL_STABILITY: lambda v: i18n.fmt_number(v, 2),
@@ -594,6 +597,7 @@ def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
             config.COL_GROWTH: st.column_config.Column(t("col_growth")),
             config.COL_SHARE: st.column_config.Column(t("col_share")),
             config.COL_SHARE_TREND: st.column_config.Column(t("col_share_trend")),
+            config.COL_ORIGIN_EXPORT_SHARE: st.column_config.Column(t("col_origin_export_share")),
             config.COL_COMPLEMENTARITY: st.column_config.Column(t("col_complementarity")),
             config.COL_TARIFF: st.column_config.Column(t("col_tariff")),
             config.COL_AGREEMENT: st.column_config.Column(t("col_agreement")),
@@ -861,7 +865,7 @@ def _kpi_row(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
     weights = ranking[config.COL_MARKET_SIZE] / total
     growth = float((ranking[config.COL_GROWTH] * weights).sum())
     share = float((ranking[config.COL_SHARE] * weights).sum())
-    col_demand, col_growth, col_share, col_rca = st.columns(4)
+    col_demand, col_growth, col_share, col_hhi, col_rca = st.columns(5)
     col_demand.metric(
         t("kpi_demand_label"),
         i18n.fmt_usd_compact(total),
@@ -880,6 +884,21 @@ def _kpi_row(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
         delta=t("kpi_share_delta"),
         delta_color="off",
     )
+    hhi = meta.get("destination_hhi")
+    if hhi is not None:
+        hhi_value = float(str(hhi))
+        if hhi_value > config.HHI_HIGH:
+            hhi_reading = t("kpi_hhi_high")
+        elif hhi_value >= config.HHI_MODERATE:
+            hhi_reading = t("kpi_hhi_moderate")
+        else:
+            hhi_reading = t("kpi_hhi_low")
+        col_hhi.metric(
+            t("kpi_hhi_label"),
+            i18n.fmt_number(hhi_value, 2),
+            delta=hhi_reading,
+            delta_color="off",
+        )
     rca = meta.get("rca_balassa")
     if rca is not None:
         rca_value = float(str(rca))

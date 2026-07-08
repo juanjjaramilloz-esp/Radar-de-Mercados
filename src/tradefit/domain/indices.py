@@ -234,3 +234,50 @@ def complementarity(origin_basket: pd.Series, destination_basket: pd.Series) -> 
     products = x.index.union(m.index)
     gap = x.reindex(products, fill_value=0.0) - m.reindex(products, fill_value=0.0)
     return float(1.0 - gap.abs().sum() / 2.0)
+
+
+def destination_shares(exports_by_destination: pd.Series) -> pd.Series:
+    """Cuota de cada destino en las exportaciones del origen del producto.
+
+    Definición: ``s_i = x_i / Σ_j x_j``, con ``x_i`` el valor exportado al
+    destino i (cf. WITS *market share*, aplicado a los destinos del origen).
+
+    Args:
+        exports_by_destination: valor exportado por destino, indexado por
+            país (ISO3 o código).
+
+    Returns:
+        Series de cuotas en [0, 1] que suman 1, con el índice de entrada.
+
+    Raises:
+        ValueError: si hay valores negativos o el total no es positivo.
+    """
+    if (exports_by_destination < 0).any():
+        raise ValueError("Las exportaciones por destino no pueden ser negativas")
+    total = float(exports_by_destination.sum())
+    if total <= 0:
+        raise ValueError("Las exportaciones por destino deben sumar un total positivo")
+    shares: pd.Series = exports_by_destination / total
+    return shares
+
+
+def destination_concentration(exports_by_destination: pd.Series) -> float:
+    """Concentración de los destinos de exportación del producto (HHI).
+
+    Definición (índice de Herfindahl–Hirschman; Hirschman 1964, "The
+    Paternity of an Index", *AER* 54(5)): ``HHI = Σ_i s_i²`` con ``s_i`` la
+    cuota del destino i. Rango (0, 1]: ``1/n`` con n destinos iguales, 1 con
+    un solo destino. Lectura de referencia (guías de fusión DOJ/FTC 2010):
+    > 0.25 altamente concentrado, 0.15–0.25 moderado.
+
+    Args:
+        exports_by_destination: valor exportado por destino, indexado por país.
+
+    Returns:
+        HHI como fracción en (0, 1].
+
+    Raises:
+        ValueError: si hay valores negativos o el total no es positivo.
+    """
+    shares = destination_shares(exports_by_destination)
+    return float((shares**2).sum())

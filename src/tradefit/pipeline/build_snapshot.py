@@ -20,7 +20,7 @@ from tradefit.domain import indices
 from tradefit.domain.macro_filter import apply_stability_penalty, stability_score
 from tradefit.domain.narrative import LANGS, build_narrative
 from tradefit.domain.scoring import rank_markets
-from tradefit.ingest import comtrade, stub, wits, worldbank
+from tradefit.ingest import comtrade, export_destinations, stub, wits, worldbank
 
 logger = logging.getLogger(__name__)
 
@@ -155,10 +155,29 @@ def build_snapshot(
         data.rca,
     )
 
+    # Concentración de destinos: exportaciones del origen a TODOS los partners
+    # (no solo los del radar). Solo con fuente real; el stub no trae este dato.
+    destination_hhi: float | None = None
+    export_shares: pd.Series[float] | None = None
+    if source == "comtrade":
+        _notify(on_stage, "Destinos de exportación del origen (concentración)")
+        destinations = export_destinations.load_export_destinations(hs)
+        if not destinations.empty:
+            exports_series = destinations.set_index(config.COL_COUNTRY)[config.COL_VALUE]
+            export_shares = indices.destination_shares(exports_series)
+            destination_hhi = indices.destination_concentration(exports_series)
+
     _notify(on_stage, "Calculando índices, estabilidad macro y ranking")
     ranking = rank_markets(data, config.WEIGHTS)
     stability = stability_score(macro, config.MACRO_BOUNDS)
     ranking = apply_stability_penalty(ranking, stability, config.MACRO_FLOOR)
+    share_of_origin = (
+        ranking[config.COL_COUNTRY].map(export_shares).fillna(0.0)
+        if export_shares is not None
+        else pd.Series(float("nan"), index=ranking.index)
+    )
+    position = int(ranking.columns.get_indexer([config.COL_SHARE_TREND])[0]) + 1
+    ranking.insert(position, config.COL_ORIGIN_EXPORT_SHARE, share_of_origin)
     validated: pd.DataFrame = ranking_schema.validate(ranking)
 
     _notify(on_stage, "Escribiendo el snapshot")
@@ -180,6 +199,9 @@ def build_snapshot(
         "data_year_max": int(imports[config.COL_YEAR].max()),
         "n_markets": int(len(validated)),
         "rca_balassa": round(data.rca, 4),
+        # HHI de concentración de destinos (Hirschman 1964) de las
+        # exportaciones del origen del producto; None si no hay dato.
+        "destination_hhi": round(destination_hhi, 4) if destination_hhi is not None else None,
         "weights": dict(config.WEIGHTS),
         "tariff_years": list(config.WITS_YEARS),
         "macro_indicators": dict(config.WDI_INDICATORS),

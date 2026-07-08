@@ -285,6 +285,11 @@ def comtrade_exports_cache(hs: str) -> Path:
     return RAW_DIR / f"comtrade_{hs}_export_totals.json"
 
 
+def comtrade_destinations_cache(hs: str) -> Path:
+    """Caché crudo de exportaciones del origen por destino (todos los partners)."""
+    return RAW_DIR / f"comtrade_{hs}_destinos_{ORIGIN_ISO3}.json"
+
+
 # Código de reporter/partner de Comtrade para el país de origen (Colombia).
 ORIGIN_COMTRADE_CODE: Final = 170
 # Códigos de commodity especiales de Comtrade.
@@ -432,10 +437,18 @@ COL_RCA: Final = "rca_balassa"
 COL_INDICATOR: Final = "indicator"
 COL_MACRO_VALUE: Final = "value"  # % u otras unidades según el indicador (no USD)
 COL_AGREEMENT: Final = "trade_agreement"  # presentación (app, desde TRADE_AGREEMENTS)
+COL_ORIGIN_EXPORT_SHARE: Final = "share_of_origin_exports"
 COL_STABILITY: Final = "stability_score"
 COL_SCORE: Final = "opportunity_score"
 COL_FINAL_SCORE: Final = "final_score"
 COL_RANK: Final = "rank"
+
+# Umbrales de lectura del HHI de concentración de destinos (guías de fusión
+# DOJ/FTC 2010, en fracción: <0.15 desconcentrado, 0.15–0.25 moderado,
+# >0.25 altamente concentrado). Solo para la etiqueta cualitativa de la app;
+# el HHI se reporta como contexto y no pondera en el score.
+HHI_MODERATE: Final = 0.15
+HHI_HIGH: Final = 0.25
 
 # --- Parámetros de métricas ---
 # Ventana de años recientes para promediar importaciones (ver indices.market_size):

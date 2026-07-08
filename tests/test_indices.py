@@ -5,6 +5,8 @@ import pytest
 
 from tradefit.domain.indices import (
     complementarity,
+    destination_concentration,
+    destination_shares,
     import_growth,
     market_share,
     market_share_trend,
@@ -181,3 +183,37 @@ def test_tariff_faced_toma_el_ultimo_anio_del_mfn(tariffs_small: pd.DataFrame) -
 
 def test_tariff_faced_vacio_devuelve_serie_vacia() -> None:
     assert tariff_faced(pd.DataFrame()).empty
+
+
+# --- Concentración de destinos (HHI de Herfindahl–Hirschman) -----------------
+
+
+def test_destination_shares_a_mano() -> None:
+    exports = pd.Series({"USA": 50.0, "DEU": 30.0, "JPN": 20.0})
+    shares = destination_shares(exports)
+    # A mano: 50/100, 30/100, 20/100
+    assert shares["USA"] == pytest.approx(0.50)
+    assert shares["DEU"] == pytest.approx(0.30)
+    assert shares["JPN"] == pytest.approx(0.20)
+    assert shares.sum() == pytest.approx(1.0)
+
+
+def test_destination_concentration_a_mano() -> None:
+    exports = pd.Series({"USA": 50.0, "DEU": 30.0, "JPN": 20.0})
+    # HHI = 0.5² + 0.3² + 0.2² = 0.25 + 0.09 + 0.04 = 0.38
+    assert destination_concentration(exports) == pytest.approx(0.38)
+
+
+def test_destination_concentration_extremos() -> None:
+    # n destinos iguales → 1/n; un solo destino → 1
+    iguales = pd.Series({"A": 25.0, "B": 25.0, "C": 25.0, "D": 25.0})
+    assert destination_concentration(iguales) == pytest.approx(0.25)
+    unico = pd.Series({"USA": 100.0})
+    assert destination_concentration(unico) == pytest.approx(1.0)
+
+
+def test_destination_concentration_invalidos_fallan() -> None:
+    with pytest.raises(ValueError, match="positivo"):
+        destination_concentration(pd.Series(dtype=float))
+    with pytest.raises(ValueError, match="negativas"):
+        destination_shares(pd.Series({"USA": -1.0, "DEU": 2.0}))

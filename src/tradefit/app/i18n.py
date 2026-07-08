@@ -124,6 +124,9 @@ _STAGE_TRANSLATIONS: Final[dict[str, str]] = {
     ),
     "Totales de exportación para el RCA": "Export totals for the RCA",
     "Indicadores macro (World Bank WDI)": "Macro indicators (World Bank WDI)",
+    "Destinos de exportación del origen (concentración)": (
+        "Origin's export destinations (concentration)"
+    ),
     "Insumos locales de ejemplo (stub, sin red)": "Local sample inputs (stub, no network)",
     "Calculando índices, estabilidad macro y ranking": (
         "Computing indices, macro stability and ranking"
@@ -459,6 +462,23 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
             "keeps the floor, it isn't zeroed out."
         ),
     },
+    "methodology_hhi_note": {
+        "es": (
+            "**Concentración de destinos** — HHI de Herfindahl–Hirschman "
+            "(Hirschman 1964): Σ cuotas² de los destinos de exportación "
+            "colombianos del producto (todos los socios, no solo los del "
+            "radar). Lectura: > 0,25 alta, 0,15–0,25 moderada (umbrales de "
+            "las guías DOJ/FTC 2010). Contexto: no pondera en el score."
+        ),
+        "en": (
+            "**Destination concentration** — Herfindahl–Hirschman index "
+            "(Hirschman 1964): Σ squared shares of Colombia's export "
+            "destinations for the product (all partners, not just the "
+            "radar's). Reading: > 0.25 high, 0.15–0.25 moderate (DOJ/FTC "
+            "2010 merger guidelines). Context: it does not weigh in the "
+            "score."
+        ),
+    },
     "methodology_agreement_note": {
         "es": (
             "**Acuerdos comerciales** — la columna «Acuerdo comercial» es "
@@ -524,6 +544,16 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
         "en": "Origin's aggregate share",
     },
     "kpi_share_delta": {"es": "de la demanda analizada", "en": "of demand analyzed"},
+    "kpi_hhi_label": {
+        "es": "Concentración de destinos",
+        "en": "Destination concentration",
+    },
+    "kpi_hhi_high": {"es": "alta (HHI > 0,25)", "en": "high (HHI > 0.25)"},
+    "kpi_hhi_moderate": {
+        "es": "moderada (HHI 0,15–0,25)",
+        "en": "moderate (HHI 0.15–0.25)",
+    },
+    "kpi_hhi_low": {"es": "baja (HHI < 0,15)", "en": "low (HHI < 0.15)"},
     "kpi_rca_label": {"es": "RCA del origen", "en": "Origin's RCA"},
     "kpi_rca_delta_yes": {"es": "ventaja revelada", "en": "revealed advantage"},
     "kpi_rca_delta_no": {
@@ -586,6 +616,10 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
     "col_growth": {"es": "Crecimiento (CAGR)", "en": "Growth (CAGR)"},
     "col_share": {"es": "Cuota del origen", "en": "Origin's share"},
     "col_share_trend": {"es": "Δ cuota (ventana)", "en": "Δ share (window)"},
+    "col_origin_export_share": {
+        "es": "% export. de Colombia",
+        "en": "% of Colombia's exports",
+    },
     "col_complementarity": {"es": "Complementariedad", "en": "Complementarity"},
     "col_tariff": {"es": "Arancel enfrentado", "en": "Tariff faced"},
     "col_agreement": {"es": "Acuerdo comercial", "en": "Trade agreement"},

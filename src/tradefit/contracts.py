@@ -113,6 +113,14 @@ ranking_schema = pa.DataFrameSchema(
         config.COL_GROWTH: pa.Column(float, pa.Check.in_range(-1.0, 10.0), nullable=True),
         config.COL_SHARE: pa.Column(float, pa.Check.in_range(0.0, 1.0)),
         config.COL_SHARE_TREND: pa.Column(float, pa.Check.in_range(-1.0, 1.0)),
+        # Cuota del destino en las exportaciones del origen del producto
+        # (contexto, no pondera). NaN = fuente stub o el origen no reporta
+        # exportaciones del producto. required=False: la inserta el pipeline
+        # al armar el snapshot (rank_markets no la conoce) y los snapshots
+        # anteriores a 2026-07-08 no la traen.
+        config.COL_ORIGIN_EXPORT_SHARE: pa.Column(
+            float, pa.Check.in_range(0.0, 1.0), nullable=True, required=False
+        ),
         config.COL_COMPLEMENTARITY: pa.Column(float, pa.Check.in_range(0.0, 1.0)),
         # Arancel efectivamente aplicado que enfrenta el origen (fracción;
         # 0.085 = 8,5 %). NaN = destino sin datos en WITS (no se penaliza).

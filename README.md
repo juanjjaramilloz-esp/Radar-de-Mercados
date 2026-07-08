@@ -20,8 +20,11 @@ cita su definición académica y tiene un test con un valor calculado a mano.
 
 - **Ranking de 18 mercados destino** con score transparente: promedio
   ponderado de 6 métricas normalizadas × penalización por inestabilidad macro.
-- **Cualquier partida HS**: además de los 3 productos curados (café 0901,
-  flores 0603, banano 0803), un buscador construye el análisis **on-demand**
+- **15 productos curados**: el top de exportaciones de Colombia por partida
+  HS4 (UN Comtrade 2024) excluyendo minero-energéticos — café, flores,
+  banano, aguacates, azúcar, aceite de palma, medicamentos… — derivado del
+  dato con `ingest/top_exports.py`, no a mano.
+- **Cualquier partida HS**: un buscador construye el análisis **on-demand**
   de cualquier capítulo/partida/subpartida (descarga, cálculo y caché al momento).
 - **Narrativa por reglas** en español e inglés donde **cada frase cita el
   número que la respalda**, con top-3 recomendado y su porqué.
@@ -121,7 +124,9 @@ real data (UN Comtrade Plus, WDI, WITS) with a defensible engine: every
 metric cites its academic definition and is unit-tested against a
 hand-calculated value.
 
-Highlights: analysis of **any HS code** built on demand with caching, a
+Highlights: a curated catalog of **Colombia's top-15 non-mining exports**
+(derived from Comtrade data, not hand-picked), analysis of **any HS code**
+built on demand with caching, a
 rule-based bilingual narrative where **every sentence cites its number**,
 choropleth map, time evolution, product comparator, CSV/Excel/PDF export,
 and a layered architecture (network → pure domain → snapshot → UI) with

@@ -33,6 +33,14 @@ creativas post-MVP acordadas en CLAUDE.md).
   la app elige el idioma activo y los exports Excel/PDF reciben `lang`
   (etiquetas y números localizados). Snapshots viejos (formato plano) siguen
   funcionando.
+- [x] **Catálogo curado top-15 (2026-07-08):** `config.PRODUCTS` pasa de 3 a
+  las **15 partidas HS4 más exportadas por Colombia sin minero-energéticos**
+  (cap. 27 y 71 excluidos; fuente UN Comtrade 2024 vía
+  `ingest/top_exports.py`, regenerable). El desplegable de la app ofrece
+  solo esa canasta (construyendo on-demand la que falte) — los snapshots
+  ajenos construidos por visitantes ya no contaminan el selector; el
+  buscador avanzado sigue disponible donde estaba. Snapshots del demo
+  regenerados para los 15; retirados del repo 0902/1704/8802.
 - [x] **Tanda "cara al reclutador" (2026-07-07):**
   - Fix: la tabla del ranking y las barras respetan los separadores del
     idioma activo (`pandas.Styler` + migración de `st.bar_chart` a Plotly

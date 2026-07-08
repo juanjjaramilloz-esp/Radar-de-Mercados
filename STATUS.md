@@ -19,6 +19,8 @@ contrato, app Streamlit que solo lee el snapshot.
   (café 0901, flores 0603, banano 0803; `--hs` en el pipeline, selector en la
   app). RCA reales: flores 96.8, banano 40.8, café 35.7. Cuota de flores
   COL→USA: 59 % (cuadra con la realidad, ~60 %).
+- **Multi-producto:** ahora son los 15 curados (ver arriba); los 3
+  originales (café/flores/banano) siguen dentro.
 - **Buscador avanzado (2026-07-07):** la app analiza CUALQUIER partida HS
   (2/4/6 dígitos) — búsqueda por código o descripción (catálogo versionado
   `data/sample/hs_reference.csv.gz`, 8261 códigos H6, módulo `hs_codes.py`
@@ -38,6 +40,15 @@ contrato, app Streamlit que solo lee el snapshot.
   idioma); la app muestra la del idioma activo y los exports Excel/PDF van
   completos en ese idioma (etiquetas, números y narrativa). Snapshots con el
   formato plano viejo degradan a español.
+- **Catálogo curado top-15 (2026-07-08):** el desplegable ofrece las 15
+  partidas HS4 más exportadas por Colombia **sin minero-energéticos**
+  (cap. 27/71 fuera; fuente Comtrade 2024, `ingest/top_exports.py`,
+  regenerable con `python -m tradefit.ingest.top_exports`). La app ya no
+  lista cualquier snapshot del disco (los visitantes del demo construían
+  partidas como 8802 aviones y quedaban en el selector de todos): curados
+  siempre visibles (build on-demand si falta), partida no curada solo
+  mientras esté activa. 0902/1704/8802 retirados del repo; los 15 snapshots
+  del demo, versionados.
 - **Tanda "cara al reclutador" (2026-07-07):** fix de separadores por idioma
   en tabla/barras (Styler + Plotly), CI GitHub Actions + badges, README
   renovado (mermaid, English summary), **laboratorio de pesos what-if**

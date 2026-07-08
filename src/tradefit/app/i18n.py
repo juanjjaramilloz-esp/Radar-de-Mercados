@@ -816,8 +816,8 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
         "en": "Average imports (USD M)",
     },
     "lab_expander_title": {
-        "es": "🎛️ Laboratorio de pesos: ¿y si priorizas otra cosa?",
-        "en": "🎛️ Weight lab: what if your priorities differ?",
+        "es": "🎯 Simulador de prioridades: ¿y si priorizas otra cosa?",
+        "en": "🎯 Priority simulator: what if your priorities differ?",
     },
     "lab_caption": {
         "es": (

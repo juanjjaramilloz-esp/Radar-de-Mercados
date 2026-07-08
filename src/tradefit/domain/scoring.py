@@ -150,7 +150,7 @@ def rank_markets(data: MarketInputs, weights: Mapping[str, float]) -> pd.DataFra
 
 
 #: Columna del snapshot que expone cada métrica del scoring. Permite
-#: re-scorear un ranking ya construido (laboratorio de pesos de la app)
+#: re-scorear un ranking ya construido (simulador de prioridades de la app)
 #: sin volver a los insumos crudos de ``rank_markets``.
 METRIC_COLUMNS: Final[dict[str, str]] = {
     "market_size": config.COL_MARKET_SIZE,

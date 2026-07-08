@@ -2,7 +2,7 @@
 
 Capa de presentación: lee los snapshots de ``data/processed/`` y muestra;
 nunca llama APIs ni importa ``ingest/``. Para las funciones interactivas
-(laboratorio de pesos, desglose, radar) invoca funciones **puras** de
+(simulador de prioridades, desglose, radar) invoca funciones **puras** de
 ``domain/`` sobre el snapshot ya leído (regla relajada 2026-07-07, ver
 CLAUDE.md): toda fórmula vive y se testea en ``domain/``, la app no la
 reimplementa. La única vía para construir datos nuevos sigue siendo
@@ -982,7 +982,7 @@ def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object], focus_iso3: s
 
 
 def _weight_lab_section(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
-    """Laboratorio de pesos: sliders → re-ranking en vivo (what-if).
+    """Simulador de prioridades: sliders → re-ranking en vivo (what-if).
 
     Las fórmulas viven en ``domain/scoring`` (funciones puras, testeadas);
     la app solo recoge los pesos del usuario, invoca al dominio y compara el

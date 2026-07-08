@@ -13,6 +13,7 @@ reimplementa. La única vía para construir datos nuevos sigue siendo
 import json
 import os
 from collections.abc import Callable
+from pathlib import Path
 from typing import Final, cast
 
 import pandas as pd
@@ -179,7 +180,7 @@ def _selector_options(catalog: dict[str, str]) -> dict[str, str]:
     if active and active not in options:
         meta_path = config.snapshot_meta_json(active)
         if meta_path.exists():
-            meta = json.loads(meta_path.read_text(encoding="utf-8"))
+            meta = _read_json(meta_path)
             options[active] = i18n.product_label(active, str(meta.get("hs_label", active)))
     return options
 
@@ -296,6 +297,34 @@ def _sync_product_from_url() -> None:
         st.session_state[_PRODUCT_SELECT_KEY] = normalized
 
 
+@st.cache_data(show_spinner=False)
+def _cached_parquet(path_str: str, mtime_ns: int) -> pd.DataFrame:
+    """Lectura de parquet cacheada entre reruns (cada slider dispara uno).
+
+    El ``mtime_ns`` del archivo forma parte de la clave de la caché: si
+    ``ensure_snapshot`` reescribe el artefacto, el mtime cambia y la caché
+    se invalida sola — no hay riesgo de servir un snapshot viejo.
+    """
+    return pd.read_parquet(path_str)
+
+
+@st.cache_data(show_spinner=False)
+def _cached_json(path_str: str, mtime_ns: int) -> dict[str, object]:
+    """Lectura de JSON cacheada; misma invalidación por mtime que el parquet."""
+    result: dict[str, object] = json.loads(Path(path_str).read_text(encoding="utf-8"))
+    return result
+
+
+def _read_parquet(path: Path) -> pd.DataFrame:
+    """Parquet vía caché, con el mtime actual del archivo como clave."""
+    return _cached_parquet(str(path), path.stat().st_mtime_ns)
+
+
+def _read_json(path: Path) -> dict[str, object]:
+    """JSON vía caché, con el mtime actual del archivo como clave."""
+    return _cached_json(str(path), path.stat().st_mtime_ns)
+
+
 def _load_snapshot(hs: str) -> tuple[pd.DataFrame, dict[str, object], dict[str, object]]:
     """Lee ranking, metadatos y narrativa del snapshot de un producto.
 
@@ -307,11 +336,11 @@ def _load_snapshot(hs: str) -> tuple[pd.DataFrame, dict[str, object], dict[str, 
     Raises:
         FileNotFoundError: si el snapshot todavía no fue construido.
     """
-    ranking = pd.read_parquet(config.ranking_parquet(hs))
-    meta: dict[str, object] = json.loads(config.snapshot_meta_json(hs).read_text(encoding="utf-8"))
+    ranking = _read_parquet(config.ranking_parquet(hs))
+    meta = _read_json(config.snapshot_meta_json(hs))
     narrative: dict[str, object] = {}
     if config.narrative_json(hs).exists():
-        narrative = json.loads(config.narrative_json(hs).read_text(encoding="utf-8"))
+        narrative = _read_json(config.narrative_json(hs))
     return ranking, meta, narrative
 
 
@@ -353,7 +382,7 @@ def _load_imports_timeseries(hs: str) -> pd.DataFrame | None:
     path = config.imports_timeseries_parquet(hs)
     if not path.exists():
         return None
-    return pd.read_parquet(path)
+    return _read_parquet(path)
 
 
 def _recommendations_section(narrative: dict[str, object]) -> None:
@@ -877,7 +906,7 @@ def _load_competitors(hs: str) -> pd.DataFrame | None:
     path = config.competitors_parquet(hs)
     if not path.exists():
         return None
-    return pd.read_parquet(path)
+    return _read_parquet(path)
 
 
 def _load_macro_context() -> pd.DataFrame | None:
@@ -885,7 +914,7 @@ def _load_macro_context() -> pd.DataFrame | None:
     path = config.macro_context_parquet()
     if not path.exists():
         return None
-    return pd.read_parquet(path)
+    return _read_parquet(path)
 
 
 def _selected_map_iso3() -> str | None:

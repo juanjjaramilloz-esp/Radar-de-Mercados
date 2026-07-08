@@ -1,11 +1,13 @@
 """App Streamlit del Radar de Mercados.
 
-Capa de presentación: lee los snapshots de ``data/processed/`` y no calcula
-índices ni llama APIs directamente. La única excepción sancionada es el
-buscador avanzado, que invoca ``pipeline.ensure_snapshot`` para construir
-on-demand el snapshot de una partida nueva (la red sigue viviendo en
-``ingest/`` y el cálculo en ``domain/``; la app solo dispara la orquestación
-y luego lee el resultado). Si algo falla, degrada con gracia.
+Capa de presentación: lee los snapshots de ``data/processed/`` y muestra;
+nunca llama APIs ni importa ``ingest/``. Para las funciones interactivas
+(laboratorio de pesos, desglose, radar) invoca funciones **puras** de
+``domain/`` sobre el snapshot ya leído (regla relajada 2026-07-07, ver
+CLAUDE.md): toda fórmula vive y se testea en ``domain/``, la app no la
+reimplementa. La única vía para construir datos nuevos sigue siendo
+``pipeline.ensure_snapshot`` (buscador avanzado; la red vive en
+``ingest/``). Si algo falla, degrada con gracia.
 """
 
 import json

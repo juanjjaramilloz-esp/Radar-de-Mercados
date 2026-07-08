@@ -11,6 +11,47 @@ Screener de mercados de exportación: café (HS 0901) desde Colombia → ranking
 de 18 destinos. Motor económico puro en `domain/`, snapshot Parquet como
 contrato, app Streamlit que solo lee el snapshot.
 
+## ⏸️ Trabajo en curso — retomar aquí (2026-07-08)
+
+Tanda **"Profundidad Colombia"** (plan aprobado, 2 partes; contexto: con el
+catálogo top-15, agregar info específica Colombia × producto × destino y
+diferenciarse del ITC Export Potential Map — EPM predice USD con modelo
+opaco para 222 países; el Radar es glass-box con filtro macro y 1 origen a
+fondo).
+
+**Parte 1 — hecho:**
+
+- P1.1 ✅ 8 destinos LATAM en config (MEX/BRA/CHL/PER/ECU/CRI/PAN/DOM → 26
+  mercados; commit `336c13a`). Snapshots AÚN con 18 (rebuild pendiente).
+- P1.2 ✅ `config.TRADE_AGREEMENTS(_EN)` (fuente MinCIT) + columna «Acuerdo
+  comercial» + nota metodológica (commit `ce2f16b`).
+- P1.3 ✅ HHI de concentración de destinos + `share_of_origin_exports`
+  (ingest/domain/pipeline/app/narrativa; commit `34f4ac8`).
+- P1.4 ⚠️ **parcial** (commit `9bfacad`): el LPI ya se descarga
+  (`WDI_CONTEXT_INDICATORS`), contratos listos (`macro_schema` + columna
+  `lpi` en `ranking_schema`), filtro macro ya excluye indicadores de
+  contexto.
+
+**Parte 1 — falta:**
+
+- P1.4 resto: (a) helper puro `latest_indicator_value(macro, "lpi")` en
+  `domain/macro_filter.py` (años esparsos → último con dato; test a mano);
+  (b) pipeline: columna `lpi` en el ranking (insertar antes de
+  `stability_score`, mapear por país, NaN si falta) — patrón idéntico al de
+  `share_of_origin_exports`; (c) app: formato en `_ranking_table`
+  (`fmt_number(v, 1)`) + `col_lpi` en i18n + nota metodológica.
+- P1.5: **rebuild forzado** de cachés (cambió la lista de reporters:
+  borrar `data/raw/comtrade_*` y `wdi_macro.json`, o `force=True`) +
+  `python -m tradefit.pipeline.build_snapshot` (15 productos × 26 mercados)
+  + verificar + versionar + README/PLAN/STATUS + checklist manual.
+
+**Parte 2 — planificada (siguiente sesión):** mapa interactivo con focus
+por destino (`st.plotly_chart(on_select="rerun")`), ficha del destino
+(drivers + TLC + LPI + macro + evolución), `ingest/competitors.py` (top-5
+proveedores por destino, Colombia resaltada) y sección README de
+diferenciación vs. EPM. Detalle completo en el plan aprobado
+(`~/.claude/plans/lee-el-proyecto-vamos-federated-crane.md`).
+
 ## Estado actual
 
 - **Última fase completada:** F6 — export PDF/Excel (2026-07-05). **MVP completo.**

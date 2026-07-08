@@ -31,10 +31,16 @@ Cuatro pulidos de presentación (solo `app/`; verificados con scripts
    descartaría el valor al cambiar de idioma) → sobrevive al toggle
    ES/EN y al cambio de producto. El resaltado de la fila en foco lee
    ISO3 de `ranking` (en `display` puede estar oculta). Exports
-   CSV/Excel/PDF siguen con todas las columnas. Además, por feedback:
-   **sin selección por fila** en la tabla (se quitó la columna de
-   checkboxes de `selection_mode`; el foco queda por selector y mapa, y
-   los hints ya no mencionan la fila) y columna «#» a 45 px.
+   CSV/Excel/PDF siguen con todas las columnas. La selección por fila se
+   quitó y **se restauró** en la misma tanda (el usuario confirmó que el
+   clic en la fila sí era útil); la columna «#» quedó en
+   `width="small"` — el ancho en píxeles (int) se ignora en silencio en
+   Streamlit 1.49, se añadió después.
+5. **Score final como barra de progreso** (pedido del usuario): vuelve la
+   `ProgressColumn` perdida en `debf131` al pasar la tabla a Styler. La
+   columna necesita el valor numérico crudo → queda fuera del dict de
+   formatos del Styler; trade-off asumido y comentado: su texto usa
+   `"%.3f"` (punto fijo) también en español.
 3. Nomenclatura: pestañas «🕸️ Perfil comparado» (antes colisionaba con el
    nombre de la app) y «Score bruto vs. final» (mismo término que las
    columnas); tooltips `help=` con definición de una frase en KPIs

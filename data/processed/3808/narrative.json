@@ -8,7 +8,8 @@
         "Australia absorbs 0.0 % of Colombia's exports of Insecticides and pesticides (HS 3808).",
         "The export basket of Colombia fits the import demand of Australia at 0.40 (0–1 scale).",
         "Insecticides and pesticides (HS 3808) faces an effectively applied tariff of 3.5 % in Australia.",
-        "Macro stability of Australia at 0.77: the filter leaves the score at 0.293 (raw 0.331)."
+        "Australia is 14,797 km away from Colombia; logistics accessibility of 0.37 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Australia at 0.77: the filter leaves the score at 0.256 (raw 0.289)."
       ],
       "AUT": [
         "Austria imports USD 263 M a year of Insecticides and pesticides (HS 3808) (average of the last 3 years).",
@@ -16,7 +17,8 @@
         "Colombia records no sales of Insecticides and pesticides (HS 3808) in Austria (0 % share).",
         "The export basket of Colombia fits the import demand of Austria at 0.37 (0–1 scale).",
         "Insecticides and pesticides (HS 3808) enters Austria duty-free (0 % effectively applied).",
-        "Macro stability of Austria at 0.71: the filter leaves the score at 0.283 (raw 0.331)."
+        "Austria is 9,534 km away from Colombia; logistics accessibility of 0.44 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Austria at 0.71: the filter leaves the score at 0.289 (raw 0.338)."
       ],
       "BEL": [
         "Belgium imports USD 517 M a year of Insecticides and pesticides (HS 3808) (average of the last 3 years).",
@@ -24,7 +26,8 @@
         "Colombia records no sales of Insecticides and pesticides (HS 3808) in Belgium (0 % share).",
         "The export basket of Colombia fits the import demand of Belgium at 0.45 (0–1 scale).",
         "Insecticides and pesticides (HS 3808) enters Belgium duty-free (0 % effectively applied).",
-        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.458 (raw 0.508)."
+        "Belgium is 8,749 km away from Colombia; logistics accessibility of 0.45 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.451 (raw 0.501)."
       ],
       "BRA": [
         "Brazil imports USD 5,213 M a year of Insecticides and pesticides (HS 3808) (average of the last 3 years).",
@@ -33,7 +36,8 @@
         "Brazil absorbs 24.7 % of Colombia's exports of Insecticides and pesticides (HS 3808).",
         "The export basket of Colombia fits the import demand of Brazil at 0.37 (0–1 scale).",
         "Insecticides and pesticides (HS 3808) enters Brazil duty-free (0 % effectively applied).",
-        "Macro stability of Brazil at 0.77: the filter leaves the score at 0.589 (raw 0.664)."
+        "Brazil is 4,306 km away from Colombia; logistics accessibility of 0.42 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Brazil at 0.77: the filter leaves the score at 0.551 (raw 0.622)."
       ],
       "CAN": [
         "Canada imports USD 2,053 M a year of Insecticides and pesticides (HS 3808) (average of the last 3 years).",
@@ -42,7 +46,8 @@
         "Canada absorbs 0.1 % of Colombia's exports of Insecticides and pesticides (HS 3808).",
         "The export basket of Colombia fits the import demand of Canada at 0.37 (0–1 scale).",
         "Insecticides and pesticides (HS 3808) enters Canada duty-free (0 % effectively applied).",
-        "Macro stability of Canada at 0.86: the filter leaves the score at 0.414 (raw 0.445)."
+        "Canada is 4,893 km away from Colombia; logistics accessibility of 0.51 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Canada at 0.86: the filter leaves the score at 0.437 (raw 0.470)."
       ],
       "CHE": [
         "Switzerland imports USD 189 M a year of Insecticides and pesticides (HS 3808) (average of the last 3 years).",
@@ -50,7 +55,8 @@
         "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Switzerland at 0.32 (0–1 scale).",
         "Insecticides and pesticides (HS 3808) enters Switzerland duty-free (0 % effectively applied).",
-        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.277 (raw 0.295)."
+        "Switzerland is 8,974 km away from Colombia; logistics accessibility of 0.46 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.295 (raw 0.314)."
       ],
       "CHL": [
         "Chile imports USD 388 M a year of Insecticides and pesticides (HS 3808) (average of the last 3 years).",
@@ -59,7 +65,8 @@
         "Chile absorbs 3.2 % of Colombia's exports of Insecticides and pesticides (HS 3808).",
         "The export basket of Colombia fits the import demand of Chile at 0.46 (0–1 scale).",
         "Insecticides and pesticides (HS 3808) enters Chile duty-free (0 % effectively applied).",
-        "Macro stability of Chile at 0.72: the filter leaves the score at 0.437 (raw 0.507)."
+        "Chile is 4,382 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Chile at 0.72: the filter leaves the score at 0.408 (raw 0.474)."
       ],
       "CRI": [
         "Costa Rica imports USD 175 M a year of Insecticides and pesticides (HS 3808) (average of the last 3 years).",
@@ -68,7 +75,8 @@
         "Costa Rica absorbs 3.3 % of Colombia's exports of Insecticides and pesticides (HS 3808).",
         "The export basket of Colombia fits the import demand of Costa Rica at 0.37 (0–1 scale).",
         "Insecticides and pesticides (HS 3808) faces an effectively applied tariff of 2.2 % in Costa Rica.",
-        "Macro stability of Costa Rica at 0.93: the filter leaves the score at 0.236 (raw 0.244)."
+        "Costa Rica is 1,157 km away from Colombia; logistics accessibility of 0.51 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Costa Rica at 0.93: the filter leaves the score at 0.280 (raw 0.290)."
       ],
       "DEU": [
         "Germany imports USD 1,700 M a year of Insecticides and pesticides (HS 3808) (average of the last 3 years).",
@@ -77,7 +85,8 @@
         "Germany absorbs 0.0 % of Colombia's exports of Insecticides and pesticides (HS 3808).",
         "The export basket of Colombia fits the import demand of Germany at 0.37 (0–1 scale).",
         "Insecticides and pesticides (HS 3808) enters Germany duty-free (0 % effectively applied).",
-        "Macro stability of Germany at 0.74: the filter leaves the score at 0.355 (raw 0.409)."
+        "Germany is 9,137 km away from Colombia; logistics accessibility of 0.46 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Germany at 0.74: the filter leaves the score at 0.361 (raw 0.415)."
       ],
       "DOM": [
         "Dominican Republic imports USD 129 M a year of Insecticides and pesticides (HS 3808) (average of the last 3 years).",
@@ -86,7 +95,8 @@
         "Dominican Republic absorbs 2.3 % of Colombia's exports of Insecticides and pesticides (HS 3808).",
         "The export basket of Colombia fits the import demand of Dominican Republic at 0.46 (0–1 scale).",
         "Insecticides and pesticides (HS 3808) enters Dominican Republic duty-free (0 % effectively applied).",
-        "Macro stability of Dominican Republic at 0.78: the filter leaves the score at 0.525 (raw 0.592)."
+        "Dominican Republic is 1,527 km away from Colombia; logistics accessibility of 0.44 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Dominican Republic at 0.78: the filter leaves the score at 0.508 (raw 0.572)."
       ],
       "ECU": [
         "Ecuador imports USD 330 M a year of Insecticides and pesticides (HS 3808) (average of the last 3 years).",
@@ -95,7 +105,8 @@
         "Ecuador absorbs 12.2 % of Colombia's exports of Insecticides and pesticides (HS 3808).",
         "The export basket of Colombia fits the import demand of Ecuador at 0.51 (0–1 scale).",
         "Insecticides and pesticides (HS 3808) faces an effectively applied tariff of 0.4 % in Ecuador.",
-        "Macro stability of Ecuador at 0.88: the filter leaves the score at 0.550 (raw 0.585)."
+        "Ecuador is 980 km away from Colombia; logistics accessibility of 0.53 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Ecuador at 0.88: the filter leaves the score at 0.583 (raw 0.620)."
       ],
       "ESP": [
         "Spain imports USD 1,005 M a year of Insecticides and pesticides (HS 3808) (average of the last 3 years).",
@@ -104,7 +115,8 @@
         "Spain absorbs 0.0 % of Colombia's exports of Insecticides and pesticides (HS 3808).",
         "The export basket of Colombia fits the import demand of Spain at 0.42 (0–1 scale).",
         "Insecticides and pesticides (HS 3808) enters Spain duty-free (0 % effectively applied).",
-        "Macro stability of Spain at 0.97: the filter leaves the score at 0.469 (raw 0.477)."
+        "Spain is 8,065 km away from Colombia; logistics accessibility of 0.45 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Spain at 0.97: the filter leaves the score at 0.463 (raw 0.470)."
       ],
       "FIN": [
         "Finland imports USD 108 M a year of Insecticides and pesticides (HS 3808) (average of the last 3 years).",
@@ -112,7 +124,8 @@
         "Colombia records no sales of Insecticides and pesticides (HS 3808) in Finland (0 % share).",
         "The export basket of Colombia fits the import demand of Finland at 0.40 (0–1 scale).",
         "Insecticides and pesticides (HS 3808) enters Finland duty-free (0 % effectively applied).",
-        "Macro stability of Finland at 0.76: the filter leaves the score at 0.329 (raw 0.373)."
+        "Finland is 9,955 km away from Colombia; logistics accessibility of 0.47 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Finland at 0.76: the filter leaves the score at 0.341 (raw 0.386)."
       ],
       "FRA": [
         "France imports USD 2,204 M a year of Insecticides and pesticides (HS 3808) (average of the last 3 years).",
@@ -121,7 +134,8 @@
         "France absorbs 0.0 % of Colombia's exports of Insecticides and pesticides (HS 3808).",
         "The export basket of Colombia fits the import demand of France at 0.42 (0–1 scale).",
         "Insecticides and pesticides (HS 3808) enters France duty-free (0 % effectively applied).",
-        "Macro stability of France at 0.83: the filter leaves the score at 0.349 (raw 0.380)."
+        "France is 8,615 km away from Colombia; logistics accessibility of 0.44 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of France at 0.83: the filter leaves the score at 0.348 (raw 0.379)."
       ],
       "GBR": [
         "United Kingdom imports USD 846 M a year of Insecticides and pesticides (HS 3808) (average of the last 3 years).",
@@ -129,7 +143,8 @@
         "Colombia records no sales of Insecticides and pesticides (HS 3808) in United Kingdom (0 % share).",
         "The export basket of Colombia fits the import demand of United Kingdom at 0.43 (0–1 scale).",
         "Insecticides and pesticides (HS 3808) enters United Kingdom duty-free (0 % effectively applied).",
-        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.334 (raw 0.419)."
+        "United Kingdom is 8,388 km away from Colombia; logistics accessibility of 0.42 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.323 (raw 0.405)."
       ],
       "ITA": [
         "Italy imports USD 1,140 M a year of Insecticides and pesticides (HS 3808) (average of the last 3 years).",
@@ -137,7 +152,8 @@
         "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Italy at 0.43 (0–1 scale).",
         "Insecticides and pesticides (HS 3808) enters Italy duty-free (0 % effectively applied).",
-        "Macro stability of Italy at 0.83: the filter leaves the score at 0.480 (raw 0.524)."
+        "Italy is 9,315 km away from Colombia; logistics accessibility of 0.41 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Italy at 0.83: the filter leaves the score at 0.452 (raw 0.494)."
       ],
       "JPN": [
         "Japan imports USD 504 M a year of Insecticides and pesticides (HS 3808) (average of the last 3 years).",
@@ -146,7 +162,8 @@
         "Japan absorbs 2.9 % of Colombia's exports of Insecticides and pesticides (HS 3808).",
         "The export basket of Colombia fits the import demand of Japan at 0.46 (0–1 scale).",
         "Insecticides and pesticides (HS 3808) faces an effectively applied tariff of 2.7 % in Japan.",
-        "Macro stability of Japan at 0.81: the filter leaves the score at 0.304 (raw 0.336)."
+        "Japan is 14,300 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Japan at 0.81: the filter leaves the score at 0.284 (raw 0.314)."
       ],
       "KOR": [
         "South Korea imports USD 185 M a year of Insecticides and pesticides (HS 3808) (average of the last 3 years).",
@@ -155,7 +172,8 @@
         "South Korea absorbs 0.5 % of Colombia's exports of Insecticides and pesticides (HS 3808).",
         "The export basket of Colombia fits the import demand of South Korea at 0.49 (0–1 scale).",
         "Insecticides and pesticides (HS 3808) enters South Korea duty-free (0 % effectively applied).",
-        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.283 (raw 0.300)."
+        "South Korea is 14,747 km away from Colombia; logistics accessibility of 0.38 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.270 (raw 0.286)."
       ],
       "MEX": [
         "Mexico imports USD 979 M a year of Insecticides and pesticides (HS 3808) (average of the last 3 years).",
@@ -164,7 +182,8 @@
         "Mexico absorbs 17.2 % of Colombia's exports of Insecticides and pesticides (HS 3808).",
         "The export basket of Colombia fits the import demand of Mexico at 0.32 (0–1 scale).",
         "Insecticides and pesticides (HS 3808) faces an effectively applied tariff of 0.2 % in Mexico.",
-        "Macro stability of Mexico at 0.80: the filter leaves the score at 0.346 (raw 0.385)."
+        "Mexico is 3,396 km away from Colombia; logistics accessibility of 0.40 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Mexico at 0.80: the filter leaves the score at 0.331 (raw 0.368)."
       ],
       "NLD": [
         "Netherlands imports USD 695 M a year of Insecticides and pesticides (HS 3808) (average of the last 3 years).",
@@ -173,7 +192,8 @@
         "Netherlands absorbs 0.0 % of Colombia's exports of Insecticides and pesticides (HS 3808).",
         "The export basket of Colombia fits the import demand of Netherlands at 0.46 (0–1 scale).",
         "Insecticides and pesticides (HS 3808) enters Netherlands duty-free (0 % effectively applied).",
-        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.412 (raw 0.455)."
+        "Netherlands is 8,815 km away from Colombia; logistics accessibility of 0.46 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.416 (raw 0.459)."
       ],
       "PAN": [
         "Panama imports USD 106 M a year of Insecticides and pesticides (HS 3808) (average of the last 3 years).",
@@ -182,7 +202,8 @@
         "Panama absorbs 2.1 % of Colombia's exports of Insecticides and pesticides (HS 3808).",
         "The export basket of Colombia fits the import demand of Panama at 0.45 (0–1 scale).",
         "Insecticides and pesticides (HS 3808) faces an effectively applied tariff of 3.6 % in Panama.",
-        "Macro stability of Panama at 0.94: the filter leaves the score at 0.325 (raw 0.335)."
+        "Panama is 734 km away from Colombia; logistics accessibility of 0.57 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Panama at 0.94: the filter leaves the score at 0.389 (raw 0.401)."
       ],
       "PER": [
         "Peru imports USD 326 M a year of Insecticides and pesticides (HS 3808) (average of the last 3 years).",
@@ -191,7 +212,8 @@
         "Peru absorbs 8.6 % of Colombia's exports of Insecticides and pesticides (HS 3808).",
         "The export basket of Colombia fits the import demand of Peru at 0.43 (0–1 scale).",
         "Insecticides and pesticides (HS 3808) enters Peru duty-free (0 % effectively applied).",
-        "Macro stability of Peru at 0.91: the filter leaves the score at 0.567 (raw 0.593)."
+        "Peru is 1,945 km away from Colombia; logistics accessibility of 0.47 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Peru at 0.91: the filter leaves the score at 0.561 (raw 0.587)."
       ],
       "POL": [
         "Poland imports USD 1,024 M a year of Insecticides and pesticides (HS 3808) (average of the last 3 years).",
@@ -199,7 +221,8 @@
         "Colombia records no sales of Insecticides and pesticides (HS 3808) in Poland (0 % share).",
         "The export basket of Colombia fits the import demand of Poland at 0.36 (0–1 scale).",
         "Insecticides and pesticides (HS 3808) enters Poland duty-free (0 % effectively applied).",
-        "Macro stability of Poland at 0.84: the filter leaves the score at 0.378 (raw 0.411)."
+        "Poland is 9,790 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Poland at 0.84: the filter leaves the score at 0.353 (raw 0.384)."
       ],
       "PRT": [
         "Portugal imports USD 273 M a year of Insecticides and pesticides (HS 3808) (average of the last 3 years).",
@@ -207,7 +230,8 @@
         "Colombia records no sales of Insecticides and pesticides (HS 3808) in Portugal (0 % share).",
         "The export basket of Colombia fits the import demand of Portugal at 0.39 (0–1 scale).",
         "Insecticides and pesticides (HS 3808) enters Portugal duty-free (0 % effectively applied).",
-        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.443 (raw 0.458)."
+        "Portugal is 7,506 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.413 (raw 0.428)."
       ],
       "SWE": [
         "Sweden imports USD 186 M a year of Insecticides and pesticides (HS 3808) (average of the last 3 years).",
@@ -215,7 +239,8 @@
         "Colombia records no sales of Insecticides and pesticides (HS 3808) in Sweden (0 % share).",
         "The export basket of Colombia fits the import demand of Sweden at 0.37 (0–1 scale).",
         "Insecticides and pesticides (HS 3808) enters Sweden duty-free (0 % effectively applied).",
-        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.380 (raw 0.422)."
+        "Sweden is 9,491 km away from Colombia; logistics accessibility of 0.45 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.379 (raw 0.421)."
       ],
       "USA": [
         "United States imports USD 1,634 M a year of Insecticides and pesticides (HS 3808) (average of the last 3 years).",
@@ -224,21 +249,22 @@
         "United States absorbs 0.8 % of Colombia's exports of Insecticides and pesticides (HS 3808).",
         "The export basket of Colombia fits the import demand of United States at 0.33 (0–1 scale).",
         "Insecticides and pesticides (HS 3808) enters United States duty-free (0 % effectively applied).",
-        "Macro stability of United States at 0.65: the filter leaves the score at 0.315 (raw 0.381)."
+        "United States is 4,251 km away from Colombia; logistics accessibility of 0.50 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of United States at 0.65: the filter leaves the score at 0.336 (raw 0.407)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.589,
-        "iso3": "BRA",
-        "name": "Brazil",
+        "final_score": 0.583,
+        "iso3": "ECU",
+        "name": "Ecuador",
         "reasons": [
-          "destination #1 by market size (USD 5,213 M/year)",
-          "destination #7 by demand growth (8.1 % per year)"
+          "destination #1 by basket complementarity (index 0.51 (0–1 scale))",
+          "destination #1 by share already won (share of 23.3 %)"
         ]
       },
       {
-        "final_score": 0.567,
+        "final_score": 0.561,
         "iso3": "PER",
         "name": "Peru",
         "reasons": [
@@ -247,12 +273,12 @@
         ]
       },
       {
-        "final_score": 0.55,
-        "iso3": "ECU",
-        "name": "Ecuador",
+        "final_score": 0.551,
+        "iso3": "BRA",
+        "name": "Brazil",
         "reasons": [
-          "destination #1 by basket complementarity (index 0.51 (0–1 scale))",
-          "destination #1 by share already won (share of 23.3 %)"
+          "destination #1 by market size (USD 5,213 M/year)",
+          "destination #7 by demand growth (8.1 % per year)"
         ]
       }
     ]
@@ -266,7 +292,8 @@
         "Australia absorbe el 0,0 % de las exportaciones de Insecticidas y plaguicidas (HS 3808) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Australia.",
         "Insecticidas y plaguicidas (HS 3808) paga en Australia un arancel efectivamente aplicado de 3,5 %.",
-        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,293 (bruto 0,331)."
+        "Australia está a 14.797 km de Colombia; accesibilidad logística 0,37 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,256 (bruto 0,289)."
       ],
       "AUT": [
         "Austria importa USD 263 M al año de Insecticidas y plaguicidas (HS 3808) (promedio de los últimos 3 años).",
@@ -274,7 +301,8 @@
         "Colombia no registra ventas de Insecticidas y plaguicidas (HS 3808) en Austria (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Austria.",
         "Insecticidas y plaguicidas (HS 3808) entra a Austria sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,283 (bruto 0,331)."
+        "Austria está a 9.534 km de Colombia; accesibilidad logística 0,44 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,289 (bruto 0,338)."
       ],
       "BEL": [
         "Bélgica importa USD 517 M al año de Insecticidas y plaguicidas (HS 3808) (promedio de los últimos 3 años).",
@@ -282,7 +310,8 @@
         "Colombia no registra ventas de Insecticidas y plaguicidas (HS 3808) en Bélgica (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Bélgica.",
         "Insecticidas y plaguicidas (HS 3808) entra a Bélgica sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,458 (bruto 0,508)."
+        "Bélgica está a 8.749 km de Colombia; accesibilidad logística 0,45 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,451 (bruto 0,501)."
       ],
       "BRA": [
         "Brasil importa USD 5.213 M al año de Insecticidas y plaguicidas (HS 3808) (promedio de los últimos 3 años).",
@@ -291,7 +320,8 @@
         "Brasil absorbe el 24,7 % de las exportaciones de Insecticidas y plaguicidas (HS 3808) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Brasil.",
         "Insecticidas y plaguicidas (HS 3808) entra a Brasil sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Brasil 0,77: el filtro deja el score en 0,589 (bruto 0,664)."
+        "Brasil está a 4.306 km de Colombia; accesibilidad logística 0,42 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Brasil 0,77: el filtro deja el score en 0,551 (bruto 0,622)."
       ],
       "CAN": [
         "Canadá importa USD 2.053 M al año de Insecticidas y plaguicidas (HS 3808) (promedio de los últimos 3 años).",
@@ -300,7 +330,8 @@
         "Canadá absorbe el 0,1 % de las exportaciones de Insecticidas y plaguicidas (HS 3808) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Canadá.",
         "Insecticidas y plaguicidas (HS 3808) entra a Canadá sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,414 (bruto 0,445)."
+        "Canadá está a 4.893 km de Colombia; accesibilidad logística 0,51 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,437 (bruto 0,470)."
       ],
       "CHE": [
         "Suiza importa USD 189 M al año de Insecticidas y plaguicidas (HS 3808) (promedio de los últimos 3 años).",
@@ -308,7 +339,8 @@
         "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de Suiza.",
         "Insecticidas y plaguicidas (HS 3808) entra a Suiza sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,277 (bruto 0,295)."
+        "Suiza está a 8.974 km de Colombia; accesibilidad logística 0,46 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,295 (bruto 0,314)."
       ],
       "CHL": [
         "Chile importa USD 388 M al año de Insecticidas y plaguicidas (HS 3808) (promedio de los últimos 3 años).",
@@ -317,7 +349,8 @@
         "Chile absorbe el 3,2 % de las exportaciones de Insecticidas y plaguicidas (HS 3808) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Chile.",
         "Insecticidas y plaguicidas (HS 3808) entra a Chile sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Chile 0,72: el filtro deja el score en 0,437 (bruto 0,507)."
+        "Chile está a 4.382 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Chile 0,72: el filtro deja el score en 0,408 (bruto 0,474)."
       ],
       "CRI": [
         "Costa Rica importa USD 175 M al año de Insecticidas y plaguicidas (HS 3808) (promedio de los últimos 3 años).",
@@ -326,7 +359,8 @@
         "Costa Rica absorbe el 3,3 % de las exportaciones de Insecticidas y plaguicidas (HS 3808) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Costa Rica.",
         "Insecticidas y plaguicidas (HS 3808) paga en Costa Rica un arancel efectivamente aplicado de 2,2 %.",
-        "Estabilidad macro de Costa Rica 0,93: el filtro deja el score en 0,236 (bruto 0,244)."
+        "Costa Rica está a 1.157 km de Colombia; accesibilidad logística 0,51 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Costa Rica 0,93: el filtro deja el score en 0,280 (bruto 0,290)."
       ],
       "DEU": [
         "Alemania importa USD 1.700 M al año de Insecticidas y plaguicidas (HS 3808) (promedio de los últimos 3 años).",
@@ -335,7 +369,8 @@
         "Alemania absorbe el 0,0 % de las exportaciones de Insecticidas y plaguicidas (HS 3808) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Alemania.",
         "Insecticidas y plaguicidas (HS 3808) entra a Alemania sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,355 (bruto 0,409)."
+        "Alemania está a 9.137 km de Colombia; accesibilidad logística 0,46 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,361 (bruto 0,415)."
       ],
       "DOM": [
         "República Dominicana importa USD 129 M al año de Insecticidas y plaguicidas (HS 3808) (promedio de los últimos 3 años).",
@@ -344,7 +379,8 @@
         "República Dominicana absorbe el 2,3 % de las exportaciones de Insecticidas y plaguicidas (HS 3808) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de República Dominicana.",
         "Insecticidas y plaguicidas (HS 3808) entra a República Dominicana sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de República Dominicana 0,78: el filtro deja el score en 0,525 (bruto 0,592)."
+        "República Dominicana está a 1.527 km de Colombia; accesibilidad logística 0,44 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de República Dominicana 0,78: el filtro deja el score en 0,508 (bruto 0,572)."
       ],
       "ECU": [
         "Ecuador importa USD 330 M al año de Insecticidas y plaguicidas (HS 3808) (promedio de los últimos 3 años).",
@@ -353,7 +389,8 @@
         "Ecuador absorbe el 12,2 % de las exportaciones de Insecticidas y plaguicidas (HS 3808) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,51 (escala 0–1) con la demanda importadora de Ecuador.",
         "Insecticidas y plaguicidas (HS 3808) paga en Ecuador un arancel efectivamente aplicado de 0,4 %.",
-        "Estabilidad macro de Ecuador 0,88: el filtro deja el score en 0,550 (bruto 0,585)."
+        "Ecuador está a 980 km de Colombia; accesibilidad logística 0,53 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Ecuador 0,88: el filtro deja el score en 0,583 (bruto 0,620)."
       ],
       "ESP": [
         "España importa USD 1.005 M al año de Insecticidas y plaguicidas (HS 3808) (promedio de los últimos 3 años).",
@@ -362,7 +399,8 @@
         "España absorbe el 0,0 % de las exportaciones de Insecticidas y plaguicidas (HS 3808) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de España.",
         "Insecticidas y plaguicidas (HS 3808) entra a España sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de España 0,97: el filtro deja el score en 0,469 (bruto 0,477)."
+        "España está a 8.065 km de Colombia; accesibilidad logística 0,45 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de España 0,97: el filtro deja el score en 0,463 (bruto 0,470)."
       ],
       "FIN": [
         "Finlandia importa USD 108 M al año de Insecticidas y plaguicidas (HS 3808) (promedio de los últimos 3 años).",
@@ -370,7 +408,8 @@
         "Colombia no registra ventas de Insecticidas y plaguicidas (HS 3808) en Finlandia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Finlandia.",
         "Insecticidas y plaguicidas (HS 3808) entra a Finlandia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,329 (bruto 0,373)."
+        "Finlandia está a 9.955 km de Colombia; accesibilidad logística 0,47 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,341 (bruto 0,386)."
       ],
       "FRA": [
         "Francia importa USD 2.204 M al año de Insecticidas y plaguicidas (HS 3808) (promedio de los últimos 3 años).",
@@ -379,7 +418,8 @@
         "Francia absorbe el 0,0 % de las exportaciones de Insecticidas y plaguicidas (HS 3808) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de Francia.",
         "Insecticidas y plaguicidas (HS 3808) entra a Francia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,349 (bruto 0,380)."
+        "Francia está a 8.615 km de Colombia; accesibilidad logística 0,44 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,348 (bruto 0,379)."
       ],
       "GBR": [
         "Reino Unido importa USD 846 M al año de Insecticidas y plaguicidas (HS 3808) (promedio de los últimos 3 años).",
@@ -387,7 +427,8 @@
         "Colombia no registra ventas de Insecticidas y plaguicidas (HS 3808) en Reino Unido (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Reino Unido.",
         "Insecticidas y plaguicidas (HS 3808) entra a Reino Unido sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,334 (bruto 0,419)."
+        "Reino Unido está a 8.388 km de Colombia; accesibilidad logística 0,42 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,323 (bruto 0,405)."
       ],
       "ITA": [
         "Italia importa USD 1.140 M al año de Insecticidas y plaguicidas (HS 3808) (promedio de los últimos 3 años).",
@@ -395,7 +436,8 @@
         "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Italia.",
         "Insecticidas y plaguicidas (HS 3808) entra a Italia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,480 (bruto 0,524)."
+        "Italia está a 9.315 km de Colombia; accesibilidad logística 0,41 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,452 (bruto 0,494)."
       ],
       "JPN": [
         "Japón importa USD 504 M al año de Insecticidas y plaguicidas (HS 3808) (promedio de los últimos 3 años).",
@@ -404,7 +446,8 @@
         "Japón absorbe el 2,9 % de las exportaciones de Insecticidas y plaguicidas (HS 3808) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Japón.",
         "Insecticidas y plaguicidas (HS 3808) paga en Japón un arancel efectivamente aplicado de 2,7 %.",
-        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,304 (bruto 0,336)."
+        "Japón está a 14.300 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,284 (bruto 0,314)."
       ],
       "KOR": [
         "Corea del Sur importa USD 185 M al año de Insecticidas y plaguicidas (HS 3808) (promedio de los últimos 3 años).",
@@ -413,7 +456,8 @@
         "Corea del Sur absorbe el 0,5 % de las exportaciones de Insecticidas y plaguicidas (HS 3808) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,49 (escala 0–1) con la demanda importadora de Corea del Sur.",
         "Insecticidas y plaguicidas (HS 3808) entra a Corea del Sur sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,283 (bruto 0,300)."
+        "Corea del Sur está a 14.747 km de Colombia; accesibilidad logística 0,38 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,270 (bruto 0,286)."
       ],
       "MEX": [
         "México importa USD 979 M al año de Insecticidas y plaguicidas (HS 3808) (promedio de los últimos 3 años).",
@@ -422,7 +466,8 @@
         "México absorbe el 17,2 % de las exportaciones de Insecticidas y plaguicidas (HS 3808) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de México.",
         "Insecticidas y plaguicidas (HS 3808) paga en México un arancel efectivamente aplicado de 0,2 %.",
-        "Estabilidad macro de México 0,80: el filtro deja el score en 0,346 (bruto 0,385)."
+        "México está a 3.396 km de Colombia; accesibilidad logística 0,40 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de México 0,80: el filtro deja el score en 0,331 (bruto 0,368)."
       ],
       "NLD": [
         "Países Bajos importa USD 695 M al año de Insecticidas y plaguicidas (HS 3808) (promedio de los últimos 3 años).",
@@ -431,7 +476,8 @@
         "Países Bajos absorbe el 0,0 % de las exportaciones de Insecticidas y plaguicidas (HS 3808) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Países Bajos.",
         "Insecticidas y plaguicidas (HS 3808) entra a Países Bajos sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,412 (bruto 0,455)."
+        "Países Bajos está a 8.815 km de Colombia; accesibilidad logística 0,46 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,416 (bruto 0,459)."
       ],
       "PAN": [
         "Panamá importa USD 106 M al año de Insecticidas y plaguicidas (HS 3808) (promedio de los últimos 3 años).",
@@ -440,7 +486,8 @@
         "Panamá absorbe el 2,1 % de las exportaciones de Insecticidas y plaguicidas (HS 3808) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Panamá.",
         "Insecticidas y plaguicidas (HS 3808) paga en Panamá un arancel efectivamente aplicado de 3,6 %.",
-        "Estabilidad macro de Panamá 0,94: el filtro deja el score en 0,325 (bruto 0,335)."
+        "Panamá está a 734 km de Colombia; accesibilidad logística 0,57 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Panamá 0,94: el filtro deja el score en 0,389 (bruto 0,401)."
       ],
       "PER": [
         "Perú importa USD 326 M al año de Insecticidas y plaguicidas (HS 3808) (promedio de los últimos 3 años).",
@@ -449,7 +496,8 @@
         "Perú absorbe el 8,6 % de las exportaciones de Insecticidas y plaguicidas (HS 3808) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Perú.",
         "Insecticidas y plaguicidas (HS 3808) entra a Perú sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Perú 0,91: el filtro deja el score en 0,567 (bruto 0,593)."
+        "Perú está a 1.945 km de Colombia; accesibilidad logística 0,47 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Perú 0,91: el filtro deja el score en 0,561 (bruto 0,587)."
       ],
       "POL": [
         "Polonia importa USD 1.024 M al año de Insecticidas y plaguicidas (HS 3808) (promedio de los últimos 3 años).",
@@ -457,7 +505,8 @@
         "Colombia no registra ventas de Insecticidas y plaguicidas (HS 3808) en Polonia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,36 (escala 0–1) con la demanda importadora de Polonia.",
         "Insecticidas y plaguicidas (HS 3808) entra a Polonia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,378 (bruto 0,411)."
+        "Polonia está a 9.790 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,353 (bruto 0,384)."
       ],
       "PRT": [
         "Portugal importa USD 273 M al año de Insecticidas y plaguicidas (HS 3808) (promedio de los últimos 3 años).",
@@ -465,7 +514,8 @@
         "Colombia no registra ventas de Insecticidas y plaguicidas (HS 3808) en Portugal (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,39 (escala 0–1) con la demanda importadora de Portugal.",
         "Insecticidas y plaguicidas (HS 3808) entra a Portugal sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,443 (bruto 0,458)."
+        "Portugal está a 7.506 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,413 (bruto 0,428)."
       ],
       "SWE": [
         "Suecia importa USD 186 M al año de Insecticidas y plaguicidas (HS 3808) (promedio de los últimos 3 años).",
@@ -473,7 +523,8 @@
         "Colombia no registra ventas de Insecticidas y plaguicidas (HS 3808) en Suecia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Suecia.",
         "Insecticidas y plaguicidas (HS 3808) entra a Suecia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,380 (bruto 0,422)."
+        "Suecia está a 9.491 km de Colombia; accesibilidad logística 0,45 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,379 (bruto 0,421)."
       ],
       "USA": [
         "Estados Unidos importa USD 1.634 M al año de Insecticidas y plaguicidas (HS 3808) (promedio de los últimos 3 años).",
@@ -482,21 +533,22 @@
         "Estados Unidos absorbe el 0,8 % de las exportaciones de Insecticidas y plaguicidas (HS 3808) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,33 (escala 0–1) con la demanda importadora de Estados Unidos.",
         "Insecticidas y plaguicidas (HS 3808) entra a Estados Unidos sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,315 (bruto 0,381)."
+        "Estados Unidos está a 4.251 km de Colombia; accesibilidad logística 0,50 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,336 (bruto 0,407)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.589,
-        "iso3": "BRA",
-        "name": "Brasil",
+        "final_score": 0.583,
+        "iso3": "ECU",
+        "name": "Ecuador",
         "reasons": [
-          "1.º destino por tamaño de mercado (USD 5.213 M/año)",
-          "7.º destino por crecimiento de la demanda (8,1 % anual)"
+          "1.º destino por complementariedad de canastas (índice 0,51 (escala 0–1))",
+          "1.º destino por cuota ya ganada (cuota de 23,3 %)"
         ]
       },
       {
-        "final_score": 0.567,
+        "final_score": 0.561,
         "iso3": "PER",
         "name": "Perú",
         "reasons": [
@@ -505,12 +557,12 @@
         ]
       },
       {
-        "final_score": 0.55,
-        "iso3": "ECU",
-        "name": "Ecuador",
+        "final_score": 0.551,
+        "iso3": "BRA",
+        "name": "Brasil",
         "reasons": [
-          "1.º destino por complementariedad de canastas (índice 0,51 (escala 0–1))",
-          "1.º destino por cuota ya ganada (cuota de 23,3 %)"
+          "1.º destino por tamaño de mercado (USD 5.213 M/año)",
+          "7.º destino por crecimiento de la demanda (8,1 % anual)"
         ]
       }
     ]

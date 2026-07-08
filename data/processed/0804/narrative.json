@@ -7,7 +7,8 @@
         "Colombia records no sales of Avocados, pineapples and mangoes (HS 0804) in Australia (0 % share).",
         "The export basket of Colombia fits the import demand of Australia at 0.40 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Australia duty-free (0 % effectively applied).",
-        "Macro stability of Australia at 0.77: the filter leaves the score at 0.175 (raw 0.198)."
+        "Australia is 14,797 km away from Colombia; logistics accessibility of 0.37 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Australia at 0.77: the filter leaves the score at 0.166 (raw 0.188)."
       ],
       "AUT": [
         "Austria imports USD 145 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -15,7 +16,8 @@
         "Colombia already holds 0.8 % of the market and loses 0.5 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Austria at 0.37 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Austria duty-free (0 % effectively applied).",
-        "Macro stability of Austria at 0.71: the filter leaves the score at 0.145 (raw 0.170)."
+        "Austria is 9,534 km away from Colombia; logistics accessibility of 0.44 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Austria at 0.71: the filter leaves the score at 0.171 (raw 0.200)."
       ],
       "BEL": [
         "Belgium imports USD 193 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -24,7 +26,8 @@
         "Belgium absorbs 6.3 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of Belgium at 0.45 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Belgium duty-free (0 % effectively applied).",
-        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.234 (raw 0.260)."
+        "Belgium is 8,749 km away from Colombia; logistics accessibility of 0.45 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.257 (raw 0.286)."
       ],
       "BRA": [
         "Brazil imports USD 11 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -33,7 +36,8 @@
         "Brazil absorbs 0.0 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of Brazil at 0.37 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Brazil duty-free (0 % effectively applied).",
-        "Macro stability of Brazil at 0.77: the filter leaves the score at 0.139 (raw 0.157)."
+        "Brazil is 4,306 km away from Colombia; logistics accessibility of 0.42 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Brazil at 0.77: the filter leaves the score at 0.157 (raw 0.177)."
       ],
       "CAN": [
         "Canada imports USD 707 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -42,7 +46,8 @@
         "Canada absorbs 2.3 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of Canada at 0.37 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Canada duty-free (0 % effectively applied).",
-        "Macro stability of Canada at 0.86: the filter leaves the score at 0.188 (raw 0.203)."
+        "Canada is 4,893 km away from Colombia; logistics accessibility of 0.51 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Canada at 0.86: the filter leaves the score at 0.241 (raw 0.259)."
       ],
       "CHE": [
         "Switzerland imports USD 213 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -51,7 +56,8 @@
         "Switzerland absorbs 0.1 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of Switzerland at 0.32 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Switzerland duty-free (0 % effectively applied).",
-        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.113 (raw 0.120)."
+        "Switzerland is 8,974 km away from Colombia; logistics accessibility of 0.46 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.155 (raw 0.165)."
       ],
       "CHL": [
         "Chile imports USD 127 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -60,7 +66,8 @@
         "Chile absorbs 0.1 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of Chile at 0.46 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Chile duty-free (0 % effectively applied).",
-        "Macro stability of Chile at 0.72: the filter leaves the score at 0.218 (raw 0.252)."
+        "Chile is 4,382 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Chile at 0.72: the filter leaves the score at 0.215 (raw 0.250)."
       ],
       "CRI": [
         "Costa Rica imports USD 35 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -69,7 +76,8 @@
         "Costa Rica absorbs 0.2 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of Costa Rica at 0.37 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) faces an effectively applied tariff of 1.2 % in Costa Rica.",
-        "Macro stability of Costa Rica at 0.93: the filter leaves the score at 0.169 (raw 0.175)."
+        "Costa Rica is 1,157 km away from Colombia; logistics accessibility of 0.51 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Costa Rica at 0.93: the filter leaves the score at 0.226 (raw 0.234)."
       ],
       "DEU": [
         "Germany imports USD 1,197 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -78,7 +86,8 @@
         "Germany absorbs 2.4 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of Germany at 0.37 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Germany duty-free (0 % effectively applied).",
-        "Macro stability of Germany at 0.74: the filter leaves the score at 0.190 (raw 0.219)."
+        "Germany is 9,137 km away from Colombia; logistics accessibility of 0.46 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Germany at 0.74: the filter leaves the score at 0.219 (raw 0.252)."
       ],
       "DOM": [
         "Dominican Republic imports USD 1 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -86,7 +95,8 @@
         "Colombia records no sales of Avocados, pineapples and mangoes (HS 0804) in Dominican Republic (0 % share).",
         "The export basket of Colombia fits the import demand of Dominican Republic at 0.46 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) faces an effectively applied tariff of 20.0 % in Dominican Republic.",
-        "Macro stability of Dominican Republic at 0.78: the filter leaves the score at 0.149 (raw 0.168)."
+        "Dominican Republic is 1,527 km away from Colombia; logistics accessibility of 0.44 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Dominican Republic at 0.78: the filter leaves the score at 0.168 (raw 0.190)."
       ],
       "ECU": [
         "Ecuador imports USD 0 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -94,7 +104,8 @@
         "Colombia records no sales of Avocados, pineapples and mangoes (HS 0804) in Ecuador (0 % share).",
         "The export basket of Colombia fits the import demand of Ecuador at 0.51 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) faces an effectively applied tariff of 25.0 % in Ecuador.",
-        "Macro stability of Ecuador at 0.88: the filter leaves the score at 0.199 (raw 0.212)."
+        "Ecuador is 980 km away from Colombia; logistics accessibility of 0.53 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Ecuador at 0.88: the filter leaves the score at 0.255 (raw 0.271)."
       ],
       "ESP": [
         "Spain imports USD 1,063 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -103,7 +114,8 @@
         "Spain absorbs 6.8 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of Spain at 0.42 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Spain duty-free (0 % effectively applied).",
-        "Macro stability of Spain at 0.97: the filter leaves the score at 0.269 (raw 0.273)."
+        "Spain is 8,065 km away from Colombia; logistics accessibility of 0.45 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Spain at 0.97: the filter leaves the score at 0.290 (raw 0.294)."
       ],
       "FIN": [
         "Finland imports USD 49 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -111,7 +123,8 @@
         "Colombia already holds 4.1 % of the market and gains 3.3 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Finland at 0.40 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Finland duty-free (0 % effectively applied).",
-        "Macro stability of Finland at 0.76: the filter leaves the score at 0.194 (raw 0.220)."
+        "Finland is 9,955 km away from Colombia; logistics accessibility of 0.47 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Finland at 0.76: the filter leaves the score at 0.225 (raw 0.255)."
       ],
       "FRA": [
         "France imports USD 1,104 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -120,7 +133,8 @@
         "France absorbs 2.3 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of France at 0.42 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters France duty-free (0 % effectively applied).",
-        "Macro stability of France at 0.83: the filter leaves the score at 0.243 (raw 0.265)."
+        "France is 8,615 km away from Colombia; logistics accessibility of 0.44 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of France at 0.83: the filter leaves the score at 0.260 (raw 0.284)."
       ],
       "GBR": [
         "United Kingdom imports USD 859 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -129,7 +143,8 @@
         "United Kingdom absorbs 7.4 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of United Kingdom at 0.43 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters United Kingdom duty-free (0 % effectively applied).",
-        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.215 (raw 0.270)."
+        "United Kingdom is 8,388 km away from Colombia; logistics accessibility of 0.42 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.221 (raw 0.278)."
       ],
       "ITA": [
         "Italy imports USD 428 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -138,7 +153,8 @@
         "Italy absorbs 0.7 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of Italy at 0.43 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Italy duty-free (0 % effectively applied).",
-        "Macro stability of Italy at 0.83: the filter leaves the score at 0.227 (raw 0.248)."
+        "Italy is 9,315 km away from Colombia; logistics accessibility of 0.41 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Italy at 0.83: the filter leaves the score at 0.232 (raw 0.253)."
       ],
       "JPN": [
         "Japan imports USD 343 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -146,7 +162,8 @@
         "Colombia records no sales of Avocados, pineapples and mangoes (HS 0804) in Japan (0 % share).",
         "The export basket of Colombia fits the import demand of Japan at 0.46 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) faces an effectively applied tariff of 4.8 % in Japan.",
-        "Macro stability of Japan at 0.81: the filter leaves the score at 0.226 (raw 0.250)."
+        "Japan is 14,300 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Japan at 0.81: the filter leaves the score at 0.222 (raw 0.246)."
       ],
       "KOR": [
         "South Korea imports USD 256 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -155,7 +172,8 @@
         "South Korea absorbs 0.0 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of South Korea at 0.49 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) faces an effectively applied tariff of 3.8 % in South Korea.",
-        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.265 (raw 0.282)."
+        "South Korea is 14,747 km away from Colombia; logistics accessibility of 0.38 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.252 (raw 0.267)."
       ],
       "MEX": [
         "Mexico imports USD 47 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -163,7 +181,8 @@
         "Colombia records no sales of Avocados, pineapples and mangoes (HS 0804) in Mexico (0 % share).",
         "The export basket of Colombia fits the import demand of Mexico at 0.32 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Mexico duty-free (0 % effectively applied).",
-        "Macro stability of Mexico at 0.80: the filter leaves the score at 0.128 (raw 0.142)."
+        "Mexico is 3,396 km away from Colombia; logistics accessibility of 0.40 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Mexico at 0.80: the filter leaves the score at 0.140 (raw 0.156)."
       ],
       "NLD": [
         "Netherlands imports USD 1,987 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -172,7 +191,8 @@
         "Netherlands absorbs 37.4 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of Netherlands at 0.46 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Netherlands duty-free (0 % effectively applied).",
-        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.337 (raw 0.372)."
+        "Netherlands is 8,815 km away from Colombia; logistics accessibility of 0.46 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.354 (raw 0.391)."
       ],
       "PAN": [
         "Panama imports USD 7 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -181,7 +201,8 @@
         "Panama absorbs 0.2 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of Panama at 0.45 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) faces an effectively applied tariff of 14.0 % in Panama.",
-        "Macro stability of Panama at 0.94: the filter leaves the score at 0.238 (raw 0.246)."
+        "Panama is 734 km away from Colombia; logistics accessibility of 0.57 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Panama at 0.94: the filter leaves the score at 0.317 (raw 0.327)."
       ],
       "PER": [
         "Peru imports USD 0 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -190,7 +211,8 @@
         "Peru absorbs 0.1 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of Peru at 0.43 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Peru duty-free (0 % effectively applied).",
-        "Macro stability of Peru at 0.91: the filter leaves the score at 0.635 (raw 0.664)."
+        "Peru is 1,945 km away from Colombia; logistics accessibility of 0.47 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Peru at 0.91: the filter leaves the score at 0.624 (raw 0.652)."
       ],
       "POL": [
         "Poland imports USD 227 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -199,7 +221,8 @@
         "Poland absorbs 0.0 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of Poland at 0.36 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Poland duty-free (0 % effectively applied).",
-        "Macro stability of Poland at 0.84: the filter leaves the score at 0.165 (raw 0.180)."
+        "Poland is 9,790 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Poland at 0.84: the filter leaves the score at 0.170 (raw 0.185)."
       ],
       "PRT": [
         "Portugal imports USD 195 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -208,7 +231,8 @@
         "Portugal absorbs 0.1 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of Portugal at 0.39 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Portugal duty-free (0 % effectively applied).",
-        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.190 (raw 0.197)."
+        "Portugal is 7,506 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.193 (raw 0.199)."
       ],
       "SWE": [
         "Sweden imports USD 109 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -216,7 +240,8 @@
         "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Sweden at 0.37 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Sweden duty-free (0 % effectively applied).",
-        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.152 (raw 0.168)."
+        "Sweden is 9,491 km away from Colombia; logistics accessibility of 0.45 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.179 (raw 0.199)."
       ],
       "USA": [
         "United States imports USD 5,731 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -225,12 +250,13 @@
         "United States absorbs 22.6 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of United States at 0.33 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters United States duty-free (0 % effectively applied).",
-        "Macro stability of United States at 0.65: the filter leaves the score at 0.311 (raw 0.377)."
+        "United States is 4,251 km away from Colombia; logistics accessibility of 0.50 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of United States at 0.65: the filter leaves the score at 0.336 (raw 0.406)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.635,
+        "final_score": 0.624,
         "iso3": "PER",
         "name": "Peru",
         "reasons": [
@@ -239,7 +265,7 @@
         ]
       },
       {
-        "final_score": 0.337,
+        "final_score": 0.354,
         "iso3": "NLD",
         "name": "Netherlands",
         "reasons": [
@@ -248,7 +274,7 @@
         ]
       },
       {
-        "final_score": 0.311,
+        "final_score": 0.336,
         "iso3": "USA",
         "name": "United States",
         "reasons": [
@@ -266,7 +292,8 @@
         "Colombia no registra ventas de Aguacates, piñas y mangos (HS 0804) en Australia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Australia.",
         "Aguacates, piñas y mangos (HS 0804) entra a Australia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,175 (bruto 0,198)."
+        "Australia está a 14.797 km de Colombia; accesibilidad logística 0,37 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,166 (bruto 0,188)."
       ],
       "AUT": [
         "Austria importa USD 145 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -274,7 +301,8 @@
         "Colombia ya tiene 0,8 % del mercado y pierde 0,5 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Austria.",
         "Aguacates, piñas y mangos (HS 0804) entra a Austria sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,145 (bruto 0,170)."
+        "Austria está a 9.534 km de Colombia; accesibilidad logística 0,44 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,171 (bruto 0,200)."
       ],
       "BEL": [
         "Bélgica importa USD 193 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -283,7 +311,8 @@
         "Bélgica absorbe el 6,3 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Bélgica.",
         "Aguacates, piñas y mangos (HS 0804) entra a Bélgica sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,234 (bruto 0,260)."
+        "Bélgica está a 8.749 km de Colombia; accesibilidad logística 0,45 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,257 (bruto 0,286)."
       ],
       "BRA": [
         "Brasil importa USD 11 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -292,7 +321,8 @@
         "Brasil absorbe el 0,0 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Brasil.",
         "Aguacates, piñas y mangos (HS 0804) entra a Brasil sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Brasil 0,77: el filtro deja el score en 0,139 (bruto 0,157)."
+        "Brasil está a 4.306 km de Colombia; accesibilidad logística 0,42 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Brasil 0,77: el filtro deja el score en 0,157 (bruto 0,177)."
       ],
       "CAN": [
         "Canadá importa USD 707 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -301,7 +331,8 @@
         "Canadá absorbe el 2,3 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Canadá.",
         "Aguacates, piñas y mangos (HS 0804) entra a Canadá sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,188 (bruto 0,203)."
+        "Canadá está a 4.893 km de Colombia; accesibilidad logística 0,51 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,241 (bruto 0,259)."
       ],
       "CHE": [
         "Suiza importa USD 213 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -310,7 +341,8 @@
         "Suiza absorbe el 0,1 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de Suiza.",
         "Aguacates, piñas y mangos (HS 0804) entra a Suiza sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,113 (bruto 0,120)."
+        "Suiza está a 8.974 km de Colombia; accesibilidad logística 0,46 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,155 (bruto 0,165)."
       ],
       "CHL": [
         "Chile importa USD 127 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -319,7 +351,8 @@
         "Chile absorbe el 0,1 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Chile.",
         "Aguacates, piñas y mangos (HS 0804) entra a Chile sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Chile 0,72: el filtro deja el score en 0,218 (bruto 0,252)."
+        "Chile está a 4.382 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Chile 0,72: el filtro deja el score en 0,215 (bruto 0,250)."
       ],
       "CRI": [
         "Costa Rica importa USD 35 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -328,7 +361,8 @@
         "Costa Rica absorbe el 0,2 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Costa Rica.",
         "Aguacates, piñas y mangos (HS 0804) paga en Costa Rica un arancel efectivamente aplicado de 1,2 %.",
-        "Estabilidad macro de Costa Rica 0,93: el filtro deja el score en 0,169 (bruto 0,175)."
+        "Costa Rica está a 1.157 km de Colombia; accesibilidad logística 0,51 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Costa Rica 0,93: el filtro deja el score en 0,226 (bruto 0,234)."
       ],
       "DEU": [
         "Alemania importa USD 1.197 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -337,7 +371,8 @@
         "Alemania absorbe el 2,4 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Alemania.",
         "Aguacates, piñas y mangos (HS 0804) entra a Alemania sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,190 (bruto 0,219)."
+        "Alemania está a 9.137 km de Colombia; accesibilidad logística 0,46 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,219 (bruto 0,252)."
       ],
       "DOM": [
         "República Dominicana importa USD 1 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -345,7 +380,8 @@
         "Colombia no registra ventas de Aguacates, piñas y mangos (HS 0804) en República Dominicana (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de República Dominicana.",
         "Aguacates, piñas y mangos (HS 0804) paga en República Dominicana un arancel efectivamente aplicado de 20,0 %.",
-        "Estabilidad macro de República Dominicana 0,78: el filtro deja el score en 0,149 (bruto 0,168)."
+        "República Dominicana está a 1.527 km de Colombia; accesibilidad logística 0,44 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de República Dominicana 0,78: el filtro deja el score en 0,168 (bruto 0,190)."
       ],
       "ECU": [
         "Ecuador importa USD 0 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -353,7 +389,8 @@
         "Colombia no registra ventas de Aguacates, piñas y mangos (HS 0804) en Ecuador (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,51 (escala 0–1) con la demanda importadora de Ecuador.",
         "Aguacates, piñas y mangos (HS 0804) paga en Ecuador un arancel efectivamente aplicado de 25,0 %.",
-        "Estabilidad macro de Ecuador 0,88: el filtro deja el score en 0,199 (bruto 0,212)."
+        "Ecuador está a 980 km de Colombia; accesibilidad logística 0,53 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Ecuador 0,88: el filtro deja el score en 0,255 (bruto 0,271)."
       ],
       "ESP": [
         "España importa USD 1.063 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -362,7 +399,8 @@
         "España absorbe el 6,8 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de España.",
         "Aguacates, piñas y mangos (HS 0804) entra a España sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de España 0,97: el filtro deja el score en 0,269 (bruto 0,273)."
+        "España está a 8.065 km de Colombia; accesibilidad logística 0,45 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de España 0,97: el filtro deja el score en 0,290 (bruto 0,294)."
       ],
       "FIN": [
         "Finlandia importa USD 49 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -370,7 +408,8 @@
         "Colombia ya tiene 4,1 % del mercado y gana 3,3 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Finlandia.",
         "Aguacates, piñas y mangos (HS 0804) entra a Finlandia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,194 (bruto 0,220)."
+        "Finlandia está a 9.955 km de Colombia; accesibilidad logística 0,47 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,225 (bruto 0,255)."
       ],
       "FRA": [
         "Francia importa USD 1.104 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -379,7 +418,8 @@
         "Francia absorbe el 2,3 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de Francia.",
         "Aguacates, piñas y mangos (HS 0804) entra a Francia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,243 (bruto 0,265)."
+        "Francia está a 8.615 km de Colombia; accesibilidad logística 0,44 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,260 (bruto 0,284)."
       ],
       "GBR": [
         "Reino Unido importa USD 859 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -388,7 +428,8 @@
         "Reino Unido absorbe el 7,4 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Reino Unido.",
         "Aguacates, piñas y mangos (HS 0804) entra a Reino Unido sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,215 (bruto 0,270)."
+        "Reino Unido está a 8.388 km de Colombia; accesibilidad logística 0,42 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,221 (bruto 0,278)."
       ],
       "ITA": [
         "Italia importa USD 428 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -397,7 +438,8 @@
         "Italia absorbe el 0,7 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Italia.",
         "Aguacates, piñas y mangos (HS 0804) entra a Italia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,227 (bruto 0,248)."
+        "Italia está a 9.315 km de Colombia; accesibilidad logística 0,41 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,232 (bruto 0,253)."
       ],
       "JPN": [
         "Japón importa USD 343 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -405,7 +447,8 @@
         "Colombia no registra ventas de Aguacates, piñas y mangos (HS 0804) en Japón (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Japón.",
         "Aguacates, piñas y mangos (HS 0804) paga en Japón un arancel efectivamente aplicado de 4,8 %.",
-        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,226 (bruto 0,250)."
+        "Japón está a 14.300 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,222 (bruto 0,246)."
       ],
       "KOR": [
         "Corea del Sur importa USD 256 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -414,7 +457,8 @@
         "Corea del Sur absorbe el 0,0 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,49 (escala 0–1) con la demanda importadora de Corea del Sur.",
         "Aguacates, piñas y mangos (HS 0804) paga en Corea del Sur un arancel efectivamente aplicado de 3,8 %.",
-        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,265 (bruto 0,282)."
+        "Corea del Sur está a 14.747 km de Colombia; accesibilidad logística 0,38 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,252 (bruto 0,267)."
       ],
       "MEX": [
         "México importa USD 47 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -422,7 +466,8 @@
         "Colombia no registra ventas de Aguacates, piñas y mangos (HS 0804) en México (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de México.",
         "Aguacates, piñas y mangos (HS 0804) entra a México sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de México 0,80: el filtro deja el score en 0,128 (bruto 0,142)."
+        "México está a 3.396 km de Colombia; accesibilidad logística 0,40 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de México 0,80: el filtro deja el score en 0,140 (bruto 0,156)."
       ],
       "NLD": [
         "Países Bajos importa USD 1.987 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -431,7 +476,8 @@
         "Países Bajos absorbe el 37,4 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Países Bajos.",
         "Aguacates, piñas y mangos (HS 0804) entra a Países Bajos sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,337 (bruto 0,372)."
+        "Países Bajos está a 8.815 km de Colombia; accesibilidad logística 0,46 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,354 (bruto 0,391)."
       ],
       "PAN": [
         "Panamá importa USD 7 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -440,7 +486,8 @@
         "Panamá absorbe el 0,2 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Panamá.",
         "Aguacates, piñas y mangos (HS 0804) paga en Panamá un arancel efectivamente aplicado de 14,0 %.",
-        "Estabilidad macro de Panamá 0,94: el filtro deja el score en 0,238 (bruto 0,246)."
+        "Panamá está a 734 km de Colombia; accesibilidad logística 0,57 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Panamá 0,94: el filtro deja el score en 0,317 (bruto 0,327)."
       ],
       "PER": [
         "Perú importa USD 0 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -449,7 +496,8 @@
         "Perú absorbe el 0,1 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Perú.",
         "Aguacates, piñas y mangos (HS 0804) entra a Perú sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Perú 0,91: el filtro deja el score en 0,635 (bruto 0,664)."
+        "Perú está a 1.945 km de Colombia; accesibilidad logística 0,47 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Perú 0,91: el filtro deja el score en 0,624 (bruto 0,652)."
       ],
       "POL": [
         "Polonia importa USD 227 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -458,7 +506,8 @@
         "Polonia absorbe el 0,0 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,36 (escala 0–1) con la demanda importadora de Polonia.",
         "Aguacates, piñas y mangos (HS 0804) entra a Polonia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,165 (bruto 0,180)."
+        "Polonia está a 9.790 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,170 (bruto 0,185)."
       ],
       "PRT": [
         "Portugal importa USD 195 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -467,7 +516,8 @@
         "Portugal absorbe el 0,1 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,39 (escala 0–1) con la demanda importadora de Portugal.",
         "Aguacates, piñas y mangos (HS 0804) entra a Portugal sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,190 (bruto 0,197)."
+        "Portugal está a 7.506 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,193 (bruto 0,199)."
       ],
       "SWE": [
         "Suecia importa USD 109 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -475,7 +525,8 @@
         "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Suecia.",
         "Aguacates, piñas y mangos (HS 0804) entra a Suecia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,152 (bruto 0,168)."
+        "Suecia está a 9.491 km de Colombia; accesibilidad logística 0,45 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,179 (bruto 0,199)."
       ],
       "USA": [
         "Estados Unidos importa USD 5.731 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -484,12 +535,13 @@
         "Estados Unidos absorbe el 22,6 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,33 (escala 0–1) con la demanda importadora de Estados Unidos.",
         "Aguacates, piñas y mangos (HS 0804) entra a Estados Unidos sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,311 (bruto 0,377)."
+        "Estados Unidos está a 4.251 km de Colombia; accesibilidad logística 0,50 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,336 (bruto 0,406)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.635,
+        "final_score": 0.624,
         "iso3": "PER",
         "name": "Perú",
         "reasons": [
@@ -498,7 +550,7 @@
         ]
       },
       {
-        "final_score": 0.337,
+        "final_score": 0.354,
         "iso3": "NLD",
         "name": "Países Bajos",
         "reasons": [
@@ -507,7 +559,7 @@
         ]
       },
       {
-        "final_score": 0.311,
+        "final_score": 0.336,
         "iso3": "USA",
         "name": "Estados Unidos",
         "reasons": [

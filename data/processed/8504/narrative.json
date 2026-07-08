@@ -7,7 +7,8 @@
         "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Australia at 0.40 (0–1 scale).",
         "Electric transformers (HS 8504) faces an effectively applied tariff of 3.6 % in Australia.",
-        "Macro stability of Australia at 0.77: the filter leaves the score at 0.273 (raw 0.309)."
+        "Australia is 14,797 km away from Colombia; logistics accessibility of 0.37 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Australia at 0.77: the filter leaves the score at 0.250 (raw 0.282)."
       ],
       "AUT": [
         "Austria imports USD 1,925 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
@@ -16,7 +17,8 @@
         "Austria absorbs 0.0 % of Colombia's exports of Electric transformers (HS 8504).",
         "The export basket of Colombia fits the import demand of Austria at 0.37 (0–1 scale).",
         "Electric transformers (HS 8504) enters Austria duty-free (0 % effectively applied).",
-        "Macro stability of Austria at 0.71: the filter leaves the score at 0.154 (raw 0.180)."
+        "Austria is 9,534 km away from Colombia; logistics accessibility of 0.44 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Austria at 0.71: the filter leaves the score at 0.178 (raw 0.208)."
       ],
       "BEL": [
         "Belgium imports USD 1,317 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
@@ -25,7 +27,8 @@
         "Belgium absorbs 0.0 % of Colombia's exports of Electric transformers (HS 8504).",
         "The export basket of Colombia fits the import demand of Belgium at 0.45 (0–1 scale).",
         "Electric transformers (HS 8504) enters Belgium duty-free (0 % effectively applied).",
-        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.285 (raw 0.317)."
+        "Belgium is 8,749 km away from Colombia; logistics accessibility of 0.45 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.302 (raw 0.335)."
       ],
       "BRA": [
         "Brazil imports USD 1,894 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
@@ -34,7 +37,8 @@
         "Brazil absorbs 0.1 % of Colombia's exports of Electric transformers (HS 8504).",
         "The export basket of Colombia fits the import demand of Brazil at 0.37 (0–1 scale).",
         "Electric transformers (HS 8504) enters Brazil duty-free (0 % effectively applied).",
-        "Macro stability of Brazil at 0.77: the filter leaves the score at 0.234 (raw 0.264)."
+        "Brazil is 4,306 km away from Colombia; logistics accessibility of 0.42 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Brazil at 0.77: the filter leaves the score at 0.241 (raw 0.272)."
       ],
       "CAN": [
         "Canada imports USD 2,956 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
@@ -43,7 +47,8 @@
         "Canada absorbs 2.4 % of Colombia's exports of Electric transformers (HS 8504).",
         "The export basket of Colombia fits the import demand of Canada at 0.37 (0–1 scale).",
         "Electric transformers (HS 8504) enters Canada duty-free (0 % effectively applied).",
-        "Macro stability of Canada at 0.86: the filter leaves the score at 0.276 (raw 0.297)."
+        "Canada is 4,893 km away from Colombia; logistics accessibility of 0.51 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Canada at 0.86: the filter leaves the score at 0.320 (raw 0.344)."
       ],
       "CHE": [
         "Switzerland imports USD 1,379 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
@@ -52,7 +57,8 @@
         "Switzerland absorbs 0.0 % of Colombia's exports of Electric transformers (HS 8504).",
         "The export basket of Colombia fits the import demand of Switzerland at 0.32 (0–1 scale).",
         "Electric transformers (HS 8504) enters Switzerland duty-free (0 % effectively applied).",
-        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.174 (raw 0.185)."
+        "Switzerland is 8,974 km away from Colombia; logistics accessibility of 0.46 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.208 (raw 0.222)."
       ],
       "CHL": [
         "Chile imports USD 506 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
@@ -61,7 +67,8 @@
         "Chile absorbs 0.4 % of Colombia's exports of Electric transformers (HS 8504).",
         "The export basket of Colombia fits the import demand of Chile at 0.46 (0–1 scale).",
         "Electric transformers (HS 8504) enters Chile duty-free (0 % effectively applied).",
-        "Macro stability of Chile at 0.72: the filter leaves the score at 0.306 (raw 0.355)."
+        "Chile is 4,382 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Chile at 0.72: the filter leaves the score at 0.294 (raw 0.341)."
       ],
       "CRI": [
         "Costa Rica imports USD 100 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
@@ -70,7 +77,8 @@
         "Costa Rica absorbs 1.0 % of Colombia's exports of Electric transformers (HS 8504).",
         "The export basket of Colombia fits the import demand of Costa Rica at 0.37 (0–1 scale).",
         "Electric transformers (HS 8504) enters Costa Rica duty-free (0 % effectively applied).",
-        "Macro stability of Costa Rica at 0.93: the filter leaves the score at 0.328 (raw 0.340)."
+        "Costa Rica is 1,157 km away from Colombia; logistics accessibility of 0.51 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Costa Rica at 0.93: the filter leaves the score at 0.371 (raw 0.384)."
       ],
       "DEU": [
         "Germany imports USD 13,579 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
@@ -79,7 +87,8 @@
         "Germany absorbs 0.0 % of Colombia's exports of Electric transformers (HS 8504).",
         "The export basket of Colombia fits the import demand of Germany at 0.37 (0–1 scale).",
         "Electric transformers (HS 8504) enters Germany duty-free (0 % effectively applied).",
-        "Macro stability of Germany at 0.74: the filter leaves the score at 0.305 (raw 0.351)."
+        "Germany is 9,137 km away from Colombia; logistics accessibility of 0.46 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Germany at 0.74: the filter leaves the score at 0.320 (raw 0.368)."
       ],
       "DOM": [
         "Dominican Republic imports USD 186 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
@@ -88,6 +97,7 @@
         "Dominican Republic absorbs 1.7 % of Colombia's exports of Electric transformers (HS 8504).",
         "The export basket of Colombia fits the import demand of Dominican Republic at 0.46 (0–1 scale).",
         "Electric transformers (HS 8504) enters Dominican Republic duty-free (0 % effectively applied).",
+        "Dominican Republic is 1,527 km away from Colombia; logistics accessibility of 0.44 (0–1 scale: gravity distance + LPI).",
         "Macro stability of Dominican Republic at 0.78: the filter leaves the score at 0.411 (raw 0.463)."
       ],
       "ECU": [
@@ -97,7 +107,8 @@
         "Ecuador absorbs 0.8 % of Colombia's exports of Electric transformers (HS 8504).",
         "The export basket of Colombia fits the import demand of Ecuador at 0.51 (0–1 scale).",
         "Electric transformers (HS 8504) faces an effectively applied tariff of 8.7 % in Ecuador.",
-        "Macro stability of Ecuador at 0.88: the filter leaves the score at 0.320 (raw 0.340)."
+        "Ecuador is 980 km away from Colombia; logistics accessibility of 0.53 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Ecuador at 0.88: the filter leaves the score at 0.363 (raw 0.386)."
       ],
       "ESP": [
         "Spain imports USD 3,004 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
@@ -106,7 +117,8 @@
         "Spain absorbs 2.4 % of Colombia's exports of Electric transformers (HS 8504).",
         "The export basket of Colombia fits the import demand of Spain at 0.42 (0–1 scale).",
         "Electric transformers (HS 8504) enters Spain duty-free (0 % effectively applied).",
-        "Macro stability of Spain at 0.97: the filter leaves the score at 0.342 (raw 0.347)."
+        "Spain is 8,065 km away from Colombia; logistics accessibility of 0.45 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Spain at 0.97: the filter leaves the score at 0.355 (raw 0.360)."
       ],
       "FIN": [
         "Finland imports USD 892 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
@@ -114,7 +126,8 @@
         "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Finland at 0.40 (0–1 scale).",
         "Electric transformers (HS 8504) enters Finland duty-free (0 % effectively applied).",
-        "Macro stability of Finland at 0.76: the filter leaves the score at 0.262 (raw 0.297)."
+        "Finland is 9,955 km away from Colombia; logistics accessibility of 0.47 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Finland at 0.76: the filter leaves the score at 0.285 (raw 0.323)."
       ],
       "FRA": [
         "France imports USD 4,157 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
@@ -123,7 +136,8 @@
         "France absorbs 0.0 % of Colombia's exports of Electric transformers (HS 8504).",
         "The export basket of Colombia fits the import demand of France at 0.42 (0–1 scale).",
         "Electric transformers (HS 8504) enters France duty-free (0 % effectively applied).",
-        "Macro stability of France at 0.83: the filter leaves the score at 0.305 (raw 0.333)."
+        "France is 8,615 km away from Colombia; logistics accessibility of 0.44 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of France at 0.83: the filter leaves the score at 0.315 (raw 0.344)."
       ],
       "GBR": [
         "United Kingdom imports USD 4,201 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
@@ -132,7 +146,8 @@
         "United Kingdom absorbs 0.0 % of Colombia's exports of Electric transformers (HS 8504).",
         "The export basket of Colombia fits the import demand of United Kingdom at 0.43 (0–1 scale).",
         "Electric transformers (HS 8504) enters United Kingdom duty-free (0 % effectively applied).",
-        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.280 (raw 0.351)."
+        "United Kingdom is 8,388 km away from Colombia; logistics accessibility of 0.42 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.279 (raw 0.350)."
       ],
       "ITA": [
         "Italy imports USD 3,753 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
@@ -141,7 +156,8 @@
         "Italy absorbs 0.0 % of Colombia's exports of Electric transformers (HS 8504).",
         "The export basket of Colombia fits the import demand of Italy at 0.43 (0–1 scale).",
         "Electric transformers (HS 8504) enters Italy duty-free (0 % effectively applied).",
-        "Macro stability of Italy at 0.83: the filter leaves the score at 0.301 (raw 0.328)."
+        "Italy is 9,315 km away from Colombia; logistics accessibility of 0.41 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Italy at 0.83: the filter leaves the score at 0.297 (raw 0.325)."
       ],
       "JPN": [
         "Japan imports USD 4,051 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
@@ -149,7 +165,8 @@
         "Colombia records no sales of Electric transformers (HS 8504) in Japan (0 % share).",
         "The export basket of Colombia fits the import demand of Japan at 0.46 (0–1 scale).",
         "Electric transformers (HS 8504) enters Japan duty-free (0 % effectively applied).",
-        "Macro stability of Japan at 0.81: the filter leaves the score at 0.336 (raw 0.371)."
+        "Japan is 14,300 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Japan at 0.81: the filter leaves the score at 0.322 (raw 0.355)."
       ],
       "KOR": [
         "South Korea imports USD 3,810 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
@@ -157,7 +174,8 @@
         "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
         "The export basket of Colombia fits the import demand of South Korea at 0.49 (0–1 scale).",
         "Electric transformers (HS 8504) enters South Korea duty-free (0 % effectively applied).",
-        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.395 (raw 0.420)."
+        "South Korea is 14,747 km away from Colombia; logistics accessibility of 0.38 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.369 (raw 0.392)."
       ],
       "MEX": [
         "Mexico imports USD 6,715 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
@@ -166,7 +184,8 @@
         "Mexico absorbs 1.2 % of Colombia's exports of Electric transformers (HS 8504).",
         "The export basket of Colombia fits the import demand of Mexico at 0.32 (0–1 scale).",
         "Electric transformers (HS 8504) enters Mexico duty-free (0 % effectively applied).",
-        "Macro stability of Mexico at 0.80: the filter leaves the score at 0.255 (raw 0.283)."
+        "Mexico is 3,396 km away from Colombia; logistics accessibility of 0.40 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Mexico at 0.80: the filter leaves the score at 0.253 (raw 0.281)."
       ],
       "NLD": [
         "Netherlands imports USD 5,283 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
@@ -175,7 +194,8 @@
         "Netherlands absorbs 0.1 % of Colombia's exports of Electric transformers (HS 8504).",
         "The export basket of Colombia fits the import demand of Netherlands at 0.46 (0–1 scale).",
         "Electric transformers (HS 8504) enters Netherlands duty-free (0 % effectively applied).",
-        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.318 (raw 0.351)."
+        "Netherlands is 8,815 km away from Colombia; logistics accessibility of 0.46 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.336 (raw 0.371)."
       ],
       "PAN": [
         "Panama imports USD 84 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
@@ -184,7 +204,8 @@
         "Panama absorbs 3.4 % of Colombia's exports of Electric transformers (HS 8504).",
         "The export basket of Colombia fits the import demand of Panama at 0.45 (0–1 scale).",
         "Electric transformers (HS 8504) faces an effectively applied tariff of 0.2 % in Panama.",
-        "Macro stability of Panama at 0.94: the filter leaves the score at 0.529 (raw 0.546)."
+        "Panama is 734 km away from Colombia; logistics accessibility of 0.57 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Panama at 0.94: the filter leaves the score at 0.578 (raw 0.596)."
       ],
       "PER": [
         "Peru imports USD 204 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
@@ -193,7 +214,8 @@
         "Peru absorbs 0.7 % of Colombia's exports of Electric transformers (HS 8504).",
         "The export basket of Colombia fits the import demand of Peru at 0.43 (0–1 scale).",
         "Electric transformers (HS 8504) enters Peru duty-free (0 % effectively applied).",
-        "Macro stability of Peru at 0.91: the filter leaves the score at 0.301 (raw 0.315)."
+        "Peru is 1,945 km away from Colombia; logistics accessibility of 0.47 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Peru at 0.91: the filter leaves the score at 0.327 (raw 0.342)."
       ],
       "POL": [
         "Poland imports USD 2,464 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
@@ -202,7 +224,8 @@
         "Poland absorbs 0.0 % of Colombia's exports of Electric transformers (HS 8504).",
         "The export basket of Colombia fits the import demand of Poland at 0.36 (0–1 scale).",
         "Electric transformers (HS 8504) enters Poland duty-free (0 % effectively applied).",
-        "Macro stability of Poland at 0.84: the filter leaves the score at 0.247 (raw 0.268)."
+        "Poland is 9,790 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Poland at 0.84: the filter leaves the score at 0.242 (raw 0.263)."
       ],
       "PRT": [
         "Portugal imports USD 524 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
@@ -210,7 +233,8 @@
         "Colombia records no sales of Electric transformers (HS 8504) in Portugal (0 % share).",
         "The export basket of Colombia fits the import demand of Portugal at 0.39 (0–1 scale).",
         "Electric transformers (HS 8504) enters Portugal duty-free (0 % effectively applied).",
-        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.271 (raw 0.281)."
+        "Portugal is 7,506 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.265 (raw 0.274)."
       ],
       "SWE": [
         "Sweden imports USD 1,706 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
@@ -219,7 +243,8 @@
         "Sweden absorbs 0.0 % of Colombia's exports of Electric transformers (HS 8504).",
         "The export basket of Colombia fits the import demand of Sweden at 0.37 (0–1 scale).",
         "Electric transformers (HS 8504) enters Sweden duty-free (0 % effectively applied).",
-        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.244 (raw 0.271)."
+        "Sweden is 9,491 km away from Colombia; logistics accessibility of 0.45 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.262 (raw 0.291)."
       ],
       "USA": [
         "United States imports USD 30,849 M a year of Electric transformers (HS 8504) (average of the last 3 years).",
@@ -228,12 +253,13 @@
         "United States absorbs 75.9 % of Colombia's exports of Electric transformers (HS 8504).",
         "The export basket of Colombia fits the import demand of United States at 0.33 (0–1 scale).",
         "Electric transformers (HS 8504) enters United States duty-free (0 % effectively applied).",
-        "Macro stability of United States at 0.65: the filter leaves the score at 0.419 (raw 0.506)."
+        "United States is 4,251 km away from Colombia; logistics accessibility of 0.50 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of United States at 0.65: the filter leaves the score at 0.431 (raw 0.522)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.529,
+        "final_score": 0.578,
         "iso3": "PAN",
         "name": "Panama",
         "reasons": [
@@ -242,7 +268,7 @@
         ]
       },
       {
-        "final_score": 0.419,
+        "final_score": 0.431,
         "iso3": "USA",
         "name": "United States",
         "reasons": [
@@ -269,7 +295,8 @@
         "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Australia.",
         "Transformadores eléctricos (HS 8504) paga en Australia un arancel efectivamente aplicado de 3,6 %.",
-        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,273 (bruto 0,309)."
+        "Australia está a 14.797 km de Colombia; accesibilidad logística 0,37 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,250 (bruto 0,282)."
       ],
       "AUT": [
         "Austria importa USD 1.925 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
@@ -278,7 +305,8 @@
         "Austria absorbe el 0,0 % de las exportaciones de Transformadores eléctricos (HS 8504) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Austria.",
         "Transformadores eléctricos (HS 8504) entra a Austria sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,154 (bruto 0,180)."
+        "Austria está a 9.534 km de Colombia; accesibilidad logística 0,44 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,178 (bruto 0,208)."
       ],
       "BEL": [
         "Bélgica importa USD 1.317 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
@@ -287,7 +315,8 @@
         "Bélgica absorbe el 0,0 % de las exportaciones de Transformadores eléctricos (HS 8504) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Bélgica.",
         "Transformadores eléctricos (HS 8504) entra a Bélgica sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,285 (bruto 0,317)."
+        "Bélgica está a 8.749 km de Colombia; accesibilidad logística 0,45 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,302 (bruto 0,335)."
       ],
       "BRA": [
         "Brasil importa USD 1.894 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
@@ -296,7 +325,8 @@
         "Brasil absorbe el 0,1 % de las exportaciones de Transformadores eléctricos (HS 8504) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Brasil.",
         "Transformadores eléctricos (HS 8504) entra a Brasil sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Brasil 0,77: el filtro deja el score en 0,234 (bruto 0,264)."
+        "Brasil está a 4.306 km de Colombia; accesibilidad logística 0,42 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Brasil 0,77: el filtro deja el score en 0,241 (bruto 0,272)."
       ],
       "CAN": [
         "Canadá importa USD 2.956 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
@@ -305,7 +335,8 @@
         "Canadá absorbe el 2,4 % de las exportaciones de Transformadores eléctricos (HS 8504) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Canadá.",
         "Transformadores eléctricos (HS 8504) entra a Canadá sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,276 (bruto 0,297)."
+        "Canadá está a 4.893 km de Colombia; accesibilidad logística 0,51 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,320 (bruto 0,344)."
       ],
       "CHE": [
         "Suiza importa USD 1.379 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
@@ -314,7 +345,8 @@
         "Suiza absorbe el 0,0 % de las exportaciones de Transformadores eléctricos (HS 8504) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de Suiza.",
         "Transformadores eléctricos (HS 8504) entra a Suiza sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,174 (bruto 0,185)."
+        "Suiza está a 8.974 km de Colombia; accesibilidad logística 0,46 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,208 (bruto 0,222)."
       ],
       "CHL": [
         "Chile importa USD 506 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
@@ -323,7 +355,8 @@
         "Chile absorbe el 0,4 % de las exportaciones de Transformadores eléctricos (HS 8504) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Chile.",
         "Transformadores eléctricos (HS 8504) entra a Chile sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Chile 0,72: el filtro deja el score en 0,306 (bruto 0,355)."
+        "Chile está a 4.382 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Chile 0,72: el filtro deja el score en 0,294 (bruto 0,341)."
       ],
       "CRI": [
         "Costa Rica importa USD 100 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
@@ -332,7 +365,8 @@
         "Costa Rica absorbe el 1,0 % de las exportaciones de Transformadores eléctricos (HS 8504) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Costa Rica.",
         "Transformadores eléctricos (HS 8504) entra a Costa Rica sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Costa Rica 0,93: el filtro deja el score en 0,328 (bruto 0,340)."
+        "Costa Rica está a 1.157 km de Colombia; accesibilidad logística 0,51 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Costa Rica 0,93: el filtro deja el score en 0,371 (bruto 0,384)."
       ],
       "DEU": [
         "Alemania importa USD 13.579 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
@@ -341,7 +375,8 @@
         "Alemania absorbe el 0,0 % de las exportaciones de Transformadores eléctricos (HS 8504) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Alemania.",
         "Transformadores eléctricos (HS 8504) entra a Alemania sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,305 (bruto 0,351)."
+        "Alemania está a 9.137 km de Colombia; accesibilidad logística 0,46 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,320 (bruto 0,368)."
       ],
       "DOM": [
         "República Dominicana importa USD 186 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
@@ -350,6 +385,7 @@
         "República Dominicana absorbe el 1,7 % de las exportaciones de Transformadores eléctricos (HS 8504) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de República Dominicana.",
         "Transformadores eléctricos (HS 8504) entra a República Dominicana sin arancel (0 % efectivamente aplicado).",
+        "República Dominicana está a 1.527 km de Colombia; accesibilidad logística 0,44 (escala 0–1: distancia gravitacional + LPI).",
         "Estabilidad macro de República Dominicana 0,78: el filtro deja el score en 0,411 (bruto 0,463)."
       ],
       "ECU": [
@@ -359,7 +395,8 @@
         "Ecuador absorbe el 0,8 % de las exportaciones de Transformadores eléctricos (HS 8504) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,51 (escala 0–1) con la demanda importadora de Ecuador.",
         "Transformadores eléctricos (HS 8504) paga en Ecuador un arancel efectivamente aplicado de 8,7 %.",
-        "Estabilidad macro de Ecuador 0,88: el filtro deja el score en 0,320 (bruto 0,340)."
+        "Ecuador está a 980 km de Colombia; accesibilidad logística 0,53 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Ecuador 0,88: el filtro deja el score en 0,363 (bruto 0,386)."
       ],
       "ESP": [
         "España importa USD 3.004 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
@@ -368,7 +405,8 @@
         "España absorbe el 2,4 % de las exportaciones de Transformadores eléctricos (HS 8504) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de España.",
         "Transformadores eléctricos (HS 8504) entra a España sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de España 0,97: el filtro deja el score en 0,342 (bruto 0,347)."
+        "España está a 8.065 km de Colombia; accesibilidad logística 0,45 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de España 0,97: el filtro deja el score en 0,355 (bruto 0,360)."
       ],
       "FIN": [
         "Finlandia importa USD 892 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
@@ -376,7 +414,8 @@
         "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Finlandia.",
         "Transformadores eléctricos (HS 8504) entra a Finlandia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,262 (bruto 0,297)."
+        "Finlandia está a 9.955 km de Colombia; accesibilidad logística 0,47 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,285 (bruto 0,323)."
       ],
       "FRA": [
         "Francia importa USD 4.157 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
@@ -385,7 +424,8 @@
         "Francia absorbe el 0,0 % de las exportaciones de Transformadores eléctricos (HS 8504) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de Francia.",
         "Transformadores eléctricos (HS 8504) entra a Francia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,305 (bruto 0,333)."
+        "Francia está a 8.615 km de Colombia; accesibilidad logística 0,44 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,315 (bruto 0,344)."
       ],
       "GBR": [
         "Reino Unido importa USD 4.201 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
@@ -394,7 +434,8 @@
         "Reino Unido absorbe el 0,0 % de las exportaciones de Transformadores eléctricos (HS 8504) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Reino Unido.",
         "Transformadores eléctricos (HS 8504) entra a Reino Unido sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,280 (bruto 0,351)."
+        "Reino Unido está a 8.388 km de Colombia; accesibilidad logística 0,42 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,279 (bruto 0,350)."
       ],
       "ITA": [
         "Italia importa USD 3.753 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
@@ -403,7 +444,8 @@
         "Italia absorbe el 0,0 % de las exportaciones de Transformadores eléctricos (HS 8504) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Italia.",
         "Transformadores eléctricos (HS 8504) entra a Italia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,301 (bruto 0,328)."
+        "Italia está a 9.315 km de Colombia; accesibilidad logística 0,41 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,297 (bruto 0,325)."
       ],
       "JPN": [
         "Japón importa USD 4.051 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
@@ -411,7 +453,8 @@
         "Colombia no registra ventas de Transformadores eléctricos (HS 8504) en Japón (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Japón.",
         "Transformadores eléctricos (HS 8504) entra a Japón sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,336 (bruto 0,371)."
+        "Japón está a 14.300 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,322 (bruto 0,355)."
       ],
       "KOR": [
         "Corea del Sur importa USD 3.810 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
@@ -419,7 +462,8 @@
         "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,49 (escala 0–1) con la demanda importadora de Corea del Sur.",
         "Transformadores eléctricos (HS 8504) entra a Corea del Sur sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,395 (bruto 0,420)."
+        "Corea del Sur está a 14.747 km de Colombia; accesibilidad logística 0,38 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,369 (bruto 0,392)."
       ],
       "MEX": [
         "México importa USD 6.715 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
@@ -428,7 +472,8 @@
         "México absorbe el 1,2 % de las exportaciones de Transformadores eléctricos (HS 8504) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de México.",
         "Transformadores eléctricos (HS 8504) entra a México sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de México 0,80: el filtro deja el score en 0,255 (bruto 0,283)."
+        "México está a 3.396 km de Colombia; accesibilidad logística 0,40 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de México 0,80: el filtro deja el score en 0,253 (bruto 0,281)."
       ],
       "NLD": [
         "Países Bajos importa USD 5.283 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
@@ -437,7 +482,8 @@
         "Países Bajos absorbe el 0,1 % de las exportaciones de Transformadores eléctricos (HS 8504) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Países Bajos.",
         "Transformadores eléctricos (HS 8504) entra a Países Bajos sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,318 (bruto 0,351)."
+        "Países Bajos está a 8.815 km de Colombia; accesibilidad logística 0,46 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,336 (bruto 0,371)."
       ],
       "PAN": [
         "Panamá importa USD 84 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
@@ -446,7 +492,8 @@
         "Panamá absorbe el 3,4 % de las exportaciones de Transformadores eléctricos (HS 8504) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Panamá.",
         "Transformadores eléctricos (HS 8504) paga en Panamá un arancel efectivamente aplicado de 0,2 %.",
-        "Estabilidad macro de Panamá 0,94: el filtro deja el score en 0,529 (bruto 0,546)."
+        "Panamá está a 734 km de Colombia; accesibilidad logística 0,57 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Panamá 0,94: el filtro deja el score en 0,578 (bruto 0,596)."
       ],
       "PER": [
         "Perú importa USD 204 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
@@ -455,7 +502,8 @@
         "Perú absorbe el 0,7 % de las exportaciones de Transformadores eléctricos (HS 8504) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Perú.",
         "Transformadores eléctricos (HS 8504) entra a Perú sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Perú 0,91: el filtro deja el score en 0,301 (bruto 0,315)."
+        "Perú está a 1.945 km de Colombia; accesibilidad logística 0,47 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Perú 0,91: el filtro deja el score en 0,327 (bruto 0,342)."
       ],
       "POL": [
         "Polonia importa USD 2.464 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
@@ -464,7 +512,8 @@
         "Polonia absorbe el 0,0 % de las exportaciones de Transformadores eléctricos (HS 8504) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,36 (escala 0–1) con la demanda importadora de Polonia.",
         "Transformadores eléctricos (HS 8504) entra a Polonia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,247 (bruto 0,268)."
+        "Polonia está a 9.790 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,242 (bruto 0,263)."
       ],
       "PRT": [
         "Portugal importa USD 524 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
@@ -472,7 +521,8 @@
         "Colombia no registra ventas de Transformadores eléctricos (HS 8504) en Portugal (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,39 (escala 0–1) con la demanda importadora de Portugal.",
         "Transformadores eléctricos (HS 8504) entra a Portugal sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,271 (bruto 0,281)."
+        "Portugal está a 7.506 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,265 (bruto 0,274)."
       ],
       "SWE": [
         "Suecia importa USD 1.706 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
@@ -481,7 +531,8 @@
         "Suecia absorbe el 0,0 % de las exportaciones de Transformadores eléctricos (HS 8504) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Suecia.",
         "Transformadores eléctricos (HS 8504) entra a Suecia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,244 (bruto 0,271)."
+        "Suecia está a 9.491 km de Colombia; accesibilidad logística 0,45 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,262 (bruto 0,291)."
       ],
       "USA": [
         "Estados Unidos importa USD 30.849 M al año de Transformadores eléctricos (HS 8504) (promedio de los últimos 3 años).",
@@ -490,12 +541,13 @@
         "Estados Unidos absorbe el 75,9 % de las exportaciones de Transformadores eléctricos (HS 8504) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,33 (escala 0–1) con la demanda importadora de Estados Unidos.",
         "Transformadores eléctricos (HS 8504) entra a Estados Unidos sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,419 (bruto 0,506)."
+        "Estados Unidos está a 4.251 km de Colombia; accesibilidad logística 0,50 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,431 (bruto 0,522)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.529,
+        "final_score": 0.578,
         "iso3": "PAN",
         "name": "Panamá",
         "reasons": [
@@ -504,7 +556,7 @@
         ]
       },
       {
-        "final_score": 0.419,
+        "final_score": 0.431,
         "iso3": "USA",
         "name": "Estados Unidos",
         "reasons": [

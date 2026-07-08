@@ -7,7 +7,8 @@
         "Colombia records no sales of Copper waste and scrap (HS 7404) in Australia (0 % share).",
         "The export basket of Colombia fits the import demand of Australia at 0.40 (0–1 scale).",
         "Copper waste and scrap (HS 7404) enters Australia duty-free (0 % effectively applied).",
-        "Macro stability of Australia at 0.77: the filter leaves the score at 0.236 (raw 0.266)."
+        "Australia is 14,797 km away from Colombia; logistics accessibility of 0.37 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Australia at 0.77: the filter leaves the score at 0.217 (raw 0.245)."
       ],
       "AUT": [
         "Austria imports USD 697 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
@@ -15,7 +16,8 @@
         "Colombia records no sales of Copper waste and scrap (HS 7404) in Austria (0 % share).",
         "The export basket of Colombia fits the import demand of Austria at 0.37 (0–1 scale).",
         "Copper waste and scrap (HS 7404) enters Austria duty-free (0 % effectively applied).",
-        "Macro stability of Austria at 0.71: the filter leaves the score at 0.242 (raw 0.283)."
+        "Austria is 9,534 km away from Colombia; logistics accessibility of 0.44 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Austria at 0.71: the filter leaves the score at 0.254 (raw 0.297)."
       ],
       "BEL": [
         "Belgium imports USD 1,893 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
@@ -24,7 +26,8 @@
         "Belgium absorbs 0.6 % of Colombia's exports of Copper waste and scrap (HS 7404).",
         "The export basket of Colombia fits the import demand of Belgium at 0.45 (0–1 scale).",
         "Copper waste and scrap (HS 7404) enters Belgium duty-free (0 % effectively applied).",
-        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.420 (raw 0.466)."
+        "Belgium is 8,749 km away from Colombia; logistics accessibility of 0.45 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.418 (raw 0.464)."
       ],
       "BRA": [
         "Brazil imports USD 132 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
@@ -33,7 +36,8 @@
         "Brazil absorbs 3.1 % of Colombia's exports of Copper waste and scrap (HS 7404).",
         "The export basket of Colombia fits the import demand of Brazil at 0.37 (0–1 scale).",
         "Copper waste and scrap (HS 7404) enters Brazil duty-free (0 % effectively applied).",
-        "Macro stability of Brazil at 0.77: the filter leaves the score at 0.180 (raw 0.203)."
+        "Brazil is 4,306 km away from Colombia; logistics accessibility of 0.42 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Brazil at 0.77: the filter leaves the score at 0.194 (raw 0.219)."
       ],
       "CAN": [
         "Canada imports USD 689 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
@@ -41,7 +45,8 @@
         "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Canada at 0.37 (0–1 scale).",
         "Copper waste and scrap (HS 7404) enters Canada duty-free (0 % effectively applied).",
-        "Macro stability of Canada at 0.86: the filter leaves the score at 0.274 (raw 0.295)."
+        "Canada is 4,893 km away from Colombia; logistics accessibility of 0.51 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Canada at 0.86: the filter leaves the score at 0.315 (raw 0.338)."
       ],
       "CHE": [
         "Switzerland imports USD 33 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
@@ -49,7 +54,8 @@
         "Colombia records no sales of Copper waste and scrap (HS 7404) in Switzerland (0 % share).",
         "The export basket of Colombia fits the import demand of Switzerland at 0.32 (0–1 scale).",
         "Copper waste and scrap (HS 7404) enters Switzerland duty-free (0 % effectively applied).",
-        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.171 (raw 0.182)."
+        "Switzerland is 8,974 km away from Colombia; logistics accessibility of 0.46 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.203 (raw 0.216)."
       ],
       "CHL": [
         "Chile imports USD 1 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
@@ -57,7 +63,8 @@
         "Colombia records no sales of Copper waste and scrap (HS 7404) in Chile (0 % share).",
         "The export basket of Colombia fits the import demand of Chile at 0.46 (0–1 scale).",
         "Copper waste and scrap (HS 7404) enters Chile duty-free (0 % effectively applied).",
-        "Macro stability of Chile at 0.72: the filter leaves the score at 0.218 (raw 0.253)."
+        "Chile is 4,382 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Chile at 0.72: the filter leaves the score at 0.216 (raw 0.251)."
       ],
       "CRI": [
         "Costa Rica imports USD 0 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
@@ -65,7 +72,8 @@
         "Colombia records no sales of Copper waste and scrap (HS 7404) in Costa Rica (0 % share).",
         "The export basket of Colombia fits the import demand of Costa Rica at 0.37 (0–1 scale).",
         "Copper waste and scrap (HS 7404) enters Costa Rica duty-free (0 % effectively applied).",
-        "Macro stability of Costa Rica at 0.93: the filter leaves the score at 0.241 (raw 0.249)."
+        "Costa Rica is 1,157 km away from Colombia; logistics accessibility of 0.51 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Costa Rica at 0.93: the filter leaves the score at 0.288 (raw 0.298)."
       ],
       "DEU": [
         "Germany imports USD 3,386 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
@@ -74,7 +82,8 @@
         "Germany absorbs 0.1 % of Colombia's exports of Copper waste and scrap (HS 7404).",
         "The export basket of Colombia fits the import demand of Germany at 0.37 (0–1 scale).",
         "Copper waste and scrap (HS 7404) enters Germany duty-free (0 % effectively applied).",
-        "Macro stability of Germany at 0.74: the filter leaves the score at 0.421 (raw 0.485)."
+        "Germany is 9,137 km away from Colombia; logistics accessibility of 0.46 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Germany at 0.74: the filter leaves the score at 0.419 (raw 0.483)."
       ],
       "DOM": [
         "Dominican Republic imports USD 0 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
@@ -82,7 +91,8 @@
         "Colombia records no sales of Copper waste and scrap (HS 7404) in Dominican Republic (0 % share).",
         "The export basket of Colombia fits the import demand of Dominican Republic at 0.46 (0–1 scale).",
         "Copper waste and scrap (HS 7404) enters Dominican Republic duty-free (0 % effectively applied).",
-        "Macro stability of Dominican Republic at 0.78: the filter leaves the score at 0.252 (raw 0.284)."
+        "Dominican Republic is 1,527 km away from Colombia; logistics accessibility of 0.44 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Dominican Republic at 0.78: the filter leaves the score at 0.265 (raw 0.298)."
       ],
       "ECU": [
         "Ecuador imports USD 0 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
@@ -91,7 +101,8 @@
         "Ecuador absorbs 0.0 % of Colombia's exports of Copper waste and scrap (HS 7404).",
         "The export basket of Colombia fits the import demand of Ecuador at 0.51 (0–1 scale).",
         "Copper waste and scrap (HS 7404) enters Ecuador duty-free (0 % effectively applied).",
-        "Macro stability of Ecuador at 0.88: the filter leaves the score at 0.510 (raw 0.542)."
+        "Ecuador is 980 km away from Colombia; logistics accessibility of 0.53 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Ecuador at 0.88: the filter leaves the score at 0.540 (raw 0.575)."
       ],
       "ESP": [
         "Spain imports USD 821 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
@@ -100,7 +111,8 @@
         "Spain absorbs 0.4 % of Colombia's exports of Copper waste and scrap (HS 7404).",
         "The export basket of Colombia fits the import demand of Spain at 0.42 (0–1 scale).",
         "Copper waste and scrap (HS 7404) enters Spain duty-free (0 % effectively applied).",
-        "Macro stability of Spain at 0.97: the filter leaves the score at 0.347 (raw 0.353)."
+        "Spain is 8,065 km away from Colombia; logistics accessibility of 0.45 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Spain at 0.97: the filter leaves the score at 0.356 (raw 0.362)."
       ],
       "FIN": [
         "Finland imports USD 116 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
@@ -108,7 +120,8 @@
         "Colombia records no sales of Copper waste and scrap (HS 7404) in Finland (0 % share).",
         "The export basket of Colombia fits the import demand of Finland at 0.40 (0–1 scale).",
         "Copper waste and scrap (HS 7404) enters Finland duty-free (0 % effectively applied).",
-        "Macro stability of Finland at 0.76: the filter leaves the score at 0.251 (raw 0.285)."
+        "Finland is 9,955 km away from Colombia; logistics accessibility of 0.47 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Finland at 0.76: the filter leaves the score at 0.273 (raw 0.310)."
       ],
       "FRA": [
         "France imports USD 308 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
@@ -116,7 +129,8 @@
         "Colombia records no sales of Copper waste and scrap (HS 7404) in France (0 % share).",
         "The export basket of Colombia fits the import demand of France at 0.42 (0–1 scale).",
         "Copper waste and scrap (HS 7404) enters France duty-free (0 % effectively applied).",
-        "Macro stability of France at 0.83: the filter leaves the score at 0.279 (raw 0.304)."
+        "France is 8,615 km away from Colombia; logistics accessibility of 0.44 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of France at 0.83: the filter leaves the score at 0.289 (raw 0.315)."
       ],
       "GBR": [
         "United Kingdom imports USD 143 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
@@ -124,7 +138,8 @@
         "Colombia records no sales of Copper waste and scrap (HS 7404) in United Kingdom (0 % share).",
         "The export basket of Colombia fits the import demand of United Kingdom at 0.43 (0–1 scale).",
         "Copper waste and scrap (HS 7404) enters United Kingdom duty-free (0 % effectively applied).",
-        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.240 (raw 0.301)."
+        "United Kingdom is 8,388 km away from Colombia; logistics accessibility of 0.42 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.241 (raw 0.302)."
       ],
       "ITA": [
         "Italy imports USD 1,079 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
@@ -133,7 +148,8 @@
         "Italy absorbs 0.4 % of Colombia's exports of Copper waste and scrap (HS 7404).",
         "The export basket of Colombia fits the import demand of Italy at 0.43 (0–1 scale).",
         "Copper waste and scrap (HS 7404) enters Italy duty-free (0 % effectively applied).",
-        "Macro stability of Italy at 0.83: the filter leaves the score at 0.352 (raw 0.385)."
+        "Italy is 9,315 km away from Colombia; logistics accessibility of 0.41 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Italy at 0.83: the filter leaves the score at 0.340 (raw 0.371)."
       ],
       "JPN": [
         "Japan imports USD 2,065 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
@@ -142,7 +158,8 @@
         "Japan absorbs 0.7 % of Colombia's exports of Copper waste and scrap (HS 7404).",
         "The export basket of Colombia fits the import demand of Japan at 0.46 (0–1 scale).",
         "Copper waste and scrap (HS 7404) enters Japan duty-free (0 % effectively applied).",
-        "Macro stability of Japan at 0.81: the filter leaves the score at 0.449 (raw 0.496)."
+        "Japan is 14,300 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Japan at 0.81: the filter leaves the score at 0.419 (raw 0.463)."
       ],
       "KOR": [
         "South Korea imports USD 2,492 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
@@ -151,7 +168,8 @@
         "South Korea absorbs 18.8 % of Colombia's exports of Copper waste and scrap (HS 7404).",
         "The export basket of Colombia fits the import demand of South Korea at 0.49 (0–1 scale).",
         "Copper waste and scrap (HS 7404) enters South Korea duty-free (0 % effectively applied).",
-        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.524 (raw 0.556)."
+        "South Korea is 14,747 km away from Colombia; logistics accessibility of 0.38 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.480 (raw 0.509)."
       ],
       "MEX": [
         "Mexico imports USD 97 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
@@ -160,7 +178,8 @@
         "Mexico absorbs 0.4 % of Colombia's exports of Copper waste and scrap (HS 7404).",
         "The export basket of Colombia fits the import demand of Mexico at 0.32 (0–1 scale).",
         "Copper waste and scrap (HS 7404) enters Mexico duty-free (0 % effectively applied).",
-        "Macro stability of Mexico at 0.80: the filter leaves the score at 0.176 (raw 0.196)."
+        "Mexico is 3,396 km away from Colombia; logistics accessibility of 0.40 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Mexico at 0.80: the filter leaves the score at 0.180 (raw 0.201)."
       ],
       "NLD": [
         "Netherlands imports USD 355 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
@@ -169,7 +188,8 @@
         "Netherlands absorbs 0.1 % of Colombia's exports of Copper waste and scrap (HS 7404).",
         "The export basket of Colombia fits the import demand of Netherlands at 0.46 (0–1 scale).",
         "Copper waste and scrap (HS 7404) enters Netherlands duty-free (0 % effectively applied).",
-        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.324 (raw 0.358)."
+        "Netherlands is 8,815 km away from Colombia; logistics accessibility of 0.46 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.340 (raw 0.375)."
       ],
       "PAN": [
         "Panama imports USD 0 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
@@ -177,7 +197,8 @@
         "Colombia records no sales of Copper waste and scrap (HS 7404) in Panama (0 % share).",
         "The export basket of Colombia fits the import demand of Panama at 0.45 (0–1 scale).",
         "Copper waste and scrap (HS 7404) enters Panama duty-free (0 % effectively applied).",
-        "Macro stability of Panama at 0.94: the filter leaves the score at 0.288 (raw 0.297)."
+        "Panama is 734 km away from Colombia; logistics accessibility of 0.57 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Panama at 0.94: the filter leaves the score at 0.362 (raw 0.373)."
       ],
       "PER": [
         "Peru imports USD 5 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
@@ -186,7 +207,8 @@
         "Peru absorbs 0.5 % of Colombia's exports of Copper waste and scrap (HS 7404).",
         "The export basket of Colombia fits the import demand of Peru at 0.43 (0–1 scale).",
         "Copper waste and scrap (HS 7404) enters Peru duty-free (0 % effectively applied).",
-        "Macro stability of Peru at 0.91: the filter leaves the score at 0.513 (raw 0.537)."
+        "Peru is 1,945 km away from Colombia; logistics accessibility of 0.47 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Peru at 0.91: the filter leaves the score at 0.514 (raw 0.538)."
       ],
       "POL": [
         "Poland imports USD 1,086 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
@@ -194,7 +216,8 @@
         "Colombia records no sales of Copper waste and scrap (HS 7404) in Poland (0 % share).",
         "The export basket of Colombia fits the import demand of Poland at 0.36 (0–1 scale).",
         "Copper waste and scrap (HS 7404) enters Poland duty-free (0 % effectively applied).",
-        "Macro stability of Poland at 0.84: the filter leaves the score at 0.288 (raw 0.313)."
+        "Poland is 9,790 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Poland at 0.84: the filter leaves the score at 0.275 (raw 0.299)."
       ],
       "PRT": [
         "Portugal imports USD 128 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
@@ -202,7 +225,8 @@
         "Colombia records no sales of Copper waste and scrap (HS 7404) in Portugal (0 % share).",
         "The export basket of Colombia fits the import demand of Portugal at 0.39 (0–1 scale).",
         "Copper waste and scrap (HS 7404) enters Portugal duty-free (0 % effectively applied).",
-        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.263 (raw 0.272)."
+        "Portugal is 7,506 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.254 (raw 0.263)."
       ],
       "SWE": [
         "Sweden imports USD 436 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
@@ -210,7 +234,8 @@
         "Colombia records no sales of Copper waste and scrap (HS 7404) in Sweden (0 % share).",
         "The export basket of Colombia fits the import demand of Sweden at 0.37 (0–1 scale).",
         "Copper waste and scrap (HS 7404) enters Sweden duty-free (0 % effectively applied).",
-        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.241 (raw 0.267)."
+        "Sweden is 9,491 km away from Colombia; logistics accessibility of 0.45 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.255 (raw 0.284)."
       ],
       "USA": [
         "United States imports USD 771 M a year of Copper waste and scrap (HS 7404) (average of the last 3 years).",
@@ -219,21 +244,22 @@
         "United States absorbs 0.8 % of Colombia's exports of Copper waste and scrap (HS 7404).",
         "The export basket of Colombia fits the import demand of United States at 0.33 (0–1 scale).",
         "Copper waste and scrap (HS 7404) enters United States duty-free (0 % effectively applied).",
-        "Macro stability of United States at 0.65: the filter leaves the score at 0.208 (raw 0.252)."
+        "United States is 4,251 km away from Colombia; logistics accessibility of 0.50 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of United States at 0.65: the filter leaves the score at 0.243 (raw 0.294)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.524,
-        "iso3": "KOR",
-        "name": "South Korea",
+        "final_score": 0.54,
+        "iso3": "ECU",
+        "name": "Ecuador",
         "reasons": [
-          "destination #2 by market size (USD 2,492 M/year)",
-          "destination #2 by basket complementarity (index 0.49 (0–1 scale))"
+          "destination #1 by demand growth (428.9 % per year)",
+          "destination #1 by basket complementarity (index 0.51 (0–1 scale))"
         ]
       },
       {
-        "final_score": 0.513,
+        "final_score": 0.514,
         "iso3": "PER",
         "name": "Peru",
         "reasons": [
@@ -242,12 +268,12 @@
         ]
       },
       {
-        "final_score": 0.51,
-        "iso3": "ECU",
-        "name": "Ecuador",
+        "final_score": 0.48,
+        "iso3": "KOR",
+        "name": "South Korea",
         "reasons": [
-          "destination #1 by demand growth (428.9 % per year)",
-          "destination #1 by basket complementarity (index 0.51 (0–1 scale))"
+          "destination #2 by basket complementarity (index 0.49 (0–1 scale))",
+          "destination #2 by market size (USD 2,492 M/year)"
         ]
       }
     ]
@@ -260,7 +286,8 @@
         "Colombia no registra ventas de Chatarra de cobre (HS 7404) en Australia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Australia.",
         "Chatarra de cobre (HS 7404) entra a Australia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,236 (bruto 0,266)."
+        "Australia está a 14.797 km de Colombia; accesibilidad logística 0,37 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,217 (bruto 0,245)."
       ],
       "AUT": [
         "Austria importa USD 697 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
@@ -268,7 +295,8 @@
         "Colombia no registra ventas de Chatarra de cobre (HS 7404) en Austria (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Austria.",
         "Chatarra de cobre (HS 7404) entra a Austria sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,242 (bruto 0,283)."
+        "Austria está a 9.534 km de Colombia; accesibilidad logística 0,44 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,254 (bruto 0,297)."
       ],
       "BEL": [
         "Bélgica importa USD 1.893 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
@@ -277,7 +305,8 @@
         "Bélgica absorbe el 0,6 % de las exportaciones de Chatarra de cobre (HS 7404) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Bélgica.",
         "Chatarra de cobre (HS 7404) entra a Bélgica sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,420 (bruto 0,466)."
+        "Bélgica está a 8.749 km de Colombia; accesibilidad logística 0,45 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,418 (bruto 0,464)."
       ],
       "BRA": [
         "Brasil importa USD 132 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
@@ -286,7 +315,8 @@
         "Brasil absorbe el 3,1 % de las exportaciones de Chatarra de cobre (HS 7404) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Brasil.",
         "Chatarra de cobre (HS 7404) entra a Brasil sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Brasil 0,77: el filtro deja el score en 0,180 (bruto 0,203)."
+        "Brasil está a 4.306 km de Colombia; accesibilidad logística 0,42 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Brasil 0,77: el filtro deja el score en 0,194 (bruto 0,219)."
       ],
       "CAN": [
         "Canadá importa USD 689 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
@@ -294,7 +324,8 @@
         "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Canadá.",
         "Chatarra de cobre (HS 7404) entra a Canadá sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,274 (bruto 0,295)."
+        "Canadá está a 4.893 km de Colombia; accesibilidad logística 0,51 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,315 (bruto 0,338)."
       ],
       "CHE": [
         "Suiza importa USD 33 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
@@ -302,7 +333,8 @@
         "Colombia no registra ventas de Chatarra de cobre (HS 7404) en Suiza (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de Suiza.",
         "Chatarra de cobre (HS 7404) entra a Suiza sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,171 (bruto 0,182)."
+        "Suiza está a 8.974 km de Colombia; accesibilidad logística 0,46 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,203 (bruto 0,216)."
       ],
       "CHL": [
         "Chile importa USD 1 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
@@ -310,7 +342,8 @@
         "Colombia no registra ventas de Chatarra de cobre (HS 7404) en Chile (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Chile.",
         "Chatarra de cobre (HS 7404) entra a Chile sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Chile 0,72: el filtro deja el score en 0,218 (bruto 0,253)."
+        "Chile está a 4.382 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Chile 0,72: el filtro deja el score en 0,216 (bruto 0,251)."
       ],
       "CRI": [
         "Costa Rica importa USD 0 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
@@ -318,7 +351,8 @@
         "Colombia no registra ventas de Chatarra de cobre (HS 7404) en Costa Rica (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Costa Rica.",
         "Chatarra de cobre (HS 7404) entra a Costa Rica sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Costa Rica 0,93: el filtro deja el score en 0,241 (bruto 0,249)."
+        "Costa Rica está a 1.157 km de Colombia; accesibilidad logística 0,51 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Costa Rica 0,93: el filtro deja el score en 0,288 (bruto 0,298)."
       ],
       "DEU": [
         "Alemania importa USD 3.386 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
@@ -327,7 +361,8 @@
         "Alemania absorbe el 0,1 % de las exportaciones de Chatarra de cobre (HS 7404) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Alemania.",
         "Chatarra de cobre (HS 7404) entra a Alemania sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,421 (bruto 0,485)."
+        "Alemania está a 9.137 km de Colombia; accesibilidad logística 0,46 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,419 (bruto 0,483)."
       ],
       "DOM": [
         "República Dominicana importa USD 0 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
@@ -335,7 +370,8 @@
         "Colombia no registra ventas de Chatarra de cobre (HS 7404) en República Dominicana (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de República Dominicana.",
         "Chatarra de cobre (HS 7404) entra a República Dominicana sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de República Dominicana 0,78: el filtro deja el score en 0,252 (bruto 0,284)."
+        "República Dominicana está a 1.527 km de Colombia; accesibilidad logística 0,44 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de República Dominicana 0,78: el filtro deja el score en 0,265 (bruto 0,298)."
       ],
       "ECU": [
         "Ecuador importa USD 0 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
@@ -344,7 +380,8 @@
         "Ecuador absorbe el 0,0 % de las exportaciones de Chatarra de cobre (HS 7404) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,51 (escala 0–1) con la demanda importadora de Ecuador.",
         "Chatarra de cobre (HS 7404) entra a Ecuador sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Ecuador 0,88: el filtro deja el score en 0,510 (bruto 0,542)."
+        "Ecuador está a 980 km de Colombia; accesibilidad logística 0,53 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Ecuador 0,88: el filtro deja el score en 0,540 (bruto 0,575)."
       ],
       "ESP": [
         "España importa USD 821 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
@@ -353,7 +390,8 @@
         "España absorbe el 0,4 % de las exportaciones de Chatarra de cobre (HS 7404) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de España.",
         "Chatarra de cobre (HS 7404) entra a España sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de España 0,97: el filtro deja el score en 0,347 (bruto 0,353)."
+        "España está a 8.065 km de Colombia; accesibilidad logística 0,45 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de España 0,97: el filtro deja el score en 0,356 (bruto 0,362)."
       ],
       "FIN": [
         "Finlandia importa USD 116 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
@@ -361,7 +399,8 @@
         "Colombia no registra ventas de Chatarra de cobre (HS 7404) en Finlandia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Finlandia.",
         "Chatarra de cobre (HS 7404) entra a Finlandia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,251 (bruto 0,285)."
+        "Finlandia está a 9.955 km de Colombia; accesibilidad logística 0,47 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,273 (bruto 0,310)."
       ],
       "FRA": [
         "Francia importa USD 308 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
@@ -369,7 +408,8 @@
         "Colombia no registra ventas de Chatarra de cobre (HS 7404) en Francia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de Francia.",
         "Chatarra de cobre (HS 7404) entra a Francia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,279 (bruto 0,304)."
+        "Francia está a 8.615 km de Colombia; accesibilidad logística 0,44 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,289 (bruto 0,315)."
       ],
       "GBR": [
         "Reino Unido importa USD 143 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
@@ -377,7 +417,8 @@
         "Colombia no registra ventas de Chatarra de cobre (HS 7404) en Reino Unido (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Reino Unido.",
         "Chatarra de cobre (HS 7404) entra a Reino Unido sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,240 (bruto 0,301)."
+        "Reino Unido está a 8.388 km de Colombia; accesibilidad logística 0,42 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,241 (bruto 0,302)."
       ],
       "ITA": [
         "Italia importa USD 1.079 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
@@ -386,7 +427,8 @@
         "Italia absorbe el 0,4 % de las exportaciones de Chatarra de cobre (HS 7404) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Italia.",
         "Chatarra de cobre (HS 7404) entra a Italia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,352 (bruto 0,385)."
+        "Italia está a 9.315 km de Colombia; accesibilidad logística 0,41 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,340 (bruto 0,371)."
       ],
       "JPN": [
         "Japón importa USD 2.065 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
@@ -395,7 +437,8 @@
         "Japón absorbe el 0,7 % de las exportaciones de Chatarra de cobre (HS 7404) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Japón.",
         "Chatarra de cobre (HS 7404) entra a Japón sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,449 (bruto 0,496)."
+        "Japón está a 14.300 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,419 (bruto 0,463)."
       ],
       "KOR": [
         "Corea del Sur importa USD 2.492 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
@@ -404,7 +447,8 @@
         "Corea del Sur absorbe el 18,8 % de las exportaciones de Chatarra de cobre (HS 7404) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,49 (escala 0–1) con la demanda importadora de Corea del Sur.",
         "Chatarra de cobre (HS 7404) entra a Corea del Sur sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,524 (bruto 0,556)."
+        "Corea del Sur está a 14.747 km de Colombia; accesibilidad logística 0,38 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,480 (bruto 0,509)."
       ],
       "MEX": [
         "México importa USD 97 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
@@ -413,7 +457,8 @@
         "México absorbe el 0,4 % de las exportaciones de Chatarra de cobre (HS 7404) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de México.",
         "Chatarra de cobre (HS 7404) entra a México sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de México 0,80: el filtro deja el score en 0,176 (bruto 0,196)."
+        "México está a 3.396 km de Colombia; accesibilidad logística 0,40 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de México 0,80: el filtro deja el score en 0,180 (bruto 0,201)."
       ],
       "NLD": [
         "Países Bajos importa USD 355 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
@@ -422,7 +467,8 @@
         "Países Bajos absorbe el 0,1 % de las exportaciones de Chatarra de cobre (HS 7404) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Países Bajos.",
         "Chatarra de cobre (HS 7404) entra a Países Bajos sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,324 (bruto 0,358)."
+        "Países Bajos está a 8.815 km de Colombia; accesibilidad logística 0,46 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,340 (bruto 0,375)."
       ],
       "PAN": [
         "Panamá importa USD 0 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
@@ -430,7 +476,8 @@
         "Colombia no registra ventas de Chatarra de cobre (HS 7404) en Panamá (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Panamá.",
         "Chatarra de cobre (HS 7404) entra a Panamá sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Panamá 0,94: el filtro deja el score en 0,288 (bruto 0,297)."
+        "Panamá está a 734 km de Colombia; accesibilidad logística 0,57 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Panamá 0,94: el filtro deja el score en 0,362 (bruto 0,373)."
       ],
       "PER": [
         "Perú importa USD 5 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
@@ -439,7 +486,8 @@
         "Perú absorbe el 0,5 % de las exportaciones de Chatarra de cobre (HS 7404) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Perú.",
         "Chatarra de cobre (HS 7404) entra a Perú sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Perú 0,91: el filtro deja el score en 0,513 (bruto 0,537)."
+        "Perú está a 1.945 km de Colombia; accesibilidad logística 0,47 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Perú 0,91: el filtro deja el score en 0,514 (bruto 0,538)."
       ],
       "POL": [
         "Polonia importa USD 1.086 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
@@ -447,7 +495,8 @@
         "Colombia no registra ventas de Chatarra de cobre (HS 7404) en Polonia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,36 (escala 0–1) con la demanda importadora de Polonia.",
         "Chatarra de cobre (HS 7404) entra a Polonia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,288 (bruto 0,313)."
+        "Polonia está a 9.790 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,275 (bruto 0,299)."
       ],
       "PRT": [
         "Portugal importa USD 128 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
@@ -455,7 +504,8 @@
         "Colombia no registra ventas de Chatarra de cobre (HS 7404) en Portugal (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,39 (escala 0–1) con la demanda importadora de Portugal.",
         "Chatarra de cobre (HS 7404) entra a Portugal sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,263 (bruto 0,272)."
+        "Portugal está a 7.506 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,254 (bruto 0,263)."
       ],
       "SWE": [
         "Suecia importa USD 436 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
@@ -463,7 +513,8 @@
         "Colombia no registra ventas de Chatarra de cobre (HS 7404) en Suecia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Suecia.",
         "Chatarra de cobre (HS 7404) entra a Suecia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,241 (bruto 0,267)."
+        "Suecia está a 9.491 km de Colombia; accesibilidad logística 0,45 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,255 (bruto 0,284)."
       ],
       "USA": [
         "Estados Unidos importa USD 771 M al año de Chatarra de cobre (HS 7404) (promedio de los últimos 3 años).",
@@ -472,21 +523,22 @@
         "Estados Unidos absorbe el 0,8 % de las exportaciones de Chatarra de cobre (HS 7404) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,33 (escala 0–1) con la demanda importadora de Estados Unidos.",
         "Chatarra de cobre (HS 7404) entra a Estados Unidos sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,208 (bruto 0,252)."
+        "Estados Unidos está a 4.251 km de Colombia; accesibilidad logística 0,50 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,243 (bruto 0,294)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.524,
-        "iso3": "KOR",
-        "name": "Corea del Sur",
+        "final_score": 0.54,
+        "iso3": "ECU",
+        "name": "Ecuador",
         "reasons": [
-          "2.º destino por tamaño de mercado (USD 2.492 M/año)",
-          "2.º destino por complementariedad de canastas (índice 0,49 (escala 0–1))"
+          "1.º destino por crecimiento de la demanda (428,9 % anual)",
+          "1.º destino por complementariedad de canastas (índice 0,51 (escala 0–1))"
         ]
       },
       {
-        "final_score": 0.513,
+        "final_score": 0.514,
         "iso3": "PER",
         "name": "Perú",
         "reasons": [
@@ -495,12 +547,12 @@
         ]
       },
       {
-        "final_score": 0.51,
-        "iso3": "ECU",
-        "name": "Ecuador",
+        "final_score": 0.48,
+        "iso3": "KOR",
+        "name": "Corea del Sur",
         "reasons": [
-          "1.º destino por crecimiento de la demanda (428,9 % anual)",
-          "1.º destino por complementariedad de canastas (índice 0,51 (escala 0–1))"
+          "2.º destino por complementariedad de canastas (índice 0,49 (escala 0–1))",
+          "2.º destino por tamaño de mercado (USD 2.492 M/año)"
         ]
       }
     ]

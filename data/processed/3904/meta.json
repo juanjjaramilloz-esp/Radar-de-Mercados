@@ -1,4 +1,12 @@
 {
+  "accessibility_distance_bounds_km": [
+    20015.0,
+    100.0
+  ],
+  "accessibility_lpi_bounds": [
+    1.0,
+    5.0
+  ],
   "basket_year": 2024,
   "context_indicators": {
     "LP.LPI.OVRL.XQ": "lpi"
@@ -39,11 +47,12 @@
     2025
   ],
   "weights": {
-    "complementarity": 0.2,
-    "import_growth": 0.2,
-    "market_share": 0.15,
-    "market_size": 0.25,
-    "share_trend": 0.1,
+    "accessibility": 0.1,
+    "complementarity": 0.18,
+    "import_growth": 0.18,
+    "market_share": 0.14,
+    "market_size": 0.22,
+    "share_trend": 0.08,
     "tariff_faced": 0.1
   }
 }

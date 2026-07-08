@@ -7,7 +7,8 @@
         "Colombia already holds 11.1 % of the market and gains 6.8 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Australia at 0.40 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Australia duty-free (0 % effectively applied).",
-        "Macro stability of Australia at 0.77: the filter leaves the score at 0.335 (raw 0.379)."
+        "Australia is 14,797 km away from Colombia; logistics accessibility of 0.37 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Australia at 0.77: the filter leaves the score at 0.308 (raw 0.348)."
       ],
       "AUT": [
         "Austria imports USD 161 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
@@ -15,7 +16,8 @@
         "Colombia already holds 25.9 % of the market and gains 5.2 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Austria at 0.37 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Austria duty-free (0 % effectively applied).",
-        "Macro stability of Austria at 0.71: the filter leaves the score at 0.310 (raw 0.362)."
+        "Austria is 9,534 km away from Colombia; logistics accessibility of 0.44 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Austria at 0.71: the filter leaves the score at 0.319 (raw 0.373)."
       ],
       "BEL": [
         "Belgium imports USD 263 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
@@ -24,7 +26,8 @@
         "Belgium absorbs 17.3 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of Belgium at 0.45 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Belgium duty-free (0 % effectively applied).",
-        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.424 (raw 0.470)."
+        "Belgium is 8,749 km away from Colombia; logistics accessibility of 0.45 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.426 (raw 0.472)."
       ],
       "BRA": [
         "Brazil imports USD 1 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
@@ -32,7 +35,8 @@
         "Colombia records no sales of Bananas and plantains (HS 0803) in Brazil (0 % share).",
         "The export basket of Colombia fits the import demand of Brazil at 0.37 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Brazil duty-free (0 % effectively applied).",
-        "Macro stability of Brazil at 0.77: the filter leaves the score at 0.331 (raw 0.373)."
+        "Brazil is 4,306 km away from Colombia; logistics accessibility of 0.42 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Brazil at 0.77: the filter leaves the score at 0.328 (raw 0.370)."
       ],
       "CAN": [
         "Canada imports USD 529 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
@@ -41,7 +45,8 @@
         "Canada absorbs 0.1 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of Canada at 0.37 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Canada duty-free (0 % effectively applied).",
-        "Macro stability of Canada at 0.86: the filter leaves the score at 0.314 (raw 0.337)."
+        "Canada is 4,893 km away from Colombia; logistics accessibility of 0.51 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Canada at 0.86: the filter leaves the score at 0.353 (raw 0.380)."
       ],
       "CHE": [
         "Switzerland imports USD 129 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
@@ -50,7 +55,8 @@
         "Switzerland absorbs 0.9 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of Switzerland at 0.32 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Switzerland duty-free (0 % effectively applied).",
-        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.365 (raw 0.389)."
+        "Switzerland is 8,974 km away from Colombia; logistics accessibility of 0.46 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.380 (raw 0.405)."
       ],
       "CHL": [
         "Chile imports USD 129 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
@@ -59,7 +65,8 @@
         "Chile absorbs 0.0 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of Chile at 0.46 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Chile duty-free (0 % effectively applied).",
-        "Macro stability of Chile at 0.72: the filter leaves the score at 0.306 (raw 0.355)."
+        "Chile is 4,382 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Chile at 0.72: the filter leaves the score at 0.293 (raw 0.340)."
       ],
       "CRI": [
         "Costa Rica imports USD 4 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
@@ -68,7 +75,8 @@
         "Costa Rica absorbs 0.0 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of Costa Rica at 0.37 (0–1 scale).",
         "Bananas and plantains (HS 0803) faces an effectively applied tariff of 6.0 % in Costa Rica.",
-        "Macro stability of Costa Rica at 0.93: the filter leaves the score at 0.178 (raw 0.184)."
+        "Costa Rica is 1,157 km away from Colombia; logistics accessibility of 0.51 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Costa Rica at 0.93: the filter leaves the score at 0.230 (raw 0.238)."
       ],
       "DEU": [
         "Germany imports USD 1,166 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
@@ -77,7 +85,8 @@
         "Germany absorbs 12.2 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of Germany at 0.37 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Germany duty-free (0 % effectively applied).",
-        "Macro stability of Germany at 0.74: the filter leaves the score at 0.413 (raw 0.475)."
+        "Germany is 9,137 km away from Colombia; logistics accessibility of 0.46 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Germany at 0.74: the filter leaves the score at 0.418 (raw 0.481)."
       ],
       "DOM": [
         "Dominican Republic imports USD 0 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
@@ -85,7 +94,8 @@
         "Colombia records no sales of Bananas and plantains (HS 0803) in Dominican Republic (0 % share).",
         "The export basket of Colombia fits the import demand of Dominican Republic at 0.46 (0–1 scale).",
         "Bananas and plantains (HS 0803) faces an effectively applied tariff of 20.0 % in Dominican Republic.",
-        "Macro stability of Dominican Republic at 0.78: the filter leaves the score at 0.157 (raw 0.177)."
+        "Dominican Republic is 1,527 km away from Colombia; logistics accessibility of 0.44 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Dominican Republic at 0.78: the filter leaves the score at 0.172 (raw 0.194)."
       ],
       "ESP": [
         "Spain imports USD 381 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
@@ -94,7 +104,8 @@
         "Spain absorbs 2.7 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of Spain at 0.42 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Spain duty-free (0 % effectively applied).",
-        "Macro stability of Spain at 0.97: the filter leaves the score at 0.377 (raw 0.383)."
+        "Spain is 8,065 km away from Colombia; logistics accessibility of 0.45 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Spain at 0.97: the filter leaves the score at 0.389 (raw 0.395)."
       ],
       "FIN": [
         "Finland imports USD 59 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
@@ -103,7 +114,8 @@
         "Finland absorbs 0.0 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of Finland at 0.40 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Finland duty-free (0 % effectively applied).",
-        "Macro stability of Finland at 0.76: the filter leaves the score at 0.394 (raw 0.447)."
+        "Finland is 9,955 km away from Colombia; logistics accessibility of 0.47 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Finland at 0.76: the filter leaves the score at 0.399 (raw 0.453)."
       ],
       "FRA": [
         "France imports USD 883 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
@@ -112,7 +124,8 @@
         "France absorbs 5.2 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of France at 0.42 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters France duty-free (0 % effectively applied).",
-        "Macro stability of France at 0.83: the filter leaves the score at 0.393 (raw 0.429)."
+        "France is 8,615 km away from Colombia; logistics accessibility of 0.44 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of France at 0.83: the filter leaves the score at 0.395 (raw 0.431)."
       ],
       "GBR": [
         "United Kingdom imports USD 767 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
@@ -121,7 +134,8 @@
         "United Kingdom absorbs 15.1 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of United Kingdom at 0.43 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters United Kingdom duty-free (0 % effectively applied).",
-        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.414 (raw 0.520)."
+        "United Kingdom is 8,388 km away from Colombia; logistics accessibility of 0.42 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.401 (raw 0.503)."
       ],
       "ITA": [
         "Italy imports USD 619 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
@@ -130,7 +144,8 @@
         "Italy absorbs 11.9 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of Italy at 0.43 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Italy duty-free (0 % effectively applied).",
-        "Macro stability of Italy at 0.83: the filter leaves the score at 0.438 (raw 0.479)."
+        "Italy is 9,315 km away from Colombia; logistics accessibility of 0.41 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Italy at 0.83: the filter leaves the score at 0.424 (raw 0.463)."
       ],
       "JPN": [
         "Japan imports USD 985 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
@@ -138,7 +153,8 @@
         "Colombia records no sales of Bananas and plantains (HS 0803) in Japan (0 % share).",
         "The export basket of Colombia fits the import demand of Japan at 0.46 (0–1 scale).",
         "Bananas and plantains (HS 0803) faces an effectively applied tariff of 12.8 % in Japan.",
-        "Macro stability of Japan at 0.81: the filter leaves the score at 0.329 (raw 0.364)."
+        "Japan is 14,300 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Japan at 0.81: the filter leaves the score at 0.309 (raw 0.341)."
       ],
       "KOR": [
         "South Korea imports USD 334 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
@@ -147,7 +163,8 @@
         "South Korea absorbs 0.0 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of South Korea at 0.49 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters South Korea duty-free (0 % effectively applied).",
-        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.379 (raw 0.402)."
+        "South Korea is 14,747 km away from Colombia; logistics accessibility of 0.38 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.355 (raw 0.377)."
       ],
       "NLD": [
         "Netherlands imports USD 914 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
@@ -156,7 +173,8 @@
         "Netherlands absorbs 6.8 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of Netherlands at 0.46 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Netherlands duty-free (0 % effectively applied).",
-        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.425 (raw 0.470)."
+        "Netherlands is 8,815 km away from Colombia; logistics accessibility of 0.46 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.432 (raw 0.477)."
       ],
       "PAN": [
         "Panama imports USD 0 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
@@ -165,7 +183,8 @@
         "Panama absorbs 0.0 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of Panama at 0.45 (0–1 scale).",
         "Bananas and plantains (HS 0803) faces an effectively applied tariff of 13.8 % in Panama.",
-        "Macro stability of Panama at 0.94: the filter leaves the score at 0.230 (raw 0.238)."
+        "Panama is 734 km away from Colombia; logistics accessibility of 0.57 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Panama at 0.94: the filter leaves the score at 0.305 (raw 0.315)."
       ],
       "PER": [
         "Peru imports USD 0 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
@@ -173,7 +192,8 @@
         "Colombia records no sales of Bananas and plantains (HS 0803) in Peru (0 % share).",
         "The export basket of Colombia fits the import demand of Peru at 0.43 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Peru duty-free (0 % effectively applied).",
-        "Macro stability of Peru at 0.91: the filter leaves the score at 0.235 (raw 0.246)."
+        "Peru is 1,945 km away from Colombia; logistics accessibility of 0.47 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Peru at 0.91: the filter leaves the score at 0.267 (raw 0.279)."
       ],
       "POL": [
         "Poland imports USD 388 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
@@ -182,7 +202,8 @@
         "Poland absorbs 1.5 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of Poland at 0.36 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Poland duty-free (0 % effectively applied).",
-        "Macro stability of Poland at 0.84: the filter leaves the score at 0.318 (raw 0.345)."
+        "Poland is 9,790 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Poland at 0.84: the filter leaves the score at 0.308 (raw 0.335)."
       ],
       "PRT": [
         "Portugal imports USD 178 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
@@ -191,7 +212,8 @@
         "Portugal absorbs 1.5 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of Portugal at 0.39 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Portugal duty-free (0 % effectively applied).",
-        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.391 (raw 0.405)."
+        "Portugal is 7,506 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.372 (raw 0.385)."
       ],
       "SWE": [
         "Sweden imports USD 154 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
@@ -200,7 +222,8 @@
         "Sweden absorbs 1.1 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of Sweden at 0.37 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Sweden duty-free (0 % effectively applied).",
-        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.248 (raw 0.276)."
+        "Sweden is 9,491 km away from Colombia; logistics accessibility of 0.45 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.268 (raw 0.298)."
       ],
       "USA": [
         "United States imports USD 3,249 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
@@ -209,21 +232,13 @@
         "United States absorbs 19.9 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of United States at 0.33 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters United States duty-free (0 % effectively applied).",
-        "Macro stability of United States at 0.65: the filter leaves the score at 0.406 (raw 0.491)."
+        "United States is 4,251 km away from Colombia; logistics accessibility of 0.50 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of United States at 0.65: the filter leaves the score at 0.420 (raw 0.508)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.438,
-        "iso3": "ITA",
-        "name": "Italy",
-        "reasons": [
-          "destination #8 by basket complementarity (index 0.43 (0–1 scale))",
-          "destination #4 by share already won (share of 31.8 %)"
-        ]
-      },
-      {
-        "final_score": 0.425,
+        "final_score": 0.432,
         "iso3": "NLD",
         "name": "Netherlands",
         "reasons": [
@@ -232,12 +247,21 @@
         ]
       },
       {
-        "final_score": 0.424,
+        "final_score": 0.426,
         "iso3": "BEL",
         "name": "Belgium",
         "reasons": [
           "destination #6 by basket complementarity (index 0.45 (0–1 scale))",
           "destination #1 by tariff faced (0.0 % effectively applied)"
+        ]
+      },
+      {
+        "final_score": 0.424,
+        "iso3": "ITA",
+        "name": "Italy",
+        "reasons": [
+          "destination #8 by basket complementarity (index 0.43 (0–1 scale))",
+          "destination #4 by share already won (share of 31.8 %)"
         ]
       }
     ]
@@ -250,7 +274,8 @@
         "Colombia ya tiene 11,1 % del mercado y gana 6,8 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Australia.",
         "Bananos y plátanos (HS 0803) entra a Australia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,335 (bruto 0,379)."
+        "Australia está a 14.797 km de Colombia; accesibilidad logística 0,37 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,308 (bruto 0,348)."
       ],
       "AUT": [
         "Austria importa USD 161 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
@@ -258,7 +283,8 @@
         "Colombia ya tiene 25,9 % del mercado y gana 5,2 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Austria.",
         "Bananos y plátanos (HS 0803) entra a Austria sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,310 (bruto 0,362)."
+        "Austria está a 9.534 km de Colombia; accesibilidad logística 0,44 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,319 (bruto 0,373)."
       ],
       "BEL": [
         "Bélgica importa USD 263 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
@@ -267,7 +293,8 @@
         "Bélgica absorbe el 17,3 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Bélgica.",
         "Bananos y plátanos (HS 0803) entra a Bélgica sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,424 (bruto 0,470)."
+        "Bélgica está a 8.749 km de Colombia; accesibilidad logística 0,45 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,426 (bruto 0,472)."
       ],
       "BRA": [
         "Brasil importa USD 1 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
@@ -275,7 +302,8 @@
         "Colombia no registra ventas de Bananos y plátanos (HS 0803) en Brasil (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Brasil.",
         "Bananos y plátanos (HS 0803) entra a Brasil sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Brasil 0,77: el filtro deja el score en 0,331 (bruto 0,373)."
+        "Brasil está a 4.306 km de Colombia; accesibilidad logística 0,42 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Brasil 0,77: el filtro deja el score en 0,328 (bruto 0,370)."
       ],
       "CAN": [
         "Canadá importa USD 529 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
@@ -284,7 +312,8 @@
         "Canadá absorbe el 0,1 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Canadá.",
         "Bananos y plátanos (HS 0803) entra a Canadá sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,314 (bruto 0,337)."
+        "Canadá está a 4.893 km de Colombia; accesibilidad logística 0,51 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,353 (bruto 0,380)."
       ],
       "CHE": [
         "Suiza importa USD 129 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
@@ -293,7 +322,8 @@
         "Suiza absorbe el 0,9 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de Suiza.",
         "Bananos y plátanos (HS 0803) entra a Suiza sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,365 (bruto 0,389)."
+        "Suiza está a 8.974 km de Colombia; accesibilidad logística 0,46 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,380 (bruto 0,405)."
       ],
       "CHL": [
         "Chile importa USD 129 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
@@ -302,7 +332,8 @@
         "Chile absorbe el 0,0 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Chile.",
         "Bananos y plátanos (HS 0803) entra a Chile sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Chile 0,72: el filtro deja el score en 0,306 (bruto 0,355)."
+        "Chile está a 4.382 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Chile 0,72: el filtro deja el score en 0,293 (bruto 0,340)."
       ],
       "CRI": [
         "Costa Rica importa USD 4 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
@@ -311,7 +342,8 @@
         "Costa Rica absorbe el 0,0 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Costa Rica.",
         "Bananos y plátanos (HS 0803) paga en Costa Rica un arancel efectivamente aplicado de 6,0 %.",
-        "Estabilidad macro de Costa Rica 0,93: el filtro deja el score en 0,178 (bruto 0,184)."
+        "Costa Rica está a 1.157 km de Colombia; accesibilidad logística 0,51 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Costa Rica 0,93: el filtro deja el score en 0,230 (bruto 0,238)."
       ],
       "DEU": [
         "Alemania importa USD 1.166 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
@@ -320,7 +352,8 @@
         "Alemania absorbe el 12,2 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Alemania.",
         "Bananos y plátanos (HS 0803) entra a Alemania sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,413 (bruto 0,475)."
+        "Alemania está a 9.137 km de Colombia; accesibilidad logística 0,46 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,418 (bruto 0,481)."
       ],
       "DOM": [
         "República Dominicana importa USD 0 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
@@ -328,7 +361,8 @@
         "Colombia no registra ventas de Bananos y plátanos (HS 0803) en República Dominicana (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de República Dominicana.",
         "Bananos y plátanos (HS 0803) paga en República Dominicana un arancel efectivamente aplicado de 20,0 %.",
-        "Estabilidad macro de República Dominicana 0,78: el filtro deja el score en 0,157 (bruto 0,177)."
+        "República Dominicana está a 1.527 km de Colombia; accesibilidad logística 0,44 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de República Dominicana 0,78: el filtro deja el score en 0,172 (bruto 0,194)."
       ],
       "ESP": [
         "España importa USD 381 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
@@ -337,7 +371,8 @@
         "España absorbe el 2,7 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de España.",
         "Bananos y plátanos (HS 0803) entra a España sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de España 0,97: el filtro deja el score en 0,377 (bruto 0,383)."
+        "España está a 8.065 km de Colombia; accesibilidad logística 0,45 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de España 0,97: el filtro deja el score en 0,389 (bruto 0,395)."
       ],
       "FIN": [
         "Finlandia importa USD 59 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
@@ -346,7 +381,8 @@
         "Finlandia absorbe el 0,0 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Finlandia.",
         "Bananos y plátanos (HS 0803) entra a Finlandia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,394 (bruto 0,447)."
+        "Finlandia está a 9.955 km de Colombia; accesibilidad logística 0,47 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,399 (bruto 0,453)."
       ],
       "FRA": [
         "Francia importa USD 883 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
@@ -355,7 +391,8 @@
         "Francia absorbe el 5,2 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de Francia.",
         "Bananos y plátanos (HS 0803) entra a Francia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,393 (bruto 0,429)."
+        "Francia está a 8.615 km de Colombia; accesibilidad logística 0,44 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,395 (bruto 0,431)."
       ],
       "GBR": [
         "Reino Unido importa USD 767 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
@@ -364,7 +401,8 @@
         "Reino Unido absorbe el 15,1 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Reino Unido.",
         "Bananos y plátanos (HS 0803) entra a Reino Unido sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,414 (bruto 0,520)."
+        "Reino Unido está a 8.388 km de Colombia; accesibilidad logística 0,42 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,401 (bruto 0,503)."
       ],
       "ITA": [
         "Italia importa USD 619 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
@@ -373,7 +411,8 @@
         "Italia absorbe el 11,9 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Italia.",
         "Bananos y plátanos (HS 0803) entra a Italia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,438 (bruto 0,479)."
+        "Italia está a 9.315 km de Colombia; accesibilidad logística 0,41 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,424 (bruto 0,463)."
       ],
       "JPN": [
         "Japón importa USD 985 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
@@ -381,7 +420,8 @@
         "Colombia no registra ventas de Bananos y plátanos (HS 0803) en Japón (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Japón.",
         "Bananos y plátanos (HS 0803) paga en Japón un arancel efectivamente aplicado de 12,8 %.",
-        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,329 (bruto 0,364)."
+        "Japón está a 14.300 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,309 (bruto 0,341)."
       ],
       "KOR": [
         "Corea del Sur importa USD 334 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
@@ -390,7 +430,8 @@
         "Corea del Sur absorbe el 0,0 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,49 (escala 0–1) con la demanda importadora de Corea del Sur.",
         "Bananos y plátanos (HS 0803) entra a Corea del Sur sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,379 (bruto 0,402)."
+        "Corea del Sur está a 14.747 km de Colombia; accesibilidad logística 0,38 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,355 (bruto 0,377)."
       ],
       "NLD": [
         "Países Bajos importa USD 914 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
@@ -399,7 +440,8 @@
         "Países Bajos absorbe el 6,8 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Países Bajos.",
         "Bananos y plátanos (HS 0803) entra a Países Bajos sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,425 (bruto 0,470)."
+        "Países Bajos está a 8.815 km de Colombia; accesibilidad logística 0,46 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,432 (bruto 0,477)."
       ],
       "PAN": [
         "Panamá importa USD 0 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
@@ -408,7 +450,8 @@
         "Panamá absorbe el 0,0 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Panamá.",
         "Bananos y plátanos (HS 0803) paga en Panamá un arancel efectivamente aplicado de 13,8 %.",
-        "Estabilidad macro de Panamá 0,94: el filtro deja el score en 0,230 (bruto 0,238)."
+        "Panamá está a 734 km de Colombia; accesibilidad logística 0,57 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Panamá 0,94: el filtro deja el score en 0,305 (bruto 0,315)."
       ],
       "PER": [
         "Perú importa USD 0 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
@@ -416,7 +459,8 @@
         "Colombia no registra ventas de Bananos y plátanos (HS 0803) en Perú (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Perú.",
         "Bananos y plátanos (HS 0803) entra a Perú sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Perú 0,91: el filtro deja el score en 0,235 (bruto 0,246)."
+        "Perú está a 1.945 km de Colombia; accesibilidad logística 0,47 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Perú 0,91: el filtro deja el score en 0,267 (bruto 0,279)."
       ],
       "POL": [
         "Polonia importa USD 388 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
@@ -425,7 +469,8 @@
         "Polonia absorbe el 1,5 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,36 (escala 0–1) con la demanda importadora de Polonia.",
         "Bananos y plátanos (HS 0803) entra a Polonia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,318 (bruto 0,345)."
+        "Polonia está a 9.790 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,308 (bruto 0,335)."
       ],
       "PRT": [
         "Portugal importa USD 178 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
@@ -434,7 +479,8 @@
         "Portugal absorbe el 1,5 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,39 (escala 0–1) con la demanda importadora de Portugal.",
         "Bananos y plátanos (HS 0803) entra a Portugal sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,391 (bruto 0,405)."
+        "Portugal está a 7.506 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,372 (bruto 0,385)."
       ],
       "SWE": [
         "Suecia importa USD 154 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
@@ -443,7 +489,8 @@
         "Suecia absorbe el 1,1 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Suecia.",
         "Bananos y plátanos (HS 0803) entra a Suecia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,248 (bruto 0,276)."
+        "Suecia está a 9.491 km de Colombia; accesibilidad logística 0,45 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,268 (bruto 0,298)."
       ],
       "USA": [
         "Estados Unidos importa USD 3.249 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
@@ -452,21 +499,13 @@
         "Estados Unidos absorbe el 19,9 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,33 (escala 0–1) con la demanda importadora de Estados Unidos.",
         "Bananos y plátanos (HS 0803) entra a Estados Unidos sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,406 (bruto 0,491)."
+        "Estados Unidos está a 4.251 km de Colombia; accesibilidad logística 0,50 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,420 (bruto 0,508)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.438,
-        "iso3": "ITA",
-        "name": "Italia",
-        "reasons": [
-          "8.º destino por complementariedad de canastas (índice 0,43 (escala 0–1))",
-          "4.º destino por cuota ya ganada (cuota de 31,8 %)"
-        ]
-      },
-      {
-        "final_score": 0.425,
+        "final_score": 0.432,
         "iso3": "NLD",
         "name": "Países Bajos",
         "reasons": [
@@ -475,12 +514,21 @@
         ]
       },
       {
-        "final_score": 0.424,
+        "final_score": 0.426,
         "iso3": "BEL",
         "name": "Bélgica",
         "reasons": [
           "6.º destino por complementariedad de canastas (índice 0,45 (escala 0–1))",
           "1.º destino por arancel enfrentado (0,0 % efectivamente aplicado)"
+        ]
+      },
+      {
+        "final_score": 0.424,
+        "iso3": "ITA",
+        "name": "Italia",
+        "reasons": [
+          "8.º destino por complementariedad de canastas (índice 0,43 (escala 0–1))",
+          "4.º destino por cuota ya ganada (cuota de 31,8 %)"
         ]
       }
     ]

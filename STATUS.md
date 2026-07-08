@@ -12,7 +12,29 @@ ranking de 26 destinos (18 OCDE/Asia + 8 LATAM). Motor económico puro en
 `domain/`, snapshot Parquet como contrato, app Streamlit que solo lee el
 snapshot.
 
-## ✅ Última tanda — valores unitarios + tooltips + piso macro (2026-07-08, COMPLETA)
+## ✅ Última tanda — comparador global de mercados (2026-07-08, COMPLETA)
+
+1. **Comparador global** (`9d1c573`): multiselect «🔍 Mercados a comparar
+   (máx. 3)» encima de las pestañas (opciones por ISO3 → sobreviven al
+   toggle de idioma; el estado se depura al cambiar de producto, p. ej.
+   banano sin ECU/MEX). Con selección activa, TODAS las gráficas (mapa,
+   desglose, radar, scores, tamaño, valor unitario, evolución) muestran
+   solo esos mercados. El radar perdió su selector interno y usa este
+   (top-3 sin selección, con hint); la evolución oculta el suyo en modo
+   comparación. Las normalizaciones min-max (desglose/radar) se calculan
+   SIEMPRE sobre el ranking completo: comparar no cambia los valores
+   (`_compare_view` solo filtra presentación).
+2. **Chips con color de bandera** (`ff6cc87`): `FLAG_COLORS` + `flag_color`
+   en `app/flags.py` (tono representativo del pabellón por ISO3, curado a
+   mano). CSS `.st-key-compare_markets [data-baseweb=tag]:nth-of-type(n)`
+   — el orden del DOM es el orden de selección, el mismo de las trazas —
+   con texto blanco/negro por luminancia. Radar y evolución (en modo
+   comparación) usan el MISMO color por país: la chip hace de leyenda y la
+   leyenda del radar se apaga (`showlegend=not compare`; vuelve con el
+   top-3 default). Verificado en preview (excepción visual justificada):
+   colores computados chip↔traza idénticos.
+
+## ✅ Tanda anterior — valores unitarios + tooltips + piso macro (2026-07-08, COMPLETA)
 
 1. **Valores unitarios (USD/kg) por destino** (`30f9d2d`): nueva señal de
    posicionamiento precio/calidad, exclusiva del catálogo curado. UV =

@@ -236,6 +236,66 @@ def complementarity(origin_basket: pd.Series, destination_basket: pd.Series) -> 
     return float(1.0 - gap.abs().sum() / 2.0)
 
 
+def aggregate_unit_value(values_usd: pd.Series, weights_kg: pd.Series) -> float:
+    """Valor unitario agregado de un flujo comercial (USD/kg).
+
+    Definición: el valor unitario es el cociente entre el valor comercial y
+    la cantidad física del flujo — el proxy estándar de precio en las
+    estadísticas de comercio cuando no hay precios observados (UN,
+    *International Merchandise Trade Statistics: Concepts and Definitions
+    2010*, §B.9 sobre índices de valor unitario). Sobre una ventana de
+    registros se agrega como cociente de sumas, ``UV = Σ_t v_t / Σ_t q_t``
+    (no como promedio de cocientes): cada registro pondera por su cantidad.
+
+    Los registros sin peso conocido (NaN o ≤ 0) se excluyen del numerador Y
+    del denominador: sumar sus valores sin sus cantidades sesgaría el UV al
+    alza.
+
+    Args:
+        values_usd: valores del flujo en USD, alineados con ``weights_kg``.
+        weights_kg: pesos netos en kg (NaN o ≤ 0 = cantidad no reportada).
+
+    Returns:
+        Valor unitario en USD/kg, o NaN si ningún registro trae peso válido.
+
+    Raises:
+        ValueError: si las series tienen longitudes distintas.
+    """
+    if len(values_usd) != len(weights_kg):
+        raise ValueError(
+            f"Series de distinta longitud: {len(values_usd)} valores, {len(weights_kg)} pesos"
+        )
+    mask = (weights_kg > 0).to_numpy()  # NaN > 0 es False: excluye sin dato
+    total_weight = float(weights_kg.to_numpy()[mask].sum())
+    if total_weight <= 0:
+        return float("nan")
+    return float(values_usd.to_numpy()[mask].sum() / total_weight)
+
+
+def unit_value_premium(uv_origin: float, uv_market: float) -> float:
+    """Premium (o descuento) del valor unitario del origen frente al destino.
+
+    Definición: valor unitario relativo, ``premium = UV_origen / UV_destino
+    − 1``. Los valores unitarios relativos se usan como señal de
+    posicionamiento de precio/calidad dentro de un producto (cf. Hummels &
+    Klenow 2005, "The Variety and Quality of a Nation's Exports", *AER*
+    95(3), que miden calidad vía precios/valores unitarios de exportación).
+    > 0: el origen vende por encima del precio implícito promedio del
+    destino (posicionamiento premium); < 0: por debajo (commodity/precio).
+
+    Args:
+        uv_origin: valor unitario del flujo origen→destino (USD/kg).
+        uv_market: valor unitario promedio de las importaciones del destino.
+
+    Returns:
+        Premium en fracción (0.25 = +25 %), o NaN si algún UV no es
+        positivo o es NaN (sin evidencia no hay premium que afirmar).
+    """
+    if not uv_origin > 0 or not uv_market > 0:  # NaN falla ambas comparaciones
+        return float("nan")
+    return uv_origin / uv_market - 1.0
+
+
 def destination_shares(exports_by_destination: pd.Series) -> pd.Series:
     """Cuota de cada destino en las exportaciones del origen del producto.
 

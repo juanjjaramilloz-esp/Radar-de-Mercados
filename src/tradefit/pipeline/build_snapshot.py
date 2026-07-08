@@ -15,7 +15,12 @@ import pandas as pd
 from dotenv import load_dotenv
 
 from tradefit import config, hs_codes
-from tradefit.contracts import MarketInputs, competitors_schema, ranking_schema
+from tradefit.contracts import (
+    MarketInputs,
+    competitors_schema,
+    ranking_schema,
+    unit_values_schema,
+)
 from tradefit.domain import indices
 from tradefit.domain.macro_filter import (
     apply_stability_penalty,
@@ -203,12 +208,27 @@ def build_snapshot(
                 indices.supplier_shares(competitor_imports)
             )
 
+    # Valores unitarios (USD/kg): análisis avanzado EXCLUSIVO del catálogo
+    # curado — las partidas del buscador on-demand no llevan este artefacto.
+    # Sale de los mismos cachés crudos de imports/bilateral (netWgt), así que
+    # no agrega llamadas a la red.
+    unit_values: pd.DataFrame | None = None
+    if source == "comtrade" and hs in config.PRODUCTS:
+        _notify(on_stage, "Valores unitarios (USD/kg) por destino")
+        unit_values = _unit_values_table(
+            comtrade.load_import_weights(hs),
+            comtrade.load_bilateral_weights(hs),
+            list(validated[config.COL_COUNTRY]),
+        )
+
     _notify(on_stage, "Escribiendo el snapshot")
     config.processed_dir(hs).mkdir(parents=True, exist_ok=True)
     validated.to_parquet(config.ranking_parquet(hs), index=False)
     imports.to_parquet(config.imports_timeseries_parquet(hs), index=False)
     if supplier_table is not None:
         supplier_table.to_parquet(config.competitors_parquet(hs), index=False)
+    if unit_values is not None:
+        unit_values.to_parquet(config.unit_values_parquet(hs), index=False)
     # Macro crudo compartido (indicadores por país y año): la ficha del
     # destino lo usa para mostrar inflación/PIB/cuenta corriente/LPI con su
     # año. Es independiente del producto; reescribirlo es idempotente.
@@ -277,6 +297,86 @@ def _write_narrative(
         json.dumps(narrative, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
+
+
+def _unit_values_table(
+    import_weights: pd.DataFrame,
+    bilateral_weights: pd.DataFrame,
+    countries: list[str],
+    window_years: int = config.MARKET_SIZE_YEARS,
+) -> pd.DataFrame:
+    """Arma la tabla de valores unitarios por destino (una fila por país).
+
+    Orquestación pura sobre funciones de ``domain``: para cada destino toma
+    los últimos ``window_years`` años con datos (la misma ventana que
+    ``market_size``) y calcula el UV agregado de las importaciones totales,
+    el del flujo desde el origen y el premium relativo
+    (``indices.aggregate_unit_value`` / ``indices.unit_value_premium``).
+
+    Args:
+        import_weights: flujo total con peso (``flow_weights_schema``).
+        bilateral_weights: flujo origen→destino con peso (mismo contrato).
+        countries: destinos del ranking (define las filas del artefacto).
+        window_years: ventana de años recientes.
+
+    Returns:
+        DataFrame validado contra ``unit_values_schema``.
+    """
+    rows: list[dict[str, object]] = []
+    for iso3 in countries:
+        market = (
+            import_weights[import_weights[config.COL_COUNTRY] == iso3]
+            .sort_values(config.COL_YEAR)
+            .tail(window_years)
+        )
+        origin = (
+            bilateral_weights[bilateral_weights[config.COL_COUNTRY] == iso3]
+            .sort_values(config.COL_YEAR)
+            .tail(window_years)
+        )
+        uv_market = indices.aggregate_unit_value(
+            market[config.COL_VALUE], market[config.COL_NET_WGT]
+        )
+        uv_origin = indices.aggregate_unit_value(
+            origin[config.COL_VALUE], origin[config.COL_NET_WGT]
+        )
+        rows.append(
+            {
+                config.COL_COUNTRY: iso3,
+                config.COL_UV_MARKET: uv_market,
+                config.COL_UV_ORIGIN: uv_origin,
+                config.COL_UV_PREMIUM: indices.unit_value_premium(uv_origin, uv_market),
+            }
+        )
+    validated: pd.DataFrame = unit_values_schema.validate(pd.DataFrame(rows))
+    return validated
+
+
+def refresh_unit_values(hs: str) -> None:
+    """Escribe solo ``unit_values.parquet`` desde los cachés crudos (sin red).
+
+    Para poblar snapshots curados ya construidos sin re-correr el pipeline
+    completo: lee el ranking existente (define los destinos) y los cachés
+    crudos de Comtrade en ``data/raw/`` (que ya traen ``netWgt``).
+
+    Args:
+        hs: partida del catálogo curado con snapshot en ``data/processed/``.
+
+    Raises:
+        ValueError: si la partida no es del catálogo curado (el artefacto es
+            exclusivo de esos productos).
+        FileNotFoundError: si el snapshot no fue construido todavía.
+    """
+    if hs not in config.PRODUCTS:
+        raise ValueError(f"Los valores unitarios son solo del catálogo curado; recibido: {hs!r}")
+    ranking = pd.read_parquet(config.ranking_parquet(hs))
+    table = _unit_values_table(
+        comtrade.load_import_weights(hs),
+        comtrade.load_bilateral_weights(hs),
+        list(ranking[config.COL_COUNTRY]),
+    )
+    table.to_parquet(config.unit_values_parquet(hs), index=False)
+    logger.info("Valores unitarios de %s escritos en %s", hs, config.unit_values_parquet(hs))
 
 
 def refresh_narrative(hs: str) -> None:

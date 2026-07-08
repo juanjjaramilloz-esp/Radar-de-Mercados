@@ -123,6 +123,40 @@ competitors_schema = pa.DataFrameSchema(
     name="competitors",
 )
 
+#: Flujo comercial con peso neto por destino y año (insumo de los valores
+#: unitarios): valor en USD siempre presente; el peso neto es nullable —
+#: Comtrade no lo trae en todos los registros y la ausencia se excluye del
+#: cálculo en domain (``aggregate_unit_value``).
+flow_weights_schema = pa.DataFrameSchema(
+    {
+        config.COL_COUNTRY: pa.Column(str, pa.Check.str_length(3, 3)),
+        config.COL_YEAR: pa.Column(int, pa.Check.in_range(1990, 2100)),
+        config.COL_VALUE: pa.Column(float, pa.Check.ge(0)),
+        config.COL_NET_WGT: pa.Column(float, pa.Check.gt(0), nullable=True),
+    },
+    unique=[config.COL_COUNTRY, config.COL_YEAR],
+    coerce=True,
+    strict=True,
+    name="flow_weights",
+)
+
+#: Valores unitarios por destino (artefacto ``unit_values.parquet``, solo
+#: catálogo curado): UV promedio de las importaciones del destino, UV del
+#: flujo desde el origen y el premium relativo. NaN = sin peso neto reportado
+#: en la ventana (la app omite el dato para ese mercado).
+unit_values_schema = pa.DataFrameSchema(
+    {
+        config.COL_COUNTRY: pa.Column(str, pa.Check.str_length(3, 3)),
+        config.COL_UV_MARKET: pa.Column(float, pa.Check.gt(0), nullable=True),
+        config.COL_UV_ORIGIN: pa.Column(float, pa.Check.gt(0), nullable=True),
+        config.COL_UV_PREMIUM: pa.Column(float, pa.Check.ge(-1.0), nullable=True),
+    },
+    unique=[config.COL_COUNTRY],
+    coerce=True,
+    strict=True,
+    name="unit_values",
+)
+
 #: Indicadores macro WDI por destino y año (solo años con dato: los null de
 #: la API se descartan en ingest; la ausencia se maneja en domain).
 macro_schema = pa.DataFrameSchema(

@@ -641,6 +641,7 @@ def _focus_section(
     st.markdown(f"### {flag} {names[selected]}".replace("  ", " "))
     _focus_header_metrics(ranking, row, selected)
     _focus_drivers_line(ranking, meta, selected)
+    _focus_unit_values_block(hs, selected)
     col_left, col_right = st.columns([2, 3])
     with col_left:
         _focus_macro_block(row, selected)
@@ -652,6 +653,47 @@ def _focus_section(
         st.markdown(f"**{t('focus_narrative_header')}**")
         for sentence in markets[selected]:
             st.markdown(f"- {sentence}")
+
+
+def _focus_unit_values_block(hs: str, iso3: str) -> None:
+    """Valor unitario del destino y del origen allí (USD/kg), con el premium.
+
+    Presentación pura del artefacto ``unit_values.parquet`` (los cálculos
+    viven en ``domain/indices``: ``aggregate_unit_value`` y
+    ``unit_value_premium``). Solo catálogo curado; sin artefacto o sin dato
+    para el destino, el bloque no aparece.
+    """
+    unit_values = _load_unit_values(hs)
+    if unit_values is None:
+        return
+    match = unit_values[unit_values[config.COL_COUNTRY] == iso3]
+    if match.empty:
+        return
+    row = match.iloc[0]
+    uv_market = row[config.COL_UV_MARKET]
+    uv_origin = row[config.COL_UV_ORIGIN]
+    premium = row[config.COL_UV_PREMIUM]
+    if pd.isna(uv_market) and pd.isna(uv_origin):
+        return
+    col_market, col_origin, _ = st.columns(3)
+    if not pd.isna(uv_market):
+        col_market.metric(
+            t("uv_focus_market_label"),
+            f"{i18n.fmt_number(float(uv_market), 2)} USD/kg",
+            help=t("uv_focus_help"),
+        )
+    if not pd.isna(uv_origin):
+        col_origin.metric(
+            t("uv_focus_origin_label", origin=config.ORIGIN_NAME),
+            f"{i18n.fmt_number(float(uv_origin), 2)} USD/kg",
+            delta=(
+                t("uv_focus_premium_delta", pct=i18n.fmt_pct(float(premium), 0, signed=True))
+                if not pd.isna(premium)
+                else None
+            ),
+            delta_color="off",
+            help=t("uv_focus_help"),
+        )
 
 
 def _comparator_section(products: dict[str, str]) -> None:
@@ -914,6 +956,19 @@ def _load_competitors(hs: str) -> pd.DataFrame | None:
     este artefacto: la ficha degrada con gracia omitiendo la sección.
     """
     path = config.competitors_parquet(hs)
+    if not path.exists():
+        return None
+    return _read_parquet(path)
+
+
+def _load_unit_values(hs: str) -> pd.DataFrame | None:
+    """Lee los valores unitarios (USD/kg) por destino, si el snapshot los trae.
+
+    Artefacto exclusivo del catálogo curado: las partidas del buscador
+    on-demand no lo tienen y la app degrada con gracia omitiendo la pestaña
+    y el bloque de la ficha.
+    """
+    path = config.unit_values_parquet(hs)
     if not path.exists():
         return None
     return _read_parquet(path)
@@ -1421,6 +1476,63 @@ def _radar_tab(ranking: pd.DataFrame) -> None:
     st.plotly_chart(fig, use_container_width=True)
 
 
+def _unit_value_tab(
+    ranking: pd.DataFrame, unit_values: pd.DataFrame, meta: dict[str, object]
+) -> None:
+    """Valor unitario por destino: barras (promedio) + rombo (el del origen).
+
+    Presentación pura del artefacto ``unit_values.parquet``: la barra es el
+    precio implícito promedio de las importaciones del destino y el rombo el
+    del flujo desde el origen — la distancia entre ambos es el premium.
+    Destinos sin UV promedio se omiten de la gráfica.
+    """
+    st.caption(
+        t(
+            "uv_tab_caption",
+            years=meta.get("market_size_years", config.MARKET_SIZE_YEARS),
+            origin=config.ORIGIN_NAME,
+        )
+    )
+    names = ranking.set_index(config.COL_COUNTRY)[config.COL_COUNTRY_NAME]
+    data = unit_values[unit_values[config.COL_UV_MARKET].notna()].assign(
+        **{config.COL_COUNTRY_NAME: lambda d: d[config.COL_COUNTRY].map(names)}
+    )
+    data = data[data[config.COL_COUNTRY_NAME].notna()].sort_values(config.COL_UV_MARKET)
+    if data.empty:
+        return
+    fig = go.Figure()
+    fig.add_bar(
+        x=data[config.COL_UV_MARKET],
+        y=data[config.COL_COUNTRY_NAME],
+        orientation="h",
+        name=t("uv_legend_market"),
+        marker_color="#93C5FD",
+        hovertemplate="%{x:.2f} USD/kg<extra>" + t("uv_legend_market") + "</extra>",
+    )
+    with_origin = data[data[config.COL_UV_ORIGIN].notna()]
+    if not with_origin.empty:
+        origin_label = t("uv_legend_origin", origin=config.ORIGIN_NAME)
+        fig.add_scatter(
+            x=with_origin[config.COL_UV_ORIGIN],
+            y=with_origin[config.COL_COUNTRY_NAME],
+            mode="markers",
+            name=origin_label,
+            marker={"symbol": "diamond", "size": 11, "color": "#F59E0B"},
+            hovertemplate="%{x:.2f} USD/kg<extra>" + origin_label + "</extra>",
+        )
+    fig.update_layout(
+        separators=i18n.active_plotly_separators(),
+        height=max(360, 30 * len(data) + 80),
+        # t=60: hueco para la leyenda horizontal (si no, tapa la 1.ª barra)
+        margin={"l": 0, "r": 0, "t": 60, "b": 0},
+        legend={"orientation": "h", "yanchor": "bottom", "y": 1.0, "title": None},
+        xaxis={"title": t("uv_xaxis")},
+        yaxis={"title": None},
+        hovermode="y unified",
+    )
+    st.plotly_chart(fig, use_container_width=True)
+
+
 def _size_tab(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
     """Tamaño de cada mercado partido en «ya lo vende el origen» vs. resto."""
     st.caption(t("tab_size_caption", origin=meta["origin_iso3"]))
@@ -1632,6 +1744,7 @@ def main() -> None:
         st.info(t("lab_live_note"))
 
     timeseries = _load_imports_timeseries(hs)
+    unit_values = _load_unit_values(hs)
     tab_labels = [
         t("tab_map"),
         t("tab_breakdown"),
@@ -1639,6 +1752,8 @@ def main() -> None:
         t("tab_scores"),
         t("tab_size"),
     ]
+    if unit_values is not None:
+        tab_labels.append(t("tab_unit_value"))
     if timeseries is not None:
         tab_labels.append(t("tab_evolution"))
     tabs = st.tabs(tab_labels)
@@ -1653,8 +1768,13 @@ def main() -> None:
     with tabs[4]:
         _size_tab(view_ranking, view_meta)
 
+    next_tab = 5
+    if unit_values is not None:
+        with tabs[next_tab]:
+            _unit_value_tab(view_ranking, unit_values, view_meta)
+        next_tab += 1
     if timeseries is not None:
-        with tabs[5]:
+        with tabs[next_tab]:
             _evolution_tab(view_ranking, view_meta, timeseries)
 
     _focus_section(view_ranking, view_meta, narrative, timeseries, hs, product_label)

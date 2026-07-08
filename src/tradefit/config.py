@@ -109,6 +109,17 @@ def competitors_parquet(hs: str) -> Path:
     return processed_dir(hs) / "competitors.parquet"
 
 
+def unit_values_parquet(hs: str) -> Path:
+    """Ruta de los valores unitarios (USD/kg) por destino de ``hs``.
+
+    Artefacto exclusivo del catálogo curado (``PRODUCTS``): el pipeline solo
+    lo construye para esos productos — es el diferencial "análisis avanzado"
+    frente a las partidas del buscador on-demand. La app degrada con gracia
+    si no existe.
+    """
+    return processed_dir(hs) / "unit_values.parquet"
+
+
 def macro_context_parquet() -> Path:
     """Ruta del macro crudo compartido (indicadores por país y año, para la ficha).
 
@@ -471,6 +482,10 @@ COL_PARTNER_NAME: Final = "partner_name"  # nombre del proveedor (catálogo Comt
 COL_SUPPLIER_SHARE: Final = "supplier_share"  # cuota del proveedor en las imports del destino
 COL_SUPPLIER_RANK: Final = "supplier_rank"  # posición del proveedor en el destino (1 = mayor)
 COL_LPI: Final = "lpi"  # Logistics Performance Index del destino (contexto)
+COL_NET_WGT: Final = "net_weight_kg"  # peso neto del flujo (Comtrade netWgt)
+COL_UV_MARKET: Final = "uv_market_usd_kg"  # valor unitario de las imports del destino
+COL_UV_ORIGIN: Final = "uv_origin_usd_kg"  # valor unitario del flujo origen→destino
+COL_UV_PREMIUM: Final = "uv_premium"  # UV origen / UV destino − 1 (fracción)
 COL_STABILITY: Final = "stability_score"
 COL_SCORE: Final = "opportunity_score"
 COL_FINAL_SCORE: Final = "final_score"

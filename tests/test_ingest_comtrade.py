@@ -104,6 +104,43 @@ def test_parse_bilateral_vacio_es_flujo_cero_no_error() -> None:
     ]
 
 
+# --- parse_flow_weights (insumo de valores unitarios) -------------------------
+
+
+def test_parse_flow_weights_normaliza_al_contrato() -> None:
+    payload = {
+        "data": [
+            {"reporterCode": 842, "refYear": 2024, "primaryValue": 300.0, "netWgt": 50.0},
+            {"reporterCode": 276, "refYear": 2024, "primaryValue": 100.0, "netWgt": None},
+            {"reporterCode": 999, "refYear": 2024, "primaryValue": 1.0, "netWgt": 1.0},
+        ]
+    }
+    df = comtrade.parse_flow_weights(payload).set_index(config.COL_COUNTRY)
+    assert sorted(df.index) == ["DEU", "USA"]  # el reporter desconocido se filtra
+    assert df.loc["USA", config.COL_VALUE] == 300.0
+    assert df.loc["USA", config.COL_NET_WGT] == 50.0
+    # netWgt nulo → NaN (cantidad no reportada), el valor se conserva
+    assert df.loc["DEU", config.COL_VALUE] == 100.0
+    assert df.loc["DEU", config.COL_NET_WGT] != df.loc["DEU", config.COL_NET_WGT]  # NaN
+
+
+def test_parse_flow_weights_peso_cero_es_nan() -> None:
+    payload = {"data": [{"reporterCode": 842, "refYear": 2024, "primaryValue": 5.0, "netWgt": 0}]}
+    df = comtrade.parse_flow_weights(payload)
+    assert df[config.COL_NET_WGT].isna().all()
+
+
+def test_parse_flow_weights_vacio_no_es_error() -> None:
+    payload = {"data": [{"reporterCode": 999, "refYear": 2024, "primaryValue": 1.0}]}
+    df = comtrade.parse_flow_weights(payload)
+    assert df.empty
+
+
+def test_parse_flow_weights_falla_sin_data() -> None:
+    with pytest.raises(RuntimeError, match="data"):
+        comtrade.parse_flow_weights({"error": "algo"})
+
+
 # --- parse_baskets_response ---------------------------------------------------
 
 

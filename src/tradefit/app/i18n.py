@@ -871,6 +871,58 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
     },
     "tab_size": {"es": "Tamaño de mercado", "en": "Market size"},
     "tab_evolution": {"es": "Evolución del mercado", "en": "Market evolution"},
+    "tab_unit_value": {"es": "💲 Valor unitario", "en": "💲 Unit value"},
+    "uv_tab_caption": {
+        "es": (
+            "Valor unitario = valor importado ÷ peso neto (USD/kg, "
+            "últimos {years} años con dato): el precio implícito del "
+            "producto en cada destino. El rombo ámbar es el valor unitario "
+            "de {origin} en ese destino — por encima de la barra sugiere "
+            "posicionamiento premium; por debajo, competencia por precio. "
+            "Ojo experto: dentro de una partida HS4 conviven calidades y "
+            "grados de procesamiento distintos, así que el premium mezcla "
+            "precio con composición."
+        ),
+        "en": (
+            "Unit value = import value ÷ net weight (USD/kg, last {years} "
+            "years with data): the product's implicit price in each "
+            "destination. The amber diamond is {origin}'s unit value in "
+            "that destination — above the bar suggests premium "
+            "positioning; below it, price competition. Expert caveat: an "
+            "HS4 heading mixes qualities and processing grades, so the "
+            "premium blends price with composition."
+        ),
+    },
+    "uv_legend_market": {
+        "es": "Promedio del destino (todos los proveedores)",
+        "en": "Destination average (all suppliers)",
+    },
+    "uv_legend_origin": {"es": "{origin} en ese destino", "en": "{origin} in that destination"},
+    "uv_xaxis": {"es": "USD por kg", "en": "USD per kg"},
+    "uv_focus_market_label": {
+        "es": "Valor unitario del destino",
+        "en": "Destination unit value",
+    },
+    "uv_focus_origin_label": {
+        "es": "Valor unitario de {origin} aquí",
+        "en": "{origin}'s unit value here",
+    },
+    "uv_focus_premium_delta": {
+        "es": "{pct} vs. promedio del destino",
+        "en": "{pct} vs. destination average",
+    },
+    "uv_focus_help": {
+        "es": (
+            "USD/kg = valor ÷ peso neto (Comtrade), agregado sobre los "
+            "últimos años con dato. Premium > 0: el origen vende por "
+            "encima del precio implícito promedio del destino."
+        ),
+        "en": (
+            "USD/kg = value ÷ net weight (Comtrade), aggregated over the "
+            "last years with data. Premium > 0: the origin sells above "
+            "the destination's average implicit price."
+        ),
+    },
     "tab_scores_caption": {
         "es": (
             "La distancia entre las barras es la penalización macro: "

@@ -5,6 +5,7 @@ import pytest
 
 from tradefit import config
 from tradefit.domain.indices import (
+    aggregate_unit_value,
     complementarity,
     destination_concentration,
     destination_shares,
@@ -15,6 +16,7 @@ from tradefit.domain.indices import (
     rca_balassa,
     supplier_shares,
     tariff_faced,
+    unit_value_premium,
 )
 
 # --- market_size -----------------------------------------------------------
@@ -299,3 +301,52 @@ def test_supplier_shares_valor_no_positivo_falla() -> None:
     imports = _partner_imports([("USA", "170", "Colombia", 2024, 0.0)])
     with pytest.raises(ValueError, match="positivas"):
         supplier_shares(imports)
+
+
+# --- Valores unitarios (UN IMTS 2010; premium: Hummels & Klenow 2005) --------
+
+
+def test_aggregate_unit_value_a_mano() -> None:
+    # (100 + 200) USD / (10 + 40) kg = 300/50 = 6 USD/kg — cociente de sumas,
+    # NO promedio de cocientes ((10 + 5)/2 = 7.5 daría otra cosa)
+    values = pd.Series([100.0, 200.0])
+    weights = pd.Series([10.0, 40.0])
+    assert aggregate_unit_value(values, weights) == pytest.approx(6.0)
+
+
+def test_aggregate_unit_value_excluye_registros_sin_peso() -> None:
+    # El registro con peso NaN se excluye del numerador Y del denominador:
+    # (100 + 200) / (10 + 40) = 6, el valor 999 no sesga el UV al alza
+    values = pd.Series([100.0, 200.0, 999.0])
+    weights = pd.Series([10.0, 40.0, float("nan")])
+    assert aggregate_unit_value(values, weights) == pytest.approx(6.0)
+
+
+def test_aggregate_unit_value_peso_cero_cuenta_como_sin_dato() -> None:
+    values = pd.Series([100.0, 200.0])
+    weights = pd.Series([10.0, 0.0])
+    assert aggregate_unit_value(values, weights) == pytest.approx(10.0)
+
+
+def test_aggregate_unit_value_sin_pesos_validos_es_nan() -> None:
+    values = pd.Series([100.0, 200.0])
+    weights = pd.Series([float("nan"), 0.0])
+    assert pd.isna(aggregate_unit_value(values, weights))
+
+
+def test_aggregate_unit_value_longitudes_distintas_falla() -> None:
+    with pytest.raises(ValueError, match="longitud"):
+        aggregate_unit_value(pd.Series([1.0, 2.0]), pd.Series([1.0]))
+
+
+def test_unit_value_premium_a_mano() -> None:
+    # 6 USD/kg del origen sobre 5 USD/kg del destino = 6/5 − 1 = +20 %
+    assert unit_value_premium(6.0, 5.0) == pytest.approx(0.20)
+    # descuento: 4 sobre 5 = −20 %
+    assert unit_value_premium(4.0, 5.0) == pytest.approx(-0.20)
+
+
+def test_unit_value_premium_sin_evidencia_es_nan() -> None:
+    assert pd.isna(unit_value_premium(float("nan"), 5.0))
+    assert pd.isna(unit_value_premium(6.0, float("nan")))
+    assert pd.isna(unit_value_premium(0.0, 5.0))

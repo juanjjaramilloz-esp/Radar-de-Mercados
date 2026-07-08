@@ -22,7 +22,13 @@ import pandas as pd
 import requests
 
 from tradefit import config
-from tradefit.contracts import basket_schema, bilateral_schema, export_totals_schema, imports_schema
+from tradefit.contracts import (
+    basket_schema,
+    bilateral_schema,
+    export_totals_schema,
+    flow_weights_schema,
+    imports_schema,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -322,6 +328,72 @@ def parse_bilateral_response(payload: dict[str, Any]) -> pd.DataFrame:
     return validated
 
 
+def parse_flow_weights(payload: dict[str, Any]) -> pd.DataFrame:
+    """Normaliza un payload de flujos (imports o bilateral) con su peso neto.
+
+    Reutiliza los MISMOS cachés crudos de :func:`fetch_comtrade_imports` /
+    :func:`fetch_bilateral_imports` — Comtrade ya trae ``netWgt`` en esas
+    respuestas — para el insumo de los valores unitarios, sin descargar nada
+    nuevo. ``netWgt`` nulo o ≤ 0 se registra como NaN (cantidad no
+    reportada); ``domain.indices.aggregate_unit_value`` lo excluye del
+    cálculo.
+
+    Args:
+        payload: JSON de la API con la clave ``data`` (lista de registros).
+
+    Returns:
+        DataFrame validado contra ``flow_weights_schema`` (país, año, valor
+        USD, peso neto kg nullable). Vacío si ningún registro corresponde a
+        los destinos (caso legítimo en el flujo bilateral).
+
+    Raises:
+        RuntimeError: si el payload no tiene ``data`` o un registro viene
+            malformado.
+    """
+    records = payload.get("data")
+    if records is None:
+        raise RuntimeError(f"Payload de Comtrade sin clave 'data'; claves: {sorted(payload)}")
+
+    code_to_iso3 = {code: iso3 for iso3, code in config.COMTRADE_REPORTER_CODES.items()}
+    rows: list[dict[str, object]] = []
+    for record in records:
+        try:
+            reporter_code = int(record["reporterCode"])
+            year = int(record.get("refYear") or record["period"])
+            value = float(record["primaryValue"])
+            raw_weight = record.get("netWgt")
+            weight = float(raw_weight) if raw_weight else float("nan")
+        except (KeyError, TypeError, ValueError) as exc:
+            raise RuntimeError(f"Registro de Comtrade con formato inesperado: {record!r}") from exc
+        iso3 = code_to_iso3.get(reporter_code)
+        if iso3 is None:
+            continue
+        rows.append(
+            {
+                config.COL_COUNTRY: iso3,
+                config.COL_YEAR: year,
+                config.COL_VALUE: value,
+                config.COL_NET_WGT: weight if weight > 0 else float("nan"),
+            }
+        )
+    if not rows:
+        logger.warning("Sin registros de flujo con peso para los destinos del radar")
+        df = pd.DataFrame(
+            {
+                config.COL_COUNTRY: pd.Series(dtype=str),
+                config.COL_YEAR: pd.Series(dtype=int),
+                config.COL_VALUE: pd.Series(dtype=float),
+                config.COL_NET_WGT: pd.Series(dtype=float),
+            }
+        )
+    else:
+        df = pd.DataFrame(rows).sort_values(
+            [config.COL_COUNTRY, config.COL_YEAR], ignore_index=True
+        )
+    validated: pd.DataFrame = flow_weights_schema.validate(df)
+    return validated
+
+
 def parse_baskets_response(payload: dict[str, Any]) -> pd.DataFrame:
     """Normaliza las canastas HS2 (origen y destinos) a ``basket_schema``.
 
@@ -490,6 +562,30 @@ def load_bilateral_imports(
     """
     cache = cache_file or config.comtrade_bilateral_cache(hs)
     return _load_cached(cache, lambda: fetch_bilateral_imports(hs), parse_bilateral_response, force)
+
+
+def load_import_weights(
+    hs: str = config.HS_CODE, cache_file: Path | None = None, force: bool = False
+) -> pd.DataFrame:
+    """Carga valor + peso neto de las importaciones totales (mismo caché crudo).
+
+    Returns:
+        DataFrame validado contra ``flow_weights_schema``.
+    """
+    cache = cache_file or config.comtrade_imports_cache(hs)
+    return _load_cached(cache, lambda: fetch_comtrade_imports(hs), parse_flow_weights, force)
+
+
+def load_bilateral_weights(
+    hs: str = config.HS_CODE, cache_file: Path | None = None, force: bool = False
+) -> pd.DataFrame:
+    """Carga valor + peso neto del flujo origen→destino (mismo caché crudo).
+
+    Returns:
+        DataFrame validado contra ``flow_weights_schema``.
+    """
+    cache = cache_file or config.comtrade_bilateral_cache(hs)
+    return _load_cached(cache, lambda: fetch_bilateral_imports(hs), parse_flow_weights, force)
 
 
 def load_baskets(

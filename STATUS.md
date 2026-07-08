@@ -40,7 +40,7 @@ contrato, app Streamlit que solo lee el snapshot.
   formato plano viejo degradan a español.
 - **En curso:** backlog (IMF SDMX como macro complementaria) + mejoras de
   buen costo/beneficio sin preguntar.
-- **Web:** repo público https://github.com/juanjosejaramillozarate-png/radar-de-mercados;
+- **Web:** repo público https://github.com/juanjjaramilloz-esp/Radar-de-Mercados;
   deploy en Streamlit Community Cloud (entry point `streamlit_app.py`, snapshot
   de ejemplo versionado). `git push` está denegado para Claude Code: los push
   los hace el usuario.
@@ -115,6 +115,7 @@ pytest ; ruff check . ; mypy src                # puerta de calidad
 
 ## Pendientes conocidos
 
-- `git push` pendiente del usuario (regla de permisos): idioma ES/EN,
-  narrativa personalizada, gráfica Plotly y la métrica de aranceles WITS.
+- `git push` pendiente del usuario (regla de permisos): narrativa bilingüe
+  (4 commits) + enlace del repo nuevo en la app. El remoto nuevo
+  (`juanjjaramilloz-esp/Radar-de-Mercados`) ya tiene todo hasta aranceles WITS.
 - Backlog: IMF SDMX como macro complementaria.

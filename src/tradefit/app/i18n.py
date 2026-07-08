@@ -123,7 +123,7 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
             "**Stack** · Python · Streamlit · pandas\n\n"
             "**Datos** · UN Comtrade Plus · World Bank WDI\n\n"
             "**Código** · [GitHub: radar-de-mercados]"
-            "(https://github.com/juanjosejaramillozarate-png/radar-de-mercados)"
+            "(https://github.com/juanjjaramilloz-esp/Radar-de-Mercados)"
         ),
         "en": (
             "Export market screener built on a defensible economic engine: "
@@ -132,7 +132,7 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
             "**Stack** · Python · Streamlit · pandas\n\n"
             "**Data** · UN Comtrade Plus · World Bank WDI\n\n"
             "**Code** · [GitHub: radar-de-mercados]"
-            "(https://github.com/juanjosejaramillozarate-png/radar-de-mercados)"
+            "(https://github.com/juanjjaramilloz-esp/Radar-de-Mercados)"
         ),
     },
     "about_caption": {

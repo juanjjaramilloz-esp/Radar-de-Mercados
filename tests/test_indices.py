@@ -3,6 +3,7 @@
 import pandas as pd
 import pytest
 
+from tradefit import config
 from tradefit.domain.indices import (
     complementarity,
     destination_concentration,
@@ -12,6 +13,7 @@ from tradefit.domain.indices import (
     market_share_trend,
     market_size,
     rca_balassa,
+    supplier_shares,
     tariff_faced,
 )
 
@@ -217,3 +219,83 @@ def test_destination_concentration_invalidos_fallan() -> None:
         destination_concentration(pd.Series(dtype=float))
     with pytest.raises(ValueError, match="negativas"):
         destination_shares(pd.Series({"USA": -1.0, "DEU": 2.0}))
+
+
+# --- supplier_shares -------------------------------------------------------
+
+
+def _partner_imports(rows: list[tuple[str, str, str, int, float]]) -> pd.DataFrame:
+    return pd.DataFrame(
+        rows,
+        columns=[
+            config.COL_COUNTRY,
+            config.COL_PARTNER_CODE,
+            config.COL_PARTNER_NAME,
+            config.COL_YEAR,
+            config.COL_VALUE,
+        ],
+    )
+
+
+def test_supplier_shares_a_mano_con_world() -> None:
+    # USA importa 100 (World); COL 40, BRA 35, VNM 25 → cuotas 0.40/0.35/0.25
+    imports = _partner_imports(
+        [
+            ("USA", "0", "World", 2024, 100.0),
+            ("USA", "170", "Colombia", 2024, 40.0),
+            ("USA", "76", "Brazil", 2024, 35.0),
+            ("USA", "704", "Viet Nam", 2024, 25.0),
+        ]
+    )
+    result = supplier_shares(imports).set_index(config.COL_PARTNER_CODE)
+    assert result.loc["170", config.COL_SUPPLIER_SHARE] == pytest.approx(0.40)
+    assert result.loc["76", config.COL_SUPPLIER_SHARE] == pytest.approx(0.35)
+    assert result.loc["704", config.COL_SUPPLIER_SHARE] == pytest.approx(0.25)
+    assert result.loc["170", config.COL_SUPPLIER_RANK] == 1
+    assert result.loc["76", config.COL_SUPPLIER_RANK] == 2
+    assert result.loc["704", config.COL_SUPPLIER_RANK] == 3
+    assert "0" not in result.index  # el agregado World no es un proveedor
+
+
+def test_supplier_shares_sin_world_usa_la_suma() -> None:
+    # Sin agregado World: denominador = 60 + 40 = 100
+    imports = _partner_imports(
+        [
+            ("DEU", "170", "Colombia", 2024, 60.0),
+            ("DEU", "756", "Switzerland", 2024, 40.0),
+        ]
+    )
+    result = supplier_shares(imports).set_index(config.COL_PARTNER_CODE)
+    assert result.loc["170", config.COL_SUPPLIER_SHARE] == pytest.approx(0.60)
+    assert result.loc["756", config.COL_SUPPLIER_SHARE] == pytest.approx(0.40)
+
+
+def test_supplier_shares_usa_el_ultimo_anio_por_destino() -> None:
+    # USA tiene 2024; JPN solo llega a 2023 → cada uno usa su último año
+    imports = _partner_imports(
+        [
+            ("USA", "170", "Colombia", 2023, 999.0),  # año viejo: fuera
+            ("USA", "170", "Colombia", 2024, 80.0),
+            ("USA", "76", "Brazil", 2024, 20.0),
+            ("JPN", "76", "Brazil", 2023, 50.0),
+            ("JPN", "170", "Colombia", 2023, 50.0),
+        ]
+    )
+    result = supplier_shares(imports)
+    usa = result[result[config.COL_COUNTRY] == "USA"]
+    jpn = result[result[config.COL_COUNTRY] == "JPN"]
+    assert set(usa[config.COL_YEAR]) == {2024}
+    assert set(jpn[config.COL_YEAR]) == {2023}
+    assert usa.set_index(config.COL_PARTNER_CODE).loc[
+        "170", config.COL_SUPPLIER_SHARE
+    ] == pytest.approx(0.80)
+
+
+def test_supplier_shares_vacio_devuelve_vacio() -> None:
+    assert supplier_shares(_partner_imports([])).empty
+
+
+def test_supplier_shares_valor_no_positivo_falla() -> None:
+    imports = _partner_imports([("USA", "170", "Colombia", 2024, 0.0)])
+    with pytest.raises(ValueError, match="positivas"):
+        supplier_shares(imports)

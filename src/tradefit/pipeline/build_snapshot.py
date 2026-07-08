@@ -15,7 +15,7 @@ import pandas as pd
 from dotenv import load_dotenv
 
 from tradefit import config, hs_codes
-from tradefit.contracts import MarketInputs, ranking_schema
+from tradefit.contracts import MarketInputs, competitors_schema, ranking_schema
 from tradefit.domain import indices
 from tradefit.domain.macro_filter import (
     apply_stability_penalty,
@@ -24,7 +24,7 @@ from tradefit.domain.macro_filter import (
 )
 from tradefit.domain.narrative import LANGS, build_narrative
 from tradefit.domain.scoring import rank_markets
-from tradefit.ingest import comtrade, export_destinations, stub, wits, worldbank
+from tradefit.ingest import competitors, comtrade, export_destinations, stub, wits, worldbank
 
 logger = logging.getLogger(__name__)
 
@@ -192,10 +192,27 @@ def build_snapshot(
     ranking.insert(position, config.COL_LPI, ranking[config.COL_COUNTRY].map(lpi))
     validated: pd.DataFrame = ranking_schema.validate(ranking)
 
+    # Competidores: quién le vende el producto a cada destino (solo fuente
+    # real). El cálculo de cuotas/rank es puro (domain.indices.supplier_shares).
+    supplier_table: pd.DataFrame | None = None
+    if source == "comtrade":
+        _notify(on_stage, "Proveedores del producto en cada destino (competidores)")
+        competitor_imports = competitors.load_competitor_imports(hs)
+        if not competitor_imports.empty:
+            supplier_table = competitors_schema.validate(
+                indices.supplier_shares(competitor_imports)
+            )
+
     _notify(on_stage, "Escribiendo el snapshot")
     config.processed_dir(hs).mkdir(parents=True, exist_ok=True)
     validated.to_parquet(config.ranking_parquet(hs), index=False)
     imports.to_parquet(config.imports_timeseries_parquet(hs), index=False)
+    if supplier_table is not None:
+        supplier_table.to_parquet(config.competitors_parquet(hs), index=False)
+    # Macro crudo compartido (indicadores por país y año): la ficha del
+    # destino lo usa para mostrar inflación/PIB/cuenta corriente/LPI con su
+    # año. Es independiente del producto; reescribirlo es idempotente.
+    macro.to_parquet(config.macro_context_parquet(), index=False)
 
     hs_label = hs_codes.hs_label(hs)
     _write_narrative(hs, validated, dict(config.WEIGHTS), config.MARKET_SIZE_YEARS, hs_label)

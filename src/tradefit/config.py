@@ -104,6 +104,21 @@ def imports_timeseries_parquet(hs: str) -> Path:
     return processed_dir(hs) / "imports_timeseries.parquet"
 
 
+def competitors_parquet(hs: str) -> Path:
+    """Ruta de las cuotas de proveedores por destino (competidores) de ``hs``."""
+    return processed_dir(hs) / "competitors.parquet"
+
+
+def macro_context_parquet() -> Path:
+    """Ruta del macro crudo compartido (indicadores por país y año, para la ficha).
+
+    Es independiente del producto: un solo artefacto en la raíz de
+    ``data/processed/`` que la app usa para mostrar el contexto macro del
+    destino (inflación, PIB, cuenta corriente, LPI) con su año.
+    """
+    return PROCESSED_DIR / "macro_context.parquet"
+
+
 # --- Mercados destino del MVP (ISO3 → nombre en español) ---
 DESTINATIONS: Final[dict[str, str]] = {
     "USA": "Estados Unidos",
@@ -290,6 +305,11 @@ def comtrade_destinations_cache(hs: str) -> Path:
     return RAW_DIR / f"comtrade_{hs}_destinos_{ORIGIN_ISO3}.json"
 
 
+def comtrade_competitors_cache(hs: str) -> Path:
+    """Caché crudo de importaciones de cada destino por proveedor (competidores)."""
+    return RAW_DIR / f"comtrade_{hs}_competidores.json"
+
+
 # Código de reporter/partner de Comtrade para el país de origen (Colombia).
 ORIGIN_COMTRADE_CODE: Final = 170
 # Códigos de commodity especiales de Comtrade.
@@ -446,6 +466,10 @@ COL_INDICATOR: Final = "indicator"
 COL_MACRO_VALUE: Final = "value"  # % u otras unidades según el indicador (no USD)
 COL_AGREEMENT: Final = "trade_agreement"  # presentación (app, desde TRADE_AGREEMENTS)
 COL_ORIGIN_EXPORT_SHARE: Final = "share_of_origin_exports"
+COL_PARTNER_CODE: Final = "partner_code"  # código M49 del proveedor (texto)
+COL_PARTNER_NAME: Final = "partner_name"  # nombre del proveedor (catálogo Comtrade, EN)
+COL_SUPPLIER_SHARE: Final = "supplier_share"  # cuota del proveedor en las imports del destino
+COL_SUPPLIER_RANK: Final = "supplier_rank"  # posición del proveedor en el destino (1 = mayor)
 COL_LPI: Final = "lpi"  # Logistics Performance Index del destino (contexto)
 COL_STABILITY: Final = "stability_score"
 COL_SCORE: Final = "opportunity_score"

@@ -281,3 +281,62 @@ def destination_concentration(exports_by_destination: pd.Series) -> float:
     """
     shares = destination_shares(exports_by_destination)
     return float((shares**2).sum())
+
+
+#: Código del agregado World en las importaciones por proveedor (Comtrade).
+_PARTNER_WORLD = "0"
+
+
+def supplier_shares(imports_by_partner: pd.DataFrame) -> pd.DataFrame:
+    """Cuota y posición de cada proveedor en las importaciones del destino.
+
+    Definición: ``s_p = m_p / M_d`` — cuota del proveedor p en las
+    importaciones del producto del destino d (cf. WITS *partner share*).
+    El denominador ``M_d`` es el agregado World que reporta el propio
+    destino si está presente (partner "0"); si no, la suma de los
+    proveedores individuales. Para cada destino se usa **el último año con
+    dato** (los reporters publican con rezago distinto), y los proveedores
+    se rankean por valor descendente (1 = mayor proveedor; empates por
+    código de partner para que el resultado sea determinístico).
+
+    Args:
+        imports_by_partner: DataFrame conforme a
+            ``contracts.competitor_imports_schema`` (columnas: destino,
+            código y nombre del proveedor, año, valor; puede incluir el
+            agregado World).
+
+    Returns:
+        DataFrame con una fila por (destino, proveedor individual) del
+        último año con dato del destino, columnas de entrada + ``supplier_share``
+        y ``supplier_rank``, ordenado por destino y rank. Vacío si la
+        entrada está vacía.
+
+    Raises:
+        ValueError: si algún valor no es positivo (el contrato de entrada
+            exige > 0).
+    """
+    if imports_by_partner.empty:
+        return imports_by_partner.assign(
+            **{config.COL_SUPPLIER_SHARE: [], config.COL_SUPPLIER_RANK: []}
+        )
+    if (imports_by_partner[config.COL_VALUE] <= 0).any():
+        raise ValueError("Las importaciones por proveedor deben ser positivas")
+    latest_year = imports_by_partner.groupby(config.COL_COUNTRY)[config.COL_YEAR].transform("max")
+    latest = imports_by_partner[imports_by_partner[config.COL_YEAR] == latest_year]
+    is_world = latest[config.COL_PARTNER_CODE] == _PARTNER_WORLD
+    partners = latest[~is_world].copy()
+    if partners.empty:
+        return partners.assign(**{config.COL_SUPPLIER_SHARE: [], config.COL_SUPPLIER_RANK: []})
+    world_totals = latest[is_world].set_index(config.COL_COUNTRY)[config.COL_VALUE]
+    partner_sums = partners.groupby(config.COL_COUNTRY)[config.COL_VALUE].transform("sum")
+    denominators = partners[config.COL_COUNTRY].map(world_totals).fillna(partner_sums).to_numpy()
+    partners[config.COL_SUPPLIER_SHARE] = (partners[config.COL_VALUE] / denominators).clip(
+        upper=1.0
+    )
+    partners = partners.sort_values(
+        [config.COL_COUNTRY, config.COL_VALUE, config.COL_PARTNER_CODE],
+        ascending=[True, False, True],
+        ignore_index=True,
+    )
+    partners[config.COL_SUPPLIER_RANK] = partners.groupby(config.COL_COUNTRY).cumcount() + 1
+    return partners

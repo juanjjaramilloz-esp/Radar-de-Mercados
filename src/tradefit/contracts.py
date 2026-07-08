@@ -86,6 +86,43 @@ tariffs_schema = pa.DataFrameSchema(
     name="tariffs",
 )
 
+#: Importaciones del producto en cada destino por proveedor y año (entrada
+#: de ``domain.indices.supplier_shares``). Incluye el agregado World
+#: (``partner_code`` "0"), denominador de las cuotas; ausencia de un destino
+#: significa que no reportó el producto (caso legítimo).
+competitor_imports_schema = pa.DataFrameSchema(
+    {
+        config.COL_COUNTRY: pa.Column(str, pa.Check.str_length(3, 3)),
+        config.COL_PARTNER_CODE: pa.Column(str),
+        config.COL_PARTNER_NAME: pa.Column(str),
+        config.COL_YEAR: pa.Column(int, pa.Check.in_range(1990, 2100)),
+        config.COL_VALUE: pa.Column(float, pa.Check.gt(0)),
+    },
+    unique=[config.COL_COUNTRY, config.COL_PARTNER_CODE, config.COL_YEAR],
+    coerce=True,
+    strict=True,
+    name="competitor_imports",
+)
+
+#: Cuotas de proveedores por destino (artefacto ``competitors.parquet`` del
+#: snapshot): el último año con dato de cada destino, solo proveedores
+#: individuales (sin el agregado World), con cuota y posición.
+competitors_schema = pa.DataFrameSchema(
+    {
+        config.COL_COUNTRY: pa.Column(str, pa.Check.str_length(3, 3)),
+        config.COL_PARTNER_CODE: pa.Column(str),
+        config.COL_PARTNER_NAME: pa.Column(str),
+        config.COL_YEAR: pa.Column(int, pa.Check.in_range(1990, 2100)),
+        config.COL_VALUE: pa.Column(float, pa.Check.gt(0)),
+        config.COL_SUPPLIER_SHARE: pa.Column(float, pa.Check.in_range(0.0, 1.0)),
+        config.COL_SUPPLIER_RANK: pa.Column(int, pa.Check.ge(1)),
+    },
+    unique=[config.COL_COUNTRY, config.COL_PARTNER_CODE],
+    coerce=True,
+    strict=True,
+    name="competitors",
+)
+
 #: Indicadores macro WDI por destino y año (solo años con dato: los null de
 #: la API se descartan en ingest; la ausencia se maneja en domain).
 macro_schema = pa.DataFrameSchema(

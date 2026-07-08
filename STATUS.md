@@ -12,13 +12,14 @@ ranking de 26 destinos (18 OCDE/Asia + 8 LATAM). Motor económico puro en
 `domain/`, snapshot Parquet como contrato, app Streamlit que solo lee el
 snapshot.
 
-## ⏸️ Trabajo en curso — retomar aquí (2026-07-08)
+## ✅ Última tanda — «Profundidad Colombia» (2026-07-08, COMPLETA)
 
 Tanda **"Profundidad Colombia"** (plan aprobado, 2 partes; contexto: con el
 catálogo top-15, agregar info específica Colombia × producto × destino y
 diferenciarse del ITC Export Potential Map — EPM predice USD con modelo
 opaco para 222 países; el Radar es glass-box con filtro macro y 1 origen a
-fondo).
+fondo). **Las dos partes quedaron completas y commiteadas**; falta el push
+del usuario y el checklist manual de abajo.
 
 **Parte 1 — completa (2026-07-08):**
 
@@ -45,31 +46,62 @@ fondo).
   Comtrade (riesgo ya documentado en el plan, no es un bug). README/PLAN
   actualizados a "26 mercados".
 
-**Parte 2 — planificada (siguiente sesión):** mapa interactivo con focus
-por destino (`st.plotly_chart(on_select="rerun")`), ficha del destino
-(drivers + TLC + LPI + macro + evolución), `ingest/competitors.py` (top-5
-proveedores por destino, Colombia resaltada) y sección README de
-diferenciación vs. EPM. Detalle completo en el plan aprobado
-(`~/.claude/plans/lee-el-proyecto-vamos-federated-crane.md`).
+**Parte 2 — completa (2026-07-08):**
 
-## Checklist manual — Parte 1 (revisar en Streamlit tras el push)
+- P2.1/P2.2 ✅ Focus por destino (commit `e12c305`): clic en el mapa
+  (`on_select="rerun"`, customdata ISO3, guard anti-reimposición) o
+  selector → **ficha del destino**: score+rank, arancel AHS con el acuerdo
+  vigente, cuota COL y Δ, % export. COL, top-2 drivers
+  (`score_contributions`), macro con año del dato
+  (`macro_context.parquet` + `latest_indicator_value`) + LPI +
+  estabilidad, top-5 proveedores con Colombia resaltada y su posición,
+  mini-evolución y narrativa. Fila resaltada en la tabla y borde ámbar en
+  el mapa. Reemplaza la vieja sección «Lectura por mercado». Verificado
+  headless con `streamlit.testing.v1.AppTest`.
+- P2.3 ✅ Competidores (commit `74babf2`): `ingest/competitors.py` (una
+  consulta por producto: 26 reporters × todos los partners × 3 años,
+  `includeDesc=true` para nombres) + `domain/indices.supplier_shares`
+  (partner share cf. WITS; denominador = World del propio destino o suma;
+  último año con dato por destino; testeado a mano) →
+  `competitors.parquet` por producto + `macro_context.parquet` compartido
+  (WDI crudo para la ficha). Versionados para el demo (commit `8dcfd60`,
+  ~20-40 KB c/u). Sanity check real: Colombia = proveedor #1 de café en
+  USA con 21,5 % (2025).
+- P2.4 ✅ Diferenciación vs. ITC Export Potential Map: tabla honesta en el
+  README + pitch corto en el sidebar (es/en).
+
+**Siguiente tanda (pedida por el usuario, 2026-07-08):** investigar la
+frecuencia/calendario de publicación de cada fuente (Comtrade, WDI, WITS,
+LPI) y automatizar la recolección ~1 día después de cada publicación
+oficial (probable GitHub Action que abre PR; requiere resolver token de
+GitHub en CI — el push sigue siendo del usuario).
+
+## Checklist manual — tanda «Profundidad Colombia» (revisar tras el push)
 
 1. Selector de los 15 productos: cada uno carga sin error; banano (0803)
-   muestra 24 mercados (no 26) — es correcto, no un bug.
-2. Tabla: columnas nuevas «Acuerdo comercial», «% export. de Colombia»,
-   «LPI logístico (1–5)» visibles, con datos (no todo `—`), y que cambien
-   de idioma/formato con el toggle ES/EN.
-3. Los 8 destinos LATAM (MEX/BRA/CHL/PER/ECU/CRI/PAN/DOM) aparecen con
-   nombre y bandera correctos en tabla, mapa y radar de métricas.
-4. KPI de concentración de destinos (HHI) + frase de la narrativa sobre
-   dependencia de un destino.
-5. Mapa choropleth pinta los países LATAM nuevos.
-6. Laboratorio de pesos: sigue reproduciendo el ranking oficial (las
-   columnas nuevas son contexto, no ponderan).
-7. Export Excel: abre y trae Acuerdo/LPI/% export con formato correcto.
-8. Expander de Metodología: nota nueva del LPI en ambos idiomas.
-9. Buscador avanzado (cualquier HS): sigue funcionando on-demand con 26
-   mercados (más lento; vigilar que no dé timeout visible).
+   muestra 24 mercados (no 26) — es correcto, no un bug (ECU/MEX no
+   reportaron ese producto).
+2. Tabla: columnas «Acuerdo comercial», «% export. de Colombia», «LPI
+   logístico (1–5)» visibles, con datos, y respetando el toggle ES/EN.
+3. Los 8 destinos LATAM (MEX/BRA/CHL/PER/ECU/CRI/PAN/DOM) con nombre y
+   bandera correctos en tabla, mapa y radar.
+4. KPI de concentración (HHI) + frase de la narrativa sobre dependencia.
+5. **Focus mode**: clic en un país del mapa → la ficha aparece abajo, la
+   fila del ranking queda resaltada en ámbar y el país con borde ámbar;
+   «✕ Quitar foco» limpia todo; el selector de la ficha es equivalente.
+6. **Ficha del destino** (probar café 0901 + USA): 4 métricas arriba
+   (score #rank, arancel con TLC, cuota+Δ, % export COL), línea de
+   drivers, contexto macro con años, top-5 proveedores con Colombia en
+   ámbar («Colombia es el proveedor #1 con 21,5 %»), mini-evolución y
+   frases de narrativa. Cambiar idioma y verificar que todo se traduce.
+7. Ficha con un destino sin competidores (banano → probar; o partida del
+   buscador con snapshot viejo): mensaje de degradación, no error.
+8. Laboratorio de pesos: sigue reproduciendo el ranking oficial.
+9. Export Excel: trae Acuerdo/LPI/% export.
+10. Sidebar: pitch «¿En qué se diferencia del ITC EPM?» en ambos idiomas;
+    README con la tabla de diferenciación bien renderizada en GitHub.
+11. Buscador avanzado: partida nueva construye on-demand (ahora descarga
+    también competidores; algo más lento pero con ficha completa).
 
 ## Estado actual
 
@@ -216,6 +248,6 @@ pytest ; ruff check . ; mypy src                # puerta de calidad
   suspendida se limpió (`gh auth logout`) porque causaba 403 confusos; si se
   necesita `gh` autenticado, correr `gh auth login` con la cuenta nueva
   (`juanjjaramilloz-esp`) — flujo OAuth interactivo, requiere el usuario.
-- Backlog: IMF SDMX como macro complementaria; Parte 2 de "Profundidad
-  Colombia" (mapa con focus, ficha del destino, competidores, diferenciación
-  vs. EPM en el README).
+- Backlog: IMF SDMX como macro complementaria; automatización del refresh
+  de datos alineada al calendario de publicación de las fuentes (siguiente
+  tanda, ver arriba).

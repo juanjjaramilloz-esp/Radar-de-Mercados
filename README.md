@@ -34,6 +34,10 @@ cita su definición académica y tiene un test con un valor calculado a mano.
   de cualquier capítulo/partida/subpartida (descarga, cálculo y caché al momento).
 - **Narrativa por reglas** en español e inglés donde **cada frase cita el
   número que la respalda**, con top-3 recomendado y su porqué.
+- **Focus por destino**: clic en el mapa (o selector) → ficha del mercado
+  con sus drivers del score, arancel + acuerdo, contexto macro-logístico,
+  **top-5 competidores con la posición de Colombia** y evolución de la
+  demanda.
 - **App bilingüe (ES/EN)** con formato numérico por idioma, mapa coropletas,
   evolución temporal, comparador de productos y export a CSV/Excel/PDF.
 - **Reproducible**: datos crudos cacheados, snapshot idempotente, cero
@@ -63,6 +67,27 @@ penalización de estabilidad macro (inflación, crecimiento del PIB y cuenta
 corriente, WDI) con rampas lineales documentadas. Pesos y umbrales viven en
 [`config.py`](src/tradefit/config.py), justificados; la pestaña
 **Metodología** de la app muestra fórmula y cita de cada número.
+
+## ¿En qué se diferencia del ITC Export Potential Map?
+
+El [Export Potential Map](https://exportpotential.intracen.org/) del ITC es la
+referencia del campo: estima un **potencial de exportación en USD** para 222
+países × ~4.000 productos con un modelo econométrico (oferta × demanda ×
+facilidad de comercio). El Radar no compite en cobertura — se diferencia en
+enfoque:
+
+| | ITC Export Potential Map | Radar de Mercados |
+|---|---|---|
+| **Salida** | Predicción en USD de potencial (in)explotado | Ranking transparente por score compuesto |
+| **Modelo** | Econométrico, cerrado para el usuario | **Glass-box**: cada métrica citada, testeada y visible |
+| **Pesos** | Fijos del modelo | **Ajustables en vivo** (laboratorio what-if) |
+| **Riesgo del destino** | No penaliza | **Filtro de estabilidad macro** explícito (WDI) |
+| **Origen** | 222 países, genérico | **1 origen a fondo**: TLC de Colombia, competidores por destino, concentración de destinos, cuota en las export. COL |
+| **Código y datos** | Cerrado | Open source, reproducible, CI con tests |
+
+En corto: el EPM responde *cuánto podrías exportar* con una caja negra
+calibrada globalmente; el Radar responde *dónde enfocarse y por qué*, con
+cada número defendible y auditable.
 
 ## Arquitectura
 
@@ -137,7 +162,9 @@ Highlights: a curated catalog of **Colombia's top-15 non-mining exports**
 (derived from Comtrade data, not hand-picked), Colombia-centric context per
 destination (trade agreement in force, destination's share of Colombia's
 exports, destination-concentration HHI, World Bank Logistics Performance
-Index), analysis of **any HS code**
+Index), a **click-to-focus destination profile** (score drivers, macro &
+logistics context, top-5 competing suppliers with Colombia's position,
+demand evolution), analysis of **any HS code**
 built on demand with caching, a
 rule-based bilingual narrative where **every sentence cites its number**,
 choropleth map, time evolution, product comparator, CSV/Excel/PDF export,

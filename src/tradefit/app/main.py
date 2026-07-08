@@ -71,6 +71,7 @@ def _about_sidebar() -> None:
         st.header(t("about_header"))
         st.markdown(t("about_body"))
         st.caption(t("about_caption"))
+        st.caption(t("about_epm_pitch"))
 
 
 def _catalog_products() -> dict[str, str]:

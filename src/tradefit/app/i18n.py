@@ -178,6 +178,24 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
             "(presentation only)."
         ),
     },
+    "about_epm_pitch": {
+        "es": (
+            "**¿En qué se diferencia del ITC Export Potential Map?** El EPM "
+            "predice un potencial en USD con un modelo econométrico cerrado "
+            "para 222 países; el Radar es **glass-box** — fórmulas citadas, "
+            "pesos ajustables en vivo, filtro de riesgo macro — y profundiza "
+            "en **un** origen: TLC, competidores y concentración de destinos "
+            "de Colombia. Detalle en el README."
+        ),
+        "en": (
+            "**How is this different from the ITC Export Potential Map?** "
+            "EPM predicts a USD potential with a closed econometric model "
+            "for 222 countries; the Radar is **glass-box** — cited formulas, "
+            "live-adjustable weights, a macro-risk filter — and goes deep on "
+            "**one** origin: Colombia's FTAs, competitors and destination "
+            "concentration. Details in the README."
+        ),
+    },
     "hero_value_prop": {
         "es": (
             "Dado un **producto** (partida arancelaria HS) y un **país de "

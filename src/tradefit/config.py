@@ -19,6 +19,10 @@ STUB_IMPORTS_CSV: Final = SAMPLE_DIR / "stub_imports.csv"
 # Catálogo HS versionado (código → descripción, niveles 2/4/6 dígitos) para el
 # buscador de partidas de la app; se regenera con ingest/hs_reference.py.
 HS_REFERENCE_CSV: Final = SAMPLE_DIR / "hs_reference.csv.gz"
+# Distancias bilaterales desde el origen (CEPII GeoDist), versionadas: la
+# geografía no cambia y la fuente dejó de actualizarse (dataset final).
+# Se regenera con ingest/geodist.py si hiciera falta.
+GEODIST_CSV: Final = SAMPLE_DIR / "geodist_col.csv.gz"
 STUB_BILATERAL_CSV: Final = SAMPLE_DIR / "stub_bilateral.csv"
 STUB_BASKETS_CSV: Final = SAMPLE_DIR / "stub_baskets.csv"
 STUB_EXPORT_TOTALS_CSV: Final = SAMPLE_DIR / "stub_export_totals.csv"
@@ -412,6 +416,29 @@ def wits_tariffs_cache(hs: str) -> Path:
     return RAW_DIR / f"wits_{hs}_tariffs_{ORIGIN_ISO3}.json"
 
 
+# --- CEPII GeoDist (distancias bilaterales; archivo estático, sin API) ---
+# Dataset dyádico dist_cepii de Mayer & Zignago (2011), CEPII WP 2011-25:
+# distancias en km entre pares de países (dist = entre las ciudades más
+# pobladas; distw = promedio ponderado por población de las ciudades
+# principales, la medida recomendada para ecuaciones de gravedad). El archivo
+# es final (CEPII no lo actualiza más) y la geografía no caduca: se versiona
+# el extracto del origen en GEODIST_CSV y solo se regenera si cambia la lista
+# de destinos posibles.
+CEPII_DIST_URL: Final = "https://www.cepii.fr/distance/dist_cepii.dta"
+CEPII_DIST_CACHE: Final = RAW_DIR / "dist_cepii.dta"
+
+# Rampa log-lineal de la accesibilidad por distancia (peor, mejor) en km.
+# Extremos físicos, no muestrales: 20 015 km es la máxima distancia geodésica
+# posible (media circunferencia terrestre, π·6371 km) y 100 km una frontera
+# contigua efectiva. La rampa es lineal en log-distancia porque el efecto de
+# la distancia sobre el comercio es aproximadamente log-lineal (elasticidad
+# ≈ −0.9; Disdier & Head 2008, meta-análisis del modelo gravitacional).
+ACCESSIBILITY_DISTANCE_BOUNDS_KM: Final[tuple[float, float]] = (20015.0, 100.0)
+# Rampa del componente logístico: la escala completa del LPI (World Bank,
+# Logistics Performance Index, 1–5). Sin dato de LPI el componente es neutro
+# (0.5): la ausencia en la fuente no es evidencia de mala logística.
+ACCESSIBILITY_LPI_BOUNDS: Final[tuple[float, float]] = (1.0, 5.0)
+
 # --- World Bank WDI (filtro macro de estabilidad; sin API key) ---
 WDI_URL: Final = "https://api.worldbank.org/v2/country/{countries}/indicator/{indicator}"
 WDI_CACHE_FILE: Final = RAW_DIR / "wdi_macro.json"
@@ -482,6 +509,8 @@ COL_PARTNER_NAME: Final = "partner_name"  # nombre del proveedor (catálogo Comt
 COL_SUPPLIER_SHARE: Final = "supplier_share"  # cuota del proveedor en las imports del destino
 COL_SUPPLIER_RANK: Final = "supplier_rank"  # posición del proveedor en el destino (1 = mayor)
 COL_LPI: Final = "lpi"  # Logistics Performance Index del destino (contexto)
+COL_DISTANCE_KM: Final = "distance_km"  # distancia bilateral origen→destino (CEPII, km)
+COL_ACCESSIBILITY: Final = "accessibility"  # accesibilidad logística [0,1] (pondera)
 COL_NET_WGT: Final = "net_weight_kg"  # peso neto del flujo (Comtrade netWgt)
 COL_UV_MARKET: Final = "uv_market_usd_kg"  # valor unitario de las imports del destino
 COL_UV_ORIGIN: Final = "uv_origin_usd_kg"  # valor unitario del flujo origen→destino
@@ -508,18 +537,20 @@ MARKET_SIZE_YEARS: Final = 3
 # la demanda existente (nivel + dinámica) pesa casi la mitad porque sin
 # demanda no hay mercado; la posición ya ganada por el origen (cuota +
 # momentum) y el encaje estructural oferta-demanda reparten el grueso del
-# resto; el arancel enfrentado entra con peso moderado (0.10) porque es una
-# fricción de costo que condiciona el acceso pero no crea demanda — y entre
-# los destinos del MVP (OCDE, mayormente con TLC con Colombia) discrimina
-# menos que las métricas de demanda. Cede 5 pp el tamaño de mercado y 5 pp el
-# momentum de cuota (la métrica más ruidosa de la ventana). Suman 1.0.
+# resto; las dos fricciones de acceso — arancel enfrentado y accesibilidad
+# logística (distancia gravitacional + LPI) — entran con peso moderado (0.10
+# cada una) porque condicionan el costo de llegar pero no crean demanda.
+# Para dar cabida a la accesibilidad (2026-07-08) ceden 3 pp el tamaño de
+# mercado, 2 pp el crecimiento, 2 pp la complementariedad, 1 pp la cuota y
+# 2 pp el momentum (la métrica más ruidosa de la ventana). Suman 1.0.
 WEIGHTS: Final[dict[str, float]] = {
-    "market_size": 0.25,  # demanda actual del destino (nivel)
-    "import_growth": 0.20,  # dinámica de la demanda (CAGR de la ventana)
-    "market_share": 0.15,  # cuota ya ganada por el origen (último año)
-    "share_trend": 0.10,  # momentum de esa cuota (Δ en la ventana)
-    "complementarity": 0.20,  # encaje canasta origen ↔ demanda destino
+    "market_size": 0.22,  # demanda actual del destino (nivel)
+    "import_growth": 0.18,  # dinámica de la demanda (CAGR de la ventana)
+    "market_share": 0.14,  # cuota ya ganada por el origen (último año)
+    "share_trend": 0.08,  # momentum de esa cuota (Δ en la ventana)
+    "complementarity": 0.18,  # encaje canasta origen ↔ demanda destino
     "tariff_faced": 0.10,  # arancel efectivamente aplicado (menos = mejor)
+    "accessibility": 0.10,  # accesibilidad logística: distancia (gravedad) + LPI
 }
 # El RCA de Balassa del origen es constante entre destinos: se reporta como
 # contexto en el snapshot (columna rca_balassa) pero NO pondera en el ranking.

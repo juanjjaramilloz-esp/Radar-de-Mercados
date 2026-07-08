@@ -5,6 +5,7 @@ import pytest
 
 from tradefit import config
 from tradefit.domain.indices import (
+    accessibility,
     aggregate_unit_value,
     complementarity,
     destination_concentration,
@@ -350,3 +351,61 @@ def test_unit_value_premium_sin_evidencia_es_nan() -> None:
     assert pd.isna(unit_value_premium(float("nan"), 5.0))
     assert pd.isna(unit_value_premium(6.0, float("nan")))
     assert pd.isna(unit_value_premium(0.0, 5.0))
+
+
+# --- accessibility (gravedad + LPI) -----------------------------------------
+
+
+def test_accessibility_extremos_de_la_rampa_de_distancia() -> None:
+    # En el mejor extremo (100 km) el subíndice de distancia es 1; en el
+    # peor (20 015 km, media circunferencia terrestre) es 0. Con LPI sin
+    # dato el componente logístico es neutro (0.5):
+    # (1 + 0.5)/2 = 0.75 y (0 + 0.5)/2 = 0.25.
+    distances = pd.Series({"AAA": 100.0, "BBB": 20015.0})
+    result = accessibility(distances, lpi=None)
+    assert result["AAA"] == pytest.approx(0.75)
+    assert result["BBB"] == pytest.approx(0.25)
+
+
+def test_accessibility_media_geometrica_es_medio_camino() -> None:
+    # La rampa es lineal en log-distancia: la media geométrica de los
+    # extremos (√(100·20015) ≈ 1 414.7 km) cae exactamente en 0.5.
+    # Con LPI 3.0 → (3−1)/4 = 0.5 → accesibilidad (0.5 + 0.5)/2 = 0.5.
+    midpoint = (100.0 * 20015.0) ** 0.5
+    distances = pd.Series({"AAA": midpoint})
+    lpi = pd.Series({"AAA": 3.0})
+    assert accessibility(distances, lpi)["AAA"] == pytest.approx(0.5)
+
+
+def test_accessibility_componente_lpi_a_mano() -> None:
+    # Misma distancia (media geométrica → subíndice 0.5); LPI 5 → 1.0 y
+    # LPI 1 → 0.0: accesibilidad 0.75 vs. 0.25. El LPI mueve ±0.25.
+    midpoint = (100.0 * 20015.0) ** 0.5
+    distances = pd.Series({"TOP": midpoint, "LOW": midpoint})
+    lpi = pd.Series({"TOP": 5.0, "LOW": 1.0})
+    result = accessibility(distances, lpi)
+    assert result["TOP"] == pytest.approx(0.75)
+    assert result["LOW"] == pytest.approx(0.25)
+
+
+def test_accessibility_distancia_fuera_de_rango_se_recorta() -> None:
+    # Más cerca que el mejor extremo o más lejos que el peor: el subíndice
+    # se recorta a [0, 1] (no extrapola).
+    distances = pd.Series({"NEAR": 50.0, "FAR": 30000.0})
+    result = accessibility(distances, lpi=None)
+    assert result["NEAR"] == pytest.approx(0.75)  # (1.0 + 0.5) / 2
+    assert result["FAR"] == pytest.approx(0.25)  # (0.0 + 0.5) / 2
+
+
+def test_accessibility_sin_distancia_es_nan() -> None:
+    distances = pd.Series({"AAA": float("nan")})
+    lpi = pd.Series({"AAA": 4.0})
+    assert pd.isna(accessibility(distances, lpi)["AAA"])
+
+
+def test_accessibility_bounds_invalidos_fallan() -> None:
+    distances = pd.Series({"AAA": 1000.0})
+    with pytest.raises(ValueError, match="distancia"):
+        accessibility(distances, None, distance_bounds_km=(100.0, 100.0))
+    with pytest.raises(ValueError, match="LPI"):
+        accessibility(distances, None, lpi_bounds=(3.0, 3.0))

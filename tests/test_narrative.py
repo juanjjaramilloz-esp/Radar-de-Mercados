@@ -118,6 +118,21 @@ def test_arancel_cero_y_sin_dato() -> None:
     assert "arancel" not in sin_dato  # sin dato de WITS → ninguna afirmación
 
 
+def test_frase_de_accesibilidad_solo_con_dato() -> None:
+    con_dato = " ".join(
+        _sentences(_row(**{config.COL_DISTANCE_KM: 4021.0, config.COL_ACCESSIBILITY: 0.62}))
+    )
+    assert "está a 4.021 km de Colombia" in con_dato  # miles con punto (es)
+    assert "accesibilidad logística 0,62" in con_dato
+    # Snapshot viejo (sin columnas) o destino fuera del catálogo CEPII (NaN):
+    # ninguna afirmación de accesibilidad.
+    assert "accesibilidad" not in " ".join(_sentences(_row()))
+    sin_dato = _row(
+        **{config.COL_DISTANCE_KM: float("nan"), config.COL_ACCESSIBILITY: float("nan")}
+    )
+    assert "accesibilidad" not in " ".join(_sentences(sin_dato))
+
+
 def test_snapshot_viejo_sin_columna_de_arancel_no_rompe() -> None:
     row = _row().drop(config.COL_TARIFF)
     text = " ".join(_sentences(row))
@@ -187,6 +202,17 @@ def test_top_recomendaciones_deterministas() -> None:
     a = top_recommendations(_ranking_small(), config.WEIGHTS)
     b = top_recommendations(_ranking_small(), config.WEIGHTS)
     assert a == b
+
+
+def test_top_recomendaciones_accesibilidad_como_driver() -> None:
+    # Con la columna presente (snapshot nuevo), la accesibilidad puede ser
+    # driver del porqué; _ranking_small() sin la columna cubre el snapshot
+    # viejo (los demás tests pasan sin ella).
+    ranking = _ranking_small()
+    ranking[config.COL_ACCESSIBILITY] = [0.9, 0.5, 0.1]
+    recs = top_recommendations(ranking, {"accessibility": 1.0}, n=1)
+    assert recs[0]["iso3"] == "AAA"
+    assert any("accesibilidad logística" in reason for reason in recs[0]["reasons"])
 
 
 def test_metrica_desconocida_falla() -> None:

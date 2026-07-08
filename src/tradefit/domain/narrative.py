@@ -32,6 +32,7 @@ METRIC_LABELS: dict[Lang, dict[str, str]] = {
         "share_trend": "momentum de la cuota",
         "complementarity": "complementariedad de canastas",
         "tariff_faced": "arancel enfrentado",
+        "accessibility": "accesibilidad logística",
     },
     "en": {
         "market_size": "market size",
@@ -40,6 +41,7 @@ METRIC_LABELS: dict[Lang, dict[str, str]] = {
         "share_trend": "share momentum",
         "complementarity": "basket complementarity",
         "tariff_faced": "tariff faced",
+        "accessibility": "logistics accessibility",
     },
 }
 
@@ -51,6 +53,7 @@ _METRIC_COLUMNS: dict[str, str] = {
     "share_trend": config.COL_SHARE_TREND,
     "complementarity": config.COL_COMPLEMENTARITY,
     "tariff_faced": config.COL_TARIFF,
+    "accessibility": config.COL_ACCESSIBILITY,
 }
 
 #: Plantillas de las frases, por idioma. Los verbos con carga ("crece",
@@ -111,6 +114,16 @@ _TEMPLATES: dict[str, dict[Lang, str]] = {
         "es": "{product} paga en {dest} un arancel efectivamente aplicado de {pct}.",
         "en": "{product} faces an effectively applied tariff of {pct} in {dest}.",
     },
+    "accessibility": {
+        "es": (
+            "{dest} está a {km} km de {origin}; accesibilidad logística "
+            "{acc} (escala 0–1: distancia gravitacional + LPI)."
+        ),
+        "en": (
+            "{dest} is {km} km away from {origin}; logistics accessibility "
+            "of {acc} (0–1 scale: gravity distance + LPI)."
+        ),
+    },
     "stability": {
         "es": (
             "Estabilidad macro de {dest} {stability}: el filtro deja el "
@@ -166,6 +179,7 @@ def _metric_formatters(lang: Lang) -> dict[str, Callable[[float], str]]:
         "share_trend": lambda v: f"{_fmt_pp_signed(v, lang)} {window}",
         "complementarity": lambda v: index_scale.format(v=_fmt_decimal(v, 2, lang)),
         "tariff_faced": lambda v: f"{_fmt_pct(v, lang)} {applied}",
+        "accessibility": lambda v: index_scale.format(v=_fmt_decimal(v, 2, lang)),
     }
 
 
@@ -285,6 +299,27 @@ def market_sentences(
                 )
             )
 
+    # Accesibilidad: solo si el snapshot trae ambas columnas con dato
+    # (posteriores a 2026-07-08); NaN = destino fuera del catálogo CEPII.
+    has_access = (
+        config.COL_ACCESSIBILITY in row
+        and config.COL_DISTANCE_KM in row
+        and not pd.isna(row[config.COL_ACCESSIBILITY])
+        and not pd.isna(row[config.COL_DISTANCE_KM])
+    )
+    if has_access:
+        km_text = f"{float(row[config.COL_DISTANCE_KM]):,.0f}"
+        sentences.append(
+            _t(
+                "accessibility",
+                lang,
+                dest=destination,
+                origin=origin_name,
+                km=km_text.replace(",", ".") if lang == "es" else km_text,
+                acc=_fmt_decimal(float(row[config.COL_ACCESSIBILITY]), 2, lang),
+            )
+        )
+
     stability = float(row[config.COL_STABILITY])
     raw = float(row[config.COL_SCORE])
     final = float(row[config.COL_FINAL_SCORE])
@@ -336,6 +371,11 @@ def top_recommendations(
     contributions = pd.DataFrame(index=by_country.index)
     positions = pd.DataFrame(index=by_country.index)
     for metric, weight in weights.items():
+        # Snapshots anteriores a 2026-07-08 no traen accesibilidad (la
+        # columna es required=False en el esquema): una métrica ponderada
+        # sin columna simplemente no participa del porqué.
+        if _METRIC_COLUMNS[metric] not in by_country.columns:
+            continue
         values = by_country[_METRIC_COLUMNS[metric]]
         # La normalización (incluida la dirección: en el arancel menos es
         # mejor) es la misma del scoring, para que el "porqué" cite las

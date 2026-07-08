@@ -92,6 +92,7 @@ _METRIC_LABEL_KEYS: Final[dict[str, str]] = {
     "share_trend": "methodology_metric_share_trend",
     "complementarity": "methodology_metric_complementarity",
     "tariff_faced": "methodology_metric_tariff",
+    "accessibility": "methodology_metric_accessibility",
 }
 
 
@@ -123,10 +124,18 @@ _STAGE_TRANSLATIONS: Final[dict[str, str]] = {
         "Export and import baskets (complementarity)"
     ),
     "Totales de exportación para el RCA": "Export totals for the RCA",
+    "Distancias bilaterales (CEPII GeoDist)": "Bilateral distances (CEPII GeoDist)",
+    "Aranceles que enfrenta el origen (World Bank WITS)": (
+        "Tariffs faced by the origin (World Bank WITS)"
+    ),
     "Indicadores macro (World Bank WDI)": "Macro indicators (World Bank WDI)",
     "Destinos de exportación del origen (concentración)": (
         "Origin's export destinations (concentration)"
     ),
+    "Proveedores del producto en cada destino (competidores)": (
+        "Product suppliers in each destination (competitors)"
+    ),
+    "Valores unitarios (USD/kg) por destino": "Unit values (USD/kg) by destination",
     "Insumos locales de ejemplo (stub, sin red)": "Local sample inputs (stub, no network)",
     "Calculando índices, estabilidad macro y ranking": (
         "Computing indices, macro stability and ranking"
@@ -371,6 +380,10 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
         "es": "Contexto macro y logístico",
         "en": "Macro & logistics context",
     },
+    "focus_accessibility": {
+        "es": "Accesibilidad logística (a {km} km de Colombia)",
+        "en": "Logistics accessibility ({km} km from Colombia)",
+    },
     "macro_inflation": {"es": "Inflación", "en": "Inflation"},
     "macro_gdp_growth": {"es": "Crecimiento del PIB", "en": "GDP growth"},
     "macro_current_account": {
@@ -539,6 +552,25 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
             "tariff = better)"
         ),
     },
+    "methodology_metric_accessibility": {
+        "es": "Accesibilidad logística",
+        "en": "Logistics accessibility",
+    },
+    "methodology_def_accessibility": {
+        "es": (
+            "Promedio de dos rampas [0,1]: log-distancia bilateral (CEPII "
+            "GeoDist; fricción del modelo gravitacional — Tinbergen 1962, "
+            "elasticidad ≈ −0,9 cf. Disdier & Head 2008) y LPI del destino "
+            "(Banco Mundial, escala 1–5; sin dato = componente neutro)"
+        ),
+        "en": (
+            "Average of two [0,1] ramps: bilateral log-distance (CEPII "
+            "GeoDist; the gravity-model friction — Tinbergen 1962, "
+            "elasticity ≈ −0.9 cf. Disdier & Head 2008) and the "
+            "destination's LPI (World Bank, 1–5 scale; missing = neutral "
+            "component)"
+        ),
+    },
     "methodology_rca_note": {
         "es": (
             "**RCA de Balassa (1965)** — (X_ok/X_o)/(X_wk/X_w) — se reporta "
@@ -606,16 +638,18 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
             "Mundial (*Connecting to Compete*; escala 1–5, más es mejor): "
             "desempeño logístico del destino (aduanas, infraestructura, "
             "envíos internacionales). Publicación esparsa (~cada 4–5 años): "
-            "se toma el último año con dato por país. Contexto: no pondera "
-            "en el score."
+            "se toma el último año con dato por país. La columna es "
+            "contexto, pero el LPI alimenta la mitad de la métrica de "
+            "accesibilidad logística (que sí pondera)."
         ),
         "en": (
             "**Destination LPI** — World Bank Logistics Performance Index "
             "(*Connecting to Compete*; 1–5 scale, higher is better): the "
             "destination's logistics performance (customs, infrastructure, "
             "international shipments). Published sparsely (~every 4–5 "
-            "years): the latest year with data per country is used. "
-            "Context: it does not weigh in the score."
+            "years): the latest year with data per country is used. The "
+            "column is context, but the LPI feeds half of the logistics "
+            "accessibility metric (which does weigh in)."
         ),
     },
     "methodology_agreement_note": {
@@ -908,6 +942,30 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
             "Trade agreement in force between Colombia and the "
             "destination (source: MinCIT). The tariff faced already "
             "reflects its preferences."
+        ),
+    },
+    "col_distance": {"es": "Distancia (km)", "en": "Distance (km)"},
+    "col_distance_help": {
+        "es": (
+            "Distancia bilateral Colombia→destino en km (CEPII GeoDist, "
+            "promedio ponderado por población de las ciudades principales)."
+        ),
+        "en": (
+            "Bilateral Colombia→destination distance in km (CEPII GeoDist, "
+            "population-weighted average across main cities)."
+        ),
+    },
+    "col_accessibility": {"es": "Accesibilidad", "en": "Accessibility"},
+    "col_accessibility_help": {
+        "es": (
+            "Accesibilidad logística [0–1]: promedio de la fricción por "
+            "log-distancia del modelo gravitacional (Tinbergen 1962) y el "
+            "LPI del destino. Más alto = destino más alcanzable."
+        ),
+        "en": (
+            "Logistics accessibility [0–1]: average of the gravity-model "
+            "log-distance friction (Tinbergen 1962) and the destination's "
+            "LPI. Higher = easier to reach."
         ),
     },
     "col_lpi": {"es": "LPI logístico (1–5)", "en": "Logistics LPI (1–5)"},

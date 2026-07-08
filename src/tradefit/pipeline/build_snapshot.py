@@ -29,7 +29,15 @@ from tradefit.domain.macro_filter import (
 )
 from tradefit.domain.narrative import LANGS, build_narrative
 from tradefit.domain.scoring import rank_markets
-from tradefit.ingest import competitors, comtrade, export_destinations, stub, wits, worldbank
+from tradefit.ingest import (
+    competitors,
+    comtrade,
+    export_destinations,
+    geodist,
+    stub,
+    wits,
+    worldbank,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -114,12 +122,21 @@ def _load_inputs(
         export_totals = stub.load_stub_export_totals()
         tariffs = stub.load_stub_tariffs()
         macro = stub.load_stub_macro()
+    # Distancias CEPII (CSV versionado en data/sample/, sin red) y LPI del
+    # macro: insumos de la métrica de accesibilidad. Válidos también para el
+    # stub — el CSV es local y el stub macro simplemente no trae LPI
+    # (componente logístico neutro).
+    _notify(on_stage, "Distancias bilaterales (CEPII GeoDist)")
+    distances = geodist.load_distances()
+    lpi = latest_indicator_value(macro, config.COL_LPI)
     data = MarketInputs(
         imports=imports,
         bilateral=bilateral,
         baskets=baskets,
         tariffs=tariffs,
         rca=_rca_from_totals(export_totals),
+        distances=distances,
+        lpi=lpi,
     )
     return data, macro
 
@@ -252,6 +269,9 @@ def build_snapshot(
         # exportaciones del origen del producto; None si no hay dato.
         "destination_hhi": round(destination_hhi, 4) if destination_hhi is not None else None,
         "weights": dict(config.WEIGHTS),
+        # Rampas de la accesibilidad (distancia CEPII GeoDist + LPI).
+        "accessibility_distance_bounds_km": list(config.ACCESSIBILITY_DISTANCE_BOUNDS_KM),
+        "accessibility_lpi_bounds": list(config.ACCESSIBILITY_LPI_BOUNDS),
         "tariff_years": list(config.WITS_YEARS),
         "macro_indicators": dict(config.WDI_INDICATORS),
         # Indicadores de contexto (no ponderan): hoy solo el LPI.

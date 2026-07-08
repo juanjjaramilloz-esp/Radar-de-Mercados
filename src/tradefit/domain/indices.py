@@ -5,6 +5,9 @@ validados (ver ``contracts.py``), no hacen I/O ni tocan la red, y cada una
 documenta la definición que implementa.
 """
 
+import math
+
+import numpy as np
 import pandas as pd
 
 from tradefit import config
@@ -166,6 +169,73 @@ def tariff_faced(tariffs: pd.DataFrame) -> pd.Series:
     effective = latest.groupby([config.COL_COUNTRY, config.COL_CMD]).min()
     per_country = effective.groupby(config.COL_COUNTRY).mean() / 100.0
     return per_country.rename(config.COL_TARIFF)
+
+
+def accessibility(
+    distance_km: "pd.Series[float]",
+    lpi: "pd.Series[float] | None" = None,
+    distance_bounds_km: tuple[float, float] = config.ACCESSIBILITY_DISTANCE_BOUNDS_KM,
+    lpi_bounds: tuple[float, float] = config.ACCESSIBILITY_LPI_BOUNDS,
+) -> "pd.Series[float]":
+    """Accesibilidad logística del destino: fricción gravitacional + LPI.
+
+    Definición: promedio simple de dos subíndices en [0, 1] —
+
+    1. **Distancia (gravedad).** En el modelo gravitacional del comercio
+       (Tinbergen 1962, *Shaping the World Economy*) los flujos bilaterales
+       caen con la distancia; empíricamente el efecto es log-lineal con
+       elasticidad ≈ −0.9 (Disdier & Head 2008, "The Puzzling Persistence of
+       the Distance Effect on Bilateral Trade", *REStat* 90(1)). El subíndice
+       es una rampa lineal en **log-distancia** entre extremos físicos, no
+       muestrales: ``(ln d_peor − ln d) / (ln d_peor − ln d_mejor)``,
+       recortada a [0, 1] (d_peor = media circunferencia terrestre, d_mejor =
+       frontera contigua efectiva; ver ``config``).
+    2. **Logística (LPI).** Rampa lineal del Logistics Performance Index del
+       destino (World Bank, *Connecting to Compete*; escala 1–5) sobre la
+       escala completa: ``(LPI − 1) / 4``. Un destino sin LPI publicado
+       recibe subíndice **neutro (0.5)**: la ausencia en la fuente no es
+       evidencia de mala logística (mismo criterio que el filtro macro).
+
+    Args:
+        distance_km: distancia bilateral origen→destino en km (CEPII
+            GeoDist), indexada por ISO3. NaN = sin dato → accesibilidad NaN.
+        lpi: LPI del destino (1–5) indexado por ISO3; ``None`` equivale a
+            "sin dato para todos" (componente neutro).
+        distance_bounds_km: extremos ``(peor, mejor)`` de la rampa de
+            distancia, en km.
+        lpi_bounds: extremos ``(peor, mejor)`` de la rampa del LPI.
+
+    Returns:
+        Series en [0, 1] indexada como ``distance_km``, nombrada
+        ``config.COL_ACCESSIBILITY``; NaN donde no hay distancia.
+
+    Raises:
+        ValueError: si algún par de extremos no define una rampa (iguales o
+            distancia no positiva).
+    """
+    worst_km, best_km = distance_bounds_km
+    if worst_km <= 0 or best_km <= 0 or worst_km == best_km:
+        raise ValueError(f"Extremos de distancia inválidos: {distance_bounds_km}")
+    worst_lpi, best_lpi = lpi_bounds
+    if worst_lpi == best_lpi:
+        raise ValueError(f"Extremos de LPI inválidos: {lpi_bounds}")
+
+    log_worst, log_best = math.log(worst_km), math.log(best_km)
+    with np.errstate(invalid="ignore"):
+        log_distance = pd.Series(np.log(distance_km.to_numpy(dtype=float)), index=distance_km.index)
+    distance_score = ((log_worst - log_distance) / (log_worst - log_best)).clip(0.0, 1.0)
+
+    if lpi is None:
+        lpi_aligned = pd.Series(float("nan"), index=distance_km.index)
+    else:
+        lpi_aligned = lpi.reindex(distance_km.index).astype(float)
+    lpi_score = ((lpi_aligned - worst_lpi) / (best_lpi - worst_lpi)).clip(0.0, 1.0).fillna(0.5)
+
+    combined = (distance_score + lpi_score) / 2.0
+    # Sin distancia no hay accesibilidad que afirmar: NaN explícito (el
+    # scoring lo rellena neutro), aunque el LPI exista.
+    combined = combined.where(distance_score.notna())
+    return combined.rename(config.COL_ACCESSIBILITY)
 
 
 def rca_balassa(

@@ -63,6 +63,7 @@ _DEFAULT_VISIBLE_COLUMNS: Final[tuple[str, ...]] = (
     config.COL_GROWTH,
     config.COL_SHARE,
     config.COL_TARIFF,
+    config.COL_ACCESSIBILITY,
     config.COL_STABILITY,
     config.COL_FINAL_SCORE,
 )
@@ -79,13 +80,16 @@ _RANKING_COLUMN_LABEL_KEYS: Final[dict[str, str]] = {
     config.COL_TARIFF: "col_tariff",
     config.COL_AGREEMENT: "col_agreement",
     config.COL_LPI: "col_lpi",
+    config.COL_DISTANCE_KM: "col_distance",
+    config.COL_ACCESSIBILITY: "col_accessibility",
     config.COL_STABILITY: "col_stability",
     config.COL_SCORE: "col_score_raw",
     config.COL_FINAL_SCORE: "col_score_final",
 }
 
 #: Color de cada métrica en las gráficas de desglose (azules = demanda,
-#: ámbar = posición del origen, verde = encaje, gris = fricción arancelaria).
+#: ámbar = posición del origen, verde = encaje, gris = fricción arancelaria,
+#: violeta = accesibilidad logística).
 _METRIC_COLORS: Final[dict[str, str]] = {
     "market_size": "#1D4ED8",
     "import_growth": "#60A5FA",
@@ -93,6 +97,7 @@ _METRIC_COLORS: Final[dict[str, str]] = {
     "share_trend": "#FCD34D",
     "complementarity": "#10B981",
     "tariff_faced": "#94A3B8",
+    "accessibility": "#8B5CF6",
 }
 
 
@@ -502,6 +507,13 @@ def _focus_macro_block(row: pd.Series, iso3: str) -> None:
     lpi = row.get(config.COL_LPI)
     if pd.notna(lpi):
         lines.append(f"- {t('col_lpi')}: **{i18n.fmt_number(float(lpi), 1)}**")
+    distance = row.get(config.COL_DISTANCE_KM)
+    accessibility = row.get(config.COL_ACCESSIBILITY)
+    if pd.notna(distance) and pd.notna(accessibility):
+        lines.append(
+            f"- {t('focus_accessibility', km=i18n.fmt_number(float(distance)))}: "
+            f"**{i18n.fmt_number(float(accessibility), 2)}**"
+        )
     lines.append(
         f"- {t('col_stability')}: **{i18n.fmt_number(float(row[config.COL_STABILITY]), 2)}**"
     )
@@ -791,6 +803,11 @@ def _methodology_section(meta: dict[str, object]) -> None:
             t("methodology_metric_tariff"),
             t("methodology_def_tariff"),
             "tariff_faced",
+        ),
+        (
+            t("methodology_metric_accessibility"),
+            t("methodology_def_accessibility"),
+            "accessibility",
         ),
     ]
     header = (
@@ -1232,6 +1249,8 @@ def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object], focus_iso3: s
         config.COL_COMPLEMENTARITY: lambda v: i18n.fmt_number(v, 2),
         config.COL_TARIFF: lambda v: i18n.fmt_pct(v),
         config.COL_LPI: lambda v: i18n.fmt_number(v, 1),
+        config.COL_DISTANCE_KM: lambda v: i18n.fmt_number(v),
+        config.COL_ACCESSIBILITY: lambda v: i18n.fmt_number(v, 2),
         config.COL_STABILITY: lambda v: i18n.fmt_number(v, 2),
         config.COL_SCORE: lambda v: i18n.fmt_number(v, 3),
         # COL_FINAL_SCORE queda fuera a propósito: se dibuja como
@@ -1294,6 +1313,12 @@ def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object], focus_iso3: s
                 t("col_agreement"), help=t("col_agreement_help")
             ),
             config.COL_LPI: st.column_config.Column(t("col_lpi"), help=t("col_lpi_help")),
+            config.COL_DISTANCE_KM: st.column_config.Column(
+                t("col_distance"), help=t("col_distance_help")
+            ),
+            config.COL_ACCESSIBILITY: st.column_config.Column(
+                t("col_accessibility"), help=t("col_accessibility_help")
+            ),
             config.COL_STABILITY: st.column_config.Column(
                 t("col_stability"), help=t("col_stability_help")
             ),

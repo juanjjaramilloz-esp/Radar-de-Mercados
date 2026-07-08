@@ -157,6 +157,23 @@ unit_values_schema = pa.DataFrameSchema(
     name="unit_values",
 )
 
+#: Distancias bilaterales origen→destino (extracto CEPII GeoDist versionado
+#: en ``data/sample/``): distancia simple entre ciudades principales y la
+#: ponderada por población (``distw``, NaN donde CEPII no la calcula), en km.
+#: ``contig`` = 1 si comparten frontera (contexto).
+geodist_schema = pa.DataFrameSchema(
+    {
+        config.COL_COUNTRY: pa.Column(str, pa.Check.str_length(3, 3)),
+        "dist_km": pa.Column(float, pa.Check.gt(0)),
+        "distw_km": pa.Column(float, pa.Check.gt(0), nullable=True),
+        "contig": pa.Column(int, pa.Check.isin([0, 1])),
+    },
+    unique=[config.COL_COUNTRY],
+    coerce=True,
+    strict=True,
+    name="geodist",
+)
+
 #: Indicadores macro WDI por destino y año (solo años con dato: los null de
 #: la API se descartan en ingest; la ausencia se maneja en domain).
 macro_schema = pa.DataFrameSchema(
@@ -207,6 +224,14 @@ ranking_schema = pa.DataFrameSchema(
         config.COL_LPI: pa.Column(
             float, pa.Check.in_range(1.0, 5.0), nullable=True, required=False
         ),
+        # Distancia bilateral origen→destino (CEPII GeoDist, km; contexto) y
+        # accesibilidad logística (distancia gravitacional + LPI, [0,1];
+        # pondera en el score). NaN = destino fuera del catálogo CEPII;
+        # required=False: snapshots anteriores a 2026-07-08 no las traen.
+        config.COL_DISTANCE_KM: pa.Column(float, pa.Check.gt(0), nullable=True, required=False),
+        config.COL_ACCESSIBILITY: pa.Column(
+            float, pa.Check.in_range(0.0, 1.0), nullable=True, required=False
+        ),
         config.COL_STABILITY: pa.Column(float, pa.Check.in_range(0.0, 1.0)),
         config.COL_SCORE: pa.Column(float, pa.Check.in_range(0.0, 1.0)),
         config.COL_FINAL_SCORE: pa.Column(float, pa.Check.in_range(0.0, 1.0)),
@@ -232,6 +257,11 @@ class MarketInputs:
         tariffs: aranceles MFN y preferenciales que enfrenta el origen,
             conforme a ``tariffs_schema`` (ausencia = sin dato, no arancel 0).
         rca: RCA de Balassa del origen en el producto (escalar, contexto).
+        distances: distancia origen→destino en km (CEPII GeoDist), indexada
+            por ISO3. ``None`` = sin dato (la accesibilidad queda NaN y el
+            scoring la trata como neutra).
+        lpi: Logistics Performance Index del destino (World Bank, 1–5),
+            indexado por ISO3; ``None`` o NaN = componente logístico neutro.
     """
 
     imports: pd.DataFrame
@@ -239,3 +269,5 @@ class MarketInputs:
     baskets: pd.DataFrame
     tariffs: pd.DataFrame
     rca: float
+    distances: "pd.Series[float] | None" = None
+    lpi: "pd.Series[float] | None" = None

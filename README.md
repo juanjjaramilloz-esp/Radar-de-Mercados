@@ -1,26 +1,76 @@
-# Radar de Mercados (`tradefit`)
+# 📡 Radar de Mercados (`tradefit`)
 
 [![CI](https://github.com/juanjjaramilloz-esp/Radar-de-Mercados/actions/workflows/ci.yml/badge.svg)](https://github.com/juanjjaramilloz-esp/Radar-de-Mercados/actions/workflows/ci.yml)
 [![Python ≥3.11](https://img.shields.io/badge/python-%E2%89%A53.11-blue)](pyproject.toml)
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://radar-de-mercados.streamlit.app/)
 
-**Demo en vivo: <https://radar-de-mercados.streamlit.app/>**
+**Demo en vivo: <https://radar-de-mercados.streamlit.app/>** · *English summary [below](#english-summary).*
 
-Screener de mercados de exportación: dado un producto (código HS) y un país de
-origen, rankea mercados destino combinando métricas de oportunidad comercial
-con un filtro de estabilidad macro del destino.
+Screener de mercados de exportación: dado un **producto** (partida
+arancelaria HS) con origen **Colombia**, rankea 18 mercados destino
+combinando **oportunidad comercial** (demanda, crecimiento, cuota,
+complementariedad, arancel enfrentado) con un **filtro de estabilidad
+macroeconómica** del destino. Todo con **datos reales** (UN Comtrade Plus,
+World Bank WDI y WITS) y un motor económico **defendible**: cada métrica
+cita su definición académica y tiene un test con un valor calculado a mano.
 
-- Arquitectura y convenciones: [CLAUDE.md](CLAUDE.md) (fuente de verdad).
-- Plan por fases y estado: [PLAN.md](PLAN.md).
+![Vista general de la app](docs/img/app-overview.png)
 
-Estado actual: producto fijo **café (HS 0901)**, origen **Colombia**, 18
-mercados destino con **datos reales** (UN Comtrade Plus + World Bank WDI):
-5 métricas de oportunidad + filtro macro de estabilidad + narrativa por
-reglas donde cada frase cita su número (Fases 1–5 completas; ver PLAN.md).
+## Qué hace
 
-El repo incluye un snapshot pequeño de ejemplo en `data/processed/` para que
-la demo funcione sin descargar datos; para regenerarlo con datos frescos se
-necesita una key gratuita de Comtrade en `.env` (ver `.env.example`).
+- **Ranking de 18 mercados destino** con score transparente: promedio
+  ponderado de 6 métricas normalizadas × penalización por inestabilidad macro.
+- **Cualquier partida HS**: además de los 3 productos curados (café 0901,
+  flores 0603, banano 0803), un buscador construye el análisis **on-demand**
+  de cualquier capítulo/partida/subpartida (descarga, cálculo y caché al momento).
+- **Narrativa por reglas** en español e inglés donde **cada frase cita el
+  número que la respalda**, con top-3 recomendado y su porqué.
+- **App bilingüe (ES/EN)** con formato numérico por idioma, mapa coropletas,
+  evolución temporal, comparador de productos y export a CSV/Excel/PDF.
+- **Reproducible**: datos crudos cacheados, snapshot idempotente, cero
+  secretos en el repo.
+- **Laboratorio de pesos (what-if)**: sliders para re-ponderar las métricas y
+  ver en vivo cómo cambia el ranking frente al oficial.
+
+![Laboratorio de pesos](docs/img/weight-lab.png)
+
+## Metodología (resumen)
+
+| Métrica | Definición | Peso |
+|---|---|---|
+| Tamaño de mercado | Importaciones promedio del destino, últimos 3 años (cf. ITC *Export Potential Indicator*) | 0.25 |
+| Crecimiento | CAGR de esas importaciones en la ventana | 0.20 |
+| Complementariedad | Índice de Michaely (1996) sobre capítulos HS2 | 0.20 |
+| Cuota del origen | Participación del origen en las importaciones del destino (cf. WITS *partner share*) | 0.15 |
+| Momentum de cuota | Δ de esa cuota en la ventana | 0.10 |
+| Arancel enfrentado | Efectivamente aplicado: mín(MFN, preferencial) por HS6 (cf. WITS *AHS*; invertido) | 0.10 |
+
+El **RCA de Balassa (1965)** se reporta como contexto (es constante entre
+destinos, no pondera). El score de oportunidad se multiplica por una
+penalización de estabilidad macro (inflación, crecimiento del PIB y cuenta
+corriente, WDI) con rampas lineales documentadas. Pesos y umbrales viven en
+[`config.py`](src/tradefit/config.py), justificados; la pestaña
+**Metodología** de la app muestra fórmula y cita de cada número.
+
+## Arquitectura
+
+Tres capas con dependencias en una sola dirección; la lógica económica es
+pura, determinística y testeada, aislada de dónde vienen los datos y de cómo
+se ven:
+
+```mermaid
+flowchart LR
+    I["ingest/<br/>UN Comtrade · WDI · WITS<br/>(única capa con red)"] --> P["pipeline/<br/>build_snapshot"]
+    P --> D["domain/<br/>índices + scoring + narrativa<br/>(funciones puras, testeadas)"]
+    D --> S[("data/processed/<br/>snapshot Parquet + JSON")]
+    S --> A["app/<br/>Streamlit (presentación)"]
+```
+
+- Cada índice económico tiene docstring con su cita y **test con valor
+  calculado a mano** (`tests/test_indices.py`).
+- Los DataFrames que cruzan capas se validan con esquemas
+  [pandera](src/tradefit/contracts.py): falla temprano si una fuente cambió.
+- Convenciones completas: [CLAUDE.md](CLAUDE.md) · plan por fases: [PLAN.md](PLAN.md).
 
 ## Instalar (Windows)
 
@@ -33,17 +83,47 @@ py -m venv .venv
 ## Usar
 
 ```powershell
-# 1) Construir el snapshot (Fase 1: datos stub locales, sin red)
+# 1) Construir el snapshot (con caché en data/raw/; --source stub para probar sin red)
 python -m tradefit.pipeline.build_snapshot
 
-# 2) Levantar la app (solo lee data/processed/, nunca llama APIs)
+# 2) Levantar la app (lee data/processed/; el buscador construye partidas nuevas on-demand)
 streamlit run src/tradefit/app/main.py
 ```
+
+El repo incluye un snapshot pequeño de ejemplo para que la demo funcione sin
+descargar nada. Para regenerar con datos frescos se necesita una key gratuita
+de UN Comtrade en `.env` (ver [`.env.example`](.env.example)); WDI y WITS no
+requieren key.
 
 ## Calidad
 
 ```powershell
-pytest                      # tests (sin red)
+pytest                      # tests (sin red; fixtures locales)
 ruff check . ; mypy src     # lint + tipos
 pre-commit install          # hooks: ruff + mypy + pytest antes de cada commit
 ```
+
+La misma puerta corre en [CI](.github/workflows/ci.yml) en cada push.
+
+---
+
+## English summary
+
+**Live demo: <https://radar-de-mercados.streamlit.app/>** (language toggle in
+the sidebar).
+
+Export-market screener: given a product (HS tariff line) originating in
+**Colombia**, it ranks 18 destination markets by combining **commercial
+opportunity** — demand size and growth, origin's market share and momentum,
+trade complementarity (Michaely 1996) and the tariff effectively faced
+(WITS AHS) — with a **macro-stability filter** (World Bank WDI). Built on
+real data (UN Comtrade Plus, WDI, WITS) with a defensible engine: every
+metric cites its academic definition and is unit-tested against a
+hand-calculated value.
+
+Highlights: analysis of **any HS code** built on demand with caching, a
+rule-based bilingual narrative where **every sentence cites its number**,
+choropleth map, time evolution, product comparator, CSV/Excel/PDF export,
+and a layered architecture (network → pure domain → snapshot → UI) with
+one-way dependencies, pandera data contracts, and CI running ruff + mypy +
+pytest.

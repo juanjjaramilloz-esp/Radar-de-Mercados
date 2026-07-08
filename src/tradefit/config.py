@@ -28,20 +28,50 @@ STUB_TARIFFS_CSV: Final = SAMPLE_DIR / "stub_tariffs.csv"
 TOP_RECOMMENDATIONS: Final = 3
 
 # --- Productos y origen ---
-# Canasta de productos con snapshot propio (HS4 → etiqueta). El origen sigue
-# fijo (Colombia); la selección libre de origen queda en el backlog.
+# Canasta curada del desplegable de la app: el top 15 de exportaciones de
+# Colombia por partida HS4, EXCLUYENDO los capítulos minero-energéticos
+# (NON_MINING_EXCLUDED_CHAPTERS: 27 combustibles y 71 oro/piedras).
+# Fuente: UN Comtrade, exportaciones de Colombia año BASKET_YEAR (2024),
+# nivel AG4, consultado 2026-07-08; en ORDEN de valor exportado descendente
+# (café USD 3 545 M … polipropileno USD 290 M). La lista se regenera o
+# verifica con: python -m tradefit.ingest.top_exports
+# Las etiquetas son curadas a mano (presentación); el origen sigue fijo.
 PRODUCTS: Final[dict[str, str]] = {
     "0901": "Café (HS 0901)",
     "0603": "Flores cortadas (HS 0603)",
     "0803": "Bananos y plátanos (HS 0803)",
+    "7610": "Estructuras de aluminio (HS 7610)",
+    "7202": "Ferroaleaciones — ferroníquel (HS 7202)",
+    "3808": "Insecticidas y plaguicidas (HS 3808)",
+    "1511": "Aceite de palma (HS 1511)",
+    "1701": "Azúcar de caña (HS 1701)",
+    "8504": "Transformadores eléctricos (HS 8504)",
+    "7404": "Chatarra de cobre (HS 7404)",
+    "3004": "Medicamentos (HS 3004)",
+    "2101": "Extractos de café (HS 2101)",
+    "3904": "PVC en formas primarias (HS 3904)",
+    "0804": "Aguacates, piñas y mangos (HS 0804)",
+    "3902": "Polipropileno (HS 3902)",
 }
-# Etiquetas en inglés de los mismos 3 productos curados, para el toggle de
+# Etiquetas en inglés de los mismos 15 productos curados, para el toggle de
 # idioma de la app (presentación pura; las partidas construidas on-demand
 # usan la descripción del catálogo, que ya está en inglés).
 PRODUCTS_EN: Final[dict[str, str]] = {
     "0901": "Coffee (HS 0901)",
     "0603": "Cut flowers (HS 0603)",
     "0803": "Bananas and plantains (HS 0803)",
+    "7610": "Aluminium structures (HS 7610)",
+    "7202": "Ferro-alloys — ferronickel (HS 7202)",
+    "3808": "Insecticides and pesticides (HS 3808)",
+    "1511": "Palm oil (HS 1511)",
+    "1701": "Cane sugar (HS 1701)",
+    "8504": "Electric transformers (HS 8504)",
+    "7404": "Copper waste and scrap (HS 7404)",
+    "3004": "Medicaments (HS 3004)",
+    "2101": "Coffee extracts (HS 2101)",
+    "3904": "PVC in primary forms (HS 3904)",
+    "0804": "Avocados, pineapples and mangoes (HS 0804)",
+    "3902": "Polypropylene (HS 3902)",
 }
 HS_CODE: Final = "0901"  # producto por defecto (pipeline sin --hs, stub, tests)
 HS_LABEL: Final = PRODUCTS[HS_CODE]
@@ -174,6 +204,23 @@ ORIGIN_COMTRADE_CODE: Final = 170
 # Códigos de commodity especiales de Comtrade.
 COMTRADE_CMD_TOTAL: Final = "TOTAL"  # comercio total del reporter
 COMTRADE_CMD_ALL_HS2: Final = "AG2"  # todos los capítulos HS a 2 dígitos
+COMTRADE_CMD_ALL_HS4: Final = "AG4"  # todas las partidas HS a 4 dígitos
+
+# Capítulos HS excluidos del top de exportaciones que alimenta PRODUCTS:
+# 27 (combustibles minerales) y 71 (oro/piedras preciosas) — criterio de
+# canasta "no minero-energética" usado por MinCIT/Procolombia para medir la
+# diversificación exportadora; esos flujos van a mercados concentrados y con
+# logística atípica, poco útiles en un screener de dónde exportar.
+NON_MINING_EXCLUDED_CHAPTERS: Final[frozenset[str]] = frozenset({"27", "71"})
+
+
+# Caché crudo de exportaciones del origen por partida HS4 (top de PRODUCTS);
+# el año en el nombre invalida el caché cuando BASKET_YEAR avance.
+def comtrade_top_exports_cache() -> Path:
+    """Caché crudo del top de exportaciones HS4 del origen (año BASKET_YEAR)."""
+    return RAW_DIR / f"comtrade_{ORIGIN_ISO3}_exports_hs4_{BASKET_YEAR}.json"
+
+
 # Año de las canastas comerciales para complementariedad. Colombia (origen)
 # reporta a Comtrade con más rezago que la mayoría de los destinos del MVP:
 # no necesariamente el último año de IMPORT_YEARS tiene ya la canasta

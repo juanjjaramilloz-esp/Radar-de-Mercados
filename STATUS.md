@@ -12,7 +12,32 @@ ranking de 26 destinos (18 OCDE/Asia + 8 LATAM). Motor económico puro en
 `domain/`, snapshot Parquet como contrato, app Streamlit que solo lee el
 snapshot.
 
-## ✅ Última tanda — «Profundidad Colombia» (2026-07-08, COMPLETA)
+## ✅ Última tanda — pulidos de UI (2026-07-08, COMPLETA)
+
+Cuatro pulidos de presentación (solo `app/`; verificados con scripts
+`AppTest` desechables, sin tests permanentes nuevos):
+
+1. «Laboratorio de pesos» → **«🎯 Simulador de prioridades»** (petición
+   directa; solo texto i18n, los keys `lab_*` no cambian).
+2. **Selector de columnas del ranking**: por defecto 8 columnas compactas
+   (#, mercado, importaciones, crecimiento, cuota, arancel, estabilidad,
+   score final); el resto (ISO3, Δ cuota, % export. COL,
+   complementariedad, acuerdo, LPI, score bruto) se activa desde el
+   popover «⚙️ Columnas» sobre la tabla. El estado
+   (`ranking_columns_select`) guarda nombres internos `config.COL_*` →
+   sobrevive al toggle ES/EN y al cambio de producto. El resaltado de la
+   fila en foco ahora lee ISO3 de `ranking` (en `display` puede estar
+   oculta). Exports CSV/Excel/PDF siguen con todas las columnas.
+3. Nomenclatura: pestañas «🕸️ Perfil comparado» (antes colisionaba con el
+   nombre de la app) y «Score bruto vs. final» (mismo término que las
+   columnas); tooltips `help=` con definición de una frase en KPIs
+   HHI/RCA y columnas cuota del origen / % export. COL / LPI.
+4. UX: caption que anuncia el comparador cuando hay < 2 partidas (antes
+   `return` silencioso), `focus_hint` con las 3 vías de foco (selector,
+   mapa, fila de la tabla) y 💡, tooltips en el selector de foco y los
+   sliders del simulador.
+
+## ✅ Tanda anterior — «Profundidad Colombia» (2026-07-08, COMPLETA)
 
 Tanda **"Profundidad Colombia"** (plan aprobado, 2 partes; contexto: con el
 catálogo top-15, agregar info específica Colombia × producto × destino y
@@ -251,3 +276,9 @@ pytest ; ruff check . ; mypy src                # puerta de calidad
 - Backlog: IMF SDMX como macro complementaria; automatización del refresh
   de datos alineada al calendario de publicación de las fuentes (siguiente
   tanda, ver arriba).
+- Backlog: `st.cache_data` en los loaders del snapshot (`_load_snapshot`,
+  `_load_imports_timeseries`, `_load_competitors`, `_load_macro_context`)
+  — beneficio real (no releer parquet en cada rerun/slider) pero riesgo
+  alto: esos archivos los escribe `ensure_snapshot` en caliente y una
+  caché mal invalidada serviría un snapshot viejo recién construido.
+  Cambio propio con pruebas de invalidación.

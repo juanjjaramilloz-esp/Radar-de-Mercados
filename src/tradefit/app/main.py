@@ -1025,7 +1025,10 @@ def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object], focus_iso3: s
         config.COL_LPI: lambda v: i18n.fmt_number(v, 1),
         config.COL_STABILITY: lambda v: i18n.fmt_number(v, 2),
         config.COL_SCORE: lambda v: i18n.fmt_number(v, 3),
-        config.COL_FINAL_SCORE: lambda v: i18n.fmt_number(v, 3),
+        # COL_FINAL_SCORE queda fuera a propósito: se dibuja como
+        # ProgressColumn (barra 0–1) y esa columna necesita el valor
+        # numérico crudo, no el string del Styler. Trade-off asumido: su
+        # texto usa "%.3f" (punto decimal fijo) también en español.
     }
     # cast: Styler.format tipa el formatter como Callable[[object], str], pero
     # estas columnas son numéricas — solo recibirán floats.
@@ -1075,7 +1078,9 @@ def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object], focus_iso3: s
             config.COL_LPI: st.column_config.Column(t("col_lpi"), help=t("col_lpi_help")),
             config.COL_STABILITY: st.column_config.Column(t("col_stability")),
             config.COL_SCORE: st.column_config.Column(t("col_score_raw")),
-            config.COL_FINAL_SCORE: st.column_config.Column(t("col_score_final")),
+            config.COL_FINAL_SCORE: st.column_config.ProgressColumn(
+                t("col_score_final"), min_value=0.0, max_value=1.0, format="%.3f"
+            ),
         },
     )
 

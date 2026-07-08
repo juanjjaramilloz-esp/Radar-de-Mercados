@@ -143,12 +143,17 @@ tradefit/
 
 ## Verificación de cambios (ahorro de créditos)
 
-Regla pedida por el usuario (2026-07): **no usar el preview del navegador,
-screenshots ni herramientas de browser para revisar cambios de la app**, salvo
-que el usuario lo pida explícitamente — consumen créditos.
+Regla del usuario, actualizada 2026-07-08: el preview del navegador **ya no
+está prohibido**, pero sigue siendo la excepción, no la rutina — solo cuando
+sea genuinamente necesario para verificar algo visual/interactivo que
+ningún test o script pueda confirmar (p. ej. un layout roto, una interacción
+que depende del render). Por defecto se sigue verificando con lo barato.
 
 - Verificar con lo barato: `pytest`, `ruff`, `mypy`, y si hace falta un
   script corto que ejerza la función cambiada.
+- Preview del navegador: solo si lo barato no alcanza para confirmar el
+  cambio (ahorra créditos sin perder la capacidad de verificar cuando de
+  verdad hace falta).
 - Al terminar, entregar al usuario una **lista concreta de qué revisar
   manualmente** en la app (`streamlit run src/tradefit/app/main.py`): qué
   pantalla abrir, qué debería verse. El usuario revisa y da feedback.

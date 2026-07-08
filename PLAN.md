@@ -17,18 +17,19 @@
 **MVP completo.** Lo que sigue vive en el Backlog (y en las libertades
 creativas post-MVP acordadas en CLAUDE.md).
 
-### En curso — Profundidad Colombia (2026-07-08)
+### Profundidad Colombia (2026-07-08) — Parte 1 completa
 
-> Estado detallado y pasos exactos para retomar: **STATUS.md § Trabajo en
-> curso**. Parte 1 = datos Colombia×producto×destino; Parte 2 = focus mode
-> interactivo + competidores + diferenciación vs. ITC Export Potential Map.
+> Estado detallado y checklist manual: **STATUS.md § Trabajo en curso**.
+> Parte 1 = datos Colombia×producto×destino; Parte 2 = focus mode
+> interactivo + competidores + diferenciación vs. ITC Export Potential Map
+> (siguiente sesión).
 
-- [x] P1.1 Destinos LATAM (+8 → 26 mercados, solo config; rebuild pendiente)
+- [x] P1.1 Destinos LATAM (+8 → 26 mercados)
 - [x] P1.2 Acuerdos comerciales de Colombia por destino (MinCIT)
 - [x] P1.3 Concentración de destinos (HHI) + cuota en export. COL
-- [ ] P1.4 LPI del destino (parcial: ingest/contratos ✅; falta domain helper,
-  columna en pipeline y app)
-- [ ] P1.5 Rebuild forzado 15 productos × 26 mercados + docs
+- [x] P1.4 LPI del destino (ingest + `latest_indicator_value` en domain +
+  columna en el ranking + tabla/i18n/metodología en la app + Excel)
+- [x] P1.5 Rebuild forzado 15 productos × 26 mercados + docs
 - [ ] Parte 2: mapa con focus por destino + ficha + competidores + README
   de diferenciación
 

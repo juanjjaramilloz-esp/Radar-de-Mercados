@@ -7,9 +7,10 @@
 
 ## Qué es (1 línea)
 
-Screener de mercados de exportación: café (HS 0901) desde Colombia → ranking
-de 18 destinos. Motor económico puro en `domain/`, snapshot Parquet como
-contrato, app Streamlit que solo lee el snapshot.
+Screener de mercados de exportación: dado un producto (HS) desde Colombia →
+ranking de 26 destinos (18 OCDE/Asia + 8 LATAM). Motor económico puro en
+`domain/`, snapshot Parquet como contrato, app Streamlit que solo lee el
+snapshot.
 
 ## ⏸️ Trabajo en curso — retomar aquí (2026-07-08)
 
@@ -19,31 +20,30 @@ diferenciarse del ITC Export Potential Map — EPM predice USD con modelo
 opaco para 222 países; el Radar es glass-box con filtro macro y 1 origen a
 fondo).
 
-**Parte 1 — hecho:**
+**Parte 1 — completa (2026-07-08):**
 
 - P1.1 ✅ 8 destinos LATAM en config (MEX/BRA/CHL/PER/ECU/CRI/PAN/DOM → 26
-  mercados; commit `336c13a`). Snapshots AÚN con 18 (rebuild pendiente).
+  mercados; commit `336c13a`).
 - P1.2 ✅ `config.TRADE_AGREEMENTS(_EN)` (fuente MinCIT) + columna «Acuerdo
   comercial» + nota metodológica (commit `ce2f16b`).
 - P1.3 ✅ HHI de concentración de destinos + `share_of_origin_exports`
   (ingest/domain/pipeline/app/narrativa; commit `34f4ac8`).
-- P1.4 ⚠️ **parcial** (commit `9bfacad`): el LPI ya se descarga
-  (`WDI_CONTEXT_INDICATORS`), contratos listos (`macro_schema` + columna
-  `lpi` en `ranking_schema`), filtro macro ya excluye indicadores de
-  contexto.
-
-**Parte 1 — falta:**
-
-- P1.4 resto: (a) helper puro `latest_indicator_value(macro, "lpi")` en
-  `domain/macro_filter.py` (años esparsos → último con dato; test a mano);
-  (b) pipeline: columna `lpi` en el ranking (insertar antes de
-  `stability_score`, mapear por país, NaN si falta) — patrón idéntico al de
-  `share_of_origin_exports`; (c) app: formato en `_ranking_table`
-  (`fmt_number(v, 1)`) + `col_lpi` en i18n + nota metodológica.
-- P1.5: **rebuild forzado** de cachés (cambió la lista de reporters:
-  borrar `data/raw/comtrade_*` y `wdi_macro.json`, o `force=True`) +
-  `python -m tradefit.pipeline.build_snapshot` (15 productos × 26 mercados)
-  + verificar + versionar + README/PLAN/STATUS + checklist manual.
+- P1.4 ✅ LPI del destino: `latest_indicator_value` en
+  `domain/macro_filter.py` (último año con dato por país, indicador
+  esparso; 2 tests a mano), columna `lpi` en el snapshot (antes de
+  `stability_score`, NaN si falta), formato/i18n/nota metodológica en la
+  app, columna en el Excel exportado (commit `8110404`).
+- P1.5 ✅ **rebuild forzado** de los 15 productos × 26 mercados: cachés de
+  `data/raw/` dependientes de la lista de reporters movidos a un backup
+  fuera del repo (importaciones, bilateral, canastas HS2, WDI, WITS —
+  `export_totals` y el top-15 no dependen de reporters, no se tocaron) +
+  `python -m tradefit.pipeline.build_snapshot` completo. Verificado: los 15
+  `ranking.parquet` pasan `ranking_schema`, LPI y
+  `share_of_origin_exports` pobladas, `rescore_ranking` reproduce el
+  ranking oficial en los 15 (commit `ad0e667`). 14/15 con 26 mercados;
+  **banano (0803) queda en 24** — ECU y MEX no reportaron ese producto en
+  Comtrade (riesgo ya documentado en el plan, no es un bug). README/PLAN
+  actualizados a "26 mercados".
 
 **Parte 2 — planificada (siguiente sesión):** mapa interactivo con focus
 por destino (`st.plotly_chart(on_select="rerun")`), ficha del destino
@@ -51,6 +51,25 @@ por destino (`st.plotly_chart(on_select="rerun")`), ficha del destino
 proveedores por destino, Colombia resaltada) y sección README de
 diferenciación vs. EPM. Detalle completo en el plan aprobado
 (`~/.claude/plans/lee-el-proyecto-vamos-federated-crane.md`).
+
+## Checklist manual — Parte 1 (revisar en Streamlit tras el push)
+
+1. Selector de los 15 productos: cada uno carga sin error; banano (0803)
+   muestra 24 mercados (no 26) — es correcto, no un bug.
+2. Tabla: columnas nuevas «Acuerdo comercial», «% export. de Colombia»,
+   «LPI logístico (1–5)» visibles, con datos (no todo `—`), y que cambien
+   de idioma/formato con el toggle ES/EN.
+3. Los 8 destinos LATAM (MEX/BRA/CHL/PER/ECU/CRI/PAN/DOM) aparecen con
+   nombre y bandera correctos en tabla, mapa y radar de métricas.
+4. KPI de concentración de destinos (HHI) + frase de la narrativa sobre
+   dependencia de un destino.
+5. Mapa choropleth pinta los países LATAM nuevos.
+6. Laboratorio de pesos: sigue reproduciendo el ranking oficial (las
+   columnas nuevas son contexto, no ponderan).
+7. Export Excel: abre y trae Acuerdo/LPI/% export con formato correcto.
+8. Expander de Metodología: nota nueva del LPI en ambos idiomas.
+9. Buscador avanzado (cualquier HS): sigue funcionando on-demand con 26
+   mercados (más lento; vigilar que no dé timeout visible).
 
 ## Estado actual
 
@@ -81,6 +100,10 @@ diferenciación vs. EPM. Detalle completo en el plan aprobado
   idioma); la app muestra la del idioma activo y los exports Excel/PDF van
   completos en ese idioma (etiquetas, números y narrativa). Snapshots con el
   formato plano viejo degradan a español.
+- **26 mercados destino (2026-07-08):** los 18 originales (OCDE/Asia) + 8
+  LATAM (México, Brasil, Chile, Perú, Ecuador, Costa Rica, Panamá, Rep.
+  Dominicana; commit `336c13a`) — los 15 snapshots curados reconstruidos con
+  todos (banano queda en 24: ECU/MEX no reportan ese producto en Comtrade).
 - **Catálogo curado top-15 (2026-07-08):** el desplegable ofrece las 15
   partidas HS4 más exportadas por Colombia **sin minero-energéticos**
   (cap. 27/71 fuera; fuente Comtrade 2024, `ingest/top_exports.py`,
@@ -184,9 +207,15 @@ pytest ; ruff check . ; mypy src                # puerta de calidad
 ## Pendientes conocidos
 
 - `git push` pendiente del usuario (regla de permisos): narrativa bilingüe +
-  tanda "cara al reclutador" (fix de formato, CI, README, laboratorio de
-  pesos, desglose, radar). El remoto nuevo
-  (`juanjjaramilloz-esp/Radar-de-Mercados`) ya tiene todo hasta aranceles WITS.
+  tanda "cara al reclutador" + tanda "Profundidad Colombia" Parte 1 completa
+  (LATAM, TLC, HHI, LPI, rebuild 26 mercados). El remoto nuevo
+  (`juanjjaramilloz-esp/Radar-de-Mercados`) solo tiene hasta aranceles WITS.
 - Screenshots del README (los toma el usuario, antes del push):
   `docs/img/app-overview.png` y `docs/img/weight-lab.png`.
-- Backlog: IMF SDMX como macro complementaria.
+- `gh` CLI local sin cuenta logueada (2026-07-08): la credencial vieja
+  suspendida se limpió (`gh auth logout`) porque causaba 403 confusos; si se
+  necesita `gh` autenticado, correr `gh auth login` con la cuenta nueva
+  (`juanjjaramilloz-esp`) — flujo OAuth interactivo, requiere el usuario.
+- Backlog: IMF SDMX como macro complementaria; Parte 2 de "Profundidad
+  Colombia" (mapa con focus, ficha del destino, competidores, diferenciación
+  vs. EPM en el README).

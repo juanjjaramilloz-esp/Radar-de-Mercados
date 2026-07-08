@@ -7,10 +7,10 @@
 **Demo en vivo: <https://radar-de-mercados.streamlit.app/>** · *English summary [below](#english-summary).*
 
 Screener de mercados de exportación: dado un **producto** (partida
-arancelaria HS) con origen **Colombia**, rankea 18 mercados destino
-combinando **oportunidad comercial** (demanda, crecimiento, cuota,
-complementariedad, arancel enfrentado) con un **filtro de estabilidad
-macroeconómica** del destino. Todo con **datos reales** (UN Comtrade Plus,
+arancelaria HS) con origen **Colombia**, rankea 26 mercados destino
+(18 OCDE/Asia + 8 LATAM) combinando **oportunidad comercial** (demanda,
+crecimiento, cuota, complementariedad, arancel enfrentado) con un **filtro
+de estabilidad macroeconómica** del destino. Todo con **datos reales** (UN Comtrade Plus,
 World Bank WDI y WITS) y un motor económico **defendible**: cada métrica
 cita su definición académica y tiene un test con un valor calculado a mano.
 
@@ -18,8 +18,14 @@ cita su definición académica y tiene un test con un valor calculado a mano.
 
 ## Qué hace
 
-- **Ranking de 18 mercados destino** con score transparente: promedio
-  ponderado de 6 métricas normalizadas × penalización por inestabilidad macro.
+- **Ranking de 26 mercados destino** (incl. México, Brasil, Chile, Perú,
+  Ecuador, Costa Rica, Panamá y Rep. Dominicana) con score transparente:
+  promedio ponderado de 6 métricas normalizadas × penalización por
+  inestabilidad macro.
+- **Contexto Colombia-céntrico por destino**: acuerdo comercial vigente
+  (MinCIT), cuota del destino en las exportaciones colombianas del producto,
+  concentración de destinos (HHI de Hirschman) y desempeño logístico del
+  destino (LPI del Banco Mundial).
 - **15 productos curados**: el top de exportaciones de Colombia por partida
   HS4 (UN Comtrade 2024) excluyendo minero-energéticos — café, flores,
   banano, aguacates, azúcar, aceite de palma, medicamentos… — derivado del
@@ -49,7 +55,10 @@ cita su definición académica y tiene un test con un valor calculado a mano.
 | Arancel enfrentado | Efectivamente aplicado: mín(MFN, preferencial) por HS6 (cf. WITS *AHS*; invertido) | 0.10 |
 
 El **RCA de Balassa (1965)** se reporta como contexto (es constante entre
-destinos, no pondera). El score de oportunidad se multiplica por una
+destinos, no pondera), igual que el **acuerdo comercial** vigente (su efecto
+ya lo captura el arancel AHS), la **concentración de destinos** (HHI,
+Hirschman 1964) y el **LPI logístico** del destino (World Bank *Connecting
+to Compete*). El score de oportunidad se multiplica por una
 penalización de estabilidad macro (inflación, crecimiento del PIB y cuenta
 corriente, WDI) con rampas lineales documentadas. Pesos y umbrales viven en
 [`config.py`](src/tradefit/config.py), justificados; la pestaña
@@ -116,8 +125,8 @@ La misma puerta corre en [CI](.github/workflows/ci.yml) en cada push.
 the sidebar).
 
 Export-market screener: given a product (HS tariff line) originating in
-**Colombia**, it ranks 18 destination markets by combining **commercial
-opportunity** — demand size and growth, origin's market share and momentum,
+**Colombia**, it ranks 26 destination markets (18 OECD/Asia + 8 Latin
+American) by combining **commercial opportunity** — demand size and growth, origin's market share and momentum,
 trade complementarity (Michaely 1996) and the tariff effectively faced
 (WITS AHS) — with a **macro-stability filter** (World Bank WDI). Built on
 real data (UN Comtrade Plus, WDI, WITS) with a defensible engine: every
@@ -125,7 +134,10 @@ metric cites its academic definition and is unit-tested against a
 hand-calculated value.
 
 Highlights: a curated catalog of **Colombia's top-15 non-mining exports**
-(derived from Comtrade data, not hand-picked), analysis of **any HS code**
+(derived from Comtrade data, not hand-picked), Colombia-centric context per
+destination (trade agreement in force, destination's share of Colombia's
+exports, destination-concentration HHI, World Bank Logistics Performance
+Index), analysis of **any HS code**
 built on demand with caching, a
 rule-based bilingual narrative where **every sentence cites its number**,
 choropleth map, time evolution, product comparator, CSV/Excel/PDF export,

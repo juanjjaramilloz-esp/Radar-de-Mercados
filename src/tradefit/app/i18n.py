@@ -396,6 +396,10 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
         "es": "💡 Haz clic en un país para fijar el foco y abrir su ficha (abajo).",
         "en": "💡 Click a country to set focus and open its profile (below).",
     },
+    "table_focus_hint": {
+        "es": "💡 Haz clic en una fila para fijar el foco y abrir su ficha (abajo).",
+        "en": "💡 Click a row to set focus and open its profile (below).",
+    },
     "comparator_subheader": {
         "es": "⚖️ Comparador de productos",
         "en": "⚖️ Product comparator",
@@ -656,8 +660,8 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
     },
     "kpi_share_delta": {"es": "de la demanda analizada", "en": "of demand analyzed"},
     "kpi_hhi_label": {
-        "es": "Concentración de destinos",
-        "en": "Destination concentration",
+        "es": "Concentración de destinos (HHI)",
+        "en": "Destination concentration (HHI)",
     },
     "kpi_hhi_high": {"es": "alta (HHI > 0,25)", "en": "high (HHI > 0.25)"},
     "kpi_hhi_moderate": {

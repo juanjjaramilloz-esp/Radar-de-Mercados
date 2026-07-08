@@ -33,6 +33,20 @@ creativas post-MVP acordadas en CLAUDE.md).
   la app elige el idioma activo y los exports Excel/PDF reciben `lang`
   (etiquetas y números localizados). Snapshots viejos (formato plano) siguen
   funcionando.
+- [x] **Tanda "cara al reclutador" (2026-07-07):**
+  - Fix: la tabla del ranking y las barras respetan los separadores del
+    idioma activo (`pandas.Styler` + migración de `st.bar_chart` a Plotly
+    con `separators`).
+  - CI en GitHub Actions (ruff + mypy + pytest) + badges; README renovado
+    (mermaid de arquitectura, metodología, English summary, screenshots en
+    `docs/img/`).
+  - **Laboratorio de pesos (what-if):** sliders → re-ranking en vivo con
+    `domain/scoring.rescore_ranking` y `score_contributions` (puras,
+    testeadas; reproducen el ranking oficial con `config.WEIGHTS`). Regla
+    "la app no calcula" relajada para interactividad (CLAUDE.md,
+    decisión del usuario).
+  - Pestaña **«¿Por qué este score?»**: desglose apilado w·norm por métrica.
+  - Pestaña **«📡 Radar de métricas»**: perfil normalizado de hasta 3 mercados.
 - [x] **Aranceles (WITS)** como métrica del motor (2026-07-07):
   `ingest/wits.py` (dataflow SDMX `DF_WITS_Tariff_TRAINS`: MFN + preferencial
   hacia Colombia por HS6, caché en `data/raw/`, tests con XML reales

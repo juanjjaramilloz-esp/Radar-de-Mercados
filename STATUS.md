@@ -38,6 +38,14 @@ contrato, app Streamlit que solo lee el snapshot.
   idioma); la app muestra la del idioma activo y los exports Excel/PDF van
   completos en ese idioma (etiquetas, números y narrativa). Snapshots con el
   formato plano viejo degradan a español.
+- **Tanda "cara al reclutador" (2026-07-07):** fix de separadores por idioma
+  en tabla/barras (Styler + Plotly), CI GitHub Actions + badges, README
+  renovado (mermaid, English summary), **laboratorio de pesos what-if**
+  (sliders → `domain/scoring.rescore_ranking`, reproduce el oficial con los
+  pesos de config), pestañas «¿Por qué este score?» (desglose w·norm) y
+  «📡 Radar de métricas» (Scatterpolar top-3). Pendiente del usuario:
+  screenshots `docs/img/app-overview.png` y `docs/img/weight-lab.png`
+  referenciados por el README.
 - **En curso:** backlog (IMF SDMX como macro complementaria) + mejoras de
   buen costo/beneficio sin preguntar.
 - **Web:** repo público https://github.com/juanjjaramilloz-esp/Radar-de-Mercados;
@@ -112,10 +120,21 @@ pytest ; ruff check . ; mypy src                # puerta de calidad
 - 2026-07-07 · Arancel sin dato = **NaN → aporte neutro 0.5** en el scoring
   (no 0): que WITS no publique el arancel no es evidencia de arancel alto —
   mismo criterio que la estabilidad macro neutra.
+- 2026-07-07 · Regla "la app no calcula" **relajada por decisión del
+  usuario** para funciones interactivas: la app puede invocar funciones
+  puras de `domain/` sobre el snapshot ya leído (laboratorio de pesos,
+  desglose, radar). Sin red, sin I/O; las fórmulas se testean en `domain/`.
+- 2026-07-07 · Los formatos de `st.column_config` no siguen el toggle de
+  idioma (printf = punto decimal fijo; `"localized"` = locale del navegador):
+  todo número visible se formatea con `app/format.py` (tabla vía Styler,
+  gráficas vía Plotly `separators`).
 
 ## Pendientes conocidos
 
-- `git push` pendiente del usuario (regla de permisos): narrativa bilingüe
-  (4 commits) + enlace del repo nuevo en la app. El remoto nuevo
+- `git push` pendiente del usuario (regla de permisos): narrativa bilingüe +
+  tanda "cara al reclutador" (fix de formato, CI, README, laboratorio de
+  pesos, desglose, radar). El remoto nuevo
   (`juanjjaramilloz-esp/Radar-de-Mercados`) ya tiene todo hasta aranceles WITS.
+- Screenshots del README (los toma el usuario, antes del push):
+  `docs/img/app-overview.png` y `docs/img/weight-lab.png`.
 - Backlog: IMF SDMX como macro complementaria.

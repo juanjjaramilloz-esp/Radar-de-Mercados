@@ -11,7 +11,7 @@ y luego lee el resultado). Si algo falla, degrada con gracia.
 import json
 import os
 from collections.abc import Callable
-from typing import cast
+from typing import Final, cast
 
 import pandas as pd
 import plotly.express as px
@@ -29,6 +29,17 @@ from tradefit.pipeline.build_snapshot import ensure_snapshot
 
 _PRODUCT_SELECT_KEY = "product_select"
 _TOUR_SEEN_KEY = "tour_seen"
+
+#: Color de cada métrica en las gráficas de desglose (azules = demanda,
+#: ámbar = posición del origen, verde = encaje, gris = fricción arancelaria).
+_METRIC_COLORS: Final[dict[str, str]] = {
+    "market_size": "#1D4ED8",
+    "import_growth": "#60A5FA",
+    "market_share": "#F59E0B",
+    "share_trend": "#FCD34D",
+    "complementarity": "#10B981",
+    "tariff_faced": "#94A3B8",
+}
 
 
 def _hero_section() -> None:
@@ -676,6 +687,54 @@ def _scores_tab(ranking: pd.DataFrame) -> None:
     st.plotly_chart(fig, use_container_width=True)
 
 
+def _breakdown_tab(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
+    """Desglose del score de oportunidad: contribución de cada métrica.
+
+    Barra apilada por mercado con los sumandos ``w·norm/Σw`` que calcula
+    ``domain/scoring.score_contributions`` (puro, testeado): hace visible por
+    qué cada mercado puntúa lo que puntúa. La penalización macro no aparece
+    aquí — la muestra la pestaña de scores.
+    """
+    weights_obj = meta.get("weights")
+    weights: dict[str, float] = (
+        {name: float(str(value)) for name, value in weights_obj.items()}
+        if isinstance(weights_obj, dict)
+        else dict(config.WEIGHTS)
+    )
+    available = {
+        name: weight
+        for name, weight in weights.items()
+        if scoring.METRIC_COLUMNS.get(name) in ranking.columns and weight > 0
+    }
+    if not available:
+        return
+    st.caption(t("breakdown_caption"))
+    contributions = scoring.score_contributions(ranking, available)
+    ordered = ranking.sort_values(config.COL_SCORE, ascending=True)
+    fig = go.Figure()
+    for name in available:
+        label = i18n.metric_label(name)
+        fig.add_bar(
+            x=contributions[name].reindex(ordered[config.COL_COUNTRY]),
+            y=ordered[config.COL_COUNTRY_NAME],
+            orientation="h",
+            name=label,
+            marker_color=_METRIC_COLORS.get(name, "#CBD5E1"),
+            hovertemplate="%{x:.3f}<extra>" + label + "</extra>",
+        )
+    fig.update_layout(
+        separators=i18n.active_plotly_separators(),
+        barmode="stack",
+        height=max(360, 30 * len(ordered) + 80),
+        margin={"l": 0, "r": 0, "t": 10, "b": 0},
+        legend={"orientation": "h", "yanchor": "bottom", "y": 1.0, "title": None},
+        xaxis={"title": t("col_score_raw")},
+        yaxis={"title": None},
+        hovermode="y unified",
+    )
+    st.plotly_chart(fig, use_container_width=True)
+
+
 def _size_tab(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
     """Tamaño de cada mercado partido en «ya lo vende el origen» vs. resto."""
     st.caption(t("tab_size_caption", origin=meta["origin_iso3"]))
@@ -850,20 +909,21 @@ def main() -> None:
     _weight_lab_section(ranking, meta)
 
     timeseries = _load_imports_timeseries(hs)
-    tab_labels = [t("tab_map"), t("tab_scores"), t("tab_size")]
+    tab_labels = [t("tab_map"), t("tab_breakdown"), t("tab_scores"), t("tab_size")]
     if timeseries is not None:
         tab_labels.append(t("tab_evolution"))
     tabs = st.tabs(tab_labels)
-    tab_map, tab_scores, tab_size = tabs[0], tabs[1], tabs[2]
-    with tab_map:
+    with tabs[0]:
         _map_tab(ranking)
-    with tab_scores:
+    with tabs[1]:
+        _breakdown_tab(ranking, meta)
+    with tabs[2]:
         _scores_tab(ranking)
-    with tab_size:
+    with tabs[3]:
         _size_tab(ranking, meta)
 
     if timeseries is not None:
-        with tabs[3]:
+        with tabs[4]:
             _evolution_tab(ranking, meta, timeseries)
 
     _market_detail_section(ranking, narrative)

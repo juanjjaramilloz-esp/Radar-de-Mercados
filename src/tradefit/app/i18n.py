@@ -563,6 +563,19 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
     "col_score_raw": {"es": "Score bruto", "en": "Raw score"},
     "col_score_final": {"es": "Score final", "en": "Final score"},
     "tab_map": {"es": "🗺️ Mapa", "en": "🗺️ Map"},
+    "tab_breakdown": {"es": "¿Por qué este score?", "en": "Why this score?"},
+    "breakdown_caption": {
+        "es": (
+            "Cada barra suma el score de oportunidad (antes de la "
+            "penalización macro): contribución = peso × métrica normalizada "
+            "(min-max sobre los mercados analizados)."
+        ),
+        "en": (
+            "Each bar adds up to the opportunity score (before the macro "
+            "penalty): contribution = weight × normalized metric (min-max "
+            "over the analyzed markets)."
+        ),
+    },
     "tab_scores": {
         "es": "Oportunidad vs. score final",
         "en": "Opportunity vs. final score",

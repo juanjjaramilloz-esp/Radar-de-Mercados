@@ -669,6 +669,30 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
         "en": "moderate (HHI 0.15–0.25)",
     },
     "kpi_hhi_low": {"es": "baja (HHI < 0,15)", "en": "low (HHI < 0.15)"},
+    "kpi_hhi_help": {
+        "es": (
+            "HHI = índice de Herfindahl–Hirschman: Σ cuotas² de los "
+            "destinos de exportación colombianos del producto. 0 = "
+            "repartido entre muchos destinos, 1 = un solo destino."
+        ),
+        "en": (
+            "HHI = Herfindahl–Hirschman index: Σ squared shares of "
+            "Colombia's export destinations for the product. 0 = spread "
+            "across many destinations, 1 = a single destination."
+        ),
+    },
+    "kpi_rca_help": {
+        "es": (
+            "RCA = Ventaja Comparativa Revelada (Balassa 1965): peso del "
+            "producto en la canasta exportadora de Colombia frente a su "
+            "peso en el comercio mundial. > 1 = ventaja revelada."
+        ),
+        "en": (
+            "RCA = Revealed Comparative Advantage (Balassa 1965): the "
+            "product's weight in Colombia's export basket vs. its weight "
+            "in world trade. > 1 = revealed advantage."
+        ),
+    },
     "kpi_rca_label": {"es": "RCA del origen", "en": "Origin's RCA"},
     "kpi_rca_delta_yes": {"es": "ventaja revelada", "en": "revealed advantage"},
     "kpi_rca_delta_no": {
@@ -730,15 +754,41 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
     },
     "col_growth": {"es": "Crecimiento (CAGR)", "en": "Growth (CAGR)"},
     "col_share": {"es": "Cuota del origen", "en": "Origin's share"},
+    "col_share_help": {
+        "es": "% de las importaciones del destino que ya cubre Colombia.",
+        "en": "% of the destination's imports already covered by Colombia.",
+    },
     "col_share_trend": {"es": "Δ cuota (ventana)", "en": "Δ share (window)"},
     "col_origin_export_share": {
         "es": "% export. de Colombia",
         "en": "% of Colombia's exports",
     },
+    "col_origin_export_share_help": {
+        "es": (
+            "% de las exportaciones colombianas del producto que van a ese "
+            "destino (no confundir con la cuota del origen, que mira las "
+            "importaciones del destino)."
+        ),
+        "en": (
+            "% of Colombia's exports of the product that go to that "
+            "destination (not the origin's share, which looks at the "
+            "destination's imports)."
+        ),
+    },
     "col_complementarity": {"es": "Complementariedad", "en": "Complementarity"},
     "col_tariff": {"es": "Arancel enfrentado", "en": "Tariff faced"},
     "col_agreement": {"es": "Acuerdo comercial", "en": "Trade agreement"},
     "col_lpi": {"es": "LPI logístico (1–5)", "en": "Logistics LPI (1–5)"},
+    "col_lpi_help": {
+        "es": (
+            "LPI = Índice de Desempeño Logístico del Banco Mundial "
+            "(aduanas, infraestructura, envíos); escala 1–5, más es mejor."
+        ),
+        "en": (
+            "LPI = World Bank Logistics Performance Index (customs, "
+            "infrastructure, shipments); 1–5 scale, higher is better."
+        ),
+    },
     "col_stability": {"es": "Estabilidad macro", "en": "Macro stability"},
     "col_score_raw": {"es": "Score bruto", "en": "Raw score"},
     "col_score_final": {"es": "Score final", "en": "Final score"},
@@ -756,7 +806,7 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
     },
     "tab_map": {"es": "🗺️ Mapa", "en": "🗺️ Map"},
     "tab_breakdown": {"es": "¿Por qué este score?", "en": "Why this score?"},
-    "tab_radar": {"es": "📡 Radar de métricas", "en": "📡 Metric radar"},
+    "tab_radar": {"es": "🕸️ Perfil comparado", "en": "🕸️ Compared profile"},
     "radar_caption": {
         "es": (
             "Perfil de cada mercado en las métricas del scoring, "
@@ -792,8 +842,8 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
         ),
     },
     "tab_scores": {
-        "es": "Oportunidad vs. score final",
-        "en": "Opportunity vs. final score",
+        "es": "Score bruto vs. final",
+        "en": "Raw vs. final score",
     },
     "tab_size": {"es": "Tamaño de mercado", "en": "Market size"},
     "tab_evolution": {"es": "Evolución del mercado", "en": "Market evolution"},

@@ -1041,13 +1041,15 @@ def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object], focus_iso3: s
                 t("col_market_size", years=meta["market_size_years"])
             ),
             config.COL_GROWTH: st.column_config.Column(t("col_growth")),
-            config.COL_SHARE: st.column_config.Column(t("col_share")),
+            config.COL_SHARE: st.column_config.Column(t("col_share"), help=t("col_share_help")),
             config.COL_SHARE_TREND: st.column_config.Column(t("col_share_trend")),
-            config.COL_ORIGIN_EXPORT_SHARE: st.column_config.Column(t("col_origin_export_share")),
+            config.COL_ORIGIN_EXPORT_SHARE: st.column_config.Column(
+                t("col_origin_export_share"), help=t("col_origin_export_share_help")
+            ),
             config.COL_COMPLEMENTARITY: st.column_config.Column(t("col_complementarity")),
             config.COL_TARIFF: st.column_config.Column(t("col_tariff")),
             config.COL_AGREEMENT: st.column_config.Column(t("col_agreement")),
-            config.COL_LPI: st.column_config.Column(t("col_lpi")),
+            config.COL_LPI: st.column_config.Column(t("col_lpi"), help=t("col_lpi_help")),
             config.COL_STABILITY: st.column_config.Column(t("col_stability")),
             config.COL_SCORE: st.column_config.Column(t("col_score_raw")),
             config.COL_FINAL_SCORE: st.column_config.Column(t("col_score_final")),
@@ -1345,6 +1347,7 @@ def _kpi_row(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
             i18n.fmt_number(hhi_value, 2),
             delta=hhi_reading,
             delta_color="off",
+            help=t("kpi_hhi_help"),
         )
     rca = meta.get("rca_balassa")
     if rca is not None:
@@ -1354,6 +1357,7 @@ def _kpi_row(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
             i18n.fmt_number(rca_value, 1),
             delta=t("kpi_rca_delta_yes") if rca_value > 1 else t("kpi_rca_delta_no"),
             delta_color="off",
+            help=t("kpi_rca_help"),
         )
 
 

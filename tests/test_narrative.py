@@ -125,16 +125,54 @@ def test_snapshot_viejo_sin_columna_de_arancel_no_rompe() -> None:
     assert "Estabilidad macro" in text  # el resto de la narrativa sigue completa
 
 
-def test_ninguna_frase_sin_numero() -> None:
+@pytest.mark.parametrize("lang", ["es", "en"])
+def test_ninguna_frase_sin_numero(lang: str) -> None:
     """Regla de oro de la fase: cada afirmación lleva el número que la respalda."""
     ranking = _ranking_small()
-    narrative = build_narrative(ranking, config.WEIGHTS, product_label="Café (HS 0901)")
+    narrative = build_narrative(
+        ranking,
+        config.WEIGHTS,
+        product_label="Café (HS 0901)",
+        lang=lang,  # type: ignore[arg-type]
+    )
     all_sentences = [s for sentences in narrative["markets"].values() for s in sentences]
     for rec in narrative["recommendations"]:
         all_sentences.extend(rec["reasons"])
     assert all_sentences, "La narrativa no puede salir vacía"
     for sentence in all_sentences:
         assert re.search(r"\d", sentence), f"Frase sin número: {sentence!r}"
+
+
+def test_narrativa_en_ingles_frases_y_formato() -> None:
+    """La versión inglesa traduce las frases y usa separadores ingleses."""
+    text = " ".join(
+        market_sentences(
+            _row(), 3, product_label="Coffee (HS 0901)", origin_name="Colombia", lang="en"
+        )
+    )
+    assert "Estados Unidos imports USD 9,000 M" in text  # miles con coma (en)
+    assert "of Coffee (HS 0901)" in text
+    assert "Demand grows at 9.2 % per year" in text  # punto decimal
+    assert "Colombia already holds 16.8 %" in text
+    assert "loses 3.5 pp" in text
+    assert "effectively applied tariff of 8.5 %" in text
+    assert "Macro stability of Estados Unidos at 0.66" in text
+    assert "at 0.458 (raw 0.552)" in text
+
+
+def test_narrativa_en_ingles_traduce_nombres_de_destinos() -> None:
+    """``build_narrative(lang="en")`` usa los nombres en inglés del MVP."""
+    ranking = _ranking_small()
+    # USA está en config.DESTINATIONS_EN; AAA/BBB/CCC no y conservan su nombre.
+    ranking.loc[0, config.COL_COUNTRY] = "USA"
+    narrative = build_narrative(ranking, config.WEIGHTS, product_label="Coffee", lang="en")
+    assert any("United States" in s for s in narrative["markets"]["USA"])
+    assert any("Betalandia" in s for s in narrative["markets"]["BBB"])
+
+
+def test_top_recomendaciones_en_ingles() -> None:
+    recs = top_recommendations(_ranking_small(), config.WEIGHTS, n=1, lang="en")
+    assert all("destination #1 by" in reason for reason in recs[0]["reasons"])
 
 
 def test_top_recomendaciones_orden_y_porque() -> None:

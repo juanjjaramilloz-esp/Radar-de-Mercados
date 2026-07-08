@@ -18,7 +18,7 @@ from tradefit import config, hs_codes
 from tradefit.contracts import MarketInputs, ranking_schema
 from tradefit.domain import indices
 from tradefit.domain.macro_filter import apply_stability_penalty, stability_score
-from tradefit.domain.narrative import build_narrative
+from tradefit.domain.narrative import LANGS, build_narrative
 from tradefit.domain.scoring import rank_markets
 from tradefit.ingest import comtrade, stub, wits, worldbank
 
@@ -167,13 +167,7 @@ def build_snapshot(
     imports.to_parquet(config.imports_timeseries_parquet(hs), index=False)
 
     hs_label = hs_codes.hs_label(hs)
-    narrative = build_narrative(
-        validated, config.WEIGHTS, product_label=hs_label, origin_name=config.ORIGIN_NAME
-    )
-    config.narrative_json(hs).write_text(
-        json.dumps(narrative, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
-        encoding="utf-8",
-    )
+    _write_narrative(hs, validated, dict(config.WEIGHTS), config.MARKET_SIZE_YEARS, hs_label)
 
     meta = {
         "hs_code": hs,
@@ -201,6 +195,37 @@ def build_snapshot(
     return validated
 
 
+def _write_narrative(
+    hs: str,
+    ranking: pd.DataFrame,
+    weights: dict[str, float],
+    window_years: int,
+    hs_label: str,
+) -> None:
+    """Serializa ``narrative.json`` bilingüe: ``{"es": {...}, "en": {...}}``.
+
+    La etiqueta del producto en inglés sale de ``config.PRODUCTS_EN`` para los
+    curados; las partidas on-demand ya traen su descripción del catálogo de
+    Comtrade en inglés, así que sirve para ambos idiomas.
+    """
+    labels = {"es": hs_label, "en": config.PRODUCTS_EN.get(hs, hs_label)}
+    narrative = {
+        lang: build_narrative(
+            ranking,
+            weights,
+            window_years=window_years,
+            product_label=labels[lang],
+            origin_name=config.ORIGIN_NAME,
+            lang=lang,
+        )
+        for lang in LANGS
+    }
+    config.narrative_json(hs).write_text(
+        json.dumps(narrative, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+
+
 def refresh_narrative(hs: str) -> None:
     """Reescribe solo ``narrative.json`` desde un snapshot ya construido (sin red).
 
@@ -216,16 +241,12 @@ def refresh_narrative(hs: str) -> None:
     """
     ranking = pd.read_parquet(config.ranking_parquet(hs))
     meta = json.loads(config.snapshot_meta_json(hs).read_text(encoding="utf-8"))
-    narrative = build_narrative(
+    _write_narrative(
+        hs,
         ranking,
         {str(k): float(v) for k, v in meta["weights"].items()},
-        window_years=int(meta["market_size_years"]),
-        product_label=str(meta["hs_label"]),
-        origin_name=config.ORIGIN_NAME,
-    )
-    config.narrative_json(hs).write_text(
-        json.dumps(narrative, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
-        encoding="utf-8",
+        int(meta["market_size_years"]),
+        str(meta["hs_label"]),
     )
     logger.info("Narrativa de %s regenerada en %s", hs, config.narrative_json(hs))
 

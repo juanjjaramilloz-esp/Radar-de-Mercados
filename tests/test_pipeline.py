@@ -94,3 +94,20 @@ def test_build_sin_callback_no_falla(tmp_path: Path, monkeypatch: pytest.MonkeyP
     monkeypatch.setattr(config, "PROCESSED_DIR", tmp_path)
     ranking = pipeline.build_snapshot(source="stub", hs=config.HS_CODE)
     assert not ranking.empty
+
+
+def test_narrativa_del_snapshot_es_bilingue(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setattr(config, "PROCESSED_DIR", tmp_path)
+    pipeline.build_snapshot(source="stub", hs=config.HS_CODE)
+    narrative = json.loads(config.narrative_json(config.HS_CODE).read_text(encoding="utf-8"))
+    assert set(narrative) == {"es", "en"}
+    for lang in ("es", "en"):
+        assert narrative[lang]["markets"], f"narrativa vacía en {lang!r}"
+        assert narrative[lang]["recommendations"]
+    # La etiqueta del producto curado va en el idioma de cada narrativa.
+    es_text = " ".join(s for ss in narrative["es"]["markets"].values() for s in ss)
+    en_text = " ".join(s for ss in narrative["en"]["markets"].values() for s in ss)
+    assert "Café (HS 0901)" in es_text
+    assert "Coffee (HS 0901)" in en_text

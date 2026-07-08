@@ -541,6 +541,7 @@ def _focus_section(
                 else f"{flag_emoji(iso3)} {names.get(iso3, iso3)} ({iso3})".strip()
             ),
             key=_FOCUS_SELECT_KEY,
+            help=t("focus_select_help"),
         )
     if selected:
         with col_clear:
@@ -570,9 +571,12 @@ def _comparator_section(products: dict[str, str]) -> None:
     """Comparador: los mejores mercados de 2–3 partidas, lado a lado.
 
     Solo lee snapshots ya construidos (nada de red ni cálculo): responde
-    «¿a qué mercado le apuesto con cuál producto?» de una mirada.
+    «¿a qué mercado le apuesto con cuál producto?» de una mirada. Con un
+    solo producto analizado, un caption anuncia la función (que exista se
+    descubra, no que aparezca de la nada al construir la segunda partida).
     """
     if len(products) < 2:
+        st.caption(t("comparator_needs_more_info"))
         return
     st.divider()
     st.subheader(t("comparator_subheader"))
@@ -1093,6 +1097,7 @@ def _weight_lab_section(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
                     step=5,
                     format="%d%%",
                     key=f"lab_w_{name}",
+                    help=t("lab_slider_help"),
                 )
         total = sum(raw_weights.values())
         if total == 0:

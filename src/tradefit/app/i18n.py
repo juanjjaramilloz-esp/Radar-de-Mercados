@@ -336,8 +336,21 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
     "focus_select_placeholder": {"es": "— sin foco —", "en": "— no focus —"},
     "focus_clear": {"es": "✕ Quitar foco", "en": "✕ Clear focus"},
     "focus_hint": {
-        "es": "Selecciona un mercado (o haz clic en el mapa) para ver su ficha.",
-        "en": "Select a market (or click the map) to see its profile.",
+        "es": (
+            "💡 Elige un mercado arriba, haz clic en el mapa (🗺️ Mapa) o en "
+            "una fila de la tabla para ver su ficha."
+        ),
+        "en": ("💡 Pick a market above, click the map (🗺️ Map) or a table row to see its profile."),
+    },
+    "focus_select_help": {
+        "es": (
+            "Fija el mercado cuya ficha quieres ver; también puedes hacer "
+            "clic en el mapa o en una fila de la tabla del ranking."
+        ),
+        "en": (
+            "Sets the market whose profile you want to see; you can also "
+            "click the map or a row in the ranking table."
+        ),
     },
     "focus_header_rank": {
         "es": "#{rank} de {n} mercados",
@@ -412,6 +425,16 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
         "en": (
             "Pick two or three already-analyzed tariff lines and compare "
             "their best markets; build more with the advanced search."
+        ),
+    },
+    "comparator_needs_more_info": {
+        "es": (
+            "⚖️ Comparador de productos: analiza al menos 2 partidas HS "
+            "para comparar sus mejores mercados lado a lado."
+        ),
+        "en": (
+            "⚖️ Product comparator: analyze at least 2 HS tariff lines to "
+            "compare their best markets side by side."
         ),
     },
     "comparator_select_label": {
@@ -896,6 +919,16 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
         ),
     },
     "lab_reset": {"es": "↺ Pesos oficiales", "en": "↺ Official weights"},
+    "lab_slider_help": {
+        "es": (
+            "Peso relativo de esta métrica en el score: los pesos se "
+            "normalizan a suma 1 y el ranking se recalcula en vivo."
+        ),
+        "en": (
+            "This metric's relative weight in the score: weights are "
+            "normalized to sum 1 and the ranking is recomputed live."
+        ),
+    },
     "lab_zero_info": {
         "es": "Sube al menos un peso para recalcular el ranking.",
         "en": "Raise at least one weight to recompute the ranking.",

@@ -408,12 +408,10 @@ pytest ; ruff check . ; mypy src                # puerta de calidad
 
 ## Pendientes conocidos
 
-- `git push` pendiente del usuario (regla de permisos): narrativa bilingüe +
-  tanda "cara al reclutador" + tanda "Profundidad Colombia" Parte 1 completa
-  (LATAM, TLC, HHI, LPI, rebuild 26 mercados) + valores unitarios/tooltips/
-  piso macro + comparador global + accesibilidad y perfil arancelario HS6
-  (con rebuild de snapshots). El remoto nuevo
-  (`juanjjaramilloz-esp/Radar-de-Mercados`) solo tiene hasta aranceles WITS.
+- ~~`git push` pendiente del usuario~~ HECHO 2026-07-08: el remoto
+  (`juanjjaramilloz-esp/Radar-de-Mercados`) está al día hasta la tanda de
+  accesibilidad + perfil arancelario HS6 (`e9734d2`). El push sigue siendo
+  del usuario (regla de permisos) tras cada tanda nueva.
 - Screenshots del README (los toma el usuario, antes del push):
   `docs/img/app-overview.png` y `docs/img/weight-lab.png`.
 - `gh` CLI local sin cuenta logueada (2026-07-08): la credencial vieja

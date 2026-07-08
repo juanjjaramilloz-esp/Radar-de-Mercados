@@ -1,5 +1,9 @@
 # Radar de Mercados (`tradefit`)
 
+[![CI](https://github.com/juanjjaramilloz-esp/Radar-de-Mercados/actions/workflows/ci.yml/badge.svg)](https://github.com/juanjjaramilloz-esp/Radar-de-Mercados/actions/workflows/ci.yml)
+[![Python ≥3.11](https://img.shields.io/badge/python-%E2%89%A53.11-blue)](pyproject.toml)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://radar-de-mercados.streamlit.app/)
+
 **Demo en vivo: <https://radar-de-mercados.streamlit.app/>**
 
 Screener de mercados de exportación: dado un producto (código HS) y un país de

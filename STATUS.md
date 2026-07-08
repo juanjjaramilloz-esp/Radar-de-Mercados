@@ -23,11 +23,18 @@ Cuatro pulidos de presentación (solo `app/`; verificados con scripts
    (#, mercado, importaciones, crecimiento, cuota, arancel, estabilidad,
    score final); el resto (ISO3, Δ cuota, % export. COL,
    complementariedad, acuerdo, LPI, score bruto) se activa desde el
-   popover «⚙️ Columnas» sobre la tabla. El estado
-   (`ranking_columns_select`) guarda nombres internos `config.COL_*` →
-   sobrevive al toggle ES/EN y al cambio de producto. El resaltado de la
-   fila en foco ahora lee ISO3 de `ranking` (en `display` puede estar
-   oculta). Exports CSV/Excel/PDF siguen con todas las columnas.
+   popover «⚙️ Columnas» sobre la tabla. Tras feedback del usuario
+   (multiselect dentro del popover = menú anidado poco intuitivo), el
+   panel es **un checkbox por columna** en dos columnas. El estado vive
+   en claves propias `ranking_col_store_<config.COL_*>` (no en el
+   widget: la etiqueta traducida cambia su identidad y Streamlit
+   descartaría el valor al cambiar de idioma) → sobrevive al toggle
+   ES/EN y al cambio de producto. El resaltado de la fila en foco lee
+   ISO3 de `ranking` (en `display` puede estar oculta). Exports
+   CSV/Excel/PDF siguen con todas las columnas. Además, por feedback:
+   **sin selección por fila** en la tabla (se quitó la columna de
+   checkboxes de `selection_mode`; el foco queda por selector y mapa, y
+   los hints ya no mencionan la fila) y columna «#» a 45 px.
 3. Nomenclatura: pestañas «🕸️ Perfil comparado» (antes colisionaba con el
    nombre de la app) y «Score bruto vs. final» (mismo término que las
    columnas); tooltips `help=` con definición de una frase en KPIs

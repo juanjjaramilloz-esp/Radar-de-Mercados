@@ -12,7 +12,21 @@ ranking de 26 destinos (18 OCDE/Asia + 8 LATAM). Motor económico puro en
 `domain/`, snapshot Parquet como contrato, app Streamlit que solo lee el
 snapshot.
 
-## ✅ Última tanda — pulidos de UI (2026-07-08, COMPLETA)
+## ✅ Última tanda — hero + selector de producto (2026-07-08, COMPLETA)
+
+Dos correcciones de feedback visual, sobre la tanda de pulidos de abajo:
+
+1. El hero decía «un país de origen» como si fuera elegible: ahora nombra
+   a Colombia directamente (`config.ORIGIN_NAME` + su bandera 🇨🇴),
+   coherente con la decisión de origen fijo (ver CLAUDE.md).
+2. El selector de producto (acción primordial de la app) gana un
+   contenedor con fondo/borde azul translúcido y label en negrita, vía
+   la clase `st-key-<key>` que Streamlit asigna a `st.container(key=…)`
+   — confirmado en el bundle del frontend (`convertKeyToClassName`) y
+   verificado con `preview_inspect` (no por script, es CSS puro). El
+   estilo queda acotado a este selector, no toca los demás de la página.
+
+## ✅ Tanda anterior — pulidos de UI (2026-07-08, COMPLETA)
 
 Cuatro pulidos de presentación (solo `app/`; verificados con scripts
 `AppTest` desechables, sin tests permanentes nuevos):

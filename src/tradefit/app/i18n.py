@@ -949,6 +949,20 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
             "relative and get normalized to 100% before computing."
         ),
     },
+    "lab_download_csv": {
+        "es": "⬇️ CSV (ranking simulado)",
+        "en": "⬇️ CSV (simulated ranking)",
+    },
+    "lab_export_note": {
+        "es": (
+            "Los botones CSV/Excel/PDF de arriba exportan siempre el "
+            "ranking oficial; este CSV lleva el ranking con tus pesos."
+        ),
+        "en": (
+            "The CSV/Excel/PDF buttons above always export the official "
+            "ranking; this CSV carries the ranking with your weights."
+        ),
+    },
     "lab_live_note": {
         "es": (
             "🎯 Pesos del simulador activos: el mapa, las gráficas y la "

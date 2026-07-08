@@ -94,6 +94,16 @@ _METRIC_COLORS: Final[dict[str, str]] = {
     "tariff_faced": "#94A3B8",
 }
 
+#: Colores de los hasta 3 mercados del radar: misma familia cromática que el
+#: resto de la app (azul/ámbar/verde) en lugar de la paleta default de plotly.
+_RADAR_COLORS: Final[tuple[str, str, str]] = ("#1D4ED8", "#F59E0B", "#10B981")
+
+
+def _radar_fill(hex_color: str) -> str:
+    """Versión translúcida (rgba) de un color hex para el relleno del radar."""
+    r, g, b = (int(hex_color[i : i + 2], 16) for i in (1, 3, 5))
+    return f"rgba({r},{g},{b},0.18)"
+
 
 def _hero_section() -> None:
     """Propuesta de valor y mini-tour: el usuario aterriza sin contexto.
@@ -1156,6 +1166,16 @@ def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object], focus_iso3: s
     )
 
 
+def _delta_color(value: object) -> str:
+    """CSS de la celda Δ posición del simulador: sube verde, baja rojo."""
+    text = str(value)
+    if text.startswith("▲"):
+        return "color: #16A34A; font-weight: 600"
+    if text.startswith("▼"):
+        return "color: #DC2626; font-weight: 600"
+    return "color: #94A3B8"
+
+
 def _weight_lab_section(
     ranking: pd.DataFrame, meta: dict[str, object]
 ) -> tuple[pd.DataFrame, dict[str, float]] | None:
@@ -1242,7 +1262,16 @@ def _weight_lab_section(
                 ],
             }
         )
-        st.dataframe(display, hide_index=True, width="stretch")
+        styled = display.style.map(_delta_color, subset=[t("lab_col_delta")])
+        st.dataframe(styled, hide_index=True, width="stretch")
+        if raw_weights != default_ints:
+            st.download_button(
+                t("lab_download_csv"),
+                data=rescored.to_csv(index=False).encode("utf-8"),
+                file_name=f"radar_{meta['hs_code']}_{meta['origin_iso3']}_simulado.csv",
+                mime="text/csv",
+            )
+            st.caption(t("lab_export_note"))
     if raw_weights == default_ints:
         return None  # pesos oficiales intactos: la página sigue con el snapshot
     return rescored, weights
@@ -1365,7 +1394,7 @@ def _radar_tab(ranking: pd.DataFrame) -> None:
     }
     axes = [i18n.metric_label(name) for name in available]
     fig = go.Figure()
-    for iso3 in selected:
+    for iso3, color in zip(selected, _RADAR_COLORS, strict=False):
         values = [float(normalized[name][iso3]) for name in available]
         fig.add_trace(
             go.Scatterpolar(
@@ -1374,6 +1403,8 @@ def _radar_tab(ranking: pd.DataFrame) -> None:
                 theta=[*axes, axes[0]],
                 fill="toself",
                 name=f"{flag_emoji(iso3)} {names.get(iso3, iso3)}".strip(),
+                line={"color": color, "width": 2.5},
+                fillcolor=_radar_fill(color),
                 hovertemplate="%{theta}: %{r:.2f}<extra>%{fullData.name}</extra>",
             )
         )

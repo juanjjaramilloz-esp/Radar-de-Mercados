@@ -40,6 +40,37 @@ _MAP_KEY = "map_select"
 _MAP_PROCESSED_KEY = "map_selection_processed"
 _TABLE_KEY = "ranking_table_select"
 _TABLE_PROCESSED_KEY = "ranking_table_selection_processed"
+_COLUMNS_SELECT_KEY = "ranking_columns_select"
+
+#: Columnas del ranking visibles por defecto: un set compacto que cabe en
+#: pantalla. El resto (ISO3, Δ cuota, acuerdo comercial, LPI, score bruto…)
+#: se activa desde el popover «⚙️ Columnas»; ocultar es solo presentación —
+#: los exports CSV/Excel/PDF llevan todas las columnas.
+_DEFAULT_VISIBLE_COLUMNS: Final[tuple[str, ...]] = (
+    config.COL_MARKET_SIZE,
+    config.COL_GROWTH,
+    config.COL_SHARE,
+    config.COL_TARIFF,
+    config.COL_STABILITY,
+    config.COL_FINAL_SCORE,
+)
+
+#: Clave i18n de cada columna elegible del selector (las fijas — ranking y
+#: mercado — no aparecen; ISO3 y tamaño de mercado se resuelven aparte en
+#: ``_ranking_column_label``).
+_RANKING_COLUMN_LABEL_KEYS: Final[dict[str, str]] = {
+    config.COL_GROWTH: "col_growth",
+    config.COL_SHARE: "col_share",
+    config.COL_SHARE_TREND: "col_share_trend",
+    config.COL_ORIGIN_EXPORT_SHARE: "col_origin_export_share",
+    config.COL_COMPLEMENTARITY: "col_complementarity",
+    config.COL_TARIFF: "col_tariff",
+    config.COL_AGREEMENT: "col_agreement",
+    config.COL_LPI: "col_lpi",
+    config.COL_STABILITY: "col_stability",
+    config.COL_SCORE: "col_score_raw",
+    config.COL_FINAL_SCORE: "col_score_final",
+}
 
 #: Color de cada métrica en las gráficas de desglose (azules = demanda,
 #: ámbar = posición del origen, verde = encaje, gris = fricción arancelaria).
@@ -896,6 +927,43 @@ def _current_focus() -> str:
     return str(st.session_state.get(_FOCUS_SELECT_KEY, "") or "")
 
 
+def _ranking_column_label(column: str, meta: dict[str, object]) -> str:
+    """Etiqueta de una columna del ranking en el idioma activo (selector de columnas)."""
+    if column == config.COL_COUNTRY:
+        return "ISO3"
+    if column == config.COL_MARKET_SIZE:
+        return t("col_market_size", years=meta["market_size_years"])
+    return t(_RANKING_COLUMN_LABEL_KEYS[column])
+
+
+def _ranking_visible_columns(display: pd.DataFrame, meta: dict[str, object]) -> list[str]:
+    """Columnas a mostrar en la tabla: fijas + la selección del popover.
+
+    El estado del multiselect guarda nombres internos de columna
+    (``config.COL_*``), no etiquetas: así la selección sobrevive al toggle
+    ES/EN y a cambiar de producto. Se devuelven en el orden original de
+    ``display.columns``, no en el orden de clic.
+    """
+    fixed = [config.COL_RANK, config.COL_COUNTRY_NAME]
+    optional = [col for col in display.columns if col not in fixed]
+    # Una selección heredada con columnas que este snapshot no trae rompería
+    # el multiselect: se poda antes de instanciarlo.
+    if _COLUMNS_SELECT_KEY in st.session_state:
+        st.session_state[_COLUMNS_SELECT_KEY] = [
+            col for col in st.session_state[_COLUMNS_SELECT_KEY] if col in optional
+        ]
+    with st.popover(t("columns_popover_label")):
+        selected = st.multiselect(
+            t("columns_select_label"),
+            options=optional,
+            default=[col for col in _DEFAULT_VISIBLE_COLUMNS if col in optional],
+            format_func=lambda col: _ranking_column_label(col, meta),
+            help=t("columns_select_help"),
+            key=_COLUMNS_SELECT_KEY,
+        )
+    return [col for col in display.columns if col in fixed or col in selected]
+
+
 def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object], focus_iso3: str = "") -> None:
     """Tabla del ranking con los números formateados en el idioma activo.
 
@@ -905,6 +973,9 @@ def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object], focus_iso3: s
     ``pandas.Styler`` usando las mismas funciones de ``app/format.py`` que
     el resto de la app; los datos siguen siendo numéricos, así que la
     alineación a la derecha se conserva.
+
+    Solo se dibujan las columnas elegidas en el popover «⚙️ Columnas»
+    (``_ranking_visible_columns``); los exports llevan todas.
     """
     flagged_names = (
         ranking[config.COL_COUNTRY].map(flag_emoji) + " " + ranking[config.COL_COUNTRY_NAME]
@@ -921,6 +992,7 @@ def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object], focus_iso3: s
         else len(display.columns)
     )
     display.insert(position, config.COL_AGREEMENT, agreement)
+    display = display[_ranking_visible_columns(display, meta)]
     formats: dict[str, Callable[[float], str]] = {
         config.COL_MARKET_SIZE: lambda v: i18n.fmt_number(v),
         config.COL_GROWTH: lambda v: i18n.fmt_pct(v, signed=True),
@@ -946,10 +1018,12 @@ def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object], focus_iso3: s
     )
     if focus_iso3:
         # Fila del mercado en foco resaltada (ámbar translúcido: funciona en
-        # tema claro y oscuro sin forzar el color del texto).
+        # tema claro y oscuro sin forzar el color del texto). Se lee de
+        # ``ranking`` (mismo orden de filas): la columna ISO3 puede estar
+        # oculta en ``display``.
         row_styles = [
             "background-color: rgba(245, 158, 11, 0.22)" if iso == focus_iso3 else ""
-            for iso in display[config.COL_COUNTRY]
+            for iso in ranking[config.COL_COUNTRY]
         ]
         styler = styler.apply(lambda column: row_styles, axis=0)
     st.dataframe(

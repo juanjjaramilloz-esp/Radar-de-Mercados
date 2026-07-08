@@ -742,6 +742,18 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
     "col_stability": {"es": "Estabilidad macro", "en": "Macro stability"},
     "col_score_raw": {"es": "Score bruto", "en": "Raw score"},
     "col_score_final": {"es": "Score final", "en": "Final score"},
+    "columns_popover_label": {"es": "⚙️ Columnas", "en": "⚙️ Columns"},
+    "columns_select_label": {
+        "es": "Columnas visibles en la tabla",
+        "en": "Columns shown in the table",
+    },
+    "columns_select_help": {
+        "es": (
+            "El ranking (#) y el mercado siempre se muestran. Los exports "
+            "CSV/Excel/PDF llevan todas las columnas."
+        ),
+        "en": ("Rank (#) and market are always shown. CSV/Excel/PDF exports include every column."),
+    },
     "tab_map": {"es": "🗺️ Mapa", "en": "🗺️ Map"},
     "tab_breakdown": {"es": "¿Por qué este score?", "en": "Why this score?"},
     "tab_radar": {"es": "📡 Radar de métricas", "en": "📡 Metric radar"},

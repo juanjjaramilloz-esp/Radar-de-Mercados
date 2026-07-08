@@ -191,9 +191,10 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
             "- **Recomendación**: el porqué de cada top, con sus números "
             "(crecimiento de la demanda, cuota ya ganada, "
             "complementariedad).\n"
-            "- **🔎 Buscador avanzado**: escribe cualquier partida (p. ej. "
-            "`1701` o «café») y la app descarga los datos de UN Comtrade y "
-            "construye el análisis al momento.\n"
+            "- **Producto**: el desplegable trae los 15 productos más "
+            "exportados por Colombia (canasta no minero-energética, "
+            "UN Comtrade 2024); ¿otro producto? el **🔎 buscador avanzado** "
+            "analiza cualquier partida al momento.\n"
             "- **📖 Metodología**: la fórmula y la cita académica de cada "
             "métrica; el ranking se exporta a CSV, Excel o PDF."
         ),
@@ -203,9 +204,10 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
             "stability.\n"
             "- **Recommendation**: the why behind each top pick, with the "
             "numbers (demand growth, share already won, complementarity).\n"
-            "- **🔎 Advanced search**: type any tariff line (e.g. `1701` or "
-            "«coffee») and the app downloads UN Comtrade data and builds "
-            "the analysis on the spot.\n"
+            "- **Product**: the dropdown lists Colombia's 15 top exports "
+            "(non-mining basket, UN Comtrade 2024); after something else? "
+            "the **🔎 advanced search** analyzes any tariff line on the "
+            "spot.\n"
             "- **📖 Methodology**: the formula and academic citation behind "
             "every metric; export the ranking to CSV, Excel or PDF."
         ),
@@ -504,19 +506,21 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
         "en": "no revealed advantage",
     },
     "top3_stability_delta": {"es": "estabilidad {value}", "en": "stability {value}"},
-    "no_snapshots_error": {
+    "product_select_label": {"es": "Producto", "en": "Product"},
+    "product_select_help": {
         "es": (
-            "No hay snapshots en `data/processed/`. Usa el buscador "
-            "avanzado de arriba o genera uno con:\n\n"
-            "```\npython -m tradefit.pipeline.build_snapshot\n```"
+            "Top 15 de exportaciones de Colombia por partida HS4 "
+            "(UN Comtrade 2024), excluyendo minero-energéticos (capítulos "
+            "27 y 71), en orden de valor exportado. ¿Otro producto? Usa el "
+            "buscador avanzado."
         ),
         "en": (
-            "No snapshots in `data/processed/`. Use the advanced search "
-            "above or generate one with:\n\n"
-            "```\npython -m tradefit.pipeline.build_snapshot\n```"
+            "Colombia's top 15 exports by HS4 heading (UN Comtrade 2024), "
+            "excluding mining and energy (chapters 27 and 71), ordered by "
+            "export value. Looking for something else? Use the advanced "
+            "search."
         ),
     },
-    "product_select_label": {"es": "Producto", "en": "Product"},
     "caption_line": {
         "es": (
             "Producto: **{label}** · Origen: **{origin_flag} {origin}** · "

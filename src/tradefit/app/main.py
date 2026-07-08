@@ -66,22 +66,33 @@ def _about_sidebar() -> None:
         st.caption(t("about_caption"))
 
 
-def _available_products() -> dict[str, str]:
-    """Productos con snapshot construido: ``{hs: etiqueta}`` desde meta.json.
+def _catalog_products() -> dict[str, str]:
+    """Catálogo del desplegable: los 15 curados de ``config.PRODUCTS``.
 
-    Escanea ``data/processed/`` completo: incluye tanto los productos curados
-    como las partidas construidas on-demand por el buscador.
+    En el orden de ``config`` (valor exportado descendente) y con etiqueta
+    en el idioma activo, tengan o no snapshot construido (si falta, se
+    construye al seleccionarlo). El desplegable ya NO lista cualquier
+    snapshot del disco: las partidas no curadas que construyó el buscador
+    solo entran mientras sean la selección activa (``_selector_options``).
     """
-    products: dict[str, str] = {}
-    if not config.PROCESSED_DIR.exists():
-        return products
-    for meta_path in sorted(config.PROCESSED_DIR.glob("*/meta.json")):
-        hs = meta_path.parent.name
-        if config.ranking_parquet(hs).exists():
+    return {hs: i18n.product_label(hs, label) for hs, label in config.PRODUCTS.items()}
+
+
+def _selector_options(catalog: dict[str, str]) -> dict[str, str]:
+    """Opciones del selector: catálogo curado + la partida activa no curada.
+
+    Una partida construida por el buscador (o llegada por ``?hs=``) no es
+    parte del catálogo: entra al selector solo mientras sea la selección
+    activa, con la etiqueta de su ``meta.json``.
+    """
+    options = dict(catalog)
+    active = str(st.session_state.get(_PRODUCT_SELECT_KEY, ""))
+    if active and active not in options:
+        meta_path = config.snapshot_meta_json(active)
+        if meta_path.exists():
             meta = json.loads(meta_path.read_text(encoding="utf-8"))
-            label = str(meta.get("hs_label", hs))
-            products[hs] = i18n.product_label(hs, label)
-    return products
+            options[active] = i18n.product_label(active, str(meta.get("hs_label", active)))
+    return options
 
 
 def _bridge_comtrade_key() -> None:
@@ -133,7 +144,7 @@ def _build_on_demand(hs: str) -> bool:
     return True
 
 
-def _advanced_search_section(products: dict[str, str]) -> None:
+def _advanced_search_section() -> None:
     """Buscador avanzado: cualquier partida HS → snapshot on-demand → análisis.
 
     El usuario escribe un código (2/4/6 dígitos) o palabras de la descripción
@@ -171,7 +182,7 @@ def _advanced_search_section(products: dict[str, str]) -> None:
             return
         if selected is None:
             return
-        already_built = selected in products
+        already_built = config.ranking_parquet(selected).exists()
         action = t("search_button_view") if already_built else t("search_button_download")
         go = st.button(action, type="primary", key="advanced_search_go")
         if go and (already_built or _build_on_demand(selected)):
@@ -179,12 +190,12 @@ def _advanced_search_section(products: dict[str, str]) -> None:
             st.rerun()
 
 
-def _sync_product_from_url(products: dict[str, str]) -> None:
+def _sync_product_from_url() -> None:
     """Deep link: ``?hs=0901`` en la URL selecciona ese producto al cargar.
 
     Solo actúa en la primera carga de la sesión (después manda el selector) y
-    solo si el snapshot de la partida existe; un ``hs`` desconocido se ignora
-    en silencio (degradar con gracia).
+    solo si la partida es curada o ya tiene snapshot en disco; un ``hs``
+    desconocido se ignora en silencio (degradar con gracia).
     """
     if _PRODUCT_SELECT_KEY in st.session_state:
         return
@@ -192,7 +203,7 @@ def _sync_product_from_url(products: dict[str, str]) -> None:
     if not url_hs:
         return
     normalized = hs_codes.normalize_hs(url_hs)
-    if normalized in products:
+    if normalized in config.PRODUCTS or config.ranking_parquet(normalized).exists():
         st.session_state[_PRODUCT_SELECT_KEY] = normalized
 
 
@@ -893,19 +904,21 @@ def main() -> None:
     _about_sidebar()
     _hero_section()
 
-    products = _available_products()
-    _advanced_search_section(products)
-    if not products:
-        st.error(t("no_snapshots_error"))
-        return
-    _sync_product_from_url(products)
+    _advanced_search_section()
+    _sync_product_from_url()
+    options = _selector_options(_catalog_products())
     hs = st.selectbox(
         t("product_select_label"),
-        options=list(products),
-        format_func=lambda code: products[code],
+        options=list(options),
+        format_func=lambda code: options[code],
         key=_PRODUCT_SELECT_KEY,
+        help=t("product_select_help"),
     )
     st.query_params["hs"] = hs  # URL compartible: ?hs=<partida>
+    # Los curados se listan aunque no tengan snapshot: se construye al
+    # seleccionarlos (en el demo cloud vienen versionados → instantáneo).
+    if not config.ranking_parquet(hs).exists() and not _build_on_demand(hs):
+        return
     ranking, meta, narrative = _load_snapshot(hs)
     narrative = _narrative_in_language(narrative)
     ranking = _localize_country_names(ranking)
@@ -993,7 +1006,10 @@ def main() -> None:
             _evolution_tab(ranking, meta, timeseries)
 
     _market_detail_section(ranking, narrative)
-    _comparator_section(products)
+    built = {
+        code: label for code, label in options.items() if config.ranking_parquet(code).exists()
+    }
+    _comparator_section(built)
 
 
 if __name__ == "__main__":

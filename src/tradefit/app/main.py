@@ -418,6 +418,8 @@ def _methodology_section(meta: dict[str, object]) -> None:
 
 {t("methodology_rca_note")}
 
+{t("methodology_agreement_note")}
+
 {macro_filter_text}
 
 {final_score_text}
@@ -548,6 +550,15 @@ def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
     display = ranking.drop(columns=[config.COL_RCA]).assign(
         **{config.COL_COUNTRY_NAME: flagged_names}
     )
+    # Acuerdo comercial COL–destino: contexto de presentación (config), se
+    # inserta junto al arancel, cuyo valor ya refleja el acuerdo (AHS).
+    agreement = ranking[config.COL_COUNTRY].map(lambda iso3: i18n.trade_agreement(iso3) or "—")
+    position = (
+        int(display.columns.get_indexer([config.COL_TARIFF])[0]) + 1
+        if config.COL_TARIFF in display.columns
+        else len(display.columns)
+    )
+    display.insert(position, config.COL_AGREEMENT, agreement)
     formats: dict[str, Callable[[float], str]] = {
         config.COL_MARKET_SIZE: lambda v: i18n.fmt_number(v),
         config.COL_GROWTH: lambda v: i18n.fmt_pct(v, signed=True),
@@ -585,6 +596,7 @@ def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
             config.COL_SHARE_TREND: st.column_config.Column(t("col_share_trend")),
             config.COL_COMPLEMENTARITY: st.column_config.Column(t("col_complementarity")),
             config.COL_TARIFF: st.column_config.Column(t("col_tariff")),
+            config.COL_AGREEMENT: st.column_config.Column(t("col_agreement")),
             config.COL_STABILITY: st.column_config.Column(t("col_stability")),
             config.COL_SCORE: st.column_config.Column(t("col_score_raw")),
             config.COL_FINAL_SCORE: st.column_config.Column(t("col_score_final")),

@@ -100,6 +100,17 @@ def metric_label(name: str) -> str:
     return t(_METRIC_LABEL_KEYS[name])
 
 
+def trade_agreement(iso3: str) -> str | None:
+    """Acuerdo comercial vigente Colombia–destino en el idioma activo.
+
+    Returns:
+        La etiqueta del acuerdo (``config.TRADE_AGREEMENTS``/``_EN``), o
+        ``None`` si el destino no tiene acuerdo vigente con Colombia.
+    """
+    source = config.TRADE_AGREEMENTS_EN if get_language() == "en" else config.TRADE_AGREEMENTS
+    return source.get(iso3)
+
+
 #: Etapas que emite ``pipeline.build_snapshot`` vía ``on_stage``; se traducen
 #: solo para mostrarlas — el pipeline sigue emitiendo español (no conoce la
 #: app ni su idioma).
@@ -448,6 +459,20 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
             "keeps the floor, it isn't zeroed out."
         ),
     },
+    "methodology_agreement_note": {
+        "es": (
+            "**Acuerdos comerciales** — la columna «Acuerdo comercial» es "
+            "contexto (fuente: MinCIT, acuerdos vigentes): su efecto sobre "
+            "el acceso ya está capturado por el arancel efectivamente "
+            "aplicado (AHS), así que no pondera aparte en el score."
+        ),
+        "en": (
+            "**Trade agreements** — the «Trade agreement» column is context "
+            "(source: MinCIT, agreements in force): its effect on access is "
+            "already captured by the effectively applied tariff (AHS), so "
+            "it does not weigh separately in the score."
+        ),
+    },
     "methodology_footer": {
         "es": (
             "Cada métrica tiene su test con un valor calculado a mano; los "
@@ -563,6 +588,7 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
     "col_share_trend": {"es": "Δ cuota (ventana)", "en": "Δ share (window)"},
     "col_complementarity": {"es": "Complementariedad", "en": "Complementarity"},
     "col_tariff": {"es": "Arancel enfrentado", "en": "Tariff faced"},
+    "col_agreement": {"es": "Acuerdo comercial", "en": "Trade agreement"},
     "col_stability": {"es": "Estabilidad macro", "en": "Macro stability"},
     "col_score_raw": {"es": "Score bruto", "en": "Raw score"},
     "col_score_final": {"es": "Score final", "en": "Final score"},

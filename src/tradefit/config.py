@@ -167,6 +167,65 @@ DESTINATIONS_EN: Final[dict[str, str]] = {
     "DOM": "Dominican Republic",
 }
 
+# --- Acuerdos comerciales de Colombia por destino (contexto, NO pondera) ---
+# Acuerdo vigente que cubre el comercio de bienes con cada destino y su año
+# de entrada en vigor. Fuente: MinCIT / tlc.gov.co, acuerdos comerciales
+# vigentes (consultado 2026-07-08). El efecto arancelario ya lo captura la
+# métrica tariff_faced (AHS = mín(MFN, preferencial)); esto es contexto
+# legible en la app. Destinos sin acuerdo vigente (JPN, AUS, DOM) no
+# aparecen en el dict.
+TRADE_AGREEMENTS: Final[dict[str, str]] = {
+    "USA": "TLC EE. UU. (2012)",
+    "DEU": "Acuerdo UE (2013)",
+    "ITA": "Acuerdo UE (2013)",
+    "FRA": "Acuerdo UE (2013)",
+    "BEL": "Acuerdo UE (2013)",
+    "NLD": "Acuerdo UE (2013)",
+    "ESP": "Acuerdo UE (2013)",
+    "POL": "Acuerdo UE (2013)",
+    "SWE": "Acuerdo UE (2013)",
+    "PRT": "Acuerdo UE (2013)",
+    "FIN": "Acuerdo UE (2013)",
+    "AUT": "Acuerdo UE (2013)",
+    "GBR": "Acuerdo Reino Unido (2021)",
+    "CAN": "TLC Canadá (2011)",
+    "KOR": "TLC Corea del Sur (2016)",
+    "CHE": "AELC–EFTA (2011)",
+    "MEX": "TLC México (1995) · Alianza del Pacífico",
+    "CHL": "TLC Chile (2009) · Alianza del Pacífico",
+    "PER": "CAN (1973) · Alianza del Pacífico",
+    "ECU": "CAN (1973)",
+    "BRA": "ACE-72 Mercosur (2017)",
+    "CRI": "TLC Costa Rica (2016)",
+    "PAN": "AAP N.º 29 (1994)",
+}
+# Versión en inglés de los mismos acuerdos (toggle de idioma).
+TRADE_AGREEMENTS_EN: Final[dict[str, str]] = {
+    "USA": "US FTA (2012)",
+    "DEU": "EU Agreement (2013)",
+    "ITA": "EU Agreement (2013)",
+    "FRA": "EU Agreement (2013)",
+    "BEL": "EU Agreement (2013)",
+    "NLD": "EU Agreement (2013)",
+    "ESP": "EU Agreement (2013)",
+    "POL": "EU Agreement (2013)",
+    "SWE": "EU Agreement (2013)",
+    "PRT": "EU Agreement (2013)",
+    "FIN": "EU Agreement (2013)",
+    "AUT": "EU Agreement (2013)",
+    "GBR": "UK Agreement (2021)",
+    "CAN": "Canada FTA (2011)",
+    "KOR": "South Korea FTA (2016)",
+    "CHE": "EFTA (2011)",
+    "MEX": "Mexico FTA (1995) · Pacific Alliance",
+    "CHL": "Chile FTA (2009) · Pacific Alliance",
+    "PER": "Andean Community (1973) · Pacific Alliance",
+    "ECU": "Andean Community (1973)",
+    "BRA": "ACE-72 Mercosur (2017)",
+    "CRI": "Costa Rica FTA (2016)",
+    "PAN": "Partial-scope AAP No. 29 (1994)",
+}
+
 # Códigos de reporter de UN Comtrade (basados en M49; ojo con los códigos
 # especiales de Comtrade: USA=842, Francia=251, Suiza=757; Italia es 380
 # en Comtrade Plus, no el 381 del legacy).
@@ -372,6 +431,7 @@ COL_RATE_PCT: Final = "rate_pct"
 COL_RCA: Final = "rca_balassa"
 COL_INDICATOR: Final = "indicator"
 COL_MACRO_VALUE: Final = "value"  # % u otras unidades según el indicador (no USD)
+COL_AGREEMENT: Final = "trade_agreement"  # presentación (app, desde TRADE_AGREEMENTS)
 COL_STABILITY: Final = "stability_score"
 COL_SCORE: Final = "opportunity_score"
 COL_FINAL_SCORE: Final = "final_score"

@@ -169,7 +169,10 @@ def build_snapshot(
 
     _notify(on_stage, "Calculando índices, estabilidad macro y ranking")
     ranking = rank_markets(data, config.WEIGHTS)
-    stability = stability_score(macro, config.MACRO_BOUNDS)
+    # El caché macro también trae indicadores de contexto (LPI): al filtro
+    # de estabilidad solo entran los que tienen umbrales en MACRO_BOUNDS.
+    core = macro[macro[config.COL_INDICATOR].isin(config.WDI_INDICATORS.values())]
+    stability = stability_score(core, config.MACRO_BOUNDS)
     ranking = apply_stability_penalty(ranking, stability, config.MACRO_FLOOR)
     share_of_origin = (
         ranking[config.COL_COUNTRY].map(export_shares).fillna(0.0)

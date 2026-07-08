@@ -42,7 +42,8 @@ def fetch_wdi_indicators() -> dict[str, Any]:
     """
     countries = ";".join(config.DESTINATIONS)
     merged: list[dict[str, Any]] = []
-    for indicator_code in config.WDI_INDICATORS:
+    # Filtro macro + indicadores de contexto (p. ej. LPI): mismo caché.
+    for indicator_code in {**config.WDI_INDICATORS, **config.WDI_CONTEXT_INDICATORS}:
         url = config.WDI_URL.format(countries=countries, indicator=indicator_code)
         params = {
             "format": "json",
@@ -101,7 +102,9 @@ def parse_wdi_response(payload: dict[str, Any]) -> pd.DataFrame:
             value = record["value"]
         except (KeyError, TypeError, ValueError) as exc:
             raise RuntimeError(f"Registro de WDI con formato inesperado: {record!r}") from exc
-        indicator = config.WDI_INDICATORS.get(indicator_code)
+        indicator = config.WDI_INDICATORS.get(indicator_code) or config.WDI_CONTEXT_INDICATORS.get(
+            indicator_code
+        )
         if indicator is None or iso3 not in config.DESTINATIONS or value is None:
             continue
         rows.append(

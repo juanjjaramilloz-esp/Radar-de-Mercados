@@ -91,7 +91,12 @@ tariffs_schema = pa.DataFrameSchema(
 macro_schema = pa.DataFrameSchema(
     {
         config.COL_COUNTRY: pa.Column(str, pa.Check.str_length(3, 3)),
-        config.COL_INDICATOR: pa.Column(str, pa.Check.isin(list(config.WDI_INDICATORS.values()))),
+        config.COL_INDICATOR: pa.Column(
+            str,
+            pa.Check.isin(
+                list(config.WDI_INDICATORS.values()) + list(config.WDI_CONTEXT_INDICATORS.values())
+            ),
+        ),
         config.COL_YEAR: pa.Column(int, pa.Check.in_range(1990, 2100)),
         config.COL_MACRO_VALUE: pa.Column(float),
     },
@@ -126,6 +131,11 @@ ranking_schema = pa.DataFrameSchema(
         # 0.085 = 8,5 %). NaN = destino sin datos en WITS (no se penaliza).
         config.COL_TARIFF: pa.Column(float, pa.Check.ge(0), nullable=True),
         config.COL_RCA: pa.Column(float, pa.Check.ge(0)),
+        # LPI del destino (World Bank, 1–5; contexto logístico, no pondera).
+        # NaN = país sin dato; required=False: snapshots viejos no la traen.
+        config.COL_LPI: pa.Column(
+            float, pa.Check.in_range(1.0, 5.0), nullable=True, required=False
+        ),
         config.COL_STABILITY: pa.Column(float, pa.Check.in_range(0.0, 1.0)),
         config.COL_SCORE: pa.Column(float, pa.Check.in_range(0.0, 1.0)),
         config.COL_FINAL_SCORE: pa.Column(float, pa.Check.in_range(0.0, 1.0)),

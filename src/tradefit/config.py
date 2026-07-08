@@ -396,6 +396,14 @@ WDI_INDICATORS: Final[dict[str, str]] = {
     "BN.CAB.XOKA.GD.ZS": "current_account",  # cuenta corriente (% del PIB)
 }
 
+# Indicadores WDI de CONTEXTO: se descargan y viajan en el mismo caché/
+# contrato macro pero NO entran al filtro de estabilidad ni al score.
+# LPI = Logistics Performance Index (World Bank, escala 1–5; publicación
+# esparsa, ~cada 4-5 años — se toma el último año con dato por país).
+WDI_CONTEXT_INDICATORS: Final[dict[str, str]] = {
+    "LP.LPI.OVRL.XQ": "lpi",
+}
+
 # Rampas de estabilidad por indicador: (peor, mejor) → score lineal en [0, 1].
 # Valores en el peor extremo o más allá puntúan 0; en el mejor o más allá, 1.
 # Justificación: inflación ≤2% es la meta típica de bancos centrales de la
@@ -438,6 +446,7 @@ COL_INDICATOR: Final = "indicator"
 COL_MACRO_VALUE: Final = "value"  # % u otras unidades según el indicador (no USD)
 COL_AGREEMENT: Final = "trade_agreement"  # presentación (app, desde TRADE_AGREEMENTS)
 COL_ORIGIN_EXPORT_SHARE: Final = "share_of_origin_exports"
+COL_LPI: Final = "lpi"  # Logistics Performance Index del destino (contexto)
 COL_STABILITY: Final = "stability_score"
 COL_SCORE: Final = "opportunity_score"
 COL_FINAL_SCORE: Final = "final_score"

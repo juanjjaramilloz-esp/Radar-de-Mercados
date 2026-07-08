@@ -1101,19 +1101,21 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
     },
     "lab_caption": {
         "es": (
-            "Mueve los pesos y el ranking se recalcula en vivo con las "
-            "mismas fórmulas del motor (`domain/`, puras y testeadas). Los "
-            "pesos se normalizan a suma 1. El ranking oficial de arriba usa "
-            "los pesos documentados y justificados en `config.py`."
+            "Mueve los pesos —o el piso de la penalización macro— y el "
+            "ranking se recalcula en vivo con las mismas fórmulas del motor "
+            "(`domain/`, puras y testeadas). Los pesos se normalizan a suma "
+            "1. El ranking oficial de arriba usa los valores documentados y "
+            "justificados en `config.py`."
         ),
         "en": (
-            "Move the weights and the ranking is recomputed live with the "
-            "engine's own formulas (`domain/`, pure and tested). Weights "
-            "are normalized to sum 1. The official ranking above uses the "
-            "weights documented and justified in `config.py`."
+            "Move the weights — or the macro penalty floor — and the "
+            "ranking is recomputed live with the engine's own formulas "
+            "(`domain/`, pure and tested). Weights are normalized to sum "
+            "1. The official ranking above uses the values documented and "
+            "justified in `config.py`."
         ),
     },
-    "lab_reset": {"es": "↺ Pesos oficiales", "en": "↺ Official weights"},
+    "lab_reset": {"es": "↺ Valores oficiales", "en": "↺ Official values"},
     "lab_slider_help": {
         "es": (
             "Peso relativo de esta métrica en el score: los pesos se "
@@ -1122,6 +1124,24 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
         "en": (
             "This metric's relative weight in the score: weights are "
             "normalized to sum 1 and the ranking is recomputed live."
+        ),
+    },
+    "lab_floor_label": {
+        "es": "🛡️ Penalización por estabilidad macro (piso)",
+        "en": "🛡️ Macro stability penalty (floor)",
+    },
+    "lab_floor_help": {
+        "es": (
+            "Piso de la penalización: score final = score bruto × (piso + "
+            "(1 − piso) × estabilidad). Con 100 % el filtro macro se apaga "
+            "(final = bruto); con 0 % la estabilidad multiplica el score "
+            "completo. El oficial es {official} %."
+        ),
+        "en": (
+            "Penalty floor: final score = raw score × (floor + (1 − floor) "
+            "× stability). At 100% the macro filter is off (final = raw); "
+            "at 0% stability multiplies the whole score. The official "
+            "value is {official}%."
         ),
     },
     "lab_zero_info": {
@@ -1159,15 +1179,16 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
     },
     "lab_live_note": {
         "es": (
-            "🎯 Pesos del simulador activos: el mapa, las gráficas y la "
-            "ficha de destino de abajo reflejan tus pesos (no los "
-            "oficiales). Usa «↺ Pesos oficiales» en el simulador para "
-            "volver."
+            "🎯 Simulador activo: el mapa, las gráficas y la ficha de "
+            "destino de abajo reflejan tus prioridades (pesos y/o "
+            "penalización macro), no las oficiales. Usa «↺ Valores "
+            "oficiales» en el simulador para volver."
         ),
         "en": (
-            "🎯 Simulator weights active: the map, the charts and the "
-            "market sheet below reflect your weights (not the official "
-            "ones). Use “↺ Official weights” in the simulator to go back."
+            "🎯 Simulator active: the map, the charts and the market "
+            "sheet below reflect your priorities (weights and/or macro "
+            "penalty), not the official ones. Use “↺ Official values” in "
+            "the simulator to go back."
         ),
     },
     "evolution_select_markets_label": {

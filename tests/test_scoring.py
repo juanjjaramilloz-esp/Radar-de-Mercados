@@ -157,6 +157,19 @@ def test_rescore_columna_ausente_falla(market_inputs_small: MarketInputs) -> Non
         rescore_ranking(snapshot, config.WEIGHTS)
 
 
+def test_rescore_floor_alternativo_a_mano(market_inputs_small: MarketInputs) -> None:
+    snapshot = _snapshot_ranking(market_inputs_small)
+    # Piso 1.0: el filtro macro se apaga → final == score de oportunidad
+    off = rescore_ranking(snapshot, {"market_size": 1.0}, macro_floor=1.0)
+    assert off[config.COL_FINAL_SCORE].to_numpy() == pytest.approx(off[config.COL_SCORE].to_numpy())
+    # Piso 0.0: la estabilidad multiplica el score completo; a mano para USA:
+    # norm tamaño 1.0 × estabilidad 0.8 = 0.8 (ver STABILITY_SMALL)
+    full = rescore_ranking(snapshot, {"market_size": 1.0}, macro_floor=0.0).set_index(
+        config.COL_COUNTRY
+    )
+    assert full.loc["USA", config.COL_FINAL_SCORE] == pytest.approx(1.0 * 0.8)
+
+
 def test_rescore_floor_invalido_falla(market_inputs_small: MarketInputs) -> None:
     snapshot = _snapshot_ranking(market_inputs_small)
     with pytest.raises(ValueError, match="macro_floor"):

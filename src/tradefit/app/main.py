@@ -1250,21 +1250,23 @@ def _delta_color(value: object) -> str:
 
 def _weight_lab_section(
     ranking: pd.DataFrame, meta: dict[str, object]
-) -> tuple[pd.DataFrame, dict[str, float]] | None:
+) -> tuple[pd.DataFrame, dict[str, float], float] | None:
     """Simulador de prioridades: sliders → re-ranking en vivo (what-if).
 
     Las fórmulas viven en ``domain/scoring`` (funciones puras, testeadas);
-    la app solo recoge los pesos del usuario, invoca al dominio y compara el
-    resultado contra el ranking oficial del snapshot.
+    la app solo recoge los pesos y el piso de la penalización macro del
+    usuario, invoca al dominio y compara el resultado contra el ranking
+    oficial del snapshot.
 
     Returns:
-        ``(rescored, weights)`` — el ranking re-calculado y los pesos
-        efectivos (normalizados) — solo cuando el usuario movió algún
-        deslizador respecto a los pesos oficiales, para que el resto de la
-        página (mapa, pestañas, ficha de foco) se propague en vivo. ``None``
-        si los pesos siguen siendo los oficiales, si el laboratorio no se
-        puede mostrar (faltan columnas) o si todos quedaron en cero: en esos
-        casos el llamador sigue usando el ranking oficial del snapshot.
+        ``(rescored, weights, macro_floor)`` — el ranking re-calculado, los
+        pesos efectivos (normalizados) y el piso macro simulado — solo
+        cuando el usuario movió algún deslizador respecto a los valores
+        oficiales, para que el resto de la página (mapa, pestañas, ficha de
+        foco) se propague en vivo. ``None`` si los valores siguen siendo los
+        oficiales, si el laboratorio no se puede mostrar (faltan columnas) o
+        si todos los pesos quedaron en cero: en esos casos el llamador sigue
+        usando el ranking oficial del snapshot.
     """
     available = [name for name, col in scoring.METRIC_COLUMNS.items() if col in ranking.columns]
     if not available or config.COL_STABILITY not in ranking.columns:
@@ -1282,6 +1284,7 @@ def _weight_lab_section(
         if st.button(t("lab_reset"), key="lab_reset"):
             for name in available:
                 st.session_state.pop(f"lab_w_{name}", None)
+            st.session_state.pop("lab_floor", None)
         slider_columns = st.columns(3)
         raw_weights: dict[str, int] = {}
         default_ints: dict[str, int] = {}
@@ -1299,6 +1302,20 @@ def _weight_lab_section(
                     key=f"lab_w_{name}",
                     help=t("lab_slider_help"),
                 )
+        official_floor = float(str(meta.get("macro_floor") or config.MACRO_FLOOR))
+        default_floor_int = int(round(official_floor * 100))
+        floor_column, _ = st.columns([1, 2])
+        with floor_column:
+            floor_int = st.slider(
+                t("lab_floor_label"),
+                min_value=0,
+                max_value=100,
+                value=default_floor_int,
+                step=5,
+                format="%d%%",
+                key="lab_floor",
+                help=t("lab_floor_help", official=default_floor_int),
+            )
         total = sum(raw_weights.values())
         if total == 0:
             st.info(t("lab_zero_info"))
@@ -1312,7 +1329,7 @@ def _weight_lab_section(
         st.caption(t("lab_effective_weights", weights=effective))
         if total != 100:
             st.caption(t("lab_total_note", total=total))
-        floor = float(str(meta.get("macro_floor") or config.MACRO_FLOOR))
+        floor = floor_int / 100.0
         rescored = scoring.rescore_ranking(ranking, weights, macro_floor=floor)
         official_rank = ranking.set_index(config.COL_COUNTRY)[config.COL_RANK]
         moves = (
@@ -1336,7 +1353,8 @@ def _weight_lab_section(
         )
         styled = display.style.map(_delta_color, subset=[t("lab_col_delta")])
         st.dataframe(styled, hide_index=True, width="stretch")
-        if raw_weights != default_ints:
+        simulated = raw_weights != default_ints or floor_int != default_floor_int
+        if simulated:
             st.download_button(
                 t("lab_download_csv"),
                 data=rescored.to_csv(index=False).encode("utf-8"),
@@ -1344,9 +1362,9 @@ def _weight_lab_section(
                 mime="text/csv",
             )
             st.caption(t("lab_export_note"))
-    if raw_weights == default_ints:
-        return None  # pesos oficiales intactos: la página sigue con el snapshot
-    return rescored, weights
+    if not simulated:
+        return None  # valores oficiales intactos: la página sigue con el snapshot
+    return rescored, weights, floor
 
 
 def _scores_tab(ranking: pd.DataFrame) -> None:
@@ -1758,9 +1776,9 @@ def main() -> None:
     # re-calculado y sus pesos; el ranking oficial de arriba no se toca.
     view_ranking, view_meta = ranking, meta
     if lab_result is not None:
-        sim_ranking, sim_weights = lab_result
+        sim_ranking, sim_weights, sim_floor = lab_result
         view_ranking = sim_ranking
-        view_meta = {**meta, "weights": sim_weights}
+        view_meta = {**meta, "weights": sim_weights, "macro_floor": sim_floor}
         st.info(t("lab_live_note"))
 
     timeseries = _load_imports_timeseries(hs)

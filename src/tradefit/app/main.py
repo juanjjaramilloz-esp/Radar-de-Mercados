@@ -10,9 +10,12 @@ y luego lee el resultado). Si algo falla, degrada con gracia.
 
 import json
 import os
+from collections.abc import Callable
+from typing import cast
 
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 import streamlit as st
 from dotenv import load_dotenv
 
@@ -504,6 +507,133 @@ def _evolution_tab(
     st.plotly_chart(fig, use_container_width=True)
 
 
+def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
+    """Tabla del ranking con los números formateados en el idioma activo.
+
+    Los formatos de ``st.column_config`` no sirven aquí: los printf usan
+    siempre punto decimal y ``"localized"`` sigue el locale del navegador,
+    no el toggle de idioma de la app. Por eso los valores se formatean con
+    ``pandas.Styler`` usando las mismas funciones de ``app/format.py`` que
+    el resto de la app; los datos siguen siendo numéricos, así que la
+    alineación a la derecha se conserva.
+    """
+    flagged_names = (
+        ranking[config.COL_COUNTRY].map(flag_emoji) + " " + ranking[config.COL_COUNTRY_NAME]
+    ).str.strip()
+    display = ranking.drop(columns=[config.COL_RCA]).assign(
+        **{config.COL_COUNTRY_NAME: flagged_names}
+    )
+    formats: dict[str, Callable[[float], str]] = {
+        config.COL_MARKET_SIZE: lambda v: i18n.fmt_number(v),
+        config.COL_GROWTH: lambda v: i18n.fmt_pct(v, signed=True),
+        config.COL_SHARE: lambda v: i18n.fmt_pct(v),
+        config.COL_SHARE_TREND: lambda v: i18n.fmt_pct(v, signed=True),
+        config.COL_COMPLEMENTARITY: lambda v: i18n.fmt_number(v, 2),
+        config.COL_TARIFF: lambda v: i18n.fmt_pct(v),
+        config.COL_STABILITY: lambda v: i18n.fmt_number(v, 2),
+        config.COL_SCORE: lambda v: i18n.fmt_number(v, 3),
+        config.COL_FINAL_SCORE: lambda v: i18n.fmt_number(v, 3),
+    }
+    # cast: Styler.format tipa el formatter como Callable[[object], str], pero
+    # estas columnas son numéricas — solo recibirán floats.
+    styler = display.style.format(
+        {
+            col: cast("Callable[[object], str]", fmt)
+            for col, fmt in formats.items()
+            if col in display.columns
+        },
+        na_rep="—",
+    )
+    st.dataframe(
+        styler,
+        hide_index=True,
+        width="stretch",
+        column_config={
+            config.COL_RANK: st.column_config.Column("#"),
+            config.COL_COUNTRY: st.column_config.Column("ISO3"),
+            config.COL_COUNTRY_NAME: st.column_config.Column(t("col_market")),
+            config.COL_MARKET_SIZE: st.column_config.Column(
+                t("col_market_size", years=meta["market_size_years"])
+            ),
+            config.COL_GROWTH: st.column_config.Column(t("col_growth")),
+            config.COL_SHARE: st.column_config.Column(t("col_share")),
+            config.COL_SHARE_TREND: st.column_config.Column(t("col_share_trend")),
+            config.COL_COMPLEMENTARITY: st.column_config.Column(t("col_complementarity")),
+            config.COL_TARIFF: st.column_config.Column(t("col_tariff")),
+            config.COL_STABILITY: st.column_config.Column(t("col_stability")),
+            config.COL_SCORE: st.column_config.Column(t("col_score_raw")),
+            config.COL_FINAL_SCORE: st.column_config.Column(t("col_score_final")),
+        },
+    )
+
+
+def _scores_tab(ranking: pd.DataFrame) -> None:
+    """Score bruto vs. final por mercado: la brecha es la penalización macro.
+
+    Plotly en lugar de ``st.bar_chart`` para que ejes y hover respeten los
+    separadores del idioma activo (``separators``), igual que el mapa y la
+    evolución.
+    """
+    st.caption(t("tab_scores_caption"))
+    ordered = ranking.sort_values(config.COL_FINAL_SCORE, ascending=True)
+    fig = go.Figure()
+    for column, label, color in (
+        (config.COL_SCORE, t("col_score_raw"), "#93C5FD"),
+        (config.COL_FINAL_SCORE, t("col_score_final"), "#1D4ED8"),
+    ):
+        fig.add_bar(
+            x=ordered[column],
+            y=ordered[config.COL_COUNTRY_NAME],
+            orientation="h",
+            name=label,
+            marker_color=color,
+            hovertemplate="%{x:.3f}<extra>" + label + "</extra>",
+        )
+    fig.update_layout(
+        separators=i18n.active_plotly_separators(),
+        barmode="group",
+        height=max(360, 30 * len(ordered) + 80),
+        margin={"l": 0, "r": 0, "t": 10, "b": 0},
+        legend={"orientation": "h", "yanchor": "bottom", "y": 1.0, "title": None},
+        xaxis={"title": None},
+        yaxis={"title": None},
+        hovermode="y unified",
+    )
+    st.plotly_chart(fig, use_container_width=True)
+
+
+def _size_tab(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
+    """Tamaño de cada mercado partido en «ya lo vende el origen» vs. resto."""
+    st.caption(t("tab_size_caption", origin=meta["origin_iso3"]))
+    ordered = ranking.sort_values(config.COL_MARKET_SIZE, ascending=True)
+    from_origin = ordered[config.COL_MARKET_SIZE] * ordered[config.COL_SHARE] / 1e6
+    rest = ordered[config.COL_MARKET_SIZE] / 1e6 - from_origin
+    fig = go.Figure()
+    for values, label, color in (
+        (from_origin, t("legend_from_origin", origin=meta["origin_iso3"]), "#93C5FD"),
+        (rest, t("legend_rest"), "#1D4ED8"),
+    ):
+        fig.add_bar(
+            x=values,
+            y=ordered[config.COL_COUNTRY_NAME],
+            orientation="h",
+            name=label,
+            marker_color=color,
+            hovertemplate="%{x:,.1f}<extra>" + label + "</extra>",
+        )
+    fig.update_layout(
+        separators=i18n.active_plotly_separators(),
+        barmode="stack",
+        height=max(360, 30 * len(ordered) + 80),
+        margin={"l": 0, "r": 0, "t": 10, "b": 0},
+        legend={"orientation": "h", "yanchor": "bottom", "y": 1.0, "title": None},
+        xaxis={"title": t("size_xaxis_usd_m")},
+        yaxis={"title": None},
+        hovermode="y unified",
+    )
+    st.plotly_chart(fig, use_container_width=True)
+
+
 def _kpi_row(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
     """Resumen ejecutivo de una mirada: agregaciones del ranking ya calculado.
 
@@ -614,44 +744,7 @@ def main() -> None:
 
     st.subheader(t("ranking_subheader"))
     st.caption(t("ranking_caption", floor=meta.get("macro_floor", "—")))
-    flagged_names = (
-        ranking[config.COL_COUNTRY].map(flag_emoji) + " " + ranking[config.COL_COUNTRY_NAME]
-    ).str.strip()
-    display = (
-        ranking.drop(columns=[config.COL_RCA])
-        .assign(**{config.COL_MARKET_SIZE: ranking[config.COL_MARKET_SIZE].round().astype("int64")})
-        .assign(**{config.COL_COUNTRY_NAME: flagged_names})
-    )
-    st.dataframe(
-        display,
-        hide_index=True,
-        width="stretch",
-        column_config={
-            config.COL_RANK: st.column_config.NumberColumn("#"),
-            config.COL_COUNTRY: st.column_config.TextColumn("ISO3"),
-            config.COL_COUNTRY_NAME: st.column_config.TextColumn(t("col_market")),
-            config.COL_MARKET_SIZE: st.column_config.NumberColumn(
-                t("col_market_size", years=meta["market_size_years"]),
-                format="localized",
-            ),
-            config.COL_GROWTH: st.column_config.NumberColumn(t("col_growth"), format="percent"),
-            config.COL_SHARE: st.column_config.NumberColumn(t("col_share"), format="percent"),
-            config.COL_SHARE_TREND: st.column_config.NumberColumn(
-                t("col_share_trend"), format="percent"
-            ),
-            config.COL_COMPLEMENTARITY: st.column_config.NumberColumn(
-                t("col_complementarity"), format="%.2f"
-            ),
-            # Los snapshots previos a la métrica no traen la columna;
-            # Streamlit ignora la config de columnas ausentes.
-            config.COL_TARIFF: st.column_config.NumberColumn(t("col_tariff"), format="percent"),
-            config.COL_STABILITY: st.column_config.NumberColumn(t("col_stability"), format="%.2f"),
-            config.COL_SCORE: st.column_config.NumberColumn(t("col_score_raw"), format="%.3f"),
-            config.COL_FINAL_SCORE: st.column_config.ProgressColumn(
-                t("col_score_final"), min_value=0.0, max_value=1.0, format="%.3f"
-            ),
-        },
-    )
+    _ranking_table(ranking, meta)
     base_name = f"radar_{meta['hs_code']}_{meta['origin_iso3']}"
     # Los exports llevan el idioma activo: etiquetas, números y la narrativa
     # ya seleccionada arriba; la etiqueta del producto también se localiza.
@@ -689,27 +782,9 @@ def main() -> None:
     with tab_map:
         _map_tab(ranking)
     with tab_scores:
-        st.caption(t("tab_scores_caption"))
-        scores = ranking.set_index(config.COL_COUNTRY_NAME)[
-            [config.COL_SCORE, config.COL_FINAL_SCORE]
-        ].rename(
-            columns={
-                config.COL_SCORE: t("col_score_raw"),
-                config.COL_FINAL_SCORE: t("col_score_final"),
-            }
-        )
-        st.bar_chart(scores, horizontal=True)
+        _scores_tab(ranking)
     with tab_size:
-        st.caption(t("tab_size_caption", origin=meta["origin_iso3"]))
-        by_market = ranking.set_index(config.COL_COUNTRY_NAME)
-        from_origin = by_market[config.COL_MARKET_SIZE] * by_market[config.COL_SHARE]
-        size_chart = pd.DataFrame(
-            {
-                t("legend_from_origin", origin=meta["origin_iso3"]): from_origin,
-                t("legend_rest"): by_market[config.COL_MARKET_SIZE] - from_origin,
-            }
-        )
-        st.bar_chart(size_chart, horizontal=True, color=["#93C5FD", "#1D4ED8"])
+        _size_tab(ranking, meta)
 
     if timeseries is not None:
         with tabs[3]:

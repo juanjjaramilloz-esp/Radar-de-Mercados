@@ -578,6 +578,10 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
     },
     "legend_from_origin": {"es": "Desde {origin}", "en": "From {origin}"},
     "legend_rest": {"es": "Resto del mercado", "en": "Rest of the market"},
+    "size_xaxis_usd_m": {
+        "es": "Importaciones promedio (USD M)",
+        "en": "Average imports (USD M)",
+    },
     "evolution_select_markets_label": {
         "es": "Mercados a mostrar",
         "en": "Markets to show",

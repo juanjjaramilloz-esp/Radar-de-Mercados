@@ -7,7 +7,7 @@
         "Colombia records no sales of Polypropylene (HS 3902) in Australia (0 % share).",
         "The export basket of Colombia fits the import demand of Australia at 0.40 (0–1 scale).",
         "Polypropylene (HS 3902) faces an effectively applied tariff of 3.8 % in Australia.",
-        "Macro stability of Australia at 0.77: the filter leaves the score at 0.218 (raw 0.246)."
+        "Macro stability of Australia at 0.77: the filter leaves the score at 0.199 (raw 0.225)."
       ],
       "AUT": [
         "Austria imports USD 373 M a year of Polypropylene (HS 3902) (average of the last 3 years).",
@@ -15,7 +15,7 @@
         "Colombia records no sales of Polypropylene (HS 3902) in Austria (0 % share).",
         "The export basket of Colombia fits the import demand of Austria at 0.37 (0–1 scale).",
         "Polypropylene (HS 3902) enters Austria duty-free (0 % effectively applied).",
-        "Macro stability of Austria at 0.71: the filter leaves the score at 0.412 (raw 0.482)."
+        "Macro stability of Austria at 0.71: the filter leaves the score at 0.293 (raw 0.343)."
       ],
       "BEL": [
         "Belgium imports USD 819 M a year of Polypropylene (HS 3902) (average of the last 3 years).",
@@ -23,15 +23,25 @@
         "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Belgium at 0.45 (0–1 scale).",
         "Polypropylene (HS 3902) enters Belgium duty-free (0 % effectively applied).",
-        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.464 (raw 0.515)."
+        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.403 (raw 0.447)."
+      ],
+      "BRA": [
+        "Brazil imports USD 897 M a year of Polypropylene (HS 3902) (average of the last 3 years).",
+        "Demand grows at 15.4 % per year (CAGR).",
+        "Colombia already holds 19.6 % of the market and loses 0.7 pp of share over the window.",
+        "Brazil absorbs 50.7 % of Colombia's exports of Polypropylene (HS 3902).",
+        "The export basket of Colombia fits the import demand of Brazil at 0.37 (0–1 scale).",
+        "Polypropylene (HS 3902) enters Brazil duty-free (0 % effectively applied).",
+        "Macro stability of Brazil at 0.77: the filter leaves the score at 0.407 (raw 0.460)."
       ],
       "CAN": [
         "Canada imports USD 937 M a year of Polypropylene (HS 3902) (average of the last 3 years).",
         "Demand shrinks at 6.5 % per year (CAGR).",
         "Colombia already holds 0.0 % of the market and loses 0.1 pp of share over the window.",
+        "Canada absorbs 0.0 % of Colombia's exports of Polypropylene (HS 3902).",
         "The export basket of Colombia fits the import demand of Canada at 0.37 (0–1 scale).",
         "Polypropylene (HS 3902) enters Canada duty-free (0 % effectively applied).",
-        "Macro stability of Canada at 0.86: the filter leaves the score at 0.307 (raw 0.330)."
+        "Macro stability of Canada at 0.86: the filter leaves the score at 0.325 (raw 0.349)."
       ],
       "CHE": [
         "Switzerland imports USD 227 M a year of Polypropylene (HS 3902) (average of the last 3 years).",
@@ -39,7 +49,25 @@
         "Colombia records no sales of Polypropylene (HS 3902) in Switzerland (0 % share).",
         "The export basket of Colombia fits the import demand of Switzerland at 0.32 (0–1 scale).",
         "Polypropylene (HS 3902) enters Switzerland duty-free (0 % effectively applied).",
-        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.264 (raw 0.282)."
+        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.235 (raw 0.250)."
+      ],
+      "CHL": [
+        "Chile imports USD 83 M a year of Polypropylene (HS 3902) (average of the last 3 years).",
+        "Demand grows at 1.0 % per year (CAGR).",
+        "Colombia already holds 4.1 % of the market and loses 1.8 pp of share over the window.",
+        "Chile absorbs 1.2 % of Colombia's exports of Polypropylene (HS 3902).",
+        "The export basket of Colombia fits the import demand of Chile at 0.46 (0–1 scale).",
+        "Polypropylene (HS 3902) enters Chile duty-free (0 % effectively applied).",
+        "Macro stability of Chile at 0.72: the filter leaves the score at 0.329 (raw 0.381)."
+      ],
+      "CRI": [
+        "Costa Rica imports USD 34 M a year of Polypropylene (HS 3902) (average of the last 3 years).",
+        "Demand grows at 8.7 % per year (CAGR).",
+        "Colombia already holds 15.1 % of the market and loses 1.4 pp of share over the window.",
+        "Costa Rica absorbs 1.7 % of Colombia's exports of Polypropylene (HS 3902).",
+        "The export basket of Colombia fits the import demand of Costa Rica at 0.37 (0–1 scale).",
+        "Polypropylene (HS 3902) enters Costa Rica duty-free (0 % effectively applied).",
+        "Macro stability of Costa Rica at 0.93: the filter leaves the score at 0.343 (raw 0.354)."
       ],
       "DEU": [
         "Germany imports USD 2,925 M a year of Polypropylene (HS 3902) (average of the last 3 years).",
@@ -47,15 +75,34 @@
         "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Germany at 0.37 (0–1 scale).",
         "Polypropylene (HS 3902) enters Germany duty-free (0 % effectively applied).",
-        "Macro stability of Germany at 0.74: the filter leaves the score at 0.522 (raw 0.601)."
+        "Macro stability of Germany at 0.74: the filter leaves the score at 0.466 (raw 0.537)."
+      ],
+      "DOM": [
+        "Dominican Republic imports USD 51 M a year of Polypropylene (HS 3902) (average of the last 3 years).",
+        "Demand shrinks at 7.9 % per year (CAGR).",
+        "Colombia already holds 12.6 % of the market and gains 1.9 pp of share over the window.",
+        "Dominican Republic absorbs 2.4 % of Colombia's exports of Polypropylene (HS 3902).",
+        "The export basket of Colombia fits the import demand of Dominican Republic at 0.46 (0–1 scale).",
+        "Polypropylene (HS 3902) enters Dominican Republic duty-free (0 % effectively applied).",
+        "Macro stability of Dominican Republic at 0.78: the filter leaves the score at 0.370 (raw 0.417)."
+      ],
+      "ECU": [
+        "Ecuador imports USD 132 M a year of Polypropylene (HS 3902) (average of the last 3 years).",
+        "Demand grows at 13.4 % per year (CAGR).",
+        "Colombia already holds 7.7 % of the market and loses 2.5 pp of share over the window.",
+        "Ecuador absorbs 3.5 % of Colombia's exports of Polypropylene (HS 3902).",
+        "The export basket of Colombia fits the import demand of Ecuador at 0.51 (0–1 scale).",
+        "Polypropylene (HS 3902) enters Ecuador duty-free (0 % effectively applied).",
+        "Macro stability of Ecuador at 0.88: the filter leaves the score at 0.454 (raw 0.483)."
       ],
       "ESP": [
         "Spain imports USD 840 M a year of Polypropylene (HS 3902) (average of the last 3 years).",
         "Demand grows at 6.9 % per year (CAGR).",
         "Colombia already holds 0.0 % of the market and loses 0.1 pp of share over the window.",
+        "Spain absorbs 0.0 % of Colombia's exports of Polypropylene (HS 3902).",
         "The export basket of Colombia fits the import demand of Spain at 0.42 (0–1 scale).",
         "Polypropylene (HS 3902) enters Spain duty-free (0 % effectively applied).",
-        "Macro stability of Spain at 0.97: the filter leaves the score at 0.544 (raw 0.552)."
+        "Macro stability of Spain at 0.97: the filter leaves the score at 0.427 (raw 0.434)."
       ],
       "FIN": [
         "Finland imports USD 84 M a year of Polypropylene (HS 3902) (average of the last 3 years).",
@@ -63,7 +110,7 @@
         "Colombia records no sales of Polypropylene (HS 3902) in Finland (0 % share).",
         "The export basket of Colombia fits the import demand of Finland at 0.40 (0–1 scale).",
         "Polypropylene (HS 3902) enters Finland duty-free (0 % effectively applied).",
-        "Macro stability of Finland at 0.76: the filter leaves the score at 0.401 (raw 0.454)."
+        "Macro stability of Finland at 0.76: the filter leaves the score at 0.305 (raw 0.346)."
       ],
       "FRA": [
         "France imports USD 1,459 M a year of Polypropylene (HS 3902) (average of the last 3 years).",
@@ -71,7 +118,7 @@
         "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
         "The export basket of Colombia fits the import demand of France at 0.42 (0–1 scale).",
         "Polypropylene (HS 3902) enters France duty-free (0 % effectively applied).",
-        "Macro stability of France at 0.83: the filter leaves the score at 0.544 (raw 0.594)."
+        "Macro stability of France at 0.83: the filter leaves the score at 0.438 (raw 0.477)."
       ],
       "GBR": [
         "United Kingdom imports USD 800 M a year of Polypropylene (HS 3902) (average of the last 3 years).",
@@ -79,7 +126,7 @@
         "Colombia records no sales of Polypropylene (HS 3902) in United Kingdom (0 % share).",
         "The export basket of Colombia fits the import demand of United Kingdom at 0.43 (0–1 scale).",
         "Polypropylene (HS 3902) enters United Kingdom duty-free (0 % effectively applied).",
-        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.353 (raw 0.443)."
+        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.326 (raw 0.409)."
       ],
       "ITA": [
         "Italy imports USD 2,402 M a year of Polypropylene (HS 3902) (average of the last 3 years).",
@@ -87,7 +134,7 @@
         "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Italy at 0.43 (0–1 scale).",
         "Polypropylene (HS 3902) enters Italy duty-free (0 % effectively applied).",
-        "Macro stability of Italy at 0.83: the filter leaves the score at 0.629 (raw 0.686)."
+        "Macro stability of Italy at 0.83: the filter leaves the score at 0.523 (raw 0.571)."
       ],
       "JPN": [
         "Japan imports USD 636 M a year of Polypropylene (HS 3902) (average of the last 3 years).",
@@ -95,7 +142,7 @@
         "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Japan at 0.46 (0–1 scale).",
         "Polypropylene (HS 3902) faces an effectively applied tariff of 1.7 % in Japan.",
-        "Macro stability of Japan at 0.81: the filter leaves the score at 0.448 (raw 0.495)."
+        "Macro stability of Japan at 0.81: the filter leaves the score at 0.363 (raw 0.401)."
       ],
       "KOR": [
         "South Korea imports USD 194 M a year of Polypropylene (HS 3902) (average of the last 3 years).",
@@ -103,7 +150,16 @@
         "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
         "The export basket of Colombia fits the import demand of South Korea at 0.49 (0–1 scale).",
         "Polypropylene (HS 3902) enters South Korea duty-free (0 % effectively applied).",
-        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.467 (raw 0.495)."
+        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.406 (raw 0.431)."
+      ],
+      "MEX": [
+        "Mexico imports USD 2,065 M a year of Polypropylene (HS 3902) (average of the last 3 years).",
+        "Demand grows at 1.3 % per year (CAGR).",
+        "Colombia already holds 1.2 % of the market and loses 0.8 pp of share over the window.",
+        "Mexico absorbs 12.3 % of Colombia's exports of Polypropylene (HS 3902).",
+        "The export basket of Colombia fits the import demand of Mexico at 0.32 (0–1 scale).",
+        "Polypropylene (HS 3902) enters Mexico duty-free (0 % effectively applied).",
+        "Macro stability of Mexico at 0.80: the filter leaves the score at 0.368 (raw 0.410)."
       ],
       "NLD": [
         "Netherlands imports USD 692 M a year of Polypropylene (HS 3902) (average of the last 3 years).",
@@ -111,7 +167,25 @@
         "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Netherlands at 0.46 (0–1 scale).",
         "Polypropylene (HS 3902) enters Netherlands duty-free (0 % effectively applied).",
-        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.396 (raw 0.437)."
+        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.387 (raw 0.427)."
+      ],
+      "PAN": [
+        "Panama imports USD 1 M a year of Polypropylene (HS 3902) (average of the last 3 years).",
+        "Demand shrinks at 30.5 % per year (CAGR).",
+        "Colombia already holds 46.5 % of the market and gains 5.4 pp of share over the window.",
+        "Panama absorbs 0.2 % of Colombia's exports of Polypropylene (HS 3902).",
+        "The export basket of Colombia fits the import demand of Panama at 0.45 (0–1 scale).",
+        "Polypropylene (HS 3902) enters Panama duty-free (0 % effectively applied).",
+        "Macro stability of Panama at 0.94: the filter leaves the score at 0.471 (raw 0.486)."
+      ],
+      "PER": [
+        "Peru imports USD 351 M a year of Polypropylene (HS 3902) (average of the last 3 years).",
+        "Demand grows at 38.9 % per year (CAGR).",
+        "Colombia already holds 3.1 % of the market and loses 4.6 pp of share over the window.",
+        "Peru absorbs 4.1 % of Colombia's exports of Polypropylene (HS 3902).",
+        "The export basket of Colombia fits the import demand of Peru at 0.43 (0–1 scale).",
+        "Polypropylene (HS 3902) enters Peru duty-free (0 % effectively applied).",
+        "Macro stability of Peru at 0.91: the filter leaves the score at 0.434 (raw 0.454)."
       ],
       "POL": [
         "Poland imports USD 1,515 M a year of Polypropylene (HS 3902) (average of the last 3 years).",
@@ -119,7 +193,7 @@
         "Colombia records no sales of Polypropylene (HS 3902) in Poland (0 % share).",
         "The export basket of Colombia fits the import demand of Poland at 0.36 (0–1 scale).",
         "Polypropylene (HS 3902) enters Poland duty-free (0 % effectively applied).",
-        "Macro stability of Poland at 0.84: the filter leaves the score at 0.472 (raw 0.513)."
+        "Macro stability of Poland at 0.84: the filter leaves the score at 0.388 (raw 0.422)."
       ],
       "PRT": [
         "Portugal imports USD 557 M a year of Polypropylene (HS 3902) (average of the last 3 years).",
@@ -127,7 +201,7 @@
         "Colombia already holds 0.0 % of the market and loses 0.8 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Portugal at 0.39 (0–1 scale).",
         "Polypropylene (HS 3902) enters Portugal duty-free (0 % effectively applied).",
-        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.321 (raw 0.332)."
+        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.344 (raw 0.356)."
       ],
       "SWE": [
         "Sweden imports USD 356 M a year of Polypropylene (HS 3902) (average of the last 3 years).",
@@ -135,43 +209,44 @@
         "Colombia records no sales of Polypropylene (HS 3902) in Sweden (0 % share).",
         "The export basket of Colombia fits the import demand of Sweden at 0.37 (0–1 scale).",
         "Polypropylene (HS 3902) enters Sweden duty-free (0 % effectively applied).",
-        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.368 (raw 0.408)."
+        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.292 (raw 0.324)."
       ],
       "USA": [
         "United States imports USD 1,248 M a year of Polypropylene (HS 3902) (average of the last 3 years).",
         "Demand shrinks at 0.4 % per year (CAGR).",
         "Colombia already holds 0.4 % of the market and loses 0.1 pp of share over the window.",
+        "United States absorbs 2.1 % of Colombia's exports of Polypropylene (HS 3902).",
         "The export basket of Colombia fits the import demand of United States at 0.33 (0–1 scale).",
         "Polypropylene (HS 3902) enters United States duty-free (0 % effectively applied).",
-        "Macro stability of United States at 0.65: the filter leaves the score at 0.433 (raw 0.523)."
+        "Macro stability of United States at 0.65: the filter leaves the score at 0.288 (raw 0.349)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.629,
+        "final_score": 0.523,
         "iso3": "ITA",
         "name": "Italy",
         "reasons": [
           "destination #2 by market size (USD 2,402 M/year)",
-          "destination #5 by demand growth (4.9 % per year)"
+          "destination #9 by basket complementarity (index 0.43 (0–1 scale))"
         ]
       },
       {
-        "final_score": 0.544,
-        "iso3": "FRA",
-        "name": "France",
+        "final_score": 0.471,
+        "iso3": "PAN",
+        "name": "Panama",
         "reasons": [
-          "destination #3 by demand growth (5.6 % per year)",
-          "destination #4 by market size (USD 1,459 M/year)"
+          "destination #1 by share already won (share of 46.5 %)",
+          "destination #8 by basket complementarity (index 0.45 (0–1 scale))"
         ]
       },
       {
-        "final_score": 0.544,
-        "iso3": "ESP",
-        "name": "Spain",
+        "final_score": 0.466,
+        "iso3": "DEU",
+        "name": "Germany",
         "reasons": [
-          "destination #2 by demand growth (6.9 % per year)",
-          "destination #7 by basket complementarity (index 0.42 (0–1 scale))"
+          "destination #1 by market size (USD 2,925 M/year)",
+          "destination #1 by tariff faced (0.0 % effectively applied)"
         ]
       }
     ]
@@ -184,7 +259,7 @@
         "Colombia no registra ventas de Polipropileno (HS 3902) en Australia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Australia.",
         "Polipropileno (HS 3902) paga en Australia un arancel efectivamente aplicado de 3,8 %.",
-        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,218 (bruto 0,246)."
+        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,199 (bruto 0,225)."
       ],
       "AUT": [
         "Austria importa USD 373 M al año de Polipropileno (HS 3902) (promedio de los últimos 3 años).",
@@ -192,7 +267,7 @@
         "Colombia no registra ventas de Polipropileno (HS 3902) en Austria (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Austria.",
         "Polipropileno (HS 3902) entra a Austria sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,412 (bruto 0,482)."
+        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,293 (bruto 0,343)."
       ],
       "BEL": [
         "Bélgica importa USD 819 M al año de Polipropileno (HS 3902) (promedio de los últimos 3 años).",
@@ -200,15 +275,25 @@
         "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Bélgica.",
         "Polipropileno (HS 3902) entra a Bélgica sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,464 (bruto 0,515)."
+        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,403 (bruto 0,447)."
+      ],
+      "BRA": [
+        "Brasil importa USD 897 M al año de Polipropileno (HS 3902) (promedio de los últimos 3 años).",
+        "La demanda crece al 15,4 % anual (CAGR).",
+        "Colombia ya tiene 19,6 % del mercado y pierde 0,7 pp de cuota en la ventana.",
+        "Brasil absorbe el 50,7 % de las exportaciones de Polipropileno (HS 3902) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Brasil.",
+        "Polipropileno (HS 3902) entra a Brasil sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Brasil 0,77: el filtro deja el score en 0,407 (bruto 0,460)."
       ],
       "CAN": [
         "Canadá importa USD 937 M al año de Polipropileno (HS 3902) (promedio de los últimos 3 años).",
         "La demanda se contrae al 6,5 % anual (CAGR).",
         "Colombia ya tiene 0,0 % del mercado y pierde 0,1 pp de cuota en la ventana.",
+        "Canadá absorbe el 0,0 % de las exportaciones de Polipropileno (HS 3902) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Canadá.",
         "Polipropileno (HS 3902) entra a Canadá sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,307 (bruto 0,330)."
+        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,325 (bruto 0,349)."
       ],
       "CHE": [
         "Suiza importa USD 227 M al año de Polipropileno (HS 3902) (promedio de los últimos 3 años).",
@@ -216,7 +301,25 @@
         "Colombia no registra ventas de Polipropileno (HS 3902) en Suiza (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de Suiza.",
         "Polipropileno (HS 3902) entra a Suiza sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,264 (bruto 0,282)."
+        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,235 (bruto 0,250)."
+      ],
+      "CHL": [
+        "Chile importa USD 83 M al año de Polipropileno (HS 3902) (promedio de los últimos 3 años).",
+        "La demanda crece al 1,0 % anual (CAGR).",
+        "Colombia ya tiene 4,1 % del mercado y pierde 1,8 pp de cuota en la ventana.",
+        "Chile absorbe el 1,2 % de las exportaciones de Polipropileno (HS 3902) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Chile.",
+        "Polipropileno (HS 3902) entra a Chile sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Chile 0,72: el filtro deja el score en 0,329 (bruto 0,381)."
+      ],
+      "CRI": [
+        "Costa Rica importa USD 34 M al año de Polipropileno (HS 3902) (promedio de los últimos 3 años).",
+        "La demanda crece al 8,7 % anual (CAGR).",
+        "Colombia ya tiene 15,1 % del mercado y pierde 1,4 pp de cuota en la ventana.",
+        "Costa Rica absorbe el 1,7 % de las exportaciones de Polipropileno (HS 3902) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Costa Rica.",
+        "Polipropileno (HS 3902) entra a Costa Rica sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Costa Rica 0,93: el filtro deja el score en 0,343 (bruto 0,354)."
       ],
       "DEU": [
         "Alemania importa USD 2.925 M al año de Polipropileno (HS 3902) (promedio de los últimos 3 años).",
@@ -224,15 +327,34 @@
         "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Alemania.",
         "Polipropileno (HS 3902) entra a Alemania sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,522 (bruto 0,601)."
+        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,466 (bruto 0,537)."
+      ],
+      "DOM": [
+        "República Dominicana importa USD 51 M al año de Polipropileno (HS 3902) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 7,9 % anual (CAGR).",
+        "Colombia ya tiene 12,6 % del mercado y gana 1,9 pp de cuota en la ventana.",
+        "República Dominicana absorbe el 2,4 % de las exportaciones de Polipropileno (HS 3902) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de República Dominicana.",
+        "Polipropileno (HS 3902) entra a República Dominicana sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de República Dominicana 0,78: el filtro deja el score en 0,370 (bruto 0,417)."
+      ],
+      "ECU": [
+        "Ecuador importa USD 132 M al año de Polipropileno (HS 3902) (promedio de los últimos 3 años).",
+        "La demanda crece al 13,4 % anual (CAGR).",
+        "Colombia ya tiene 7,7 % del mercado y pierde 2,5 pp de cuota en la ventana.",
+        "Ecuador absorbe el 3,5 % de las exportaciones de Polipropileno (HS 3902) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,51 (escala 0–1) con la demanda importadora de Ecuador.",
+        "Polipropileno (HS 3902) entra a Ecuador sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Ecuador 0,88: el filtro deja el score en 0,454 (bruto 0,483)."
       ],
       "ESP": [
         "España importa USD 840 M al año de Polipropileno (HS 3902) (promedio de los últimos 3 años).",
         "La demanda crece al 6,9 % anual (CAGR).",
         "Colombia ya tiene 0,0 % del mercado y pierde 0,1 pp de cuota en la ventana.",
+        "España absorbe el 0,0 % de las exportaciones de Polipropileno (HS 3902) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de España.",
         "Polipropileno (HS 3902) entra a España sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de España 0,97: el filtro deja el score en 0,544 (bruto 0,552)."
+        "Estabilidad macro de España 0,97: el filtro deja el score en 0,427 (bruto 0,434)."
       ],
       "FIN": [
         "Finlandia importa USD 84 M al año de Polipropileno (HS 3902) (promedio de los últimos 3 años).",
@@ -240,7 +362,7 @@
         "Colombia no registra ventas de Polipropileno (HS 3902) en Finlandia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Finlandia.",
         "Polipropileno (HS 3902) entra a Finlandia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,401 (bruto 0,454)."
+        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,305 (bruto 0,346)."
       ],
       "FRA": [
         "Francia importa USD 1.459 M al año de Polipropileno (HS 3902) (promedio de los últimos 3 años).",
@@ -248,7 +370,7 @@
         "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de Francia.",
         "Polipropileno (HS 3902) entra a Francia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,544 (bruto 0,594)."
+        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,438 (bruto 0,477)."
       ],
       "GBR": [
         "Reino Unido importa USD 800 M al año de Polipropileno (HS 3902) (promedio de los últimos 3 años).",
@@ -256,7 +378,7 @@
         "Colombia no registra ventas de Polipropileno (HS 3902) en Reino Unido (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Reino Unido.",
         "Polipropileno (HS 3902) entra a Reino Unido sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,353 (bruto 0,443)."
+        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,326 (bruto 0,409)."
       ],
       "ITA": [
         "Italia importa USD 2.402 M al año de Polipropileno (HS 3902) (promedio de los últimos 3 años).",
@@ -264,7 +386,7 @@
         "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Italia.",
         "Polipropileno (HS 3902) entra a Italia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,629 (bruto 0,686)."
+        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,523 (bruto 0,571)."
       ],
       "JPN": [
         "Japón importa USD 636 M al año de Polipropileno (HS 3902) (promedio de los últimos 3 años).",
@@ -272,7 +394,7 @@
         "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Japón.",
         "Polipropileno (HS 3902) paga en Japón un arancel efectivamente aplicado de 1,7 %.",
-        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,448 (bruto 0,495)."
+        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,363 (bruto 0,401)."
       ],
       "KOR": [
         "Corea del Sur importa USD 194 M al año de Polipropileno (HS 3902) (promedio de los últimos 3 años).",
@@ -280,7 +402,16 @@
         "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,49 (escala 0–1) con la demanda importadora de Corea del Sur.",
         "Polipropileno (HS 3902) entra a Corea del Sur sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,467 (bruto 0,495)."
+        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,406 (bruto 0,431)."
+      ],
+      "MEX": [
+        "México importa USD 2.065 M al año de Polipropileno (HS 3902) (promedio de los últimos 3 años).",
+        "La demanda crece al 1,3 % anual (CAGR).",
+        "Colombia ya tiene 1,2 % del mercado y pierde 0,8 pp de cuota en la ventana.",
+        "México absorbe el 12,3 % de las exportaciones de Polipropileno (HS 3902) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de México.",
+        "Polipropileno (HS 3902) entra a México sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de México 0,80: el filtro deja el score en 0,368 (bruto 0,410)."
       ],
       "NLD": [
         "Países Bajos importa USD 692 M al año de Polipropileno (HS 3902) (promedio de los últimos 3 años).",
@@ -288,7 +419,25 @@
         "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Países Bajos.",
         "Polipropileno (HS 3902) entra a Países Bajos sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,396 (bruto 0,437)."
+        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,387 (bruto 0,427)."
+      ],
+      "PAN": [
+        "Panamá importa USD 1 M al año de Polipropileno (HS 3902) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 30,5 % anual (CAGR).",
+        "Colombia ya tiene 46,5 % del mercado y gana 5,4 pp de cuota en la ventana.",
+        "Panamá absorbe el 0,2 % de las exportaciones de Polipropileno (HS 3902) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Panamá.",
+        "Polipropileno (HS 3902) entra a Panamá sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Panamá 0,94: el filtro deja el score en 0,471 (bruto 0,486)."
+      ],
+      "PER": [
+        "Perú importa USD 351 M al año de Polipropileno (HS 3902) (promedio de los últimos 3 años).",
+        "La demanda crece al 38,9 % anual (CAGR).",
+        "Colombia ya tiene 3,1 % del mercado y pierde 4,6 pp de cuota en la ventana.",
+        "Perú absorbe el 4,1 % de las exportaciones de Polipropileno (HS 3902) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Perú.",
+        "Polipropileno (HS 3902) entra a Perú sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Perú 0,91: el filtro deja el score en 0,434 (bruto 0,454)."
       ],
       "POL": [
         "Polonia importa USD 1.515 M al año de Polipropileno (HS 3902) (promedio de los últimos 3 años).",
@@ -296,7 +445,7 @@
         "Colombia no registra ventas de Polipropileno (HS 3902) en Polonia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,36 (escala 0–1) con la demanda importadora de Polonia.",
         "Polipropileno (HS 3902) entra a Polonia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,472 (bruto 0,513)."
+        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,388 (bruto 0,422)."
       ],
       "PRT": [
         "Portugal importa USD 557 M al año de Polipropileno (HS 3902) (promedio de los últimos 3 años).",
@@ -304,7 +453,7 @@
         "Colombia ya tiene 0,0 % del mercado y pierde 0,8 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,39 (escala 0–1) con la demanda importadora de Portugal.",
         "Polipropileno (HS 3902) entra a Portugal sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,321 (bruto 0,332)."
+        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,344 (bruto 0,356)."
       ],
       "SWE": [
         "Suecia importa USD 356 M al año de Polipropileno (HS 3902) (promedio de los últimos 3 años).",
@@ -312,43 +461,44 @@
         "Colombia no registra ventas de Polipropileno (HS 3902) en Suecia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Suecia.",
         "Polipropileno (HS 3902) entra a Suecia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,368 (bruto 0,408)."
+        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,292 (bruto 0,324)."
       ],
       "USA": [
         "Estados Unidos importa USD 1.248 M al año de Polipropileno (HS 3902) (promedio de los últimos 3 años).",
         "La demanda se contrae al 0,4 % anual (CAGR).",
         "Colombia ya tiene 0,4 % del mercado y pierde 0,1 pp de cuota en la ventana.",
+        "Estados Unidos absorbe el 2,1 % de las exportaciones de Polipropileno (HS 3902) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,33 (escala 0–1) con la demanda importadora de Estados Unidos.",
         "Polipropileno (HS 3902) entra a Estados Unidos sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,433 (bruto 0,523)."
+        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,288 (bruto 0,349)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.629,
+        "final_score": 0.523,
         "iso3": "ITA",
         "name": "Italia",
         "reasons": [
           "2.º destino por tamaño de mercado (USD 2.402 M/año)",
-          "5.º destino por crecimiento de la demanda (4,9 % anual)"
+          "9.º destino por complementariedad de canastas (índice 0,43 (escala 0–1))"
         ]
       },
       {
-        "final_score": 0.544,
-        "iso3": "FRA",
-        "name": "Francia",
+        "final_score": 0.471,
+        "iso3": "PAN",
+        "name": "Panamá",
         "reasons": [
-          "3.º destino por crecimiento de la demanda (5,6 % anual)",
-          "4.º destino por tamaño de mercado (USD 1.459 M/año)"
+          "1.º destino por cuota ya ganada (cuota de 46,5 %)",
+          "8.º destino por complementariedad de canastas (índice 0,45 (escala 0–1))"
         ]
       },
       {
-        "final_score": 0.544,
-        "iso3": "ESP",
-        "name": "España",
+        "final_score": 0.466,
+        "iso3": "DEU",
+        "name": "Alemania",
         "reasons": [
-          "2.º destino por crecimiento de la demanda (6,9 % anual)",
-          "7.º destino por complementariedad de canastas (índice 0,42 (escala 0–1))"
+          "1.º destino por tamaño de mercado (USD 2.925 M/año)",
+          "1.º destino por arancel enfrentado (0,0 % efectivamente aplicado)"
         ]
       }
     ]

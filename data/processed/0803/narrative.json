@@ -7,7 +7,7 @@
         "Colombia already holds 11.1 % of the market and gains 6.8 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Australia at 0.40 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Australia duty-free (0 % effectively applied).",
-        "Macro stability of Australia at 0.77: the filter leaves the score at 0.421 (raw 0.475)."
+        "Macro stability of Australia at 0.77: the filter leaves the score at 0.335 (raw 0.379)."
       ],
       "AUT": [
         "Austria imports USD 161 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
@@ -15,79 +15,122 @@
         "Colombia already holds 25.9 % of the market and gains 5.2 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Austria at 0.37 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Austria duty-free (0 % effectively applied).",
-        "Macro stability of Austria at 0.71: the filter leaves the score at 0.269 (raw 0.315)."
+        "Macro stability of Austria at 0.71: the filter leaves the score at 0.310 (raw 0.362)."
       ],
       "BEL": [
         "Belgium imports USD 263 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
         "Demand grows at 6.3 % per year (CAGR).",
         "Colombia already holds 21.5 % of the market and gains 8.4 pp of share over the window.",
+        "Belgium absorbs 17.3 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of Belgium at 0.45 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Belgium duty-free (0 % effectively applied).",
-        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.398 (raw 0.442)."
+        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.424 (raw 0.470)."
+      ],
+      "BRA": [
+        "Brazil imports USD 1 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
+        "Demand grows at 198.9 % per year (CAGR).",
+        "Colombia records no sales of Bananas and plantains (HS 0803) in Brazil (0 % share).",
+        "The export basket of Colombia fits the import demand of Brazil at 0.37 (0–1 scale).",
+        "Bananas and plantains (HS 0803) enters Brazil duty-free (0 % effectively applied).",
+        "Macro stability of Brazil at 0.77: the filter leaves the score at 0.331 (raw 0.373)."
       ],
       "CAN": [
         "Canada imports USD 529 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
         "Demand grows at 5.6 % per year (CAGR).",
         "Colombia already holds 12.4 % of the market and gains 1.4 pp of share over the window.",
+        "Canada absorbs 0.1 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of Canada at 0.37 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Canada duty-free (0 % effectively applied).",
-        "Macro stability of Canada at 0.86: the filter leaves the score at 0.286 (raw 0.307)."
+        "Macro stability of Canada at 0.86: the filter leaves the score at 0.314 (raw 0.337)."
       ],
       "CHE": [
         "Switzerland imports USD 129 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
         "Demand grows at 5.1 % per year (CAGR).",
         "Colombia already holds 41.7 % of the market and gains 12.4 pp of share over the window.",
+        "Switzerland absorbs 0.9 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of Switzerland at 0.32 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Switzerland duty-free (0 % effectively applied).",
-        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.336 (raw 0.357)."
+        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.365 (raw 0.389)."
+      ],
+      "CHL": [
+        "Chile imports USD 129 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
+        "Demand grows at 6.7 % per year (CAGR).",
+        "Colombia records no sales of Bananas and plantains (HS 0803) in Chile (0 % share).",
+        "Chile absorbs 0.0 % of Colombia's exports of Bananas and plantains (HS 0803).",
+        "The export basket of Colombia fits the import demand of Chile at 0.46 (0–1 scale).",
+        "Bananas and plantains (HS 0803) enters Chile duty-free (0 % effectively applied).",
+        "Macro stability of Chile at 0.72: the filter leaves the score at 0.306 (raw 0.355)."
+      ],
+      "CRI": [
+        "Costa Rica imports USD 4 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
+        "Demand shrinks at 67.7 % per year (CAGR).",
+        "Colombia already holds 2.0 % of the market and gains 1.7 pp of share over the window.",
+        "Costa Rica absorbs 0.0 % of Colombia's exports of Bananas and plantains (HS 0803).",
+        "The export basket of Colombia fits the import demand of Costa Rica at 0.37 (0–1 scale).",
+        "Bananas and plantains (HS 0803) faces an effectively applied tariff of 6.0 % in Costa Rica.",
+        "Macro stability of Costa Rica at 0.93: the filter leaves the score at 0.178 (raw 0.184)."
       ],
       "DEU": [
         "Germany imports USD 1,166 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
         "Demand grows at 2.6 % per year (CAGR).",
         "Colombia already holds 32.3 % of the market and gains 8.0 pp of share over the window.",
+        "Germany absorbs 12.2 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of Germany at 0.37 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Germany duty-free (0 % effectively applied).",
-        "Macro stability of Germany at 0.74: the filter leaves the score at 0.380 (raw 0.438)."
+        "Macro stability of Germany at 0.74: the filter leaves the score at 0.413 (raw 0.475)."
+      ],
+      "DOM": [
+        "Dominican Republic imports USD 0 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
+        "Not enough growth data over the 3-year window.",
+        "Colombia records no sales of Bananas and plantains (HS 0803) in Dominican Republic (0 % share).",
+        "The export basket of Colombia fits the import demand of Dominican Republic at 0.46 (0–1 scale).",
+        "Bananas and plantains (HS 0803) faces an effectively applied tariff of 20.0 % in Dominican Republic.",
+        "Macro stability of Dominican Republic at 0.78: the filter leaves the score at 0.157 (raw 0.177)."
       ],
       "ESP": [
         "Spain imports USD 381 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
         "Demand grows at 6.0 % per year (CAGR).",
         "Colombia already holds 17.3 % of the market and loses 5.1 pp of share over the window.",
+        "Spain absorbs 2.7 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of Spain at 0.42 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Spain duty-free (0 % effectively applied).",
-        "Macro stability of Spain at 0.97: the filter leaves the score at 0.348 (raw 0.354)."
+        "Macro stability of Spain at 0.97: the filter leaves the score at 0.377 (raw 0.383)."
       ],
       "FIN": [
         "Finland imports USD 59 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
         "Demand shrinks at 6.3 % per year (CAGR).",
         "Colombia already holds 23.6 % of the market and gains 23.5 pp of share over the window.",
+        "Finland absorbs 0.0 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of Finland at 0.40 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Finland duty-free (0 % effectively applied).",
-        "Macro stability of Finland at 0.76: the filter leaves the score at 0.342 (raw 0.388)."
+        "Macro stability of Finland at 0.76: the filter leaves the score at 0.394 (raw 0.447)."
       ],
       "FRA": [
         "France imports USD 883 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
         "Demand shrinks at 2.6 % per year (CAGR).",
         "Colombia already holds 17.9 % of the market and gains 0.4 pp of share over the window.",
+        "France absorbs 5.2 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of France at 0.42 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters France duty-free (0 % effectively applied).",
-        "Macro stability of France at 0.83: the filter leaves the score at 0.347 (raw 0.379)."
+        "Macro stability of France at 0.83: the filter leaves the score at 0.393 (raw 0.429)."
       ],
       "GBR": [
         "United Kingdom imports USD 767 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
         "Demand grows at 9.1 % per year (CAGR).",
         "Colombia already holds 35.9 % of the market and gains 5.0 pp of share over the window.",
+        "United Kingdom absorbs 15.1 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of United Kingdom at 0.43 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters United Kingdom duty-free (0 % effectively applied).",
-        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.397 (raw 0.499)."
+        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.414 (raw 0.520)."
       ],
       "ITA": [
         "Italy imports USD 619 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
         "Demand grows at 3.3 % per year (CAGR).",
         "Colombia already holds 31.8 % of the market and gains 0.1 pp of share over the window.",
+        "Italy absorbs 11.9 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of Italy at 0.43 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Italy duty-free (0 % effectively applied).",
-        "Macro stability of Italy at 0.83: the filter leaves the score at 0.406 (raw 0.443)."
+        "Macro stability of Italy at 0.83: the filter leaves the score at 0.438 (raw 0.479)."
       ],
       "JPN": [
         "Japan imports USD 985 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
@@ -95,82 +138,105 @@
         "Colombia records no sales of Bananas and plantains (HS 0803) in Japan (0 % share).",
         "The export basket of Colombia fits the import demand of Japan at 0.46 (0–1 scale).",
         "Bananas and plantains (HS 0803) faces an effectively applied tariff of 12.8 % in Japan.",
-        "Macro stability of Japan at 0.81: the filter leaves the score at 0.264 (raw 0.292)."
+        "Macro stability of Japan at 0.81: the filter leaves the score at 0.329 (raw 0.364)."
       ],
       "KOR": [
         "South Korea imports USD 334 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
         "Demand grows at 1.8 % per year (CAGR).",
         "Colombia records no sales of Bananas and plantains (HS 0803) in South Korea (0 % share).",
+        "South Korea absorbs 0.0 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of South Korea at 0.49 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters South Korea duty-free (0 % effectively applied).",
-        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.342 (raw 0.363)."
+        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.379 (raw 0.402)."
       ],
       "NLD": [
         "Netherlands imports USD 914 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
         "Demand grows at 3.6 % per year (CAGR).",
         "Colombia already holds 10.5 % of the market and gains 3.3 pp of share over the window.",
+        "Netherlands absorbs 6.8 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of Netherlands at 0.46 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Netherlands duty-free (0 % effectively applied).",
-        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.394 (raw 0.435)."
+        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.425 (raw 0.470)."
+      ],
+      "PAN": [
+        "Panama imports USD 0 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
+        "Demand shrinks at 40.1 % per year (CAGR).",
+        "Colombia records no sales of Bananas and plantains (HS 0803) in Panama (0 % share).",
+        "Panama absorbs 0.0 % of Colombia's exports of Bananas and plantains (HS 0803).",
+        "The export basket of Colombia fits the import demand of Panama at 0.45 (0–1 scale).",
+        "Bananas and plantains (HS 0803) faces an effectively applied tariff of 13.8 % in Panama.",
+        "Macro stability of Panama at 0.94: the filter leaves the score at 0.230 (raw 0.238)."
+      ],
+      "PER": [
+        "Peru imports USD 0 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
+        "Demand shrinks at 91.9 % per year (CAGR).",
+        "Colombia records no sales of Bananas and plantains (HS 0803) in Peru (0 % share).",
+        "The export basket of Colombia fits the import demand of Peru at 0.43 (0–1 scale).",
+        "Bananas and plantains (HS 0803) enters Peru duty-free (0 % effectively applied).",
+        "Macro stability of Peru at 0.91: the filter leaves the score at 0.235 (raw 0.246)."
       ],
       "POL": [
         "Poland imports USD 388 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
         "Demand grows at 3.7 % per year (CAGR).",
         "Colombia already holds 24.7 % of the market and loses 3.1 pp of share over the window.",
+        "Poland absorbs 1.5 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of Poland at 0.36 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Poland duty-free (0 % effectively applied).",
-        "Macro stability of Poland at 0.84: the filter leaves the score at 0.286 (raw 0.311)."
+        "Macro stability of Poland at 0.84: the filter leaves the score at 0.318 (raw 0.345)."
       ],
       "PRT": [
         "Portugal imports USD 178 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
         "Demand grows at 0.5 % per year (CAGR).",
         "Colombia already holds 25.4 % of the market and gains 8.5 pp of share over the window.",
+        "Portugal absorbs 1.5 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of Portugal at 0.39 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Portugal duty-free (0 % effectively applied).",
-        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.350 (raw 0.362)."
+        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.391 (raw 0.405)."
       ],
       "SWE": [
         "Sweden imports USD 154 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
         "Demand grows at 3.3 % per year (CAGR).",
         "Colombia already holds 12.1 % of the market and loses 5.7 pp of share over the window.",
+        "Sweden absorbs 1.1 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of Sweden at 0.37 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters Sweden duty-free (0 % effectively applied).",
-        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.216 (raw 0.240)."
+        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.248 (raw 0.276)."
       ],
       "USA": [
         "United States imports USD 3,249 M a year of Bananas and plantains (HS 0803) (average of the last 3 years).",
         "Demand grows at 3.4 % per year (CAGR).",
         "Colombia already holds 10.8 % of the market and gains 1.7 pp of share over the window.",
+        "United States absorbs 19.9 % of Colombia's exports of Bananas and plantains (HS 0803).",
         "The export basket of Colombia fits the import demand of United States at 0.33 (0–1 scale).",
         "Bananas and plantains (HS 0803) enters United States duty-free (0 % effectively applied).",
-        "Macro stability of United States at 0.65: the filter leaves the score at 0.377 (raw 0.456)."
+        "Macro stability of United States at 0.65: the filter leaves the score at 0.406 (raw 0.491)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.421,
-        "iso3": "AUS",
-        "name": "Australia",
-        "reasons": [
-          "destination #1 by demand growth (58.1 % per year)",
-          "destination #1 by tariff faced (0.0 % effectively applied)"
-        ]
-      },
-      {
-        "final_score": 0.406,
+        "final_score": 0.438,
         "iso3": "ITA",
         "name": "Italy",
         "reasons": [
-          "destination #5 by basket complementarity (index 0.43 (0–1 scale))",
+          "destination #8 by basket complementarity (index 0.43 (0–1 scale))",
           "destination #4 by share already won (share of 31.8 %)"
         ]
       },
       {
-        "final_score": 0.398,
+        "final_score": 0.425,
+        "iso3": "NLD",
+        "name": "Netherlands",
+        "reasons": [
+          "destination #3 by basket complementarity (index 0.46 (0–1 scale))",
+          "destination #1 by tariff faced (0.0 % effectively applied)"
+        ]
+      },
+      {
+        "final_score": 0.424,
         "iso3": "BEL",
         "name": "Belgium",
         "reasons": [
-          "destination #4 by basket complementarity (index 0.45 (0–1 scale))",
+          "destination #6 by basket complementarity (index 0.45 (0–1 scale))",
           "destination #1 by tariff faced (0.0 % effectively applied)"
         ]
       }
@@ -184,7 +250,7 @@
         "Colombia ya tiene 11,1 % del mercado y gana 6,8 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Australia.",
         "Bananos y plátanos (HS 0803) entra a Australia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,421 (bruto 0,475)."
+        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,335 (bruto 0,379)."
       ],
       "AUT": [
         "Austria importa USD 161 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
@@ -192,79 +258,122 @@
         "Colombia ya tiene 25,9 % del mercado y gana 5,2 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Austria.",
         "Bananos y plátanos (HS 0803) entra a Austria sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,269 (bruto 0,315)."
+        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,310 (bruto 0,362)."
       ],
       "BEL": [
         "Bélgica importa USD 263 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
         "La demanda crece al 6,3 % anual (CAGR).",
         "Colombia ya tiene 21,5 % del mercado y gana 8,4 pp de cuota en la ventana.",
+        "Bélgica absorbe el 17,3 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Bélgica.",
         "Bananos y plátanos (HS 0803) entra a Bélgica sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,398 (bruto 0,442)."
+        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,424 (bruto 0,470)."
+      ],
+      "BRA": [
+        "Brasil importa USD 1 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
+        "La demanda crece al 198,9 % anual (CAGR).",
+        "Colombia no registra ventas de Bananos y plátanos (HS 0803) en Brasil (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Brasil.",
+        "Bananos y plátanos (HS 0803) entra a Brasil sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Brasil 0,77: el filtro deja el score en 0,331 (bruto 0,373)."
       ],
       "CAN": [
         "Canadá importa USD 529 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
         "La demanda crece al 5,6 % anual (CAGR).",
         "Colombia ya tiene 12,4 % del mercado y gana 1,4 pp de cuota en la ventana.",
+        "Canadá absorbe el 0,1 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Canadá.",
         "Bananos y plátanos (HS 0803) entra a Canadá sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,286 (bruto 0,307)."
+        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,314 (bruto 0,337)."
       ],
       "CHE": [
         "Suiza importa USD 129 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
         "La demanda crece al 5,1 % anual (CAGR).",
         "Colombia ya tiene 41,7 % del mercado y gana 12,4 pp de cuota en la ventana.",
+        "Suiza absorbe el 0,9 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de Suiza.",
         "Bananos y plátanos (HS 0803) entra a Suiza sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,336 (bruto 0,357)."
+        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,365 (bruto 0,389)."
+      ],
+      "CHL": [
+        "Chile importa USD 129 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
+        "La demanda crece al 6,7 % anual (CAGR).",
+        "Colombia no registra ventas de Bananos y plátanos (HS 0803) en Chile (cuota 0 %).",
+        "Chile absorbe el 0,0 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Chile.",
+        "Bananos y plátanos (HS 0803) entra a Chile sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Chile 0,72: el filtro deja el score en 0,306 (bruto 0,355)."
+      ],
+      "CRI": [
+        "Costa Rica importa USD 4 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 67,7 % anual (CAGR).",
+        "Colombia ya tiene 2,0 % del mercado y gana 1,7 pp de cuota en la ventana.",
+        "Costa Rica absorbe el 0,0 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Costa Rica.",
+        "Bananos y plátanos (HS 0803) paga en Costa Rica un arancel efectivamente aplicado de 6,0 %.",
+        "Estabilidad macro de Costa Rica 0,93: el filtro deja el score en 0,178 (bruto 0,184)."
       ],
       "DEU": [
         "Alemania importa USD 1.166 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
         "La demanda crece al 2,6 % anual (CAGR).",
         "Colombia ya tiene 32,3 % del mercado y gana 8,0 pp de cuota en la ventana.",
+        "Alemania absorbe el 12,2 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Alemania.",
         "Bananos y plátanos (HS 0803) entra a Alemania sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,380 (bruto 0,438)."
+        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,413 (bruto 0,475)."
+      ],
+      "DOM": [
+        "República Dominicana importa USD 0 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
+        "Sin dato suficiente de crecimiento en la ventana de 3 años.",
+        "Colombia no registra ventas de Bananos y plátanos (HS 0803) en República Dominicana (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de República Dominicana.",
+        "Bananos y plátanos (HS 0803) paga en República Dominicana un arancel efectivamente aplicado de 20,0 %.",
+        "Estabilidad macro de República Dominicana 0,78: el filtro deja el score en 0,157 (bruto 0,177)."
       ],
       "ESP": [
         "España importa USD 381 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
         "La demanda crece al 6,0 % anual (CAGR).",
         "Colombia ya tiene 17,3 % del mercado y pierde 5,1 pp de cuota en la ventana.",
+        "España absorbe el 2,7 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de España.",
         "Bananos y plátanos (HS 0803) entra a España sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de España 0,97: el filtro deja el score en 0,348 (bruto 0,354)."
+        "Estabilidad macro de España 0,97: el filtro deja el score en 0,377 (bruto 0,383)."
       ],
       "FIN": [
         "Finlandia importa USD 59 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
         "La demanda se contrae al 6,3 % anual (CAGR).",
         "Colombia ya tiene 23,6 % del mercado y gana 23,5 pp de cuota en la ventana.",
+        "Finlandia absorbe el 0,0 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Finlandia.",
         "Bananos y plátanos (HS 0803) entra a Finlandia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,342 (bruto 0,388)."
+        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,394 (bruto 0,447)."
       ],
       "FRA": [
         "Francia importa USD 883 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
         "La demanda se contrae al 2,6 % anual (CAGR).",
         "Colombia ya tiene 17,9 % del mercado y gana 0,4 pp de cuota en la ventana.",
+        "Francia absorbe el 5,2 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de Francia.",
         "Bananos y plátanos (HS 0803) entra a Francia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,347 (bruto 0,379)."
+        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,393 (bruto 0,429)."
       ],
       "GBR": [
         "Reino Unido importa USD 767 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
         "La demanda crece al 9,1 % anual (CAGR).",
         "Colombia ya tiene 35,9 % del mercado y gana 5,0 pp de cuota en la ventana.",
+        "Reino Unido absorbe el 15,1 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Reino Unido.",
         "Bananos y plátanos (HS 0803) entra a Reino Unido sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,397 (bruto 0,499)."
+        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,414 (bruto 0,520)."
       ],
       "ITA": [
         "Italia importa USD 619 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
         "La demanda crece al 3,3 % anual (CAGR).",
         "Colombia ya tiene 31,8 % del mercado y gana 0,1 pp de cuota en la ventana.",
+        "Italia absorbe el 11,9 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Italia.",
         "Bananos y plátanos (HS 0803) entra a Italia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,406 (bruto 0,443)."
+        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,438 (bruto 0,479)."
       ],
       "JPN": [
         "Japón importa USD 985 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
@@ -272,82 +381,105 @@
         "Colombia no registra ventas de Bananos y plátanos (HS 0803) en Japón (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Japón.",
         "Bananos y plátanos (HS 0803) paga en Japón un arancel efectivamente aplicado de 12,8 %.",
-        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,264 (bruto 0,292)."
+        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,329 (bruto 0,364)."
       ],
       "KOR": [
         "Corea del Sur importa USD 334 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
         "La demanda crece al 1,8 % anual (CAGR).",
         "Colombia no registra ventas de Bananos y plátanos (HS 0803) en Corea del Sur (cuota 0 %).",
+        "Corea del Sur absorbe el 0,0 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,49 (escala 0–1) con la demanda importadora de Corea del Sur.",
         "Bananos y plátanos (HS 0803) entra a Corea del Sur sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,342 (bruto 0,363)."
+        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,379 (bruto 0,402)."
       ],
       "NLD": [
         "Países Bajos importa USD 914 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
         "La demanda crece al 3,6 % anual (CAGR).",
         "Colombia ya tiene 10,5 % del mercado y gana 3,3 pp de cuota en la ventana.",
+        "Países Bajos absorbe el 6,8 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Países Bajos.",
         "Bananos y plátanos (HS 0803) entra a Países Bajos sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,394 (bruto 0,435)."
+        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,425 (bruto 0,470)."
+      ],
+      "PAN": [
+        "Panamá importa USD 0 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 40,1 % anual (CAGR).",
+        "Colombia no registra ventas de Bananos y plátanos (HS 0803) en Panamá (cuota 0 %).",
+        "Panamá absorbe el 0,0 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Panamá.",
+        "Bananos y plátanos (HS 0803) paga en Panamá un arancel efectivamente aplicado de 13,8 %.",
+        "Estabilidad macro de Panamá 0,94: el filtro deja el score en 0,230 (bruto 0,238)."
+      ],
+      "PER": [
+        "Perú importa USD 0 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 91,9 % anual (CAGR).",
+        "Colombia no registra ventas de Bananos y plátanos (HS 0803) en Perú (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Perú.",
+        "Bananos y plátanos (HS 0803) entra a Perú sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Perú 0,91: el filtro deja el score en 0,235 (bruto 0,246)."
       ],
       "POL": [
         "Polonia importa USD 388 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
         "La demanda crece al 3,7 % anual (CAGR).",
         "Colombia ya tiene 24,7 % del mercado y pierde 3,1 pp de cuota en la ventana.",
+        "Polonia absorbe el 1,5 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,36 (escala 0–1) con la demanda importadora de Polonia.",
         "Bananos y plátanos (HS 0803) entra a Polonia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,286 (bruto 0,311)."
+        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,318 (bruto 0,345)."
       ],
       "PRT": [
         "Portugal importa USD 178 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
         "La demanda crece al 0,5 % anual (CAGR).",
         "Colombia ya tiene 25,4 % del mercado y gana 8,5 pp de cuota en la ventana.",
+        "Portugal absorbe el 1,5 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,39 (escala 0–1) con la demanda importadora de Portugal.",
         "Bananos y plátanos (HS 0803) entra a Portugal sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,350 (bruto 0,362)."
+        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,391 (bruto 0,405)."
       ],
       "SWE": [
         "Suecia importa USD 154 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
         "La demanda crece al 3,3 % anual (CAGR).",
         "Colombia ya tiene 12,1 % del mercado y pierde 5,7 pp de cuota en la ventana.",
+        "Suecia absorbe el 1,1 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Suecia.",
         "Bananos y plátanos (HS 0803) entra a Suecia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,216 (bruto 0,240)."
+        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,248 (bruto 0,276)."
       ],
       "USA": [
         "Estados Unidos importa USD 3.249 M al año de Bananos y plátanos (HS 0803) (promedio de los últimos 3 años).",
         "La demanda crece al 3,4 % anual (CAGR).",
         "Colombia ya tiene 10,8 % del mercado y gana 1,7 pp de cuota en la ventana.",
+        "Estados Unidos absorbe el 19,9 % de las exportaciones de Bananos y plátanos (HS 0803) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,33 (escala 0–1) con la demanda importadora de Estados Unidos.",
         "Bananos y plátanos (HS 0803) entra a Estados Unidos sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,377 (bruto 0,456)."
+        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,406 (bruto 0,491)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.421,
-        "iso3": "AUS",
-        "name": "Australia",
-        "reasons": [
-          "1.º destino por crecimiento de la demanda (58,1 % anual)",
-          "1.º destino por arancel enfrentado (0,0 % efectivamente aplicado)"
-        ]
-      },
-      {
-        "final_score": 0.406,
+        "final_score": 0.438,
         "iso3": "ITA",
         "name": "Italia",
         "reasons": [
-          "5.º destino por complementariedad de canastas (índice 0,43 (escala 0–1))",
+          "8.º destino por complementariedad de canastas (índice 0,43 (escala 0–1))",
           "4.º destino por cuota ya ganada (cuota de 31,8 %)"
         ]
       },
       {
-        "final_score": 0.398,
+        "final_score": 0.425,
+        "iso3": "NLD",
+        "name": "Países Bajos",
+        "reasons": [
+          "3.º destino por complementariedad de canastas (índice 0,46 (escala 0–1))",
+          "1.º destino por arancel enfrentado (0,0 % efectivamente aplicado)"
+        ]
+      },
+      {
+        "final_score": 0.424,
         "iso3": "BEL",
         "name": "Bélgica",
         "reasons": [
-          "4.º destino por complementariedad de canastas (índice 0,45 (escala 0–1))",
+          "6.º destino por complementariedad de canastas (índice 0,45 (escala 0–1))",
           "1.º destino por arancel enfrentado (0,0 % efectivamente aplicado)"
         ]
       }

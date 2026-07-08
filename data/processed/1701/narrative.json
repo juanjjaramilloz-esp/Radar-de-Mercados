@@ -5,9 +5,10 @@
         "Australia imports USD 13 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
         "Demand grows at 4.2 % per year (CAGR).",
         "Colombia already holds 4.8 % of the market and loses 2.4 pp of share over the window.",
+        "Australia absorbs 0.1 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Australia at 0.40 (0–1 scale).",
         "Cane sugar (HS 1701) enters Australia duty-free (0 % effectively applied).",
-        "Macro stability of Australia at 0.77: the filter leaves the score at 0.436 (raw 0.492)."
+        "Macro stability of Australia at 0.77: the filter leaves the score at 0.334 (raw 0.377)."
       ],
       "AUT": [
         "Austria imports USD 220 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -15,79 +16,133 @@
         "Colombia already holds 1.1 % of the market and gains 0.7 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Austria at 0.37 (0–1 scale).",
         "Cane sugar (HS 1701) enters Austria duty-free (0 % effectively applied).",
-        "Macro stability of Austria at 0.71: the filter leaves the score at 0.336 (raw 0.393)."
+        "Macro stability of Austria at 0.71: the filter leaves the score at 0.284 (raw 0.332)."
       ],
       "BEL": [
         "Belgium imports USD 519 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
         "Demand shrinks at 12.1 % per year (CAGR).",
         "Colombia already holds 1.6 % of the market and loses 0.3 pp of share over the window.",
+        "Belgium absorbs 3.1 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Belgium at 0.45 (0–1 scale).",
         "Cane sugar (HS 1701) enters Belgium duty-free (0 % effectively applied).",
-        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.456 (raw 0.506)."
+        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.405 (raw 0.450)."
+      ],
+      "BRA": [
+        "Brazil imports USD 4 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
+        "Demand grows at 6.4 % per year (CAGR).",
+        "Colombia records no sales of Cane sugar (HS 1701) in Brazil (0 % share).",
+        "Brazil absorbs 0.0 % of Colombia's exports of Cane sugar (HS 1701).",
+        "The export basket of Colombia fits the import demand of Brazil at 0.37 (0–1 scale).",
+        "Cane sugar (HS 1701) faces an effectively applied tariff of 11.5 % in Brazil.",
+        "Macro stability of Brazil at 0.77: the filter leaves the score at 0.285 (raw 0.322)."
       ],
       "CAN": [
         "Canada imports USD 822 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
         "Demand shrinks at 4.5 % per year (CAGR).",
         "Colombia already holds 2.1 % of the market and gains 1.2 pp of share over the window.",
+        "Canada absorbs 2.4 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Canada at 0.37 (0–1 scale).",
         "Cane sugar (HS 1701) enters Canada duty-free (0 % effectively applied).",
-        "Macro stability of Canada at 0.86: the filter leaves the score at 0.484 (raw 0.520)."
+        "Macro stability of Canada at 0.86: the filter leaves the score at 0.385 (raw 0.414)."
       ],
       "CHE": [
         "Switzerland imports USD 88 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
         "Demand grows at 0.4 % per year (CAGR).",
         "Colombia already holds 0.4 % of the market and gains 0.1 pp of share over the window.",
+        "Switzerland absorbs 0.0 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Switzerland at 0.32 (0–1 scale).",
         "Cane sugar (HS 1701) enters Switzerland duty-free (0 % effectively applied).",
-        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.326 (raw 0.347)."
+        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.268 (raw 0.285)."
+      ],
+      "CHL": [
+        "Chile imports USD 364 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
+        "Demand shrinks at 12.0 % per year (CAGR).",
+        "Colombia already holds 14.8 % of the market and loses 7.7 pp of share over the window.",
+        "Chile absorbs 15.5 % of Colombia's exports of Cane sugar (HS 1701).",
+        "The export basket of Colombia fits the import demand of Chile at 0.46 (0–1 scale).",
+        "Cane sugar (HS 1701) enters Chile duty-free (0 % effectively applied).",
+        "Macro stability of Chile at 0.72: the filter leaves the score at 0.397 (raw 0.460)."
+      ],
+      "CRI": [
+        "Costa Rica imports USD 1 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
+        "Demand grows at 54.7 % per year (CAGR).",
+        "Colombia already holds 15.6 % of the market and loses 59.7 pp of share over the window.",
+        "Costa Rica absorbs 0.0 % of Colombia's exports of Cane sugar (HS 1701).",
+        "The export basket of Colombia fits the import demand of Costa Rica at 0.37 (0–1 scale).",
+        "Cane sugar (HS 1701) faces an effectively applied tariff of 45.0 % in Costa Rica.",
+        "Macro stability of Costa Rica at 0.93: the filter leaves the score at 0.336 (raw 0.347)."
       ],
       "DEU": [
         "Germany imports USD 465 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
         "Demand shrinks at 16.4 % per year (CAGR).",
         "Colombia already holds 5.8 % of the market and gains 2.5 pp of share over the window.",
+        "Germany absorbs 3.0 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Germany at 0.37 (0–1 scale).",
         "Cane sugar (HS 1701) enters Germany duty-free (0 % effectively applied).",
-        "Macro stability of Germany at 0.74: the filter leaves the score at 0.456 (raw 0.525)."
+        "Macro stability of Germany at 0.74: the filter leaves the score at 0.314 (raw 0.362)."
+      ],
+      "DOM": [
+        "Dominican Republic imports USD 67 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
+        "Demand grows at 4.8 % per year (CAGR).",
+        "Colombia already holds 2.9 % of the market and loses 1.8 pp of share over the window.",
+        "Dominican Republic absorbs 0.6 % of Colombia's exports of Cane sugar (HS 1701).",
+        "The export basket of Colombia fits the import demand of Dominican Republic at 0.46 (0–1 scale).",
+        "Cane sugar (HS 1701) faces an effectively applied tariff of 85.0 % in Dominican Republic.",
+        "Macro stability of Dominican Republic at 0.78: the filter leaves the score at 0.299 (raw 0.337)."
+      ],
+      "ECU": [
+        "Ecuador imports USD 95 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
+        "Demand shrinks at 43.3 % per year (CAGR).",
+        "Colombia already holds 56.2 % of the market and gains 13.8 pp of share over the window.",
+        "Ecuador absorbs 8.8 % of Colombia's exports of Cane sugar (HS 1701).",
+        "The export basket of Colombia fits the import demand of Ecuador at 0.51 (0–1 scale).",
+        "Cane sugar (HS 1701) faces an effectively applied tariff of 19.1 % in Ecuador.",
+        "Macro stability of Ecuador at 0.88: the filter leaves the score at 0.512 (raw 0.545)."
       ],
       "ESP": [
         "Spain imports USD 973 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
         "Demand shrinks at 22.5 % per year (CAGR).",
         "Colombia already holds 2.6 % of the market and gains 1.1 pp of share over the window.",
+        "Spain absorbs 3.8 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Spain at 0.42 (0–1 scale).",
         "Cane sugar (HS 1701) enters Spain duty-free (0 % effectively applied).",
-        "Macro stability of Spain at 0.97: the filter leaves the score at 0.511 (raw 0.519)."
+        "Macro stability of Spain at 0.97: the filter leaves the score at 0.444 (raw 0.451)."
       ],
       "FIN": [
         "Finland imports USD 77 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
         "Demand shrinks at 14.9 % per year (CAGR).",
         "Colombia records no sales of Cane sugar (HS 1701) in Finland (0 % share).",
+        "Finland absorbs 0.0 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Finland at 0.40 (0–1 scale).",
         "Cane sugar (HS 1701) enters Finland duty-free (0 % effectively applied).",
-        "Macro stability of Finland at 0.76: the filter leaves the score at 0.319 (raw 0.361)."
+        "Macro stability of Finland at 0.76: the filter leaves the score at 0.301 (raw 0.341)."
       ],
       "FRA": [
         "France imports USD 330 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
         "Demand shrinks at 2.2 % per year (CAGR).",
         "Colombia already holds 3.8 % of the market and gains 0.6 pp of share over the window.",
+        "France absorbs 2.3 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of France at 0.42 (0–1 scale).",
         "Cane sugar (HS 1701) enters France duty-free (0 % effectively applied).",
-        "Macro stability of France at 0.83: the filter leaves the score at 0.509 (raw 0.556)."
+        "Macro stability of France at 0.83: the filter leaves the score at 0.383 (raw 0.418)."
       ],
       "GBR": [
         "United Kingdom imports USD 583 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
         "Demand shrinks at 18.1 % per year (CAGR).",
         "Colombia already holds 1.0 % of the market and gains 0.5 pp of share over the window.",
+        "United Kingdom absorbs 0.9 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of United Kingdom at 0.43 (0–1 scale).",
         "Cane sugar (HS 1701) enters United Kingdom duty-free (0 % effectively applied).",
-        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.365 (raw 0.458)."
+        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.332 (raw 0.417)."
       ],
       "ITA": [
         "Italy imports USD 1,280 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
         "Demand shrinks at 10.0 % per year (CAGR).",
         "Colombia already holds 0.6 % of the market and loses 0.3 pp of share over the window.",
+        "Italy absorbs 1.9 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Italy at 0.43 (0–1 scale).",
         "Cane sugar (HS 1701) enters Italy duty-free (0 % effectively applied).",
-        "Macro stability of Italy at 0.83: the filter leaves the score at 0.506 (raw 0.552)."
+        "Macro stability of Italy at 0.83: the filter leaves the score at 0.466 (raw 0.509)."
       ],
       "JPN": [
         "Japan imports USD 712 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -95,31 +150,61 @@
         "Colombia records no sales of Cane sugar (HS 1701) in Japan (0 % share).",
         "The export basket of Colombia fits the import demand of Japan at 0.46 (0–1 scale).",
         "Cane sugar (HS 1701) enters Japan duty-free (0 % effectively applied).",
-        "Macro stability of Japan at 0.81: the filter leaves the score at 0.468 (raw 0.517)."
+        "Macro stability of Japan at 0.81: the filter leaves the score at 0.433 (raw 0.478)."
       ],
       "KOR": [
         "South Korea imports USD 919 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
         "Demand shrinks at 13.7 % per year (CAGR).",
         "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
+        "South Korea absorbs 0.0 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of South Korea at 0.49 (0–1 scale).",
         "Cane sugar (HS 1701) faces an effectively applied tariff of 10.4 % in South Korea.",
-        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.432 (raw 0.458)."
+        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.483 (raw 0.512)."
+      ],
+      "MEX": [
+        "Mexico imports USD 353 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
+        "Demand shrinks at 47.1 % per year (CAGR).",
+        "Colombia already holds 0.1 % of the market and gains 0.0 pp of share over the window.",
+        "Mexico absorbs 0.4 % of Colombia's exports of Cane sugar (HS 1701).",
+        "The export basket of Colombia fits the import demand of Mexico at 0.32 (0–1 scale).",
+        "Cane sugar (HS 1701) enters Mexico duty-free (0 % effectively applied).",
+        "Macro stability of Mexico at 0.80: the filter leaves the score at 0.197 (raw 0.219)."
       ],
       "NLD": [
         "Netherlands imports USD 292 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
         "Demand shrinks at 4.7 % per year (CAGR).",
         "Colombia already holds 3.3 % of the market and gains 1.8 pp of share over the window.",
+        "Netherlands absorbs 1.3 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Netherlands at 0.46 (0–1 scale).",
         "Cane sugar (HS 1701) enters Netherlands duty-free (0 % effectively applied).",
-        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.548 (raw 0.605)."
+        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.412 (raw 0.455)."
+      ],
+      "PAN": [
+        "Panama imports USD 1 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
+        "Demand shrinks at 15.3 % per year (CAGR).",
+        "Colombia already holds 0.4 % of the market and gains 0.4 pp of share over the window.",
+        "Panama absorbs 0.1 % of Colombia's exports of Cane sugar (HS 1701).",
+        "The export basket of Colombia fits the import demand of Panama at 0.45 (0–1 scale).",
+        "Cane sugar (HS 1701) faces an effectively applied tariff of 84.0 % in Panama.",
+        "Macro stability of Panama at 0.94: the filter leaves the score at 0.274 (raw 0.283)."
+      ],
+      "PER": [
+        "Peru imports USD 197 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
+        "Demand grows at 4.8 % per year (CAGR).",
+        "Colombia already holds 17.4 % of the market and gains 1.7 pp of share over the window.",
+        "Peru absorbs 6.7 % of Colombia's exports of Cane sugar (HS 1701).",
+        "The export basket of Colombia fits the import demand of Peru at 0.43 (0–1 scale).",
+        "Cane sugar (HS 1701) enters Peru duty-free (0 % effectively applied).",
+        "Macro stability of Peru at 0.91: the filter leaves the score at 0.446 (raw 0.467)."
       ],
       "POL": [
         "Poland imports USD 112 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
         "Demand shrinks at 37.1 % per year (CAGR).",
         "Colombia already holds 2.3 % of the market and gains 2.0 pp of share over the window.",
+        "Poland absorbs 0.2 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Poland at 0.36 (0–1 scale).",
         "Cane sugar (HS 1701) enters Poland duty-free (0 % effectively applied).",
-        "Macro stability of Poland at 0.84: the filter leaves the score at 0.276 (raw 0.300)."
+        "Macro stability of Poland at 0.84: the filter leaves the score at 0.247 (raw 0.269)."
       ],
       "PRT": [
         "Portugal imports USD 255 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -127,7 +212,7 @@
         "Colombia already holds 0.3 % of the market and gains 0.2 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Portugal at 0.39 (0–1 scale).",
         "Cane sugar (HS 1701) enters Portugal duty-free (0 % effectively applied).",
-        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.366 (raw 0.379)."
+        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.339 (raw 0.351)."
       ],
       "SWE": [
         "Sweden imports USD 68 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -135,43 +220,44 @@
         "Colombia records no sales of Cane sugar (HS 1701) in Sweden (0 % share).",
         "The export basket of Colombia fits the import demand of Sweden at 0.37 (0–1 scale).",
         "Cane sugar (HS 1701) enters Sweden duty-free (0 % effectively applied).",
-        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.339 (raw 0.377)."
+        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.293 (raw 0.326)."
       ],
       "USA": [
         "United States imports USD 2,354 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
         "Demand shrinks at 11.6 % per year (CAGR).",
         "Colombia already holds 7.3 % of the market and gains 1.2 pp of share over the window.",
+        "United States absorbs 28.8 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of United States at 0.33 (0–1 scale).",
         "Cane sugar (HS 1701) faces an effectively applied tariff of 0.2 % in United States.",
-        "Macro stability of United States at 0.65: the filter leaves the score at 0.584 (raw 0.706)."
+        "Macro stability of United States at 0.65: the filter leaves the score at 0.440 (raw 0.532)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.584,
-        "iso3": "USA",
-        "name": "United States",
+        "final_score": 0.512,
+        "iso3": "ECU",
+        "name": "Ecuador",
         "reasons": [
-          "destination #1 by market size (USD 2,354 M/year)",
-          "destination #1 by share already won (share of 7.3 %)"
+          "destination #1 by basket complementarity (index 0.51 (0–1 scale))",
+          "destination #1 by share already won (share of 56.2 %)"
         ]
       },
       {
-        "final_score": 0.548,
-        "iso3": "NLD",
-        "name": "Netherlands",
+        "final_score": 0.483,
+        "iso3": "KOR",
+        "name": "South Korea",
         "reasons": [
-          "destination #3 by basket complementarity (index 0.46 (0–1 scale))",
-          "destination #6 by demand growth (-4.7 % per year)"
+          "destination #2 by basket complementarity (index 0.49 (0–1 scale))",
+          "destination #4 by market size (USD 919 M/year)"
         ]
       },
       {
-        "final_score": 0.511,
-        "iso3": "ESP",
-        "name": "Spain",
+        "final_score": 0.466,
+        "iso3": "ITA",
+        "name": "Italy",
         "reasons": [
-          "destination #7 by basket complementarity (index 0.42 (0–1 scale))",
-          "destination #3 by market size (USD 973 M/year)"
+          "destination #2 by market size (USD 1,280 M/year)",
+          "destination #9 by basket complementarity (index 0.43 (0–1 scale))"
         ]
       }
     ]
@@ -182,9 +268,10 @@
         "Australia importa USD 13 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
         "La demanda crece al 4,2 % anual (CAGR).",
         "Colombia ya tiene 4,8 % del mercado y pierde 2,4 pp de cuota en la ventana.",
+        "Australia absorbe el 0,1 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Australia.",
         "Azúcar de caña (HS 1701) entra a Australia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,436 (bruto 0,492)."
+        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,334 (bruto 0,377)."
       ],
       "AUT": [
         "Austria importa USD 220 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -192,79 +279,133 @@
         "Colombia ya tiene 1,1 % del mercado y gana 0,7 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Austria.",
         "Azúcar de caña (HS 1701) entra a Austria sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,336 (bruto 0,393)."
+        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,284 (bruto 0,332)."
       ],
       "BEL": [
         "Bélgica importa USD 519 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
         "La demanda se contrae al 12,1 % anual (CAGR).",
         "Colombia ya tiene 1,6 % del mercado y pierde 0,3 pp de cuota en la ventana.",
+        "Bélgica absorbe el 3,1 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Bélgica.",
         "Azúcar de caña (HS 1701) entra a Bélgica sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,456 (bruto 0,506)."
+        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,405 (bruto 0,450)."
+      ],
+      "BRA": [
+        "Brasil importa USD 4 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
+        "La demanda crece al 6,4 % anual (CAGR).",
+        "Colombia no registra ventas de Azúcar de caña (HS 1701) en Brasil (cuota 0 %).",
+        "Brasil absorbe el 0,0 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Brasil.",
+        "Azúcar de caña (HS 1701) paga en Brasil un arancel efectivamente aplicado de 11,5 %.",
+        "Estabilidad macro de Brasil 0,77: el filtro deja el score en 0,285 (bruto 0,322)."
       ],
       "CAN": [
         "Canadá importa USD 822 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
         "La demanda se contrae al 4,5 % anual (CAGR).",
         "Colombia ya tiene 2,1 % del mercado y gana 1,2 pp de cuota en la ventana.",
+        "Canadá absorbe el 2,4 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Canadá.",
         "Azúcar de caña (HS 1701) entra a Canadá sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,484 (bruto 0,520)."
+        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,385 (bruto 0,414)."
       ],
       "CHE": [
         "Suiza importa USD 88 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
         "La demanda crece al 0,4 % anual (CAGR).",
         "Colombia ya tiene 0,4 % del mercado y gana 0,1 pp de cuota en la ventana.",
+        "Suiza absorbe el 0,0 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de Suiza.",
         "Azúcar de caña (HS 1701) entra a Suiza sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,326 (bruto 0,347)."
+        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,268 (bruto 0,285)."
+      ],
+      "CHL": [
+        "Chile importa USD 364 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 12,0 % anual (CAGR).",
+        "Colombia ya tiene 14,8 % del mercado y pierde 7,7 pp de cuota en la ventana.",
+        "Chile absorbe el 15,5 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Chile.",
+        "Azúcar de caña (HS 1701) entra a Chile sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Chile 0,72: el filtro deja el score en 0,397 (bruto 0,460)."
+      ],
+      "CRI": [
+        "Costa Rica importa USD 1 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
+        "La demanda crece al 54,7 % anual (CAGR).",
+        "Colombia ya tiene 15,6 % del mercado y pierde 59,7 pp de cuota en la ventana.",
+        "Costa Rica absorbe el 0,0 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Costa Rica.",
+        "Azúcar de caña (HS 1701) paga en Costa Rica un arancel efectivamente aplicado de 45,0 %.",
+        "Estabilidad macro de Costa Rica 0,93: el filtro deja el score en 0,336 (bruto 0,347)."
       ],
       "DEU": [
         "Alemania importa USD 465 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
         "La demanda se contrae al 16,4 % anual (CAGR).",
         "Colombia ya tiene 5,8 % del mercado y gana 2,5 pp de cuota en la ventana.",
+        "Alemania absorbe el 3,0 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Alemania.",
         "Azúcar de caña (HS 1701) entra a Alemania sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,456 (bruto 0,525)."
+        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,314 (bruto 0,362)."
+      ],
+      "DOM": [
+        "República Dominicana importa USD 67 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
+        "La demanda crece al 4,8 % anual (CAGR).",
+        "Colombia ya tiene 2,9 % del mercado y pierde 1,8 pp de cuota en la ventana.",
+        "República Dominicana absorbe el 0,6 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de República Dominicana.",
+        "Azúcar de caña (HS 1701) paga en República Dominicana un arancel efectivamente aplicado de 85,0 %.",
+        "Estabilidad macro de República Dominicana 0,78: el filtro deja el score en 0,299 (bruto 0,337)."
+      ],
+      "ECU": [
+        "Ecuador importa USD 95 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 43,3 % anual (CAGR).",
+        "Colombia ya tiene 56,2 % del mercado y gana 13,8 pp de cuota en la ventana.",
+        "Ecuador absorbe el 8,8 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,51 (escala 0–1) con la demanda importadora de Ecuador.",
+        "Azúcar de caña (HS 1701) paga en Ecuador un arancel efectivamente aplicado de 19,1 %.",
+        "Estabilidad macro de Ecuador 0,88: el filtro deja el score en 0,512 (bruto 0,545)."
       ],
       "ESP": [
         "España importa USD 973 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
         "La demanda se contrae al 22,5 % anual (CAGR).",
         "Colombia ya tiene 2,6 % del mercado y gana 1,1 pp de cuota en la ventana.",
+        "España absorbe el 3,8 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de España.",
         "Azúcar de caña (HS 1701) entra a España sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de España 0,97: el filtro deja el score en 0,511 (bruto 0,519)."
+        "Estabilidad macro de España 0,97: el filtro deja el score en 0,444 (bruto 0,451)."
       ],
       "FIN": [
         "Finlandia importa USD 77 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
         "La demanda se contrae al 14,9 % anual (CAGR).",
         "Colombia no registra ventas de Azúcar de caña (HS 1701) en Finlandia (cuota 0 %).",
+        "Finlandia absorbe el 0,0 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Finlandia.",
         "Azúcar de caña (HS 1701) entra a Finlandia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,319 (bruto 0,361)."
+        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,301 (bruto 0,341)."
       ],
       "FRA": [
         "Francia importa USD 330 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
         "La demanda se contrae al 2,2 % anual (CAGR).",
         "Colombia ya tiene 3,8 % del mercado y gana 0,6 pp de cuota en la ventana.",
+        "Francia absorbe el 2,3 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de Francia.",
         "Azúcar de caña (HS 1701) entra a Francia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,509 (bruto 0,556)."
+        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,383 (bruto 0,418)."
       ],
       "GBR": [
         "Reino Unido importa USD 583 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
         "La demanda se contrae al 18,1 % anual (CAGR).",
         "Colombia ya tiene 1,0 % del mercado y gana 0,5 pp de cuota en la ventana.",
+        "Reino Unido absorbe el 0,9 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Reino Unido.",
         "Azúcar de caña (HS 1701) entra a Reino Unido sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,365 (bruto 0,458)."
+        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,332 (bruto 0,417)."
       ],
       "ITA": [
         "Italia importa USD 1.280 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
         "La demanda se contrae al 10,0 % anual (CAGR).",
         "Colombia ya tiene 0,6 % del mercado y pierde 0,3 pp de cuota en la ventana.",
+        "Italia absorbe el 1,9 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Italia.",
         "Azúcar de caña (HS 1701) entra a Italia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,506 (bruto 0,552)."
+        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,466 (bruto 0,509)."
       ],
       "JPN": [
         "Japón importa USD 712 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -272,31 +413,61 @@
         "Colombia no registra ventas de Azúcar de caña (HS 1701) en Japón (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Japón.",
         "Azúcar de caña (HS 1701) entra a Japón sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,468 (bruto 0,517)."
+        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,433 (bruto 0,478)."
       ],
       "KOR": [
         "Corea del Sur importa USD 919 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
         "La demanda se contrae al 13,7 % anual (CAGR).",
         "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
+        "Corea del Sur absorbe el 0,0 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,49 (escala 0–1) con la demanda importadora de Corea del Sur.",
         "Azúcar de caña (HS 1701) paga en Corea del Sur un arancel efectivamente aplicado de 10,4 %.",
-        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,432 (bruto 0,458)."
+        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,483 (bruto 0,512)."
+      ],
+      "MEX": [
+        "México importa USD 353 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 47,1 % anual (CAGR).",
+        "Colombia ya tiene 0,1 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "México absorbe el 0,4 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de México.",
+        "Azúcar de caña (HS 1701) entra a México sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de México 0,80: el filtro deja el score en 0,197 (bruto 0,219)."
       ],
       "NLD": [
         "Países Bajos importa USD 292 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
         "La demanda se contrae al 4,7 % anual (CAGR).",
         "Colombia ya tiene 3,3 % del mercado y gana 1,8 pp de cuota en la ventana.",
+        "Países Bajos absorbe el 1,3 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Países Bajos.",
         "Azúcar de caña (HS 1701) entra a Países Bajos sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,548 (bruto 0,605)."
+        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,412 (bruto 0,455)."
+      ],
+      "PAN": [
+        "Panamá importa USD 1 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 15,3 % anual (CAGR).",
+        "Colombia ya tiene 0,4 % del mercado y gana 0,4 pp de cuota en la ventana.",
+        "Panamá absorbe el 0,1 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Panamá.",
+        "Azúcar de caña (HS 1701) paga en Panamá un arancel efectivamente aplicado de 84,0 %.",
+        "Estabilidad macro de Panamá 0,94: el filtro deja el score en 0,274 (bruto 0,283)."
+      ],
+      "PER": [
+        "Perú importa USD 197 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
+        "La demanda crece al 4,8 % anual (CAGR).",
+        "Colombia ya tiene 17,4 % del mercado y gana 1,7 pp de cuota en la ventana.",
+        "Perú absorbe el 6,7 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Perú.",
+        "Azúcar de caña (HS 1701) entra a Perú sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Perú 0,91: el filtro deja el score en 0,446 (bruto 0,467)."
       ],
       "POL": [
         "Polonia importa USD 112 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
         "La demanda se contrae al 37,1 % anual (CAGR).",
         "Colombia ya tiene 2,3 % del mercado y gana 2,0 pp de cuota en la ventana.",
+        "Polonia absorbe el 0,2 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,36 (escala 0–1) con la demanda importadora de Polonia.",
         "Azúcar de caña (HS 1701) entra a Polonia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,276 (bruto 0,300)."
+        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,247 (bruto 0,269)."
       ],
       "PRT": [
         "Portugal importa USD 255 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -304,7 +475,7 @@
         "Colombia ya tiene 0,3 % del mercado y gana 0,2 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,39 (escala 0–1) con la demanda importadora de Portugal.",
         "Azúcar de caña (HS 1701) entra a Portugal sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,366 (bruto 0,379)."
+        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,339 (bruto 0,351)."
       ],
       "SWE": [
         "Suecia importa USD 68 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -312,43 +483,44 @@
         "Colombia no registra ventas de Azúcar de caña (HS 1701) en Suecia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Suecia.",
         "Azúcar de caña (HS 1701) entra a Suecia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,339 (bruto 0,377)."
+        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,293 (bruto 0,326)."
       ],
       "USA": [
         "Estados Unidos importa USD 2.354 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
         "La demanda se contrae al 11,6 % anual (CAGR).",
         "Colombia ya tiene 7,3 % del mercado y gana 1,2 pp de cuota en la ventana.",
+        "Estados Unidos absorbe el 28,8 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,33 (escala 0–1) con la demanda importadora de Estados Unidos.",
         "Azúcar de caña (HS 1701) paga en Estados Unidos un arancel efectivamente aplicado de 0,2 %.",
-        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,584 (bruto 0,706)."
+        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,440 (bruto 0,532)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.584,
-        "iso3": "USA",
-        "name": "Estados Unidos",
+        "final_score": 0.512,
+        "iso3": "ECU",
+        "name": "Ecuador",
         "reasons": [
-          "1.º destino por tamaño de mercado (USD 2.354 M/año)",
-          "1.º destino por cuota ya ganada (cuota de 7,3 %)"
+          "1.º destino por complementariedad de canastas (índice 0,51 (escala 0–1))",
+          "1.º destino por cuota ya ganada (cuota de 56,2 %)"
         ]
       },
       {
-        "final_score": 0.548,
-        "iso3": "NLD",
-        "name": "Países Bajos",
+        "final_score": 0.483,
+        "iso3": "KOR",
+        "name": "Corea del Sur",
         "reasons": [
-          "3.º destino por complementariedad de canastas (índice 0,46 (escala 0–1))",
-          "6.º destino por crecimiento de la demanda (-4,7 % anual)"
+          "2.º destino por complementariedad de canastas (índice 0,49 (escala 0–1))",
+          "4.º destino por tamaño de mercado (USD 919 M/año)"
         ]
       },
       {
-        "final_score": 0.511,
-        "iso3": "ESP",
-        "name": "España",
+        "final_score": 0.466,
+        "iso3": "ITA",
+        "name": "Italia",
         "reasons": [
-          "7.º destino por complementariedad de canastas (índice 0,42 (escala 0–1))",
-          "3.º destino por tamaño de mercado (USD 973 M/año)"
+          "2.º destino por tamaño de mercado (USD 1.280 M/año)",
+          "9.º destino por complementariedad de canastas (índice 0,43 (escala 0–1))"
         ]
       }
     ]

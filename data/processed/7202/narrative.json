@@ -7,7 +7,7 @@
         "Colombia records no sales of Ferro-alloys — ferronickel (HS 7202) in Australia (0 % share).",
         "The export basket of Colombia fits the import demand of Australia at 0.40 (0–1 scale).",
         "Ferro-alloys — ferronickel (HS 7202) enters Australia duty-free (0 % effectively applied).",
-        "Macro stability of Australia at 0.77: the filter leaves the score at 0.384 (raw 0.434)."
+        "Macro stability of Australia at 0.77: the filter leaves the score at 0.370 (raw 0.418)."
       ],
       "AUT": [
         "Austria imports USD 366 M a year of Ferro-alloys — ferronickel (HS 7202) (average of the last 3 years).",
@@ -15,7 +15,7 @@
         "Colombia already holds 0.1 % of the market and loses 0.0 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Austria at 0.37 (0–1 scale).",
         "Ferro-alloys — ferronickel (HS 7202) enters Austria duty-free (0 % effectively applied).",
-        "Macro stability of Austria at 0.71: the filter leaves the score at 0.218 (raw 0.255)."
+        "Macro stability of Austria at 0.71: the filter leaves the score at 0.313 (raw 0.365)."
       ],
       "BEL": [
         "Belgium imports USD 584 M a year of Ferro-alloys — ferronickel (HS 7202) (average of the last 3 years).",
@@ -23,7 +23,16 @@
         "Colombia records no sales of Ferro-alloys — ferronickel (HS 7202) in Belgium (0 % share).",
         "The export basket of Colombia fits the import demand of Belgium at 0.45 (0–1 scale).",
         "Ferro-alloys — ferronickel (HS 7202) enters Belgium duty-free (0 % effectively applied).",
-        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.424 (raw 0.470)."
+        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.444 (raw 0.493)."
+      ],
+      "BRA": [
+        "Brazil imports USD 209 M a year of Ferro-alloys — ferronickel (HS 7202) (average of the last 3 years).",
+        "Demand shrinks at 1.2 % per year (CAGR).",
+        "Colombia records no sales of Ferro-alloys — ferronickel (HS 7202) in Brazil (0 % share).",
+        "Brazil absorbs 0.1 % of Colombia's exports of Ferro-alloys — ferronickel (HS 7202).",
+        "The export basket of Colombia fits the import demand of Brazil at 0.37 (0–1 scale).",
+        "Ferro-alloys — ferronickel (HS 7202) enters Brazil duty-free (0 % effectively applied).",
+        "Macro stability of Brazil at 0.77: the filter leaves the score at 0.348 (raw 0.393)."
       ],
       "CAN": [
         "Canada imports USD 347 M a year of Ferro-alloys — ferronickel (HS 7202) (average of the last 3 years).",
@@ -31,7 +40,7 @@
         "Colombia records no sales of Ferro-alloys — ferronickel (HS 7202) in Canada (0 % share).",
         "The export basket of Colombia fits the import demand of Canada at 0.37 (0–1 scale).",
         "Ferro-alloys — ferronickel (HS 7202) enters Canada duty-free (0 % effectively applied).",
-        "Macro stability of Canada at 0.86: the filter leaves the score at 0.343 (raw 0.369)."
+        "Macro stability of Canada at 0.86: the filter leaves the score at 0.369 (raw 0.397)."
       ],
       "CHE": [
         "Switzerland imports USD 32 M a year of Ferro-alloys — ferronickel (HS 7202) (average of the last 3 years).",
@@ -39,7 +48,23 @@
         "Colombia records no sales of Ferro-alloys — ferronickel (HS 7202) in Switzerland (0 % share).",
         "The export basket of Colombia fits the import demand of Switzerland at 0.32 (0–1 scale).",
         "Ferro-alloys — ferronickel (HS 7202) enters Switzerland duty-free (0 % effectively applied).",
-        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.253 (raw 0.269)."
+        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.292 (raw 0.311)."
+      ],
+      "CHL": [
+        "Chile imports USD 33 M a year of Ferro-alloys — ferronickel (HS 7202) (average of the last 3 years).",
+        "Demand shrinks at 37.6 % per year (CAGR).",
+        "Colombia records no sales of Ferro-alloys — ferronickel (HS 7202) in Chile (0 % share).",
+        "The export basket of Colombia fits the import demand of Chile at 0.46 (0–1 scale).",
+        "Ferro-alloys — ferronickel (HS 7202) enters Chile duty-free (0 % effectively applied).",
+        "Macro stability of Chile at 0.72: the filter leaves the score at 0.351 (raw 0.408)."
+      ],
+      "CRI": [
+        "Costa Rica imports USD 0 M a year of Ferro-alloys — ferronickel (HS 7202) (average of the last 3 years).",
+        "Demand shrinks at 11.4 % per year (CAGR).",
+        "Colombia records no sales of Ferro-alloys — ferronickel (HS 7202) in Costa Rica (0 % share).",
+        "The export basket of Colombia fits the import demand of Costa Rica at 0.37 (0–1 scale).",
+        "Ferro-alloys — ferronickel (HS 7202) enters Costa Rica duty-free (0 % effectively applied).",
+        "Macro stability of Costa Rica at 0.93: the filter leaves the score at 0.354 (raw 0.366)."
       ],
       "DEU": [
         "Germany imports USD 1,654 M a year of Ferro-alloys — ferronickel (HS 7202) (average of the last 3 years).",
@@ -47,15 +72,33 @@
         "Colombia already holds 0.1 % of the market and gains 0.1 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Germany at 0.37 (0–1 scale).",
         "Ferro-alloys — ferronickel (HS 7202) enters Germany duty-free (0 % effectively applied).",
-        "Macro stability of Germany at 0.74: the filter leaves the score at 0.394 (raw 0.453)."
+        "Macro stability of Germany at 0.74: the filter leaves the score at 0.439 (raw 0.505)."
+      ],
+      "DOM": [
+        "Dominican Republic imports USD 0 M a year of Ferro-alloys — ferronickel (HS 7202) (average of the last 3 years).",
+        "Demand shrinks at 95.2 % per year (CAGR).",
+        "Colombia records no sales of Ferro-alloys — ferronickel (HS 7202) in Dominican Republic (0 % share).",
+        "The export basket of Colombia fits the import demand of Dominican Republic at 0.46 (0–1 scale).",
+        "Ferro-alloys — ferronickel (HS 7202) enters Dominican Republic duty-free (0 % effectively applied).",
+        "Macro stability of Dominican Republic at 0.78: the filter leaves the score at 0.270 (raw 0.304)."
+      ],
+      "ECU": [
+        "Ecuador imports USD 11 M a year of Ferro-alloys — ferronickel (HS 7202) (average of the last 3 years).",
+        "Demand grows at 20.6 % per year (CAGR).",
+        "Colombia already holds 0.2 % of the market and gains 0.1 pp of share over the window.",
+        "Ecuador absorbs 0.0 % of Colombia's exports of Ferro-alloys — ferronickel (HS 7202).",
+        "The export basket of Colombia fits the import demand of Ecuador at 0.51 (0–1 scale).",
+        "Ferro-alloys — ferronickel (HS 7202) enters Ecuador duty-free (0 % effectively applied).",
+        "Macro stability of Ecuador at 0.88: the filter leaves the score at 0.538 (raw 0.572)."
       ],
       "ESP": [
         "Spain imports USD 661 M a year of Ferro-alloys — ferronickel (HS 7202) (average of the last 3 years).",
         "Demand shrinks at 12.7 % per year (CAGR).",
         "Colombia already holds 4.7 % of the market and gains 2.3 pp of share over the window.",
+        "Spain absorbs 3.2 % of Colombia's exports of Ferro-alloys — ferronickel (HS 7202).",
         "The export basket of Colombia fits the import demand of Spain at 0.42 (0–1 scale).",
         "Ferro-alloys — ferronickel (HS 7202) enters Spain duty-free (0 % effectively applied).",
-        "Macro stability of Spain at 0.97: the filter leaves the score at 0.618 (raw 0.628)."
+        "Macro stability of Spain at 0.97: the filter leaves the score at 0.652 (raw 0.662)."
       ],
       "FIN": [
         "Finland imports USD 157 M a year of Ferro-alloys — ferronickel (HS 7202) (average of the last 3 years).",
@@ -63,7 +106,7 @@
         "Colombia records no sales of Ferro-alloys — ferronickel (HS 7202) in Finland (0 % share).",
         "The export basket of Colombia fits the import demand of Finland at 0.40 (0–1 scale).",
         "Ferro-alloys — ferronickel (HS 7202) enters Finland duty-free (0 % effectively applied).",
-        "Macro stability of Finland at 0.76: the filter leaves the score at 0.305 (raw 0.345)."
+        "Macro stability of Finland at 0.76: the filter leaves the score at 0.353 (raw 0.401)."
       ],
       "FRA": [
         "France imports USD 533 M a year of Ferro-alloys — ferronickel (HS 7202) (average of the last 3 years).",
@@ -71,47 +114,77 @@
         "Colombia already holds 1.4 % of the market and gains 0.9 pp of share over the window.",
         "The export basket of Colombia fits the import demand of France at 0.42 (0–1 scale).",
         "Ferro-alloys — ferronickel (HS 7202) enters France duty-free (0 % effectively applied).",
-        "Macro stability of France at 0.83: the filter leaves the score at 0.442 (raw 0.482)."
+        "Macro stability of France at 0.83: the filter leaves the score at 0.473 (raw 0.516)."
       ],
       "GBR": [
         "United Kingdom imports USD 289 M a year of Ferro-alloys — ferronickel (HS 7202) (average of the last 3 years).",
         "Demand shrinks at 14.8 % per year (CAGR).",
         "Colombia already holds 3.7 % of the market and loses 3.9 pp of share over the window.",
+        "United Kingdom absorbs 1.1 % of Colombia's exports of Ferro-alloys — ferronickel (HS 7202).",
         "The export basket of Colombia fits the import demand of United Kingdom at 0.43 (0–1 scale).",
         "Ferro-alloys — ferronickel (HS 7202) enters United Kingdom duty-free (0 % effectively applied).",
-        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.361 (raw 0.453)."
+        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.395 (raw 0.496)."
       ],
       "ITA": [
         "Italy imports USD 1,036 M a year of Ferro-alloys — ferronickel (HS 7202) (average of the last 3 years).",
         "Demand shrinks at 18.6 % per year (CAGR).",
         "Colombia already holds 1.0 % of the market and loses 0.3 pp of share over the window.",
+        "Italy absorbs 3.9 % of Colombia's exports of Ferro-alloys — ferronickel (HS 7202).",
         "The export basket of Colombia fits the import demand of Italy at 0.43 (0–1 scale).",
         "Ferro-alloys — ferronickel (HS 7202) enters Italy duty-free (0 % effectively applied).",
-        "Macro stability of Italy at 0.83: the filter leaves the score at 0.437 (raw 0.478)."
+        "Macro stability of Italy at 0.83: the filter leaves the score at 0.490 (raw 0.535)."
       ],
       "JPN": [
         "Japan imports USD 2,236 M a year of Ferro-alloys — ferronickel (HS 7202) (average of the last 3 years).",
         "Demand shrinks at 9.4 % per year (CAGR).",
         "Colombia already holds 1.0 % of the market and loses 0.4 pp of share over the window.",
+        "Japan absorbs 4.9 % of Colombia's exports of Ferro-alloys — ferronickel (HS 7202).",
         "The export basket of Colombia fits the import demand of Japan at 0.46 (0–1 scale).",
         "Ferro-alloys — ferronickel (HS 7202) faces an effectively applied tariff of 2.8 % in Japan.",
-        "Macro stability of Japan at 0.81: the filter leaves the score at 0.519 (raw 0.574)."
+        "Macro stability of Japan at 0.81: the filter leaves the score at 0.532 (raw 0.588)."
       ],
       "KOR": [
         "South Korea imports USD 1,810 M a year of Ferro-alloys — ferronickel (HS 7202) (average of the last 3 years).",
         "Demand shrinks at 0.2 % per year (CAGR).",
         "Colombia already holds 1.7 % of the market and loses 1.2 pp of share over the window.",
+        "South Korea absorbs 8.8 % of Colombia's exports of Ferro-alloys — ferronickel (HS 7202).",
         "The export basket of Colombia fits the import demand of South Korea at 0.49 (0–1 scale).",
         "Ferro-alloys — ferronickel (HS 7202) enters South Korea duty-free (0 % effectively applied).",
-        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.689 (raw 0.731)."
+        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.664 (raw 0.704)."
+      ],
+      "MEX": [
+        "Mexico imports USD 235 M a year of Ferro-alloys — ferronickel (HS 7202) (average of the last 3 years).",
+        "Demand shrinks at 14.5 % per year (CAGR).",
+        "Colombia records no sales of Ferro-alloys — ferronickel (HS 7202) in Mexico (0 % share).",
+        "The export basket of Colombia fits the import demand of Mexico at 0.32 (0–1 scale).",
+        "Ferro-alloys — ferronickel (HS 7202) enters Mexico duty-free (0 % effectively applied).",
+        "Macro stability of Mexico at 0.80: the filter leaves the score at 0.291 (raw 0.323)."
       ],
       "NLD": [
         "Netherlands imports USD 1,242 M a year of Ferro-alloys — ferronickel (HS 7202) (average of the last 3 years).",
         "Demand shrinks at 12.9 % per year (CAGR).",
         "Colombia already holds 2.5 % of the market and gains 0.8 pp of share over the window.",
+        "Netherlands absorbs 16.6 % of Colombia's exports of Ferro-alloys — ferronickel (HS 7202).",
         "The export basket of Colombia fits the import demand of Netherlands at 0.46 (0–1 scale).",
         "Ferro-alloys — ferronickel (HS 7202) enters Netherlands duty-free (0 % effectively applied).",
-        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.570 (raw 0.629)."
+        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.597 (raw 0.659)."
+      ],
+      "PAN": [
+        "Panama imports USD 0 M a year of Ferro-alloys — ferronickel (HS 7202) (average of the last 3 years).",
+        "Demand shrinks at 6.0 % per year (CAGR).",
+        "Colombia records no sales of Ferro-alloys — ferronickel (HS 7202) in Panama (0 % share).",
+        "The export basket of Colombia fits the import demand of Panama at 0.45 (0–1 scale).",
+        "Ferro-alloys — ferronickel (HS 7202) enters Panama duty-free (0 % effectively applied).",
+        "Macro stability of Panama at 0.94: the filter leaves the score at 0.439 (raw 0.453)."
+      ],
+      "PER": [
+        "Peru imports USD 36 M a year of Ferro-alloys — ferronickel (HS 7202) (average of the last 3 years).",
+        "Demand grows at 6.8 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
+        "Peru absorbs 0.0 % of Colombia's exports of Ferro-alloys — ferronickel (HS 7202).",
+        "The export basket of Colombia fits the import demand of Peru at 0.43 (0–1 scale).",
+        "Ferro-alloys — ferronickel (HS 7202) enters Peru duty-free (0 % effectively applied).",
+        "Macro stability of Peru at 0.91: the filter leaves the score at 0.438 (raw 0.458)."
       ],
       "POL": [
         "Poland imports USD 357 M a year of Ferro-alloys — ferronickel (HS 7202) (average of the last 3 years).",
@@ -119,7 +192,7 @@
         "Colombia records no sales of Ferro-alloys — ferronickel (HS 7202) in Poland (0 % share).",
         "The export basket of Colombia fits the import demand of Poland at 0.36 (0–1 scale).",
         "Ferro-alloys — ferronickel (HS 7202) enters Poland duty-free (0 % effectively applied).",
-        "Macro stability of Poland at 0.84: the filter leaves the score at 0.281 (raw 0.305)."
+        "Macro stability of Poland at 0.84: the filter leaves the score at 0.344 (raw 0.374)."
       ],
       "PRT": [
         "Portugal imports USD 38 M a year of Ferro-alloys — ferronickel (HS 7202) (average of the last 3 years).",
@@ -127,51 +200,53 @@
         "Colombia records no sales of Ferro-alloys — ferronickel (HS 7202) in Portugal (0 % share).",
         "The export basket of Colombia fits the import demand of Portugal at 0.39 (0–1 scale).",
         "Ferro-alloys — ferronickel (HS 7202) enters Portugal duty-free (0 % effectively applied).",
-        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.436 (raw 0.451)."
+        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.403 (raw 0.417)."
       ],
       "SWE": [
         "Sweden imports USD 516 M a year of Ferro-alloys — ferronickel (HS 7202) (average of the last 3 years).",
         "Demand shrinks at 5.9 % per year (CAGR).",
         "Colombia already holds 2.0 % of the market and gains 2.0 pp of share over the window.",
+        "Sweden absorbs 2.2 % of Colombia's exports of Ferro-alloys — ferronickel (HS 7202).",
         "The export basket of Colombia fits the import demand of Sweden at 0.37 (0–1 scale).",
         "Ferro-alloys — ferronickel (HS 7202) enters Sweden duty-free (0 % effectively applied).",
-        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.445 (raw 0.494)."
+        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.457 (raw 0.508)."
       ],
       "USA": [
         "United States imports USD 2,781 M a year of Ferro-alloys — ferronickel (HS 7202) (average of the last 3 years).",
         "Demand shrinks at 7.7 % per year (CAGR).",
         "Colombia already holds 0.4 % of the market and gains 0.1 pp of share over the window.",
+        "United States absorbs 3.8 % of Colombia's exports of Ferro-alloys — ferronickel (HS 7202).",
         "The export basket of Colombia fits the import demand of United States at 0.33 (0–1 scale).",
         "Ferro-alloys — ferronickel (HS 7202) enters United States duty-free (0 % effectively applied).",
-        "Macro stability of United States at 0.65: the filter leaves the score at 0.469 (raw 0.567)."
+        "Macro stability of United States at 0.65: the filter leaves the score at 0.487 (raw 0.589)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.689,
+        "final_score": 0.664,
         "iso3": "KOR",
         "name": "South Korea",
         "reasons": [
-          "destination #1 by basket complementarity (index 0.49 (0–1 scale))",
-          "destination #3 by demand growth (-0.2 % per year)"
+          "destination #2 by basket complementarity (index 0.49 (0–1 scale))",
+          "destination #5 by demand growth (-0.2 % per year)"
         ]
       },
       {
-        "final_score": 0.618,
+        "final_score": 0.652,
         "iso3": "ESP",
         "name": "Spain",
         "reasons": [
           "destination #1 by share already won (share of 4.7 %)",
-          "destination #7 by basket complementarity (index 0.42 (0–1 scale))"
+          "destination #16 by demand growth (-12.7 % per year)"
         ]
       },
       {
-        "final_score": 0.57,
+        "final_score": 0.597,
         "iso3": "NLD",
         "name": "Netherlands",
         "reasons": [
-          "destination #3 by basket complementarity (index 0.46 (0–1 scale))",
-          "destination #5 by market size (USD 1,242 M/year)"
+          "destination #4 by basket complementarity (index 0.46 (0–1 scale))",
+          "destination #17 by demand growth (-12.9 % per year)"
         ]
       }
     ]
@@ -184,7 +259,7 @@
         "Colombia no registra ventas de Ferroaleaciones — ferroníquel (HS 7202) en Australia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Australia.",
         "Ferroaleaciones — ferroníquel (HS 7202) entra a Australia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,384 (bruto 0,434)."
+        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,370 (bruto 0,418)."
       ],
       "AUT": [
         "Austria importa USD 366 M al año de Ferroaleaciones — ferroníquel (HS 7202) (promedio de los últimos 3 años).",
@@ -192,7 +267,7 @@
         "Colombia ya tiene 0,1 % del mercado y pierde 0,0 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Austria.",
         "Ferroaleaciones — ferroníquel (HS 7202) entra a Austria sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,218 (bruto 0,255)."
+        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,313 (bruto 0,365)."
       ],
       "BEL": [
         "Bélgica importa USD 584 M al año de Ferroaleaciones — ferroníquel (HS 7202) (promedio de los últimos 3 años).",
@@ -200,7 +275,16 @@
         "Colombia no registra ventas de Ferroaleaciones — ferroníquel (HS 7202) en Bélgica (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Bélgica.",
         "Ferroaleaciones — ferroníquel (HS 7202) entra a Bélgica sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,424 (bruto 0,470)."
+        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,444 (bruto 0,493)."
+      ],
+      "BRA": [
+        "Brasil importa USD 209 M al año de Ferroaleaciones — ferroníquel (HS 7202) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 1,2 % anual (CAGR).",
+        "Colombia no registra ventas de Ferroaleaciones — ferroníquel (HS 7202) en Brasil (cuota 0 %).",
+        "Brasil absorbe el 0,1 % de las exportaciones de Ferroaleaciones — ferroníquel (HS 7202) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Brasil.",
+        "Ferroaleaciones — ferroníquel (HS 7202) entra a Brasil sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Brasil 0,77: el filtro deja el score en 0,348 (bruto 0,393)."
       ],
       "CAN": [
         "Canadá importa USD 347 M al año de Ferroaleaciones — ferroníquel (HS 7202) (promedio de los últimos 3 años).",
@@ -208,7 +292,7 @@
         "Colombia no registra ventas de Ferroaleaciones — ferroníquel (HS 7202) en Canadá (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Canadá.",
         "Ferroaleaciones — ferroníquel (HS 7202) entra a Canadá sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,343 (bruto 0,369)."
+        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,369 (bruto 0,397)."
       ],
       "CHE": [
         "Suiza importa USD 32 M al año de Ferroaleaciones — ferroníquel (HS 7202) (promedio de los últimos 3 años).",
@@ -216,7 +300,23 @@
         "Colombia no registra ventas de Ferroaleaciones — ferroníquel (HS 7202) en Suiza (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de Suiza.",
         "Ferroaleaciones — ferroníquel (HS 7202) entra a Suiza sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,253 (bruto 0,269)."
+        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,292 (bruto 0,311)."
+      ],
+      "CHL": [
+        "Chile importa USD 33 M al año de Ferroaleaciones — ferroníquel (HS 7202) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 37,6 % anual (CAGR).",
+        "Colombia no registra ventas de Ferroaleaciones — ferroníquel (HS 7202) en Chile (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Chile.",
+        "Ferroaleaciones — ferroníquel (HS 7202) entra a Chile sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Chile 0,72: el filtro deja el score en 0,351 (bruto 0,408)."
+      ],
+      "CRI": [
+        "Costa Rica importa USD 0 M al año de Ferroaleaciones — ferroníquel (HS 7202) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 11,4 % anual (CAGR).",
+        "Colombia no registra ventas de Ferroaleaciones — ferroníquel (HS 7202) en Costa Rica (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Costa Rica.",
+        "Ferroaleaciones — ferroníquel (HS 7202) entra a Costa Rica sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Costa Rica 0,93: el filtro deja el score en 0,354 (bruto 0,366)."
       ],
       "DEU": [
         "Alemania importa USD 1.654 M al año de Ferroaleaciones — ferroníquel (HS 7202) (promedio de los últimos 3 años).",
@@ -224,15 +324,33 @@
         "Colombia ya tiene 0,1 % del mercado y gana 0,1 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Alemania.",
         "Ferroaleaciones — ferroníquel (HS 7202) entra a Alemania sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,394 (bruto 0,453)."
+        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,439 (bruto 0,505)."
+      ],
+      "DOM": [
+        "República Dominicana importa USD 0 M al año de Ferroaleaciones — ferroníquel (HS 7202) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 95,2 % anual (CAGR).",
+        "Colombia no registra ventas de Ferroaleaciones — ferroníquel (HS 7202) en República Dominicana (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de República Dominicana.",
+        "Ferroaleaciones — ferroníquel (HS 7202) entra a República Dominicana sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de República Dominicana 0,78: el filtro deja el score en 0,270 (bruto 0,304)."
+      ],
+      "ECU": [
+        "Ecuador importa USD 11 M al año de Ferroaleaciones — ferroníquel (HS 7202) (promedio de los últimos 3 años).",
+        "La demanda crece al 20,6 % anual (CAGR).",
+        "Colombia ya tiene 0,2 % del mercado y gana 0,1 pp de cuota en la ventana.",
+        "Ecuador absorbe el 0,0 % de las exportaciones de Ferroaleaciones — ferroníquel (HS 7202) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,51 (escala 0–1) con la demanda importadora de Ecuador.",
+        "Ferroaleaciones — ferroníquel (HS 7202) entra a Ecuador sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Ecuador 0,88: el filtro deja el score en 0,538 (bruto 0,572)."
       ],
       "ESP": [
         "España importa USD 661 M al año de Ferroaleaciones — ferroníquel (HS 7202) (promedio de los últimos 3 años).",
         "La demanda se contrae al 12,7 % anual (CAGR).",
         "Colombia ya tiene 4,7 % del mercado y gana 2,3 pp de cuota en la ventana.",
+        "España absorbe el 3,2 % de las exportaciones de Ferroaleaciones — ferroníquel (HS 7202) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de España.",
         "Ferroaleaciones — ferroníquel (HS 7202) entra a España sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de España 0,97: el filtro deja el score en 0,618 (bruto 0,628)."
+        "Estabilidad macro de España 0,97: el filtro deja el score en 0,652 (bruto 0,662)."
       ],
       "FIN": [
         "Finlandia importa USD 157 M al año de Ferroaleaciones — ferroníquel (HS 7202) (promedio de los últimos 3 años).",
@@ -240,7 +358,7 @@
         "Colombia no registra ventas de Ferroaleaciones — ferroníquel (HS 7202) en Finlandia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Finlandia.",
         "Ferroaleaciones — ferroníquel (HS 7202) entra a Finlandia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,305 (bruto 0,345)."
+        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,353 (bruto 0,401)."
       ],
       "FRA": [
         "Francia importa USD 533 M al año de Ferroaleaciones — ferroníquel (HS 7202) (promedio de los últimos 3 años).",
@@ -248,47 +366,77 @@
         "Colombia ya tiene 1,4 % del mercado y gana 0,9 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de Francia.",
         "Ferroaleaciones — ferroníquel (HS 7202) entra a Francia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,442 (bruto 0,482)."
+        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,473 (bruto 0,516)."
       ],
       "GBR": [
         "Reino Unido importa USD 289 M al año de Ferroaleaciones — ferroníquel (HS 7202) (promedio de los últimos 3 años).",
         "La demanda se contrae al 14,8 % anual (CAGR).",
         "Colombia ya tiene 3,7 % del mercado y pierde 3,9 pp de cuota en la ventana.",
+        "Reino Unido absorbe el 1,1 % de las exportaciones de Ferroaleaciones — ferroníquel (HS 7202) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Reino Unido.",
         "Ferroaleaciones — ferroníquel (HS 7202) entra a Reino Unido sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,361 (bruto 0,453)."
+        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,395 (bruto 0,496)."
       ],
       "ITA": [
         "Italia importa USD 1.036 M al año de Ferroaleaciones — ferroníquel (HS 7202) (promedio de los últimos 3 años).",
         "La demanda se contrae al 18,6 % anual (CAGR).",
         "Colombia ya tiene 1,0 % del mercado y pierde 0,3 pp de cuota en la ventana.",
+        "Italia absorbe el 3,9 % de las exportaciones de Ferroaleaciones — ferroníquel (HS 7202) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Italia.",
         "Ferroaleaciones — ferroníquel (HS 7202) entra a Italia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,437 (bruto 0,478)."
+        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,490 (bruto 0,535)."
       ],
       "JPN": [
         "Japón importa USD 2.236 M al año de Ferroaleaciones — ferroníquel (HS 7202) (promedio de los últimos 3 años).",
         "La demanda se contrae al 9,4 % anual (CAGR).",
         "Colombia ya tiene 1,0 % del mercado y pierde 0,4 pp de cuota en la ventana.",
+        "Japón absorbe el 4,9 % de las exportaciones de Ferroaleaciones — ferroníquel (HS 7202) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Japón.",
         "Ferroaleaciones — ferroníquel (HS 7202) paga en Japón un arancel efectivamente aplicado de 2,8 %.",
-        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,519 (bruto 0,574)."
+        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,532 (bruto 0,588)."
       ],
       "KOR": [
         "Corea del Sur importa USD 1.810 M al año de Ferroaleaciones — ferroníquel (HS 7202) (promedio de los últimos 3 años).",
         "La demanda se contrae al 0,2 % anual (CAGR).",
         "Colombia ya tiene 1,7 % del mercado y pierde 1,2 pp de cuota en la ventana.",
+        "Corea del Sur absorbe el 8,8 % de las exportaciones de Ferroaleaciones — ferroníquel (HS 7202) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,49 (escala 0–1) con la demanda importadora de Corea del Sur.",
         "Ferroaleaciones — ferroníquel (HS 7202) entra a Corea del Sur sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,689 (bruto 0,731)."
+        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,664 (bruto 0,704)."
+      ],
+      "MEX": [
+        "México importa USD 235 M al año de Ferroaleaciones — ferroníquel (HS 7202) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 14,5 % anual (CAGR).",
+        "Colombia no registra ventas de Ferroaleaciones — ferroníquel (HS 7202) en México (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de México.",
+        "Ferroaleaciones — ferroníquel (HS 7202) entra a México sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de México 0,80: el filtro deja el score en 0,291 (bruto 0,323)."
       ],
       "NLD": [
         "Países Bajos importa USD 1.242 M al año de Ferroaleaciones — ferroníquel (HS 7202) (promedio de los últimos 3 años).",
         "La demanda se contrae al 12,9 % anual (CAGR).",
         "Colombia ya tiene 2,5 % del mercado y gana 0,8 pp de cuota en la ventana.",
+        "Países Bajos absorbe el 16,6 % de las exportaciones de Ferroaleaciones — ferroníquel (HS 7202) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Países Bajos.",
         "Ferroaleaciones — ferroníquel (HS 7202) entra a Países Bajos sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,570 (bruto 0,629)."
+        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,597 (bruto 0,659)."
+      ],
+      "PAN": [
+        "Panamá importa USD 0 M al año de Ferroaleaciones — ferroníquel (HS 7202) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 6,0 % anual (CAGR).",
+        "Colombia no registra ventas de Ferroaleaciones — ferroníquel (HS 7202) en Panamá (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Panamá.",
+        "Ferroaleaciones — ferroníquel (HS 7202) entra a Panamá sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Panamá 0,94: el filtro deja el score en 0,439 (bruto 0,453)."
+      ],
+      "PER": [
+        "Perú importa USD 36 M al año de Ferroaleaciones — ferroníquel (HS 7202) (promedio de los últimos 3 años).",
+        "La demanda crece al 6,8 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "Perú absorbe el 0,0 % de las exportaciones de Ferroaleaciones — ferroníquel (HS 7202) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Perú.",
+        "Ferroaleaciones — ferroníquel (HS 7202) entra a Perú sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Perú 0,91: el filtro deja el score en 0,438 (bruto 0,458)."
       ],
       "POL": [
         "Polonia importa USD 357 M al año de Ferroaleaciones — ferroníquel (HS 7202) (promedio de los últimos 3 años).",
@@ -296,7 +444,7 @@
         "Colombia no registra ventas de Ferroaleaciones — ferroníquel (HS 7202) en Polonia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,36 (escala 0–1) con la demanda importadora de Polonia.",
         "Ferroaleaciones — ferroníquel (HS 7202) entra a Polonia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,281 (bruto 0,305)."
+        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,344 (bruto 0,374)."
       ],
       "PRT": [
         "Portugal importa USD 38 M al año de Ferroaleaciones — ferroníquel (HS 7202) (promedio de los últimos 3 años).",
@@ -304,51 +452,53 @@
         "Colombia no registra ventas de Ferroaleaciones — ferroníquel (HS 7202) en Portugal (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,39 (escala 0–1) con la demanda importadora de Portugal.",
         "Ferroaleaciones — ferroníquel (HS 7202) entra a Portugal sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,436 (bruto 0,451)."
+        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,403 (bruto 0,417)."
       ],
       "SWE": [
         "Suecia importa USD 516 M al año de Ferroaleaciones — ferroníquel (HS 7202) (promedio de los últimos 3 años).",
         "La demanda se contrae al 5,9 % anual (CAGR).",
         "Colombia ya tiene 2,0 % del mercado y gana 2,0 pp de cuota en la ventana.",
+        "Suecia absorbe el 2,2 % de las exportaciones de Ferroaleaciones — ferroníquel (HS 7202) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Suecia.",
         "Ferroaleaciones — ferroníquel (HS 7202) entra a Suecia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,445 (bruto 0,494)."
+        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,457 (bruto 0,508)."
       ],
       "USA": [
         "Estados Unidos importa USD 2.781 M al año de Ferroaleaciones — ferroníquel (HS 7202) (promedio de los últimos 3 años).",
         "La demanda se contrae al 7,7 % anual (CAGR).",
         "Colombia ya tiene 0,4 % del mercado y gana 0,1 pp de cuota en la ventana.",
+        "Estados Unidos absorbe el 3,8 % de las exportaciones de Ferroaleaciones — ferroníquel (HS 7202) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,33 (escala 0–1) con la demanda importadora de Estados Unidos.",
         "Ferroaleaciones — ferroníquel (HS 7202) entra a Estados Unidos sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,469 (bruto 0,567)."
+        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,487 (bruto 0,589)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.689,
+        "final_score": 0.664,
         "iso3": "KOR",
         "name": "Corea del Sur",
         "reasons": [
-          "1.º destino por complementariedad de canastas (índice 0,49 (escala 0–1))",
-          "3.º destino por crecimiento de la demanda (-0,2 % anual)"
+          "2.º destino por complementariedad de canastas (índice 0,49 (escala 0–1))",
+          "5.º destino por crecimiento de la demanda (-0,2 % anual)"
         ]
       },
       {
-        "final_score": 0.618,
+        "final_score": 0.652,
         "iso3": "ESP",
         "name": "España",
         "reasons": [
           "1.º destino por cuota ya ganada (cuota de 4,7 %)",
-          "7.º destino por complementariedad de canastas (índice 0,42 (escala 0–1))"
+          "16.º destino por crecimiento de la demanda (-12,7 % anual)"
         ]
       },
       {
-        "final_score": 0.57,
+        "final_score": 0.597,
         "iso3": "NLD",
         "name": "Países Bajos",
         "reasons": [
-          "3.º destino por complementariedad de canastas (índice 0,46 (escala 0–1))",
-          "5.º destino por tamaño de mercado (USD 1.242 M/año)"
+          "4.º destino por complementariedad de canastas (índice 0,46 (escala 0–1))",
+          "17.º destino por crecimiento de la demanda (-12,9 % anual)"
         ]
       }
     ]

@@ -7,7 +7,7 @@
         "Colombia records no sales of Avocados, pineapples and mangoes (HS 0804) in Australia (0 % share).",
         "The export basket of Colombia fits the import demand of Australia at 0.40 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Australia duty-free (0 % effectively applied).",
-        "Macro stability of Australia at 0.77: the filter leaves the score at 0.338 (raw 0.382)."
+        "Macro stability of Australia at 0.77: the filter leaves the score at 0.175 (raw 0.198)."
       ],
       "AUT": [
         "Austria imports USD 145 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -15,47 +15,95 @@
         "Colombia already holds 0.8 % of the market and loses 0.5 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Austria at 0.37 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Austria duty-free (0 % effectively applied).",
-        "Macro stability of Austria at 0.71: the filter leaves the score at 0.285 (raw 0.333)."
+        "Macro stability of Austria at 0.71: the filter leaves the score at 0.145 (raw 0.170)."
       ],
       "BEL": [
         "Belgium imports USD 193 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
         "Demand grows at 13.4 % per year (CAGR).",
         "Colombia already holds 1.3 % of the market and loses 1.2 pp of share over the window.",
+        "Belgium absorbs 6.3 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of Belgium at 0.45 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Belgium duty-free (0 % effectively applied).",
-        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.363 (raw 0.403)."
+        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.234 (raw 0.260)."
+      ],
+      "BRA": [
+        "Brazil imports USD 11 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
+        "Demand grows at 10.0 % per year (CAGR).",
+        "Colombia records no sales of Avocados, pineapples and mangoes (HS 0804) in Brazil (0 % share).",
+        "Brazil absorbs 0.0 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
+        "The export basket of Colombia fits the import demand of Brazil at 0.37 (0–1 scale).",
+        "Avocados, pineapples and mangoes (HS 0804) enters Brazil duty-free (0 % effectively applied).",
+        "Macro stability of Brazil at 0.77: the filter leaves the score at 0.139 (raw 0.157)."
       ],
       "CAN": [
         "Canada imports USD 707 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
         "Demand grows at 12.2 % per year (CAGR).",
         "Colombia already holds 2.6 % of the market and gains 1.1 pp of share over the window.",
+        "Canada absorbs 2.3 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of Canada at 0.37 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Canada duty-free (0 % effectively applied).",
-        "Macro stability of Canada at 0.86: the filter leaves the score at 0.353 (raw 0.380)."
+        "Macro stability of Canada at 0.86: the filter leaves the score at 0.188 (raw 0.203)."
       ],
       "CHE": [
         "Switzerland imports USD 213 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
         "Demand grows at 13.2 % per year (CAGR).",
         "Colombia already holds 1.3 % of the market and loses 0.9 pp of share over the window.",
+        "Switzerland absorbs 0.1 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of Switzerland at 0.32 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Switzerland duty-free (0 % effectively applied).",
-        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.235 (raw 0.251)."
+        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.113 (raw 0.120)."
+      ],
+      "CHL": [
+        "Chile imports USD 127 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
+        "Demand shrinks at 0.8 % per year (CAGR).",
+        "Colombia already holds 0.5 % of the market and gains 0.1 pp of share over the window.",
+        "Chile absorbs 0.1 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
+        "The export basket of Colombia fits the import demand of Chile at 0.46 (0–1 scale).",
+        "Avocados, pineapples and mangoes (HS 0804) enters Chile duty-free (0 % effectively applied).",
+        "Macro stability of Chile at 0.72: the filter leaves the score at 0.218 (raw 0.252)."
+      ],
+      "CRI": [
+        "Costa Rica imports USD 35 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
+        "Demand grows at 32.1 % per year (CAGR).",
+        "Colombia already holds 1.1 % of the market and gains 0.3 pp of share over the window.",
+        "Costa Rica absorbs 0.2 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
+        "The export basket of Colombia fits the import demand of Costa Rica at 0.37 (0–1 scale).",
+        "Avocados, pineapples and mangoes (HS 0804) faces an effectively applied tariff of 1.2 % in Costa Rica.",
+        "Macro stability of Costa Rica at 0.93: the filter leaves the score at 0.169 (raw 0.175)."
       ],
       "DEU": [
         "Germany imports USD 1,197 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
         "Demand grows at 11.5 % per year (CAGR).",
         "Colombia already holds 3.4 % of the market and loses 1.3 pp of share over the window.",
+        "Germany absorbs 2.4 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of Germany at 0.37 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Germany duty-free (0 % effectively applied).",
-        "Macro stability of Germany at 0.74: the filter leaves the score at 0.311 (raw 0.358)."
+        "Macro stability of Germany at 0.74: the filter leaves the score at 0.190 (raw 0.219)."
+      ],
+      "DOM": [
+        "Dominican Republic imports USD 1 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
+        "Demand grows at 6.7 % per year (CAGR).",
+        "Colombia records no sales of Avocados, pineapples and mangoes (HS 0804) in Dominican Republic (0 % share).",
+        "The export basket of Colombia fits the import demand of Dominican Republic at 0.46 (0–1 scale).",
+        "Avocados, pineapples and mangoes (HS 0804) faces an effectively applied tariff of 20.0 % in Dominican Republic.",
+        "Macro stability of Dominican Republic at 0.78: the filter leaves the score at 0.149 (raw 0.168)."
+      ],
+      "ECU": [
+        "Ecuador imports USD 0 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
+        "Demand grows at 20.4 % per year (CAGR).",
+        "Colombia records no sales of Avocados, pineapples and mangoes (HS 0804) in Ecuador (0 % share).",
+        "The export basket of Colombia fits the import demand of Ecuador at 0.51 (0–1 scale).",
+        "Avocados, pineapples and mangoes (HS 0804) faces an effectively applied tariff of 25.0 % in Ecuador.",
+        "Macro stability of Ecuador at 0.88: the filter leaves the score at 0.199 (raw 0.212)."
       ],
       "ESP": [
         "Spain imports USD 1,063 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
         "Demand grows at 13.9 % per year (CAGR).",
         "Colombia already holds 3.3 % of the market and loses 0.6 pp of share over the window.",
+        "Spain absorbs 6.8 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of Spain at 0.42 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Spain duty-free (0 % effectively applied).",
-        "Macro stability of Spain at 0.97: the filter leaves the score at 0.441 (raw 0.448)."
+        "Macro stability of Spain at 0.97: the filter leaves the score at 0.269 (raw 0.273)."
       ],
       "FIN": [
         "Finland imports USD 49 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -63,31 +111,34 @@
         "Colombia already holds 4.1 % of the market and gains 3.3 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Finland at 0.40 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Finland duty-free (0 % effectively applied).",
-        "Macro stability of Finland at 0.76: the filter leaves the score at 0.489 (raw 0.555)."
+        "Macro stability of Finland at 0.76: the filter leaves the score at 0.194 (raw 0.220)."
       ],
       "FRA": [
         "France imports USD 1,104 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
         "Demand grows at 13.0 % per year (CAGR).",
         "Colombia already holds 2.3 % of the market and loses 0.5 pp of share over the window.",
+        "France absorbs 2.3 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of France at 0.42 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters France duty-free (0 % effectively applied).",
-        "Macro stability of France at 0.83: the filter leaves the score at 0.387 (raw 0.422)."
+        "Macro stability of France at 0.83: the filter leaves the score at 0.243 (raw 0.265)."
       ],
       "GBR": [
         "United Kingdom imports USD 859 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
         "Demand grows at 19.3 % per year (CAGR).",
         "Colombia already holds 3.4 % of the market and loses 0.7 pp of share over the window.",
+        "United Kingdom absorbs 7.4 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of United Kingdom at 0.43 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters United Kingdom duty-free (0 % effectively applied).",
-        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.388 (raw 0.487)."
+        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.215 (raw 0.270)."
       ],
       "ITA": [
         "Italy imports USD 428 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
         "Demand grows at 15.5 % per year (CAGR).",
         "Colombia already holds 0.4 % of the market and loses 0.1 pp of share over the window.",
+        "Italy absorbs 0.7 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of Italy at 0.43 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Italy duty-free (0 % effectively applied).",
-        "Macro stability of Italy at 0.83: the filter leaves the score at 0.378 (raw 0.412)."
+        "Macro stability of Italy at 0.83: the filter leaves the score at 0.227 (raw 0.248)."
       ],
       "JPN": [
         "Japan imports USD 343 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -95,39 +146,69 @@
         "Colombia records no sales of Avocados, pineapples and mangoes (HS 0804) in Japan (0 % share).",
         "The export basket of Colombia fits the import demand of Japan at 0.46 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) faces an effectively applied tariff of 4.8 % in Japan.",
-        "Macro stability of Japan at 0.81: the filter leaves the score at 0.198 (raw 0.218)."
+        "Macro stability of Japan at 0.81: the filter leaves the score at 0.226 (raw 0.250)."
       ],
       "KOR": [
         "South Korea imports USD 256 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
         "Demand grows at 5.2 % per year (CAGR).",
         "Colombia records no sales of Avocados, pineapples and mangoes (HS 0804) in South Korea (0 % share).",
+        "South Korea absorbs 0.0 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of South Korea at 0.49 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) faces an effectively applied tariff of 3.8 % in South Korea.",
-        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.288 (raw 0.305)."
+        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.265 (raw 0.282)."
+      ],
+      "MEX": [
+        "Mexico imports USD 47 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
+        "Demand grows at 88.7 % per year (CAGR).",
+        "Colombia records no sales of Avocados, pineapples and mangoes (HS 0804) in Mexico (0 % share).",
+        "The export basket of Colombia fits the import demand of Mexico at 0.32 (0–1 scale).",
+        "Avocados, pineapples and mangoes (HS 0804) enters Mexico duty-free (0 % effectively applied).",
+        "Macro stability of Mexico at 0.80: the filter leaves the score at 0.128 (raw 0.142)."
       ],
       "NLD": [
         "Netherlands imports USD 1,987 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
         "Demand grows at 14.9 % per year (CAGR).",
         "Colombia already holds 10.9 % of the market and gains 0.1 pp of share over the window.",
+        "Netherlands absorbs 37.4 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of Netherlands at 0.46 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Netherlands duty-free (0 % effectively applied).",
-        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.596 (raw 0.658)."
+        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.337 (raw 0.372)."
+      ],
+      "PAN": [
+        "Panama imports USD 7 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
+        "Demand grows at 26.7 % per year (CAGR).",
+        "Colombia already holds 18.8 % of the market and gains 2.8 pp of share over the window.",
+        "Panama absorbs 0.2 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
+        "The export basket of Colombia fits the import demand of Panama at 0.45 (0–1 scale).",
+        "Avocados, pineapples and mangoes (HS 0804) faces an effectively applied tariff of 14.0 % in Panama.",
+        "Macro stability of Panama at 0.94: the filter leaves the score at 0.238 (raw 0.246)."
+      ],
+      "PER": [
+        "Peru imports USD 0 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
+        "Demand grows at 486.9 % per year (CAGR).",
+        "Colombia already holds 60.5 % of the market and gains 60.5 pp of share over the window.",
+        "Peru absorbs 0.1 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
+        "The export basket of Colombia fits the import demand of Peru at 0.43 (0–1 scale).",
+        "Avocados, pineapples and mangoes (HS 0804) enters Peru duty-free (0 % effectively applied).",
+        "Macro stability of Peru at 0.91: the filter leaves the score at 0.635 (raw 0.664)."
       ],
       "POL": [
         "Poland imports USD 227 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
         "Demand grows at 13.9 % per year (CAGR).",
         "Colombia already holds 6.6 % of the market and loses 2.1 pp of share over the window.",
+        "Poland absorbs 0.0 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of Poland at 0.36 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Poland duty-free (0 % effectively applied).",
-        "Macro stability of Poland at 0.84: the filter leaves the score at 0.332 (raw 0.361)."
+        "Macro stability of Poland at 0.84: the filter leaves the score at 0.165 (raw 0.180)."
       ],
       "PRT": [
         "Portugal imports USD 195 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
         "Demand grows at 14.5 % per year (CAGR).",
         "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
+        "Portugal absorbs 0.1 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of Portugal at 0.39 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Portugal duty-free (0 % effectively applied).",
-        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.335 (raw 0.346)."
+        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.190 (raw 0.197)."
       ],
       "SWE": [
         "Sweden imports USD 109 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
@@ -135,38 +216,39 @@
         "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Sweden at 0.37 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters Sweden duty-free (0 % effectively applied).",
-        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.353 (raw 0.392)."
+        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.152 (raw 0.168)."
       ],
       "USA": [
         "United States imports USD 5,731 M a year of Avocados, pineapples and mangoes (HS 0804) (average of the last 3 years).",
         "Demand grows at 9.6 % per year (CAGR).",
         "Colombia already holds 2.4 % of the market and gains 1.8 pp of share over the window.",
+        "United States absorbs 22.6 % of Colombia's exports of Avocados, pineapples and mangoes (HS 0804).",
         "The export basket of Colombia fits the import demand of United States at 0.33 (0–1 scale).",
         "Avocados, pineapples and mangoes (HS 0804) enters United States duty-free (0 % effectively applied).",
-        "Macro stability of United States at 0.65: the filter leaves the score at 0.447 (raw 0.541)."
+        "Macro stability of United States at 0.65: the filter leaves the score at 0.311 (raw 0.377)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.596,
+        "final_score": 0.635,
+        "iso3": "PER",
+        "name": "Peru",
+        "reasons": [
+          "destination #1 by demand growth (486.9 % per year)",
+          "destination #1 by share already won (share of 60.5 %)"
+        ]
+      },
+      {
+        "final_score": 0.337,
         "iso3": "NLD",
         "name": "Netherlands",
         "reasons": [
-          "destination #3 by basket complementarity (index 0.46 (0–1 scale))",
-          "destination #1 by share already won (share of 10.9 %)"
+          "destination #4 by basket complementarity (index 0.46 (0–1 scale))",
+          "destination #1 by tariff faced (0.0 % effectively applied)"
         ]
       },
       {
-        "final_score": 0.489,
-        "iso3": "FIN",
-        "name": "Finland",
-        "reasons": [
-          "destination #1 by demand growth (25.0 % per year)",
-          "destination #1 by share momentum (+3.3 pp over the window)"
-        ]
-      },
-      {
-        "final_score": 0.447,
+        "final_score": 0.311,
         "iso3": "USA",
         "name": "United States",
         "reasons": [
@@ -184,7 +266,7 @@
         "Colombia no registra ventas de Aguacates, piñas y mangos (HS 0804) en Australia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Australia.",
         "Aguacates, piñas y mangos (HS 0804) entra a Australia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,338 (bruto 0,382)."
+        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,175 (bruto 0,198)."
       ],
       "AUT": [
         "Austria importa USD 145 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -192,47 +274,95 @@
         "Colombia ya tiene 0,8 % del mercado y pierde 0,5 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Austria.",
         "Aguacates, piñas y mangos (HS 0804) entra a Austria sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,285 (bruto 0,333)."
+        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,145 (bruto 0,170)."
       ],
       "BEL": [
         "Bélgica importa USD 193 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
         "La demanda crece al 13,4 % anual (CAGR).",
         "Colombia ya tiene 1,3 % del mercado y pierde 1,2 pp de cuota en la ventana.",
+        "Bélgica absorbe el 6,3 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Bélgica.",
         "Aguacates, piñas y mangos (HS 0804) entra a Bélgica sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,363 (bruto 0,403)."
+        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,234 (bruto 0,260)."
+      ],
+      "BRA": [
+        "Brasil importa USD 11 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
+        "La demanda crece al 10,0 % anual (CAGR).",
+        "Colombia no registra ventas de Aguacates, piñas y mangos (HS 0804) en Brasil (cuota 0 %).",
+        "Brasil absorbe el 0,0 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Brasil.",
+        "Aguacates, piñas y mangos (HS 0804) entra a Brasil sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Brasil 0,77: el filtro deja el score en 0,139 (bruto 0,157)."
       ],
       "CAN": [
         "Canadá importa USD 707 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
         "La demanda crece al 12,2 % anual (CAGR).",
         "Colombia ya tiene 2,6 % del mercado y gana 1,1 pp de cuota en la ventana.",
+        "Canadá absorbe el 2,3 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Canadá.",
         "Aguacates, piñas y mangos (HS 0804) entra a Canadá sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,353 (bruto 0,380)."
+        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,188 (bruto 0,203)."
       ],
       "CHE": [
         "Suiza importa USD 213 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
         "La demanda crece al 13,2 % anual (CAGR).",
         "Colombia ya tiene 1,3 % del mercado y pierde 0,9 pp de cuota en la ventana.",
+        "Suiza absorbe el 0,1 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de Suiza.",
         "Aguacates, piñas y mangos (HS 0804) entra a Suiza sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,235 (bruto 0,251)."
+        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,113 (bruto 0,120)."
+      ],
+      "CHL": [
+        "Chile importa USD 127 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 0,8 % anual (CAGR).",
+        "Colombia ya tiene 0,5 % del mercado y gana 0,1 pp de cuota en la ventana.",
+        "Chile absorbe el 0,1 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Chile.",
+        "Aguacates, piñas y mangos (HS 0804) entra a Chile sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Chile 0,72: el filtro deja el score en 0,218 (bruto 0,252)."
+      ],
+      "CRI": [
+        "Costa Rica importa USD 35 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
+        "La demanda crece al 32,1 % anual (CAGR).",
+        "Colombia ya tiene 1,1 % del mercado y gana 0,3 pp de cuota en la ventana.",
+        "Costa Rica absorbe el 0,2 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Costa Rica.",
+        "Aguacates, piñas y mangos (HS 0804) paga en Costa Rica un arancel efectivamente aplicado de 1,2 %.",
+        "Estabilidad macro de Costa Rica 0,93: el filtro deja el score en 0,169 (bruto 0,175)."
       ],
       "DEU": [
         "Alemania importa USD 1.197 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
         "La demanda crece al 11,5 % anual (CAGR).",
         "Colombia ya tiene 3,4 % del mercado y pierde 1,3 pp de cuota en la ventana.",
+        "Alemania absorbe el 2,4 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Alemania.",
         "Aguacates, piñas y mangos (HS 0804) entra a Alemania sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,311 (bruto 0,358)."
+        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,190 (bruto 0,219)."
+      ],
+      "DOM": [
+        "República Dominicana importa USD 1 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
+        "La demanda crece al 6,7 % anual (CAGR).",
+        "Colombia no registra ventas de Aguacates, piñas y mangos (HS 0804) en República Dominicana (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de República Dominicana.",
+        "Aguacates, piñas y mangos (HS 0804) paga en República Dominicana un arancel efectivamente aplicado de 20,0 %.",
+        "Estabilidad macro de República Dominicana 0,78: el filtro deja el score en 0,149 (bruto 0,168)."
+      ],
+      "ECU": [
+        "Ecuador importa USD 0 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
+        "La demanda crece al 20,4 % anual (CAGR).",
+        "Colombia no registra ventas de Aguacates, piñas y mangos (HS 0804) en Ecuador (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,51 (escala 0–1) con la demanda importadora de Ecuador.",
+        "Aguacates, piñas y mangos (HS 0804) paga en Ecuador un arancel efectivamente aplicado de 25,0 %.",
+        "Estabilidad macro de Ecuador 0,88: el filtro deja el score en 0,199 (bruto 0,212)."
       ],
       "ESP": [
         "España importa USD 1.063 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
         "La demanda crece al 13,9 % anual (CAGR).",
         "Colombia ya tiene 3,3 % del mercado y pierde 0,6 pp de cuota en la ventana.",
+        "España absorbe el 6,8 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de España.",
         "Aguacates, piñas y mangos (HS 0804) entra a España sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de España 0,97: el filtro deja el score en 0,441 (bruto 0,448)."
+        "Estabilidad macro de España 0,97: el filtro deja el score en 0,269 (bruto 0,273)."
       ],
       "FIN": [
         "Finlandia importa USD 49 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -240,31 +370,34 @@
         "Colombia ya tiene 4,1 % del mercado y gana 3,3 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Finlandia.",
         "Aguacates, piñas y mangos (HS 0804) entra a Finlandia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,489 (bruto 0,555)."
+        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,194 (bruto 0,220)."
       ],
       "FRA": [
         "Francia importa USD 1.104 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
         "La demanda crece al 13,0 % anual (CAGR).",
         "Colombia ya tiene 2,3 % del mercado y pierde 0,5 pp de cuota en la ventana.",
+        "Francia absorbe el 2,3 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de Francia.",
         "Aguacates, piñas y mangos (HS 0804) entra a Francia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,387 (bruto 0,422)."
+        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,243 (bruto 0,265)."
       ],
       "GBR": [
         "Reino Unido importa USD 859 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
         "La demanda crece al 19,3 % anual (CAGR).",
         "Colombia ya tiene 3,4 % del mercado y pierde 0,7 pp de cuota en la ventana.",
+        "Reino Unido absorbe el 7,4 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Reino Unido.",
         "Aguacates, piñas y mangos (HS 0804) entra a Reino Unido sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,388 (bruto 0,487)."
+        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,215 (bruto 0,270)."
       ],
       "ITA": [
         "Italia importa USD 428 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
         "La demanda crece al 15,5 % anual (CAGR).",
         "Colombia ya tiene 0,4 % del mercado y pierde 0,1 pp de cuota en la ventana.",
+        "Italia absorbe el 0,7 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Italia.",
         "Aguacates, piñas y mangos (HS 0804) entra a Italia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,378 (bruto 0,412)."
+        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,227 (bruto 0,248)."
       ],
       "JPN": [
         "Japón importa USD 343 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -272,39 +405,69 @@
         "Colombia no registra ventas de Aguacates, piñas y mangos (HS 0804) en Japón (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Japón.",
         "Aguacates, piñas y mangos (HS 0804) paga en Japón un arancel efectivamente aplicado de 4,8 %.",
-        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,198 (bruto 0,218)."
+        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,226 (bruto 0,250)."
       ],
       "KOR": [
         "Corea del Sur importa USD 256 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
         "La demanda crece al 5,2 % anual (CAGR).",
         "Colombia no registra ventas de Aguacates, piñas y mangos (HS 0804) en Corea del Sur (cuota 0 %).",
+        "Corea del Sur absorbe el 0,0 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,49 (escala 0–1) con la demanda importadora de Corea del Sur.",
         "Aguacates, piñas y mangos (HS 0804) paga en Corea del Sur un arancel efectivamente aplicado de 3,8 %.",
-        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,288 (bruto 0,305)."
+        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,265 (bruto 0,282)."
+      ],
+      "MEX": [
+        "México importa USD 47 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
+        "La demanda crece al 88,7 % anual (CAGR).",
+        "Colombia no registra ventas de Aguacates, piñas y mangos (HS 0804) en México (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de México.",
+        "Aguacates, piñas y mangos (HS 0804) entra a México sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de México 0,80: el filtro deja el score en 0,128 (bruto 0,142)."
       ],
       "NLD": [
         "Países Bajos importa USD 1.987 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
         "La demanda crece al 14,9 % anual (CAGR).",
         "Colombia ya tiene 10,9 % del mercado y gana 0,1 pp de cuota en la ventana.",
+        "Países Bajos absorbe el 37,4 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Países Bajos.",
         "Aguacates, piñas y mangos (HS 0804) entra a Países Bajos sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,596 (bruto 0,658)."
+        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,337 (bruto 0,372)."
+      ],
+      "PAN": [
+        "Panamá importa USD 7 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
+        "La demanda crece al 26,7 % anual (CAGR).",
+        "Colombia ya tiene 18,8 % del mercado y gana 2,8 pp de cuota en la ventana.",
+        "Panamá absorbe el 0,2 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Panamá.",
+        "Aguacates, piñas y mangos (HS 0804) paga en Panamá un arancel efectivamente aplicado de 14,0 %.",
+        "Estabilidad macro de Panamá 0,94: el filtro deja el score en 0,238 (bruto 0,246)."
+      ],
+      "PER": [
+        "Perú importa USD 0 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
+        "La demanda crece al 486,9 % anual (CAGR).",
+        "Colombia ya tiene 60,5 % del mercado y gana 60,5 pp de cuota en la ventana.",
+        "Perú absorbe el 0,1 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Perú.",
+        "Aguacates, piñas y mangos (HS 0804) entra a Perú sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Perú 0,91: el filtro deja el score en 0,635 (bruto 0,664)."
       ],
       "POL": [
         "Polonia importa USD 227 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
         "La demanda crece al 13,9 % anual (CAGR).",
         "Colombia ya tiene 6,6 % del mercado y pierde 2,1 pp de cuota en la ventana.",
+        "Polonia absorbe el 0,0 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,36 (escala 0–1) con la demanda importadora de Polonia.",
         "Aguacates, piñas y mangos (HS 0804) entra a Polonia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,332 (bruto 0,361)."
+        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,165 (bruto 0,180)."
       ],
       "PRT": [
         "Portugal importa USD 195 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
         "La demanda crece al 14,5 % anual (CAGR).",
         "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
+        "Portugal absorbe el 0,1 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,39 (escala 0–1) con la demanda importadora de Portugal.",
         "Aguacates, piñas y mangos (HS 0804) entra a Portugal sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,335 (bruto 0,346)."
+        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,190 (bruto 0,197)."
       ],
       "SWE": [
         "Suecia importa USD 109 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
@@ -312,38 +475,39 @@
         "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Suecia.",
         "Aguacates, piñas y mangos (HS 0804) entra a Suecia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,353 (bruto 0,392)."
+        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,152 (bruto 0,168)."
       ],
       "USA": [
         "Estados Unidos importa USD 5.731 M al año de Aguacates, piñas y mangos (HS 0804) (promedio de los últimos 3 años).",
         "La demanda crece al 9,6 % anual (CAGR).",
         "Colombia ya tiene 2,4 % del mercado y gana 1,8 pp de cuota en la ventana.",
+        "Estados Unidos absorbe el 22,6 % de las exportaciones de Aguacates, piñas y mangos (HS 0804) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,33 (escala 0–1) con la demanda importadora de Estados Unidos.",
         "Aguacates, piñas y mangos (HS 0804) entra a Estados Unidos sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,447 (bruto 0,541)."
+        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,311 (bruto 0,377)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.596,
+        "final_score": 0.635,
+        "iso3": "PER",
+        "name": "Perú",
+        "reasons": [
+          "1.º destino por crecimiento de la demanda (486,9 % anual)",
+          "1.º destino por cuota ya ganada (cuota de 60,5 %)"
+        ]
+      },
+      {
+        "final_score": 0.337,
         "iso3": "NLD",
         "name": "Países Bajos",
         "reasons": [
-          "3.º destino por complementariedad de canastas (índice 0,46 (escala 0–1))",
-          "1.º destino por cuota ya ganada (cuota de 10,9 %)"
+          "4.º destino por complementariedad de canastas (índice 0,46 (escala 0–1))",
+          "1.º destino por arancel enfrentado (0,0 % efectivamente aplicado)"
         ]
       },
       {
-        "final_score": 0.489,
-        "iso3": "FIN",
-        "name": "Finlandia",
-        "reasons": [
-          "1.º destino por crecimiento de la demanda (25,0 % anual)",
-          "1.º destino por momentum de la cuota (+3,3 pp en la ventana)"
-        ]
-      },
-      {
-        "final_score": 0.447,
+        "final_score": 0.311,
         "iso3": "USA",
         "name": "Estados Unidos",
         "reasons": [

@@ -1,7 +1,11 @@
 {
   "basket_year": 2024,
+  "context_indicators": {
+    "LP.LPI.OVRL.XQ": "lpi"
+  },
   "data_year_max": 2025,
   "data_year_min": 2023,
+  "destination_hhi": 0.2155,
   "hs_code": "0804",
   "hs_label": "Aguacates, piñas y mangos (HS 0804)",
   "macro_bounds": {
@@ -26,7 +30,7 @@
   },
   "macro_years": 3,
   "market_size_years": 3,
-  "n_markets": 18,
+  "n_markets": 26,
   "origin_iso3": "COL",
   "rca_balassa": 10.2189,
   "source": "comtrade",

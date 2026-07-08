@@ -7,7 +7,7 @@
         "Colombia records no sales of PVC in primary forms (HS 3904) in Australia (0 % share).",
         "The export basket of Colombia fits the import demand of Australia at 0.40 (0–1 scale).",
         "PVC in primary forms (HS 3904) faces an effectively applied tariff of 5.0 % in Australia.",
-        "Macro stability of Australia at 0.77: the filter leaves the score at 0.208 (raw 0.235)."
+        "Macro stability of Australia at 0.77: the filter leaves the score at 0.173 (raw 0.196)."
       ],
       "AUT": [
         "Austria imports USD 157 M a year of PVC in primary forms (HS 3904) (average of the last 3 years).",
@@ -15,23 +15,34 @@
         "Colombia records no sales of PVC in primary forms (HS 3904) in Austria (0 % share).",
         "The export basket of Colombia fits the import demand of Austria at 0.37 (0–1 scale).",
         "PVC in primary forms (HS 3904) enters Austria duty-free (0 % effectively applied).",
-        "Macro stability of Austria at 0.71: the filter leaves the score at 0.206 (raw 0.241)."
+        "Macro stability of Austria at 0.71: the filter leaves the score at 0.201 (raw 0.234)."
       ],
       "BEL": [
         "Belgium imports USD 471 M a year of PVC in primary forms (HS 3904) (average of the last 3 years).",
         "Demand shrinks at 10.4 % per year (CAGR).",
         "Colombia already holds 0.1 % of the market and loses 0.4 pp of share over the window.",
+        "Belgium absorbs 0.1 % of Colombia's exports of PVC in primary forms (HS 3904).",
         "The export basket of Colombia fits the import demand of Belgium at 0.45 (0–1 scale).",
         "PVC in primary forms (HS 3904) enters Belgium duty-free (0 % effectively applied).",
-        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.381 (raw 0.423)."
+        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.354 (raw 0.393)."
+      ],
+      "BRA": [
+        "Brazil imports USD 701 M a year of PVC in primary forms (HS 3904) (average of the last 3 years).",
+        "Demand grows at 11.9 % per year (CAGR).",
+        "Colombia already holds 35.7 % of the market and gains 5.2 pp of share over the window.",
+        "Brazil absorbs 65.1 % of Colombia's exports of PVC in primary forms (HS 3904).",
+        "The export basket of Colombia fits the import demand of Brazil at 0.37 (0–1 scale).",
+        "PVC in primary forms (HS 3904) enters Brazil duty-free (0 % effectively applied).",
+        "Macro stability of Brazil at 0.77: the filter leaves the score at 0.517 (raw 0.584)."
       ],
       "CAN": [
         "Canada imports USD 737 M a year of PVC in primary forms (HS 3904) (average of the last 3 years).",
         "Demand grows at 4.1 % per year (CAGR).",
         "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
+        "Canada absorbs 0.1 % of Colombia's exports of PVC in primary forms (HS 3904).",
         "The export basket of Colombia fits the import demand of Canada at 0.37 (0–1 scale).",
         "PVC in primary forms (HS 3904) enters Canada duty-free (0 % effectively applied).",
-        "Macro stability of Canada at 0.86: the filter leaves the score at 0.481 (raw 0.517)."
+        "Macro stability of Canada at 0.86: the filter leaves the score at 0.373 (raw 0.401)."
       ],
       "CHE": [
         "Switzerland imports USD 143 M a year of PVC in primary forms (HS 3904) (average of the last 3 years).",
@@ -39,7 +50,25 @@
         "Colombia records no sales of PVC in primary forms (HS 3904) in Switzerland (0 % share).",
         "The export basket of Colombia fits the import demand of Switzerland at 0.32 (0–1 scale).",
         "PVC in primary forms (HS 3904) enters Switzerland duty-free (0 % effectively applied).",
-        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.177 (raw 0.188)."
+        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.171 (raw 0.182)."
+      ],
+      "CHL": [
+        "Chile imports USD 61 M a year of PVC in primary forms (HS 3904) (average of the last 3 years).",
+        "Demand shrinks at 4.7 % per year (CAGR).",
+        "Colombia already holds 7.5 % of the market and loses 6.5 pp of share over the window.",
+        "Chile absorbs 2.2 % of Colombia's exports of PVC in primary forms (HS 3904).",
+        "The export basket of Colombia fits the import demand of Chile at 0.46 (0–1 scale).",
+        "PVC in primary forms (HS 3904) enters Chile duty-free (0 % effectively applied).",
+        "Macro stability of Chile at 0.72: the filter leaves the score at 0.277 (raw 0.322)."
+      ],
+      "CRI": [
+        "Costa Rica imports USD 84 M a year of PVC in primary forms (HS 3904) (average of the last 3 years).",
+        "Demand shrinks at 1.5 % per year (CAGR).",
+        "Colombia already holds 3.1 % of the market and loses 0.2 pp of share over the window.",
+        "Costa Rica absorbs 0.8 % of Colombia's exports of PVC in primary forms (HS 3904).",
+        "The export basket of Colombia fits the import demand of Costa Rica at 0.37 (0–1 scale).",
+        "PVC in primary forms (HS 3904) enters Costa Rica duty-free (0 % effectively applied).",
+        "Macro stability of Costa Rica at 0.93: the filter leaves the score at 0.263 (raw 0.272)."
       ],
       "DEU": [
         "Germany imports USD 1,290 M a year of PVC in primary forms (HS 3904) (average of the last 3 years).",
@@ -47,7 +76,25 @@
         "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Germany at 0.37 (0–1 scale).",
         "PVC in primary forms (HS 3904) enters Germany duty-free (0 % effectively applied).",
-        "Macro stability of Germany at 0.74: the filter leaves the score at 0.456 (raw 0.525)."
+        "Macro stability of Germany at 0.74: the filter leaves the score at 0.412 (raw 0.474)."
+      ],
+      "DOM": [
+        "Dominican Republic imports USD 55 M a year of PVC in primary forms (HS 3904) (average of the last 3 years).",
+        "Demand grows at 53.8 % per year (CAGR).",
+        "Colombia already holds 0.1 % of the market and gains 0.1 pp of share over the window.",
+        "Dominican Republic absorbs 0.0 % of Colombia's exports of PVC in primary forms (HS 3904).",
+        "The export basket of Colombia fits the import demand of Dominican Republic at 0.46 (0–1 scale).",
+        "PVC in primary forms (HS 3904) faces an effectively applied tariff of 5.4 % in Dominican Republic.",
+        "Macro stability of Dominican Republic at 0.78: the filter leaves the score at 0.346 (raw 0.390)."
+      ],
+      "ECU": [
+        "Ecuador imports USD 68 M a year of PVC in primary forms (HS 3904) (average of the last 3 years).",
+        "Demand shrinks at 9.5 % per year (CAGR).",
+        "Colombia already holds 37.5 % of the market and gains 9.7 pp of share over the window.",
+        "Ecuador absorbs 7.1 % of Colombia's exports of PVC in primary forms (HS 3904).",
+        "The export basket of Colombia fits the import demand of Ecuador at 0.51 (0–1 scale).",
+        "PVC in primary forms (HS 3904) enters Ecuador duty-free (0 % effectively applied).",
+        "Macro stability of Ecuador at 0.88: the filter leaves the score at 0.552 (raw 0.588)."
       ],
       "ESP": [
         "Spain imports USD 274 M a year of PVC in primary forms (HS 3904) (average of the last 3 years).",
@@ -55,7 +102,7 @@
         "Colombia already holds 0.6 % of the market and gains 0.6 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Spain at 0.42 (0–1 scale).",
         "PVC in primary forms (HS 3904) enters Spain duty-free (0 % effectively applied).",
-        "Macro stability of Spain at 0.97: the filter leaves the score at 0.499 (raw 0.507)."
+        "Macro stability of Spain at 0.97: the filter leaves the score at 0.355 (raw 0.361)."
       ],
       "FIN": [
         "Finland imports USD 47 M a year of PVC in primary forms (HS 3904) (average of the last 3 years).",
@@ -63,7 +110,7 @@
         "Colombia records no sales of PVC in primary forms (HS 3904) in Finland (0 % share).",
         "The export basket of Colombia fits the import demand of Finland at 0.40 (0–1 scale).",
         "PVC in primary forms (HS 3904) enters Finland duty-free (0 % effectively applied).",
-        "Macro stability of Finland at 0.76: the filter leaves the score at 0.310 (raw 0.351)."
+        "Macro stability of Finland at 0.76: the filter leaves the score at 0.246 (raw 0.279)."
       ],
       "FRA": [
         "France imports USD 545 M a year of PVC in primary forms (HS 3904) (average of the last 3 years).",
@@ -71,7 +118,7 @@
         "Colombia records no sales of PVC in primary forms (HS 3904) in France (0 % share).",
         "The export basket of Colombia fits the import demand of France at 0.42 (0–1 scale).",
         "PVC in primary forms (HS 3904) enters France duty-free (0 % effectively applied).",
-        "Macro stability of France at 0.83: the filter leaves the score at 0.338 (raw 0.368)."
+        "Macro stability of France at 0.83: the filter leaves the score at 0.329 (raw 0.359)."
       ],
       "GBR": [
         "United Kingdom imports USD 555 M a year of PVC in primary forms (HS 3904) (average of the last 3 years).",
@@ -79,15 +126,16 @@
         "Colombia records no sales of PVC in primary forms (HS 3904) in United Kingdom (0 % share).",
         "The export basket of Colombia fits the import demand of United Kingdom at 0.43 (0–1 scale).",
         "PVC in primary forms (HS 3904) enters United Kingdom duty-free (0 % effectively applied).",
-        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.379 (raw 0.476)."
+        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.320 (raw 0.401)."
       ],
       "ITA": [
         "Italy imports USD 988 M a year of PVC in primary forms (HS 3904) (average of the last 3 years).",
         "Demand shrinks at 2.4 % per year (CAGR).",
         "Colombia already holds 0.0 % of the market and loses 0.2 pp of share over the window.",
+        "Italy absorbs 0.5 % of Colombia's exports of PVC in primary forms (HS 3904).",
         "The export basket of Colombia fits the import demand of Italy at 0.43 (0–1 scale).",
         "PVC in primary forms (HS 3904) enters Italy duty-free (0 % effectively applied).",
-        "Macro stability of Italy at 0.83: the filter leaves the score at 0.526 (raw 0.574)."
+        "Macro stability of Italy at 0.83: the filter leaves the score at 0.453 (raw 0.494)."
       ],
       "JPN": [
         "Japan imports USD 317 M a year of PVC in primary forms (HS 3904) (average of the last 3 years).",
@@ -95,7 +143,7 @@
         "Colombia records no sales of PVC in primary forms (HS 3904) in Japan (0 % share).",
         "The export basket of Colombia fits the import demand of Japan at 0.46 (0–1 scale).",
         "PVC in primary forms (HS 3904) faces an effectively applied tariff of 3.5 % in Japan.",
-        "Macro stability of Japan at 0.81: the filter leaves the score at 0.242 (raw 0.267)."
+        "Macro stability of Japan at 0.81: the filter leaves the score at 0.258 (raw 0.285)."
       ],
       "KOR": [
         "South Korea imports USD 417 M a year of PVC in primary forms (HS 3904) (average of the last 3 years).",
@@ -103,7 +151,16 @@
         "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
         "The export basket of Colombia fits the import demand of South Korea at 0.49 (0–1 scale).",
         "PVC in primary forms (HS 3904) enters South Korea duty-free (0 % effectively applied).",
-        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.435 (raw 0.461)."
+        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.397 (raw 0.421)."
+      ],
+      "MEX": [
+        "Mexico imports USD 724 M a year of PVC in primary forms (HS 3904) (average of the last 3 years).",
+        "Demand shrinks at 1.6 % per year (CAGR).",
+        "Colombia already holds 0.1 % of the market and gains 0.0 pp of share over the window.",
+        "Mexico absorbs 2.8 % of Colombia's exports of PVC in primary forms (HS 3904).",
+        "The export basket of Colombia fits the import demand of Mexico at 0.32 (0–1 scale).",
+        "PVC in primary forms (HS 3904) enters Mexico duty-free (0 % effectively applied).",
+        "Macro stability of Mexico at 0.80: the filter leaves the score at 0.295 (raw 0.328)."
       ],
       "NLD": [
         "Netherlands imports USD 263 M a year of PVC in primary forms (HS 3904) (average of the last 3 years).",
@@ -111,7 +168,24 @@
         "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Netherlands at 0.46 (0–1 scale).",
         "PVC in primary forms (HS 3904) enters Netherlands duty-free (0 % effectively applied).",
-        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.342 (raw 0.377)."
+        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.321 (raw 0.354)."
+      ],
+      "PAN": [
+        "Panama imports USD 14 M a year of PVC in primary forms (HS 3904) (average of the last 3 years).",
+        "Demand shrinks at 14.3 % per year (CAGR).",
+        "Colombia records no sales of PVC in primary forms (HS 3904) in Panama (0 % share).",
+        "The export basket of Colombia fits the import demand of Panama at 0.45 (0–1 scale).",
+        "PVC in primary forms (HS 3904) faces an effectively applied tariff of 0.6 % in Panama.",
+        "Macro stability of Panama at 0.94: the filter leaves the score at 0.270 (raw 0.278)."
+      ],
+      "PER": [
+        "Peru imports USD 120 M a year of PVC in primary forms (HS 3904) (average of the last 3 years).",
+        "Demand grows at 13.9 % per year (CAGR).",
+        "Colombia already holds 18.5 % of the market and loses 2.5 pp of share over the window.",
+        "Peru absorbs 6.9 % of Colombia's exports of PVC in primary forms (HS 3904).",
+        "The export basket of Colombia fits the import demand of Peru at 0.43 (0–1 scale).",
+        "PVC in primary forms (HS 3904) enters Peru duty-free (0 % effectively applied).",
+        "Macro stability of Peru at 0.91: the filter leaves the score at 0.406 (raw 0.424)."
       ],
       "POL": [
         "Poland imports USD 611 M a year of PVC in primary forms (HS 3904) (average of the last 3 years).",
@@ -119,15 +193,16 @@
         "Colombia records no sales of PVC in primary forms (HS 3904) in Poland (0 % share).",
         "The export basket of Colombia fits the import demand of Poland at 0.36 (0–1 scale).",
         "PVC in primary forms (HS 3904) enters Poland duty-free (0 % effectively applied).",
-        "Macro stability of Poland at 0.84: the filter leaves the score at 0.379 (raw 0.412)."
+        "Macro stability of Poland at 0.84: the filter leaves the score at 0.318 (raw 0.346)."
       ],
       "PRT": [
         "Portugal imports USD 80 M a year of PVC in primary forms (HS 3904) (average of the last 3 years).",
         "Demand shrinks at 5.2 % per year (CAGR).",
         "Colombia already holds 2.9 % of the market and gains 2.2 pp of share over the window.",
+        "Portugal absorbs 0.2 % of Colombia's exports of PVC in primary forms (HS 3904).",
         "The export basket of Colombia fits the import demand of Portugal at 0.39 (0–1 scale).",
         "PVC in primary forms (HS 3904) enters Portugal duty-free (0 % effectively applied).",
-        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.546 (raw 0.565)."
+        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.286 (raw 0.296)."
       ],
       "SWE": [
         "Sweden imports USD 76 M a year of PVC in primary forms (HS 3904) (average of the last 3 years).",
@@ -135,43 +210,44 @@
         "Colombia records no sales of PVC in primary forms (HS 3904) in Sweden (0 % share).",
         "The export basket of Colombia fits the import demand of Sweden at 0.37 (0–1 scale).",
         "PVC in primary forms (HS 3904) enters Sweden duty-free (0 % effectively applied).",
-        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.291 (raw 0.323)."
+        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.224 (raw 0.249)."
       ],
       "USA": [
         "United States imports USD 1,259 M a year of PVC in primary forms (HS 3904) (average of the last 3 years).",
         "Demand shrinks at 10.4 % per year (CAGR).",
         "Colombia already holds 2.5 % of the market and gains 0.4 pp of share over the window.",
+        "United States absorbs 8.6 % of Colombia's exports of PVC in primary forms (HS 3904).",
         "The export basket of Colombia fits the import demand of United States at 0.33 (0–1 scale).",
         "PVC in primary forms (HS 3904) enters United States duty-free (0 % effectively applied).",
-        "Macro stability of United States at 0.65: the filter leaves the score at 0.492 (raw 0.595)."
+        "Macro stability of United States at 0.65: the filter leaves the score at 0.357 (raw 0.432)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.546,
-        "iso3": "PRT",
-        "name": "Portugal",
+        "final_score": 0.552,
+        "iso3": "ECU",
+        "name": "Ecuador",
         "reasons": [
-          "destination #1 by share already won (share of 2.9 %)",
-          "destination #8 by demand growth (-5.2 % per year)"
+          "destination #1 by basket complementarity (index 0.51 (0–1 scale))",
+          "destination #1 by share already won (share of 37.5 %)"
         ]
       },
       {
-        "final_score": 0.526,
+        "final_score": 0.517,
+        "iso3": "BRA",
+        "name": "Brazil",
+        "reasons": [
+          "destination #2 by share already won (share of 35.7 %)",
+          "destination #6 by market size (USD 701 M/year)"
+        ]
+      },
+      {
+        "final_score": 0.453,
         "iso3": "ITA",
         "name": "Italy",
         "reasons": [
           "destination #3 by market size (USD 988 M/year)",
-          "destination #4 by demand growth (-2.4 % per year)"
-        ]
-      },
-      {
-        "final_score": 0.499,
-        "iso3": "ESP",
-        "name": "Spain",
-        "reasons": [
-          "destination #2 by demand growth (0.0 % per year)",
-          "destination #7 by basket complementarity (index 0.42 (0–1 scale))"
+          "destination #9 by basket complementarity (index 0.43 (0–1 scale))"
         ]
       }
     ]
@@ -184,7 +260,7 @@
         "Colombia no registra ventas de PVC en formas primarias (HS 3904) en Australia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Australia.",
         "PVC en formas primarias (HS 3904) paga en Australia un arancel efectivamente aplicado de 5,0 %.",
-        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,208 (bruto 0,235)."
+        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,173 (bruto 0,196)."
       ],
       "AUT": [
         "Austria importa USD 157 M al año de PVC en formas primarias (HS 3904) (promedio de los últimos 3 años).",
@@ -192,23 +268,34 @@
         "Colombia no registra ventas de PVC en formas primarias (HS 3904) en Austria (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Austria.",
         "PVC en formas primarias (HS 3904) entra a Austria sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,206 (bruto 0,241)."
+        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,201 (bruto 0,234)."
       ],
       "BEL": [
         "Bélgica importa USD 471 M al año de PVC en formas primarias (HS 3904) (promedio de los últimos 3 años).",
         "La demanda se contrae al 10,4 % anual (CAGR).",
         "Colombia ya tiene 0,1 % del mercado y pierde 0,4 pp de cuota en la ventana.",
+        "Bélgica absorbe el 0,1 % de las exportaciones de PVC en formas primarias (HS 3904) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Bélgica.",
         "PVC en formas primarias (HS 3904) entra a Bélgica sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,381 (bruto 0,423)."
+        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,354 (bruto 0,393)."
+      ],
+      "BRA": [
+        "Brasil importa USD 701 M al año de PVC en formas primarias (HS 3904) (promedio de los últimos 3 años).",
+        "La demanda crece al 11,9 % anual (CAGR).",
+        "Colombia ya tiene 35,7 % del mercado y gana 5,2 pp de cuota en la ventana.",
+        "Brasil absorbe el 65,1 % de las exportaciones de PVC en formas primarias (HS 3904) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Brasil.",
+        "PVC en formas primarias (HS 3904) entra a Brasil sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Brasil 0,77: el filtro deja el score en 0,517 (bruto 0,584)."
       ],
       "CAN": [
         "Canadá importa USD 737 M al año de PVC en formas primarias (HS 3904) (promedio de los últimos 3 años).",
         "La demanda crece al 4,1 % anual (CAGR).",
         "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "Canadá absorbe el 0,1 % de las exportaciones de PVC en formas primarias (HS 3904) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Canadá.",
         "PVC en formas primarias (HS 3904) entra a Canadá sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,481 (bruto 0,517)."
+        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,373 (bruto 0,401)."
       ],
       "CHE": [
         "Suiza importa USD 143 M al año de PVC en formas primarias (HS 3904) (promedio de los últimos 3 años).",
@@ -216,7 +303,25 @@
         "Colombia no registra ventas de PVC en formas primarias (HS 3904) en Suiza (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de Suiza.",
         "PVC en formas primarias (HS 3904) entra a Suiza sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,177 (bruto 0,188)."
+        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,171 (bruto 0,182)."
+      ],
+      "CHL": [
+        "Chile importa USD 61 M al año de PVC en formas primarias (HS 3904) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 4,7 % anual (CAGR).",
+        "Colombia ya tiene 7,5 % del mercado y pierde 6,5 pp de cuota en la ventana.",
+        "Chile absorbe el 2,2 % de las exportaciones de PVC en formas primarias (HS 3904) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Chile.",
+        "PVC en formas primarias (HS 3904) entra a Chile sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Chile 0,72: el filtro deja el score en 0,277 (bruto 0,322)."
+      ],
+      "CRI": [
+        "Costa Rica importa USD 84 M al año de PVC en formas primarias (HS 3904) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 1,5 % anual (CAGR).",
+        "Colombia ya tiene 3,1 % del mercado y pierde 0,2 pp de cuota en la ventana.",
+        "Costa Rica absorbe el 0,8 % de las exportaciones de PVC en formas primarias (HS 3904) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Costa Rica.",
+        "PVC en formas primarias (HS 3904) entra a Costa Rica sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Costa Rica 0,93: el filtro deja el score en 0,263 (bruto 0,272)."
       ],
       "DEU": [
         "Alemania importa USD 1.290 M al año de PVC en formas primarias (HS 3904) (promedio de los últimos 3 años).",
@@ -224,7 +329,25 @@
         "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Alemania.",
         "PVC en formas primarias (HS 3904) entra a Alemania sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,456 (bruto 0,525)."
+        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,412 (bruto 0,474)."
+      ],
+      "DOM": [
+        "República Dominicana importa USD 55 M al año de PVC en formas primarias (HS 3904) (promedio de los últimos 3 años).",
+        "La demanda crece al 53,8 % anual (CAGR).",
+        "Colombia ya tiene 0,1 % del mercado y gana 0,1 pp de cuota en la ventana.",
+        "República Dominicana absorbe el 0,0 % de las exportaciones de PVC en formas primarias (HS 3904) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de República Dominicana.",
+        "PVC en formas primarias (HS 3904) paga en República Dominicana un arancel efectivamente aplicado de 5,4 %.",
+        "Estabilidad macro de República Dominicana 0,78: el filtro deja el score en 0,346 (bruto 0,390)."
+      ],
+      "ECU": [
+        "Ecuador importa USD 68 M al año de PVC en formas primarias (HS 3904) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 9,5 % anual (CAGR).",
+        "Colombia ya tiene 37,5 % del mercado y gana 9,7 pp de cuota en la ventana.",
+        "Ecuador absorbe el 7,1 % de las exportaciones de PVC en formas primarias (HS 3904) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,51 (escala 0–1) con la demanda importadora de Ecuador.",
+        "PVC en formas primarias (HS 3904) entra a Ecuador sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Ecuador 0,88: el filtro deja el score en 0,552 (bruto 0,588)."
       ],
       "ESP": [
         "España importa USD 274 M al año de PVC en formas primarias (HS 3904) (promedio de los últimos 3 años).",
@@ -232,7 +355,7 @@
         "Colombia ya tiene 0,6 % del mercado y gana 0,6 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de España.",
         "PVC en formas primarias (HS 3904) entra a España sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de España 0,97: el filtro deja el score en 0,499 (bruto 0,507)."
+        "Estabilidad macro de España 0,97: el filtro deja el score en 0,355 (bruto 0,361)."
       ],
       "FIN": [
         "Finlandia importa USD 47 M al año de PVC en formas primarias (HS 3904) (promedio de los últimos 3 años).",
@@ -240,7 +363,7 @@
         "Colombia no registra ventas de PVC en formas primarias (HS 3904) en Finlandia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Finlandia.",
         "PVC en formas primarias (HS 3904) entra a Finlandia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,310 (bruto 0,351)."
+        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,246 (bruto 0,279)."
       ],
       "FRA": [
         "Francia importa USD 545 M al año de PVC en formas primarias (HS 3904) (promedio de los últimos 3 años).",
@@ -248,7 +371,7 @@
         "Colombia no registra ventas de PVC en formas primarias (HS 3904) en Francia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de Francia.",
         "PVC en formas primarias (HS 3904) entra a Francia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,338 (bruto 0,368)."
+        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,329 (bruto 0,359)."
       ],
       "GBR": [
         "Reino Unido importa USD 555 M al año de PVC en formas primarias (HS 3904) (promedio de los últimos 3 años).",
@@ -256,15 +379,16 @@
         "Colombia no registra ventas de PVC en formas primarias (HS 3904) en Reino Unido (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Reino Unido.",
         "PVC en formas primarias (HS 3904) entra a Reino Unido sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,379 (bruto 0,476)."
+        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,320 (bruto 0,401)."
       ],
       "ITA": [
         "Italia importa USD 988 M al año de PVC en formas primarias (HS 3904) (promedio de los últimos 3 años).",
         "La demanda se contrae al 2,4 % anual (CAGR).",
         "Colombia ya tiene 0,0 % del mercado y pierde 0,2 pp de cuota en la ventana.",
+        "Italia absorbe el 0,5 % de las exportaciones de PVC en formas primarias (HS 3904) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Italia.",
         "PVC en formas primarias (HS 3904) entra a Italia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,526 (bruto 0,574)."
+        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,453 (bruto 0,494)."
       ],
       "JPN": [
         "Japón importa USD 317 M al año de PVC en formas primarias (HS 3904) (promedio de los últimos 3 años).",
@@ -272,7 +396,7 @@
         "Colombia no registra ventas de PVC en formas primarias (HS 3904) en Japón (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Japón.",
         "PVC en formas primarias (HS 3904) paga en Japón un arancel efectivamente aplicado de 3,5 %.",
-        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,242 (bruto 0,267)."
+        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,258 (bruto 0,285)."
       ],
       "KOR": [
         "Corea del Sur importa USD 417 M al año de PVC en formas primarias (HS 3904) (promedio de los últimos 3 años).",
@@ -280,7 +404,16 @@
         "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,49 (escala 0–1) con la demanda importadora de Corea del Sur.",
         "PVC en formas primarias (HS 3904) entra a Corea del Sur sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,435 (bruto 0,461)."
+        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,397 (bruto 0,421)."
+      ],
+      "MEX": [
+        "México importa USD 724 M al año de PVC en formas primarias (HS 3904) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 1,6 % anual (CAGR).",
+        "Colombia ya tiene 0,1 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "México absorbe el 2,8 % de las exportaciones de PVC en formas primarias (HS 3904) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de México.",
+        "PVC en formas primarias (HS 3904) entra a México sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de México 0,80: el filtro deja el score en 0,295 (bruto 0,328)."
       ],
       "NLD": [
         "Países Bajos importa USD 263 M al año de PVC en formas primarias (HS 3904) (promedio de los últimos 3 años).",
@@ -288,7 +421,24 @@
         "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Países Bajos.",
         "PVC en formas primarias (HS 3904) entra a Países Bajos sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,342 (bruto 0,377)."
+        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,321 (bruto 0,354)."
+      ],
+      "PAN": [
+        "Panamá importa USD 14 M al año de PVC en formas primarias (HS 3904) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 14,3 % anual (CAGR).",
+        "Colombia no registra ventas de PVC en formas primarias (HS 3904) en Panamá (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Panamá.",
+        "PVC en formas primarias (HS 3904) paga en Panamá un arancel efectivamente aplicado de 0,6 %.",
+        "Estabilidad macro de Panamá 0,94: el filtro deja el score en 0,270 (bruto 0,278)."
+      ],
+      "PER": [
+        "Perú importa USD 120 M al año de PVC en formas primarias (HS 3904) (promedio de los últimos 3 años).",
+        "La demanda crece al 13,9 % anual (CAGR).",
+        "Colombia ya tiene 18,5 % del mercado y pierde 2,5 pp de cuota en la ventana.",
+        "Perú absorbe el 6,9 % de las exportaciones de PVC en formas primarias (HS 3904) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Perú.",
+        "PVC en formas primarias (HS 3904) entra a Perú sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Perú 0,91: el filtro deja el score en 0,406 (bruto 0,424)."
       ],
       "POL": [
         "Polonia importa USD 611 M al año de PVC en formas primarias (HS 3904) (promedio de los últimos 3 años).",
@@ -296,15 +446,16 @@
         "Colombia no registra ventas de PVC en formas primarias (HS 3904) en Polonia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,36 (escala 0–1) con la demanda importadora de Polonia.",
         "PVC en formas primarias (HS 3904) entra a Polonia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,379 (bruto 0,412)."
+        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,318 (bruto 0,346)."
       ],
       "PRT": [
         "Portugal importa USD 80 M al año de PVC en formas primarias (HS 3904) (promedio de los últimos 3 años).",
         "La demanda se contrae al 5,2 % anual (CAGR).",
         "Colombia ya tiene 2,9 % del mercado y gana 2,2 pp de cuota en la ventana.",
+        "Portugal absorbe el 0,2 % de las exportaciones de PVC en formas primarias (HS 3904) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,39 (escala 0–1) con la demanda importadora de Portugal.",
         "PVC en formas primarias (HS 3904) entra a Portugal sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,546 (bruto 0,565)."
+        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,286 (bruto 0,296)."
       ],
       "SWE": [
         "Suecia importa USD 76 M al año de PVC en formas primarias (HS 3904) (promedio de los últimos 3 años).",
@@ -312,43 +463,44 @@
         "Colombia no registra ventas de PVC en formas primarias (HS 3904) en Suecia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Suecia.",
         "PVC en formas primarias (HS 3904) entra a Suecia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,291 (bruto 0,323)."
+        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,224 (bruto 0,249)."
       ],
       "USA": [
         "Estados Unidos importa USD 1.259 M al año de PVC en formas primarias (HS 3904) (promedio de los últimos 3 años).",
         "La demanda se contrae al 10,4 % anual (CAGR).",
         "Colombia ya tiene 2,5 % del mercado y gana 0,4 pp de cuota en la ventana.",
+        "Estados Unidos absorbe el 8,6 % de las exportaciones de PVC en formas primarias (HS 3904) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,33 (escala 0–1) con la demanda importadora de Estados Unidos.",
         "PVC en formas primarias (HS 3904) entra a Estados Unidos sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,492 (bruto 0,595)."
+        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,357 (bruto 0,432)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.546,
-        "iso3": "PRT",
-        "name": "Portugal",
+        "final_score": 0.552,
+        "iso3": "ECU",
+        "name": "Ecuador",
         "reasons": [
-          "1.º destino por cuota ya ganada (cuota de 2,9 %)",
-          "8.º destino por crecimiento de la demanda (-5,2 % anual)"
+          "1.º destino por complementariedad de canastas (índice 0,51 (escala 0–1))",
+          "1.º destino por cuota ya ganada (cuota de 37,5 %)"
         ]
       },
       {
-        "final_score": 0.526,
+        "final_score": 0.517,
+        "iso3": "BRA",
+        "name": "Brasil",
+        "reasons": [
+          "2.º destino por cuota ya ganada (cuota de 35,7 %)",
+          "6.º destino por tamaño de mercado (USD 701 M/año)"
+        ]
+      },
+      {
+        "final_score": 0.453,
         "iso3": "ITA",
         "name": "Italia",
         "reasons": [
           "3.º destino por tamaño de mercado (USD 988 M/año)",
-          "4.º destino por crecimiento de la demanda (-2,4 % anual)"
-        ]
-      },
-      {
-        "final_score": 0.499,
-        "iso3": "ESP",
-        "name": "España",
-        "reasons": [
-          "2.º destino por crecimiento de la demanda (0,0 % anual)",
-          "7.º destino por complementariedad de canastas (índice 0,42 (escala 0–1))"
+          "9.º destino por complementariedad de canastas (índice 0,43 (escala 0–1))"
         ]
       }
     ]

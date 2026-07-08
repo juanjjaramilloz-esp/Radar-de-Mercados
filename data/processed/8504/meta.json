@@ -1,7 +1,11 @@
 {
   "basket_year": 2024,
+  "context_indicators": {
+    "LP.LPI.OVRL.XQ": "lpi"
+  },
   "data_year_max": 2025,
   "data_year_min": 2023,
+  "destination_hhi": 0.5802,
   "hs_code": "8504",
   "hs_label": "Transformadores eléctricos (HS 8504)",
   "macro_bounds": {
@@ -26,7 +30,7 @@
   },
   "macro_years": 3,
   "market_size_years": 3,
-  "n_markets": 18,
+  "n_markets": 26,
   "origin_iso3": "COL",
   "rca_balassa": 1.3727,
   "source": "comtrade",

@@ -5,173 +5,263 @@
         "Australia imports USD 89 M a year of Cut flowers (HS 0603) (average of the last 3 years).",
         "Demand grows at 11.5 % per year (CAGR).",
         "Colombia already holds 7.0 % of the market and loses 5.2 pp of share over the window.",
+        "Australia absorbs 0.2 % of Colombia's exports of Cut flowers (HS 0603).",
         "The export basket of Colombia fits the import demand of Australia at 0.40 (0–1 scale).",
         "Cut flowers (HS 0603) enters Australia duty-free (0 % effectively applied).",
-        "Macro stability of Australia at 0.77: the filter leaves the score at 0.293 (raw 0.330)."
+        "Macro stability of Australia at 0.77: the filter leaves the score at 0.294 (raw 0.332)."
       ],
       "AUT": [
         "Austria imports USD 115 M a year of Cut flowers (HS 0603) (average of the last 3 years).",
         "Demand grows at 7.8 % per year (CAGR).",
         "Colombia already holds 0.7 % of the market and loses 0.1 pp of share over the window.",
+        "Austria absorbs 0.0 % of Colombia's exports of Cut flowers (HS 0603).",
         "The export basket of Colombia fits the import demand of Austria at 0.37 (0–1 scale).",
         "Cut flowers (HS 0603) enters Austria duty-free (0 % effectively applied).",
-        "Macro stability of Austria at 0.71: the filter leaves the score at 0.249 (raw 0.291)."
+        "Macro stability of Austria at 0.71: the filter leaves the score at 0.253 (raw 0.296)."
       ],
       "BEL": [
         "Belgium imports USD 114 M a year of Cut flowers (HS 0603) (average of the last 3 years).",
         "Demand grows at 3.3 % per year (CAGR).",
         "Colombia already holds 0.0 % of the market and loses 0.1 pp of share over the window.",
+        "Belgium absorbs 0.0 % of Colombia's exports of Cut flowers (HS 0603).",
         "The export basket of Colombia fits the import demand of Belgium at 0.45 (0–1 scale).",
         "Cut flowers (HS 0603) enters Belgium duty-free (0 % effectively applied).",
-        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.315 (raw 0.349)."
+        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.337 (raw 0.373)."
+      ],
+      "BRA": [
+        "Brazil imports USD 6 M a year of Cut flowers (HS 0603) (average of the last 3 years).",
+        "Demand grows at 58.5 % per year (CAGR).",
+        "Colombia already holds 58.4 % of the market and gains 4.5 pp of share over the window.",
+        "Brazil absorbs 0.1 % of Colombia's exports of Cut flowers (HS 0603).",
+        "The export basket of Colombia fits the import demand of Brazil at 0.37 (0–1 scale).",
+        "Cut flowers (HS 0603) enters Brazil duty-free (0 % effectively applied).",
+        "Macro stability of Brazil at 0.77: the filter leaves the score at 0.457 (raw 0.516)."
       ],
       "CAN": [
         "Canada imports USD 164 M a year of Cut flowers (HS 0603) (average of the last 3 years).",
         "Demand grows at 6.2 % per year (CAGR).",
         "Colombia already holds 56.5 % of the market and gains 0.2 pp of share over the window.",
+        "Canada absorbs 3.2 % of Colombia's exports of Cut flowers (HS 0603).",
         "The export basket of Colombia fits the import demand of Canada at 0.37 (0–1 scale).",
         "Cut flowers (HS 0603) enters Canada duty-free (0 % effectively applied).",
-        "Macro stability of Canada at 0.86: the filter leaves the score at 0.399 (raw 0.428)."
+        "Macro stability of Canada at 0.86: the filter leaves the score at 0.374 (raw 0.402)."
       ],
       "CHE": [
         "Switzerland imports USD 215 M a year of Cut flowers (HS 0603) (average of the last 3 years).",
         "Demand grows at 6.2 % per year (CAGR).",
         "Colombia already holds 0.3 % of the market and gains 0.0 pp of share over the window.",
+        "Switzerland absorbs 0.0 % of Colombia's exports of Cut flowers (HS 0603).",
         "The export basket of Colombia fits the import demand of Switzerland at 0.32 (0–1 scale).",
         "Cut flowers (HS 0603) enters Switzerland duty-free (0 % effectively applied).",
-        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.215 (raw 0.229)."
+        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.235 (raw 0.250)."
+      ],
+      "CHL": [
+        "Chile imports USD 26 M a year of Cut flowers (HS 0603) (average of the last 3 years).",
+        "Demand grows at 8.9 % per year (CAGR).",
+        "Colombia already holds 47.9 % of the market and loses 7.8 pp of share over the window.",
+        "Chile absorbs 0.6 % of Colombia's exports of Cut flowers (HS 0603).",
+        "The export basket of Colombia fits the import demand of Chile at 0.46 (0–1 scale).",
+        "Cut flowers (HS 0603) enters Chile duty-free (0 % effectively applied).",
+        "Macro stability of Chile at 0.72: the filter leaves the score at 0.385 (raw 0.447)."
+      ],
+      "CRI": [
+        "Costa Rica imports USD 1 M a year of Cut flowers (HS 0603) (average of the last 3 years).",
+        "Demand grows at 30.7 % per year (CAGR).",
+        "Colombia already holds 14.1 % of the market and loses 19.1 pp of share over the window.",
+        "Costa Rica absorbs 0.0 % of Colombia's exports of Cut flowers (HS 0603).",
+        "The export basket of Colombia fits the import demand of Costa Rica at 0.37 (0–1 scale).",
+        "Cut flowers (HS 0603) faces an effectively applied tariff of 13.3 % in Costa Rica.",
+        "Macro stability of Costa Rica at 0.93: the filter leaves the score at 0.245 (raw 0.254)."
       ],
       "DEU": [
         "Germany imports USD 1,402 M a year of Cut flowers (HS 0603) (average of the last 3 years).",
         "Demand grows at 13.0 % per year (CAGR).",
         "Colombia already holds 0.5 % of the market and gains 0.3 pp of share over the window.",
+        "Germany absorbs 0.1 % of Colombia's exports of Cut flowers (HS 0603).",
         "The export basket of Colombia fits the import demand of Germany at 0.37 (0–1 scale).",
         "Cut flowers (HS 0603) enters Germany duty-free (0 % effectively applied).",
-        "Macro stability of Germany at 0.74: the filter leaves the score at 0.399 (raw 0.459)."
+        "Macro stability of Germany at 0.74: the filter leaves the score at 0.373 (raw 0.429)."
+      ],
+      "DOM": [
+        "Dominican Republic imports USD 4 M a year of Cut flowers (HS 0603) (average of the last 3 years).",
+        "Demand grows at 5.5 % per year (CAGR).",
+        "Colombia already holds 20.6 % of the market and loses 0.8 pp of share over the window.",
+        "Dominican Republic absorbs 0.0 % of Colombia's exports of Cut flowers (HS 0603).",
+        "The export basket of Colombia fits the import demand of Dominican Republic at 0.46 (0–1 scale).",
+        "Cut flowers (HS 0603) faces an effectively applied tariff of 20.0 % in Dominican Republic.",
+        "Macro stability of Dominican Republic at 0.78: the filter leaves the score at 0.270 (raw 0.304)."
+      ],
+      "ECU": [
+        "Ecuador imports USD 0 M a year of Cut flowers (HS 0603) (average of the last 3 years).",
+        "Demand shrinks at 28.6 % per year (CAGR).",
+        "Colombia already holds 82.1 % of the market and loses 16.7 pp of share over the window.",
+        "Ecuador absorbs 0.1 % of Colombia's exports of Cut flowers (HS 0603).",
+        "The export basket of Colombia fits the import demand of Ecuador at 0.51 (0–1 scale).",
+        "Cut flowers (HS 0603) faces an effectively applied tariff of 20.0 % in Ecuador.",
+        "Macro stability of Ecuador at 0.88: the filter leaves the score at 0.335 (raw 0.356)."
       ],
       "ESP": [
         "Spain imports USD 171 M a year of Cut flowers (HS 0603) (average of the last 3 years).",
         "Demand grows at 20.2 % per year (CAGR).",
         "Colombia already holds 42.8 % of the market and gains 7.7 pp of share over the window.",
+        "Spain absorbs 2.2 % of Colombia's exports of Cut flowers (HS 0603).",
         "The export basket of Colombia fits the import demand of Spain at 0.42 (0–1 scale).",
         "Cut flowers (HS 0603) enters Spain duty-free (0 % effectively applied).",
-        "Macro stability of Spain at 0.97: the filter leaves the score at 0.623 (raw 0.633)."
+        "Macro stability of Spain at 0.97: the filter leaves the score at 0.477 (raw 0.485)."
       ],
       "FIN": [
         "Finland imports USD 62 M a year of Cut flowers (HS 0603) (average of the last 3 years).",
         "Demand grows at 2.4 % per year (CAGR).",
         "Colombia already holds 1.9 % of the market and loses 0.6 pp of share over the window.",
+        "Finland absorbs 0.1 % of Colombia's exports of Cut flowers (HS 0603).",
         "The export basket of Colombia fits the import demand of Finland at 0.40 (0–1 scale).",
         "Cut flowers (HS 0603) enters Finland duty-free (0 % effectively applied).",
-        "Macro stability of Finland at 0.76: the filter leaves the score at 0.246 (raw 0.279)."
+        "Macro stability of Finland at 0.76: the filter leaves the score at 0.279 (raw 0.316)."
       ],
       "FRA": [
         "France imports USD 384 M a year of Cut flowers (HS 0603) (average of the last 3 years).",
         "Demand shrinks at 2.2 % per year (CAGR).",
         "Colombia already holds 1.8 % of the market and loses 0.1 pp of share over the window.",
+        "France absorbs 0.1 % of Colombia's exports of Cut flowers (HS 0603).",
         "The export basket of Colombia fits the import demand of France at 0.42 (0–1 scale).",
         "Cut flowers (HS 0603) enters France duty-free (0 % effectively applied).",
-        "Macro stability of France at 0.83: the filter leaves the score at 0.266 (raw 0.290)."
+        "Macro stability of France at 0.83: the filter leaves the score at 0.322 (raw 0.351)."
       ],
       "GBR": [
         "United Kingdom imports USD 822 M a year of Cut flowers (HS 0603) (average of the last 3 years).",
         "Demand grows at 8.1 % per year (CAGR).",
         "Colombia already holds 10.4 % of the market and loses 0.5 pp of share over the window.",
+        "United Kingdom absorbs 2.9 % of Colombia's exports of Cut flowers (HS 0603).",
         "The export basket of Colombia fits the import demand of United Kingdom at 0.43 (0–1 scale).",
         "Cut flowers (HS 0603) enters United Kingdom duty-free (0 % effectively applied).",
-        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.358 (raw 0.449)."
+        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.351 (raw 0.441)."
       ],
       "ITA": [
         "Italy imports USD 227 M a year of Cut flowers (HS 0603) (average of the last 3 years).",
         "Demand grows at 15.0 % per year (CAGR).",
         "Colombia already holds 0.8 % of the market and loses 0.6 pp of share over the window.",
+        "Italy absorbs 0.3 % of Colombia's exports of Cut flowers (HS 0603).",
         "The export basket of Colombia fits the import demand of Italy at 0.43 (0–1 scale).",
         "Cut flowers (HS 0603) enters Italy duty-free (0 % effectively applied).",
-        "Macro stability of Italy at 0.83: the filter leaves the score at 0.396 (raw 0.432)."
+        "Macro stability of Italy at 0.83: the filter leaves the score at 0.356 (raw 0.388)."
       ],
       "JPN": [
         "Japan imports USD 319 M a year of Cut flowers (HS 0603) (average of the last 3 years).",
         "Demand grows at 0.6 % per year (CAGR).",
         "Colombia already holds 22.8 % of the market and loses 1.6 pp of share over the window.",
+        "Japan absorbs 2.0 % of Colombia's exports of Cut flowers (HS 0603).",
         "The export basket of Colombia fits the import demand of Japan at 0.46 (0–1 scale).",
         "Cut flowers (HS 0603) enters Japan duty-free (0 % effectively applied).",
-        "Macro stability of Japan at 0.81: the filter leaves the score at 0.364 (raw 0.402)."
+        "Macro stability of Japan at 0.81: the filter leaves the score at 0.392 (raw 0.433)."
       ],
       "KOR": [
         "South Korea imports USD 75 M a year of Cut flowers (HS 0603) (average of the last 3 years).",
         "Demand grows at 5.5 % per year (CAGR).",
         "Colombia already holds 41.8 % of the market and gains 2.8 pp of share over the window.",
+        "South Korea absorbs 0.8 % of Colombia's exports of Cut flowers (HS 0603).",
         "The export basket of Colombia fits the import demand of South Korea at 0.49 (0–1 scale).",
         "Cut flowers (HS 0603) faces an effectively applied tariff of 1.0 % in South Korea.",
-        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.411 (raw 0.437)."
+        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.464 (raw 0.493)."
+      ],
+      "MEX": [
+        "Mexico imports USD 1 M a year of Cut flowers (HS 0603) (average of the last 3 years).",
+        "Demand grows at 21.8 % per year (CAGR).",
+        "Colombia already holds 31.2 % of the market and gains 20.1 pp of share over the window.",
+        "Mexico absorbs 0.0 % of Colombia's exports of Cut flowers (HS 0603).",
+        "The export basket of Colombia fits the import demand of Mexico at 0.32 (0–1 scale).",
+        "Cut flowers (HS 0603) enters Mexico duty-free (0 % effectively applied).",
+        "Macro stability of Mexico at 0.80: the filter leaves the score at 0.335 (raw 0.373)."
       ],
       "NLD": [
         "Netherlands imports USD 1,193 M a year of Cut flowers (HS 0603) (average of the last 3 years).",
         "Demand grows at 7.2 % per year (CAGR).",
         "Colombia already holds 7.0 % of the market and loses 0.6 pp of share over the window.",
+        "Netherlands absorbs 2.6 % of Colombia's exports of Cut flowers (HS 0603).",
         "The export basket of Colombia fits the import demand of Netherlands at 0.46 (0–1 scale).",
         "Cut flowers (HS 0603) enters Netherlands duty-free (0 % effectively applied).",
-        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.460 (raw 0.507)."
+        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.455 (raw 0.502)."
+      ],
+      "PAN": [
+        "Panama imports USD 9 M a year of Cut flowers (HS 0603) (average of the last 3 years).",
+        "Demand grows at 11.3 % per year (CAGR).",
+        "Colombia already holds 60.7 % of the market and loses 6.4 pp of share over the window.",
+        "Panama absorbs 0.3 % of Colombia's exports of Cut flowers (HS 0603).",
+        "The export basket of Colombia fits the import demand of Panama at 0.45 (0–1 scale).",
+        "Cut flowers (HS 0603) faces an effectively applied tariff of 15.0 % in Panama.",
+        "Macro stability of Panama at 0.94: the filter leaves the score at 0.385 (raw 0.397)."
+      ],
+      "PER": [
+        "Peru imports USD 2 M a year of Cut flowers (HS 0603) (average of the last 3 years).",
+        "Demand shrinks at 14.8 % per year (CAGR).",
+        "Colombia already holds 0.7 % of the market and loses 1.5 pp of share over the window.",
+        "Peru absorbs 0.0 % of Colombia's exports of Cut flowers (HS 0603).",
+        "The export basket of Colombia fits the import demand of Peru at 0.43 (0–1 scale).",
+        "Cut flowers (HS 0603) enters Peru duty-free (0 % effectively applied).",
+        "Macro stability of Peru at 0.91: the filter leaves the score at 0.279 (raw 0.292)."
       ],
       "POL": [
         "Poland imports USD 257 M a year of Cut flowers (HS 0603) (average of the last 3 years).",
         "Demand grows at 21.4 % per year (CAGR).",
         "Colombia already holds 11.2 % of the market and loses 0.1 pp of share over the window.",
+        "Poland absorbs 1.2 % of Colombia's exports of Cut flowers (HS 0603).",
         "The export basket of Colombia fits the import demand of Poland at 0.36 (0–1 scale).",
         "Cut flowers (HS 0603) enters Poland duty-free (0 % effectively applied).",
-        "Macro stability of Poland at 0.84: the filter leaves the score at 0.405 (raw 0.440)."
+        "Macro stability of Poland at 0.84: the filter leaves the score at 0.327 (raw 0.355)."
       ],
       "PRT": [
         "Portugal imports USD 46 M a year of Cut flowers (HS 0603) (average of the last 3 years).",
         "Demand grows at 7.6 % per year (CAGR).",
         "Colombia already holds 0.3 % of the market and loses 0.2 pp of share over the window.",
+        "Portugal absorbs 0.0 % of Colombia's exports of Cut flowers (HS 0603).",
         "The export basket of Colombia fits the import demand of Portugal at 0.39 (0–1 scale).",
         "Cut flowers (HS 0603) enters Portugal duty-free (0 % effectively applied).",
-        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.299 (raw 0.310)."
+        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.304 (raw 0.315)."
       ],
       "SWE": [
         "Sweden imports USD 89 M a year of Cut flowers (HS 0603) (average of the last 3 years).",
         "Demand grows at 7.6 % per year (CAGR).",
         "Colombia records no sales of Cut flowers (HS 0603) in Sweden (0 % share).",
+        "Sweden absorbs 0.0 % of Colombia's exports of Cut flowers (HS 0603).",
         "The export basket of Colombia fits the import demand of Sweden at 0.37 (0–1 scale).",
         "Cut flowers (HS 0603) enters Sweden duty-free (0 % effectively applied).",
-        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.252 (raw 0.279)."
+        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.260 (raw 0.289)."
       ],
       "USA": [
         "United States imports USD 2,670 M a year of Cut flowers (HS 0603) (average of the last 3 years).",
         "Demand grows at 2.9 % per year (CAGR).",
         "Colombia already holds 59.0 % of the market and gains 0.3 pp of share over the window.",
+        "United States absorbs 79.8 % of Colombia's exports of Cut flowers (HS 0603).",
         "The export basket of Colombia fits the import demand of United States at 0.33 (0–1 scale).",
         "Cut flowers (HS 0603) enters United States duty-free (0 % effectively applied).",
-        "Macro stability of United States at 0.65: the filter leaves the score at 0.493 (raw 0.597)."
+        "Macro stability of United States at 0.65: the filter leaves the score at 0.487 (raw 0.590)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.623,
-        "iso3": "ESP",
-        "name": "Spain",
-        "reasons": [
-          "destination #2 by demand growth (20.2 % per year)",
-          "destination #7 by basket complementarity (index 0.42 (0–1 scale))"
-        ]
-      },
-      {
-        "final_score": 0.493,
+        "final_score": 0.487,
         "iso3": "USA",
         "name": "United States",
         "reasons": [
           "destination #1 by market size (USD 2,670 M/year)",
-          "destination #1 by share already won (share of 59.0 %)"
+          "destination #3 by share already won (share of 59.0 %)"
         ]
       },
       {
-        "final_score": 0.46,
-        "iso3": "NLD",
-        "name": "Netherlands",
+        "final_score": 0.477,
+        "iso3": "ESP",
+        "name": "Spain",
         "reasons": [
-          "destination #3 by basket complementarity (index 0.46 (0–1 scale))",
-          "destination #3 by market size (USD 1,193 M/year)"
+          "destination #5 by demand growth (20.2 % per year)",
+          "destination #12 by basket complementarity (index 0.42 (0–1 scale))"
+        ]
+      },
+      {
+        "final_score": 0.464,
+        "iso3": "KOR",
+        "name": "South Korea",
+        "reasons": [
+          "destination #2 by basket complementarity (index 0.49 (0–1 scale))",
+          "destination #22 by tariff faced (1.0 % effectively applied)"
         ]
       }
     ]
@@ -182,173 +272,263 @@
         "Australia importa USD 89 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
         "La demanda crece al 11,5 % anual (CAGR).",
         "Colombia ya tiene 7,0 % del mercado y pierde 5,2 pp de cuota en la ventana.",
+        "Australia absorbe el 0,2 % de las exportaciones de Flores cortadas (HS 0603) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Australia.",
         "Flores cortadas (HS 0603) entra a Australia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,293 (bruto 0,330)."
+        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,294 (bruto 0,332)."
       ],
       "AUT": [
         "Austria importa USD 115 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
         "La demanda crece al 7,8 % anual (CAGR).",
         "Colombia ya tiene 0,7 % del mercado y pierde 0,1 pp de cuota en la ventana.",
+        "Austria absorbe el 0,0 % de las exportaciones de Flores cortadas (HS 0603) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Austria.",
         "Flores cortadas (HS 0603) entra a Austria sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,249 (bruto 0,291)."
+        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,253 (bruto 0,296)."
       ],
       "BEL": [
         "Bélgica importa USD 114 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
         "La demanda crece al 3,3 % anual (CAGR).",
         "Colombia ya tiene 0,0 % del mercado y pierde 0,1 pp de cuota en la ventana.",
+        "Bélgica absorbe el 0,0 % de las exportaciones de Flores cortadas (HS 0603) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Bélgica.",
         "Flores cortadas (HS 0603) entra a Bélgica sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,315 (bruto 0,349)."
+        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,337 (bruto 0,373)."
+      ],
+      "BRA": [
+        "Brasil importa USD 6 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
+        "La demanda crece al 58,5 % anual (CAGR).",
+        "Colombia ya tiene 58,4 % del mercado y gana 4,5 pp de cuota en la ventana.",
+        "Brasil absorbe el 0,1 % de las exportaciones de Flores cortadas (HS 0603) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Brasil.",
+        "Flores cortadas (HS 0603) entra a Brasil sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Brasil 0,77: el filtro deja el score en 0,457 (bruto 0,516)."
       ],
       "CAN": [
         "Canadá importa USD 164 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
         "La demanda crece al 6,2 % anual (CAGR).",
         "Colombia ya tiene 56,5 % del mercado y gana 0,2 pp de cuota en la ventana.",
+        "Canadá absorbe el 3,2 % de las exportaciones de Flores cortadas (HS 0603) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Canadá.",
         "Flores cortadas (HS 0603) entra a Canadá sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,399 (bruto 0,428)."
+        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,374 (bruto 0,402)."
       ],
       "CHE": [
         "Suiza importa USD 215 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
         "La demanda crece al 6,2 % anual (CAGR).",
         "Colombia ya tiene 0,3 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "Suiza absorbe el 0,0 % de las exportaciones de Flores cortadas (HS 0603) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de Suiza.",
         "Flores cortadas (HS 0603) entra a Suiza sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,215 (bruto 0,229)."
+        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,235 (bruto 0,250)."
+      ],
+      "CHL": [
+        "Chile importa USD 26 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
+        "La demanda crece al 8,9 % anual (CAGR).",
+        "Colombia ya tiene 47,9 % del mercado y pierde 7,8 pp de cuota en la ventana.",
+        "Chile absorbe el 0,6 % de las exportaciones de Flores cortadas (HS 0603) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Chile.",
+        "Flores cortadas (HS 0603) entra a Chile sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Chile 0,72: el filtro deja el score en 0,385 (bruto 0,447)."
+      ],
+      "CRI": [
+        "Costa Rica importa USD 1 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
+        "La demanda crece al 30,7 % anual (CAGR).",
+        "Colombia ya tiene 14,1 % del mercado y pierde 19,1 pp de cuota en la ventana.",
+        "Costa Rica absorbe el 0,0 % de las exportaciones de Flores cortadas (HS 0603) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Costa Rica.",
+        "Flores cortadas (HS 0603) paga en Costa Rica un arancel efectivamente aplicado de 13,3 %.",
+        "Estabilidad macro de Costa Rica 0,93: el filtro deja el score en 0,245 (bruto 0,254)."
       ],
       "DEU": [
         "Alemania importa USD 1.402 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
         "La demanda crece al 13,0 % anual (CAGR).",
         "Colombia ya tiene 0,5 % del mercado y gana 0,3 pp de cuota en la ventana.",
+        "Alemania absorbe el 0,1 % de las exportaciones de Flores cortadas (HS 0603) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Alemania.",
         "Flores cortadas (HS 0603) entra a Alemania sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,399 (bruto 0,459)."
+        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,373 (bruto 0,429)."
+      ],
+      "DOM": [
+        "República Dominicana importa USD 4 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
+        "La demanda crece al 5,5 % anual (CAGR).",
+        "Colombia ya tiene 20,6 % del mercado y pierde 0,8 pp de cuota en la ventana.",
+        "República Dominicana absorbe el 0,0 % de las exportaciones de Flores cortadas (HS 0603) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de República Dominicana.",
+        "Flores cortadas (HS 0603) paga en República Dominicana un arancel efectivamente aplicado de 20,0 %.",
+        "Estabilidad macro de República Dominicana 0,78: el filtro deja el score en 0,270 (bruto 0,304)."
+      ],
+      "ECU": [
+        "Ecuador importa USD 0 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 28,6 % anual (CAGR).",
+        "Colombia ya tiene 82,1 % del mercado y pierde 16,7 pp de cuota en la ventana.",
+        "Ecuador absorbe el 0,1 % de las exportaciones de Flores cortadas (HS 0603) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,51 (escala 0–1) con la demanda importadora de Ecuador.",
+        "Flores cortadas (HS 0603) paga en Ecuador un arancel efectivamente aplicado de 20,0 %.",
+        "Estabilidad macro de Ecuador 0,88: el filtro deja el score en 0,335 (bruto 0,356)."
       ],
       "ESP": [
         "España importa USD 171 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
         "La demanda crece al 20,2 % anual (CAGR).",
         "Colombia ya tiene 42,8 % del mercado y gana 7,7 pp de cuota en la ventana.",
+        "España absorbe el 2,2 % de las exportaciones de Flores cortadas (HS 0603) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de España.",
         "Flores cortadas (HS 0603) entra a España sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de España 0,97: el filtro deja el score en 0,623 (bruto 0,633)."
+        "Estabilidad macro de España 0,97: el filtro deja el score en 0,477 (bruto 0,485)."
       ],
       "FIN": [
         "Finlandia importa USD 62 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
         "La demanda crece al 2,4 % anual (CAGR).",
         "Colombia ya tiene 1,9 % del mercado y pierde 0,6 pp de cuota en la ventana.",
+        "Finlandia absorbe el 0,1 % de las exportaciones de Flores cortadas (HS 0603) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Finlandia.",
         "Flores cortadas (HS 0603) entra a Finlandia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,246 (bruto 0,279)."
+        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,279 (bruto 0,316)."
       ],
       "FRA": [
         "Francia importa USD 384 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
         "La demanda se contrae al 2,2 % anual (CAGR).",
         "Colombia ya tiene 1,8 % del mercado y pierde 0,1 pp de cuota en la ventana.",
+        "Francia absorbe el 0,1 % de las exportaciones de Flores cortadas (HS 0603) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de Francia.",
         "Flores cortadas (HS 0603) entra a Francia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,266 (bruto 0,290)."
+        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,322 (bruto 0,351)."
       ],
       "GBR": [
         "Reino Unido importa USD 822 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
         "La demanda crece al 8,1 % anual (CAGR).",
         "Colombia ya tiene 10,4 % del mercado y pierde 0,5 pp de cuota en la ventana.",
+        "Reino Unido absorbe el 2,9 % de las exportaciones de Flores cortadas (HS 0603) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Reino Unido.",
         "Flores cortadas (HS 0603) entra a Reino Unido sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,358 (bruto 0,449)."
+        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,351 (bruto 0,441)."
       ],
       "ITA": [
         "Italia importa USD 227 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
         "La demanda crece al 15,0 % anual (CAGR).",
         "Colombia ya tiene 0,8 % del mercado y pierde 0,6 pp de cuota en la ventana.",
+        "Italia absorbe el 0,3 % de las exportaciones de Flores cortadas (HS 0603) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Italia.",
         "Flores cortadas (HS 0603) entra a Italia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,396 (bruto 0,432)."
+        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,356 (bruto 0,388)."
       ],
       "JPN": [
         "Japón importa USD 319 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
         "La demanda crece al 0,6 % anual (CAGR).",
         "Colombia ya tiene 22,8 % del mercado y pierde 1,6 pp de cuota en la ventana.",
+        "Japón absorbe el 2,0 % de las exportaciones de Flores cortadas (HS 0603) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Japón.",
         "Flores cortadas (HS 0603) entra a Japón sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,364 (bruto 0,402)."
+        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,392 (bruto 0,433)."
       ],
       "KOR": [
         "Corea del Sur importa USD 75 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
         "La demanda crece al 5,5 % anual (CAGR).",
         "Colombia ya tiene 41,8 % del mercado y gana 2,8 pp de cuota en la ventana.",
+        "Corea del Sur absorbe el 0,8 % de las exportaciones de Flores cortadas (HS 0603) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,49 (escala 0–1) con la demanda importadora de Corea del Sur.",
         "Flores cortadas (HS 0603) paga en Corea del Sur un arancel efectivamente aplicado de 1,0 %.",
-        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,411 (bruto 0,437)."
+        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,464 (bruto 0,493)."
+      ],
+      "MEX": [
+        "México importa USD 1 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
+        "La demanda crece al 21,8 % anual (CAGR).",
+        "Colombia ya tiene 31,2 % del mercado y gana 20,1 pp de cuota en la ventana.",
+        "México absorbe el 0,0 % de las exportaciones de Flores cortadas (HS 0603) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de México.",
+        "Flores cortadas (HS 0603) entra a México sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de México 0,80: el filtro deja el score en 0,335 (bruto 0,373)."
       ],
       "NLD": [
         "Países Bajos importa USD 1.193 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
         "La demanda crece al 7,2 % anual (CAGR).",
         "Colombia ya tiene 7,0 % del mercado y pierde 0,6 pp de cuota en la ventana.",
+        "Países Bajos absorbe el 2,6 % de las exportaciones de Flores cortadas (HS 0603) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Países Bajos.",
         "Flores cortadas (HS 0603) entra a Países Bajos sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,460 (bruto 0,507)."
+        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,455 (bruto 0,502)."
+      ],
+      "PAN": [
+        "Panamá importa USD 9 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
+        "La demanda crece al 11,3 % anual (CAGR).",
+        "Colombia ya tiene 60,7 % del mercado y pierde 6,4 pp de cuota en la ventana.",
+        "Panamá absorbe el 0,3 % de las exportaciones de Flores cortadas (HS 0603) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Panamá.",
+        "Flores cortadas (HS 0603) paga en Panamá un arancel efectivamente aplicado de 15,0 %.",
+        "Estabilidad macro de Panamá 0,94: el filtro deja el score en 0,385 (bruto 0,397)."
+      ],
+      "PER": [
+        "Perú importa USD 2 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 14,8 % anual (CAGR).",
+        "Colombia ya tiene 0,7 % del mercado y pierde 1,5 pp de cuota en la ventana.",
+        "Perú absorbe el 0,0 % de las exportaciones de Flores cortadas (HS 0603) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Perú.",
+        "Flores cortadas (HS 0603) entra a Perú sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Perú 0,91: el filtro deja el score en 0,279 (bruto 0,292)."
       ],
       "POL": [
         "Polonia importa USD 257 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
         "La demanda crece al 21,4 % anual (CAGR).",
         "Colombia ya tiene 11,2 % del mercado y pierde 0,1 pp de cuota en la ventana.",
+        "Polonia absorbe el 1,2 % de las exportaciones de Flores cortadas (HS 0603) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,36 (escala 0–1) con la demanda importadora de Polonia.",
         "Flores cortadas (HS 0603) entra a Polonia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,405 (bruto 0,440)."
+        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,327 (bruto 0,355)."
       ],
       "PRT": [
         "Portugal importa USD 46 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
         "La demanda crece al 7,6 % anual (CAGR).",
         "Colombia ya tiene 0,3 % del mercado y pierde 0,2 pp de cuota en la ventana.",
+        "Portugal absorbe el 0,0 % de las exportaciones de Flores cortadas (HS 0603) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,39 (escala 0–1) con la demanda importadora de Portugal.",
         "Flores cortadas (HS 0603) entra a Portugal sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,299 (bruto 0,310)."
+        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,304 (bruto 0,315)."
       ],
       "SWE": [
         "Suecia importa USD 89 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
         "La demanda crece al 7,6 % anual (CAGR).",
         "Colombia no registra ventas de Flores cortadas (HS 0603) en Suecia (cuota 0 %).",
+        "Suecia absorbe el 0,0 % de las exportaciones de Flores cortadas (HS 0603) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Suecia.",
         "Flores cortadas (HS 0603) entra a Suecia sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,252 (bruto 0,279)."
+        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,260 (bruto 0,289)."
       ],
       "USA": [
         "Estados Unidos importa USD 2.670 M al año de Flores cortadas (HS 0603) (promedio de los últimos 3 años).",
         "La demanda crece al 2,9 % anual (CAGR).",
         "Colombia ya tiene 59,0 % del mercado y gana 0,3 pp de cuota en la ventana.",
+        "Estados Unidos absorbe el 79,8 % de las exportaciones de Flores cortadas (HS 0603) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,33 (escala 0–1) con la demanda importadora de Estados Unidos.",
         "Flores cortadas (HS 0603) entra a Estados Unidos sin arancel (0 % efectivamente aplicado).",
-        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,493 (bruto 0,597)."
+        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,487 (bruto 0,590)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.623,
-        "iso3": "ESP",
-        "name": "España",
-        "reasons": [
-          "2.º destino por crecimiento de la demanda (20,2 % anual)",
-          "7.º destino por complementariedad de canastas (índice 0,42 (escala 0–1))"
-        ]
-      },
-      {
-        "final_score": 0.493,
+        "final_score": 0.487,
         "iso3": "USA",
         "name": "Estados Unidos",
         "reasons": [
           "1.º destino por tamaño de mercado (USD 2.670 M/año)",
-          "1.º destino por cuota ya ganada (cuota de 59,0 %)"
+          "3.º destino por cuota ya ganada (cuota de 59,0 %)"
         ]
       },
       {
-        "final_score": 0.46,
-        "iso3": "NLD",
-        "name": "Países Bajos",
+        "final_score": 0.477,
+        "iso3": "ESP",
+        "name": "España",
         "reasons": [
-          "3.º destino por complementariedad de canastas (índice 0,46 (escala 0–1))",
-          "3.º destino por tamaño de mercado (USD 1.193 M/año)"
+          "5.º destino por crecimiento de la demanda (20,2 % anual)",
+          "12.º destino por complementariedad de canastas (índice 0,42 (escala 0–1))"
+        ]
+      },
+      {
+        "final_score": 0.464,
+        "iso3": "KOR",
+        "name": "Corea del Sur",
+        "reasons": [
+          "2.º destino por complementariedad de canastas (índice 0,49 (escala 0–1))",
+          "22.º destino por arancel enfrentado (1,0 % efectivamente aplicado)"
         ]
       }
     ]

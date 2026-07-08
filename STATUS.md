@@ -12,7 +12,27 @@ ranking de 26 destinos (18 OCDE/Asia + 8 LATAM). Motor económico puro en
 `domain/`, snapshot Parquet como contrato, app Streamlit que solo lee el
 snapshot.
 
-## ✅ Última tanda — hero + selector de producto (2026-07-08, COMPLETA)
+## ✅ Última tanda — simulador propagado a toda la página (2026-07-08, COMPLETA)
+
+Tres peticiones directas sobre el 🎯 Simulador de prioridades (solo `app/`):
+
+1. **Los pesos del simulador ahora se propagan**: si el usuario mueve
+   algún deslizador respecto a los pesos oficiales, `_weight_lab_section`
+   devuelve `(rescored, weights)` y `main()` pinta TODO lo que queda de
+   página (mapa, desglose, radar, scores, tamaño, evolución y ficha de
+   foco) con ese ranking re-calculado y un meta con los pesos simulados
+   (`view_ranking` / `view_meta`); un `st.info` avisa que los pesos del
+   simulador están activos. Con los pesos oficiales intactos devuelve
+   `None` y nada cambia. La tabla oficial del ranking, KPIs y narrativa
+   (arriba del simulador) siguen siendo siempre las oficiales, a
+   propósito. El clic en el mapa es seguro con el reorden (identifica por
+   ISO3 en customdata, no por índice de fila).
+2. **Paso fino**: sliders de 5% → 1%.
+3. **Suma ≠ 100%**: es válido por diseño (pesos relativos, se normalizan
+   a suma 1 en `domain/scoring`); ahora un caption lo dice explícitamente
+   mostrando el total cuando difiere de 100.
+
+## ✅ Tanda anterior — hero + selector de producto (2026-07-08, COMPLETA)
 
 Dos correcciones de feedback visual, sobre la tanda de pulidos de abajo:
 

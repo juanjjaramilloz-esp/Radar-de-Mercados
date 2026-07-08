@@ -33,6 +33,11 @@ contrato, app Streamlit que solo lee el snapshot.
   `WEIGHTS` rebalanceados. Sin dato de WITS → aporte neutro 0.5 (mismo
   criterio que el macro). Con datos reales: el café entra libre en 17
   destinos y Japón cobra 6 % (sin acuerdo → MFN); banano: Japón 12,75 %.
+- **Narrativa bilingüe (2026-07-07):** `narrative.json` trae `{"es", "en"}`
+  (generadas por `domain/narrative.py` con plantillas y formato numérico por
+  idioma); la app muestra la del idioma activo y los exports Excel/PDF van
+  completos en ese idioma (etiquetas, números y narrativa). Snapshots con el
+  formato plano viejo degradan a español.
 - **En curso:** backlog (IMF SDMX como macro complementaria) + mejoras de
   buen costo/beneficio sin preguntar.
 - **Web:** repo público https://github.com/juanjosejaramillozarate-png/radar-de-mercados;

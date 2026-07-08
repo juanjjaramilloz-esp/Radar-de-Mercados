@@ -27,6 +27,12 @@ creativas post-MVP acordadas en CLAUDE.md).
   `--refresh-narrative` para regenerar `narrative.json` sin red.
 - [x] Gráfica «Evolución del mercado» con Plotly: años enteros, hover
   unificado, referencia 100, absolutos en millones de USD.
+- [x] **Narrativa bilingüe (es/en)** (2026-07-07): `domain/narrative.py`
+  genera ambos idiomas (plantillas + formato numérico por idioma; nombres de
+  destinos de `config.DESTINATIONS_EN`); `narrative.json` = `{"es", "en"}`;
+  la app elige el idioma activo y los exports Excel/PDF reciben `lang`
+  (etiquetas y números localizados). Snapshots viejos (formato plano) siguen
+  funcionando.
 - [x] **Aranceles (WITS)** como métrica del motor (2026-07-07):
   `ingest/wits.py` (dataflow SDMX `DF_WITS_Tariff_TRAINS`: MFN + preferencial
   hacia Colombia por HS6, caché en `data/raw/`, tests con XML reales

@@ -1127,16 +1127,27 @@ def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object], focus_iso3: s
     )
 
 
-def _weight_lab_section(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
+def _weight_lab_section(
+    ranking: pd.DataFrame, meta: dict[str, object]
+) -> tuple[pd.DataFrame, dict[str, float]] | None:
     """Simulador de prioridades: sliders → re-ranking en vivo (what-if).
 
     Las fórmulas viven en ``domain/scoring`` (funciones puras, testeadas);
     la app solo recoge los pesos del usuario, invoca al dominio y compara el
     resultado contra el ranking oficial del snapshot.
+
+    Returns:
+        ``(rescored, weights)`` — el ranking re-calculado y los pesos
+        efectivos (normalizados) — solo cuando el usuario movió algún
+        deslizador respecto a los pesos oficiales, para que el resto de la
+        página (mapa, pestañas, ficha de foco) se propague en vivo. ``None``
+        si los pesos siguen siendo los oficiales, si el laboratorio no se
+        puede mostrar (faltan columnas) o si todos quedaron en cero: en esos
+        casos el llamador sigue usando el ranking oficial del snapshot.
     """
     available = [name for name, col in scoring.METRIC_COLUMNS.items() if col in ranking.columns]
     if not available or config.COL_STABILITY not in ranking.columns:
-        return
+        return None
     weights_obj = meta.get("weights")
     official_weights: dict[str, float] = (
         {name: float(str(value)) for name, value in weights_obj.items() if name in available}
@@ -1152,15 +1163,17 @@ def _weight_lab_section(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
                 st.session_state.pop(f"lab_w_{name}", None)
         slider_columns = st.columns(3)
         raw_weights: dict[str, int] = {}
+        default_ints: dict[str, int] = {}
         for i, name in enumerate(available):
             default = official_weights.get(name, config.WEIGHTS.get(name, 0.0))
+            default_ints[name] = int(round(default * 100))
             with slider_columns[i % 3]:
                 raw_weights[name] = st.slider(
                     i18n.metric_label(name),
                     min_value=0,
                     max_value=100,
-                    value=int(round(default * 100)),
-                    step=5,
+                    value=default_ints[name],
+                    step=1,
                     format="%d%%",
                     key=f"lab_w_{name}",
                     help=t("lab_slider_help"),
@@ -1168,7 +1181,7 @@ def _weight_lab_section(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
         total = sum(raw_weights.values())
         if total == 0:
             st.info(t("lab_zero_info"))
-            return
+            return None
         weights = {name: value / total for name, value in raw_weights.items()}
         effective = " · ".join(
             f"{i18n.metric_label(name)} {i18n.fmt_pct(weight, 0)}"
@@ -1176,6 +1189,8 @@ def _weight_lab_section(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
             if weight > 0
         )
         st.caption(t("lab_effective_weights", weights=effective))
+        if total != 100:
+            st.caption(t("lab_total_note", total=total))
         floor = float(str(meta.get("macro_floor") or config.MACRO_FLOOR))
         rescored = scoring.rescore_ranking(ranking, weights, macro_floor=floor)
         official_rank = ranking.set_index(config.COL_COUNTRY)[config.COL_RANK]
@@ -1199,6 +1214,9 @@ def _weight_lab_section(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
             }
         )
         st.dataframe(display, hide_index=True, width="stretch")
+    if raw_weights == default_ints:
+        return None  # pesos oficiales intactos: la página sigue con el snapshot
+    return rescored, weights
 
 
 def _scores_tab(ranking: pd.DataFrame) -> None:
@@ -1538,7 +1556,16 @@ def main() -> None:
             mime="application/pdf",
         )
 
-    _weight_lab_section(ranking, meta)
+    lab_result = _weight_lab_section(ranking, meta)
+    # Si el usuario movió los pesos del simulador, TODO lo de aquí hacia
+    # abajo (mapa, gráficas, ficha de foco) se pinta con el ranking
+    # re-calculado y sus pesos; el ranking oficial de arriba no se toca.
+    view_ranking, view_meta = ranking, meta
+    if lab_result is not None:
+        sim_ranking, sim_weights = lab_result
+        view_ranking = sim_ranking
+        view_meta = {**meta, "weights": sim_weights}
+        st.info(t("lab_live_note"))
 
     timeseries = _load_imports_timeseries(hs)
     tab_labels = [
@@ -1552,21 +1579,21 @@ def main() -> None:
         tab_labels.append(t("tab_evolution"))
     tabs = st.tabs(tab_labels)
     with tabs[0]:
-        _map_tab(ranking, focus_iso3)
+        _map_tab(view_ranking, focus_iso3)
     with tabs[1]:
-        _breakdown_tab(ranking, meta)
+        _breakdown_tab(view_ranking, view_meta)
     with tabs[2]:
-        _radar_tab(ranking)
+        _radar_tab(view_ranking)
     with tabs[3]:
-        _scores_tab(ranking)
+        _scores_tab(view_ranking)
     with tabs[4]:
-        _size_tab(ranking, meta)
+        _size_tab(view_ranking, view_meta)
 
     if timeseries is not None:
         with tabs[5]:
-            _evolution_tab(ranking, meta, timeseries)
+            _evolution_tab(view_ranking, view_meta, timeseries)
 
-    _focus_section(ranking, meta, narrative, timeseries, hs, product_label)
+    _focus_section(view_ranking, view_meta, narrative, timeseries, hs, product_label)
     built = {
         code: label for code, label in options.items() if config.ranking_parquet(code).exists()
     }

@@ -939,6 +939,29 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
         "en": "Effective weights: {weights}",
     },
     "lab_col_delta": {"es": "Δ posición", "en": "Δ position"},
+    "lab_total_note": {
+        "es": (
+            "La suma de los deslizadores es {total}%: no pasa nada, los "
+            "pesos son relativos y se normalizan a 100% antes de calcular."
+        ),
+        "en": (
+            "The sliders add up to {total}%: that's fine — weights are "
+            "relative and get normalized to 100% before computing."
+        ),
+    },
+    "lab_live_note": {
+        "es": (
+            "🎯 Pesos del simulador activos: el mapa, las gráficas y la "
+            "ficha de destino de abajo reflejan tus pesos (no los "
+            "oficiales). Usa «↺ Pesos oficiales» en el simulador para "
+            "volver."
+        ),
+        "en": (
+            "🎯 Simulator weights active: the map, the charts and the "
+            "market sheet below reflect your weights (not the official "
+            "ones). Use “↺ Official weights” in the simulator to go back."
+        ),
+    },
     "evolution_select_markets_label": {
         "es": "Mercados a mostrar",
         "en": "Markets to show",

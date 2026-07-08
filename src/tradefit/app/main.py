@@ -27,10 +27,17 @@ from tradefit.app.export import ranking_to_excel, ranking_to_pdf
 from tradefit.app.flags import flag_emoji
 from tradefit.app.i18n import t
 from tradefit.domain import scoring
+from tradefit.domain.macro_filter import latest_indicator_value
 from tradefit.pipeline.build_snapshot import ensure_snapshot
 
 _PRODUCT_SELECT_KEY = "product_select"
 _TOUR_SEEN_KEY = "tour_seen"
+#: Estado del focus mode: el selectbox de la ficha es la fuente de verdad;
+#: el mapa escribe en él (antes de instanciarlo) y un guard evita que la
+#: selección vieja del mapa reimponga el foco tras «quitar foco».
+_FOCUS_SELECT_KEY = "focus_market_select"
+_MAP_KEY = "map_select"
+_MAP_PROCESSED_KEY = "map_selection_processed"
 
 #: Color de cada métrica en las gráficas de desglose (azules = demanda,
 #: ámbar = posición del origen, verde = encaje, gris = fricción arancelaria).
@@ -281,20 +288,248 @@ def _recommendations_section(narrative: dict[str, object]) -> None:
         st.markdown(f"**{i}. {name}** ({score_label} {score}) — {reasons}")
 
 
-def _market_detail_section(ranking: pd.DataFrame, narrative: dict[str, object]) -> None:
-    """Ficha narrativa por mercado: frases por reglas, cada una con su número."""
-    markets = narrative.get("markets")
-    if not isinstance(markets, dict) or not markets:
-        return
-    st.subheader(t("market_detail_subheader"))
-    names = ranking.set_index(config.COL_COUNTRY)[config.COL_COUNTRY_NAME]
-    selected = st.selectbox(
-        t("market_detail_select_label"),
-        options=list(ranking[config.COL_COUNTRY]),
-        format_func=lambda iso3: f"{flag_emoji(iso3)} {names.get(iso3, iso3)} ({iso3})".strip(),
+def _focus_header_metrics(ranking: pd.DataFrame, row: pd.Series, iso3: str) -> None:
+    """Fila de métricas rápidas de la ficha (score, arancel+TLC, cuotas)."""
+    col_score, col_tariff, col_share, col_origin = st.columns(4)
+    col_score.metric(
+        t("col_score_final"),
+        i18n.fmt_number(float(row[config.COL_FINAL_SCORE]), 3),
+        delta=t("focus_header_rank", rank=int(row[config.COL_RANK]), n=len(ranking)),
+        delta_color="off",
     )
-    for sentence in markets.get(selected, []):
-        st.markdown(f"- {sentence}")
+    tariff = row.get(config.COL_TARIFF)
+    col_tariff.metric(
+        t("col_tariff"),
+        i18n.fmt_pct(float(tariff)) if pd.notna(tariff) else "—",
+        delta=i18n.trade_agreement(iso3) or t("focus_no_agreement"),
+        delta_color="off",
+    )
+    col_share.metric(
+        t("col_share"),
+        i18n.fmt_pct(float(row[config.COL_SHARE])),
+        delta=(
+            f"{i18n.fmt_pct(float(row[config.COL_SHARE_TREND]), signed=True)} "
+            f"{t('focus_share_window')}"
+        ),
+        delta_color="off",
+    )
+    origin_share = row.get(config.COL_ORIGIN_EXPORT_SHARE)
+    col_origin.metric(
+        t("col_origin_export_share"),
+        i18n.fmt_pct(float(origin_share)) if pd.notna(origin_share) else "—",
+        delta=t("focus_origin_share_delta"),
+        delta_color="off",
+    )
+
+
+def _focus_drivers_line(ranking: pd.DataFrame, meta: dict[str, object], iso3: str) -> None:
+    """Los 2 mayores aportes peso×norm al score del mercado (domain puro)."""
+    weights_obj = meta.get("weights")
+    if not isinstance(weights_obj, dict):
+        return
+    weights = {
+        name: float(str(value))
+        for name, value in weights_obj.items()
+        if scoring.METRIC_COLUMNS.get(str(name)) in ranking.columns
+    }
+    positive = {name: w for name, w in weights.items() if w > 0}
+    if not positive:
+        return
+    contributions = scoring.score_contributions(ranking, positive)
+    # cast: .loc con un solo índice devuelve la fila como Series (los stubs
+    # de pandas no logran inferirlo).
+    market_row = cast("pd.Series[float]", contributions.loc[iso3])
+    top = market_row.nlargest(2)
+    drivers = " · ".join(
+        f"**{i18n.metric_label(str(name))}** ({i18n.fmt_number(float(value), 3)})"
+        for name, value in top.items()
+    )
+    st.markdown(t("focus_drivers", drivers=drivers))
+
+
+def _focus_macro_block(row: pd.Series, iso3: str) -> None:
+    """Contexto macro del destino: último dato por indicador + LPI + estabilidad.
+
+    Los valores salen del ``macro_context.parquet`` compartido; el «último
+    año con dato» lo decide ``domain.macro_filter.latest_indicator_value``
+    (puro, testeado) — la app solo formatea.
+    """
+    st.markdown(f"**{t('focus_macro_header')}**")
+    lines: list[str] = []
+    macro = _load_macro_context()
+    if macro is not None:
+        country_macro = macro[macro[config.COL_COUNTRY] == iso3]
+        for indicator, label_key in (
+            ("inflation", "macro_inflation"),
+            ("gdp_growth", "macro_gdp_growth"),
+            ("current_account", "macro_current_account"),
+        ):
+            values = latest_indicator_value(country_macro, indicator)
+            if iso3 in values.index:
+                year = int(
+                    country_macro.loc[
+                        country_macro[config.COL_INDICATOR] == indicator, config.COL_YEAR
+                    ].max()
+                )
+                lines.append(
+                    f"- {t(label_key)} ({year}): **{i18n.fmt_number(float(values[iso3]), 1)} %**"
+                )
+    lpi = row.get(config.COL_LPI)
+    if pd.notna(lpi):
+        lines.append(f"- {t('col_lpi')}: **{i18n.fmt_number(float(lpi), 1)}**")
+    lines.append(
+        f"- {t('col_stability')}: **{i18n.fmt_number(float(row[config.COL_STABILITY]), 2)}**"
+    )
+    st.markdown("\n".join(lines))
+
+
+def _focus_competitors_block(hs: str, iso3: str, product_label: str) -> None:
+    """Top proveedores del producto en el destino, con Colombia resaltada."""
+    st.markdown(f"**{t('focus_competitors_header', product=product_label)}**")
+    suppliers = _load_competitors(hs)
+    destination = (
+        suppliers[suppliers[config.COL_COUNTRY] == iso3] if suppliers is not None else None
+    )
+    if destination is None or destination.empty:
+        st.info(t("focus_competitors_missing"))
+        return
+    origin_code = str(config.ORIGIN_COMTRADE_CODE)
+    top = destination[destination[config.COL_SUPPLIER_RANK] <= 5]
+    colombia = destination[destination[config.COL_PARTNER_CODE] == origin_code]
+    chart_rows = (
+        pd.concat([top, colombia])
+        .drop_duplicates(subset=config.COL_PARTNER_CODE)
+        .sort_values(config.COL_SUPPLIER_RANK)
+    )
+    labels = [
+        f"#{int(rank)} " + (config.ORIGIN_NAME if code == origin_code else str(name))
+        for rank, code, name in zip(
+            chart_rows[config.COL_SUPPLIER_RANK],
+            chart_rows[config.COL_PARTNER_CODE],
+            chart_rows[config.COL_PARTNER_NAME],
+            strict=True,
+        )
+    ]
+    colors = [
+        "#F59E0B" if code == origin_code else "#1D4ED8"
+        for code in chart_rows[config.COL_PARTNER_CODE]
+    ]
+    fig = go.Figure(
+        go.Bar(
+            x=chart_rows[config.COL_SUPPLIER_SHARE] * 100.0,
+            y=labels,
+            orientation="h",
+            marker_color=colors,
+            hovertemplate="%{x:.1f} %<extra></extra>",
+        )
+    )
+    fig.update_layout(
+        separators=i18n.active_plotly_separators(),
+        height=60 + 36 * len(chart_rows),
+        margin={"l": 0, "r": 0, "t": 0, "b": 0},
+        xaxis={"title": t("focus_competitors_xaxis")},
+        yaxis={"title": None, "autorange": "reversed"},
+        showlegend=False,
+    )
+    st.plotly_chart(fig, use_container_width=True)
+    year = int(destination[config.COL_YEAR].max())
+    if not colombia.empty:
+        st.caption(
+            t(
+                "focus_colombia_position",
+                rank=int(colombia[config.COL_SUPPLIER_RANK].iloc[0]),
+                share=i18n.fmt_pct(float(colombia[config.COL_SUPPLIER_SHARE].iloc[0])),
+                year=year,
+            )
+        )
+    else:
+        st.caption(t("focus_colombia_absent", year=year))
+
+
+def _focus_evolution_block(timeseries: pd.DataFrame | None, iso3: str) -> None:
+    """Mini-gráfica: importaciones anuales del producto en el destino."""
+    if timeseries is None:
+        return
+    series = timeseries[timeseries[config.COL_COUNTRY] == iso3]
+    if series.empty:
+        return
+    st.markdown(f"**{t('focus_evolution_header')}**")
+    data = series.assign(musd=series[config.COL_IMPORTS_USD] / 1e6)
+    fig = px.line(data, x=config.COL_YEAR, y="musd", markers=True)
+    fig.update_traces(
+        line={"width": 2.5, "color": "#1D4ED8"},
+        marker={"size": 7},
+        hovertemplate="%{y:,.1f}<extra></extra>",
+    )
+    fig.update_layout(
+        separators=i18n.active_plotly_separators(),
+        height=240,
+        margin={"l": 0, "r": 0, "t": 10, "b": 0},
+        xaxis={"title": None, "dtick": 1, "tickformat": "d"},
+        yaxis={"title": None},
+        showlegend=False,
+    )
+    st.plotly_chart(fig, use_container_width=True)
+
+
+def _focus_section(
+    ranking: pd.DataFrame,
+    meta: dict[str, object],
+    narrative: dict[str, object],
+    timeseries: pd.DataFrame | None,
+    hs: str,
+    product_label: str,
+) -> None:
+    """Ficha del destino: todo lo que el Radar sabe del mercado en foco.
+
+    El foco se fija clicando el mapa (``_apply_map_selection``) o con el
+    selector de esta sección; «quitar foco» lo limpia. Presentación pura:
+    lee columnas del snapshot y llama funciones puras de ``domain/``
+    (contribuciones, último dato macro) — ninguna fórmula vive aquí.
+    """
+    st.divider()
+    st.subheader(t("focus_subheader"))
+    st.caption(t("focus_caption"))
+    names = ranking.set_index(config.COL_COUNTRY)[config.COL_COUNTRY_NAME]
+    options = ["", *ranking[config.COL_COUNTRY].tolist()]
+    # Un foco heredado (p. ej. de otro producto) que no existe en este
+    # ranking rompería el selectbox: se limpia antes de instanciarlo.
+    if st.session_state.get(_FOCUS_SELECT_KEY) not in options:
+        st.session_state[_FOCUS_SELECT_KEY] = ""
+    col_select, col_clear = st.columns([3, 1], vertical_alignment="bottom")
+    with col_select:
+        selected = st.selectbox(
+            t("focus_select_label"),
+            options=options,
+            format_func=lambda iso3: (
+                t("focus_select_placeholder")
+                if not iso3
+                else f"{flag_emoji(iso3)} {names.get(iso3, iso3)} ({iso3})".strip()
+            ),
+            key=_FOCUS_SELECT_KEY,
+        )
+    if selected:
+        with col_clear:
+            st.button(t("focus_clear"), on_click=_clear_focus)
+    if not selected:
+        st.info(t("focus_hint"))
+        return
+    row = ranking.set_index(config.COL_COUNTRY).loc[selected]
+    flag = flag_emoji(selected)
+    st.markdown(f"### {flag} {names[selected]}".replace("  ", " "))
+    _focus_header_metrics(ranking, row, selected)
+    _focus_drivers_line(ranking, meta, selected)
+    col_left, col_right = st.columns([2, 3])
+    with col_left:
+        _focus_macro_block(row, selected)
+    with col_right:
+        _focus_competitors_block(hs, selected, product_label)
+    _focus_evolution_block(timeseries, selected)
+    markets = narrative.get("markets")
+    if isinstance(markets, dict) and markets.get(selected):
+        st.markdown(f"**{t('focus_narrative_header')}**")
+        for sentence in markets[selected]:
+            st.markdown(f"- {sentence}")
 
 
 def _comparator_section(products: dict[str, str]) -> None:
@@ -433,18 +668,23 @@ def _methodology_section(meta: dict[str, object]) -> None:
         )
 
 
-def _map_tab(ranking: pd.DataFrame) -> None:
+def _map_tab(ranking: pd.DataFrame, focus_iso3: str = "") -> None:
     """Choropleth del score final por destino (plotly acepta ISO3 directo).
 
     Presentación pura: pinta columnas ya presentes en el ranking; el color es
-    el score final y el hover trae las métricas que lo explican.
+    el score final y el hover trae las métricas que lo explican. Con
+    ``on_select="rerun"``, el clic en un país fija el foco (lo procesa
+    ``_apply_map_selection`` al inicio del run siguiente) y el país en foco
+    se dibuja con borde ámbar.
     """
     st.caption(t("map_caption"))
+    st.caption(t("map_focus_hint"))
     fig = px.choropleth(
         ranking,
         locations=config.COL_COUNTRY,
         color=config.COL_FINAL_SCORE,
         hover_name=config.COL_COUNTRY_NAME,
+        custom_data=[config.COL_COUNTRY],
         hover_data={
             config.COL_COUNTRY: False,
             config.COL_FINAL_SCORE: ":.3f",
@@ -463,7 +703,11 @@ def _map_tab(ranking: pd.DataFrame) -> None:
         color_continuous_scale="Blues",
         projection="natural earth",
     )
-    fig.update_traces(marker_line_color="#FFFFFF", marker_line_width=0.6)
+    line_colors = [
+        "#F59E0B" if iso == focus_iso3 else "#FFFFFF" for iso in ranking[config.COL_COUNTRY]
+    ]
+    line_widths = [2.5 if iso == focus_iso3 else 0.6 for iso in ranking[config.COL_COUNTRY]]
+    fig.update_traces(marker_line_color=line_colors, marker_line_width=line_widths)
     fig.update_layout(
         separators=i18n.active_plotly_separators(),
         margin={"l": 0, "r": 0, "t": 0, "b": 0},
@@ -479,7 +723,7 @@ def _map_tab(ranking: pd.DataFrame) -> None:
             "coastlinecolor": "#CBD5E1",
         },
     )
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, use_container_width=True, on_select="rerun", key=_MAP_KEY)
 
 
 def _evolution_tab(
@@ -538,7 +782,78 @@ def _evolution_tab(
     st.plotly_chart(fig, use_container_width=True)
 
 
-def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
+def _load_competitors(hs: str) -> pd.DataFrame | None:
+    """Lee las cuotas de proveedores por destino, si el snapshot las trae.
+
+    Snapshots anteriores a 2026-07-08 (o construidos con el stub) no tienen
+    este artefacto: la ficha degrada con gracia omitiendo la sección.
+    """
+    path = config.competitors_parquet(hs)
+    if not path.exists():
+        return None
+    return pd.read_parquet(path)
+
+
+def _load_macro_context() -> pd.DataFrame | None:
+    """Lee el macro crudo compartido (país × indicador × año), si existe."""
+    path = config.macro_context_parquet()
+    if not path.exists():
+        return None
+    return pd.read_parquet(path)
+
+
+def _selected_map_iso3() -> str | None:
+    """ISO3 del país clicado en el mapa, leyendo el estado del widget.
+
+    Se lee de ``st.session_state`` (no del retorno de ``st.plotly_chart``)
+    para poder aplicar el foco ANTES de renderizar la tabla y el selector,
+    sin un rerun extra. Tolerante al formato del punto (``customdata`` o
+    ``location``): si algo no está, devuelve None.
+    """
+    state = st.session_state.get(_MAP_KEY)
+    if not state:
+        return None
+    try:
+        points = state["selection"]["points"]
+    except (KeyError, TypeError, IndexError):
+        return None
+    if not points:
+        return None
+    point = points[0]
+    customdata = point.get("customdata")
+    if isinstance(customdata, list | tuple) and customdata:
+        return str(customdata[0])
+    location = point.get("location")
+    return str(location) if location else None
+
+
+def _apply_map_selection(ranking: pd.DataFrame) -> None:
+    """Clic en el mapa → foco. Debe correr antes de instanciar el selector.
+
+    El guard ``_MAP_PROCESSED_KEY`` asegura que cada clic se aplique una sola
+    vez: sin él, la selección persistente del widget reimpondría el foco en
+    cada rerun y el botón «quitar foco» parecería roto.
+    """
+    iso3 = _selected_map_iso3()
+    if not iso3 or iso3 not in set(ranking[config.COL_COUNTRY]):
+        return
+    if st.session_state.get(_MAP_PROCESSED_KEY) == iso3:
+        return
+    st.session_state[_MAP_PROCESSED_KEY] = iso3
+    st.session_state[_FOCUS_SELECT_KEY] = iso3
+
+
+def _clear_focus() -> None:
+    """Callback del botón «quitar foco» (corre antes del rerun)."""
+    st.session_state[_FOCUS_SELECT_KEY] = ""
+
+
+def _current_focus() -> str:
+    """ISO3 del mercado en foco, o cadena vacía si no hay foco."""
+    return str(st.session_state.get(_FOCUS_SELECT_KEY, "") or "")
+
+
+def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object], focus_iso3: str = "") -> None:
     """Tabla del ranking con los números formateados en el idioma activo.
 
     Los formatos de ``st.column_config`` no sirven aquí: los printf usan
@@ -586,6 +901,14 @@ def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
         },
         na_rep="—",
     )
+    if focus_iso3:
+        # Fila del mercado en foco resaltada (ámbar translúcido: funciona en
+        # tema claro y oscuro sin forzar el color del texto).
+        row_styles = [
+            "background-color: rgba(245, 158, 11, 0.22)" if iso == focus_iso3 else ""
+            for iso in display[config.COL_COUNTRY]
+        ]
+        styler = styler.apply(lambda column: row_styles, axis=0)
     st.dataframe(
         styler,
         hide_index=True,
@@ -958,6 +1281,10 @@ def main() -> None:
     narrative = _narrative_in_language(narrative)
     ranking = _localize_country_names(ranking)
     product_label = i18n.product_label(hs, str(meta["hs_label"]))
+    # El clic en el mapa se aplica AHORA (antes de tabla, mapa y selector):
+    # así el resaltado y la ficha reflejan la selección en este mismo run.
+    _apply_map_selection(ranking)
+    focus_iso3 = _current_focus()
 
     rca = meta.get("rca_balassa")
     rca_text = t("caption_rca_suffix", rca=rca) if rca is not None else ""
@@ -983,7 +1310,7 @@ def main() -> None:
 
     st.subheader(t("ranking_subheader"))
     st.caption(t("ranking_caption", floor=meta.get("macro_floor", "—")))
-    _ranking_table(ranking, meta)
+    _ranking_table(ranking, meta, focus_iso3)
     base_name = f"radar_{meta['hs_code']}_{meta['origin_iso3']}"
     # Los exports llevan el idioma activo: etiquetas, números y la narrativa
     # ya seleccionada arriba; la etiqueta del producto también se localiza.
@@ -1026,7 +1353,7 @@ def main() -> None:
         tab_labels.append(t("tab_evolution"))
     tabs = st.tabs(tab_labels)
     with tabs[0]:
-        _map_tab(ranking)
+        _map_tab(ranking, focus_iso3)
     with tabs[1]:
         _breakdown_tab(ranking, meta)
     with tabs[2]:
@@ -1040,7 +1367,7 @@ def main() -> None:
         with tabs[5]:
             _evolution_tab(ranking, meta, timeseries)
 
-    _market_detail_section(ranking, narrative)
+    _focus_section(ranking, meta, narrative, timeseries, hs, product_label)
     built = {
         code: label for code, label in options.items() if config.ranking_parquet(code).exists()
     }

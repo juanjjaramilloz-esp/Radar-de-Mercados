@@ -301,8 +301,83 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
         "es": "Recomendación: dónde enfocarse",
         "en": "Recommendation: where to focus",
     },
-    "market_detail_subheader": {"es": "Lectura por mercado", "en": "Market notes"},
-    "market_detail_select_label": {"es": "Mercado", "en": "Market"},
+    "focus_subheader": {"es": "🔎 Ficha del destino", "en": "🔎 Destination profile"},
+    "focus_caption": {
+        "es": (
+            "Haz clic en un país del mapa (pestaña 🗺️) o elígelo aquí: la "
+            "ficha reúne todo lo que el Radar sabe de ese mercado para este "
+            "producto."
+        ),
+        "en": (
+            "Click a country on the map (🗺️ tab) or pick one here: the "
+            "profile gathers everything the Radar knows about that market "
+            "for this product."
+        ),
+    },
+    "focus_select_label": {"es": "Mercado en foco", "en": "Focused market"},
+    "focus_select_placeholder": {"es": "— sin foco —", "en": "— no focus —"},
+    "focus_clear": {"es": "✕ Quitar foco", "en": "✕ Clear focus"},
+    "focus_hint": {
+        "es": "Selecciona un mercado (o haz clic en el mapa) para ver su ficha.",
+        "en": "Select a market (or click the map) to see its profile.",
+    },
+    "focus_header_rank": {
+        "es": "#{rank} de {n} mercados",
+        "en": "#{rank} of {n} markets",
+    },
+    "focus_no_agreement": {"es": "sin acuerdo vigente", "en": "no agreement in force"},
+    "focus_share_window": {"es": "en la ventana", "en": "over the window"},
+    "focus_origin_share_delta": {
+        "es": "de las export. COL del producto",
+        "en": "of COL's exports of the product",
+    },
+    "focus_drivers": {
+        "es": "**Qué empuja su score:** {drivers} — contribución peso×norm al score bruto.",
+        "en": "**What drives its score:** {drivers} — weight×norm contribution to the raw score.",
+    },
+    "focus_macro_header": {
+        "es": "Contexto macro y logístico",
+        "en": "Macro & logistics context",
+    },
+    "macro_inflation": {"es": "Inflación", "en": "Inflation"},
+    "macro_gdp_growth": {"es": "Crecimiento del PIB", "en": "GDP growth"},
+    "macro_current_account": {
+        "es": "Cuenta corriente (% PIB)",
+        "en": "Current account (% GDP)",
+    },
+    "focus_competitors_header": {
+        "es": "Quién le vende {product} a este mercado",
+        "en": "Who sells {product} to this market",
+    },
+    "focus_competitors_caption": {
+        "es": "Top proveedores por cuota (UN Comtrade, {year}); Colombia resaltada.",
+        "en": "Top suppliers by share (UN Comtrade, {year}); Colombia highlighted.",
+    },
+    "focus_colombia_position": {
+        "es": "**Colombia es el proveedor #{rank}** con el {share} de las importaciones ({year}).",
+        "en": "**Colombia is supplier #{rank}** with {share} of imports ({year}).",
+    },
+    "focus_colombia_absent": {
+        "es": "Colombia no aparece entre los proveedores registrados ({year}).",
+        "en": "Colombia does not appear among the recorded suppliers ({year}).",
+    },
+    "focus_competitors_missing": {
+        "es": "Sin datos de competidores para este destino (el país no reportó el producto).",
+        "en": "No competitor data for this destination (the country did not report the product).",
+    },
+    "focus_competitors_xaxis": {
+        "es": "% de las importaciones del destino",
+        "en": "% of the destination's imports",
+    },
+    "focus_evolution_header": {
+        "es": "Evolución de sus importaciones (USD M)",
+        "en": "Its imports over time (USD M)",
+    },
+    "focus_narrative_header": {"es": "Lectura del mercado", "en": "Market notes"},
+    "map_focus_hint": {
+        "es": "💡 Haz clic en un país para fijar el foco y abrir su ficha (abajo).",
+        "en": "💡 Click a country to set focus and open its profile (below).",
+    },
     "comparator_subheader": {
         "es": "⚖️ Comparador de productos",
         "en": "⚖️ Product comparator",

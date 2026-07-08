@@ -8,6 +8,7 @@ no participa del score.
 """
 
 from collections.abc import Mapping
+from typing import Final
 
 import pandas as pd
 
@@ -146,3 +147,105 @@ def rank_markets(data: MarketInputs, weights: Mapping[str, float]) -> pd.DataFra
     )
     ranking.insert(0, config.COL_RANK, range(1, len(ranking) + 1))
     return ranking
+
+
+#: Columna del snapshot que expone cada métrica del scoring. Permite
+#: re-scorear un ranking ya construido (laboratorio de pesos de la app)
+#: sin volver a los insumos crudos de ``rank_markets``.
+METRIC_COLUMNS: Final[dict[str, str]] = {
+    "market_size": config.COL_MARKET_SIZE,
+    "import_growth": config.COL_GROWTH,
+    "market_share": config.COL_SHARE,
+    "share_trend": config.COL_SHARE_TREND,
+    "complementarity": config.COL_COMPLEMENTARITY,
+    "tariff_faced": config.COL_TARIFF,
+}
+
+
+def score_contributions(ranking: pd.DataFrame, weights: Mapping[str, float]) -> pd.DataFrame:
+    """Contribución de cada métrica al score de oportunidad, por mercado.
+
+    Definición: ``contribuciónᵢ(d) = wᵢ · normᵢ(métricaᵢ(d)) / Σᵢ wᵢ`` — los
+    sumandos del promedio ponderado de :func:`rank_markets`, de modo que la
+    suma por fila reproduce el score de oportunidad. Opera sobre las columnas
+    de métricas crudas que el ranking del snapshot ya trae
+    (``METRIC_COLUMNS``), con las mismas normalizaciones que el scoring
+    (``normalized_metric``): min-max sobre los mercados presentes.
+
+    Args:
+        ranking: ranking del snapshot (una fila por mercado) con
+            ``config.COL_COUNTRY`` y las columnas de las métricas de ``weights``.
+        weights: peso por nombre de métrica (``config.WEIGHTS`` o los pesos
+            alternativos del laboratorio de la app).
+
+    Returns:
+        DataFrame indexado por ISO3 con una columna por métrica de ``weights``.
+
+    Raises:
+        ValueError: si hay pesos de métricas desconocidas, ningún peso
+            positivo, o falta la columna de una métrica en ``ranking``.
+    """
+    unknown = set(weights) - set(METRIC_COLUMNS)
+    if unknown:
+        raise ValueError(f"Pesos para métricas desconocidas: {sorted(unknown)}")
+    total_weight = sum(weights.values())
+    if total_weight <= 0:
+        raise ValueError("Se requiere al menos un peso positivo en weights")
+    missing = sorted(
+        METRIC_COLUMNS[name] for name in weights if METRIC_COLUMNS[name] not in ranking.columns
+    )
+    if missing:
+        raise ValueError(f"Columnas de métricas ausentes en el ranking: {missing}")
+
+    indexed = ranking.set_index(config.COL_COUNTRY)
+    contributions = {
+        name: normalized_metric(name, indexed[METRIC_COLUMNS[name]]) * (weight / total_weight)
+        for name, weight in weights.items()
+    }
+    return pd.DataFrame(contributions)
+
+
+def rescore_ranking(
+    ranking: pd.DataFrame,
+    weights: Mapping[str, float],
+    macro_floor: float = config.MACRO_FLOOR,
+) -> pd.DataFrame:
+    """Re-rankea un snapshot con pesos alternativos (what-if de la app).
+
+    Reaplica las dos definiciones oficiales sobre las métricas crudas del
+    ranking: ``score = Σᵢ wᵢ·normᵢ / Σᵢ wᵢ`` (:func:`rank_markets`) y
+    ``final = score × (piso + (1 − piso) × estabilidad)``
+    (:func:`tradefit.domain.macro_filter.apply_stability_penalty`), usando la
+    estabilidad ya presente en el snapshot. Mismo desempate por ISO3. Con el
+    mismo universo de mercados y ``config.WEIGHTS`` reproduce el ranking
+    oficial (la normalización min-max se recalcula sobre los mercados
+    presentes).
+
+    Args:
+        ranking: ranking del snapshot con ``config.COL_COUNTRY``,
+            ``config.COL_STABILITY`` y las columnas de métricas de ``weights``.
+        weights: peso por nombre de métrica.
+        macro_floor: piso de la penalización macro (fuente:
+            ``config.MACRO_FLOOR`` o el ``macro_floor`` del meta del snapshot).
+
+    Returns:
+        Copia del ranking con ``opportunity_score``, ``final_score`` y
+        ``rank`` recalculados, reordenada por score final descendente.
+
+    Raises:
+        ValueError: si ``macro_floor`` está fuera de [0, 1] o los pesos son
+            inválidos (ver :func:`score_contributions`).
+    """
+    if not 0.0 <= macro_floor <= 1.0:
+        raise ValueError(f"macro_floor debe estar en [0, 1]; recibido: {macro_floor}")
+    score = score_contributions(ranking, weights).sum(axis=1)
+    result = ranking.copy()
+    result[config.COL_SCORE] = score.reindex(result[config.COL_COUNTRY]).to_numpy()
+    result[config.COL_FINAL_SCORE] = result[config.COL_SCORE] * (
+        macro_floor + (1.0 - macro_floor) * result[config.COL_STABILITY]
+    )
+    result = result.sort_values(
+        [config.COL_FINAL_SCORE, config.COL_COUNTRY], ascending=[False, True]
+    ).reset_index(drop=True)
+    result[config.COL_RANK] = range(1, len(result) + 1)
+    return result

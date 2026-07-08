@@ -6,7 +6,7 @@ import pytest
 from tradefit import config
 from tradefit.contracts import MarketInputs, ranking_schema
 from tradefit.domain.macro_filter import apply_stability_penalty
-from tradefit.domain.scoring import rank_markets
+from tradefit.domain.scoring import rank_markets, rescore_ranking, score_contributions
 
 #: Estabilidad de juguete para completar el contrato del ranking en los tests.
 STABILITY_SMALL = pd.Series({"USA": 0.8, "DEU": 0.9, "JPN": 0.7})
@@ -97,3 +97,67 @@ def test_ranking_determinista(market_inputs_small: MarketInputs) -> None:
     a = rank_markets(market_inputs_small, config.WEIGHTS)
     b = rank_markets(market_inputs_small, config.WEIGHTS)
     pd.testing.assert_frame_equal(a, b)
+
+
+# --- Re-scoring desde el snapshot (laboratorio de pesos) ---
+
+
+def _snapshot_ranking(market_inputs_small: MarketInputs) -> pd.DataFrame:
+    """Ranking como lo dejaría el pipeline: score + penalización macro."""
+    return apply_stability_penalty(
+        rank_markets(market_inputs_small, config.WEIGHTS), STABILITY_SMALL
+    )
+
+
+def test_rescore_con_pesos_oficiales_reproduce_el_snapshot(
+    market_inputs_small: MarketInputs,
+) -> None:
+    snapshot = _snapshot_ranking(market_inputs_small)
+    rescored = rescore_ranking(snapshot, config.WEIGHTS)
+    # Mismas definiciones sobre las mismas métricas → mismo ranking
+    pd.testing.assert_series_equal(rescored[config.COL_SCORE], snapshot[config.COL_SCORE])
+    pd.testing.assert_series_equal(
+        rescored[config.COL_FINAL_SCORE], snapshot[config.COL_FINAL_SCORE]
+    )
+    assert list(rescored[config.COL_COUNTRY]) == list(snapshot[config.COL_COUNTRY])
+    assert list(rescored[config.COL_RANK]) == list(snapshot[config.COL_RANK])
+
+
+def test_rescore_peso_extremo_orden_obvio(market_inputs_small: MarketInputs) -> None:
+    snapshot = _snapshot_ranking(market_inputs_small)
+    rescored = rescore_ranking(snapshot, {"market_size": 1.0}).set_index(config.COL_COUNTRY)
+    # A mano: norm tamaño = {USA 1.0, DEU 40/190, JPN 0.0} y
+    # final = norm × (0.5 + 0.5·estabilidad) con estabilidad {0.8, 0.9, 0.7}
+    assert rescored.loc["USA", config.COL_FINAL_SCORE] == pytest.approx(1.0 * 0.90)
+    assert rescored.loc["DEU", config.COL_FINAL_SCORE] == pytest.approx((40 / 190) * 0.95)
+    assert rescored.loc["JPN", config.COL_FINAL_SCORE] == pytest.approx(0.0)
+    assert list(rescored[config.COL_RANK]) == [1, 2, 3]
+    assert list(rescored.index) == ["USA", "DEU", "JPN"]
+
+
+def test_contribuciones_suman_el_score(market_inputs_small: MarketInputs) -> None:
+    snapshot = _snapshot_ranking(market_inputs_small)
+    contributions = score_contributions(snapshot, config.WEIGHTS)
+    total = contributions.sum(axis=1).reindex(snapshot[config.COL_COUNTRY])
+    assert total.to_numpy() == pytest.approx(snapshot[config.COL_SCORE].to_numpy())
+
+
+def test_contribucion_valor_a_mano(market_inputs_small: MarketInputs) -> None:
+    snapshot = _snapshot_ranking(market_inputs_small)
+    contributions = score_contributions(snapshot, {"market_size": 3.0, "complementarity": 1.0})
+    # Pesos 3:1 → tamaño aporta hasta 0.75 y complementariedad hasta 0.25;
+    # USA: norm tamaño 1.0, norm complementariedad 0.6 (ver fixture)
+    assert contributions.loc["USA", "market_size"] == pytest.approx(0.75)
+    assert contributions.loc["USA", "complementarity"] == pytest.approx(0.25 * 0.6)
+
+
+def test_rescore_columna_ausente_falla(market_inputs_small: MarketInputs) -> None:
+    snapshot = _snapshot_ranking(market_inputs_small).drop(columns=[config.COL_TARIFF])
+    with pytest.raises(ValueError, match="ausentes"):
+        rescore_ranking(snapshot, config.WEIGHTS)
+
+
+def test_rescore_floor_invalido_falla(market_inputs_small: MarketInputs) -> None:
+    snapshot = _snapshot_ranking(market_inputs_small)
+    with pytest.raises(ValueError, match="macro_floor"):
+        rescore_ranking(snapshot, config.WEIGHTS, macro_floor=1.5)

@@ -12,7 +12,23 @@ ranking de 26 destinos (18 OCDE/Asia + 8 LATAM). Motor económico puro en
 `domain/`, snapshot Parquet como contrato, app Streamlit que solo lee el
 snapshot.
 
-## ✅ Última tanda — simulador propagado a toda la página (2026-07-08, COMPLETA)
+## ✅ Última tanda — ronda de pulido (2026-07-08, COMPLETA)
+
+Quick wins acordados (40% UI, 40% exports, 20% rendimiento; enfoque demo):
+
+1. **Caché de lecturas del snapshot** (`_read_parquet`/`_read_json` sobre
+   `st.cache_data`): el `mtime_ns` del archivo forma parte de la clave, así
+   que `ensure_snapshot` invalida solo (resuelto el riesgo que tenía este
+   ítem en el backlog). Cada tick de slider ya no relee parquet del disco.
+2. **CSV del ranking simulado** dentro del simulador (solo cuando los pesos
+   difieren de los oficiales) + nota de que CSV/Excel/PDF de arriba siguen
+   exportando el oficial.
+3. **Δ posición coloreada** en la tabla del simulador (Styler: verde/rojo).
+4. **Radar con paleta propia** (azul/ámbar/verde + relleno translúcido).
+5. (Commit anterior de la misma sesión) margen superior en las tres
+   gráficas de barras: la leyenda ya no tapa la primera barra.
+
+## ✅ Tanda anterior — simulador propagado a toda la página (2026-07-08, COMPLETA)
 
 Tres peticiones directas sobre el 🎯 Simulador de prioridades (solo `app/`):
 
@@ -323,7 +339,7 @@ pytest ; ruff check . ; mypy src                # puerta de calidad
 - Backlog: IMF SDMX como macro complementaria; automatización del refresh
   de datos alineada al calendario de publicación de las fuentes (siguiente
   tanda, ver arriba).
-- Backlog: `st.cache_data` en los loaders del snapshot (`_load_snapshot`,
+- ~~Backlog: `st.cache_data` en los loaders~~ HECHO 2026-07-08 con clave por mtime (ver última tanda). Detalle histórico: (`_load_snapshot`,
   `_load_imports_timeseries`, `_load_competitors`, `_load_macro_context`)
   — beneficio real (no releer parquet en cada rerun/slider) pero riesgo
   alto: esos archivos los escribe `ensure_snapshot` en caliente y una

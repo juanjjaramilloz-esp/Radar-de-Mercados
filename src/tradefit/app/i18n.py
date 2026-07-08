@@ -83,6 +83,23 @@ def country_name(iso3: str, fallback: str) -> str:
     return fallback
 
 
+#: Clave de texto de la etiqueta corta de cada métrica del scoring
+#: (nombres = claves de ``config.WEIGHTS``).
+_METRIC_LABEL_KEYS: Final[dict[str, str]] = {
+    "market_size": "methodology_metric_market_size",
+    "import_growth": "methodology_metric_growth",
+    "market_share": "methodology_metric_share",
+    "share_trend": "methodology_metric_share_trend",
+    "complementarity": "methodology_metric_complementarity",
+    "tariff_faced": "methodology_metric_tariff",
+}
+
+
+def metric_label(name: str) -> str:
+    """Etiqueta corta de una métrica del scoring en el idioma activo."""
+    return t(_METRIC_LABEL_KEYS[name])
+
+
 #: Etapas que emite ``pipeline.build_snapshot`` vía ``on_stage``; se traducen
 #: solo para mostrarlas — el pipeline sigue emitiendo español (no conoce la
 #: app ni su idioma).
@@ -582,6 +599,34 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
         "es": "Importaciones promedio (USD M)",
         "en": "Average imports (USD M)",
     },
+    "lab_expander_title": {
+        "es": "🎛️ Laboratorio de pesos: ¿y si priorizas otra cosa?",
+        "en": "🎛️ Weight lab: what if your priorities differ?",
+    },
+    "lab_caption": {
+        "es": (
+            "Mueve los pesos y el ranking se recalcula en vivo con las "
+            "mismas fórmulas del motor (`domain/`, puras y testeadas). Los "
+            "pesos se normalizan a suma 1. El ranking oficial de arriba usa "
+            "los pesos documentados y justificados en `config.py`."
+        ),
+        "en": (
+            "Move the weights and the ranking is recomputed live with the "
+            "engine's own formulas (`domain/`, pure and tested). Weights "
+            "are normalized to sum 1. The official ranking above uses the "
+            "weights documented and justified in `config.py`."
+        ),
+    },
+    "lab_reset": {"es": "↺ Pesos oficiales", "en": "↺ Official weights"},
+    "lab_zero_info": {
+        "es": "Sube al menos un peso para recalcular el ranking.",
+        "en": "Raise at least one weight to recompute the ranking.",
+    },
+    "lab_effective_weights": {
+        "es": "Pesos efectivos: {weights}",
+        "en": "Effective weights: {weights}",
+    },
+    "lab_col_delta": {"es": "Δ posición", "en": "Δ position"},
     "evolution_select_markets_label": {
         "es": "Mercados a mostrar",
         "en": "Markets to show",

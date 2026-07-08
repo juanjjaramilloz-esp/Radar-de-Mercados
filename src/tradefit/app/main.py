@@ -24,6 +24,7 @@ from tradefit.app import i18n
 from tradefit.app.export import ranking_to_excel, ranking_to_pdf
 from tradefit.app.flags import flag_emoji
 from tradefit.app.i18n import t
+from tradefit.domain import scoring
 from tradefit.pipeline.build_snapshot import ensure_snapshot
 
 _PRODUCT_SELECT_KEY = "product_select"
@@ -567,6 +568,79 @@ def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
     )
 
 
+def _weight_lab_section(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
+    """Laboratorio de pesos: sliders → re-ranking en vivo (what-if).
+
+    Las fórmulas viven en ``domain/scoring`` (funciones puras, testeadas);
+    la app solo recoge los pesos del usuario, invoca al dominio y compara el
+    resultado contra el ranking oficial del snapshot.
+    """
+    available = [name for name, col in scoring.METRIC_COLUMNS.items() if col in ranking.columns]
+    if not available or config.COL_STABILITY not in ranking.columns:
+        return
+    weights_obj = meta.get("weights")
+    official_weights: dict[str, float] = (
+        {name: float(str(value)) for name, value in weights_obj.items() if name in available}
+        if isinstance(weights_obj, dict)
+        else {}
+    )
+    with st.expander(t("lab_expander_title")):
+        st.caption(t("lab_caption"))
+        # El reset borra el estado ANTES de instanciar los sliders: al
+        # recrearse toman su valor por defecto (los pesos oficiales).
+        if st.button(t("lab_reset"), key="lab_reset"):
+            for name in available:
+                st.session_state.pop(f"lab_w_{name}", None)
+        slider_columns = st.columns(3)
+        raw_weights: dict[str, int] = {}
+        for i, name in enumerate(available):
+            default = official_weights.get(name, config.WEIGHTS.get(name, 0.0))
+            with slider_columns[i % 3]:
+                raw_weights[name] = st.slider(
+                    i18n.metric_label(name),
+                    min_value=0,
+                    max_value=100,
+                    value=int(round(default * 100)),
+                    step=5,
+                    format="%d%%",
+                    key=f"lab_w_{name}",
+                )
+        total = sum(raw_weights.values())
+        if total == 0:
+            st.info(t("lab_zero_info"))
+            return
+        weights = {name: value / total for name, value in raw_weights.items()}
+        effective = " · ".join(
+            f"{i18n.metric_label(name)} {i18n.fmt_pct(weight, 0)}"
+            for name, weight in weights.items()
+            if weight > 0
+        )
+        st.caption(t("lab_effective_weights", weights=effective))
+        floor = float(str(meta.get("macro_floor") or config.MACRO_FLOOR))
+        rescored = scoring.rescore_ranking(ranking, weights, macro_floor=floor)
+        official_rank = ranking.set_index(config.COL_COUNTRY)[config.COL_RANK]
+        moves = (
+            official_rank.reindex(rescored[config.COL_COUNTRY]).to_numpy()
+            - rescored[config.COL_RANK].to_numpy()
+        )
+        flagged = (
+            rescored[config.COL_COUNTRY].map(flag_emoji) + " " + rescored[config.COL_COUNTRY_NAME]
+        ).str.strip()
+        display = pd.DataFrame(
+            {
+                "#": rescored[config.COL_RANK],
+                t("col_market"): flagged,
+                t("col_score_final"): rescored[config.COL_FINAL_SCORE].map(
+                    lambda v: i18n.fmt_number(v, 3)
+                ),
+                t("lab_col_delta"): [
+                    f"▲ {move}" if move > 0 else f"▼ {-move}" if move < 0 else "=" for move in moves
+                ],
+            }
+        )
+        st.dataframe(display, hide_index=True, width="stretch")
+
+
 def _scores_tab(ranking: pd.DataFrame) -> None:
     """Score bruto vs. final por mercado: la brecha es la penalización macro.
 
@@ -772,6 +846,8 @@ def main() -> None:
             file_name=f"{base_name}.pdf",
             mime="application/pdf",
         )
+
+    _weight_lab_section(ranking, meta)
 
     timeseries = _load_imports_timeseries(hs)
     tab_labels = [t("tab_map"), t("tab_scores"), t("tab_size")]

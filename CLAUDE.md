@@ -48,13 +48,18 @@ Reglas de oro:
 - ¿Tocas una API o la red? → va en `ingest/`.
 - ¿Haces un cálculo económico? → va en `domain/`, es una función pura y **lleva test**.
 - `domain/` no importa `ingest/` ni `app/`. `app/` no importa `ingest/`.
-- La app no calcula ni descarga: solo lee `data/processed/` y muestra.
+- La app no descarga ni reimplementa lógica económica: lee `data/processed/`
+  y muestra. Para funciones **interactivas** (p. ej. el laboratorio de pesos,
+  desgloses, radar) puede invocar funciones **puras de `domain/`** sobre los
+  datos del snapshot ya leído — regla relajada por decisión del usuario
+  (2026-07-07): sin red, sin I/O, y toda fórmula sigue viviendo y
+  testeándose en `domain/`; la app jamás la reimplementa inline.
 - **Excepción sancionada (buscador avanzado):** la app puede invocar
   `pipeline.ensure_snapshot(hs)` como único punto de entrada para construir
   on-demand el snapshot de una partida que el usuario pide y aún no existe.
   La red sigue en `ingest/`, el cálculo en `domain/` y la app luego lee el
   snapshot como siempre; la app jamás importa `ingest/` directamente ni
-  contiene lógica de red o de cálculo.
+  contiene lógica de red.
 
 Esto es lo que hace el proyecto fácil de mejorar después: la lógica económica queda
 aislada de dónde vienen los datos y de cómo se ven.

@@ -2,11 +2,12 @@
 
 Funciones puras ``(ranking, meta, narrative) → bytes``: no leen disco ni red
 (los datos llegan ya cargados del snapshot) y no dependen de Streamlit, así
-que se testean solas. La app las conecta a botones de descarga.
+que se testean solas. La app las conecta a botones de descarga pasándoles la
+narrativa del idioma activo y el idioma (``lang``) para etiquetas y números.
 """
 
 from io import BytesIO
-from typing import Any
+from typing import Any, Final
 
 import pandas as pd
 from openpyxl import Workbook
@@ -19,22 +20,73 @@ from reportlab.lib.units import cm
 from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
 from tradefit import config
-from tradefit.app.format import format_number, format_pct
+from tradefit.app.format import Lang, format_number, format_pct
 
 #: Etiquetas de columna para los exports (subconjunto legible del ranking).
-EXPORT_COLUMNS: dict[str, str] = {
-    config.COL_RANK: "#",
-    config.COL_COUNTRY: "ISO3",
-    config.COL_COUNTRY_NAME: "Mercado",
-    config.COL_MARKET_SIZE: "Importaciones prom. (USD)",
-    config.COL_GROWTH: "Crecimiento (CAGR)",
-    config.COL_SHARE: "Cuota del origen",
-    config.COL_SHARE_TREND: "Δ cuota",
-    config.COL_COMPLEMENTARITY: "Complementariedad",
-    config.COL_TARIFF: "Arancel enfrentado",
-    config.COL_STABILITY: "Estabilidad macro",
-    config.COL_SCORE: "Score bruto",
-    config.COL_FINAL_SCORE: "Score final",
+EXPORT_COLUMNS: Final[dict[Lang, dict[str, str]]] = {
+    "es": {
+        config.COL_RANK: "#",
+        config.COL_COUNTRY: "ISO3",
+        config.COL_COUNTRY_NAME: "Mercado",
+        config.COL_MARKET_SIZE: "Importaciones prom. (USD)",
+        config.COL_GROWTH: "Crecimiento (CAGR)",
+        config.COL_SHARE: "Cuota del origen",
+        config.COL_SHARE_TREND: "Δ cuota",
+        config.COL_COMPLEMENTARITY: "Complementariedad",
+        config.COL_TARIFF: "Arancel enfrentado",
+        config.COL_STABILITY: "Estabilidad macro",
+        config.COL_SCORE: "Score bruto",
+        config.COL_FINAL_SCORE: "Score final",
+    },
+    "en": {
+        config.COL_RANK: "#",
+        config.COL_COUNTRY: "ISO3",
+        config.COL_COUNTRY_NAME: "Market",
+        config.COL_MARKET_SIZE: "Avg. imports (USD)",
+        config.COL_GROWTH: "Growth (CAGR)",
+        config.COL_SHARE: "Origin's share",
+        config.COL_SHARE_TREND: "Δ share",
+        config.COL_COMPLEMENTARITY: "Complementarity",
+        config.COL_TARIFF: "Tariff faced",
+        config.COL_STABILITY: "Macro stability",
+        config.COL_SCORE: "Raw score",
+        config.COL_FINAL_SCORE: "Final score",
+    },
+}
+
+#: Textos fijos de los exports, por idioma (mismo patrón que ``app/i18n.py``,
+#: pero local: este módulo no depende de Streamlit ni de la sesión).
+_STRINGS: Final[dict[str, dict[Lang, str]]] = {
+    "sheet_narrative": {"es": "Narrativa", "en": "Narrative"},
+    "recommendations": {
+        "es": "Recomendación: dónde enfocarse",
+        "en": "Recommendation: where to focus",
+    },
+    "final_score": {"es": "score final", "en": "final score"},
+    "market_notes": {"es": "Lectura por mercado", "en": "Market notes"},
+    "pdf_title": {
+        "es": "Radar de Mercados — ranking de destinos",
+        "en": "Market Radar — destination ranking",
+    },
+    "doc_title": {"es": "Radar de Mercados", "en": "Market Radar"},
+    "ranking": {"es": "Ranking", "en": "Ranking"},
+    "no_data": {"es": "s/d", "en": "n/a"},
+    "meta_line": {
+        "es": (
+            "Producto: {label} · Origen: {origin} · Fuente: {source} · "
+            "Datos {year_min}–{year_max} · RCA del origen: {rca}"
+        ),
+        "en": (
+            "Product: {label} · Origin: {origin} · Source: {source} · "
+            "Data {year_min}–{year_max} · Origin's RCA: {rca}"
+        ),
+    },
+}
+
+#: Cabecera de la tabla del PDF (subconjunto compacto), por idioma.
+_PDF_HEADER: Final[dict[Lang, list[str]]] = {
+    "es": ["#", "Mercado", "Import. prom. (USD M)", "CAGR", "Cuota", "Estab.", "Score final"],
+    "en": ["#", "Market", "Avg. imports (USD M)", "CAGR", "Share", "Stab.", "Final score"],
 }
 
 #: Formato numérico Excel por columna del ranking.
@@ -54,24 +106,32 @@ _HEADER_FILL = PatternFill("solid", fgColor="1F4E78")
 _HEADER_FONT = Font(bold=True, color="FFFFFF")
 
 
-def _meta_line(meta: dict[str, Any]) -> str:
+def _meta_line(meta: dict[str, Any], lang: Lang) -> str:
     """Línea de contexto del snapshot (producto, origen, fuente, años)."""
-    return (
-        f"Producto: {meta.get('hs_label', '')} · Origen: {meta.get('origin_iso3', '')} · "
-        f"Fuente: {meta.get('source', '')} · Datos {meta.get('data_year_min', '')}–"
-        f"{meta.get('data_year_max', '')} · RCA del origen: {meta.get('rca_balassa', '—')}"
+    return _STRINGS["meta_line"][lang].format(
+        label=meta.get("hs_label", ""),
+        origin=meta.get("origin_iso3", ""),
+        source=meta.get("source", ""),
+        year_min=meta.get("data_year_min", ""),
+        year_max=meta.get("data_year_max", ""),
+        rca=meta.get("rca_balassa", "—"),
     )
 
 
 def ranking_to_excel(
-    ranking: pd.DataFrame, meta: dict[str, Any], narrative: dict[str, Any]
+    ranking: pd.DataFrame,
+    meta: dict[str, Any],
+    narrative: dict[str, Any],
+    lang: Lang = "es",
 ) -> bytes:
     """Arma el Excel del snapshot: hojas Ranking y Narrativa.
 
     Args:
         ranking: DataFrame conforme a ``ranking_schema``.
         meta: metadatos del snapshot (``meta.json``).
-        narrative: narrativa del snapshot (``narrative.json``; puede ser vacía).
+        narrative: narrativa de un idioma (``narrative.json[lang]``; puede
+            ser vacía).
+        lang: idioma de las etiquetas del archivo.
 
     Returns:
         Contenido del archivo ``.xlsx`` en bytes.
@@ -80,9 +140,9 @@ def ranking_to_excel(
 
     # Snapshots construidos antes de una métrica nueva pueden no traer su
     # columna: se exporta solo lo presente.
-    columns = {col: label for col, label in EXPORT_COLUMNS.items() if col in ranking.columns}
+    columns = {col: label for col, label in EXPORT_COLUMNS[lang].items() if col in ranking.columns}
     sheet = workbook.active
-    sheet.title = "Ranking"
+    sheet.title = _STRINGS["ranking"][lang]
     sheet.append(list(columns.values()))
     for cell in sheet[1]:
         cell.fill = _HEADER_FILL
@@ -99,18 +159,20 @@ def ranking_to_excel(
                 cell.number_format = number_format
     sheet.freeze_panes = "A2"
 
-    notes = workbook.create_sheet("Narrativa")
+    notes = workbook.create_sheet(_STRINGS["sheet_narrative"][lang])
     notes.column_dimensions["A"].width = 110
-    notes.append([_meta_line(meta)])
+    notes.append([_meta_line(meta, lang)])
     notes.append([])
     recommendations = narrative.get("recommendations") or []
     if recommendations:
-        notes.append(["Recomendación: dónde enfocarse"])
+        notes.append([_STRINGS["recommendations"][lang]])
         notes["A3"].font = Font(bold=True, size=12)
         for i, rec in enumerate(recommendations, start=1):
             reasons = "; ".join(rec.get("reasons", []))
-            score = format_number(float(rec.get("final_score", 0.0)), 3)
-            notes.append([f"{i}. {rec.get('name')} (score final {score}): {reasons}"])
+            score = format_number(float(rec.get("final_score", 0.0)), 3, lang)
+            notes.append(
+                [f"{i}. {rec.get('name')} ({_STRINGS['final_score'][lang]} {score}): {reasons}"]
+            )
         notes.append([])
     markets = narrative.get("markets") or {}
     names = ranking.set_index(config.COL_COUNTRY)[config.COL_COUNTRY_NAME]
@@ -133,13 +195,20 @@ def ranking_to_excel(
     return buffer.getvalue()
 
 
-def ranking_to_pdf(ranking: pd.DataFrame, meta: dict[str, Any], narrative: dict[str, Any]) -> bytes:
+def ranking_to_pdf(
+    ranking: pd.DataFrame,
+    meta: dict[str, Any],
+    narrative: dict[str, Any],
+    lang: Lang = "es",
+) -> bytes:
     """Arma el PDF del snapshot: título, top-3, tabla y lectura por mercado.
 
     Args:
         ranking: DataFrame conforme a ``ranking_schema``.
         meta: metadatos del snapshot (``meta.json``).
-        narrative: narrativa del snapshot (``narrative.json``; puede ser vacía).
+        narrative: narrativa de un idioma (``narrative.json[lang]``; puede
+            ser vacía).
+        lang: idioma de las etiquetas del archivo.
 
     Returns:
         Contenido del archivo ``.pdf`` en bytes.
@@ -150,39 +219,40 @@ def ranking_to_pdf(ranking: pd.DataFrame, meta: dict[str, Any], narrative: dict[
     h3 = styles["Heading3"]
 
     story: list[Any] = [
-        Paragraph("Radar de Mercados — ranking de destinos", styles["Title"]),
-        Paragraph(_meta_line(meta), body),
+        Paragraph(_STRINGS["pdf_title"][lang], styles["Title"]),
+        Paragraph(_meta_line(meta, lang), body),
         Spacer(1, 0.4 * cm),
     ]
 
     recommendations = narrative.get("recommendations") or []
     if recommendations:
-        story.append(Paragraph("Recomendación: dónde enfocarse", h2))
+        story.append(Paragraph(_STRINGS["recommendations"][lang], h2))
         for i, rec in enumerate(recommendations, start=1):
             reasons = "; ".join(rec.get("reasons", []))
-            score = format_number(float(rec.get("final_score", 0.0)), 3)
+            score = format_number(float(rec.get("final_score", 0.0)), 3, lang)
             story.append(
                 Paragraph(
-                    f"<b>{i}. {rec.get('name')}</b> (score final {score}): {reasons}",
+                    f"<b>{i}. {rec.get('name')}</b> "
+                    f"({_STRINGS['final_score'][lang]} {score}): {reasons}",
                     body,
                 )
             )
         story.append(Spacer(1, 0.4 * cm))
 
-    story.append(Paragraph("Ranking", h2))
-    header = ["#", "Mercado", "Import. prom. (USD M)", "CAGR", "Cuota", "Estab.", "Score final"]
-    rows: list[list[str]] = [header]
+    story.append(Paragraph(_STRINGS["ranking"][lang], h2))
+    rows: list[list[str]] = [_PDF_HEADER[lang]]
+    no_data = _STRINGS["no_data"][lang]
     for _, row in ranking.iterrows():
         growth = row[config.COL_GROWTH]
         rows.append(
             [
                 str(int(row[config.COL_RANK])),
                 str(row[config.COL_COUNTRY_NAME]),
-                format_number(row[config.COL_MARKET_SIZE] / 1e6),
-                "s/d" if pd.isna(growth) else format_pct(float(growth)),
-                format_pct(float(row[config.COL_SHARE])),
-                format_number(float(row[config.COL_STABILITY]), 2),
-                format_number(float(row[config.COL_FINAL_SCORE]), 3),
+                format_number(row[config.COL_MARKET_SIZE] / 1e6, 0, lang),
+                no_data if pd.isna(growth) else format_pct(float(growth), 1, lang),
+                format_pct(float(row[config.COL_SHARE]), 1, lang),
+                format_number(float(row[config.COL_STABILITY]), 2, lang),
+                format_number(float(row[config.COL_FINAL_SCORE]), 3, lang),
             ]
         )
     table = Table(rows, repeatRows=1)
@@ -203,7 +273,7 @@ def ranking_to_pdf(ranking: pd.DataFrame, meta: dict[str, Any], narrative: dict[
     markets = narrative.get("markets") or {}
     if markets:
         story.append(Spacer(1, 0.5 * cm))
-        story.append(Paragraph("Lectura por mercado", h2))
+        story.append(Paragraph(_STRINGS["market_notes"][lang], h2))
         names = ranking.set_index(config.COL_COUNTRY)[config.COL_COUNTRY_NAME]
         for iso3 in ranking[config.COL_COUNTRY]:
             sentences = markets.get(iso3)
@@ -217,7 +287,7 @@ def ranking_to_pdf(ranking: pd.DataFrame, meta: dict[str, Any], narrative: dict[
     document = SimpleDocTemplate(
         buffer,
         pagesize=A4,
-        title="Radar de Mercados",
+        title=_STRINGS["doc_title"][lang],
         leftMargin=1.5 * cm,
         rightMargin=1.5 * cm,
         topMargin=1.5 * cm,

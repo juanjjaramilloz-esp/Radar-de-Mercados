@@ -78,6 +78,23 @@ def test_excel_sin_narrativa_no_rompe() -> None:
     assert "Ranking" in workbook.sheetnames
 
 
+def test_excel_en_ingles_traduce_etiquetas() -> None:
+    data = ranking_to_excel(_ranking(), _meta(), _narrative(), lang="en")
+    workbook = load_workbook(BytesIO(data))
+    assert workbook.sheetnames == ["Ranking", "Narrative"]
+    sheet = workbook["Ranking"]
+    assert sheet["C1"].value == "Market"
+    narrative = workbook["Narrative"]
+    texts = [str(c.value) for row in narrative.iter_rows() for c in row if c.value]
+    assert any("Recommendation: where to focus" in t for t in texts)
+    assert any("Product: Café (HS 0901)" in t for t in texts)  # meta line en inglés
+
+
+def test_pdf_en_ingles_es_valido() -> None:
+    data = ranking_to_pdf(_ranking(), _meta(), _narrative(), lang="en")
+    assert data.startswith(b"%PDF")
+
+
 def test_pdf_es_un_pdf_valido() -> None:
     data = ranking_to_pdf(_ranking(), _meta(), _narrative())
     assert data.startswith(b"%PDF")

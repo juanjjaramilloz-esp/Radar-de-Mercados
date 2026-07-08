@@ -2,11 +2,10 @@
 
 Módulo de presentación pura: guarda el idioma activo en la sesión y traduce
 los textos propios de ``app/`` (chrome estático, metodología, mapa,
-comparador, nombres de los productos/países curados). La narrativa que
-``domain/narrative.py`` genera al construir el snapshot (recomendaciones,
-lectura por mercado) queda fija en español en ``narrative.json`` — traducirla
-implicaría un narrador en inglés y reconstruir cada snapshot, fuera del
-alcance de este toggle.
+comparador, nombres de los productos/países curados). La narrativa
+(recomendaciones, lectura por mercado) la genera ``domain/narrative.py`` en
+ambos idiomas dentro de ``narrative.json``; la app solo elige la del idioma
+activo (``main._narrative_in_language``).
 """
 
 from typing import Final

@@ -198,6 +198,19 @@ def _load_snapshot(hs: str) -> tuple[pd.DataFrame, dict[str, object], dict[str, 
     return ranking, meta, narrative
 
 
+def _narrative_in_language(narrative: dict[str, object]) -> dict[str, object]:
+    """Narrativa del idioma activo desde el ``narrative.json`` bilingüe.
+
+    Snapshots anteriores al formato bilingüe traen las claves
+    ``recommendations``/``markets`` en la raíz (solo español): se devuelven
+    tal cual (degradar con gracia). Si falta el idioma pedido, cae al español.
+    """
+    if "recommendations" in narrative or "markets" in narrative:
+        return narrative
+    selected = narrative.get(i18n.get_language()) or narrative.get("es")
+    return selected if isinstance(selected, dict) else {}
+
+
 def _localize_country_names(ranking: pd.DataFrame) -> pd.DataFrame:
     """Reemplaza ``country_name`` por su versión en inglés si ese es el idioma activo.
 
@@ -573,6 +586,7 @@ def main() -> None:
     )
     st.query_params["hs"] = hs  # URL compartible: ?hs=<partida>
     ranking, meta, narrative = _load_snapshot(hs)
+    narrative = _narrative_in_language(narrative)
     ranking = _localize_country_names(ranking)
     product_label = i18n.product_label(hs, str(meta["hs_label"]))
 
@@ -639,6 +653,10 @@ def main() -> None:
         },
     )
     base_name = f"radar_{meta['hs_code']}_{meta['origin_iso3']}"
+    # Los exports llevan el idioma activo: etiquetas, números y la narrativa
+    # ya seleccionada arriba; la etiqueta del producto también se localiza.
+    export_lang = i18n.get_language()
+    export_meta = {**meta, "hs_label": product_label}
     col_csv, col_xlsx, col_pdf, _ = st.columns([1, 1, 1, 3])
     with col_csv:
         st.download_button(
@@ -650,14 +668,14 @@ def main() -> None:
     with col_xlsx:
         st.download_button(
             "⬇️ Excel",
-            data=ranking_to_excel(ranking, meta, narrative),
+            data=ranking_to_excel(ranking, export_meta, narrative, export_lang),
             file_name=f"{base_name}.xlsx",
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         )
     with col_pdf:
         st.download_button(
             "⬇️ PDF",
-            data=ranking_to_pdf(ranking, meta, narrative),
+            data=ranking_to_pdf(ranking, export_meta, narrative, export_lang),
             file_name=f"{base_name}.pdf",
             mime="application/pdf",
         )

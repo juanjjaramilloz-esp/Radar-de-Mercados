@@ -422,6 +422,8 @@ def _methodology_section(meta: dict[str, object]) -> None:
 
 {t("methodology_hhi_note")}
 
+{t("methodology_lpi_note")}
+
 {macro_filter_text}
 
 {final_score_text}
@@ -569,6 +571,7 @@ def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
         config.COL_ORIGIN_EXPORT_SHARE: lambda v: i18n.fmt_pct(v),
         config.COL_COMPLEMENTARITY: lambda v: i18n.fmt_number(v, 2),
         config.COL_TARIFF: lambda v: i18n.fmt_pct(v),
+        config.COL_LPI: lambda v: i18n.fmt_number(v, 1),
         config.COL_STABILITY: lambda v: i18n.fmt_number(v, 2),
         config.COL_SCORE: lambda v: i18n.fmt_number(v, 3),
         config.COL_FINAL_SCORE: lambda v: i18n.fmt_number(v, 3),
@@ -601,6 +604,7 @@ def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
             config.COL_COMPLEMENTARITY: st.column_config.Column(t("col_complementarity")),
             config.COL_TARIFF: st.column_config.Column(t("col_tariff")),
             config.COL_AGREEMENT: st.column_config.Column(t("col_agreement")),
+            config.COL_LPI: st.column_config.Column(t("col_lpi")),
             config.COL_STABILITY: st.column_config.Column(t("col_stability")),
             config.COL_SCORE: st.column_config.Column(t("col_score_raw")),
             config.COL_FINAL_SCORE: st.column_config.Column(t("col_score_final")),

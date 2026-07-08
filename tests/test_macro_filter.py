@@ -11,6 +11,7 @@ from tradefit import config
 from tradefit.domain.macro_filter import (
     NEUTRAL_STABILITY,
     apply_stability_penalty,
+    latest_indicator_value,
     stability_score,
 )
 
@@ -97,6 +98,29 @@ def test_indicador_sin_umbrales_falla() -> None:
     macro = _macro([("USA", "desempleo", 2024, 5.0)])
     with pytest.raises(ValueError, match="umbrales"):
         stability_score(macro, BOUNDS)
+
+
+def test_ultimo_valor_por_pais_con_anios_esparsos() -> None:
+    # LPI real-a-escala: DEU tiene 2018 y 2023 (gana 2023); NLD solo 2018.
+    macro = _macro(
+        [
+            ("DEU", "lpi", 2018, 4.2),
+            ("DEU", "lpi", 2023, 4.1),
+            ("NLD", "lpi", 2018, 4.0),
+            # Otro indicador del mismo caché: no debe colarse.
+            ("DEU", "inflation", 2024, 2.0),
+        ]
+    )
+    latest = latest_indicator_value(macro, "lpi")
+    assert latest["DEU"] == pytest.approx(4.1)
+    assert latest["NLD"] == pytest.approx(4.0)
+    assert latest.name == "lpi"
+    assert set(latest.index) == {"DEU", "NLD"}
+
+
+def test_ultimo_valor_indicador_ausente_devuelve_vacio() -> None:
+    macro = _macro([("USA", "inflation", 2024, 3.0)])
+    assert latest_indicator_value(macro, "lpi").empty
 
 
 def _toy_ranking() -> pd.DataFrame:

@@ -479,6 +479,24 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
             "score."
         ),
     },
+    "methodology_lpi_note": {
+        "es": (
+            "**LPI del destino** — Logistics Performance Index del Banco "
+            "Mundial (*Connecting to Compete*; escala 1–5, más es mejor): "
+            "desempeño logístico del destino (aduanas, infraestructura, "
+            "envíos internacionales). Publicación esparsa (~cada 4–5 años): "
+            "se toma el último año con dato por país. Contexto: no pondera "
+            "en el score."
+        ),
+        "en": (
+            "**Destination LPI** — World Bank Logistics Performance Index "
+            "(*Connecting to Compete*; 1–5 scale, higher is better): the "
+            "destination's logistics performance (customs, infrastructure, "
+            "international shipments). Published sparsely (~every 4–5 "
+            "years): the latest year with data per country is used. "
+            "Context: it does not weigh in the score."
+        ),
+    },
     "methodology_agreement_note": {
         "es": (
             "**Acuerdos comerciales** — la columna «Acuerdo comercial» es "
@@ -623,6 +641,7 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
     "col_complementarity": {"es": "Complementariedad", "en": "Complementarity"},
     "col_tariff": {"es": "Arancel enfrentado", "en": "Tariff faced"},
     "col_agreement": {"es": "Acuerdo comercial", "en": "Trade agreement"},
+    "col_lpi": {"es": "LPI logístico (1–5)", "en": "Logistics LPI (1–5)"},
     "col_stability": {"es": "Estabilidad macro", "en": "Macro stability"},
     "col_score_raw": {"es": "Score bruto", "en": "Raw score"},
     "col_score_final": {"es": "Score final", "en": "Final score"},

@@ -83,6 +83,35 @@ def stability_score(
     return stability.rename(config.COL_STABILITY)
 
 
+def latest_indicator_value(macro: pd.DataFrame, indicator: str) -> pd.Series:
+    """Último valor con dato de un indicador, por país.
+
+    Definición: para cada país se toma la observación del año más reciente
+    que tenga dato del indicador pedido. Pensado para indicadores de
+    **contexto** de publicación esparsa — p. ej. el LPI (Logistics
+    Performance Index, World Bank *Connecting to Compete*), que sale cada
+    4–5 años y cuyo último valor disponible varía por país — donde promediar
+    una ventana fija (como hace :func:`stability_score`) dejaría a la mayoría
+    de países sin dato.
+
+    Args:
+        macro: DataFrame validado contra ``contracts.macro_schema`` (solo
+            trae años con dato: los null se descartan en ingest).
+        indicator: nombre corto del indicador (p. ej. ``"lpi"``, ver
+            ``config.WDI_CONTEXT_INDICATORS``).
+
+    Returns:
+        Series indexada por país (ISO3) con el último valor disponible,
+        nombrada como el indicador. Vacía si el indicador no está en el
+        DataFrame (los países ausentes simplemente no aparecen).
+    """
+    rows = macro[macro[config.COL_INDICATOR] == indicator]
+    latest = (
+        rows.sort_values(config.COL_YEAR).groupby(config.COL_COUNTRY)[config.COL_MACRO_VALUE].last()
+    )
+    return latest.rename(indicator)
+
+
 def apply_stability_penalty(
     ranking: pd.DataFrame,
     stability: pd.Series,

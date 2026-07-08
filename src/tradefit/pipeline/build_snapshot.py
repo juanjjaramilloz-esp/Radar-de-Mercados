@@ -17,7 +17,11 @@ from dotenv import load_dotenv
 from tradefit import config, hs_codes
 from tradefit.contracts import MarketInputs, ranking_schema
 from tradefit.domain import indices
-from tradefit.domain.macro_filter import apply_stability_penalty, stability_score
+from tradefit.domain.macro_filter import (
+    apply_stability_penalty,
+    latest_indicator_value,
+    stability_score,
+)
 from tradefit.domain.narrative import LANGS, build_narrative
 from tradefit.domain.scoring import rank_markets
 from tradefit.ingest import comtrade, export_destinations, stub, wits, worldbank
@@ -181,6 +185,11 @@ def build_snapshot(
     )
     position = int(ranking.columns.get_indexer([config.COL_SHARE_TREND])[0]) + 1
     ranking.insert(position, config.COL_ORIGIN_EXPORT_SHARE, share_of_origin)
+    # LPI del destino (contexto logístico, no pondera): último año con dato
+    # por país — la publicación es esparsa. NaN si el país no tiene dato.
+    lpi = latest_indicator_value(macro, config.COL_LPI)
+    position = int(ranking.columns.get_indexer([config.COL_STABILITY])[0])
+    ranking.insert(position, config.COL_LPI, ranking[config.COL_COUNTRY].map(lpi))
     validated: pd.DataFrame = ranking_schema.validate(ranking)
 
     _notify(on_stage, "Escribiendo el snapshot")
@@ -208,6 +217,8 @@ def build_snapshot(
         "weights": dict(config.WEIGHTS),
         "tariff_years": list(config.WITS_YEARS),
         "macro_indicators": dict(config.WDI_INDICATORS),
+        # Indicadores de contexto (no ponderan): hoy solo el LPI.
+        "context_indicators": dict(config.WDI_CONTEXT_INDICATORS),
         "macro_bounds": {k: list(v) for k, v in config.MACRO_BOUNDS.items()},
         "macro_floor": config.MACRO_FLOOR,
         "macro_years": config.MACRO_YEARS,

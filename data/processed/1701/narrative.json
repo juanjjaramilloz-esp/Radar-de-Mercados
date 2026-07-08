@@ -1,177 +1,356 @@
 {
-  "markets": {
-    "AUS": [
-      "Australia importa USD 13 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
-      "La demanda crece al 4,2 % anual (CAGR).",
-      "Colombia ya tiene 4,8 % del mercado y pierde 2,4 pp de cuota en la ventana.",
-      "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Australia.",
-      "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Australia sin arancel (0 % efectivamente aplicado).",
-      "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,436 (bruto 0,492)."
-    ],
-    "AUT": [
-      "Austria importa USD 220 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
-      "La demanda se contrae al 10,8 % anual (CAGR).",
-      "Colombia ya tiene 1,1 % del mercado y gana 0,7 pp de cuota en la ventana.",
-      "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Austria.",
-      "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Austria sin arancel (0 % efectivamente aplicado).",
-      "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,336 (bruto 0,393)."
-    ],
-    "BEL": [
-      "Bélgica importa USD 519 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
-      "La demanda se contrae al 12,1 % anual (CAGR).",
-      "Colombia ya tiene 1,6 % del mercado y pierde 0,3 pp de cuota en la ventana.",
-      "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Bélgica.",
-      "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Bélgica sin arancel (0 % efectivamente aplicado).",
-      "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,456 (bruto 0,506)."
-    ],
-    "CAN": [
-      "Canadá importa USD 822 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
-      "La demanda se contrae al 4,5 % anual (CAGR).",
-      "Colombia ya tiene 2,1 % del mercado y gana 1,2 pp de cuota en la ventana.",
-      "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Canadá.",
-      "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Canadá sin arancel (0 % efectivamente aplicado).",
-      "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,484 (bruto 0,520)."
-    ],
-    "CHE": [
-      "Suiza importa USD 88 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
-      "La demanda crece al 0,4 % anual (CAGR).",
-      "Colombia ya tiene 0,4 % del mercado y gana 0,1 pp de cuota en la ventana.",
-      "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de Suiza.",
-      "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Suiza sin arancel (0 % efectivamente aplicado).",
-      "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,326 (bruto 0,347)."
-    ],
-    "DEU": [
-      "Alemania importa USD 465 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
-      "La demanda se contrae al 16,4 % anual (CAGR).",
-      "Colombia ya tiene 5,8 % del mercado y gana 2,5 pp de cuota en la ventana.",
-      "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Alemania.",
-      "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Alemania sin arancel (0 % efectivamente aplicado).",
-      "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,456 (bruto 0,525)."
-    ],
-    "ESP": [
-      "España importa USD 973 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
-      "La demanda se contrae al 22,5 % anual (CAGR).",
-      "Colombia ya tiene 2,6 % del mercado y gana 1,1 pp de cuota en la ventana.",
-      "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de España.",
-      "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a España sin arancel (0 % efectivamente aplicado).",
-      "Estabilidad macro de España 0,97: el filtro deja el score en 0,511 (bruto 0,519)."
-    ],
-    "FIN": [
-      "Finlandia importa USD 77 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
-      "La demanda se contrae al 14,9 % anual (CAGR).",
-      "Colombia no registra ventas de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) en Finlandia (cuota 0 %).",
-      "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Finlandia.",
-      "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Finlandia sin arancel (0 % efectivamente aplicado).",
-      "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,319 (bruto 0,361)."
-    ],
-    "FRA": [
-      "Francia importa USD 330 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
-      "La demanda se contrae al 2,2 % anual (CAGR).",
-      "Colombia ya tiene 3,8 % del mercado y gana 0,6 pp de cuota en la ventana.",
-      "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de Francia.",
-      "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Francia sin arancel (0 % efectivamente aplicado).",
-      "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,509 (bruto 0,556)."
-    ],
-    "GBR": [
-      "Reino Unido importa USD 583 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
-      "La demanda se contrae al 18,1 % anual (CAGR).",
-      "Colombia ya tiene 1,0 % del mercado y gana 0,5 pp de cuota en la ventana.",
-      "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Reino Unido.",
-      "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Reino Unido sin arancel (0 % efectivamente aplicado).",
-      "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,365 (bruto 0,458)."
-    ],
-    "ITA": [
-      "Italia importa USD 1.280 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
-      "La demanda se contrae al 10,0 % anual (CAGR).",
-      "Colombia ya tiene 0,6 % del mercado y pierde 0,3 pp de cuota en la ventana.",
-      "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Italia.",
-      "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Italia sin arancel (0 % efectivamente aplicado).",
-      "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,506 (bruto 0,552)."
-    ],
-    "JPN": [
-      "Japón importa USD 712 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
-      "La demanda se contrae al 10,8 % anual (CAGR).",
-      "Colombia no registra ventas de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) en Japón (cuota 0 %).",
-      "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Japón.",
-      "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Japón sin arancel (0 % efectivamente aplicado).",
-      "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,468 (bruto 0,517)."
-    ],
-    "KOR": [
-      "Corea del Sur importa USD 919 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
-      "La demanda se contrae al 13,7 % anual (CAGR).",
-      "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
-      "La canasta exportadora de Colombia encaja 0,49 (escala 0–1) con la demanda importadora de Corea del Sur.",
-      "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) paga en Corea del Sur un arancel efectivamente aplicado de 10,4 %.",
-      "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,432 (bruto 0,458)."
-    ],
-    "NLD": [
-      "Países Bajos importa USD 292 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
-      "La demanda se contrae al 4,7 % anual (CAGR).",
-      "Colombia ya tiene 3,3 % del mercado y gana 1,8 pp de cuota en la ventana.",
-      "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Países Bajos.",
-      "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Países Bajos sin arancel (0 % efectivamente aplicado).",
-      "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,548 (bruto 0,605)."
-    ],
-    "POL": [
-      "Polonia importa USD 112 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
-      "La demanda se contrae al 37,1 % anual (CAGR).",
-      "Colombia ya tiene 2,3 % del mercado y gana 2,0 pp de cuota en la ventana.",
-      "La canasta exportadora de Colombia encaja 0,36 (escala 0–1) con la demanda importadora de Polonia.",
-      "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Polonia sin arancel (0 % efectivamente aplicado).",
-      "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,276 (bruto 0,300)."
-    ],
-    "PRT": [
-      "Portugal importa USD 255 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
-      "La demanda se contrae al 15,2 % anual (CAGR).",
-      "Colombia ya tiene 0,3 % del mercado y gana 0,2 pp de cuota en la ventana.",
-      "La canasta exportadora de Colombia encaja 0,39 (escala 0–1) con la demanda importadora de Portugal.",
-      "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Portugal sin arancel (0 % efectivamente aplicado).",
-      "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,366 (bruto 0,379)."
-    ],
-    "SWE": [
-      "Suecia importa USD 68 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
-      "La demanda se contrae al 2,5 % anual (CAGR).",
-      "Colombia no registra ventas de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) en Suecia (cuota 0 %).",
-      "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Suecia.",
-      "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Suecia sin arancel (0 % efectivamente aplicado).",
-      "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,339 (bruto 0,377)."
-    ],
-    "USA": [
-      "Estados Unidos importa USD 2.354 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
-      "La demanda se contrae al 11,6 % anual (CAGR).",
-      "Colombia ya tiene 7,3 % del mercado y gana 1,2 pp de cuota en la ventana.",
-      "La canasta exportadora de Colombia encaja 0,33 (escala 0–1) con la demanda importadora de Estados Unidos.",
-      "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) paga en Estados Unidos un arancel efectivamente aplicado de 0,2 %.",
-      "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,584 (bruto 0,706)."
+  "en": {
+    "markets": {
+      "AUS": [
+        "Australia imports USD 13 M a year of Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (average of the last 3 years).",
+        "Demand grows at 4.2 % per year (CAGR).",
+        "Colombia already holds 4.8 % of the market and loses 2.4 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Australia at 0.40 (0–1 scale).",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) enters Australia duty-free (0 % effectively applied).",
+        "Macro stability of Australia at 0.77: the filter leaves the score at 0.436 (raw 0.492)."
+      ],
+      "AUT": [
+        "Austria imports USD 220 M a year of Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (average of the last 3 years).",
+        "Demand shrinks at 10.8 % per year (CAGR).",
+        "Colombia already holds 1.1 % of the market and gains 0.7 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Austria at 0.37 (0–1 scale).",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) enters Austria duty-free (0 % effectively applied).",
+        "Macro stability of Austria at 0.71: the filter leaves the score at 0.336 (raw 0.393)."
+      ],
+      "BEL": [
+        "Belgium imports USD 519 M a year of Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (average of the last 3 years).",
+        "Demand shrinks at 12.1 % per year (CAGR).",
+        "Colombia already holds 1.6 % of the market and loses 0.3 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Belgium at 0.45 (0–1 scale).",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) enters Belgium duty-free (0 % effectively applied).",
+        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.456 (raw 0.506)."
+      ],
+      "CAN": [
+        "Canada imports USD 822 M a year of Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (average of the last 3 years).",
+        "Demand shrinks at 4.5 % per year (CAGR).",
+        "Colombia already holds 2.1 % of the market and gains 1.2 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Canada at 0.37 (0–1 scale).",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) enters Canada duty-free (0 % effectively applied).",
+        "Macro stability of Canada at 0.86: the filter leaves the score at 0.484 (raw 0.520)."
+      ],
+      "CHE": [
+        "Switzerland imports USD 88 M a year of Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (average of the last 3 years).",
+        "Demand grows at 0.4 % per year (CAGR).",
+        "Colombia already holds 0.4 % of the market and gains 0.1 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Switzerland at 0.32 (0–1 scale).",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) enters Switzerland duty-free (0 % effectively applied).",
+        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.326 (raw 0.347)."
+      ],
+      "DEU": [
+        "Germany imports USD 465 M a year of Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (average of the last 3 years).",
+        "Demand shrinks at 16.4 % per year (CAGR).",
+        "Colombia already holds 5.8 % of the market and gains 2.5 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Germany at 0.37 (0–1 scale).",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) enters Germany duty-free (0 % effectively applied).",
+        "Macro stability of Germany at 0.74: the filter leaves the score at 0.456 (raw 0.525)."
+      ],
+      "ESP": [
+        "Spain imports USD 973 M a year of Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (average of the last 3 years).",
+        "Demand shrinks at 22.5 % per year (CAGR).",
+        "Colombia already holds 2.6 % of the market and gains 1.1 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Spain at 0.42 (0–1 scale).",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) enters Spain duty-free (0 % effectively applied).",
+        "Macro stability of Spain at 0.97: the filter leaves the score at 0.511 (raw 0.519)."
+      ],
+      "FIN": [
+        "Finland imports USD 77 M a year of Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (average of the last 3 years).",
+        "Demand shrinks at 14.9 % per year (CAGR).",
+        "Colombia records no sales of Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) in Finland (0 % share).",
+        "The export basket of Colombia fits the import demand of Finland at 0.40 (0–1 scale).",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) enters Finland duty-free (0 % effectively applied).",
+        "Macro stability of Finland at 0.76: the filter leaves the score at 0.319 (raw 0.361)."
+      ],
+      "FRA": [
+        "France imports USD 330 M a year of Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (average of the last 3 years).",
+        "Demand shrinks at 2.2 % per year (CAGR).",
+        "Colombia already holds 3.8 % of the market and gains 0.6 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of France at 0.42 (0–1 scale).",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) enters France duty-free (0 % effectively applied).",
+        "Macro stability of France at 0.83: the filter leaves the score at 0.509 (raw 0.556)."
+      ],
+      "GBR": [
+        "United Kingdom imports USD 583 M a year of Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (average of the last 3 years).",
+        "Demand shrinks at 18.1 % per year (CAGR).",
+        "Colombia already holds 1.0 % of the market and gains 0.5 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of United Kingdom at 0.43 (0–1 scale).",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) enters United Kingdom duty-free (0 % effectively applied).",
+        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.365 (raw 0.458)."
+      ],
+      "ITA": [
+        "Italy imports USD 1,280 M a year of Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (average of the last 3 years).",
+        "Demand shrinks at 10.0 % per year (CAGR).",
+        "Colombia already holds 0.6 % of the market and loses 0.3 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Italy at 0.43 (0–1 scale).",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) enters Italy duty-free (0 % effectively applied).",
+        "Macro stability of Italy at 0.83: the filter leaves the score at 0.506 (raw 0.552)."
+      ],
+      "JPN": [
+        "Japan imports USD 712 M a year of Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (average of the last 3 years).",
+        "Demand shrinks at 10.8 % per year (CAGR).",
+        "Colombia records no sales of Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) in Japan (0 % share).",
+        "The export basket of Colombia fits the import demand of Japan at 0.46 (0–1 scale).",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) enters Japan duty-free (0 % effectively applied).",
+        "Macro stability of Japan at 0.81: the filter leaves the score at 0.468 (raw 0.517)."
+      ],
+      "KOR": [
+        "South Korea imports USD 919 M a year of Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (average of the last 3 years).",
+        "Demand shrinks at 13.7 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of South Korea at 0.49 (0–1 scale).",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) faces an effectively applied tariff of 10.4 % in South Korea.",
+        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.432 (raw 0.458)."
+      ],
+      "NLD": [
+        "Netherlands imports USD 292 M a year of Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (average of the last 3 years).",
+        "Demand shrinks at 4.7 % per year (CAGR).",
+        "Colombia already holds 3.3 % of the market and gains 1.8 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Netherlands at 0.46 (0–1 scale).",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) enters Netherlands duty-free (0 % effectively applied).",
+        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.548 (raw 0.605)."
+      ],
+      "POL": [
+        "Poland imports USD 112 M a year of Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (average of the last 3 years).",
+        "Demand shrinks at 37.1 % per year (CAGR).",
+        "Colombia already holds 2.3 % of the market and gains 2.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Poland at 0.36 (0–1 scale).",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) enters Poland duty-free (0 % effectively applied).",
+        "Macro stability of Poland at 0.84: the filter leaves the score at 0.276 (raw 0.300)."
+      ],
+      "PRT": [
+        "Portugal imports USD 255 M a year of Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (average of the last 3 years).",
+        "Demand shrinks at 15.2 % per year (CAGR).",
+        "Colombia already holds 0.3 % of the market and gains 0.2 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Portugal at 0.39 (0–1 scale).",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) enters Portugal duty-free (0 % effectively applied).",
+        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.366 (raw 0.379)."
+      ],
+      "SWE": [
+        "Sweden imports USD 68 M a year of Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (average of the last 3 years).",
+        "Demand shrinks at 2.5 % per year (CAGR).",
+        "Colombia records no sales of Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) in Sweden (0 % share).",
+        "The export basket of Colombia fits the import demand of Sweden at 0.37 (0–1 scale).",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) enters Sweden duty-free (0 % effectively applied).",
+        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.339 (raw 0.377)."
+      ],
+      "USA": [
+        "United States imports USD 2,354 M a year of Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (average of the last 3 years).",
+        "Demand shrinks at 11.6 % per year (CAGR).",
+        "Colombia already holds 7.3 % of the market and gains 1.2 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of United States at 0.33 (0–1 scale).",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) faces an effectively applied tariff of 0.2 % in United States.",
+        "Macro stability of United States at 0.65: the filter leaves the score at 0.584 (raw 0.706)."
+      ]
+    },
+    "recommendations": [
+      {
+        "final_score": 0.584,
+        "iso3": "USA",
+        "name": "United States",
+        "reasons": [
+          "destination #1 by market size (USD 2,354 M/year)",
+          "destination #1 by share already won (share of 7.3 %)"
+        ]
+      },
+      {
+        "final_score": 0.548,
+        "iso3": "NLD",
+        "name": "Netherlands",
+        "reasons": [
+          "destination #3 by basket complementarity (index 0.46 (0–1 scale))",
+          "destination #6 by demand growth (-4.7 % per year)"
+        ]
+      },
+      {
+        "final_score": 0.511,
+        "iso3": "ESP",
+        "name": "Spain",
+        "reasons": [
+          "destination #7 by basket complementarity (index 0.42 (0–1 scale))",
+          "destination #3 by market size (USD 973 M/year)"
+        ]
+      }
     ]
   },
-  "recommendations": [
-    {
-      "final_score": 0.584,
-      "iso3": "USA",
-      "name": "Estados Unidos",
-      "reasons": [
-        "1.º destino por tamaño de mercado (USD 2.354 M/año)",
-        "1.º destino por cuota ya ganada (cuota de 7,3 %)"
+  "es": {
+    "markets": {
+      "AUS": [
+        "Australia importa USD 13 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
+        "La demanda crece al 4,2 % anual (CAGR).",
+        "Colombia ya tiene 4,8 % del mercado y pierde 2,4 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Australia.",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Australia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,436 (bruto 0,492)."
+      ],
+      "AUT": [
+        "Austria importa USD 220 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 10,8 % anual (CAGR).",
+        "Colombia ya tiene 1,1 % del mercado y gana 0,7 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Austria.",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Austria sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,336 (bruto 0,393)."
+      ],
+      "BEL": [
+        "Bélgica importa USD 519 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 12,1 % anual (CAGR).",
+        "Colombia ya tiene 1,6 % del mercado y pierde 0,3 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Bélgica.",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Bélgica sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,456 (bruto 0,506)."
+      ],
+      "CAN": [
+        "Canadá importa USD 822 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 4,5 % anual (CAGR).",
+        "Colombia ya tiene 2,1 % del mercado y gana 1,2 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Canadá.",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Canadá sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,484 (bruto 0,520)."
+      ],
+      "CHE": [
+        "Suiza importa USD 88 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
+        "La demanda crece al 0,4 % anual (CAGR).",
+        "Colombia ya tiene 0,4 % del mercado y gana 0,1 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de Suiza.",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Suiza sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,326 (bruto 0,347)."
+      ],
+      "DEU": [
+        "Alemania importa USD 465 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 16,4 % anual (CAGR).",
+        "Colombia ya tiene 5,8 % del mercado y gana 2,5 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Alemania.",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Alemania sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,456 (bruto 0,525)."
+      ],
+      "ESP": [
+        "España importa USD 973 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 22,5 % anual (CAGR).",
+        "Colombia ya tiene 2,6 % del mercado y gana 1,1 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de España.",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a España sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de España 0,97: el filtro deja el score en 0,511 (bruto 0,519)."
+      ],
+      "FIN": [
+        "Finlandia importa USD 77 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 14,9 % anual (CAGR).",
+        "Colombia no registra ventas de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) en Finlandia (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Finlandia.",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Finlandia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,319 (bruto 0,361)."
+      ],
+      "FRA": [
+        "Francia importa USD 330 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 2,2 % anual (CAGR).",
+        "Colombia ya tiene 3,8 % del mercado y gana 0,6 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de Francia.",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Francia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,509 (bruto 0,556)."
+      ],
+      "GBR": [
+        "Reino Unido importa USD 583 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 18,1 % anual (CAGR).",
+        "Colombia ya tiene 1,0 % del mercado y gana 0,5 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Reino Unido.",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Reino Unido sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,365 (bruto 0,458)."
+      ],
+      "ITA": [
+        "Italia importa USD 1.280 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 10,0 % anual (CAGR).",
+        "Colombia ya tiene 0,6 % del mercado y pierde 0,3 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Italia.",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Italia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,506 (bruto 0,552)."
+      ],
+      "JPN": [
+        "Japón importa USD 712 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 10,8 % anual (CAGR).",
+        "Colombia no registra ventas de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) en Japón (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Japón.",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Japón sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,468 (bruto 0,517)."
+      ],
+      "KOR": [
+        "Corea del Sur importa USD 919 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 13,7 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,49 (escala 0–1) con la demanda importadora de Corea del Sur.",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) paga en Corea del Sur un arancel efectivamente aplicado de 10,4 %.",
+        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,432 (bruto 0,458)."
+      ],
+      "NLD": [
+        "Países Bajos importa USD 292 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 4,7 % anual (CAGR).",
+        "Colombia ya tiene 3,3 % del mercado y gana 1,8 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Países Bajos.",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Países Bajos sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,548 (bruto 0,605)."
+      ],
+      "POL": [
+        "Polonia importa USD 112 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 37,1 % anual (CAGR).",
+        "Colombia ya tiene 2,3 % del mercado y gana 2,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,36 (escala 0–1) con la demanda importadora de Polonia.",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Polonia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,276 (bruto 0,300)."
+      ],
+      "PRT": [
+        "Portugal importa USD 255 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 15,2 % anual (CAGR).",
+        "Colombia ya tiene 0,3 % del mercado y gana 0,2 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,39 (escala 0–1) con la demanda importadora de Portugal.",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Portugal sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,366 (bruto 0,379)."
+      ],
+      "SWE": [
+        "Suecia importa USD 68 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 2,5 % anual (CAGR).",
+        "Colombia no registra ventas de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) en Suecia (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Suecia.",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) entra a Suecia sin arancel (0 % efectivamente aplicado).",
+        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,339 (bruto 0,377)."
+      ],
+      "USA": [
+        "Estados Unidos importa USD 2.354 M al año de Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 11,6 % anual (CAGR).",
+        "Colombia ya tiene 7,3 % del mercado y gana 1,2 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,33 (escala 0–1) con la demanda importadora de Estados Unidos.",
+        "Cane or beet sugar and chemically pure sucrose, in solid form (HS 1701) paga en Estados Unidos un arancel efectivamente aplicado de 0,2 %.",
+        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,584 (bruto 0,706)."
       ]
     },
-    {
-      "final_score": 0.548,
-      "iso3": "NLD",
-      "name": "Países Bajos",
-      "reasons": [
-        "3.º destino por complementariedad de canastas (índice 0,46 (escala 0–1))",
-        "6.º destino por crecimiento de la demanda (-4,7 % anual)"
-      ]
-    },
-    {
-      "final_score": 0.511,
-      "iso3": "ESP",
-      "name": "España",
-      "reasons": [
-        "7.º destino por complementariedad de canastas (índice 0,42 (escala 0–1))",
-        "3.º destino por tamaño de mercado (USD 973 M/año)"
-      ]
-    }
-  ]
+    "recommendations": [
+      {
+        "final_score": 0.584,
+        "iso3": "USA",
+        "name": "Estados Unidos",
+        "reasons": [
+          "1.º destino por tamaño de mercado (USD 2.354 M/año)",
+          "1.º destino por cuota ya ganada (cuota de 7,3 %)"
+        ]
+      },
+      {
+        "final_score": 0.548,
+        "iso3": "NLD",
+        "name": "Países Bajos",
+        "reasons": [
+          "3.º destino por complementariedad de canastas (índice 0,46 (escala 0–1))",
+          "6.º destino por crecimiento de la demanda (-4,7 % anual)"
+        ]
+      },
+      {
+        "final_score": 0.511,
+        "iso3": "ESP",
+        "name": "España",
+        "reasons": [
+          "7.º destino por complementariedad de canastas (índice 0,42 (escala 0–1))",
+          "3.º destino por tamaño de mercado (USD 973 M/año)"
+        ]
+      }
+    ]
+  }
 }

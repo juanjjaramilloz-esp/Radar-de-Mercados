@@ -135,20 +135,76 @@ def market_share_trend(
     return trend.rename(config.COL_SHARE_TREND)
 
 
-def tariff_faced(tariffs: pd.DataFrame) -> pd.Series:
-    """Arancel efectivamente aplicado que enfrenta el origen en cada destino.
+def tariff_profile(tariffs: pd.DataFrame) -> pd.DataFrame:
+    """Arancel efectivamente aplicado por subpartida HS6 en cada destino.
 
-    Definición: el "effectively applied tariff" (AHS) de WITS — para cada
-    línea, el menor arancel disponible: el preferencial si existe un acuerdo
-    con el origen, el MFN en caso contrario (cf. WITS Glossary, World Bank).
-    A nivel de partida se agrega como promedio simple de las subpartidas HS6,
-    la convención de agregación "simple average" de WITS.
+    Definición: el "effectively applied tariff" (AHS) de WITS por línea —
+    para cada (destino, subpartida HS6), el menor arancel disponible: el
+    preferencial si existe un acuerdo con el origen, el MFN en caso
+    contrario (cf. WITS Glossary, World Bank) — conservando el detalle por
+    subpartida que el promedio de la partida esconde (la dispersión
+    intra-partida: p. ej. dentro de 0901 el café verde puede entrar a 0 % y
+    el tostado pagar 7,5 %).
 
     De cada serie (destino, subpartida, tipo) se toma el último año
     disponible: los preferenciales se publican con más rezago que el MFN y
     las preferencias de un acuerdo vigente persisten entre años, así que
     comparar el último MFN con el último preferencial (aunque sean de años
-    distintos) es la lectura razonable del arancel vigente.
+    distintos) es la lectura razonable del arancel vigente. En empate de
+    tasa gana el preferencial (documenta el acuerdo que aplica).
+
+    Args:
+        tariffs: DataFrame validado contra ``tariffs_schema`` (tasas en %,
+            tipos MFN/PREF). La ausencia de un destino significa "sin dato".
+
+    Returns:
+        DataFrame con una fila por (destino, HS6): país, subpartida, tipo
+        del arancel que aplica, año de esa tasa y el arancel en fracción
+        (columna ``config.COL_TARIFF``). Vacío si ``tariffs`` está vacío.
+    """
+    if tariffs.empty:
+        return pd.DataFrame(
+            columns=[
+                config.COL_COUNTRY,
+                config.COL_CMD,
+                config.COL_TARIFF_TYPE,
+                config.COL_YEAR,
+                config.COL_TARIFF,
+            ]
+        )
+    latest = (
+        tariffs.sort_values(config.COL_YEAR)
+        .groupby([config.COL_COUNTRY, config.COL_CMD, config.COL_TARIFF_TYPE], as_index=False)
+        .last()
+    )
+    # Menor tasa gana; en empate, el tipo en orden descendente pone PREF
+    # antes que MFN (documenta la preferencia vigente).
+    winners = (
+        latest.sort_values(
+            [config.COL_COUNTRY, config.COL_CMD, config.COL_RATE_PCT, config.COL_TARIFF_TYPE],
+            ascending=[True, True, True, False],
+        )
+        .groupby([config.COL_COUNTRY, config.COL_CMD], as_index=False)
+        .first()
+    )
+    winners[config.COL_TARIFF] = winners[config.COL_RATE_PCT] / 100.0
+    columns = [
+        config.COL_COUNTRY,
+        config.COL_CMD,
+        config.COL_TARIFF_TYPE,
+        config.COL_YEAR,
+        config.COL_TARIFF,
+    ]
+    return winners[columns].reset_index(drop=True)
+
+
+def tariff_faced(tariffs: pd.DataFrame) -> pd.Series:
+    """Arancel efectivamente aplicado que enfrenta el origen en cada destino.
+
+    Definición: promedio simple sobre las subpartidas HS6 del "effectively
+    applied tariff" (AHS) por línea que calcula ``tariff_profile`` — la
+    convención de agregación "simple average" de WITS (cf. WITS Glossary,
+    World Bank).
 
     Args:
         tariffs: DataFrame validado contra ``tariffs_schema`` (tasas en %,
@@ -159,15 +215,10 @@ def tariff_faced(tariffs: pd.DataFrame) -> pd.Series:
         (0.085 = 8,5 %), nombrada ``config.COL_TARIFF``. Los destinos sin
         filas no aparecen (el scoring los trata como sin evidencia).
     """
-    if tariffs.empty:
+    profile = tariff_profile(tariffs)
+    if profile.empty:
         return pd.Series(dtype=float, name=config.COL_TARIFF)
-    latest = (
-        tariffs.sort_values(config.COL_YEAR)
-        .groupby([config.COL_COUNTRY, config.COL_CMD, config.COL_TARIFF_TYPE])[config.COL_RATE_PCT]
-        .last()
-    )
-    effective = latest.groupby([config.COL_COUNTRY, config.COL_CMD]).min()
-    per_country = effective.groupby(config.COL_COUNTRY).mean() / 100.0
+    per_country = profile.groupby(config.COL_COUNTRY)[config.COL_TARIFF].mean()
     return per_country.rename(config.COL_TARIFF)
 
 

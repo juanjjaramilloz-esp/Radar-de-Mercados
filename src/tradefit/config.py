@@ -124,6 +124,17 @@ def unit_values_parquet(hs: str) -> Path:
     return processed_dir(hs) / "unit_values.parquet"
 
 
+def tariff_profile_parquet(hs: str) -> Path:
+    """Ruta del perfil arancelario por subpartida HS6 de ``hs``.
+
+    Desglose del arancel efectivamente aplicado que ``tariff_faced`` promedia
+    para el ranking: revela la dispersión intra-partida en la ficha del
+    destino. La app degrada con gracia si no existe (snapshots viejos o sin
+    datos de WITS).
+    """
+    return processed_dir(hs) / "tariff_profile.parquet"
+
+
 def macro_context_parquet() -> Path:
     """Ruta del macro crudo compartido (indicadores por país y año, para la ficha).
 

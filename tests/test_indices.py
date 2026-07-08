@@ -17,6 +17,7 @@ from tradefit.domain.indices import (
     rca_balassa,
     supplier_shares,
     tariff_faced,
+    tariff_profile,
     unit_value_premium,
 )
 
@@ -188,6 +189,61 @@ def test_tariff_faced_toma_el_ultimo_anio_del_mfn(tariffs_small: pd.DataFrame) -
 
 def test_tariff_faced_vacio_devuelve_serie_vacia() -> None:
     assert tariff_faced(pd.DataFrame()).empty
+
+
+# --- tariff_profile (AHS por subpartida HS6: el desglose intra-partida) ------
+
+
+def test_tariff_profile_a_mano(tariffs_small: pd.DataFrame) -> None:
+    result = tariff_profile(tariffs_small).set_index([config.COL_COUNTRY, config.COL_CMD])
+    # USA/090111: min(MFN último año 10 %, PREF 2 %) → 2 % preferencial de 2021
+    assert result.at[("USA", "090111"), config.COL_TARIFF] == pytest.approx(0.02)
+    assert result.at[("USA", "090111"), config.COL_TARIFF_TYPE] == "PREF"
+    assert result.at[("USA", "090111"), config.COL_YEAR] == 2021
+    # USA/090121: solo MFN 2023 → 4 % MFN (la dispersión 2 % vs 4 % es lo
+    # que el promedio 3 % de tariff_faced esconde)
+    assert result.at[("USA", "090121"), config.COL_TARIFF] == pytest.approx(0.04)
+    assert result.at[("USA", "090121"), config.COL_TARIFF_TYPE] == "MFN"
+    # DEU/090111: MFN 0 % sin preferencial; JPN sin filas → no aparece
+    assert result.at[("DEU", "090111"), config.COL_TARIFF] == pytest.approx(0.0)
+    assert "JPN" not in result.index.get_level_values(0)
+
+
+def test_tariff_profile_cumple_su_contrato(tariffs_small: pd.DataFrame) -> None:
+    from tradefit.contracts import tariff_profile_schema
+
+    tariff_profile_schema.validate(tariff_profile(tariffs_small))
+
+
+def test_tariff_profile_empate_gana_el_preferencial() -> None:
+    # MFN y PREF con la misma tasa: se reporta PREF (documenta el acuerdo).
+    raw = pd.DataFrame(
+        {
+            config.COL_COUNTRY: ["USA", "USA"],
+            config.COL_CMD: ["090111", "090111"],
+            config.COL_TARIFF_TYPE: ["MFN", "PREF"],
+            config.COL_YEAR: [2023, 2022],
+            config.COL_RATE_PCT: [5.0, 5.0],
+        }
+    )
+    result = tariff_profile(raw)
+    assert len(result) == 1
+    assert result.loc[0, config.COL_TARIFF_TYPE] == "PREF"
+
+
+def test_tariff_profile_promedia_a_tariff_faced(tariffs_small: pd.DataFrame) -> None:
+    # Coherencia interna: el promedio simple del perfil ES el tariff_faced.
+    profile = tariff_profile(tariffs_small)
+    per_country = profile.groupby(config.COL_COUNTRY)[config.COL_TARIFF].mean()
+    pd.testing.assert_series_equal(
+        per_country.rename(config.COL_TARIFF), tariff_faced(tariffs_small)
+    )
+
+
+def test_tariff_profile_vacio_devuelve_frame_vacio() -> None:
+    result = tariff_profile(pd.DataFrame())
+    assert result.empty
+    assert config.COL_TARIFF in result.columns
 
 
 # --- Concentración de destinos (HHI de Herfindahl–Hirschman) -----------------

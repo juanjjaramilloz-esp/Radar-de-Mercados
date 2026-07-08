@@ -583,6 +583,84 @@ def _focus_competitors_block(hs: str, iso3: str, product_label: str) -> None:
         st.caption(t("focus_colombia_absent", year=year))
 
 
+def _focus_tariff_profile_block(hs: str, iso3: str) -> None:
+    """Desglose del arancel efectivamente aplicado por subpartida HS6.
+
+    Presentación pura del artefacto ``tariff_profile.parquet`` (el cálculo
+    AHS por línea vive en ``domain.indices.tariff_profile``; su promedio es
+    el arancel que pondera en el ranking). Solo aparece con ≥ 2 subpartidas
+    con dato en el destino: con una sola, el desglose no agrega nada sobre
+    el arancel de la cabecera.
+    """
+    profile = _load_tariff_profile(hs)
+    if profile is None:
+        return
+    destination = profile[profile[config.COL_COUNTRY] == iso3]
+    if len(destination) < 2:
+        return
+    st.markdown(f"**{t('focus_tariff_profile_header')}**")
+    if destination[config.COL_TARIFF].nunique() == 1:
+        # Sin dispersión no hay nada que graficar (con 0 % las barras ni se
+        # verían): una frase deja constancia de la homogeneidad.
+        st.caption(
+            t(
+                "focus_tariff_profile_caption_flat",
+                n=len(destination),
+                avg=i18n.fmt_pct(float(destination[config.COL_TARIFF].iloc[0])),
+            )
+        )
+        return
+    try:
+        catalog = _hs_catalog().set_index(hs_codes.COL_HS)[hs_codes.COL_DESC]
+    except FileNotFoundError:
+        catalog = pd.Series(dtype=str)
+    # Ascendente: en barras horizontales la última categoría queda arriba —
+    # la subpartida con más fricción encabeza el bloque.
+    rows = destination.sort_values(config.COL_TARIFF, ascending=True)
+    labels: list[str] = []
+    for code in rows[config.COL_CMD]:
+        desc = str(catalog.get(str(code), "") or "").strip()
+        if len(desc) > 58:
+            desc = desc[:57].rstrip() + "…"
+        labels.append(f"{code} · {desc}" if desc else str(code))
+    fig = go.Figure()
+    for tariff_type, label_key, color in (
+        ("PREF", "tariff_type_pref", "#10B981"),
+        ("MFN", "tariff_type_mfn", "#6B7280"),
+    ):
+        mask = rows[config.COL_TARIFF_TYPE] == tariff_type
+        if not mask.any():
+            continue
+        fig.add_trace(
+            go.Bar(
+                x=rows.loc[mask, config.COL_TARIFF] * 100.0,
+                y=[label for label, hit in zip(labels, mask, strict=True) if hit],
+                orientation="h",
+                name=t(label_key),
+                marker_color=color,
+                hovertemplate="%{x:.1f} %<extra></extra>",
+            )
+        )
+    fig.update_layout(
+        separators=i18n.active_plotly_separators(),
+        height=90 + 30 * len(rows),
+        margin={"l": 0, "r": 0, "t": 0, "b": 0},
+        xaxis={"title": t("focus_tariff_profile_xaxis")},
+        yaxis={"title": None, "categoryorder": "array", "categoryarray": labels},
+        legend={"orientation": "h", "yanchor": "bottom", "y": 1.02},
+    )
+    st.plotly_chart(fig, use_container_width=True)
+    tariffs = rows[config.COL_TARIFF]
+    st.caption(
+        t(
+            "focus_tariff_profile_caption",
+            avg=i18n.fmt_pct(float(tariffs.mean())),
+            min=i18n.fmt_pct(float(tariffs.min())),
+            max=i18n.fmt_pct(float(tariffs.max())),
+        )
+    )
+
+
 def _focus_evolution_block(timeseries: pd.DataFrame | None, iso3: str) -> None:
     """Mini-gráfica: importaciones anuales del producto en el destino."""
     if timeseries is None:
@@ -663,6 +741,7 @@ def _focus_section(
         _focus_macro_block(row, selected)
     with col_right:
         _focus_competitors_block(hs, selected, product_label)
+    _focus_tariff_profile_block(hs, selected)
     _focus_evolution_block(timeseries, selected)
     markets = narrative.get("markets")
     if isinstance(markets, dict) and markets.get(selected):
@@ -1059,6 +1138,18 @@ def _load_unit_values(hs: str) -> pd.DataFrame | None:
     y el bloque de la ficha.
     """
     path = config.unit_values_parquet(hs)
+    if not path.exists():
+        return None
+    return _read_parquet(path)
+
+
+def _load_tariff_profile(hs: str) -> pd.DataFrame | None:
+    """Lee el perfil arancelario por subpartida HS6, si el snapshot lo trae.
+
+    Snapshots anteriores a 2026-07-08 (o sin datos de WITS, p. ej. el stub)
+    no tienen este artefacto: la ficha degrada con gracia omitiendo el bloque.
+    """
+    path = config.tariff_profile_parquet(hs)
     if not path.exists():
         return None
     return _read_parquet(path)

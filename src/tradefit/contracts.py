@@ -86,6 +86,24 @@ tariffs_schema = pa.DataFrameSchema(
     name="tariffs",
 )
 
+#: Perfil arancelario intra-partida (artefacto del snapshot): una fila por
+#: (destino, subpartida HS6) con el arancel efectivamente aplicado (AHS) en
+#: fracción, el tipo que aplica (PREF si hay acuerdo, MFN si no) y el año de
+#: esa tasa. Es la salida de ``domain.indices.tariff_profile``.
+tariff_profile_schema = pa.DataFrameSchema(
+    {
+        config.COL_COUNTRY: pa.Column(str, pa.Check.str_length(3, 3)),
+        config.COL_CMD: pa.Column(str, pa.Check.str_length(6, 6)),
+        config.COL_TARIFF_TYPE: pa.Column(str, pa.Check.isin(["MFN", "PREF"])),
+        config.COL_YEAR: pa.Column(int, pa.Check.in_range(1990, 2100)),
+        config.COL_TARIFF: pa.Column(float, pa.Check.ge(0)),
+    },
+    unique=[config.COL_COUNTRY, config.COL_CMD],
+    coerce=True,
+    strict=True,
+    name="tariff_profile",
+)
+
 #: Importaciones del producto en cada destino por proveedor y año (entrada
 #: de ``domain.indices.supplier_shares``). Incluye el agregado World
 #: (``partner_code`` "0"), denominador de las cuotas; ausencia de un destino

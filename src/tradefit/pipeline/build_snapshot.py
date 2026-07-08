@@ -19,6 +19,7 @@ from tradefit.contracts import (
     MarketInputs,
     competitors_schema,
     ranking_schema,
+    tariff_profile_schema,
     unit_values_schema,
 )
 from tradefit.domain import indices
@@ -238,6 +239,12 @@ def build_snapshot(
             list(validated[config.COL_COUNTRY]),
         )
 
+    # Perfil arancelario intra-partida (HS6): el desglose del arancel que el
+    # ranking promedia (tariff_faced), para que la ficha muestre la
+    # dispersión entre subpartidas. Sale de los aranceles ya descargados de
+    # WITS — no agrega llamadas a la red.
+    tariff_detail = indices.tariff_profile(data.tariffs)
+
     _notify(on_stage, "Escribiendo el snapshot")
     config.processed_dir(hs).mkdir(parents=True, exist_ok=True)
     validated.to_parquet(config.ranking_parquet(hs), index=False)
@@ -246,6 +253,10 @@ def build_snapshot(
         supplier_table.to_parquet(config.competitors_parquet(hs), index=False)
     if unit_values is not None:
         unit_values.to_parquet(config.unit_values_parquet(hs), index=False)
+    if not tariff_detail.empty:
+        tariff_profile_schema.validate(tariff_detail).to_parquet(
+            config.tariff_profile_parquet(hs), index=False
+        )
     # Macro crudo compartido (indicadores por país y año): la ficha del
     # destino lo usa para mostrar inflación/PIB/cuenta corriente/LPI con su
     # año. Es independiente del producto; reescribirlo es idempotente.

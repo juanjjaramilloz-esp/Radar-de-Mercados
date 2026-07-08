@@ -418,6 +418,41 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
         "es": "Evolución de sus importaciones (USD M)",
         "en": "Its imports over time (USD M)",
     },
+    "focus_tariff_profile_header": {
+        "es": "Arancel por subpartida (HS6)",
+        "en": "Tariff by subheading (HS6)",
+    },
+    "focus_tariff_profile_caption": {
+        "es": (
+            "Arancel efectivamente aplicado a Colombia por subpartida (AHS, "
+            "WITS): el promedio {avg} del ranking esconde un rango de {min} "
+            "a {max}."
+        ),
+        "en": (
+            "Tariff effectively applied to Colombia by subheading (AHS, "
+            "WITS): the ranking's {avg} average hides a range from {min} "
+            "to {max}."
+        ),
+    },
+    "focus_tariff_profile_caption_flat": {
+        "es": (
+            "Sin dispersión intra-partida: las {n} subpartidas HS6 con dato "
+            "pagan lo mismo ({avg}, AHS de WITS)."
+        ),
+        "en": (
+            "No intra-heading dispersion: all {n} HS6 subheadings with data "
+            "pay the same ({avg}, WITS AHS)."
+        ),
+    },
+    "focus_tariff_profile_xaxis": {
+        "es": "% arancel aplicado",
+        "en": "% applied tariff",
+    },
+    "tariff_type_pref": {
+        "es": "Preferencial (acuerdo)",
+        "en": "Preferential (agreement)",
+    },
+    "tariff_type_mfn": {"es": "MFN (sin preferencia)", "en": "MFN (no preference)"},
     "focus_narrative_header": {"es": "Lectura del mercado", "en": "Market notes"},
     "map_focus_hint": {
         "es": "💡 Haz clic en un país para fijar el foco y abrir su ficha (abajo).",
@@ -543,13 +578,15 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
             "Arancel efectivamente aplicado al origen: mín(MFN, "
             "preferencial), promedio simple de las subpartidas HS6 "
             "(cf. WITS *effectively applied — AHS*; invertido: menos "
-            "arancel = mejor)"
+            "arancel = mejor). La ficha del destino desglosa el detalle "
+            "por subpartida"
         ),
         "en": (
             "Tariff effectively applied to the origin: min(MFN, "
             "preferential), simple average over HS6 subheadings "
             "(cf. WITS *effectively applied — AHS*; inverted: lower "
-            "tariff = better)"
+            "tariff = better). The destination sheet breaks it down "
+            "by subheading"
         ),
     },
     "methodology_metric_accessibility": {

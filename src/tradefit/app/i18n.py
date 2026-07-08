@@ -670,6 +670,15 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
         "es": "{n} mercados destino",
         "en": "{n} destination markets",
     },
+    "kpi_demand_help": {
+        "es": (
+            "Suma de las importaciones promedio del producto en los "
+            "mercados analizados (Comtrade, USD/año)."
+        ),
+        "en": (
+            "Sum of the product's average imports across the analyzed markets (Comtrade, USD/year)."
+        ),
+    },
     "kpi_growth_label": {
         "es": "Crecimiento de la demanda",
         "en": "Demand growth",
@@ -678,11 +687,30 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
         "es": "CAGR ponderado por tamaño",
         "en": "Size-weighted CAGR",
     },
+    "kpi_growth_help": {
+        "es": (
+            "CAGR de las importaciones de cada destino, promediado "
+            "ponderando por el tamaño de cada mercado."
+        ),
+        "en": ("CAGR of each destination's imports, averaged weighted by each market's size."),
+    },
     "kpi_share_label": {
         "es": "Cuota agregada del origen",
         "en": "Origin's aggregate share",
     },
     "kpi_share_delta": {"es": "de la demanda analizada", "en": "of demand analyzed"},
+    "kpi_share_help": {
+        "es": (
+            "Cuota de Colombia en las importaciones del producto, agregada "
+            "sobre los mercados analizados: promedio de la cuota por "
+            "destino ponderado por el tamaño de cada mercado."
+        ),
+        "en": (
+            "Colombia's share of the product's imports, aggregated across "
+            "the analyzed markets: the per-destination share averaged "
+            "weighted by each market's size."
+        ),
+    },
     "kpi_hhi_label": {
         "es": "Concentración de destinos (HHI)",
         "en": "Destination concentration (HHI)",
@@ -771,18 +799,62 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
             "growth and current account)."
         ),
     },
+    "col_rank_help": {
+        "es": "Posición en el ranking por score final (1 = mejor oportunidad).",
+        "en": "Rank by final score (1 = best opportunity).",
+    },
+    "col_iso3_help": {
+        "es": "Código ISO 3166-1 alfa-3 del mercado destino.",
+        "en": "ISO 3166-1 alpha-3 code of the destination market.",
+    },
     "col_market": {"es": "Mercado", "en": "Market"},
+    "col_market_help": {
+        "es": "Mercado destino analizado; clic en la fila para abrir su ficha.",
+        "en": "Destination market analyzed; click the row to open its profile.",
+    },
     "col_market_size": {
         "es": "Importaciones prom. {years} años (USD)",
         "en": "Avg. imports, {years}y (USD)",
     },
+    "col_market_size_help": {
+        "es": (
+            "Tamaño del mercado: importaciones del producto promediadas "
+            "sobre los últimos {years} años con dato (Comtrade, USD)."
+        ),
+        "en": (
+            "Market size: the destination's imports of the product "
+            "averaged over the last {years} years with data (Comtrade, USD)."
+        ),
+    },
     "col_growth": {"es": "Crecimiento (CAGR)", "en": "Growth (CAGR)"},
+    "col_growth_help": {
+        "es": (
+            "Crecimiento anual compuesto (CAGR) de las importaciones del "
+            "destino entre el primer y el último año de la ventana."
+        ),
+        "en": (
+            "Compound annual growth rate (CAGR) of the destination's "
+            "imports between the first and last year of the window."
+        ),
+    },
     "col_share": {"es": "Cuota del origen", "en": "Origin's share"},
     "col_share_help": {
         "es": "% de las importaciones del destino que ya cubre Colombia.",
         "en": "% of the destination's imports already covered by Colombia.",
     },
     "col_share_trend": {"es": "Δ cuota (ventana)", "en": "Δ share (window)"},
+    "col_share_trend_help": {
+        "es": (
+            "Cambio de la cuota de Colombia entre el primer y el último "
+            "año de la ventana (puntos porcentuales): ¿está ganando o "
+            "perdiendo terreno?"
+        ),
+        "en": (
+            "Change in Colombia's share between the first and last year "
+            "of the window (percentage points): is it gaining or losing "
+            "ground?"
+        ),
+    },
     "col_origin_export_share": {
         "es": "% export. de Colombia",
         "en": "% of Colombia's exports",
@@ -800,8 +872,44 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
         ),
     },
     "col_complementarity": {"es": "Complementariedad", "en": "Complementarity"},
+    "col_complementarity_help": {
+        "es": (
+            "Índice de Michaely (0–1): qué tanto encaja la canasta "
+            "exportadora de Colombia con la canasta importadora del "
+            "destino. Más alto = mejor encaje comercial."
+        ),
+        "en": (
+            "Michaely index (0–1): how well Colombia's export basket "
+            "matches the destination's import basket. Higher = better "
+            "trade fit."
+        ),
+    },
     "col_tariff": {"es": "Arancel enfrentado", "en": "Tariff faced"},
+    "col_tariff_help": {
+        "es": (
+            "Arancel efectivamente aplicado a Colombia (AHS de WITS: "
+            "mínimo entre MFN y preferencial, promedio simple de las "
+            "subpartidas HS6). Menos = mejor; en el score entra invertido."
+        ),
+        "en": (
+            "Tariff effectively applied to Colombia (WITS AHS: minimum of "
+            "MFN and preferential, simple average across HS6 subheadings). "
+            "Lower = better; it enters the score inverted."
+        ),
+    },
     "col_agreement": {"es": "Acuerdo comercial", "en": "Trade agreement"},
+    "col_agreement_help": {
+        "es": (
+            "Acuerdo comercial vigente entre Colombia y el destino "
+            "(fuente MinCIT). El arancel enfrentado ya refleja sus "
+            "preferencias."
+        ),
+        "en": (
+            "Trade agreement in force between Colombia and the "
+            "destination (source: MinCIT). The tariff faced already "
+            "reflects its preferences."
+        ),
+    },
     "col_lpi": {"es": "LPI logístico (1–5)", "en": "Logistics LPI (1–5)"},
     "col_lpi_help": {
         "es": (
@@ -814,8 +922,42 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
         ),
     },
     "col_stability": {"es": "Estabilidad macro", "en": "Macro stability"},
+    "col_stability_help": {
+        "es": (
+            "Filtro macro del destino (0–1) con indicadores WDI: "
+            "inflación, crecimiento del PIB y cuenta corriente, vía "
+            "rampas lineales. Sin dato = 0,5 neutro."
+        ),
+        "en": (
+            "Destination macro filter (0–1) from WDI indicators: "
+            "inflation, GDP growth and current account, via linear "
+            "ramps. Missing data = neutral 0.5."
+        ),
+    },
     "col_score_raw": {"es": "Score bruto", "en": "Raw score"},
+    "col_score_raw_help": {
+        "es": (
+            "Oportunidad comercial: suma ponderada de las métricas "
+            "normalizadas (pesos en el panel de metodología), ANTES del "
+            "filtro de estabilidad macro."
+        ),
+        "en": (
+            "Commercial opportunity: weighted sum of the normalized "
+            "metrics (weights in the methodology panel), BEFORE the "
+            "macro stability filter."
+        ),
+    },
     "col_score_final": {"es": "Score final", "en": "Final score"},
+    "col_score_final_help": {
+        "es": (
+            "Score bruto × penalización macro: bruto × (piso + "
+            "(1 − piso) × estabilidad). Es el orden del ranking."
+        ),
+        "en": (
+            "Raw score × macro penalty: raw × (floor + (1 − floor) × "
+            "stability). This is the ranking order."
+        ),
+    },
     "columns_popover_label": {"es": "⚙️ Columnas", "en": "⚙️ Columns"},
     "columns_select_label": {
         "es": "Columnas visibles en la tabla",

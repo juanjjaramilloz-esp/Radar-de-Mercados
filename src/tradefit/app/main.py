@@ -1196,26 +1196,43 @@ def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object], focus_iso3: s
         column_config={
             # width acepta píxeles (int) solo desde Streamlit > 1.49: aquí
             # se usa "small" para que el "#" no se estire con la tabla.
-            config.COL_RANK: st.column_config.Column("#", width="small"),
-            config.COL_COUNTRY: st.column_config.Column("ISO3"),
-            config.COL_COUNTRY_NAME: st.column_config.Column(t("col_market")),
-            config.COL_MARKET_SIZE: st.column_config.Column(
-                t("col_market_size", years=meta["market_size_years"])
+            config.COL_RANK: st.column_config.Column("#", width="small", help=t("col_rank_help")),
+            config.COL_COUNTRY: st.column_config.Column("ISO3", help=t("col_iso3_help")),
+            config.COL_COUNTRY_NAME: st.column_config.Column(
+                t("col_market"), help=t("col_market_help")
             ),
-            config.COL_GROWTH: st.column_config.Column(t("col_growth")),
+            config.COL_MARKET_SIZE: st.column_config.Column(
+                t("col_market_size", years=meta["market_size_years"]),
+                help=t("col_market_size_help", years=meta["market_size_years"]),
+            ),
+            config.COL_GROWTH: st.column_config.Column(t("col_growth"), help=t("col_growth_help")),
             config.COL_SHARE: st.column_config.Column(t("col_share"), help=t("col_share_help")),
-            config.COL_SHARE_TREND: st.column_config.Column(t("col_share_trend")),
+            config.COL_SHARE_TREND: st.column_config.Column(
+                t("col_share_trend"), help=t("col_share_trend_help")
+            ),
             config.COL_ORIGIN_EXPORT_SHARE: st.column_config.Column(
                 t("col_origin_export_share"), help=t("col_origin_export_share_help")
             ),
-            config.COL_COMPLEMENTARITY: st.column_config.Column(t("col_complementarity")),
-            config.COL_TARIFF: st.column_config.Column(t("col_tariff")),
-            config.COL_AGREEMENT: st.column_config.Column(t("col_agreement")),
+            config.COL_COMPLEMENTARITY: st.column_config.Column(
+                t("col_complementarity"), help=t("col_complementarity_help")
+            ),
+            config.COL_TARIFF: st.column_config.Column(t("col_tariff"), help=t("col_tariff_help")),
+            config.COL_AGREEMENT: st.column_config.Column(
+                t("col_agreement"), help=t("col_agreement_help")
+            ),
             config.COL_LPI: st.column_config.Column(t("col_lpi"), help=t("col_lpi_help")),
-            config.COL_STABILITY: st.column_config.Column(t("col_stability")),
-            config.COL_SCORE: st.column_config.Column(t("col_score_raw")),
+            config.COL_STABILITY: st.column_config.Column(
+                t("col_stability"), help=t("col_stability_help")
+            ),
+            config.COL_SCORE: st.column_config.Column(
+                t("col_score_raw"), help=t("col_score_raw_help")
+            ),
             config.COL_FINAL_SCORE: st.column_config.ProgressColumn(
-                t("col_score_final"), min_value=0.0, max_value=1.0, format="%.3f"
+                t("col_score_final"),
+                min_value=0.0,
+                max_value=1.0,
+                format="%.3f",
+                help=t("col_score_final_help"),
             ),
         },
     )
@@ -1585,18 +1602,21 @@ def _kpi_row(ranking: pd.DataFrame, meta: dict[str, object]) -> None:
         i18n.fmt_usd_compact(total),
         delta=t("kpi_demand_delta", n=len(ranking)),
         delta_color="off",
+        help=t("kpi_demand_help"),
     )
     col_growth.metric(
         t("kpi_growth_label"),
         i18n.fmt_pct(growth, signed=True),
         delta=t("kpi_growth_delta"),
         delta_color="off",
+        help=t("kpi_growth_help"),
     )
     col_share.metric(
         t("kpi_share_label"),
         i18n.fmt_pct(share),
         delta=t("kpi_share_delta"),
         delta_color="off",
+        help=t("kpi_share_help"),
     )
     hhi = meta.get("destination_hhi")
     if hhi is not None:

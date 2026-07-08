@@ -12,7 +12,36 @@ ranking de 26 destinos (18 OCDE/Asia + 8 LATAM). Motor económico puro en
 `domain/`, snapshot Parquet como contrato, app Streamlit que solo lee el
 snapshot.
 
-## ✅ Última tanda — ronda de pulido (2026-07-08, COMPLETA)
+## ✅ Última tanda — valores unitarios + tooltips + piso macro (2026-07-08, COMPLETA)
+
+1. **Valores unitarios (USD/kg) por destino** (`30f9d2d`): nueva señal de
+   posicionamiento precio/calidad, exclusiva del catálogo curado. UV =
+   valor ÷ peso neto (UN IMTS 2010) agregado como **cociente de sumas**
+   sobre la ventana de `MARKET_SIZE_YEARS`; premium = UV_origen/UV_destino
+   − 1 (cf. Hummels & Klenow 2005). Todo sale del `netWgt` de los cachés
+   crudos ya descargados (cero red nueva). Piezas: `parse_flow_weights` +
+   `load_import_weights`/`load_bilateral_weights` (ingest),
+   `aggregate_unit_value`/`unit_value_premium` (domain, testeadas a mano),
+   `flow_weights_schema`/`unit_values_schema` (contratos),
+   `_unit_values_table` + `refresh_unit_values` (pipeline), pestaña
+   «💲 Valor unitario» (barras del promedio + rombo ámbar del origen) y
+   bloque en la ficha de foco con el premium como delta. Los 15
+   `unit_values.parquet` versionados para el demo (ya generados con
+   `refresh_unit_values`, sin rebuild).
+2. **Tooltip (i) en todas las columnas del ranking y en los 5 KPIs**
+   (`e2ef9cd`): cada header lleva `help=` con la definición de una frase
+   (fórmula/fuente donde aplica); antes solo lo tenían 3 columnas y 2 KPIs
+   — incluida la petición directa del KPI «cuota agregada del origen».
+3. **Piso de la penalización macro ajustable en el simulador** (`386bf63`):
+   slider 0–100 % (paso 5, oficial 50 %) junto a los pesos.
+   `rescore_ranking` ya aceptaba `macro_floor` validado — la app solo
+   recoge el valor; el piso simulado se propaga a toda la página con los
+   pesos, entra al gate del CSV simulado y «↺ Valores oficiales» también
+   lo resetea. Test nuevo a mano: piso 1.0 apaga el filtro, piso 0.0
+   multiplica por la estabilidad completa. Verificado además con AppTest
+   (slider → nota de simulador activo → reset).
+
+## ✅ Tanda anterior — ronda de pulido (2026-07-08, COMPLETA)
 
 Quick wins acordados (40% UI, 40% exports, 20% rendimiento; enfoque demo):
 

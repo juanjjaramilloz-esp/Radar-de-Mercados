@@ -96,16 +96,20 @@ def _fetch_records(params: dict[str, str], label: str) -> list[dict[str, Any]]:
     return records
 
 
-def fetch_comtrade_imports(hs: str = config.HS_CODE) -> dict[str, Any]:
+def fetch_comtrade_imports(
+    hs: str = config.HS_CODE, years: tuple[int, ...] = config.IMPORT_YEARS
+) -> dict[str, Any]:
     """Descarga las importaciones del producto (destinos ← mundo), por año.
 
     Consulta: flujo M, partner World, reporters
-    ``config.COMTRADE_REPORTER_CODES``, un request por año de
-    ``config.IMPORT_YEARS`` (límite del preview público), fusionados en un
-    único payload con la clave ``data``.
+    ``config.COMTRADE_REPORTER_CODES``, un request por año de ``years``
+    (límite del preview público), fusionados en un único payload con la
+    clave ``data``.
 
     Args:
         hs: código HS del producto (default: ``config.HS_CODE``).
+        years: años a descargar (default: ``config.IMPORT_YEARS``; el
+            backtest pide ventanas históricas).
 
     Returns:
         Payload JSON con la clave ``data`` (registros de todos los años).
@@ -114,7 +118,7 @@ def fetch_comtrade_imports(hs: str = config.HS_CODE) -> dict[str, Any]:
         RuntimeError: si la API responde con error o cambió de formato.
     """
     merged: list[dict[str, Any]] = []
-    for year in config.IMPORT_YEARS:
+    for year in years:
         params = _BASE_PARAMS | {
             "reporterCode": ",".join(str(c) for c in config.COMTRADE_REPORTER_CODES.values()),
             "period": str(year),
@@ -125,14 +129,16 @@ def fetch_comtrade_imports(hs: str = config.HS_CODE) -> dict[str, Any]:
     return {"data": merged}
 
 
-def fetch_bilateral_imports(hs: str = config.HS_CODE) -> dict[str, Any]:
+def fetch_bilateral_imports(
+    hs: str = config.HS_CODE, years: tuple[int, ...] = config.IMPORT_YEARS
+) -> dict[str, Any]:
     """Descarga las importaciones de cada destino DESDE el origen, por año.
 
     Igual que :func:`fetch_comtrade_imports` pero con partner = origen
     (``config.ORIGIN_COMTRADE_CODE``) en lugar de World.
     """
     merged: list[dict[str, Any]] = []
-    for year in config.IMPORT_YEARS:
+    for year in years:
         params = _BASE_PARAMS | {
             "reporterCode": ",".join(str(c) for c in config.COMTRADE_REPORTER_CODES.values()),
             "period": str(year),
@@ -562,6 +568,43 @@ def load_bilateral_imports(
     """
     cache = cache_file or config.comtrade_bilateral_cache(hs)
     return _load_cached(cache, lambda: fetch_bilateral_imports(hs), parse_bilateral_response, force)
+
+
+def load_historical_imports(
+    hs: str,
+    years: tuple[int, ...] = config.BACKTEST_TRAIN_YEARS,
+    cache_file: Path | None = None,
+    force: bool = False,
+) -> pd.DataFrame:
+    """Carga importaciones de una ventana histórica (insumo del backtest).
+
+    Caché propio por ventana (``comtrade_<hs>_imports_hist_<a>_<b>.json``):
+    no toca el caché vigente del pipeline.
+
+    Returns:
+        DataFrame validado contra ``imports_schema``.
+    """
+    cache = cache_file or config.comtrade_imports_hist_cache(hs, years)
+    return _load_cached(
+        cache, lambda: fetch_comtrade_imports(hs, years), parse_comtrade_response, force
+    )
+
+
+def load_historical_bilateral(
+    hs: str,
+    years: tuple[int, ...] = config.BACKTEST_TRAIN_YEARS,
+    cache_file: Path | None = None,
+    force: bool = False,
+) -> pd.DataFrame:
+    """Carga el flujo bilateral de una ventana histórica (insumo del backtest).
+
+    Returns:
+        DataFrame validado contra ``bilateral_schema``.
+    """
+    cache = cache_file or config.comtrade_bilateral_hist_cache(hs, years)
+    return _load_cached(
+        cache, lambda: fetch_bilateral_imports(hs, years), parse_bilateral_response, force
+    )
 
 
 def load_import_weights(

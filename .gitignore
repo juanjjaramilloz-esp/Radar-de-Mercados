@@ -15,6 +15,7 @@ data/processed/*/*
 !data/processed/*/imports_timeseries.parquet
 !data/processed/*/competitors.parquet
 !data/processed/macro_context.parquet
+!data/processed/backtest.json
 
 # Entornos y caches de Python
 .venv/

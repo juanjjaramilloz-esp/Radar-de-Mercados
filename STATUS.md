@@ -12,7 +12,53 @@ ranking de 26 destinos (18 OCDE/Asia + 8 LATAM). Motor económico puro en
 `domain/`, snapshot Parquet como contrato, app Streamlit que solo lee el
 snapshot.
 
-## ✅ Última tanda — cobertura de datos del score (2026-07-08, COMPLETA)
+## ✅ Última tanda — margen de preferencia + backtest (2026-07-09, COMPLETA)
+
+Tanda "1 y 3" aprobada por el usuario (las dos mejoras de comercio
+internacional priorizadas): margen de preferencia relativo y validación
+predictiva. Siguiente tanda acordada: **automatización del refresh según el
+calendario de publicación de cada fuente**.
+
+1. **Margen de preferencia relativo** (`preference_margin`, pondera 0.05):
+   arancel AHS promedio de los top-3 proveedores rivales de cada destino −
+   arancel de Colombia (cf. Fugazza & Nicita 2013, *JIE* 89(2)). Corrige el
+   sesgo "0 % parece ventaja aunque todos paguen 0 %". El bloque arancelario
+   0.10 se partió en tariff_faced 0.05 + margen 0.05. Ingest nuevo:
+   `wits.load_competitor_tariffs` — 1 consulta PREF por reporter con los
+   partners unidos con `+` (multi-partner verificado contra el endpoint;
+   PARTNER llega en la SeriesKey), caché por producto que se invalida solo
+   si el top de competidores cambia. Traducción de códigos Comtrade→WITS en
+   `_competitor_partner_plan` (pipeline): UE como bloque 918, intra-UE = 0
+   por unión aduanera, excepciones M49 (757→756 etc.), agregados
+   estadísticos fuera. Dominio puro `indices.competitor_tariff_faced`
+   (3 tests a mano) + columnas `competitor_tariff` (contexto) y
+   `preference_margin` en el ranking; narrativa con frase propia
+   (ventaja/desventaja/empate), ficha con línea ⚖️, metodología, exports.
+   Sanity real (café): Japón **−2 pp** (COL paga 6 % MFN, Vietnam 4 %),
+   Brasil **+10 pp**, USA/CAN 0 (el fix del sesgo, exacto).
+2. **Backtest del score** (`pipeline/backtest.py` → `backtest.json`
+   versionado): las 4 métricas de comercio se recalculan as-of 2020–2022
+   (cachés históricos nuevos de Comtrade) y el score re-scoreado
+   (`rescore_ranking`, cero fórmulas nuevas) se contrasta con el
+   crecimiento realizado del flujo COL→destino 2023–2025 (tasa simétrica
+   DHS — Davis-Haltiwanger-Schuh 1996, robusta a flujos cero). Métricas:
+   Spearman por producto, agregado con rangos intra-producto, hit-rate
+   top-5, y baseline "solo tamaño de mercado" para mostrar skill.
+   `domain/backtest.py` puro con 9 tests a mano. La app lo muestra en
+   metodología («🧪 Validación») con guía de lectura y limitaciones.
+   **Resultado honesto**: agregado ρ score = −0.04 vs. baseline = 0.01
+   (343 pares) — ni el score ni el baseline anticipan el crecimiento
+   bilateral de corto plazo. Se publica igual (espíritu glass-box): el
+   score se defiende como medida de atractivo del mercado, no como
+   pronóstico; causas plausibles documentadas en la app (estructurales
+   congeladas, ventana 2020–2022 distorsionada por pandemia, DHS ruidoso
+   en flujos chicos, mean reversion). Es un talking point de entrevista,
+   no un defecto escondido.
+3. Los 15 snapshots reconstruidos con las columnas nuevas (WITS de
+   competidores descargado y cacheado). El buscador on-demand también
+   calcula el margen (algunas consultas WITS extra por partida nueva).
+
+## ✅ Tanda anterior — cobertura de datos del score (2026-07-08, COMPLETA)
 
 Mejora única elegida por criticidad (pedido del usuario: "lo más crucial"):
 el score podía apoyarse en rellenos silenciosos (arancel/accesibilidad sin

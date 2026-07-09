@@ -628,20 +628,29 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
     },
     "backtest_limits": {
         "es": (
-            "Limitaciones (honestas): las métricas estructurales "
-            "(complementariedad, aranceles, accesibilidad) y la estabilidad "
-            "macro quedan congeladas en su valor actual — cambian poco entre "
-            "años, pero el backtest no es una reconstrucción histórica "
-            "perfecta. Ventana única (sin promediar cohortes) y el outcome "
-            "bilateral comparte fuente con la cuota del score."
+            "Cómo leerlo: ρ ≈ 1 = el orden del score anticipó el "
+            "crecimiento; ρ ≈ 0 = no lo anticipa — el score se defiende "
+            "como medida de atractivo del mercado (nivel de oportunidad), "
+            "no como pronóstico de crecimiento de corto plazo, y este "
+            "panel existe para no afirmar más de lo que los datos "
+            "sostienen. Limitaciones: las métricas estructurales "
+            "(complementariedad, aranceles, accesibilidad) y la "
+            "estabilidad macro quedan congeladas en su valor actual; "
+            "ventana única de entrenamiento (2020–2022, distorsionada por "
+            "la pandemia); la tasa DHS de flujos pequeños es ruidosa; y el "
+            "outcome bilateral comparte fuente con la cuota del score."
         ),
         "en": (
-            "Honest limitations: structural metrics (complementarity, "
-            "tariffs, accessibility) and macro stability are frozen at "
-            "their current values — they move slowly, but the backtest is "
-            "not a perfect historical reconstruction. Single window (no "
-            "cohort averaging) and the bilateral outcome shares its source "
-            "with the score's market-share metric."
+            "How to read it: ρ ≈ 1 = the score's order anticipated "
+            "growth; ρ ≈ 0 = it does not — the score stands as a measure "
+            "of market attractiveness (opportunity level), not a "
+            "short-run growth forecast, and this panel exists so the tool "
+            "never claims more than the data supports. Limitations: "
+            "structural metrics (complementarity, tariffs, accessibility) "
+            "and macro stability are frozen at current values; a single "
+            "training window (2020–2022, distorted by the pandemic); the "
+            "DHS rate is noisy for small flows; and the bilateral outcome "
+            "shares its source with the score's share metric."
         ),
     },
     "methodology_metric_margin": {

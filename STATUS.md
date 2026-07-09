@@ -12,7 +12,38 @@ ranking de 26 destinos (18 OCDE/Asia + 8 LATAM). Motor económico puro en
 `domain/`, snapshot Parquet como contrato, app Streamlit que solo lee el
 snapshot.
 
-## ✅ Última tanda — accesibilidad logística + perfil arancelario HS6 (2026-07-08, COMPLETA)
+## ✅ Última tanda — cobertura de datos del score (2026-07-08, COMPLETA)
+
+Mejora única elegida por criticidad (pedido del usuario: "lo más crucial"):
+el score podía apoyarse en rellenos silenciosos (arancel/accesibilidad sin
+dato → neutro 0.5; complementariedad/CAGR sin dato → 0; macro → 0.5) y en la
+app era indistinguible de un score 100 % respaldado por datos — hueco de
+defendibilidad del pitch glass-box.
+
+1. **`data_coverage`** — nueva columna del ranking [0,1]: fracción del peso
+   del score respaldada por dato observado (NaN crudo **antes** del relleno
+   = no observado), calculada en `domain/scoring.data_coverage` (pura, 3
+   tests a mano). Excepción documentada: cuota/Δ cuota ausentes del
+   bilateral son **cero observado por diseño** (decisión 2026-07-05), no
+   hueco de fuente. No pondera en el score; es transparencia del insumo.
+   Contrato `required=False` (snapshots viejos siguen válidos, la app
+   degrada con gracia).
+2. **App**: columna opcional en «⚙️ Columnas» (formato %), tooltip con la
+   definición, y línea 🧭 en la ficha del destino con el % y las métricas
+   sin dato nombradas (las que el snapshot deja visibles como NaN: arancel,
+   accesibilidad, CAGR; la complementariedad ausente descuenta el % aunque
+   no se nombre — llega rellenada a 0). Exports Excel con la columna.
+   Verificado con AppTest en ES/EN, casos parcial (DOM banano 82 %, nombra
+   «Crecimiento») y 100 % (USA café).
+3. **Rebuild de los 15 snapshots** con la columna. En el catálogo curado la
+   cobertura es ~100 % (solo DOM en banano 0803 = 82 %, sin CAGR); el valor
+   real de la columna está en el buscador avanzado (partidas arbitrarias con
+   huecos de WITS/canastas frecuentes).
+4. Hallazgo colateral (preexistente, NO de esta tanda, queda como chip de
+   tarea): al cambiar de idioma se pierde el foco y el producto vuelve al
+   default (estado de widgets con label traducido).
+
+## ✅ Tanda anterior — accesibilidad logística + perfil arancelario HS6 (2026-07-08, COMPLETA)
 
 1. **Accesibilidad logística** (`f891b3f`): nueva métrica `accessibility`
    [0,1] que pondera **0.10** en el score — promedio de (a) rampa lineal en

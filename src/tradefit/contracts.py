@@ -250,6 +250,11 @@ ranking_schema = pa.DataFrameSchema(
         config.COL_ACCESSIBILITY: pa.Column(
             float, pa.Check.in_range(0.0, 1.0), nullable=True, required=False
         ),
+        # Cobertura de datos: fracción del peso del score respaldada por dato
+        # observado (domain/scoring.data_coverage; transparencia del insumo,
+        # no pondera). required=False: snapshots anteriores a 2026-07-08 no
+        # la traen y la app degrada con gracia.
+        config.COL_COVERAGE: pa.Column(float, pa.Check.in_range(0.0, 1.0), required=False),
         config.COL_STABILITY: pa.Column(float, pa.Check.in_range(0.0, 1.0)),
         config.COL_SCORE: pa.Column(float, pa.Check.in_range(0.0, 1.0)),
         config.COL_FINAL_SCORE: pa.Column(float, pa.Check.in_range(0.0, 1.0)),

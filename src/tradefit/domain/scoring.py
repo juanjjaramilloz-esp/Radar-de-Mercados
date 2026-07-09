@@ -26,6 +26,50 @@ INVERTED_METRICS: frozenset[str] = frozenset({"tariff_faced"})
 #: estabilidad macro neutra.
 _NAN_FILL: dict[str, float] = {"tariff_faced": 0.5, "accessibility": 0.5}
 
+#: Métricas cuyo NaN NO es hueco de fuente sino cero observado por diseño:
+#: la ausencia del par (país, año) en el flujo bilateral significa flujo
+#: cero (decisión 2026-07-05), no dato faltante. Para la cobertura de datos
+#: cuentan siempre como observadas.
+_ABSENCE_IS_ZERO: frozenset[str] = frozenset({"market_share", "share_trend"})
+
+
+def data_coverage(
+    metric_values: Mapping[str, "pd.Series[float]"],
+    weights: Mapping[str, float],
+    countries: pd.Index,
+) -> pd.Series:
+    """Fracción del peso del score respaldada por dato observado, por mercado.
+
+    Definición: ``cobertura(d) = Σᵢ wᵢ · obsᵢ(d) / Σᵢ wᵢ``, donde
+    ``obsᵢ(d) = 1`` si la métrica *i* trae dato crudo para el destino *d*
+    (no NaN **antes** del relleno del scoring) y 0 si el hueco proviene de la
+    fuente (arancel sin publicar en WITS, destino sin canasta HS2, ventana de
+    CAGR inválida, destino sin distancia CEPII ni LPI…). Excepción: en las
+    métricas de ``_ABSENCE_IS_ZERO`` la ausencia es un cero observado por
+    diseño y cuenta como dato. Cobertura 1.0 = score respaldado al 100 % por
+    datos; valores menores señalan cuánto del score descansa en los rellenos
+    (0.0 o neutro 0.5) de :func:`normalized_metric`. Es un indicador de
+    calidad del insumo, no una métrica económica: no pondera en el score.
+
+    Args:
+        metric_values: valores crudos por métrica (previos a normalizar),
+            indexados por destino.
+        weights: peso por nombre de métrica (fuente: ``config.WEIGHTS``).
+        countries: universo de destinos del ranking.
+
+    Returns:
+        Series en [0, 1] indexada por ``countries``.
+    """
+    total_weight = sum(weights.values())
+    coverage = pd.Series(0.0, index=countries)
+    for name, weight in weights.items():
+        if name in _ABSENCE_IS_ZERO:
+            observed = pd.Series(1.0, index=countries)
+        else:
+            observed = metric_values[name].reindex(countries).notna().astype(float)
+        coverage = coverage + observed * weight
+    return coverage / total_weight
+
 
 def normalized_metric(name: str, values: pd.Series) -> pd.Series:
     """Normaliza una métrica a [0, 1] según su semántica (más o menos = mejor).
@@ -92,8 +136,8 @@ def rank_markets(data: MarketInputs, weights: Mapping[str, float]) -> pd.DataFra
 
     Returns:
         DataFrame conforme a ``ranking_schema``: una fila por mercado con las
-        métricas crudas, el RCA de contexto y el score, ordenado por score
-        descendente.
+        métricas crudas, el RCA de contexto, la cobertura de datos
+        (:func:`data_coverage`) y el score, ordenado por score descendente.
 
     Raises:
         ValueError: si ``weights`` referencia métricas desconocidas o no
@@ -147,6 +191,9 @@ def rank_markets(data: MarketInputs, weights: Mapping[str, float]) -> pd.DataFra
             config.COL_DISTANCE_KM: distances,
             config.COL_ACCESSIBILITY: metric_values["accessibility"].reindex(countries),
             config.COL_RCA: data.rca,
+            # Cobertura de datos: % del peso del score con dato observado
+            # (transparencia del insumo; ver data_coverage). No pondera.
+            config.COL_COVERAGE: data_coverage(metric_values, weights, countries),
             config.COL_SCORE: score,
         }
     )

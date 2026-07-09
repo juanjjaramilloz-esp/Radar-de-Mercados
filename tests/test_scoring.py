@@ -83,6 +83,29 @@ def test_ranking_cumple_contrato(market_inputs_small: MarketInputs) -> None:
     ranking_schema.validate(ranking)
 
 
+def test_cobertura_de_datos_a_mano(market_inputs_small: MarketInputs) -> None:
+    ranking = rank_markets(market_inputs_small, config.WEIGHTS).set_index(config.COL_COUNTRY)
+    # Sin distancias/LPI en el fixture: accesibilidad sin dato (peso 0.10)
+    # para los 3; JPN además sin arancel WITS (otro 0.10). La cuota de JPN
+    # (ausente del bilateral) es cero observado por diseño: no descuenta.
+    assert ranking.loc["USA", config.COL_COVERAGE] == pytest.approx(0.90)
+    assert ranking.loc["DEU", config.COL_COVERAGE] == pytest.approx(0.90)
+    assert ranking.loc["JPN", config.COL_COVERAGE] == pytest.approx(0.80)
+
+
+def test_cobertura_pondera_por_peso(market_inputs_small: MarketInputs) -> None:
+    # Solo arancel: JPN sin dato de WITS → cobertura 0; USA/DEU con dato → 1
+    ranking = rank_markets(market_inputs_small, {"tariff_faced": 1.0}).set_index(config.COL_COUNTRY)
+    assert ranking.loc["USA", config.COL_COVERAGE] == pytest.approx(1.0)
+    assert ranking.loc["JPN", config.COL_COVERAGE] == pytest.approx(0.0)
+
+
+def test_cobertura_cuota_ausente_es_cero_observado(market_inputs_small: MarketInputs) -> None:
+    # JPN no aparece en el bilateral: cuota 0 por diseño, NO hueco de fuente
+    ranking = rank_markets(market_inputs_small, {"market_share": 1.0}).set_index(config.COL_COUNTRY)
+    assert ranking.loc["JPN", config.COL_COVERAGE] == pytest.approx(1.0)
+
+
 def test_peso_desconocido_falla(market_inputs_small: MarketInputs) -> None:
     with pytest.raises(ValueError, match="desconocidas"):
         rank_markets(market_inputs_small, {"tariff": 1.0})

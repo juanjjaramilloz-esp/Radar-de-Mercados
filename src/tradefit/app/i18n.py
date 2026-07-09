@@ -1016,6 +1016,40 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
             "infrastructure, shipments); 1–5 scale, higher is better."
         ),
     },
+    "col_coverage": {"es": "Cobertura de datos", "en": "Data coverage"},
+    "col_coverage_help": {
+        "es": (
+            "Fracción del peso del score respaldada por dato observado, con "
+            "los pesos oficiales. Menos de 100 % = alguna métrica sin dato "
+            "en la fuente (WITS, CEPII, canastas) entró al score con relleno "
+            "neutro o cero."
+        ),
+        "en": (
+            "Fraction of the score's weight backed by observed data, using "
+            "the official weights. Below 100% = some metric missing at the "
+            "source (WITS, CEPII, baskets) entered the score as a neutral "
+            "or zero fill."
+        ),
+    },
+    "focus_coverage": {
+        "es": (
+            "🧭 Cobertura de datos: {pct} del peso del score con dato "
+            "observado{detail}. El resto entra con relleno neutro o cero."
+        ),
+        "en": (
+            "🧭 Data coverage: {pct} of the score's weight backed by "
+            "observed data{detail}. The rest enters as a neutral or zero "
+            "fill."
+        ),
+    },
+    "focus_coverage_missing": {
+        "es": " · sin dato: {metrics}",
+        "en": " · no data: {metrics}",
+    },
+    "focus_coverage_full": {
+        "es": ("🧭 Cobertura de datos: 100 % — todas las métricas del score con dato observado."),
+        "en": ("🧭 Data coverage: 100% — every score metric backed by observed data."),
+    },
     "col_stability": {"es": "Estabilidad macro", "en": "Macro stability"},
     "col_stability_help": {
         "es": (

@@ -526,6 +526,7 @@ COL_NET_WGT: Final = "net_weight_kg"  # peso neto del flujo (Comtrade netWgt)
 COL_UV_MARKET: Final = "uv_market_usd_kg"  # valor unitario de las imports del destino
 COL_UV_ORIGIN: Final = "uv_origin_usd_kg"  # valor unitario del flujo origen→destino
 COL_UV_PREMIUM: Final = "uv_premium"  # UV origen / UV destino − 1 (fracción)
+COL_COVERAGE: Final = "data_coverage"  # % del peso del score con dato observado (transparencia)
 COL_STABILITY: Final = "stability_score"
 COL_SCORE: Final = "opportunity_score"
 COL_FINAL_SCORE: Final = "final_score"

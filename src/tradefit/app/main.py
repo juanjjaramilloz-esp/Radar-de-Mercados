@@ -82,6 +82,7 @@ _RANKING_COLUMN_LABEL_KEYS: Final[dict[str, str]] = {
     config.COL_LPI: "col_lpi",
     config.COL_DISTANCE_KM: "col_distance",
     config.COL_ACCESSIBILITY: "col_accessibility",
+    config.COL_COVERAGE: "col_coverage",
     config.COL_STABILITY: "col_stability",
     config.COL_SCORE: "col_score_raw",
     config.COL_FINAL_SCORE: "col_score_final",
@@ -477,6 +478,33 @@ def _focus_drivers_line(ranking: pd.DataFrame, meta: dict[str, object], iso3: st
     st.markdown(t("focus_drivers", drivers=drivers))
 
 
+def _focus_coverage_line(row: pd.Series) -> None:
+    """Cobertura de datos del score del mercado (transparencia del insumo).
+
+    El porcentaje viene de ``domain/scoring.data_coverage`` vía el snapshot;
+    aquí solo se nombran las métricas sin dato que el snapshot deja visibles
+    como NaN (arancel, accesibilidad, CAGR) — la complementariedad ausente ya
+    llega rellenada a 0, pero el porcentaje sí la descuenta.
+    """
+    coverage = row.get(config.COL_COVERAGE)
+    if coverage is None or pd.isna(coverage):
+        return
+    if float(coverage) >= 0.999:
+        st.caption(t("focus_coverage_full"))
+        return
+    missing = [
+        i18n.metric_label(name)
+        for name, column in (
+            ("import_growth", config.COL_GROWTH),
+            ("tariff_faced", config.COL_TARIFF),
+            ("accessibility", config.COL_ACCESSIBILITY),
+        )
+        if pd.isna(row.get(column))
+    ]
+    detail = t("focus_coverage_missing", metrics=", ".join(missing)) if missing else ""
+    st.caption(t("focus_coverage", pct=i18n.fmt_pct(float(coverage), 0), detail=detail))
+
+
 def _focus_macro_block(row: pd.Series, iso3: str) -> None:
     """Contexto macro del destino: último dato por indicador + LPI + estabilidad.
 
@@ -735,6 +763,7 @@ def _focus_section(
     st.markdown(f"### {flag} {names[selected]}".replace("  ", " "))
     _focus_header_metrics(ranking, row, selected)
     _focus_drivers_line(ranking, meta, selected)
+    _focus_coverage_line(row)
     _focus_unit_values_block(hs, selected)
     col_left, col_right = st.columns([2, 3])
     with col_left:
@@ -1342,6 +1371,7 @@ def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object], focus_iso3: s
         config.COL_LPI: lambda v: i18n.fmt_number(v, 1),
         config.COL_DISTANCE_KM: lambda v: i18n.fmt_number(v),
         config.COL_ACCESSIBILITY: lambda v: i18n.fmt_number(v, 2),
+        config.COL_COVERAGE: lambda v: i18n.fmt_pct(v, 0),
         config.COL_STABILITY: lambda v: i18n.fmt_number(v, 2),
         config.COL_SCORE: lambda v: i18n.fmt_number(v, 3),
         # COL_FINAL_SCORE queda fuera a propósito: se dibuja como
@@ -1409,6 +1439,9 @@ def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object], focus_iso3: s
             ),
             config.COL_ACCESSIBILITY: st.column_config.Column(
                 t("col_accessibility"), help=t("col_accessibility_help")
+            ),
+            config.COL_COVERAGE: st.column_config.Column(
+                t("col_coverage"), help=t("col_coverage_help")
             ),
             config.COL_STABILITY: st.column_config.Column(
                 t("col_stability"), help=t("col_stability_help")

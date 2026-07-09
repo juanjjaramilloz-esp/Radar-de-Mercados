@@ -20,11 +20,15 @@ from tradefit.domain import indices
 INVERTED_METRICS: frozenset[str] = frozenset({"tariff_faced"})
 
 #: Relleno del NaN normalizado por métrica. El default (0.0) trata la
-#: ausencia como falta de evidencia de oportunidad; el arancel y la
-#: accesibilidad sin dato se rellenan neutros (0.5) porque "la fuente no
-#: publica el dato" no es evidencia de fricción alta — mismo criterio que la
-#: estabilidad macro neutra.
-_NAN_FILL: dict[str, float] = {"tariff_faced": 0.5, "accessibility": 0.5}
+#: ausencia como falta de evidencia de oportunidad; el arancel, el margen de
+#: preferencia y la accesibilidad sin dato se rellenan neutros (0.5) porque
+#: "la fuente no publica el dato" no es evidencia de fricción alta ni de
+#: desventaja — mismo criterio que la estabilidad macro neutra.
+_NAN_FILL: dict[str, float] = {
+    "tariff_faced": 0.5,
+    "preference_margin": 0.5,
+    "accessibility": 0.5,
+}
 
 #: Métricas cuyo NaN NO es hueco de fuente sino cero observado por diseño:
 #: la ausencia del par (país, año) en el flujo bilateral significa flujo
@@ -68,7 +72,8 @@ def data_coverage(
         else:
             observed = metric_values[name].reindex(countries).notna().astype(float)
         coverage = coverage + observed * weight
-    return coverage / total_weight
+    # El clip absorbe el error de redondeo binario de Σwᵢ/Σwᵢ (≈1+2e-16).
+    return (coverage / total_weight).clip(0.0, 1.0)
 
 
 def normalized_metric(name: str, values: pd.Series) -> pd.Series:
@@ -122,11 +127,13 @@ def rank_markets(data: MarketInputs, weights: Mapping[str, float]) -> pd.DataFra
     Definición: ``score(d) = Σᵢ wᵢ · normᵢ(métricaᵢ(d)) / Σᵢ wᵢ`` — promedio
     ponderado de métricas min-max normalizadas. Métricas disponibles:
     ``market_size``, ``import_growth``, ``market_share``, ``share_trend``,
-    ``complementarity``, ``tariff_faced`` (invertida: menos arancel = mejor)
-    y ``accessibility`` (distancia gravitacional + LPI). Un NaN en una
-    métrica (p. ej. destino sin canasta) se trata como ausencia de
-    evidencia: aporta 0 tras normalizar, salvo el arancel y la accesibilidad
-    sin dato, que aportan neutro (0.5 — ver ``normalized_metric``).
+    ``complementarity``, ``tariff_faced`` (invertida: menos arancel = mejor),
+    ``preference_margin`` (arancel de los competidores − arancel del origen;
+    más = mejor) y ``accessibility`` (distancia gravitacional + LPI). Un NaN
+    en una métrica (p. ej. destino sin canasta) se trata como ausencia de
+    evidencia: aporta 0 tras normalizar, salvo el arancel, el margen de
+    preferencia y la accesibilidad sin dato, que aportan neutro (0.5 — ver
+    ``normalized_metric``).
     Empates se desempatan por código ISO3 para que el ranking sea
     determinístico.
 
@@ -148,13 +155,22 @@ def rank_markets(data: MarketInputs, weights: Mapping[str, float]) -> pd.DataFra
         distances = data.distances.reindex(market_sizes.index)
     else:
         distances = pd.Series(float("nan"), index=market_sizes.index)
+    tariff = indices.tariff_faced(data.tariffs)
+    if data.competitor_tariff is not None:
+        competitor_tariff = data.competitor_tariff.reindex(market_sizes.index)
+    else:
+        competitor_tariff = pd.Series(float("nan"), index=market_sizes.index)
     metric_values: dict[str, pd.Series] = {
         "market_size": market_sizes,
         "import_growth": indices.import_growth(data.imports),
         "market_share": indices.market_share(data.imports, data.bilateral),
         "share_trend": indices.market_share_trend(data.imports, data.bilateral),
         "complementarity": _complementarity_by_destination(data),
-        "tariff_faced": indices.tariff_faced(data.tariffs),
+        "tariff_faced": tariff,
+        # Margen de preferencia relativo (Fugazza & Nicita 2013): arancel
+        # que enfrentan los competidores − arancel del origen. Positivo =
+        # ventaja arancelaria; NaN si falta cualquiera de los dos lados.
+        "preference_margin": competitor_tariff - tariff.reindex(market_sizes.index),
         "accessibility": indices.accessibility(distances, data.lpi),
     }
 
@@ -187,6 +203,10 @@ def rank_markets(data: MarketInputs, weights: Mapping[str, float]) -> pd.DataFra
             ),
             # El arancel conserva el NaN: "sin dato en WITS" no es arancel 0.
             config.COL_TARIFF: metric_values["tariff_faced"].reindex(countries),
+            # Arancel de los competidores (contexto) y margen de preferencia
+            # relativo (pondera); NaN = sin datos de competidores.
+            config.COL_COMPETITOR_TARIFF: competitor_tariff,
+            config.COL_PREF_MARGIN: metric_values["preference_margin"].reindex(countries),
             # Distancia (contexto) y accesibilidad (pondera); NaN = sin dato.
             config.COL_DISTANCE_KM: distances,
             config.COL_ACCESSIBILITY: metric_values["accessibility"].reindex(countries),
@@ -217,6 +237,7 @@ METRIC_COLUMNS: Final[dict[str, str]] = {
     "share_trend": config.COL_SHARE_TREND,
     "complementarity": config.COL_COMPLEMENTARITY,
     "tariff_faced": config.COL_TARIFF,
+    "preference_margin": config.COL_PREF_MARGIN,
     "accessibility": config.COL_ACCESSIBILITY,
 }
 

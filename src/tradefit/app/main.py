@@ -78,6 +78,8 @@ _RANKING_COLUMN_LABEL_KEYS: Final[dict[str, str]] = {
     config.COL_ORIGIN_EXPORT_SHARE: "col_origin_export_share",
     config.COL_COMPLEMENTARITY: "col_complementarity",
     config.COL_TARIFF: "col_tariff",
+    config.COL_COMPETITOR_TARIFF: "col_competitor_tariff",
+    config.COL_PREF_MARGIN: "col_pref_margin",
     config.COL_AGREEMENT: "col_agreement",
     config.COL_LPI: "col_lpi",
     config.COL_DISTANCE_KM: "col_distance",
@@ -98,6 +100,7 @@ _METRIC_COLORS: Final[dict[str, str]] = {
     "share_trend": "#FCD34D",
     "complementarity": "#10B981",
     "tariff_faced": "#94A3B8",
+    "preference_margin": "#64748B",
     "accessibility": "#8B5CF6",
 }
 
@@ -497,12 +500,36 @@ def _focus_coverage_line(row: pd.Series) -> None:
         for name, column in (
             ("import_growth", config.COL_GROWTH),
             ("tariff_faced", config.COL_TARIFF),
+            ("preference_margin", config.COL_PREF_MARGIN),
             ("accessibility", config.COL_ACCESSIBILITY),
         )
         if pd.isna(row.get(column))
     ]
     detail = t("focus_coverage_missing", metrics=", ".join(missing)) if missing else ""
     st.caption(t("focus_coverage", pct=i18n.fmt_pct(float(coverage), 0), detail=detail))
+
+
+def _focus_margin_line(row: pd.Series) -> None:
+    """Margen de preferencia del mercado: arancel de los rivales vs. el propio.
+
+    El valor viene del snapshot (``domain/indices.competitor_tariff_faced``
+    vía ``domain/scoring``); NaN o snapshot viejo = sin línea.
+    """
+    margin = row.get(config.COL_PREF_MARGIN)
+    rivals = row.get(config.COL_COMPETITOR_TARIFF)
+    if margin is None or rivals is None or pd.isna(margin) or pd.isna(rivals):
+        return
+    tariff = row.get(config.COL_TARIFF)
+    own = i18n.fmt_pct(float(tariff)) if tariff is not None and pd.notna(tariff) else "—"
+    st.markdown(
+        t(
+            "focus_margin",
+            # Diferencia de aranceles → puntos porcentuales, no %.
+            margin=f"{i18n.fmt_number(float(margin) * 100, 1, signed=True)} pp",
+            rivals=i18n.fmt_pct(float(rivals)),
+            own=own,
+        )
+    )
 
 
 def _focus_macro_block(row: pd.Series, iso3: str) -> None:
@@ -763,6 +790,7 @@ def _focus_section(
     st.markdown(f"### {flag} {names[selected]}".replace("  ", " "))
     _focus_header_metrics(ranking, row, selected)
     _focus_drivers_line(ranking, meta, selected)
+    _focus_margin_line(row)
     _focus_coverage_line(row)
     _focus_unit_values_block(hs, selected)
     col_left, col_right = st.columns([2, 3])
@@ -913,6 +941,11 @@ def _methodology_section(meta: dict[str, object]) -> None:
             "tariff_faced",
         ),
         (
+            t("methodology_metric_margin"),
+            t("methodology_def_margin"),
+            "preference_margin",
+        ),
+        (
             t("methodology_metric_accessibility"),
             t("methodology_def_accessibility"),
             "accessibility",
@@ -962,6 +995,73 @@ def _methodology_section(meta: dict[str, object]) -> None:
 {t("methodology_footer")}
 """
         )
+        _backtest_block()
+
+
+def _backtest_block() -> None:
+    """Bloque «🧪 Validación» de la metodología: lee ``backtest.json``.
+
+    El artefacto lo escribe ``pipeline/backtest.py`` (score as-of la ventana
+    de entrenamiento vs. crecimiento bilateral realizado); la app solo
+    formatea. Sin artefacto no se muestra nada (snapshots viejos o deploy
+    sin backtest degradan con gracia).
+    """
+    try:
+        payload = _read_json(config.BACKTEST_JSON)
+    except FileNotFoundError:
+        return
+    products_obj = payload.get("products")
+    if not isinstance(products_obj, dict) or not products_obj:
+        return
+    train_obj = payload.get("train_years")
+    outcome_obj = payload.get("outcome_years")
+    train = [str(y) for y in train_obj] if isinstance(train_obj, list) and train_obj else ["—"]
+    outcome = (
+        [str(y) for y in outcome_obj] if isinstance(outcome_obj, list) and outcome_obj else ["—"]
+    )
+    st.markdown(f"#### {t('backtest_title')}")
+    st.markdown(
+        t(
+            "backtest_intro",
+            train_start=train[0],
+            train_end=train[-1],
+            out_start=outcome[0],
+            out_end=outcome[-1],
+        )
+    )
+    is_en = i18n.get_language() == "en"
+    header = (
+        f"| {t('backtest_col_product')} | n | {t('backtest_col_score')} | "
+        f"{t('backtest_col_baseline')} | {t('backtest_col_hits')} |\n|---|---|---|---|---|"
+    )
+
+    def _cell(value: object, pct: bool = False) -> str:
+        if not isinstance(value, (int, float)):
+            return "—"
+        return i18n.fmt_pct(float(value), 0) if pct else i18n.fmt_number(float(value), 2)
+
+    rows = []
+    for hs, entry in sorted(products_obj.items()):
+        label = entry.get("label_en") if is_en else entry.get("label")
+        score_cell = _cell(entry.get("spearman_score"))
+        baseline_cell = _cell(entry.get("spearman_baseline"))
+        hits_cell = _cell(entry.get("hit_rate_top5"), pct=True)
+        rows.append(
+            f"| {label or hs} | {entry.get('n', '—')} | {score_cell} | "
+            f"{baseline_cell} | {hits_cell} |"
+        )
+    st.markdown(header + "\n" + "\n".join(rows))
+    pooled = payload.get("pooled")
+    if isinstance(pooled, dict) and pooled.get("n"):
+        st.markdown(
+            t(
+                "backtest_pooled",
+                n=pooled.get("n"),
+                rho=_cell(pooled.get("spearman_score")),
+                rho_base=_cell(pooled.get("spearman_baseline")),
+            )
+        )
+    st.caption(t("backtest_limits"))
 
 
 def _compare_selector(ranking: pd.DataFrame) -> list[str]:
@@ -1368,6 +1468,9 @@ def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object], focus_iso3: s
         config.COL_ORIGIN_EXPORT_SHARE: lambda v: i18n.fmt_pct(v),
         config.COL_COMPLEMENTARITY: lambda v: i18n.fmt_number(v, 2),
         config.COL_TARIFF: lambda v: i18n.fmt_pct(v),
+        config.COL_COMPETITOR_TARIFF: lambda v: i18n.fmt_pct(v),
+        # Diferencia de aranceles → puntos porcentuales, no %.
+        config.COL_PREF_MARGIN: lambda v: f"{i18n.fmt_number(v * 100, 1, signed=True)} pp",
         config.COL_LPI: lambda v: i18n.fmt_number(v, 1),
         config.COL_DISTANCE_KM: lambda v: i18n.fmt_number(v),
         config.COL_ACCESSIBILITY: lambda v: i18n.fmt_number(v, 2),
@@ -1430,6 +1533,12 @@ def _ranking_table(ranking: pd.DataFrame, meta: dict[str, object], focus_iso3: s
                 t("col_complementarity"), help=t("col_complementarity_help")
             ),
             config.COL_TARIFF: st.column_config.Column(t("col_tariff"), help=t("col_tariff_help")),
+            config.COL_COMPETITOR_TARIFF: st.column_config.Column(
+                t("col_competitor_tariff"), help=t("col_competitor_tariff_help")
+            ),
+            config.COL_PREF_MARGIN: st.column_config.Column(
+                t("col_pref_margin"), help=t("col_pref_margin_help")
+            ),
             config.COL_AGREEMENT: st.column_config.Column(
                 t("col_agreement"), help=t("col_agreement_help")
             ),

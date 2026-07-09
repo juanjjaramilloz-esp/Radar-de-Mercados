@@ -7,6 +7,7 @@ from tradefit import config
 from tradefit.domain.indices import (
     accessibility,
     aggregate_unit_value,
+    competitor_tariff_faced,
     complementarity,
     destination_concentration,
     destination_shares,
@@ -189,6 +190,47 @@ def test_tariff_faced_toma_el_ultimo_anio_del_mfn(tariffs_small: pd.DataFrame) -
 
 def test_tariff_faced_vacio_devuelve_serie_vacia() -> None:
     assert tariff_faced(pd.DataFrame()).empty
+
+
+# --- competitor_tariff_faced (AHS de los rivales → margen de preferencia) ----
+
+
+def _competitor_prefs() -> pd.DataFrame:
+    """Preferencial de juguete: USA da 2 % en 090111 al competidor 076."""
+    return pd.DataFrame(
+        {
+            config.COL_COUNTRY: ["USA"],
+            config.COL_PARTNER_CODE: ["076"],
+            config.COL_CMD: ["090111"],
+            config.COL_TARIFF_TYPE: ["PREF"],
+            config.COL_YEAR: [2023],
+            config.COL_RATE_PCT: [2.0],
+        }
+    )
+
+
+def test_competitor_tariff_a_mano(tariffs_small: pd.DataFrame) -> None:
+    # 076 con preferencia: mean(min(10,2)=2, 4)=3 %; 704 sin preferencia
+    # paga el MFN: mean(10,4)=7 %; promedio de competidores = 5 %
+    result = competitor_tariff_faced(tariffs_small, _competitor_prefs(), {"USA": ["076", "704"]})
+    assert result["USA"] == pytest.approx(0.05)
+
+
+def test_competitor_tariff_zero_rated(tariffs_small: pd.DataFrame) -> None:
+    # 076 entra con 0 por unión aduanera: promedio = mean(0, 0.07) = 3.5 %
+    result = competitor_tariff_faced(
+        tariffs_small,
+        _competitor_prefs(),
+        {"USA": ["076", "704"]},
+        zero_rated={"USA": {"076"}},
+    )
+    assert result["USA"] == pytest.approx(0.035)
+
+
+def test_competitor_tariff_sin_dato_es_nan(tariffs_small: pd.DataFrame) -> None:
+    # JPN no tiene MFN en WITS y el rival tampoco preferencial → NaN, no 0
+    result = competitor_tariff_faced(tariffs_small, _competitor_prefs(), {"JPN": ["076"]})
+    assert pd.isna(result["JPN"])
 
 
 # --- tariff_profile (AHS por subpartida HS6: el desglose intra-partida) ------

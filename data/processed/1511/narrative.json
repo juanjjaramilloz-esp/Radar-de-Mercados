@@ -8,8 +8,9 @@
         "Australia absorbs 0.0 % of Colombia's exports of Palm oil (HS 1511).",
         "The export basket of Colombia fits the import demand of Australia at 0.40 (0–1 scale).",
         "Palm oil (HS 1511) enters Australia duty-free (0 % effectively applied).",
+        "No tariff edge in Australia: top competitors pay the same as Colombia (0.0 %).",
         "Australia is 14,797 km away from Colombia; logistics accessibility of 0.37 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Australia at 0.77: the filter leaves the score at 0.241 (raw 0.272)."
+        "Macro stability of Australia at 0.77: the filter leaves the score at 0.211 (raw 0.239)."
       ],
       "AUT": [
         "Austria imports USD 51 M a year of Palm oil (HS 1511) (average of the last 3 years).",
@@ -17,8 +18,9 @@
         "Colombia already holds 0.2 % of the market and loses 0.1 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Austria at 0.37 (0–1 scale).",
         "Palm oil (HS 1511) enters Austria duty-free (0 % effectively applied).",
+        "No tariff edge in Austria: top competitors pay the same as Colombia (0.0 %).",
         "Austria is 9,534 km away from Colombia; logistics accessibility of 0.44 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Austria at 0.71: the filter leaves the score at 0.221 (raw 0.259)."
+        "Macro stability of Austria at 0.71: the filter leaves the score at 0.193 (raw 0.225)."
       ],
       "BEL": [
         "Belgium imports USD 437 M a year of Palm oil (HS 1511) (average of the last 3 years).",
@@ -27,8 +29,9 @@
         "Belgium absorbs 0.1 % of Colombia's exports of Palm oil (HS 1511).",
         "The export basket of Colombia fits the import demand of Belgium at 0.45 (0–1 scale).",
         "Palm oil (HS 1511) enters Belgium duty-free (0 % effectively applied).",
+        "Top competitors pay 1.9 % on average in Belgium: a preference margin of 1.9 pp in Colombia's favor.",
         "Belgium is 8,749 km away from Colombia; logistics accessibility of 0.45 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.361 (raw 0.401)."
+        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.339 (raw 0.377)."
       ],
       "BRA": [
         "Brazil imports USD 365 M a year of Palm oil (HS 1511) (average of the last 3 years).",
@@ -37,6 +40,7 @@
         "Brazil absorbs 11.9 % of Colombia's exports of Palm oil (HS 1511).",
         "The export basket of Colombia fits the import demand of Brazil at 0.37 (0–1 scale).",
         "Palm oil (HS 1511) enters Brazil duty-free (0 % effectively applied).",
+        "Top competitors pay 6.7 % on average in Brazil: a preference margin of 6.7 pp in Colombia's favor.",
         "Brazil is 4,306 km away from Colombia; logistics accessibility of 0.42 (0–1 scale: gravity distance + LPI).",
         "Macro stability of Brazil at 0.77: the filter leaves the score at 0.257 (raw 0.290)."
       ],
@@ -47,8 +51,9 @@
         "Canada absorbs 1.7 % of Colombia's exports of Palm oil (HS 1511).",
         "The export basket of Colombia fits the import demand of Canada at 0.37 (0–1 scale).",
         "Palm oil (HS 1511) enters Canada duty-free (0 % effectively applied).",
+        "Top competitors pay 2.0 % on average in Canada: a preference margin of 2.0 pp in Colombia's favor.",
         "Canada is 4,893 km away from Colombia; logistics accessibility of 0.51 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Canada at 0.86: the filter leaves the score at 0.305 (raw 0.328)."
+        "Macro stability of Canada at 0.86: the filter leaves the score at 0.283 (raw 0.305)."
       ],
       "CHE": [
         "Switzerland imports USD 18 M a year of Palm oil (HS 1511) (average of the last 3 years).",
@@ -56,8 +61,9 @@
         "Colombia already holds 6.5 % of the market and loses 0.2 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Switzerland at 0.32 (0–1 scale).",
         "Palm oil (HS 1511) enters Switzerland duty-free (0 % effectively applied).",
+        "No tariff edge in Switzerland: top competitors pay the same as Colombia (0.0 %).",
         "Switzerland is 8,974 km away from Colombia; logistics accessibility of 0.46 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.212 (raw 0.226)."
+        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.180 (raw 0.192)."
       ],
       "CHL": [
         "Chile imports USD 36 M a year of Palm oil (HS 1511) (average of the last 3 years).",
@@ -66,8 +72,9 @@
         "Chile absorbs 0.7 % of Colombia's exports of Palm oil (HS 1511).",
         "The export basket of Colombia fits the import demand of Chile at 0.46 (0–1 scale).",
         "Palm oil (HS 1511) enters Chile duty-free (0 % effectively applied).",
+        "Top competitors pay 3.4 % on average in Chile: a preference margin of 3.4 pp in Colombia's favor.",
         "Chile is 4,382 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Chile at 0.72: the filter leaves the score at 0.281 (raw 0.326)."
+        "Macro stability of Chile at 0.72: the filter leaves the score at 0.267 (raw 0.310)."
       ],
       "CRI": [
         "Costa Rica imports USD 15 M a year of Palm oil (HS 1511) (average of the last 3 years).",
@@ -75,8 +82,9 @@
         "Colombia records no sales of Palm oil (HS 1511) in Costa Rica (0 % share).",
         "The export basket of Colombia fits the import demand of Costa Rica at 0.37 (0–1 scale).",
         "Palm oil (HS 1511) faces an effectively applied tariff of 8.0 % in Costa Rica.",
+        "Top competitors pay 6.9 % on average in Costa Rica: Colombia faces a tariff disadvantage of 1.1 pp.",
         "Costa Rica is 1,157 km away from Colombia; logistics accessibility of 0.51 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Costa Rica at 0.93: the filter leaves the score at 0.229 (raw 0.236)."
+        "Macro stability of Costa Rica at 0.93: the filter leaves the score at 0.210 (raw 0.217)."
       ],
       "DEU": [
         "Germany imports USD 881 M a year of Palm oil (HS 1511) (average of the last 3 years).",
@@ -85,8 +93,9 @@
         "Germany absorbs 0.2 % of Colombia's exports of Palm oil (HS 1511).",
         "The export basket of Colombia fits the import demand of Germany at 0.37 (0–1 scale).",
         "Palm oil (HS 1511) enters Germany duty-free (0 % effectively applied).",
+        "Top competitors pay 1.9 % on average in Germany: a preference margin of 1.9 pp in Colombia's favor.",
         "Germany is 9,137 km away from Colombia; logistics accessibility of 0.46 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Germany at 0.74: the filter leaves the score at 0.324 (raw 0.373)."
+        "Macro stability of Germany at 0.74: the filter leaves the score at 0.303 (raw 0.349)."
       ],
       "DOM": [
         "Dominican Republic imports USD 69 M a year of Palm oil (HS 1511) (average of the last 3 years).",
@@ -95,8 +104,9 @@
         "Dominican Republic absorbs 12.4 % of Colombia's exports of Palm oil (HS 1511).",
         "The export basket of Colombia fits the import demand of Dominican Republic at 0.46 (0–1 scale).",
         "Palm oil (HS 1511) faces an effectively applied tariff of 10.0 % in Dominican Republic.",
+        "No tariff edge in Dominican Republic: top competitors pay the same as Colombia (10.0 %).",
         "Dominican Republic is 1,527 km away from Colombia; logistics accessibility of 0.44 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Dominican Republic at 0.78: the filter leaves the score at 0.422 (raw 0.476)."
+        "Macro stability of Dominican Republic at 0.78: the filter leaves the score at 0.414 (raw 0.467)."
       ],
       "ECU": [
         "Ecuador imports USD 5 M a year of Palm oil (HS 1511) (average of the last 3 years).",
@@ -105,8 +115,9 @@
         "Ecuador absorbs 2.1 % of Colombia's exports of Palm oil (HS 1511).",
         "The export basket of Colombia fits the import demand of Ecuador at 0.51 (0–1 scale).",
         "Palm oil (HS 1511) faces an effectively applied tariff of 17.6 % in Ecuador.",
+        "Top competitors pay 19.5 % on average in Ecuador: a preference margin of 1.9 pp in Colombia's favor.",
         "Ecuador is 980 km away from Colombia; logistics accessibility of 0.53 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Ecuador at 0.88: the filter leaves the score at 0.359 (raw 0.382)."
+        "Macro stability of Ecuador at 0.88: the filter leaves the score at 0.378 (raw 0.402)."
       ],
       "ESP": [
         "Spain imports USD 839 M a year of Palm oil (HS 1511) (average of the last 3 years).",
@@ -115,8 +126,9 @@
         "Spain absorbs 3.9 % of Colombia's exports of Palm oil (HS 1511).",
         "The export basket of Colombia fits the import demand of Spain at 0.42 (0–1 scale).",
         "Palm oil (HS 1511) enters Spain duty-free (0 % effectively applied).",
+        "Top competitors pay 5.7 % on average in Spain: a preference margin of 5.7 pp in Colombia's favor.",
         "Spain is 8,065 km away from Colombia; logistics accessibility of 0.45 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Spain at 0.97: the filter leaves the score at 0.423 (raw 0.430)."
+        "Macro stability of Spain at 0.97: the filter leaves the score at 0.418 (raw 0.425)."
       ],
       "FIN": [
         "Finland imports USD 2 M a year of Palm oil (HS 1511) (average of the last 3 years).",
@@ -124,8 +136,9 @@
         "Colombia records no sales of Palm oil (HS 1511) in Finland (0 % share).",
         "The export basket of Colombia fits the import demand of Finland at 0.40 (0–1 scale).",
         "Palm oil (HS 1511) enters Finland duty-free (0 % effectively applied).",
+        "No tariff edge in Finland: top competitors pay the same as Colombia (0.0 %).",
         "Finland is 9,955 km away from Colombia; logistics accessibility of 0.47 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Finland at 0.76: the filter leaves the score at 0.267 (raw 0.302)."
+        "Macro stability of Finland at 0.76: the filter leaves the score at 0.237 (raw 0.268)."
       ],
       "FRA": [
         "France imports USD 214 M a year of Palm oil (HS 1511) (average of the last 3 years).",
@@ -133,8 +146,9 @@
         "Colombia already holds 0.1 % of the market and loses 0.1 pp of share over the window.",
         "The export basket of Colombia fits the import demand of France at 0.42 (0–1 scale).",
         "Palm oil (HS 1511) enters France duty-free (0 % effectively applied).",
+        "No tariff edge in France: top competitors pay the same as Colombia (0.0 %).",
         "France is 8,615 km away from Colombia; logistics accessibility of 0.44 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of France at 0.83: the filter leaves the score at 0.296 (raw 0.323)."
+        "Macro stability of France at 0.83: the filter leaves the score at 0.265 (raw 0.289)."
       ],
       "GBR": [
         "United Kingdom imports USD 473 M a year of Palm oil (HS 1511) (average of the last 3 years).",
@@ -143,8 +157,9 @@
         "United Kingdom absorbs 0.2 % of Colombia's exports of Palm oil (HS 1511).",
         "The export basket of Colombia fits the import demand of United Kingdom at 0.43 (0–1 scale).",
         "Palm oil (HS 1511) enters United Kingdom duty-free (0 % effectively applied).",
+        "Top competitors pay 2.8 % on average in United Kingdom: a preference margin of 2.8 pp in Colombia's favor.",
         "United Kingdom is 8,388 km away from Colombia; logistics accessibility of 0.42 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.295 (raw 0.370)."
+        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.279 (raw 0.350)."
       ],
       "ITA": [
         "Italy imports USD 1,280 M a year of Palm oil (HS 1511) (average of the last 3 years).",
@@ -153,8 +168,9 @@
         "Italy absorbs 6.0 % of Colombia's exports of Palm oil (HS 1511).",
         "The export basket of Colombia fits the import demand of Italy at 0.43 (0–1 scale).",
         "Palm oil (HS 1511) enters Italy duty-free (0 % effectively applied).",
+        "Top competitors pay 3.8 % on average in Italy: a preference margin of 3.8 pp in Colombia's favor.",
         "Italy is 9,315 km away from Colombia; logistics accessibility of 0.41 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Italy at 0.83: the filter leaves the score at 0.407 (raw 0.444)."
+        "Macro stability of Italy at 0.83: the filter leaves the score at 0.394 (raw 0.430)."
       ],
       "JPN": [
         "Japan imports USD 701 M a year of Palm oil (HS 1511) (average of the last 3 years).",
@@ -163,8 +179,9 @@
         "Japan absorbs 0.2 % of Colombia's exports of Palm oil (HS 1511).",
         "The export basket of Colombia fits the import demand of Japan at 0.46 (0–1 scale).",
         "Palm oil (HS 1511) faces an effectively applied tariff of 3.2 % in Japan.",
+        "Top competitors pay 0.0 % on average in Japan: Colombia faces a tariff disadvantage of 3.2 pp.",
         "Japan is 14,300 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Japan at 0.81: the filter leaves the score at 0.357 (raw 0.394)."
+        "Macro stability of Japan at 0.81: the filter leaves the score at 0.319 (raw 0.353)."
       ],
       "KOR": [
         "South Korea imports USD 620 M a year of Palm oil (HS 1511) (average of the last 3 years).",
@@ -173,8 +190,9 @@
         "South Korea absorbs 0.1 % of Colombia's exports of Palm oil (HS 1511).",
         "The export basket of Colombia fits the import demand of South Korea at 0.49 (0–1 scale).",
         "Palm oil (HS 1511) enters South Korea duty-free (0 % effectively applied).",
+        "Top competitors pay 1.7 % on average in South Korea: a preference margin of 1.7 pp in Colombia's favor.",
         "South Korea is 14,747 km away from Colombia; logistics accessibility of 0.38 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.397 (raw 0.421)."
+        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.373 (raw 0.396)."
       ],
       "MEX": [
         "Mexico imports USD 539 M a year of Palm oil (HS 1511) (average of the last 3 years).",
@@ -183,8 +201,9 @@
         "Mexico absorbs 29.2 % of Colombia's exports of Palm oil (HS 1511).",
         "The export basket of Colombia fits the import demand of Mexico at 0.32 (0–1 scale).",
         "Palm oil (HS 1511) enters Mexico duty-free (0 % effectively applied).",
+        "Top competitors pay 1.3 % on average in Mexico: a preference margin of 1.3 pp in Colombia's favor.",
         "Mexico is 3,396 km away from Colombia; logistics accessibility of 0.40 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Mexico at 0.80: the filter leaves the score at 0.280 (raw 0.311)."
+        "Macro stability of Mexico at 0.80: the filter leaves the score at 0.256 (raw 0.284)."
       ],
       "NLD": [
         "Netherlands imports USD 1,639 M a year of Palm oil (HS 1511) (average of the last 3 years).",
@@ -193,8 +212,9 @@
         "Netherlands absorbs 7.3 % of Colombia's exports of Palm oil (HS 1511).",
         "The export basket of Colombia fits the import demand of Netherlands at 0.46 (0–1 scale).",
         "Palm oil (HS 1511) enters Netherlands duty-free (0 % effectively applied).",
+        "Top competitors pay 5.7 % on average in Netherlands: a preference margin of 5.7 pp in Colombia's favor.",
         "Netherlands is 8,815 km away from Colombia; logistics accessibility of 0.46 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.514 (raw 0.568)."
+        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.510 (raw 0.563)."
       ],
       "PAN": [
         "Panama imports USD 9 M a year of Palm oil (HS 1511) (average of the last 3 years).",
@@ -203,8 +223,9 @@
         "Panama absorbs 1.4 % of Colombia's exports of Palm oil (HS 1511).",
         "The export basket of Colombia fits the import demand of Panama at 0.45 (0–1 scale).",
         "Palm oil (HS 1511) faces an effectively applied tariff of 20.0 % in Panama.",
+        "No tariff edge in Panama: top competitors pay the same as Colombia (20.0 %).",
         "Panama is 734 km away from Colombia; logistics accessibility of 0.57 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Panama at 0.94: the filter leaves the score at 0.436 (raw 0.450)."
+        "Macro stability of Panama at 0.94: the filter leaves the score at 0.452 (raw 0.466)."
       ],
       "PER": [
         "Peru imports USD 28 M a year of Palm oil (HS 1511) (average of the last 3 years).",
@@ -212,8 +233,9 @@
         "Colombia records no sales of Palm oil (HS 1511) in Peru (0 % share).",
         "The export basket of Colombia fits the import demand of Peru at 0.43 (0–1 scale).",
         "Palm oil (HS 1511) enters Peru duty-free (0 % effectively applied).",
+        "Top competitors pay 3.0 % on average in Peru: a preference margin of 3.0 pp in Colombia's favor.",
         "Peru is 1,945 km away from Colombia; logistics accessibility of 0.47 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Peru at 0.91: the filter leaves the score at 0.469 (raw 0.491)."
+        "Macro stability of Peru at 0.91: the filter leaves the score at 0.451 (raw 0.472)."
       ],
       "POL": [
         "Poland imports USD 350 M a year of Palm oil (HS 1511) (average of the last 3 years).",
@@ -221,8 +243,9 @@
         "Colombia records no sales of Palm oil (HS 1511) in Poland (0 % share).",
         "The export basket of Colombia fits the import demand of Poland at 0.36 (0–1 scale).",
         "Palm oil (HS 1511) enters Poland duty-free (0 % effectively applied).",
+        "No tariff edge in Poland: top competitors pay the same as Colombia (0.0 %).",
         "Poland is 9,790 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Poland at 0.84: the filter leaves the score at 0.252 (raw 0.274)."
+        "Macro stability of Poland at 0.84: the filter leaves the score at 0.221 (raw 0.240)."
       ],
       "PRT": [
         "Portugal imports USD 62 M a year of Palm oil (HS 1511) (average of the last 3 years).",
@@ -230,8 +253,9 @@
         "Colombia already holds 3.4 % of the market and gains 3.4 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Portugal at 0.39 (0–1 scale).",
         "Palm oil (HS 1511) enters Portugal duty-free (0 % effectively applied).",
+        "No tariff edge in Portugal: top competitors pay the same as Colombia (0.0 %).",
         "Portugal is 7,506 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.270 (raw 0.279)."
+        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.238 (raw 0.246)."
       ],
       "SWE": [
         "Sweden imports USD 187 M a year of Palm oil (HS 1511) (average of the last 3 years).",
@@ -239,8 +263,9 @@
         "Colombia records no sales of Palm oil (HS 1511) in Sweden (0 % share).",
         "The export basket of Colombia fits the import demand of Sweden at 0.37 (0–1 scale).",
         "Palm oil (HS 1511) enters Sweden duty-free (0 % effectively applied).",
+        "Top competitors pay 3.8 % on average in Sweden: a preference margin of 3.8 pp in Colombia's favor.",
         "Sweden is 9,491 km away from Colombia; logistics accessibility of 0.45 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.239 (raw 0.265)."
+        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.226 (raw 0.251)."
       ],
       "USA": [
         "United States imports USD 1,903 M a year of Palm oil (HS 1511) (average of the last 3 years).",
@@ -249,13 +274,14 @@
         "United States absorbs 3.7 % of Colombia's exports of Palm oil (HS 1511).",
         "The export basket of Colombia fits the import demand of United States at 0.33 (0–1 scale).",
         "Palm oil (HS 1511) enters United States duty-free (0 % effectively applied).",
+        "No tariff edge in United States: top competitors pay the same as Colombia (0.0 %).",
         "United States is 4,251 km away from Colombia; logistics accessibility of 0.50 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of United States at 0.65: the filter leaves the score at 0.385 (raw 0.465)."
+        "Macro stability of United States at 0.65: the filter leaves the score at 0.357 (raw 0.432)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.514,
+        "final_score": 0.51,
         "iso3": "NLD",
         "name": "Netherlands",
         "reasons": [
@@ -264,21 +290,21 @@
         ]
       },
       {
-        "final_score": 0.469,
-        "iso3": "PER",
-        "name": "Peru",
-        "reasons": [
-          "destination #1 by demand growth (219.3 % per year)",
-          "destination #10 by basket complementarity (index 0.43 (0–1 scale))"
-        ]
-      },
-      {
-        "final_score": 0.436,
+        "final_score": 0.452,
         "iso3": "PAN",
         "name": "Panama",
         "reasons": [
           "destination #8 by basket complementarity (index 0.45 (0–1 scale))",
           "destination #2 by share already won (share of 63.8 %)"
+        ]
+      },
+      {
+        "final_score": 0.451,
+        "iso3": "PER",
+        "name": "Peru",
+        "reasons": [
+          "destination #1 by demand growth (219.3 % per year)",
+          "destination #10 by basket complementarity (index 0.43 (0–1 scale))"
         ]
       }
     ]
@@ -292,8 +318,9 @@
         "Australia absorbe el 0,0 % de las exportaciones de Aceite de palma (HS 1511) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Australia.",
         "Aceite de palma (HS 1511) entra a Australia sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Australia: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Australia está a 14.797 km de Colombia; accesibilidad logística 0,37 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,241 (bruto 0,272)."
+        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,211 (bruto 0,239)."
       ],
       "AUT": [
         "Austria importa USD 51 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
@@ -301,8 +328,9 @@
         "Colombia ya tiene 0,2 % del mercado y pierde 0,1 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Austria.",
         "Aceite de palma (HS 1511) entra a Austria sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Austria: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Austria está a 9.534 km de Colombia; accesibilidad logística 0,44 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,221 (bruto 0,259)."
+        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,193 (bruto 0,225)."
       ],
       "BEL": [
         "Bélgica importa USD 437 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
@@ -311,8 +339,9 @@
         "Bélgica absorbe el 0,1 % de las exportaciones de Aceite de palma (HS 1511) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Bélgica.",
         "Aceite de palma (HS 1511) entra a Bélgica sin arancel (0 % efectivamente aplicado).",
+        "Los principales competidores pagan en promedio 1,9 % en Bélgica: margen de preferencia de 1,9 pp a favor de Colombia.",
         "Bélgica está a 8.749 km de Colombia; accesibilidad logística 0,45 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,361 (bruto 0,401)."
+        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,339 (bruto 0,377)."
       ],
       "BRA": [
         "Brasil importa USD 365 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
@@ -321,6 +350,7 @@
         "Brasil absorbe el 11,9 % de las exportaciones de Aceite de palma (HS 1511) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Brasil.",
         "Aceite de palma (HS 1511) entra a Brasil sin arancel (0 % efectivamente aplicado).",
+        "Los principales competidores pagan en promedio 6,7 % en Brasil: margen de preferencia de 6,7 pp a favor de Colombia.",
         "Brasil está a 4.306 km de Colombia; accesibilidad logística 0,42 (escala 0–1: distancia gravitacional + LPI).",
         "Estabilidad macro de Brasil 0,77: el filtro deja el score en 0,257 (bruto 0,290)."
       ],
@@ -331,8 +361,9 @@
         "Canadá absorbe el 1,7 % de las exportaciones de Aceite de palma (HS 1511) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Canadá.",
         "Aceite de palma (HS 1511) entra a Canadá sin arancel (0 % efectivamente aplicado).",
+        "Los principales competidores pagan en promedio 2,0 % en Canadá: margen de preferencia de 2,0 pp a favor de Colombia.",
         "Canadá está a 4.893 km de Colombia; accesibilidad logística 0,51 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,305 (bruto 0,328)."
+        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,283 (bruto 0,305)."
       ],
       "CHE": [
         "Suiza importa USD 18 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
@@ -340,8 +371,9 @@
         "Colombia ya tiene 6,5 % del mercado y pierde 0,2 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de Suiza.",
         "Aceite de palma (HS 1511) entra a Suiza sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Suiza: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Suiza está a 8.974 km de Colombia; accesibilidad logística 0,46 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,212 (bruto 0,226)."
+        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,180 (bruto 0,192)."
       ],
       "CHL": [
         "Chile importa USD 36 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
@@ -350,8 +382,9 @@
         "Chile absorbe el 0,7 % de las exportaciones de Aceite de palma (HS 1511) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Chile.",
         "Aceite de palma (HS 1511) entra a Chile sin arancel (0 % efectivamente aplicado).",
+        "Los principales competidores pagan en promedio 3,4 % en Chile: margen de preferencia de 3,4 pp a favor de Colombia.",
         "Chile está a 4.382 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Chile 0,72: el filtro deja el score en 0,281 (bruto 0,326)."
+        "Estabilidad macro de Chile 0,72: el filtro deja el score en 0,267 (bruto 0,310)."
       ],
       "CRI": [
         "Costa Rica importa USD 15 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
@@ -359,8 +392,9 @@
         "Colombia no registra ventas de Aceite de palma (HS 1511) en Costa Rica (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Costa Rica.",
         "Aceite de palma (HS 1511) paga en Costa Rica un arancel efectivamente aplicado de 8,0 %.",
+        "Los principales competidores pagan en promedio 6,9 % en Costa Rica: Colombia enfrenta una desventaja arancelaria de 1,1 pp.",
         "Costa Rica está a 1.157 km de Colombia; accesibilidad logística 0,51 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Costa Rica 0,93: el filtro deja el score en 0,229 (bruto 0,236)."
+        "Estabilidad macro de Costa Rica 0,93: el filtro deja el score en 0,210 (bruto 0,217)."
       ],
       "DEU": [
         "Alemania importa USD 881 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
@@ -369,8 +403,9 @@
         "Alemania absorbe el 0,2 % de las exportaciones de Aceite de palma (HS 1511) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Alemania.",
         "Aceite de palma (HS 1511) entra a Alemania sin arancel (0 % efectivamente aplicado).",
+        "Los principales competidores pagan en promedio 1,9 % en Alemania: margen de preferencia de 1,9 pp a favor de Colombia.",
         "Alemania está a 9.137 km de Colombia; accesibilidad logística 0,46 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,324 (bruto 0,373)."
+        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,303 (bruto 0,349)."
       ],
       "DOM": [
         "República Dominicana importa USD 69 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
@@ -379,8 +414,9 @@
         "República Dominicana absorbe el 12,4 % de las exportaciones de Aceite de palma (HS 1511) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de República Dominicana.",
         "Aceite de palma (HS 1511) paga en República Dominicana un arancel efectivamente aplicado de 10,0 %.",
+        "Sin ventaja arancelaria en República Dominicana: los principales competidores pagan lo mismo que Colombia (10,0 %).",
         "República Dominicana está a 1.527 km de Colombia; accesibilidad logística 0,44 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de República Dominicana 0,78: el filtro deja el score en 0,422 (bruto 0,476)."
+        "Estabilidad macro de República Dominicana 0,78: el filtro deja el score en 0,414 (bruto 0,467)."
       ],
       "ECU": [
         "Ecuador importa USD 5 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
@@ -389,8 +425,9 @@
         "Ecuador absorbe el 2,1 % de las exportaciones de Aceite de palma (HS 1511) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,51 (escala 0–1) con la demanda importadora de Ecuador.",
         "Aceite de palma (HS 1511) paga en Ecuador un arancel efectivamente aplicado de 17,6 %.",
+        "Los principales competidores pagan en promedio 19,5 % en Ecuador: margen de preferencia de 1,9 pp a favor de Colombia.",
         "Ecuador está a 980 km de Colombia; accesibilidad logística 0,53 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Ecuador 0,88: el filtro deja el score en 0,359 (bruto 0,382)."
+        "Estabilidad macro de Ecuador 0,88: el filtro deja el score en 0,378 (bruto 0,402)."
       ],
       "ESP": [
         "España importa USD 839 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
@@ -399,8 +436,9 @@
         "España absorbe el 3,9 % de las exportaciones de Aceite de palma (HS 1511) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de España.",
         "Aceite de palma (HS 1511) entra a España sin arancel (0 % efectivamente aplicado).",
+        "Los principales competidores pagan en promedio 5,7 % en España: margen de preferencia de 5,7 pp a favor de Colombia.",
         "España está a 8.065 km de Colombia; accesibilidad logística 0,45 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de España 0,97: el filtro deja el score en 0,423 (bruto 0,430)."
+        "Estabilidad macro de España 0,97: el filtro deja el score en 0,418 (bruto 0,425)."
       ],
       "FIN": [
         "Finlandia importa USD 2 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
@@ -408,8 +446,9 @@
         "Colombia no registra ventas de Aceite de palma (HS 1511) en Finlandia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Finlandia.",
         "Aceite de palma (HS 1511) entra a Finlandia sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Finlandia: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Finlandia está a 9.955 km de Colombia; accesibilidad logística 0,47 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,267 (bruto 0,302)."
+        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,237 (bruto 0,268)."
       ],
       "FRA": [
         "Francia importa USD 214 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
@@ -417,8 +456,9 @@
         "Colombia ya tiene 0,1 % del mercado y pierde 0,1 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de Francia.",
         "Aceite de palma (HS 1511) entra a Francia sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Francia: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Francia está a 8.615 km de Colombia; accesibilidad logística 0,44 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,296 (bruto 0,323)."
+        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,265 (bruto 0,289)."
       ],
       "GBR": [
         "Reino Unido importa USD 473 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
@@ -427,8 +467,9 @@
         "Reino Unido absorbe el 0,2 % de las exportaciones de Aceite de palma (HS 1511) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Reino Unido.",
         "Aceite de palma (HS 1511) entra a Reino Unido sin arancel (0 % efectivamente aplicado).",
+        "Los principales competidores pagan en promedio 2,8 % en Reino Unido: margen de preferencia de 2,8 pp a favor de Colombia.",
         "Reino Unido está a 8.388 km de Colombia; accesibilidad logística 0,42 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,295 (bruto 0,370)."
+        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,279 (bruto 0,350)."
       ],
       "ITA": [
         "Italia importa USD 1.280 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
@@ -437,8 +478,9 @@
         "Italia absorbe el 6,0 % de las exportaciones de Aceite de palma (HS 1511) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Italia.",
         "Aceite de palma (HS 1511) entra a Italia sin arancel (0 % efectivamente aplicado).",
+        "Los principales competidores pagan en promedio 3,8 % en Italia: margen de preferencia de 3,8 pp a favor de Colombia.",
         "Italia está a 9.315 km de Colombia; accesibilidad logística 0,41 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,407 (bruto 0,444)."
+        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,394 (bruto 0,430)."
       ],
       "JPN": [
         "Japón importa USD 701 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
@@ -447,8 +489,9 @@
         "Japón absorbe el 0,2 % de las exportaciones de Aceite de palma (HS 1511) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Japón.",
         "Aceite de palma (HS 1511) paga en Japón un arancel efectivamente aplicado de 3,2 %.",
+        "Los principales competidores pagan en promedio 0,0 % en Japón: Colombia enfrenta una desventaja arancelaria de 3,2 pp.",
         "Japón está a 14.300 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,357 (bruto 0,394)."
+        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,319 (bruto 0,353)."
       ],
       "KOR": [
         "Corea del Sur importa USD 620 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
@@ -457,8 +500,9 @@
         "Corea del Sur absorbe el 0,1 % de las exportaciones de Aceite de palma (HS 1511) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,49 (escala 0–1) con la demanda importadora de Corea del Sur.",
         "Aceite de palma (HS 1511) entra a Corea del Sur sin arancel (0 % efectivamente aplicado).",
+        "Los principales competidores pagan en promedio 1,7 % en Corea del Sur: margen de preferencia de 1,7 pp a favor de Colombia.",
         "Corea del Sur está a 14.747 km de Colombia; accesibilidad logística 0,38 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,397 (bruto 0,421)."
+        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,373 (bruto 0,396)."
       ],
       "MEX": [
         "México importa USD 539 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
@@ -467,8 +511,9 @@
         "México absorbe el 29,2 % de las exportaciones de Aceite de palma (HS 1511) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de México.",
         "Aceite de palma (HS 1511) entra a México sin arancel (0 % efectivamente aplicado).",
+        "Los principales competidores pagan en promedio 1,3 % en México: margen de preferencia de 1,3 pp a favor de Colombia.",
         "México está a 3.396 km de Colombia; accesibilidad logística 0,40 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de México 0,80: el filtro deja el score en 0,280 (bruto 0,311)."
+        "Estabilidad macro de México 0,80: el filtro deja el score en 0,256 (bruto 0,284)."
       ],
       "NLD": [
         "Países Bajos importa USD 1.639 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
@@ -477,8 +522,9 @@
         "Países Bajos absorbe el 7,3 % de las exportaciones de Aceite de palma (HS 1511) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Países Bajos.",
         "Aceite de palma (HS 1511) entra a Países Bajos sin arancel (0 % efectivamente aplicado).",
+        "Los principales competidores pagan en promedio 5,7 % en Países Bajos: margen de preferencia de 5,7 pp a favor de Colombia.",
         "Países Bajos está a 8.815 km de Colombia; accesibilidad logística 0,46 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,514 (bruto 0,568)."
+        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,510 (bruto 0,563)."
       ],
       "PAN": [
         "Panamá importa USD 9 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
@@ -487,8 +533,9 @@
         "Panamá absorbe el 1,4 % de las exportaciones de Aceite de palma (HS 1511) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Panamá.",
         "Aceite de palma (HS 1511) paga en Panamá un arancel efectivamente aplicado de 20,0 %.",
+        "Sin ventaja arancelaria en Panamá: los principales competidores pagan lo mismo que Colombia (20,0 %).",
         "Panamá está a 734 km de Colombia; accesibilidad logística 0,57 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Panamá 0,94: el filtro deja el score en 0,436 (bruto 0,450)."
+        "Estabilidad macro de Panamá 0,94: el filtro deja el score en 0,452 (bruto 0,466)."
       ],
       "PER": [
         "Perú importa USD 28 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
@@ -496,8 +543,9 @@
         "Colombia no registra ventas de Aceite de palma (HS 1511) en Perú (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Perú.",
         "Aceite de palma (HS 1511) entra a Perú sin arancel (0 % efectivamente aplicado).",
+        "Los principales competidores pagan en promedio 3,0 % en Perú: margen de preferencia de 3,0 pp a favor de Colombia.",
         "Perú está a 1.945 km de Colombia; accesibilidad logística 0,47 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Perú 0,91: el filtro deja el score en 0,469 (bruto 0,491)."
+        "Estabilidad macro de Perú 0,91: el filtro deja el score en 0,451 (bruto 0,472)."
       ],
       "POL": [
         "Polonia importa USD 350 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
@@ -505,8 +553,9 @@
         "Colombia no registra ventas de Aceite de palma (HS 1511) en Polonia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,36 (escala 0–1) con la demanda importadora de Polonia.",
         "Aceite de palma (HS 1511) entra a Polonia sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Polonia: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Polonia está a 9.790 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,252 (bruto 0,274)."
+        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,221 (bruto 0,240)."
       ],
       "PRT": [
         "Portugal importa USD 62 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
@@ -514,8 +563,9 @@
         "Colombia ya tiene 3,4 % del mercado y gana 3,4 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,39 (escala 0–1) con la demanda importadora de Portugal.",
         "Aceite de palma (HS 1511) entra a Portugal sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Portugal: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Portugal está a 7.506 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,270 (bruto 0,279)."
+        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,238 (bruto 0,246)."
       ],
       "SWE": [
         "Suecia importa USD 187 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
@@ -523,8 +573,9 @@
         "Colombia no registra ventas de Aceite de palma (HS 1511) en Suecia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Suecia.",
         "Aceite de palma (HS 1511) entra a Suecia sin arancel (0 % efectivamente aplicado).",
+        "Los principales competidores pagan en promedio 3,8 % en Suecia: margen de preferencia de 3,8 pp a favor de Colombia.",
         "Suecia está a 9.491 km de Colombia; accesibilidad logística 0,45 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,239 (bruto 0,265)."
+        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,226 (bruto 0,251)."
       ],
       "USA": [
         "Estados Unidos importa USD 1.903 M al año de Aceite de palma (HS 1511) (promedio de los últimos 3 años).",
@@ -533,13 +584,14 @@
         "Estados Unidos absorbe el 3,7 % de las exportaciones de Aceite de palma (HS 1511) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,33 (escala 0–1) con la demanda importadora de Estados Unidos.",
         "Aceite de palma (HS 1511) entra a Estados Unidos sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Estados Unidos: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Estados Unidos está a 4.251 km de Colombia; accesibilidad logística 0,50 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,385 (bruto 0,465)."
+        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,357 (bruto 0,432)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.514,
+        "final_score": 0.51,
         "iso3": "NLD",
         "name": "Países Bajos",
         "reasons": [
@@ -548,21 +600,21 @@
         ]
       },
       {
-        "final_score": 0.469,
-        "iso3": "PER",
-        "name": "Perú",
-        "reasons": [
-          "1.º destino por crecimiento de la demanda (219,3 % anual)",
-          "10.º destino por complementariedad de canastas (índice 0,43 (escala 0–1))"
-        ]
-      },
-      {
-        "final_score": 0.436,
+        "final_score": 0.452,
         "iso3": "PAN",
         "name": "Panamá",
         "reasons": [
           "8.º destino por complementariedad de canastas (índice 0,45 (escala 0–1))",
           "2.º destino por cuota ya ganada (cuota de 63,8 %)"
+        ]
+      },
+      {
+        "final_score": 0.451,
+        "iso3": "PER",
+        "name": "Perú",
+        "reasons": [
+          "1.º destino por crecimiento de la demanda (219,3 % anual)",
+          "10.º destino por complementariedad de canastas (índice 0,43 (escala 0–1))"
         ]
       }
     ]

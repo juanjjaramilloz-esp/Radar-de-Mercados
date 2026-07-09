@@ -18,6 +18,7 @@ import json
 import logging
 import math
 import xml.etree.ElementTree as ET
+from collections.abc import Mapping, Sequence
 from pathlib import Path
 from typing import Any
 
@@ -25,7 +26,7 @@ import pandas as pd
 import requests
 
 from tradefit import config, hs_codes
-from tradefit.contracts import tariffs_schema
+from tradefit.contracts import competitor_tariffs_schema, tariffs_schema
 
 logger = logging.getLogger(__name__)
 
@@ -99,13 +100,17 @@ def fetch_wits_tariffs(hs: str) -> dict[str, Any]:
     return {"hs": hs, "products": products, "responses": responses}
 
 
-def _parse_generic_data(xml_text: str, destinations: list[str]) -> list[dict[str, object]]:
+def _parse_generic_data(
+    xml_text: str, destinations: list[str], include_partner: bool = False
+) -> list[dict[str, object]]:
     """Extrae filas (país, HS6, tipo, año, tasa) de un XML SDMX GenericData.
 
     Cada ``Series`` trae la subpartida en su ``SeriesKey``; cada ``Obs`` trae
     el año, la tasa (% promedio simple de líneas ad-valorem) y el atributo
     ``TARIFFTYPE``. El reporter se expande a los destinos que representa
-    (la UE cubre 11 países del MVP).
+    (la UE cubre 11 países del MVP). Con ``include_partner`` cada fila lleva
+    además el código del partner de la serie (consultas multi-partner del
+    margen de preferencia).
 
     Raises:
         RuntimeError: si el XML no tiene la estructura esperada o trae un
@@ -125,6 +130,9 @@ def _parse_generic_data(xml_text: str, destinations: list[str]) -> list[dict[str
         product = key.get("PRODUCTCODE")
         if product is None:
             raise RuntimeError(f"Serie de WITS sin PRODUCTCODE; clave: {key}")
+        partner = key.get("PARTNER")
+        if include_partner and partner is None:
+            raise RuntimeError(f"Serie de WITS sin PARTNER; clave: {key}")
         for obs in series.findall("generic:Obs", _NS):
             dimension = obs.find("generic:ObsDimension", _NS)
             value = obs.find("generic:ObsValue", _NS)
@@ -145,15 +153,16 @@ def _parse_generic_data(xml_text: str, destinations: list[str]) -> list[dict[str
                 logger.debug("Observación sin AVE (%s, %s): descartada", product, tariff_type)
                 continue
             for iso3 in destinations:
-                rows.append(
-                    {
-                        config.COL_COUNTRY: iso3,
-                        config.COL_CMD: product,
-                        config.COL_TARIFF_TYPE: tariff_type,
-                        config.COL_YEAR: int(str(dimension.get("value"))),
-                        config.COL_RATE_PCT: rate,
-                    }
-                )
+                row: dict[str, object] = {
+                    config.COL_COUNTRY: iso3,
+                    config.COL_CMD: product,
+                    config.COL_TARIFF_TYPE: tariff_type,
+                    config.COL_YEAR: int(str(dimension.get("value"))),
+                    config.COL_RATE_PCT: rate,
+                }
+                if include_partner:
+                    row[config.COL_PARTNER_CODE] = str(partner)
+                rows.append(row)
     return rows
 
 
@@ -234,3 +243,139 @@ def load_wits_tariffs(hs: str, cache_file: Path | None = None, force: bool = Fal
         logger.info("Usando caché de WITS: %s", cache_file)
     cached: dict[str, Any] = json.loads(cache_file.read_text(encoding="utf-8"))
     return parse_wits_response(cached)
+
+
+def fetch_competitor_tariffs(
+    hs: str, partners_by_reporter: Mapping[str, Sequence[str]]
+) -> dict[str, Any]:
+    """Descarga el arancel preferencial que cada reporter aplica a competidores.
+
+    Una consulta por reporter con los partners unidos con ``+`` (el dataflow
+    TRAINS acepta multi-partner y devuelve el PARTNER en cada SeriesKey;
+    verificado 2026-07). El MFN no se re-descarga: es erga omnes y ya vive en
+    el caché de :func:`fetch_wits_tariffs`. Un 404 "NoRecordsFound" es normal
+    (competidor sin esquema preferencial → paga MFN).
+
+    Args:
+        hs: partida HS normalizada (2, 4 o 6 dígitos).
+        partners_by_reporter: códigos WITS de los competidores a consultar,
+            por código de reporter a 3 dígitos (p. ej. ``{"918": ["076",
+            "704"]}``).
+
+    Returns:
+        Payload serializable ``{"hs", "products", "responses": {reporter:
+        {"partners": [...], "xml": xml|None}}}``.
+
+    Raises:
+        RuntimeError: si la API responde un error HTTP distinto de
+            "sin registros".
+        ValueError: si la partida no tiene subpartidas HS6 en el catálogo.
+    """
+    products = "+".join(hs_codes.hs6_children(hs))
+    start, end = config.WITS_YEARS
+    responses: dict[str, dict[str, Any]] = {}
+    for reporter, partners in sorted(partners_by_reporter.items()):
+        unique = sorted(set(partners))
+        if not unique:
+            continue
+        url = config.WITS_URL.format(
+            reporter=reporter, partner="+".join(unique), products=products, start=start, end=end
+        )
+        xml_text = _fetch_xml(url)
+        logger.info(
+            "WITS pref competidores reporter=%s partners=%s: %s",
+            reporter,
+            unique,
+            "sin registros" if xml_text is None else f"{len(xml_text)} bytes",
+        )
+        responses[reporter] = {"partners": unique, "xml": xml_text}
+    return {"hs": hs, "products": products, "responses": responses}
+
+
+def parse_competitor_response(payload: dict[str, Any]) -> pd.DataFrame:
+    """Normaliza el payload de competidores al contrato ``competitor_tariffs_schema``.
+
+    Función sin red. Cada reporter se expande a los destinos que representa
+    (mismo criterio que :func:`parse_wits_response`); cada fila conserva el
+    código WITS del partner competidor.
+
+    Raises:
+        RuntimeError: si el payload no tiene ``responses`` o un XML cambió
+            de estructura.
+    """
+    responses = payload.get("responses")
+    if responses is None:
+        raise RuntimeError(f"Payload de WITS sin clave 'responses'; claves: {sorted(payload)}")
+
+    by_reporter: dict[str, list[str]] = {}
+    for iso3, code in config.WITS_REPORTER_CODES.items():
+        by_reporter.setdefault(f"{code:03d}", []).append(iso3)
+
+    rows: list[dict[str, object]] = []
+    for reporter, entry in responses.items():
+        destinations = by_reporter.get(reporter)
+        if destinations is None:
+            logger.warning("Reporter %s del caché no corresponde a ningún destino", reporter)
+            continue
+        xml_text = entry.get("xml")
+        if xml_text is not None:
+            rows.extend(_parse_generic_data(xml_text, destinations, include_partner=True))
+
+    columns = [
+        config.COL_COUNTRY,
+        config.COL_PARTNER_CODE,
+        config.COL_CMD,
+        config.COL_TARIFF_TYPE,
+        config.COL_YEAR,
+        config.COL_RATE_PCT,
+    ]
+    df = pd.DataFrame(rows, columns=columns)
+    df = df.drop_duplicates(subset=columns[:5]).sort_values(columns[:5], ignore_index=True)
+    validated: pd.DataFrame = competitor_tariffs_schema.validate(df)
+    return validated
+
+
+def load_competitor_tariffs(
+    hs: str,
+    partners_by_reporter: Mapping[str, Sequence[str]],
+    cache_file: Path | None = None,
+    force: bool = False,
+) -> pd.DataFrame:
+    """Carga los aranceles a competidores, descargando solo si falta caché.
+
+    El caché se invalida solo si pide partners que no estaban cacheados (el
+    top de competidores puede cambiar al refrescar el comercio); pedir un
+    subconjunto reutiliza el caché.
+
+    Args:
+        hs: partida HS normalizada.
+        partners_by_reporter: códigos WITS de competidores por reporter.
+        cache_file: ruta del JSON crudo (default:
+            ``config.wits_competitor_tariffs_cache(hs)``).
+        force: si es True, re-descarga aunque exista caché.
+
+    Returns:
+        DataFrame validado contra ``competitor_tariffs_schema``.
+    """
+    if cache_file is None:
+        cache_file = config.wits_competitor_tariffs_cache(hs)
+    stale = force or not cache_file.exists()
+    if not stale:
+        cached_payload: dict[str, Any] = json.loads(cache_file.read_text(encoding="utf-8"))
+        cached_partners = {
+            reporter: set(entry.get("partners", []))
+            for reporter, entry in cached_payload.get("responses", {}).items()
+        }
+        stale = any(
+            set(partners) - cached_partners.get(reporter, set())
+            for reporter, partners in partners_by_reporter.items()
+        )
+    if stale:
+        payload = fetch_competitor_tariffs(hs, partners_by_reporter)
+        cache_file.parent.mkdir(parents=True, exist_ok=True)
+        cache_file.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+        logger.info("Aranceles a competidores cacheados en %s", cache_file)
+    else:
+        logger.info("Usando caché de WITS (competidores): %s", cache_file)
+    cached: dict[str, Any] = json.loads(cache_file.read_text(encoding="utf-8"))
+    return parse_competitor_response(cached)

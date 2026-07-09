@@ -32,6 +32,7 @@ METRIC_LABELS: dict[Lang, dict[str, str]] = {
         "share_trend": "momentum de la cuota",
         "complementarity": "complementariedad de canastas",
         "tariff_faced": "arancel enfrentado",
+        "preference_margin": "margen de preferencia",
         "accessibility": "accesibilidad logística",
     },
     "en": {
@@ -41,6 +42,7 @@ METRIC_LABELS: dict[Lang, dict[str, str]] = {
         "share_trend": "share momentum",
         "complementarity": "basket complementarity",
         "tariff_faced": "tariff faced",
+        "preference_margin": "preference margin",
         "accessibility": "logistics accessibility",
     },
 }
@@ -53,6 +55,7 @@ _METRIC_COLUMNS: dict[str, str] = {
     "share_trend": config.COL_SHARE_TREND,
     "complementarity": config.COL_COMPLEMENTARITY,
     "tariff_faced": config.COL_TARIFF,
+    "preference_margin": config.COL_PREF_MARGIN,
     "accessibility": config.COL_ACCESSIBILITY,
 }
 
@@ -114,6 +117,33 @@ _TEMPLATES: dict[str, dict[Lang, str]] = {
         "es": "{product} paga en {dest} un arancel efectivamente aplicado de {pct}.",
         "en": "{product} faces an effectively applied tariff of {pct} in {dest}.",
     },
+    "margin_advantage": {
+        "es": (
+            "Los principales competidores pagan en promedio {rivals} en {dest}: "
+            "margen de preferencia de {margin} a favor de {origin}."
+        ),
+        "en": (
+            "Top competitors pay {rivals} on average in {dest}: a preference "
+            "margin of {margin} in {origin}'s favor."
+        ),
+    },
+    "margin_disadvantage": {
+        "es": (
+            "Los principales competidores pagan en promedio {rivals} en {dest}: "
+            "{origin} enfrenta una desventaja arancelaria de {margin}."
+        ),
+        "en": (
+            "Top competitors pay {rivals} on average in {dest}: {origin} faces "
+            "a tariff disadvantage of {margin}."
+        ),
+    },
+    "margin_level": {
+        "es": (
+            "Sin ventaja arancelaria en {dest}: los principales competidores "
+            "pagan lo mismo que {origin} ({rivals})."
+        ),
+        "en": ("No tariff edge in {dest}: top competitors pay the same as {origin} ({rivals})."),
+    },
     "accessibility": {
         "es": (
             "{dest} está a {km} km de {origin}; accesibilidad logística "
@@ -172,6 +202,7 @@ def _metric_formatters(lang: Lang) -> dict[str, Callable[[float], str]]:
     window = "en la ventana" if lang == "es" else "over the window"
     index_scale = "índice {v} (escala 0–1)" if lang == "es" else "index {v} (0–1 scale)"
     applied = "efectivamente aplicado" if lang == "es" else "effectively applied"
+    vs_rivals = "frente a los competidores" if lang == "es" else "versus competitors"
     return {
         "market_size": lambda v: f"{_fmt_millions(v, lang)}{per_year}",
         "import_growth": lambda v: f"{_fmt_pct(v, lang)} {annual}",
@@ -179,6 +210,7 @@ def _metric_formatters(lang: Lang) -> dict[str, Callable[[float], str]]:
         "share_trend": lambda v: f"{_fmt_pp_signed(v, lang)} {window}",
         "complementarity": lambda v: index_scale.format(v=_fmt_decimal(v, 2, lang)),
         "tariff_faced": lambda v: f"{_fmt_pct(v, lang)} {applied}",
+        "preference_margin": lambda v: f"{_fmt_pp_signed(v, lang)} {vs_rivals}",
         "accessibility": lambda v: index_scale.format(v=_fmt_decimal(v, 2, lang)),
     }
 
@@ -296,6 +328,36 @@ def market_sentences(
                     product=product_label,
                     dest=destination,
                     pct=_fmt_pct(tariff, lang),
+                )
+            )
+
+    # Margen de preferencia: solo si el snapshot trae ambas columnas con
+    # dato (posteriores a 2026-07-09); NaN = sin aranceles de competidores.
+    has_margin = (
+        config.COL_PREF_MARGIN in row
+        and config.COL_COMPETITOR_TARIFF in row
+        and not pd.isna(row[config.COL_PREF_MARGIN])
+        and not pd.isna(row[config.COL_COMPETITOR_TARIFF])
+    )
+    if has_margin:
+        margin = float(row[config.COL_PREF_MARGIN])
+        rivals = _fmt_pct(float(row[config.COL_COMPETITOR_TARIFF]), lang)
+        # Umbral de 0.1 pp: por debajo, la diferencia es ruido de redondeo
+        # de las líneas ad-valorem, no una ventaja accionable.
+        if abs(margin) < 0.001:
+            sentences.append(
+                _t("margin_level", lang, dest=destination, origin=origin_name, rivals=rivals)
+            )
+        else:
+            key = "margin_advantage" if margin > 0 else "margin_disadvantage"
+            sentences.append(
+                _t(
+                    key,
+                    lang,
+                    dest=destination,
+                    origin=origin_name,
+                    rivals=rivals,
+                    margin=f"{_fmt_decimal(abs(margin) * 100, 1, lang)} pp",
                 )
             )
 

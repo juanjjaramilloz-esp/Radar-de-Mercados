@@ -8,8 +8,9 @@
         "Australia absorbs 0.2 % of Colombia's exports of Medicaments (HS 3004).",
         "The export basket of Colombia fits the import demand of Australia at 0.40 (0–1 scale).",
         "Medicaments (HS 3004) enters Australia duty-free (0 % effectively applied).",
+        "No tariff edge in Australia: top competitors pay the same as Colombia (0.0 %).",
         "Australia is 14,797 km away from Colombia; logistics accessibility of 0.37 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Australia at 0.77: the filter leaves the score at 0.321 (raw 0.362)."
+        "Macro stability of Australia at 0.77: the filter leaves the score at 0.284 (raw 0.320)."
       ],
       "AUT": [
         "Austria imports USD 4,584 M a year of Medicaments (HS 3004) (average of the last 3 years).",
@@ -17,8 +18,9 @@
         "Colombia records no sales of Medicaments (HS 3004) in Austria (0 % share).",
         "The export basket of Colombia fits the import demand of Austria at 0.37 (0–1 scale).",
         "Medicaments (HS 3004) enters Austria duty-free (0 % effectively applied).",
+        "No tariff edge in Austria: top competitors pay the same as Colombia (0.0 %).",
         "Austria is 9,534 km away from Colombia; logistics accessibility of 0.44 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Austria at 0.71: the filter leaves the score at 0.315 (raw 0.368)."
+        "Macro stability of Austria at 0.71: the filter leaves the score at 0.279 (raw 0.327)."
       ],
       "BEL": [
         "Belgium imports USD 23,296 M a year of Medicaments (HS 3004) (average of the last 3 years).",
@@ -27,8 +29,9 @@
         "Belgium absorbs 0.0 % of Colombia's exports of Medicaments (HS 3004).",
         "The export basket of Colombia fits the import demand of Belgium at 0.45 (0–1 scale).",
         "Medicaments (HS 3004) enters Belgium duty-free (0 % effectively applied).",
+        "No tariff edge in Belgium: top competitors pay the same as Colombia (0.0 %).",
         "Belgium is 8,749 km away from Colombia; logistics accessibility of 0.45 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.468 (raw 0.519)."
+        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.430 (raw 0.477)."
       ],
       "BRA": [
         "Brazil imports USD 6,179 M a year of Medicaments (HS 3004) (average of the last 3 years).",
@@ -37,6 +40,7 @@
         "Brazil absorbs 2.9 % of Colombia's exports of Medicaments (HS 3004).",
         "The export basket of Colombia fits the import demand of Brazil at 0.37 (0–1 scale).",
         "Medicaments (HS 3004) enters Brazil duty-free (0 % effectively applied).",
+        "Top competitors pay 9.3 % on average in Brazil: a preference margin of 9.3 pp in Colombia's favor.",
         "Brazil is 4,306 km away from Colombia; logistics accessibility of 0.42 (0–1 scale: gravity distance + LPI).",
         "Macro stability of Brazil at 0.77: the filter leaves the score at 0.385 (raw 0.435)."
       ],
@@ -47,8 +51,9 @@
         "Canada absorbs 2.7 % of Colombia's exports of Medicaments (HS 3004).",
         "The export basket of Colombia fits the import demand of Canada at 0.37 (0–1 scale).",
         "Medicaments (HS 3004) enters Canada duty-free (0 % effectively applied).",
+        "No tariff edge in Canada: top competitors pay the same as Colombia (0.0 %).",
         "Canada is 4,893 km away from Colombia; logistics accessibility of 0.51 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Canada at 0.86: the filter leaves the score at 0.391 (raw 0.421)."
+        "Macro stability of Canada at 0.86: the filter leaves the score at 0.353 (raw 0.379)."
       ],
       "CHE": [
         "Switzerland imports USD 47,595 M a year of Medicaments (HS 3004) (average of the last 3 years).",
@@ -56,8 +61,9 @@
         "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Switzerland at 0.32 (0–1 scale).",
         "Medicaments (HS 3004) enters Switzerland duty-free (0 % effectively applied).",
+        "No tariff edge in Switzerland: top competitors pay the same as Colombia (0.0 %).",
         "Switzerland is 8,974 km away from Colombia; logistics accessibility of 0.46 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.462 (raw 0.491)."
+        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.423 (raw 0.450)."
       ],
       "CHL": [
         "Chile imports USD 1,527 M a year of Medicaments (HS 3004) (average of the last 3 years).",
@@ -66,8 +72,9 @@
         "Chile absorbs 6.3 % of Colombia's exports of Medicaments (HS 3004).",
         "The export basket of Colombia fits the import demand of Chile at 0.46 (0–1 scale).",
         "Medicaments (HS 3004) enters Chile duty-free (0 % effectively applied).",
+        "Top competitors pay 3.7 % on average in Chile: a preference margin of 3.7 pp in Colombia's favor.",
         "Chile is 4,382 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Chile at 0.72: the filter leaves the score at 0.372 (raw 0.432)."
+        "Macro stability of Chile at 0.72: the filter leaves the score at 0.351 (raw 0.407)."
       ],
       "CRI": [
         "Costa Rica imports USD 709 M a year of Medicaments (HS 3004) (average of the last 3 years).",
@@ -76,8 +83,9 @@
         "Costa Rica absorbs 3.9 % of Colombia's exports of Medicaments (HS 3004).",
         "The export basket of Colombia fits the import demand of Costa Rica at 0.37 (0–1 scale).",
         "Medicaments (HS 3004) enters Costa Rica duty-free (0 % effectively applied).",
+        "Top competitors pay 1.4 % on average in Costa Rica: a preference margin of 1.4 pp in Colombia's favor.",
         "Costa Rica is 1,157 km away from Colombia; logistics accessibility of 0.51 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Costa Rica at 0.93: the filter leaves the score at 0.404 (raw 0.418)."
+        "Macro stability of Costa Rica at 0.93: the filter leaves the score at 0.370 (raw 0.383)."
       ],
       "DEU": [
         "Germany imports USD 35,776 M a year of Medicaments (HS 3004) (average of the last 3 years).",
@@ -86,8 +94,9 @@
         "Germany absorbs 0.0 % of Colombia's exports of Medicaments (HS 3004).",
         "The export basket of Colombia fits the import demand of Germany at 0.37 (0–1 scale).",
         "Medicaments (HS 3004) enters Germany duty-free (0 % effectively applied).",
+        "No tariff edge in Germany: top competitors pay the same as Colombia (0.0 %).",
         "Germany is 9,137 km away from Colombia; logistics accessibility of 0.46 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Germany at 0.74: the filter leaves the score at 0.433 (raw 0.498)."
+        "Macro stability of Germany at 0.74: the filter leaves the score at 0.397 (raw 0.457)."
       ],
       "DOM": [
         "Dominican Republic imports USD 874 M a year of Medicaments (HS 3004) (average of the last 3 years).",
@@ -96,8 +105,9 @@
         "Dominican Republic absorbs 5.2 % of Colombia's exports of Medicaments (HS 3004).",
         "The export basket of Colombia fits the import demand of Dominican Republic at 0.46 (0–1 scale).",
         "Medicaments (HS 3004) faces an effectively applied tariff of 0.1 % in Dominican Republic.",
+        "No tariff edge in Dominican Republic: top competitors pay the same as Colombia (0.1 %).",
         "Dominican Republic is 1,527 km away from Colombia; logistics accessibility of 0.44 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Dominican Republic at 0.78: the filter leaves the score at 0.386 (raw 0.435)."
+        "Macro stability of Dominican Republic at 0.78: the filter leaves the score at 0.350 (raw 0.394)."
       ],
       "ECU": [
         "Ecuador imports USD 933 M a year of Medicaments (HS 3004) (average of the last 3 years).",
@@ -106,8 +116,9 @@
         "Ecuador absorbs 23.1 % of Colombia's exports of Medicaments (HS 3004).",
         "The export basket of Colombia fits the import demand of Ecuador at 0.51 (0–1 scale).",
         "Medicaments (HS 3004) faces an effectively applied tariff of 3.4 % in Ecuador.",
+        "Top competitors pay 1.5 % on average in Ecuador: Colombia faces a tariff disadvantage of 1.9 pp.",
         "Ecuador is 980 km away from Colombia; logistics accessibility of 0.53 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Ecuador at 0.88: the filter leaves the score at 0.379 (raw 0.404)."
+        "Macro stability of Ecuador at 0.88: the filter leaves the score at 0.378 (raw 0.403)."
       ],
       "ESP": [
         "Spain imports USD 16,112 M a year of Medicaments (HS 3004) (average of the last 3 years).",
@@ -116,8 +127,9 @@
         "Spain absorbs 0.0 % of Colombia's exports of Medicaments (HS 3004).",
         "The export basket of Colombia fits the import demand of Spain at 0.42 (0–1 scale).",
         "Medicaments (HS 3004) enters Spain duty-free (0 % effectively applied).",
+        "No tariff edge in Spain: top competitors pay the same as Colombia (0.0 %).",
         "Spain is 8,065 km away from Colombia; logistics accessibility of 0.45 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Spain at 0.97: the filter leaves the score at 0.495 (raw 0.502)."
+        "Macro stability of Spain at 0.97: the filter leaves the score at 0.454 (raw 0.461)."
       ],
       "FIN": [
         "Finland imports USD 1,854 M a year of Medicaments (HS 3004) (average of the last 3 years).",
@@ -125,8 +137,9 @@
         "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Finland at 0.40 (0–1 scale).",
         "Medicaments (HS 3004) enters Finland duty-free (0 % effectively applied).",
+        "No tariff edge in Finland: top competitors pay the same as Colombia (0.0 %).",
         "Finland is 9,955 km away from Colombia; logistics accessibility of 0.47 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Finland at 0.76: the filter leaves the score at 0.337 (raw 0.382)."
+        "Macro stability of Finland at 0.76: the filter leaves the score at 0.301 (raw 0.341)."
       ],
       "FRA": [
         "France imports USD 18,186 M a year of Medicaments (HS 3004) (average of the last 3 years).",
@@ -135,8 +148,9 @@
         "France absorbs 0.0 % of Colombia's exports of Medicaments (HS 3004).",
         "The export basket of Colombia fits the import demand of France at 0.42 (0–1 scale).",
         "Medicaments (HS 3004) enters France duty-free (0 % effectively applied).",
+        "No tariff edge in France: top competitors pay the same as Colombia (0.0 %).",
         "France is 8,615 km away from Colombia; logistics accessibility of 0.44 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of France at 0.83: the filter leaves the score at 0.371 (raw 0.404)."
+        "Macro stability of France at 0.83: the filter leaves the score at 0.333 (raw 0.363)."
       ],
       "GBR": [
         "United Kingdom imports USD 18,382 M a year of Medicaments (HS 3004) (average of the last 3 years).",
@@ -145,8 +159,9 @@
         "United Kingdom absorbs 0.2 % of Colombia's exports of Medicaments (HS 3004).",
         "The export basket of Colombia fits the import demand of United Kingdom at 0.43 (0–1 scale).",
         "Medicaments (HS 3004) enters United Kingdom duty-free (0 % effectively applied).",
+        "No tariff edge in United Kingdom: top competitors pay the same as Colombia (0.0 %).",
         "United Kingdom is 8,388 km away from Colombia; logistics accessibility of 0.42 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.376 (raw 0.472)."
+        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.343 (raw 0.430)."
       ],
       "ITA": [
         "Italy imports USD 20,175 M a year of Medicaments (HS 3004) (average of the last 3 years).",
@@ -155,8 +170,9 @@
         "Italy absorbs 0.0 % of Colombia's exports of Medicaments (HS 3004).",
         "The export basket of Colombia fits the import demand of Italy at 0.43 (0–1 scale).",
         "Medicaments (HS 3004) enters Italy duty-free (0 % effectively applied).",
+        "No tariff edge in Italy: top competitors pay the same as Colombia (0.0 %).",
         "Italy is 9,315 km away from Colombia; logistics accessibility of 0.41 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Italy at 0.83: the filter leaves the score at 0.400 (raw 0.437)."
+        "Macro stability of Italy at 0.83: the filter leaves the score at 0.362 (raw 0.396)."
       ],
       "JPN": [
         "Japan imports USD 15,312 M a year of Medicaments (HS 3004) (average of the last 3 years).",
@@ -164,8 +180,9 @@
         "Colombia records no sales of Medicaments (HS 3004) in Japan (0 % share).",
         "The export basket of Colombia fits the import demand of Japan at 0.46 (0–1 scale).",
         "Medicaments (HS 3004) enters Japan duty-free (0 % effectively applied).",
+        "No tariff edge in Japan: top competitors pay the same as Colombia (0.0 %).",
         "Japan is 14,300 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Japan at 0.81: the filter leaves the score at 0.384 (raw 0.424)."
+        "Macro stability of Japan at 0.81: the filter leaves the score at 0.346 (raw 0.382)."
       ],
       "KOR": [
         "South Korea imports USD 5,050 M a year of Medicaments (HS 3004) (average of the last 3 years).",
@@ -173,8 +190,9 @@
         "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
         "The export basket of Colombia fits the import demand of South Korea at 0.49 (0–1 scale).",
         "Medicaments (HS 3004) enters South Korea duty-free (0 % effectively applied).",
+        "Top competitors pay 5.3 % on average in South Korea: a preference margin of 5.3 pp in Colombia's favor.",
         "South Korea is 14,747 km away from Colombia; logistics accessibility of 0.38 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.393 (raw 0.417)."
+        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.376 (raw 0.399)."
       ],
       "MEX": [
         "Mexico imports USD 5,085 M a year of Medicaments (HS 3004) (average of the last 3 years).",
@@ -183,8 +201,9 @@
         "Mexico absorbs 3.7 % of Colombia's exports of Medicaments (HS 3004).",
         "The export basket of Colombia fits the import demand of Mexico at 0.32 (0–1 scale).",
         "Medicaments (HS 3004) faces an effectively applied tariff of 3.5 % in Mexico.",
+        "Top competitors pay 5.7 % on average in Mexico: a preference margin of 2.2 pp in Colombia's favor.",
         "Mexico is 3,396 km away from Colombia; logistics accessibility of 0.40 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Mexico at 0.80: the filter leaves the score at 0.215 (raw 0.239)."
+        "Macro stability of Mexico at 0.80: the filter leaves the score at 0.231 (raw 0.258)."
       ],
       "NLD": [
         "Netherlands imports USD 10,716 M a year of Medicaments (HS 3004) (average of the last 3 years).",
@@ -193,8 +212,9 @@
         "Netherlands absorbs 0.6 % of Colombia's exports of Medicaments (HS 3004).",
         "The export basket of Colombia fits the import demand of Netherlands at 0.46 (0–1 scale).",
         "Medicaments (HS 3004) enters Netherlands duty-free (0 % effectively applied).",
+        "No tariff edge in Netherlands: top competitors pay the same as Colombia (0.0 %).",
         "Netherlands is 8,815 km away from Colombia; logistics accessibility of 0.46 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.444 (raw 0.489)."
+        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.406 (raw 0.448)."
       ],
       "PAN": [
         "Panama imports USD 665 M a year of Medicaments (HS 3004) (average of the last 3 years).",
@@ -203,8 +223,9 @@
         "Panama absorbs 10.3 % of Colombia's exports of Medicaments (HS 3004).",
         "The export basket of Colombia fits the import demand of Panama at 0.45 (0–1 scale).",
         "Medicaments (HS 3004) enters Panama duty-free (0 % effectively applied).",
+        "No tariff edge in Panama: top competitors pay the same as Colombia (0.0 %).",
         "Panama is 734 km away from Colombia; logistics accessibility of 0.57 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Panama at 0.94: the filter leaves the score at 0.490 (raw 0.505)."
+        "Macro stability of Panama at 0.94: the filter leaves the score at 0.450 (raw 0.464)."
       ],
       "PER": [
         "Peru imports USD 671 M a year of Medicaments (HS 3004) (average of the last 3 years).",
@@ -213,8 +234,9 @@
         "Peru absorbs 11.3 % of Colombia's exports of Medicaments (HS 3004).",
         "The export basket of Colombia fits the import demand of Peru at 0.43 (0–1 scale).",
         "Medicaments (HS 3004) enters Peru duty-free (0 % effectively applied).",
+        "Top competitors pay 4.0 % on average in Peru: a preference margin of 4.0 pp in Colombia's favor.",
         "Peru is 1,945 km away from Colombia; logistics accessibility of 0.47 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Peru at 0.91: the filter leaves the score at 0.408 (raw 0.427)."
+        "Macro stability of Peru at 0.91: the filter leaves the score at 0.385 (raw 0.403)."
       ],
       "POL": [
         "Poland imports USD 8,120 M a year of Medicaments (HS 3004) (average of the last 3 years).",
@@ -222,8 +244,9 @@
         "Colombia records no sales of Medicaments (HS 3004) in Poland (0 % share).",
         "The export basket of Colombia fits the import demand of Poland at 0.36 (0–1 scale).",
         "Medicaments (HS 3004) enters Poland duty-free (0 % effectively applied).",
+        "No tariff edge in Poland: top competitors pay the same as Colombia (0.0 %).",
         "Poland is 9,790 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Poland at 0.84: the filter leaves the score at 0.368 (raw 0.400)."
+        "Macro stability of Poland at 0.84: the filter leaves the score at 0.330 (raw 0.359)."
       ],
       "PRT": [
         "Portugal imports USD 2,900 M a year of Medicaments (HS 3004) (average of the last 3 years).",
@@ -231,8 +254,9 @@
         "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Portugal at 0.39 (0–1 scale).",
         "Medicaments (HS 3004) enters Portugal duty-free (0 % effectively applied).",
+        "No tariff edge in Portugal: top competitors pay the same as Colombia (0.0 %).",
         "Portugal is 7,506 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.381 (raw 0.394)."
+        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.341 (raw 0.352)."
       ],
       "SWE": [
         "Sweden imports USD 3,884 M a year of Medicaments (HS 3004) (average of the last 3 years).",
@@ -240,8 +264,9 @@
         "Colombia records no sales of Medicaments (HS 3004) in Sweden (0 % share).",
         "The export basket of Colombia fits the import demand of Sweden at 0.37 (0–1 scale).",
         "Medicaments (HS 3004) enters Sweden duty-free (0 % effectively applied).",
+        "No tariff edge in Sweden: top competitors pay the same as Colombia (0.0 %).",
         "Sweden is 9,491 km away from Colombia; logistics accessibility of 0.45 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.377 (raw 0.419)."
+        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.340 (raw 0.378)."
       ],
       "USA": [
         "United States imports USD 92,054 M a year of Medicaments (HS 3004) (average of the last 3 years).",
@@ -250,31 +275,32 @@
         "United States absorbs 0.2 % of Colombia's exports of Medicaments (HS 3004).",
         "The export basket of Colombia fits the import demand of United States at 0.33 (0–1 scale).",
         "Medicaments (HS 3004) enters United States duty-free (0 % effectively applied).",
+        "No tariff edge in United States: top competitors pay the same as Colombia (0.0 %).",
         "United States is 4,251 km away from Colombia; logistics accessibility of 0.50 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of United States at 0.65: the filter leaves the score at 0.457 (raw 0.553)."
+        "Macro stability of United States at 0.65: the filter leaves the score at 0.423 (raw 0.512)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.495,
+        "final_score": 0.454,
         "iso3": "ESP",
         "name": "Spain",
         "reasons": [
           "destination #5 by demand growth (16.9 % per year)",
-          "destination #1 by tariff faced (0.0 % effectively applied)"
+          "destination #12 by basket complementarity (index 0.42 (0–1 scale))"
         ]
       },
       {
-        "final_score": 0.49,
+        "final_score": 0.45,
         "iso3": "PAN",
         "name": "Panama",
         "reasons": [
           "destination #8 by basket complementarity (index 0.45 (0–1 scale))",
-          "destination #1 by tariff faced (0.0 % effectively applied)"
+          "destination #1 by logistics accessibility (index 0.57 (0–1 scale))"
         ]
       },
       {
-        "final_score": 0.468,
+        "final_score": 0.43,
         "iso3": "BEL",
         "name": "Belgium",
         "reasons": [
@@ -293,8 +319,9 @@
         "Australia absorbe el 0,2 % de las exportaciones de Medicamentos (HS 3004) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Australia.",
         "Medicamentos (HS 3004) entra a Australia sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Australia: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Australia está a 14.797 km de Colombia; accesibilidad logística 0,37 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,321 (bruto 0,362)."
+        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,284 (bruto 0,320)."
       ],
       "AUT": [
         "Austria importa USD 4.584 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
@@ -302,8 +329,9 @@
         "Colombia no registra ventas de Medicamentos (HS 3004) en Austria (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Austria.",
         "Medicamentos (HS 3004) entra a Austria sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Austria: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Austria está a 9.534 km de Colombia; accesibilidad logística 0,44 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,315 (bruto 0,368)."
+        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,279 (bruto 0,327)."
       ],
       "BEL": [
         "Bélgica importa USD 23.296 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
@@ -312,8 +340,9 @@
         "Bélgica absorbe el 0,0 % de las exportaciones de Medicamentos (HS 3004) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Bélgica.",
         "Medicamentos (HS 3004) entra a Bélgica sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Bélgica: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Bélgica está a 8.749 km de Colombia; accesibilidad logística 0,45 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,468 (bruto 0,519)."
+        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,430 (bruto 0,477)."
       ],
       "BRA": [
         "Brasil importa USD 6.179 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
@@ -322,6 +351,7 @@
         "Brasil absorbe el 2,9 % de las exportaciones de Medicamentos (HS 3004) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Brasil.",
         "Medicamentos (HS 3004) entra a Brasil sin arancel (0 % efectivamente aplicado).",
+        "Los principales competidores pagan en promedio 9,3 % en Brasil: margen de preferencia de 9,3 pp a favor de Colombia.",
         "Brasil está a 4.306 km de Colombia; accesibilidad logística 0,42 (escala 0–1: distancia gravitacional + LPI).",
         "Estabilidad macro de Brasil 0,77: el filtro deja el score en 0,385 (bruto 0,435)."
       ],
@@ -332,8 +362,9 @@
         "Canadá absorbe el 2,7 % de las exportaciones de Medicamentos (HS 3004) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Canadá.",
         "Medicamentos (HS 3004) entra a Canadá sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Canadá: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Canadá está a 4.893 km de Colombia; accesibilidad logística 0,51 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,391 (bruto 0,421)."
+        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,353 (bruto 0,379)."
       ],
       "CHE": [
         "Suiza importa USD 47.595 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
@@ -341,8 +372,9 @@
         "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de Suiza.",
         "Medicamentos (HS 3004) entra a Suiza sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Suiza: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Suiza está a 8.974 km de Colombia; accesibilidad logística 0,46 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,462 (bruto 0,491)."
+        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,423 (bruto 0,450)."
       ],
       "CHL": [
         "Chile importa USD 1.527 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
@@ -351,8 +383,9 @@
         "Chile absorbe el 6,3 % de las exportaciones de Medicamentos (HS 3004) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Chile.",
         "Medicamentos (HS 3004) entra a Chile sin arancel (0 % efectivamente aplicado).",
+        "Los principales competidores pagan en promedio 3,7 % en Chile: margen de preferencia de 3,7 pp a favor de Colombia.",
         "Chile está a 4.382 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Chile 0,72: el filtro deja el score en 0,372 (bruto 0,432)."
+        "Estabilidad macro de Chile 0,72: el filtro deja el score en 0,351 (bruto 0,407)."
       ],
       "CRI": [
         "Costa Rica importa USD 709 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
@@ -361,8 +394,9 @@
         "Costa Rica absorbe el 3,9 % de las exportaciones de Medicamentos (HS 3004) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Costa Rica.",
         "Medicamentos (HS 3004) entra a Costa Rica sin arancel (0 % efectivamente aplicado).",
+        "Los principales competidores pagan en promedio 1,4 % en Costa Rica: margen de preferencia de 1,4 pp a favor de Colombia.",
         "Costa Rica está a 1.157 km de Colombia; accesibilidad logística 0,51 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Costa Rica 0,93: el filtro deja el score en 0,404 (bruto 0,418)."
+        "Estabilidad macro de Costa Rica 0,93: el filtro deja el score en 0,370 (bruto 0,383)."
       ],
       "DEU": [
         "Alemania importa USD 35.776 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
@@ -371,8 +405,9 @@
         "Alemania absorbe el 0,0 % de las exportaciones de Medicamentos (HS 3004) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Alemania.",
         "Medicamentos (HS 3004) entra a Alemania sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Alemania: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Alemania está a 9.137 km de Colombia; accesibilidad logística 0,46 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,433 (bruto 0,498)."
+        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,397 (bruto 0,457)."
       ],
       "DOM": [
         "República Dominicana importa USD 874 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
@@ -381,8 +416,9 @@
         "República Dominicana absorbe el 5,2 % de las exportaciones de Medicamentos (HS 3004) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de República Dominicana.",
         "Medicamentos (HS 3004) paga en República Dominicana un arancel efectivamente aplicado de 0,1 %.",
+        "Sin ventaja arancelaria en República Dominicana: los principales competidores pagan lo mismo que Colombia (0,1 %).",
         "República Dominicana está a 1.527 km de Colombia; accesibilidad logística 0,44 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de República Dominicana 0,78: el filtro deja el score en 0,386 (bruto 0,435)."
+        "Estabilidad macro de República Dominicana 0,78: el filtro deja el score en 0,350 (bruto 0,394)."
       ],
       "ECU": [
         "Ecuador importa USD 933 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
@@ -391,8 +427,9 @@
         "Ecuador absorbe el 23,1 % de las exportaciones de Medicamentos (HS 3004) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,51 (escala 0–1) con la demanda importadora de Ecuador.",
         "Medicamentos (HS 3004) paga en Ecuador un arancel efectivamente aplicado de 3,4 %.",
+        "Los principales competidores pagan en promedio 1,5 % en Ecuador: Colombia enfrenta una desventaja arancelaria de 1,9 pp.",
         "Ecuador está a 980 km de Colombia; accesibilidad logística 0,53 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Ecuador 0,88: el filtro deja el score en 0,379 (bruto 0,404)."
+        "Estabilidad macro de Ecuador 0,88: el filtro deja el score en 0,378 (bruto 0,403)."
       ],
       "ESP": [
         "España importa USD 16.112 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
@@ -401,8 +438,9 @@
         "España absorbe el 0,0 % de las exportaciones de Medicamentos (HS 3004) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de España.",
         "Medicamentos (HS 3004) entra a España sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en España: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "España está a 8.065 km de Colombia; accesibilidad logística 0,45 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de España 0,97: el filtro deja el score en 0,495 (bruto 0,502)."
+        "Estabilidad macro de España 0,97: el filtro deja el score en 0,454 (bruto 0,461)."
       ],
       "FIN": [
         "Finlandia importa USD 1.854 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
@@ -410,8 +448,9 @@
         "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Finlandia.",
         "Medicamentos (HS 3004) entra a Finlandia sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Finlandia: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Finlandia está a 9.955 km de Colombia; accesibilidad logística 0,47 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,337 (bruto 0,382)."
+        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,301 (bruto 0,341)."
       ],
       "FRA": [
         "Francia importa USD 18.186 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
@@ -420,8 +459,9 @@
         "Francia absorbe el 0,0 % de las exportaciones de Medicamentos (HS 3004) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de Francia.",
         "Medicamentos (HS 3004) entra a Francia sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Francia: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Francia está a 8.615 km de Colombia; accesibilidad logística 0,44 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,371 (bruto 0,404)."
+        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,333 (bruto 0,363)."
       ],
       "GBR": [
         "Reino Unido importa USD 18.382 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
@@ -430,8 +470,9 @@
         "Reino Unido absorbe el 0,2 % de las exportaciones de Medicamentos (HS 3004) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Reino Unido.",
         "Medicamentos (HS 3004) entra a Reino Unido sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Reino Unido: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Reino Unido está a 8.388 km de Colombia; accesibilidad logística 0,42 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,376 (bruto 0,472)."
+        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,343 (bruto 0,430)."
       ],
       "ITA": [
         "Italia importa USD 20.175 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
@@ -440,8 +481,9 @@
         "Italia absorbe el 0,0 % de las exportaciones de Medicamentos (HS 3004) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Italia.",
         "Medicamentos (HS 3004) entra a Italia sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Italia: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Italia está a 9.315 km de Colombia; accesibilidad logística 0,41 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,400 (bruto 0,437)."
+        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,362 (bruto 0,396)."
       ],
       "JPN": [
         "Japón importa USD 15.312 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
@@ -449,8 +491,9 @@
         "Colombia no registra ventas de Medicamentos (HS 3004) en Japón (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Japón.",
         "Medicamentos (HS 3004) entra a Japón sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Japón: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Japón está a 14.300 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,384 (bruto 0,424)."
+        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,346 (bruto 0,382)."
       ],
       "KOR": [
         "Corea del Sur importa USD 5.050 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
@@ -458,8 +501,9 @@
         "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,49 (escala 0–1) con la demanda importadora de Corea del Sur.",
         "Medicamentos (HS 3004) entra a Corea del Sur sin arancel (0 % efectivamente aplicado).",
+        "Los principales competidores pagan en promedio 5,3 % en Corea del Sur: margen de preferencia de 5,3 pp a favor de Colombia.",
         "Corea del Sur está a 14.747 km de Colombia; accesibilidad logística 0,38 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,393 (bruto 0,417)."
+        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,376 (bruto 0,399)."
       ],
       "MEX": [
         "México importa USD 5.085 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
@@ -468,8 +512,9 @@
         "México absorbe el 3,7 % de las exportaciones de Medicamentos (HS 3004) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de México.",
         "Medicamentos (HS 3004) paga en México un arancel efectivamente aplicado de 3,5 %.",
+        "Los principales competidores pagan en promedio 5,7 % en México: margen de preferencia de 2,2 pp a favor de Colombia.",
         "México está a 3.396 km de Colombia; accesibilidad logística 0,40 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de México 0,80: el filtro deja el score en 0,215 (bruto 0,239)."
+        "Estabilidad macro de México 0,80: el filtro deja el score en 0,231 (bruto 0,258)."
       ],
       "NLD": [
         "Países Bajos importa USD 10.716 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
@@ -478,8 +523,9 @@
         "Países Bajos absorbe el 0,6 % de las exportaciones de Medicamentos (HS 3004) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Países Bajos.",
         "Medicamentos (HS 3004) entra a Países Bajos sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Países Bajos: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Países Bajos está a 8.815 km de Colombia; accesibilidad logística 0,46 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,444 (bruto 0,489)."
+        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,406 (bruto 0,448)."
       ],
       "PAN": [
         "Panamá importa USD 665 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
@@ -488,8 +534,9 @@
         "Panamá absorbe el 10,3 % de las exportaciones de Medicamentos (HS 3004) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Panamá.",
         "Medicamentos (HS 3004) entra a Panamá sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Panamá: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Panamá está a 734 km de Colombia; accesibilidad logística 0,57 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Panamá 0,94: el filtro deja el score en 0,490 (bruto 0,505)."
+        "Estabilidad macro de Panamá 0,94: el filtro deja el score en 0,450 (bruto 0,464)."
       ],
       "PER": [
         "Perú importa USD 671 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
@@ -498,8 +545,9 @@
         "Perú absorbe el 11,3 % de las exportaciones de Medicamentos (HS 3004) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Perú.",
         "Medicamentos (HS 3004) entra a Perú sin arancel (0 % efectivamente aplicado).",
+        "Los principales competidores pagan en promedio 4,0 % en Perú: margen de preferencia de 4,0 pp a favor de Colombia.",
         "Perú está a 1.945 km de Colombia; accesibilidad logística 0,47 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Perú 0,91: el filtro deja el score en 0,408 (bruto 0,427)."
+        "Estabilidad macro de Perú 0,91: el filtro deja el score en 0,385 (bruto 0,403)."
       ],
       "POL": [
         "Polonia importa USD 8.120 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
@@ -507,8 +555,9 @@
         "Colombia no registra ventas de Medicamentos (HS 3004) en Polonia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,36 (escala 0–1) con la demanda importadora de Polonia.",
         "Medicamentos (HS 3004) entra a Polonia sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Polonia: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Polonia está a 9.790 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,368 (bruto 0,400)."
+        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,330 (bruto 0,359)."
       ],
       "PRT": [
         "Portugal importa USD 2.900 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
@@ -516,8 +565,9 @@
         "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,39 (escala 0–1) con la demanda importadora de Portugal.",
         "Medicamentos (HS 3004) entra a Portugal sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Portugal: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Portugal está a 7.506 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,381 (bruto 0,394)."
+        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,341 (bruto 0,352)."
       ],
       "SWE": [
         "Suecia importa USD 3.884 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
@@ -525,8 +575,9 @@
         "Colombia no registra ventas de Medicamentos (HS 3004) en Suecia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Suecia.",
         "Medicamentos (HS 3004) entra a Suecia sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Suecia: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Suecia está a 9.491 km de Colombia; accesibilidad logística 0,45 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,377 (bruto 0,419)."
+        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,340 (bruto 0,378)."
       ],
       "USA": [
         "Estados Unidos importa USD 92.054 M al año de Medicamentos (HS 3004) (promedio de los últimos 3 años).",
@@ -535,31 +586,32 @@
         "Estados Unidos absorbe el 0,2 % de las exportaciones de Medicamentos (HS 3004) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,33 (escala 0–1) con la demanda importadora de Estados Unidos.",
         "Medicamentos (HS 3004) entra a Estados Unidos sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Estados Unidos: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Estados Unidos está a 4.251 km de Colombia; accesibilidad logística 0,50 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,457 (bruto 0,553)."
+        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,423 (bruto 0,512)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.495,
+        "final_score": 0.454,
         "iso3": "ESP",
         "name": "España",
         "reasons": [
           "5.º destino por crecimiento de la demanda (16,9 % anual)",
-          "1.º destino por arancel enfrentado (0,0 % efectivamente aplicado)"
+          "12.º destino por complementariedad de canastas (índice 0,42 (escala 0–1))"
         ]
       },
       {
-        "final_score": 0.49,
+        "final_score": 0.45,
         "iso3": "PAN",
         "name": "Panamá",
         "reasons": [
           "8.º destino por complementariedad de canastas (índice 0,45 (escala 0–1))",
-          "1.º destino por arancel enfrentado (0,0 % efectivamente aplicado)"
+          "1.º destino por accesibilidad logística (índice 0,57 (escala 0–1))"
         ]
       },
       {
-        "final_score": 0.468,
+        "final_score": 0.43,
         "iso3": "BEL",
         "name": "Bélgica",
         "reasons": [

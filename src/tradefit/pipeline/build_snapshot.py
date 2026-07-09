@@ -10,6 +10,7 @@ import argparse
 import json
 import logging
 from collections.abc import Callable
+from dataclasses import replace
 
 import pandas as pd
 from dotenv import load_dotenv
@@ -91,6 +92,62 @@ def _rca_from_totals(export_totals: pd.DataFrame) -> float:
         total_exports_origin=float(row[("origin", "total")]),
         product_exports_world=float(row[("world", "product")]),
         total_exports_world=float(row[("world", "total")]),
+    )
+
+
+def _competitor_partner_plan(
+    supplier_table: pd.DataFrame,
+) -> tuple[dict[str, list[str]], dict[str, list[str]], dict[str, set[str]]]:
+    """Traduce el top de proveedores de cada destino al plan de consultas WITS.
+
+    Selecciona los ``config.PREF_MARGIN_TOP_COMPETITORS`` mayores proveedores
+    de cada destino excluyendo al origen y los agregados estadísticos de
+    Comtrade, y traduce sus códigos M49 al vocabulario de WITS: miembro de la
+    UE → bloque 918 (con arancel 0 por construcción si el destino también es
+    UE — unión aduanera), excepciones de código
+    (``config.COMTRADE_TO_WITS_PARTNER``) y zero-padding a 3 dígitos.
+
+    Returns:
+        ``(partners_by_reporter, competitors_by_destination, zero_rated)`` —
+        qué pedir a WITS, contra quién promediar en cada destino (puede
+        repetir el 918 si varios rivales son comunitarios) y qué pares
+        entran con arancel 0 sin consultar.
+    """
+    eu_code = f"{config.WITS_EU_CODE:03d}"
+    origin = str(config.ORIGIN_COMTRADE_CODE)
+    partners_by_reporter: dict[str, set[str]] = {}
+    competitors_by_destination: dict[str, list[str]] = {}
+    zero_rated: dict[str, set[str]] = {}
+    for iso3_raw, group in supplier_table.groupby(config.COL_COUNTRY):
+        iso3 = str(iso3_raw)
+        reporter_num = config.WITS_REPORTER_CODES.get(iso3)
+        if reporter_num is None:
+            continue
+        chosen: list[str] = []
+        for code_raw in group.sort_values(config.COL_SUPPLIER_RANK)[config.COL_PARTNER_CODE]:
+            code = str(code_raw)
+            if code == origin or code in config.COMTRADE_AGGREGATE_PARTNERS or not code.isdigit():
+                continue
+            if code in config.EU_MEMBER_COMTRADE_CODES:
+                wits_code = eu_code
+                if reporter_num == config.WITS_EU_CODE:
+                    zero_rated.setdefault(iso3, set()).add(eu_code)
+            else:
+                wits_code = f"{int(config.COMTRADE_TO_WITS_PARTNER.get(code, code)):03d}"
+            chosen.append(wits_code)
+            if len(chosen) >= config.PREF_MARGIN_TOP_COMPETITORS:
+                break
+        if not chosen:
+            continue
+        competitors_by_destination[iso3] = chosen
+        to_query = {c for c in chosen if c not in zero_rated.get(iso3, set())}
+        if to_query:
+            reporter = f"{reporter_num:03d}"
+            partners_by_reporter.setdefault(reporter, set()).update(to_query)
+    return (
+        {reporter: sorted(codes) for reporter, codes in partners_by_reporter.items()},
+        competitors_by_destination,
+        zero_rated,
     )
 
 
@@ -194,6 +251,29 @@ def build_snapshot(
             export_shares = indices.destination_shares(exports_series)
             destination_hhi = indices.destination_concentration(exports_series)
 
+    # Competidores: quién le vende el producto a cada destino (solo fuente
+    # real). El cálculo de cuotas/rank es puro (domain.indices.supplier_shares)
+    # y se necesita ANTES del ranking: el margen de preferencia compara el
+    # arancel del origen con el que enfrentan los top proveedores rivales.
+    supplier_table: pd.DataFrame | None = None
+    if source == "comtrade":
+        _notify(on_stage, "Proveedores del producto en cada destino (competidores)")
+        competitor_imports = competitors.load_competitor_imports(hs)
+        if not competitor_imports.empty:
+            supplier_table = competitors_schema.validate(
+                indices.supplier_shares(competitor_imports)
+            )
+    if supplier_table is not None:
+        _notify(on_stage, "Aranceles que enfrentan los competidores (margen de preferencia)")
+        by_reporter, by_destination, zero_rated = _competitor_partner_plan(supplier_table)
+        competitor_prefs = wits.load_competitor_tariffs(hs, by_reporter)
+        data = replace(
+            data,
+            competitor_tariff=indices.competitor_tariff_faced(
+                data.tariffs, competitor_prefs, by_destination, zero_rated
+            ),
+        )
+
     _notify(on_stage, "Calculando índices, estabilidad macro y ranking")
     ranking = rank_markets(data, config.WEIGHTS)
     # El caché macro también trae indicadores de contexto (LPI): al filtro
@@ -214,17 +294,6 @@ def build_snapshot(
     position = int(ranking.columns.get_indexer([config.COL_STABILITY])[0])
     ranking.insert(position, config.COL_LPI, ranking[config.COL_COUNTRY].map(lpi))
     validated: pd.DataFrame = ranking_schema.validate(ranking)
-
-    # Competidores: quién le vende el producto a cada destino (solo fuente
-    # real). El cálculo de cuotas/rank es puro (domain.indices.supplier_shares).
-    supplier_table: pd.DataFrame | None = None
-    if source == "comtrade":
-        _notify(on_stage, "Proveedores del producto en cada destino (competidores)")
-        competitor_imports = competitors.load_competitor_imports(hs)
-        if not competitor_imports.empty:
-            supplier_table = competitors_schema.validate(
-                indices.supplier_shares(competitor_imports)
-            )
 
     # Valores unitarios (USD/kg): análisis avanzado EXCLUSIVO del catálogo
     # curado — las partidas del buscador on-demand no llevan este artefacto.

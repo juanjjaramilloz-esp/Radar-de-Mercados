@@ -321,6 +321,16 @@ def comtrade_bilateral_cache(hs: str) -> Path:
     return RAW_DIR / f"comtrade_{hs}_bilateral_{ORIGIN_ISO3}.json"
 
 
+def comtrade_imports_hist_cache(hs: str, years: tuple[int, ...]) -> Path:
+    """Caché crudo de importaciones de una ventana histórica (backtest)."""
+    return RAW_DIR / f"comtrade_{hs}_imports_hist_{years[0]}_{years[-1]}.json"
+
+
+def comtrade_bilateral_hist_cache(hs: str, years: tuple[int, ...]) -> Path:
+    """Caché crudo del flujo bilateral de una ventana histórica (backtest)."""
+    return RAW_DIR / f"comtrade_{hs}_bilateral_hist_{years[0]}_{years[-1]}.json"
+
+
 def comtrade_exports_cache(hs: str) -> Path:
     """Caché crudo de totales de exportación (RCA) del producto ``hs``."""
     return RAW_DIR / f"comtrade_{hs}_export_totals.json"
@@ -364,6 +374,16 @@ def comtrade_top_exports_cache() -> Path:
 # exportadora de Colombia disponible, así que este año se fija por separado
 # (verificar disponibilidad del origen antes de adelantarlo).
 BASKET_YEAR: Final = 2024
+
+# --- Backtest del score (validación predictiva fuera de muestra) ---
+# Ventana de entrenamiento: las métricas de comercio del score se recalculan
+# con estos años (as-of 2022) y el score resultante se contrasta con el
+# crecimiento bilateral realizado en IMPORT_YEARS (2023–2025). La ventana
+# tiene el mismo ancho que MARKET_SIZE_YEARS para que el score histórico use
+# la definición oficial.
+BACKTEST_TRAIN_YEARS: Final[tuple[int, ...]] = (2020, 2021, 2022)
+#: Artefacto del backtest que lee la app (independiente del producto).
+BACKTEST_JSON: Final = PROCESSED_DIR / "backtest.json"
 
 # --- World Bank WITS (aranceles TRAINS; sin API key) ---
 # Endpoint SDMX REST del dataflow TRAINS. La clave es
@@ -425,6 +445,67 @@ WITS_REPORTER_CODES: Final[dict[str, int]] = {
 def wits_tariffs_cache(hs: str) -> Path:
     """Caché crudo de aranceles WITS (MFN + preferencial COL) del producto ``hs``."""
     return RAW_DIR / f"wits_{hs}_tariffs_{ORIGIN_ISO3}.json"
+
+
+def wits_competitor_tariffs_cache(hs: str) -> Path:
+    """Caché crudo de aranceles preferenciales hacia los competidores (WITS)."""
+    return RAW_DIR / f"wits_{hs}_tariffs_competidores.json"
+
+
+# --- Margen de preferencia (aranceles que enfrentan los competidores) ---
+# Nº de mayores proveedores del destino (excluido el origen) contra los que
+# se mide el margen: 3 captura el grueso de la competencia sin disparar las
+# consultas a WITS (una por reporter con los partners unidos con "+").
+PREF_MARGIN_TOP_COMPETITORS: Final = 3
+# Comtrade usa códigos M49 extendidos para algunos países; WITS exige el ISO
+# numérico puro. Solo difieren estos (verificado contra los proveedores
+# presentes en los 15 productos del catálogo, 2026-07).
+COMTRADE_TO_WITS_PARTNER: Final[dict[str, str]] = {
+    "251": "250",  # Francia
+    "381": "380",  # Italia (código legacy)
+    "579": "578",  # Noruega
+    "699": "356",  # India
+    "757": "756",  # Suiza
+    "842": "840",  # EE. UU.
+}
+# Agregados estadísticos de Comtrade sin país equivalente en WITS: se omiten
+# del margen (no son competidores identificables).
+COMTRADE_AGGREGATE_PARTNERS: Final[frozenset[str]] = frozenset({"490", "568", "838", "899"})
+# Miembros de la UE por código Comtrade: la unión aduanera implica arancel 0
+# entre miembros, y las preferencias de terceros hacia cualquier miembro se
+# registran en TRAINS bajo el bloque 918.
+EU_MEMBER_COMTRADE_CODES: Final[frozenset[str]] = frozenset(
+    {
+        "40",  # Austria
+        "56",  # Bélgica
+        "100",  # Bulgaria
+        "191",  # Croacia
+        "196",  # Chipre
+        "203",  # Chequia
+        "208",  # Dinamarca
+        "233",  # Estonia
+        "246",  # Finlandia
+        "251",  # Francia
+        "276",  # Alemania
+        "300",  # Grecia
+        "348",  # Hungría
+        "372",  # Irlanda
+        "380",  # Italia
+        "381",  # Italia (legacy)
+        "428",  # Letonia
+        "440",  # Lituania
+        "442",  # Luxemburgo
+        "470",  # Malta
+        "528",  # Países Bajos
+        "616",  # Polonia
+        "620",  # Portugal
+        "642",  # Rumania
+        "703",  # Eslovaquia
+        "705",  # Eslovenia
+        "724",  # España
+        "752",  # Suecia
+    }
+)
 
 
 # --- CEPII GeoDist (distancias bilaterales; archivo estático, sin API) ---
@@ -526,6 +607,8 @@ COL_NET_WGT: Final = "net_weight_kg"  # peso neto del flujo (Comtrade netWgt)
 COL_UV_MARKET: Final = "uv_market_usd_kg"  # valor unitario de las imports del destino
 COL_UV_ORIGIN: Final = "uv_origin_usd_kg"  # valor unitario del flujo origen→destino
 COL_UV_PREMIUM: Final = "uv_premium"  # UV origen / UV destino − 1 (fracción)
+COL_COMPETITOR_TARIFF: Final = "competitor_tariff"  # AHS promedio de los top competidores
+COL_PREF_MARGIN: Final = "preference_margin"  # margen de preferencia relativo (pondera)
 COL_COVERAGE: Final = "data_coverage"  # % del peso del score con dato observado (transparencia)
 COL_STABILITY: Final = "stability_score"
 COL_SCORE: Final = "opportunity_score"
@@ -554,14 +637,19 @@ MARKET_SIZE_YEARS: Final = 3
 # cada una) porque condicionan el costo de llegar pero no crean demanda.
 # Para dar cabida a la accesibilidad (2026-07-08) ceden 3 pp el tamaño de
 # mercado, 2 pp el crecimiento, 2 pp la complementariedad, 1 pp la cuota y
-# 2 pp el momentum (la métrica más ruidosa de la ventana). Suman 1.0.
+# 2 pp el momentum (la métrica más ruidosa de la ventana). El bloque
+# arancelario (0.10) se reparte desde 2026-07-09 entre el nivel absoluto del
+# arancel (0.05: costo real de entrada) y el margen de preferencia relativo
+# (0.05: la ventaja/desventaja frente a los competidores — un arancel de 0 %
+# no es ventaja si los rivales también pagan 0 %). Suman 1.0.
 WEIGHTS: Final[dict[str, float]] = {
     "market_size": 0.22,  # demanda actual del destino (nivel)
     "import_growth": 0.18,  # dinámica de la demanda (CAGR de la ventana)
     "market_share": 0.14,  # cuota ya ganada por el origen (último año)
     "share_trend": 0.08,  # momentum de esa cuota (Δ en la ventana)
     "complementarity": 0.18,  # encaje canasta origen ↔ demanda destino
-    "tariff_faced": 0.10,  # arancel efectivamente aplicado (menos = mejor)
+    "tariff_faced": 0.05,  # arancel efectivamente aplicado (menos = mejor)
+    "preference_margin": 0.05,  # ventaja arancelaria vs. competidores (más = mejor)
     "accessibility": 0.10,  # accesibilidad logística: distancia (gravedad) + LPI
 }
 # El RCA de Balassa del origen es constante entre destinos: se reporta como

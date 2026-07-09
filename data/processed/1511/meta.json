@@ -52,7 +52,8 @@
     "import_growth": 0.18,
     "market_share": 0.14,
     "market_size": 0.22,
+    "preference_margin": 0.05,
     "share_trend": 0.08,
-    "tariff_faced": 0.1
+    "tariff_faced": 0.05
   }
 }

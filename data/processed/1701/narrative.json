@@ -8,8 +8,9 @@
         "Australia absorbs 0.1 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Australia at 0.40 (0–1 scale).",
         "Cane sugar (HS 1701) enters Australia duty-free (0 % effectively applied).",
+        "No tariff edge in Australia: top competitors pay the same as Colombia (0.0 %).",
         "Australia is 14,797 km away from Colombia; logistics accessibility of 0.37 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Australia at 0.77: the filter leaves the score at 0.303 (raw 0.342)."
+        "Macro stability of Australia at 0.77: the filter leaves the score at 0.258 (raw 0.292)."
       ],
       "AUT": [
         "Austria imports USD 220 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -17,8 +18,9 @@
         "Colombia already holds 1.1 % of the market and gains 0.7 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Austria at 0.37 (0–1 scale).",
         "Cane sugar (HS 1701) enters Austria duty-free (0 % effectively applied).",
+        "No tariff edge in Austria: top competitors pay the same as Colombia (0.0 %).",
         "Austria is 9,534 km away from Colombia; logistics accessibility of 0.44 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Austria at 0.71: the filter leaves the score at 0.289 (raw 0.338)."
+        "Macro stability of Austria at 0.71: the filter leaves the score at 0.246 (raw 0.288)."
       ],
       "BEL": [
         "Belgium imports USD 519 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -27,8 +29,9 @@
         "Belgium absorbs 3.1 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Belgium at 0.45 (0–1 scale).",
         "Cane sugar (HS 1701) enters Belgium duty-free (0 % effectively applied).",
+        "No tariff edge in Belgium: top competitors pay the same as Colombia (0.0 %).",
         "Belgium is 8,749 km away from Colombia; logistics accessibility of 0.45 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.403 (raw 0.447)."
+        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.358 (raw 0.397)."
       ],
       "BRA": [
         "Brazil imports USD 4 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -37,8 +40,9 @@
         "Brazil absorbs 0.0 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Brazil at 0.37 (0–1 scale).",
         "Cane sugar (HS 1701) faces an effectively applied tariff of 11.5 % in Brazil.",
+        "Top competitors pay 16.0 % on average in Brazil: a preference margin of 4.5 pp in Colombia's favor.",
         "Brazil is 4,306 km away from Colombia; logistics accessibility of 0.42 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Brazil at 0.77: the filter leaves the score at 0.280 (raw 0.316)."
+        "Macro stability of Brazil at 0.77: the filter leaves the score at 0.286 (raw 0.323)."
       ],
       "CAN": [
         "Canada imports USD 822 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -47,8 +51,9 @@
         "Canada absorbs 2.4 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Canada at 0.37 (0–1 scale).",
         "Cane sugar (HS 1701) enters Canada duty-free (0 % effectively applied).",
+        "No tariff edge in Canada: top competitors pay the same as Colombia (0.0 %).",
         "Canada is 4,893 km away from Colombia; logistics accessibility of 0.51 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Canada at 0.86: the filter leaves the score at 0.410 (raw 0.441)."
+        "Macro stability of Canada at 0.86: the filter leaves the score at 0.364 (raw 0.391)."
       ],
       "CHE": [
         "Switzerland imports USD 88 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -57,8 +62,9 @@
         "Switzerland absorbs 0.0 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Switzerland at 0.32 (0–1 scale).",
         "Cane sugar (HS 1701) enters Switzerland duty-free (0 % effectively applied).",
+        "No tariff edge in Switzerland: top competitors pay the same as Colombia (0.0 %).",
         "Switzerland is 8,974 km away from Colombia; logistics accessibility of 0.46 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.286 (raw 0.305)."
+        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.240 (raw 0.255)."
       ],
       "CHL": [
         "Chile imports USD 364 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -67,8 +73,9 @@
         "Chile absorbs 15.5 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Chile at 0.46 (0–1 scale).",
         "Cane sugar (HS 1701) enters Chile duty-free (0 % effectively applied).",
+        "Top competitors pay 0.4 % on average in Chile: a preference margin of 0.4 pp in Colombia's favor.",
         "Chile is 4,382 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Chile at 0.72: the filter leaves the score at 0.371 (raw 0.431)."
+        "Macro stability of Chile at 0.72: the filter leaves the score at 0.332 (raw 0.385)."
       ],
       "CRI": [
         "Costa Rica imports USD 1 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -77,8 +84,9 @@
         "Costa Rica absorbs 0.0 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Costa Rica at 0.37 (0–1 scale).",
         "Cane sugar (HS 1701) faces an effectively applied tariff of 45.0 % in Costa Rica.",
+        "No tariff edge in Costa Rica: top competitors pay the same as Colombia (45.0 %).",
         "Costa Rica is 1,157 km away from Colombia; logistics accessibility of 0.51 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Costa Rica at 0.93: the filter leaves the score at 0.373 (raw 0.386)."
+        "Macro stability of Costa Rica at 0.93: the filter leaves the score at 0.350 (raw 0.362)."
       ],
       "DEU": [
         "Germany imports USD 465 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -87,8 +95,9 @@
         "Germany absorbs 3.0 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Germany at 0.37 (0–1 scale).",
         "Cane sugar (HS 1701) enters Germany duty-free (0 % effectively applied).",
+        "No tariff edge in Germany: top competitors pay the same as Colombia (0.0 %).",
         "Germany is 9,137 km away from Colombia; logistics accessibility of 0.46 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Germany at 0.74: the filter leaves the score at 0.323 (raw 0.372)."
+        "Macro stability of Germany at 0.74: the filter leaves the score at 0.280 (raw 0.322)."
       ],
       "DOM": [
         "Dominican Republic imports USD 67 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -97,6 +106,7 @@
         "Dominican Republic absorbs 0.6 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Dominican Republic at 0.46 (0–1 scale).",
         "Cane sugar (HS 1701) faces an effectively applied tariff of 85.0 % in Dominican Republic.",
+        "No tariff edge in Dominican Republic: top competitors pay the same as Colombia (85.0 %).",
         "Dominican Republic is 1,527 km away from Colombia; logistics accessibility of 0.44 (0–1 scale: gravity distance + LPI).",
         "Macro stability of Dominican Republic at 0.78: the filter leaves the score at 0.295 (raw 0.332)."
       ],
@@ -107,8 +117,9 @@
         "Ecuador absorbs 8.8 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Ecuador at 0.51 (0–1 scale).",
         "Cane sugar (HS 1701) faces an effectively applied tariff of 19.1 % in Ecuador.",
+        "Top competitors pay 20.6 % on average in Ecuador: a preference margin of 1.5 pp in Colombia's favor.",
         "Ecuador is 980 km away from Colombia; logistics accessibility of 0.53 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Ecuador at 0.88: the filter leaves the score at 0.540 (raw 0.574)."
+        "Macro stability of Ecuador at 0.88: the filter leaves the score at 0.519 (raw 0.552)."
       ],
       "ESP": [
         "Spain imports USD 973 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -117,8 +128,9 @@
         "Spain absorbs 3.8 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Spain at 0.42 (0–1 scale).",
         "Cane sugar (HS 1701) enters Spain duty-free (0 % effectively applied).",
+        "No tariff edge in Spain: top competitors pay the same as Colombia (0.0 %).",
         "Spain is 8,065 km away from Colombia; logistics accessibility of 0.45 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Spain at 0.97: the filter leaves the score at 0.438 (raw 0.445)."
+        "Macro stability of Spain at 0.97: the filter leaves the score at 0.389 (raw 0.395)."
       ],
       "FIN": [
         "Finland imports USD 77 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -127,8 +139,9 @@
         "Finland absorbs 0.0 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Finland at 0.40 (0–1 scale).",
         "Cane sugar (HS 1701) enters Finland duty-free (0 % effectively applied).",
+        "No tariff edge in Finland: top competitors pay the same as Colombia (0.0 %).",
         "Finland is 9,955 km away from Colombia; logistics accessibility of 0.47 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Finland at 0.76: the filter leaves the score at 0.315 (raw 0.357)."
+        "Macro stability of Finland at 0.76: the filter leaves the score at 0.271 (raw 0.307)."
       ],
       "FRA": [
         "France imports USD 330 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -137,8 +150,9 @@
         "France absorbs 2.3 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of France at 0.42 (0–1 scale).",
         "Cane sugar (HS 1701) enters France duty-free (0 % effectively applied).",
+        "No tariff edge in France: top competitors pay the same as Colombia (0.0 %).",
         "France is 8,615 km away from Colombia; logistics accessibility of 0.44 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of France at 0.83: the filter leaves the score at 0.380 (raw 0.414)."
+        "Macro stability of France at 0.83: the filter leaves the score at 0.334 (raw 0.364)."
       ],
       "GBR": [
         "United Kingdom imports USD 583 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -147,8 +161,9 @@
         "United Kingdom absorbs 0.9 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of United Kingdom at 0.43 (0–1 scale).",
         "Cane sugar (HS 1701) enters United Kingdom duty-free (0 % effectively applied).",
+        "No tariff edge in United Kingdom: top competitors pay the same as Colombia (0.0 %).",
         "United Kingdom is 8,388 km away from Colombia; logistics accessibility of 0.42 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.320 (raw 0.401)."
+        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.280 (raw 0.351)."
       ],
       "ITA": [
         "Italy imports USD 1,280 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -157,8 +172,9 @@
         "Italy absorbs 1.9 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Italy at 0.43 (0–1 scale).",
         "Cane sugar (HS 1701) enters Italy duty-free (0 % effectively applied).",
+        "No tariff edge in Italy: top competitors pay the same as Colombia (0.0 %).",
         "Italy is 9,315 km away from Colombia; logistics accessibility of 0.41 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Italy at 0.83: the filter leaves the score at 0.438 (raw 0.479)."
+        "Macro stability of Italy at 0.83: the filter leaves the score at 0.392 (raw 0.429)."
       ],
       "JPN": [
         "Japan imports USD 712 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -166,8 +182,9 @@
         "Colombia records no sales of Cane sugar (HS 1701) in Japan (0 % share).",
         "The export basket of Colombia fits the import demand of Japan at 0.46 (0–1 scale).",
         "Cane sugar (HS 1701) enters Japan duty-free (0 % effectively applied).",
+        "No tariff edge in Japan: top competitors pay the same as Colombia (0.0 %).",
         "Japan is 14,300 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Japan at 0.81: the filter leaves the score at 0.402 (raw 0.444)."
+        "Macro stability of Japan at 0.81: the filter leaves the score at 0.357 (raw 0.394)."
       ],
       "KOR": [
         "South Korea imports USD 919 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -176,8 +193,9 @@
         "South Korea absorbs 0.0 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of South Korea at 0.49 (0–1 scale).",
         "Cane sugar (HS 1701) faces an effectively applied tariff of 10.4 % in South Korea.",
+        "Top competitors pay 11.4 % on average in South Korea: a preference margin of 1.1 pp in Colombia's favor.",
         "South Korea is 14,747 km away from Colombia; logistics accessibility of 0.38 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.439 (raw 0.466)."
+        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.409 (raw 0.434)."
       ],
       "MEX": [
         "Mexico imports USD 353 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -186,8 +204,9 @@
         "Mexico absorbs 0.4 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Mexico at 0.32 (0–1 scale).",
         "Cane sugar (HS 1701) enters Mexico duty-free (0 % effectively applied).",
+        "No tariff edge in Mexico: top competitors pay the same as Colombia (0.0 %).",
         "Mexico is 3,396 km away from Colombia; logistics accessibility of 0.40 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Mexico at 0.80: the filter leaves the score at 0.195 (raw 0.217)."
+        "Macro stability of Mexico at 0.80: the filter leaves the score at 0.150 (raw 0.167)."
       ],
       "NLD": [
         "Netherlands imports USD 292 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -196,8 +215,9 @@
         "Netherlands absorbs 1.3 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Netherlands at 0.46 (0–1 scale).",
         "Cane sugar (HS 1701) enters Netherlands duty-free (0 % effectively applied).",
+        "No tariff edge in Netherlands: top competitors pay the same as Colombia (0.0 %).",
         "Netherlands is 8,815 km away from Colombia; logistics accessibility of 0.46 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.415 (raw 0.458)."
+        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.370 (raw 0.408)."
       ],
       "PAN": [
         "Panama imports USD 1 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -206,8 +226,9 @@
         "Panama absorbs 0.1 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Panama at 0.45 (0–1 scale).",
         "Cane sugar (HS 1701) faces an effectively applied tariff of 84.0 % in Panama.",
+        "No tariff edge in Panama: top competitors pay the same as Colombia (84.0 %).",
         "Panama is 734 km away from Colombia; logistics accessibility of 0.57 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Panama at 0.94: the filter leaves the score at 0.336 (raw 0.346)."
+        "Macro stability of Panama at 0.94: the filter leaves the score at 0.335 (raw 0.346)."
       ],
       "PER": [
         "Peru imports USD 197 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -216,8 +237,9 @@
         "Peru absorbs 6.7 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Peru at 0.43 (0–1 scale).",
         "Cane sugar (HS 1701) enters Peru duty-free (0 % effectively applied).",
+        "No tariff edge in Peru: top competitors pay the same as Colombia (0.0 %).",
         "Peru is 1,945 km away from Colombia; logistics accessibility of 0.47 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Peru at 0.91: the filter leaves the score at 0.452 (raw 0.473)."
+        "Macro stability of Peru at 0.91: the filter leaves the score at 0.404 (raw 0.423)."
       ],
       "POL": [
         "Poland imports USD 112 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -226,8 +248,9 @@
         "Poland absorbs 0.2 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of Poland at 0.36 (0–1 scale).",
         "Cane sugar (HS 1701) enters Poland duty-free (0 % effectively applied).",
+        "No tariff edge in Poland: top competitors pay the same as Colombia (0.0 %).",
         "Poland is 9,790 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Poland at 0.84: the filter leaves the score at 0.236 (raw 0.256)."
+        "Macro stability of Poland at 0.84: the filter leaves the score at 0.190 (raw 0.206)."
       ],
       "PRT": [
         "Portugal imports USD 255 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -235,8 +258,9 @@
         "Colombia already holds 0.3 % of the market and gains 0.2 pp of share over the window.",
         "The export basket of Colombia fits the import demand of Portugal at 0.39 (0–1 scale).",
         "Cane sugar (HS 1701) enters Portugal duty-free (0 % effectively applied).",
+        "No tariff edge in Portugal: top competitors pay the same as Colombia (0.0 %).",
         "Portugal is 7,506 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.319 (raw 0.330)."
+        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.270 (raw 0.280)."
       ],
       "SWE": [
         "Sweden imports USD 68 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -244,8 +268,9 @@
         "Colombia records no sales of Cane sugar (HS 1701) in Sweden (0 % share).",
         "The export basket of Colombia fits the import demand of Sweden at 0.37 (0–1 scale).",
         "Cane sugar (HS 1701) enters Sweden duty-free (0 % effectively applied).",
+        "No tariff edge in Sweden: top competitors pay the same as Colombia (0.0 %).",
         "Sweden is 9,491 km away from Colombia; logistics accessibility of 0.45 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.300 (raw 0.333)."
+        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.255 (raw 0.283)."
       ],
       "USA": [
         "United States imports USD 2,354 M a year of Cane sugar (HS 1701) (average of the last 3 years).",
@@ -254,13 +279,14 @@
         "United States absorbs 28.8 % of Colombia's exports of Cane sugar (HS 1701).",
         "The export basket of Colombia fits the import demand of United States at 0.33 (0–1 scale).",
         "Cane sugar (HS 1701) faces an effectively applied tariff of 0.2 % in United States.",
+        "Top competitors pay 0.8 % on average in United States: a preference margin of 0.6 pp in Colombia's favor.",
         "United States is 4,251 km away from Colombia; logistics accessibility of 0.50 (0–1 scale: gravity distance + LPI).",
-        "Macro stability of United States at 0.65: the filter leaves the score at 0.445 (raw 0.538)."
+        "Macro stability of United States at 0.65: the filter leaves the score at 0.409 (raw 0.495)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.54,
+        "final_score": 0.519,
         "iso3": "ECU",
         "name": "Ecuador",
         "reasons": [
@@ -269,21 +295,21 @@
         ]
       },
       {
-        "final_score": 0.452,
-        "iso3": "PER",
-        "name": "Peru",
-        "reasons": [
-          "destination #10 by basket complementarity (index 0.43 (0–1 scale))",
-          "destination #1 by tariff faced (0.0 % effectively applied)"
-        ]
-      },
-      {
-        "final_score": 0.445,
+        "final_score": 0.409,
         "iso3": "USA",
         "name": "United States",
         "reasons": [
           "destination #1 by market size (USD 2,354 M/year)",
-          "destination #20 by tariff faced (0.2 % effectively applied)"
+          "destination #6 by share momentum (+1.2 pp over the window)"
+        ]
+      },
+      {
+        "final_score": 0.409,
+        "iso3": "KOR",
+        "name": "South Korea",
+        "reasons": [
+          "destination #2 by basket complementarity (index 0.49 (0–1 scale))",
+          "destination #4 by market size (USD 919 M/year)"
         ]
       }
     ]
@@ -297,8 +323,9 @@
         "Australia absorbe el 0,1 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Australia.",
         "Azúcar de caña (HS 1701) entra a Australia sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Australia: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Australia está a 14.797 km de Colombia; accesibilidad logística 0,37 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,303 (bruto 0,342)."
+        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,258 (bruto 0,292)."
       ],
       "AUT": [
         "Austria importa USD 220 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -306,8 +333,9 @@
         "Colombia ya tiene 1,1 % del mercado y gana 0,7 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Austria.",
         "Azúcar de caña (HS 1701) entra a Austria sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Austria: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Austria está a 9.534 km de Colombia; accesibilidad logística 0,44 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,289 (bruto 0,338)."
+        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,246 (bruto 0,288)."
       ],
       "BEL": [
         "Bélgica importa USD 519 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -316,8 +344,9 @@
         "Bélgica absorbe el 3,1 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Bélgica.",
         "Azúcar de caña (HS 1701) entra a Bélgica sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Bélgica: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Bélgica está a 8.749 km de Colombia; accesibilidad logística 0,45 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,403 (bruto 0,447)."
+        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,358 (bruto 0,397)."
       ],
       "BRA": [
         "Brasil importa USD 4 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -326,8 +355,9 @@
         "Brasil absorbe el 0,0 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Brasil.",
         "Azúcar de caña (HS 1701) paga en Brasil un arancel efectivamente aplicado de 11,5 %.",
+        "Los principales competidores pagan en promedio 16,0 % en Brasil: margen de preferencia de 4,5 pp a favor de Colombia.",
         "Brasil está a 4.306 km de Colombia; accesibilidad logística 0,42 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Brasil 0,77: el filtro deja el score en 0,280 (bruto 0,316)."
+        "Estabilidad macro de Brasil 0,77: el filtro deja el score en 0,286 (bruto 0,323)."
       ],
       "CAN": [
         "Canadá importa USD 822 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -336,8 +366,9 @@
         "Canadá absorbe el 2,4 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Canadá.",
         "Azúcar de caña (HS 1701) entra a Canadá sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Canadá: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Canadá está a 4.893 km de Colombia; accesibilidad logística 0,51 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,410 (bruto 0,441)."
+        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,364 (bruto 0,391)."
       ],
       "CHE": [
         "Suiza importa USD 88 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -346,8 +377,9 @@
         "Suiza absorbe el 0,0 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de Suiza.",
         "Azúcar de caña (HS 1701) entra a Suiza sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Suiza: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Suiza está a 8.974 km de Colombia; accesibilidad logística 0,46 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,286 (bruto 0,305)."
+        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,240 (bruto 0,255)."
       ],
       "CHL": [
         "Chile importa USD 364 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -356,8 +388,9 @@
         "Chile absorbe el 15,5 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Chile.",
         "Azúcar de caña (HS 1701) entra a Chile sin arancel (0 % efectivamente aplicado).",
+        "Los principales competidores pagan en promedio 0,4 % en Chile: margen de preferencia de 0,4 pp a favor de Colombia.",
         "Chile está a 4.382 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Chile 0,72: el filtro deja el score en 0,371 (bruto 0,431)."
+        "Estabilidad macro de Chile 0,72: el filtro deja el score en 0,332 (bruto 0,385)."
       ],
       "CRI": [
         "Costa Rica importa USD 1 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -366,8 +399,9 @@
         "Costa Rica absorbe el 0,0 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Costa Rica.",
         "Azúcar de caña (HS 1701) paga en Costa Rica un arancel efectivamente aplicado de 45,0 %.",
+        "Sin ventaja arancelaria en Costa Rica: los principales competidores pagan lo mismo que Colombia (45,0 %).",
         "Costa Rica está a 1.157 km de Colombia; accesibilidad logística 0,51 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Costa Rica 0,93: el filtro deja el score en 0,373 (bruto 0,386)."
+        "Estabilidad macro de Costa Rica 0,93: el filtro deja el score en 0,350 (bruto 0,362)."
       ],
       "DEU": [
         "Alemania importa USD 465 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -376,8 +410,9 @@
         "Alemania absorbe el 3,0 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Alemania.",
         "Azúcar de caña (HS 1701) entra a Alemania sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Alemania: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Alemania está a 9.137 km de Colombia; accesibilidad logística 0,46 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,323 (bruto 0,372)."
+        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,280 (bruto 0,322)."
       ],
       "DOM": [
         "República Dominicana importa USD 67 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -386,6 +421,7 @@
         "República Dominicana absorbe el 0,6 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de República Dominicana.",
         "Azúcar de caña (HS 1701) paga en República Dominicana un arancel efectivamente aplicado de 85,0 %.",
+        "Sin ventaja arancelaria en República Dominicana: los principales competidores pagan lo mismo que Colombia (85,0 %).",
         "República Dominicana está a 1.527 km de Colombia; accesibilidad logística 0,44 (escala 0–1: distancia gravitacional + LPI).",
         "Estabilidad macro de República Dominicana 0,78: el filtro deja el score en 0,295 (bruto 0,332)."
       ],
@@ -396,8 +432,9 @@
         "Ecuador absorbe el 8,8 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,51 (escala 0–1) con la demanda importadora de Ecuador.",
         "Azúcar de caña (HS 1701) paga en Ecuador un arancel efectivamente aplicado de 19,1 %.",
+        "Los principales competidores pagan en promedio 20,6 % en Ecuador: margen de preferencia de 1,5 pp a favor de Colombia.",
         "Ecuador está a 980 km de Colombia; accesibilidad logística 0,53 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Ecuador 0,88: el filtro deja el score en 0,540 (bruto 0,574)."
+        "Estabilidad macro de Ecuador 0,88: el filtro deja el score en 0,519 (bruto 0,552)."
       ],
       "ESP": [
         "España importa USD 973 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -406,8 +443,9 @@
         "España absorbe el 3,8 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de España.",
         "Azúcar de caña (HS 1701) entra a España sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en España: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "España está a 8.065 km de Colombia; accesibilidad logística 0,45 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de España 0,97: el filtro deja el score en 0,438 (bruto 0,445)."
+        "Estabilidad macro de España 0,97: el filtro deja el score en 0,389 (bruto 0,395)."
       ],
       "FIN": [
         "Finlandia importa USD 77 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -416,8 +454,9 @@
         "Finlandia absorbe el 0,0 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Finlandia.",
         "Azúcar de caña (HS 1701) entra a Finlandia sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Finlandia: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Finlandia está a 9.955 km de Colombia; accesibilidad logística 0,47 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,315 (bruto 0,357)."
+        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,271 (bruto 0,307)."
       ],
       "FRA": [
         "Francia importa USD 330 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -426,8 +465,9 @@
         "Francia absorbe el 2,3 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de Francia.",
         "Azúcar de caña (HS 1701) entra a Francia sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Francia: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Francia está a 8.615 km de Colombia; accesibilidad logística 0,44 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,380 (bruto 0,414)."
+        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,334 (bruto 0,364)."
       ],
       "GBR": [
         "Reino Unido importa USD 583 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -436,8 +476,9 @@
         "Reino Unido absorbe el 0,9 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Reino Unido.",
         "Azúcar de caña (HS 1701) entra a Reino Unido sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Reino Unido: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Reino Unido está a 8.388 km de Colombia; accesibilidad logística 0,42 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,320 (bruto 0,401)."
+        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,280 (bruto 0,351)."
       ],
       "ITA": [
         "Italia importa USD 1.280 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -446,8 +487,9 @@
         "Italia absorbe el 1,9 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Italia.",
         "Azúcar de caña (HS 1701) entra a Italia sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Italia: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Italia está a 9.315 km de Colombia; accesibilidad logística 0,41 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,438 (bruto 0,479)."
+        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,392 (bruto 0,429)."
       ],
       "JPN": [
         "Japón importa USD 712 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -455,8 +497,9 @@
         "Colombia no registra ventas de Azúcar de caña (HS 1701) en Japón (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Japón.",
         "Azúcar de caña (HS 1701) entra a Japón sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Japón: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Japón está a 14.300 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,402 (bruto 0,444)."
+        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,357 (bruto 0,394)."
       ],
       "KOR": [
         "Corea del Sur importa USD 919 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -465,8 +508,9 @@
         "Corea del Sur absorbe el 0,0 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,49 (escala 0–1) con la demanda importadora de Corea del Sur.",
         "Azúcar de caña (HS 1701) paga en Corea del Sur un arancel efectivamente aplicado de 10,4 %.",
+        "Los principales competidores pagan en promedio 11,4 % en Corea del Sur: margen de preferencia de 1,1 pp a favor de Colombia.",
         "Corea del Sur está a 14.747 km de Colombia; accesibilidad logística 0,38 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,439 (bruto 0,466)."
+        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,409 (bruto 0,434)."
       ],
       "MEX": [
         "México importa USD 353 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -475,8 +519,9 @@
         "México absorbe el 0,4 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de México.",
         "Azúcar de caña (HS 1701) entra a México sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en México: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "México está a 3.396 km de Colombia; accesibilidad logística 0,40 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de México 0,80: el filtro deja el score en 0,195 (bruto 0,217)."
+        "Estabilidad macro de México 0,80: el filtro deja el score en 0,150 (bruto 0,167)."
       ],
       "NLD": [
         "Países Bajos importa USD 292 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -485,8 +530,9 @@
         "Países Bajos absorbe el 1,3 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Países Bajos.",
         "Azúcar de caña (HS 1701) entra a Países Bajos sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Países Bajos: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Países Bajos está a 8.815 km de Colombia; accesibilidad logística 0,46 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,415 (bruto 0,458)."
+        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,370 (bruto 0,408)."
       ],
       "PAN": [
         "Panamá importa USD 1 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -495,8 +541,9 @@
         "Panamá absorbe el 0,1 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Panamá.",
         "Azúcar de caña (HS 1701) paga en Panamá un arancel efectivamente aplicado de 84,0 %.",
+        "Sin ventaja arancelaria en Panamá: los principales competidores pagan lo mismo que Colombia (84,0 %).",
         "Panamá está a 734 km de Colombia; accesibilidad logística 0,57 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Panamá 0,94: el filtro deja el score en 0,336 (bruto 0,346)."
+        "Estabilidad macro de Panamá 0,94: el filtro deja el score en 0,335 (bruto 0,346)."
       ],
       "PER": [
         "Perú importa USD 197 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -505,8 +552,9 @@
         "Perú absorbe el 6,7 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Perú.",
         "Azúcar de caña (HS 1701) entra a Perú sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Perú: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Perú está a 1.945 km de Colombia; accesibilidad logística 0,47 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Perú 0,91: el filtro deja el score en 0,452 (bruto 0,473)."
+        "Estabilidad macro de Perú 0,91: el filtro deja el score en 0,404 (bruto 0,423)."
       ],
       "POL": [
         "Polonia importa USD 112 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -515,8 +563,9 @@
         "Polonia absorbe el 0,2 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,36 (escala 0–1) con la demanda importadora de Polonia.",
         "Azúcar de caña (HS 1701) entra a Polonia sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Polonia: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Polonia está a 9.790 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,236 (bruto 0,256)."
+        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,190 (bruto 0,206)."
       ],
       "PRT": [
         "Portugal importa USD 255 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -524,8 +573,9 @@
         "Colombia ya tiene 0,3 % del mercado y gana 0,2 pp de cuota en la ventana.",
         "La canasta exportadora de Colombia encaja 0,39 (escala 0–1) con la demanda importadora de Portugal.",
         "Azúcar de caña (HS 1701) entra a Portugal sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Portugal: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Portugal está a 7.506 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,319 (bruto 0,330)."
+        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,270 (bruto 0,280)."
       ],
       "SWE": [
         "Suecia importa USD 68 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -533,8 +583,9 @@
         "Colombia no registra ventas de Azúcar de caña (HS 1701) en Suecia (cuota 0 %).",
         "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Suecia.",
         "Azúcar de caña (HS 1701) entra a Suecia sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Suecia: los principales competidores pagan lo mismo que Colombia (0,0 %).",
         "Suecia está a 9.491 km de Colombia; accesibilidad logística 0,45 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,300 (bruto 0,333)."
+        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,255 (bruto 0,283)."
       ],
       "USA": [
         "Estados Unidos importa USD 2.354 M al año de Azúcar de caña (HS 1701) (promedio de los últimos 3 años).",
@@ -543,13 +594,14 @@
         "Estados Unidos absorbe el 28,8 % de las exportaciones de Azúcar de caña (HS 1701) de Colombia.",
         "La canasta exportadora de Colombia encaja 0,33 (escala 0–1) con la demanda importadora de Estados Unidos.",
         "Azúcar de caña (HS 1701) paga en Estados Unidos un arancel efectivamente aplicado de 0,2 %.",
+        "Los principales competidores pagan en promedio 0,8 % en Estados Unidos: margen de preferencia de 0,6 pp a favor de Colombia.",
         "Estados Unidos está a 4.251 km de Colombia; accesibilidad logística 0,50 (escala 0–1: distancia gravitacional + LPI).",
-        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,445 (bruto 0,538)."
+        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,409 (bruto 0,495)."
       ]
     },
     "recommendations": [
       {
-        "final_score": 0.54,
+        "final_score": 0.519,
         "iso3": "ECU",
         "name": "Ecuador",
         "reasons": [
@@ -558,21 +610,21 @@
         ]
       },
       {
-        "final_score": 0.452,
-        "iso3": "PER",
-        "name": "Perú",
-        "reasons": [
-          "10.º destino por complementariedad de canastas (índice 0,43 (escala 0–1))",
-          "1.º destino por arancel enfrentado (0,0 % efectivamente aplicado)"
-        ]
-      },
-      {
-        "final_score": 0.445,
+        "final_score": 0.409,
         "iso3": "USA",
         "name": "Estados Unidos",
         "reasons": [
           "1.º destino por tamaño de mercado (USD 2.354 M/año)",
-          "20.º destino por arancel enfrentado (0,2 % efectivamente aplicado)"
+          "6.º destino por momentum de la cuota (+1,2 pp en la ventana)"
+        ]
+      },
+      {
+        "final_score": 0.409,
+        "iso3": "KOR",
+        "name": "Corea del Sur",
+        "reasons": [
+          "2.º destino por complementariedad de canastas (índice 0,49 (escala 0–1))",
+          "4.º destino por tamaño de mercado (USD 919 M/año)"
         ]
       }
     ]

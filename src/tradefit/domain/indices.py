@@ -6,6 +6,8 @@ documenta la definición que implementa.
 """
 
 import math
+from collections.abc import Mapping, Sequence
+from collections.abc import Set as AbstractSet
 
 import numpy as np
 import pandas as pd
@@ -220,6 +222,65 @@ def tariff_faced(tariffs: pd.DataFrame) -> pd.Series:
         return pd.Series(dtype=float, name=config.COL_TARIFF)
     per_country = profile.groupby(config.COL_COUNTRY)[config.COL_TARIFF].mean()
     return per_country.rename(config.COL_TARIFF)
+
+
+def competitor_tariff_faced(
+    tariffs: pd.DataFrame,
+    competitor_tariffs: pd.DataFrame,
+    competitors: Mapping[str, Sequence[str]],
+    zero_rated: Mapping[str, AbstractSet[str]] | None = None,
+) -> pd.Series:
+    """Arancel efectivamente aplicado que enfrentan los competidores por destino.
+
+    Definición: para cada destino, promedio simple entre sus principales
+    proveedores rivales del AHS — mín(MFN, preferencial) por subpartida HS6,
+    promediado por subpartida, la misma convención de :func:`tariff_faced`.
+    Restado del arancel del origen da el **margen de preferencia relativo**
+    (cf. Fugazza & Nicita 2013, "The direct and relative effects of
+    preferential market access", *Journal of International Economics* 89(2),
+    que definen la ventaja arancelaria de un exportador como la diferencia
+    frente al arancel que enfrentan sus competidores; aquí en variante de
+    promedio simple sobre los top proveedores).
+
+    Reglas: un competidor sin filas preferenciales paga el MFN del destino
+    (eso ES dato, no hueco); un par en ``zero_rated`` entra con 0 por
+    construcción (unión aduanera, p. ej. intra-UE); un competidor sin MFN ni
+    preferencial no aporta; destino sin ningún competidor con dato → NaN.
+
+    Args:
+        tariffs: aranceles del origen (``tariffs_schema``) — aporta el MFN
+            erga omnes de cada destino.
+        competitor_tariffs: preferenciales hacia los competidores
+            (``competitor_tariffs_schema``).
+        competitors: códigos WITS de los principales competidores por
+            destino ISO3 (excluido el origen).
+        zero_rated: pares destino → competidores con arancel 0 por
+            construcción.
+
+    Returns:
+        Series indexada por destino ISO3 (fracción), nombrada
+        ``config.COL_COMPETITOR_TARIFF``. Destinos sin entrada en
+        ``competitors`` no aparecen.
+    """
+    zero_rated = zero_rated or {}
+    mfn = tariffs[tariffs[config.COL_TARIFF_TYPE] == "MFN"]
+    values: dict[str, float] = {}
+    for iso3, partners in competitors.items():
+        rates: list[float] = []
+        for partner in partners:
+            if partner in zero_rated.get(iso3, frozenset()):
+                rates.append(0.0)
+                continue
+            pref = competitor_tariffs[
+                (competitor_tariffs[config.COL_COUNTRY] == iso3)
+                & (competitor_tariffs[config.COL_PARTNER_CODE] == partner)
+            ].drop(columns=[config.COL_PARTNER_CODE])
+            frame = pd.concat([mfn[mfn[config.COL_COUNTRY] == iso3], pref], ignore_index=True)
+            ahs = tariff_faced(frame).get(iso3)
+            if ahs is not None and not pd.isna(ahs):
+                rates.append(float(ahs))
+        values[iso3] = float(np.mean(rates)) if rates else float("nan")
+    return pd.Series(values, dtype=float, name=config.COL_COMPETITOR_TARIFF)
 
 
 def accessibility(

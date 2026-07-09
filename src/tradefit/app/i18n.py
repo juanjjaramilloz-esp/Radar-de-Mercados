@@ -92,6 +92,7 @@ _METRIC_LABEL_KEYS: Final[dict[str, str]] = {
     "share_trend": "methodology_metric_share_trend",
     "complementarity": "methodology_metric_complementarity",
     "tariff_faced": "methodology_metric_tariff",
+    "preference_margin": "methodology_metric_margin",
     "accessibility": "methodology_metric_accessibility",
 }
 
@@ -589,6 +590,80 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
             "by subheading"
         ),
     },
+    "backtest_title": {
+        "es": "🧪 Validación: ¿el score anticipa el crecimiento?",
+        "en": "🧪 Validation: does the score anticipate growth?",
+    },
+    "backtest_intro": {
+        "es": (
+            "Backtest fuera de muestra: el score se recalcula con los datos "
+            "de comercio de {train_start}–{train_end} y se contrasta con el "
+            "crecimiento **realizado** del flujo Colombia→destino en "
+            "{out_start}–{out_end} (tasa simétrica DHS, robusta a flujos "
+            "cero). ρ = correlación de rangos de Spearman; el baseline "
+            "rankea solo por tamaño de mercado."
+        ),
+        "en": (
+            "Out-of-sample backtest: the score is recomputed with "
+            "{train_start}–{train_end} trade data and checked against the "
+            "**realized** growth of the Colombia→destination flow in "
+            "{out_start}–{out_end} (DHS symmetric rate, robust to zero "
+            "flows). ρ = Spearman rank correlation; the baseline ranks by "
+            "market size alone."
+        ),
+    },
+    "backtest_col_product": {"es": "Producto", "en": "Product"},
+    "backtest_col_score": {"es": "ρ score", "en": "ρ score"},
+    "backtest_col_baseline": {"es": "ρ baseline (tamaño)", "en": "ρ baseline (size)"},
+    "backtest_col_hits": {"es": "Top-5 acertados", "en": "Top-5 hits"},
+    "backtest_pooled": {
+        "es": (
+            "**Agregado ({n} pares producto-mercado, rangos "
+            "intra-producto): ρ score = {rho} vs. ρ baseline = {rho_base}.**"
+        ),
+        "en": (
+            "**Pooled ({n} product-market pairs, within-product ranks): "
+            "score ρ = {rho} vs. baseline ρ = {rho_base}.**"
+        ),
+    },
+    "backtest_limits": {
+        "es": (
+            "Limitaciones (honestas): las métricas estructurales "
+            "(complementariedad, aranceles, accesibilidad) y la estabilidad "
+            "macro quedan congeladas en su valor actual — cambian poco entre "
+            "años, pero el backtest no es una reconstrucción histórica "
+            "perfecta. Ventana única (sin promediar cohortes) y el outcome "
+            "bilateral comparte fuente con la cuota del score."
+        ),
+        "en": (
+            "Honest limitations: structural metrics (complementarity, "
+            "tariffs, accessibility) and macro stability are frozen at "
+            "their current values — they move slowly, but the backtest is "
+            "not a perfect historical reconstruction. Single window (no "
+            "cohort averaging) and the bilateral outcome shares its source "
+            "with the score's market-share metric."
+        ),
+    },
+    "methodology_metric_margin": {
+        "es": "Margen de preferencia",
+        "en": "Preference margin",
+    },
+    "methodology_def_margin": {
+        "es": (
+            "Arancel AHS promedio de los 3 mayores proveedores rivales del "
+            "destino − arancel del origen (cf. Fugazza & Nicita 2013, "
+            "*JIE* 89(2): la ventaja arancelaria es relativa a los "
+            "competidores). Positivo = ventaja de Colombia; intra-UE = 0 "
+            "por unión aduanera; sin dato = neutro"
+        ),
+        "en": (
+            "Average AHS tariff of the destination's top-3 rival suppliers "
+            "− the origin's tariff (cf. Fugazza & Nicita 2013, *JIE* "
+            "89(2): tariff advantage is relative to competitors). Positive "
+            "= Colombia's edge; intra-EU = 0 (customs union); missing = "
+            "neutral"
+        ),
+    },
     "methodology_metric_accessibility": {
         "es": "Accesibilidad logística",
         "en": "Logistics accessibility",
@@ -1014,6 +1089,43 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
         "en": (
             "LPI = World Bank Logistics Performance Index (customs, "
             "infrastructure, shipments); 1–5 scale, higher is better."
+        ),
+    },
+    "col_competitor_tariff": {"es": "Arancel competidores", "en": "Competitors' tariff"},
+    "col_competitor_tariff_help": {
+        "es": (
+            "Arancel efectivamente aplicado (AHS) que pagan en promedio los "
+            "3 mayores proveedores rivales del destino. Contexto del margen "
+            "de preferencia; no pondera por sí solo."
+        ),
+        "en": (
+            "Effectively applied tariff (AHS) paid on average by the "
+            "destination's top-3 rival suppliers. Context for the "
+            "preference margin; does not weigh on its own."
+        ),
+    },
+    "col_pref_margin": {"es": "Margen de preferencia", "en": "Preference margin"},
+    "col_pref_margin_help": {
+        "es": (
+            "Arancel de los competidores − arancel de Colombia (pp). "
+            "Positivo = ventaja arancelaria real; 0 = pagan lo mismo "
+            "(un 0 % no es ventaja si los rivales también pagan 0 %). "
+            "Cf. Fugazza & Nicita 2013."
+        ),
+        "en": (
+            "Competitors' tariff − Colombia's tariff (pp). Positive = a "
+            "real tariff edge; 0 = they pay the same (0% is no advantage "
+            "if rivals also pay 0%). Cf. Fugazza & Nicita 2013."
+        ),
+    },
+    "focus_margin": {
+        "es": (
+            "⚖️ **Margen de preferencia: {margin}** — los 3 mayores "
+            "competidores pagan en promedio {rivals} vs. {own} de Colombia."
+        ),
+        "en": (
+            "⚖️ **Preference margin: {margin}** — the top-3 competitors "
+            "pay {rivals} on average vs. Colombia's {own}."
         ),
     },
     "col_coverage": {"es": "Cobertura de datos", "en": "Data coverage"},

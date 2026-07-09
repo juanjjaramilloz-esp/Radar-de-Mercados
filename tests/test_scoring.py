@@ -85,12 +85,35 @@ def test_ranking_cumple_contrato(market_inputs_small: MarketInputs) -> None:
 
 def test_cobertura_de_datos_a_mano(market_inputs_small: MarketInputs) -> None:
     ranking = rank_markets(market_inputs_small, config.WEIGHTS).set_index(config.COL_COUNTRY)
-    # Sin distancias/LPI en el fixture: accesibilidad sin dato (peso 0.10)
-    # para los 3; JPN además sin arancel WITS (otro 0.10). La cuota de JPN
-    # (ausente del bilateral) es cero observado por diseño: no descuenta.
-    assert ranking.loc["USA", config.COL_COVERAGE] == pytest.approx(0.90)
-    assert ranking.loc["DEU", config.COL_COVERAGE] == pytest.approx(0.90)
+    # Sin distancias/LPI ni aranceles de competidores en el fixture:
+    # accesibilidad (0.10) y margen de preferencia (0.05) sin dato para los
+    # 3; JPN además sin arancel WITS (otro 0.05). La cuota de JPN (ausente
+    # del bilateral) es cero observado por diseño: no descuenta.
+    assert ranking.loc["USA", config.COL_COVERAGE] == pytest.approx(0.85)
+    assert ranking.loc["DEU", config.COL_COVERAGE] == pytest.approx(0.85)
     assert ranking.loc["JPN", config.COL_COVERAGE] == pytest.approx(0.80)
+
+
+def test_orden_obvio_por_margen_de_preferencia(market_inputs_small: MarketInputs) -> None:
+    # Arancel del origen (fixture): USA 3 %, DEU 0 %, JPN sin dato.
+    # AHS de competidores: USA 5 % → margen +2 pp; DEU 0 % → margen 0;
+    # JPN NaN → neutro 0.5. Orden: USA (1.0) > JPN (0.5) > DEU (0.0).
+    data = MarketInputs(
+        imports=market_inputs_small.imports,
+        bilateral=market_inputs_small.bilateral,
+        baskets=market_inputs_small.baskets,
+        tariffs=market_inputs_small.tariffs,
+        rca=market_inputs_small.rca,
+        competitor_tariff=pd.Series({"USA": 0.05, "DEU": 0.0}),
+    )
+    ranking = rank_markets(data, {"preference_margin": 1.0})
+    assert list(ranking[config.COL_COUNTRY]) == ["USA", "JPN", "DEU"]
+    indexed = ranking.set_index(config.COL_COUNTRY)
+    assert indexed.loc["USA", config.COL_PREF_MARGIN] == pytest.approx(0.02)
+    assert indexed.loc["DEU", config.COL_PREF_MARGIN] == pytest.approx(0.0)
+    assert pd.isna(indexed.loc["JPN", config.COL_PREF_MARGIN])
+    assert indexed.loc["USA", config.COL_COMPETITOR_TARIFF] == pytest.approx(0.05)
+    assert indexed.loc["JPN", config.COL_SCORE] == pytest.approx(0.5)
 
 
 def test_cobertura_pondera_por_peso(market_inputs_small: MarketInputs) -> None:

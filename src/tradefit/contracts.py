@@ -104,6 +104,32 @@ tariff_profile_schema = pa.DataFrameSchema(
     name="tariff_profile",
 )
 
+#: Aranceles preferenciales que cada destino aplica a los competidores del
+#: origen (entrada de ``domain.indices.competitor_tariff_faced``): una fila
+#: por (destino, partner WITS, HS6, año). Solo tipo PREF — el MFN es erga
+#: omnes y viaja en ``tariffs_schema``; un (destino, partner) ausente
+#: significa que el competidor paga MFN.
+competitor_tariffs_schema = pa.DataFrameSchema(
+    {
+        config.COL_COUNTRY: pa.Column(str, pa.Check.str_length(3, 3)),
+        config.COL_PARTNER_CODE: pa.Column(str),
+        config.COL_CMD: pa.Column(str, pa.Check.str_length(6, 6)),
+        config.COL_TARIFF_TYPE: pa.Column(str, pa.Check.isin(["MFN", "PREF"])),
+        config.COL_YEAR: pa.Column(int, pa.Check.in_range(1990, 2100)),
+        config.COL_RATE_PCT: pa.Column(float, pa.Check.ge(0)),
+    },
+    unique=[
+        config.COL_COUNTRY,
+        config.COL_PARTNER_CODE,
+        config.COL_CMD,
+        config.COL_TARIFF_TYPE,
+        config.COL_YEAR,
+    ],
+    coerce=True,
+    strict=True,
+    name="competitor_tariffs",
+)
+
 #: Importaciones del producto en cada destino por proveedor y año (entrada
 #: de ``domain.indices.supplier_shares``). Incluye el agregado World
 #: (``partner_code`` "0"), denominador de las cuotas; ausencia de un destino
@@ -236,6 +262,15 @@ ranking_schema = pa.DataFrameSchema(
         # Arancel efectivamente aplicado que enfrenta el origen (fracción;
         # 0.085 = 8,5 %). NaN = destino sin datos en WITS (no se penaliza).
         config.COL_TARIFF: pa.Column(float, pa.Check.ge(0), nullable=True),
+        # AHS promedio de los principales competidores en el destino
+        # (contexto) y margen de preferencia relativo = competidores − origen
+        # (pondera; puede ser negativo si el origen paga MÁS que sus
+        # rivales). NaN = sin datos de competidores; required=False:
+        # snapshots anteriores a 2026-07-09 no las traen.
+        config.COL_COMPETITOR_TARIFF: pa.Column(
+            float, pa.Check.ge(0), nullable=True, required=False
+        ),
+        config.COL_PREF_MARGIN: pa.Column(float, nullable=True, required=False),
         config.COL_RCA: pa.Column(float, pa.Check.ge(0)),
         # LPI del destino (World Bank, 1–5; contexto logístico, no pondera).
         # NaN = país sin dato; required=False: snapshots viejos no la traen.
@@ -285,6 +320,11 @@ class MarketInputs:
             scoring la trata como neutra).
         lpi: Logistics Performance Index del destino (World Bank, 1–5),
             indexado por ISO3; ``None`` o NaN = componente logístico neutro.
+        competitor_tariff: AHS promedio que enfrentan los principales
+            competidores del origen en cada destino (fracción, indexado por
+            ISO3; salida de ``domain.indices.competitor_tariff_faced``).
+            ``None`` o NaN = sin dato (el margen de preferencia queda NaN y
+            el scoring lo trata como neutro).
     """
 
     imports: pd.DataFrame
@@ -294,3 +334,4 @@ class MarketInputs:
     rca: float
     distances: "pd.Series[float] | None" = None
     lpi: "pd.Series[float] | None" = None
+    competitor_tariff: "pd.Series[float] | None" = None

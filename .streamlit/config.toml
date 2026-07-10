@@ -6,3 +6,15 @@ backgroundColor = "#FFFFFF"
 secondaryBackgroundColor = "#F1F5F9"
 textColor = "#0F172A"
 font = "sans serif"
+
+# Server: para despliegue detrás de un dominio propio (Render + Cloudflare).
+# headless evita el prompt interactivo de bienvenida (cuelga el deploy sin TTY).
+# CORS/XSRF desactivados porque el dominio público difiere del host interno
+# de Render — sin esto el navegador bloquea el websocket de Streamlit.
+[server]
+headless = true
+enableCORS = false
+enableXsrfProtection = false
+
+[browser]
+gatherUsageStats = false

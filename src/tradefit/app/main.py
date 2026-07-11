@@ -27,9 +27,11 @@ from tradefit.app import i18n
 from tradefit.app.export import ranking_to_excel, ranking_to_pdf
 from tradefit.app.flags import flag_color, flag_emoji
 from tradefit.app.i18n import t
+from tradefit.contracts import ranking_schema
 from tradefit.domain import scoring
 from tradefit.domain.macro_filter import latest_indicator_value
 from tradefit.pipeline.build_snapshot import ensure_snapshot
+from tradefit.pipeline.snapshot_io import verify_manifest
 
 _PRODUCT_SELECT_KEY = "product_select"
 #: Contenedor del selector de producto: la clave le da a Streamlit una clase
@@ -348,6 +350,13 @@ def _read_json(path: Path) -> dict[str, object]:
     return _cached_json(str(path), path.stat().st_mtime_ns)
 
 
+@st.cache_data(show_spinner=False)
+def _verify_snapshot_manifest(path_str: str, fingerprint: tuple[tuple[str, int, int], ...]) -> None:
+    """Verifica una sola vez por versión del manifiesto (hashes incluidos)."""
+    del fingerprint  # forma parte de la clave de caché
+    verify_manifest(Path(path_str).parent)
+
+
 def _load_snapshot(hs: str) -> tuple[pd.DataFrame, dict[str, object], dict[str, object]]:
     """Lee ranking, metadatos y narrativa del snapshot de un producto.
 
@@ -359,7 +368,16 @@ def _load_snapshot(hs: str) -> tuple[pd.DataFrame, dict[str, object], dict[str, 
     Raises:
         FileNotFoundError: si el snapshot todavía no fue construido.
     """
-    ranking = _read_parquet(config.ranking_parquet(hs))
+    manifest_path = config.snapshot_manifest_json(hs)
+    if manifest_path.exists():
+        snapshot_dir = manifest_path.parent
+        fingerprint = tuple(
+            (path.name, path.stat().st_mtime_ns, path.stat().st_size)
+            for path in sorted(snapshot_dir.iterdir())
+            if path.is_file()
+        )
+        _verify_snapshot_manifest(str(manifest_path), fingerprint)
+    ranking = ranking_schema.validate(_read_parquet(config.ranking_parquet(hs)))
     meta = _read_json(config.snapshot_meta_json(hs))
     narrative: dict[str, object] = {}
     if config.narrative_json(hs).exists():
@@ -2050,7 +2068,11 @@ def main() -> None:
     # seleccionarlos (en el demo cloud vienen versionados → instantáneo).
     if not config.ranking_parquet(hs).exists() and not _build_on_demand(hs):
         return
-    ranking, meta, narrative = _load_snapshot(hs)
+    try:
+        ranking, meta, narrative = _load_snapshot(hs)
+    except Exception as exc:  # noqa: BLE001 — presentación: degradar con gracia
+        st.error(t("snapshot_invalid_error", hs=hs, error=exc))
+        return
     narrative = _narrative_in_language(narrative)
     ranking = _localize_country_names(ranking)
     product_label = i18n.product_label(hs, str(meta["hs_label"]))

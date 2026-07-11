@@ -9,8 +9,10 @@ escribe timestamps ni ningún otro valor no determinístico).
 import argparse
 import json
 import logging
+import shutil
 from collections.abc import Callable
 from dataclasses import replace
+from pathlib import Path
 
 import pandas as pd
 from dotenv import load_dotenv
@@ -40,6 +42,15 @@ from tradefit.ingest import (
     wits,
     worldbank,
 )
+from tradefit.ingest.cache import provenance_record
+from tradefit.pipeline.snapshot_io import (
+    atomic_write_parquet,
+    create_staging_dir,
+    exclusive_lock,
+    publish_snapshot,
+    refresh_manifest,
+    write_manifest,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -47,6 +58,39 @@ SOURCES = ("comtrade", "stub")
 
 #: Callback opcional de progreso: recibe la descripción de la etapa que inicia.
 OnStage = Callable[[str], None] | None
+
+
+def _source_cache_paths(hs: str, source: str) -> list[Path]:
+    """Archivos exactos que alimentan el snapshot (para procedencia)."""
+    if source == "stub":
+        return [
+            config.STUB_IMPORTS_CSV,
+            config.STUB_BILATERAL_CSV,
+            config.STUB_BASKETS_CSV,
+            config.STUB_EXPORT_TOTALS_CSV,
+            config.STUB_TARIFFS_CSV,
+            config.STUB_MACRO_CSV,
+            config.GEODIST_CSV,
+        ]
+    return [
+        config.comtrade_imports_cache(hs),
+        config.comtrade_bilateral_cache(hs),
+        config.COMTRADE_BASKETS_CACHE,
+        config.comtrade_exports_cache(hs),
+        config.comtrade_destinations_cache(hs),
+        config.comtrade_competitors_cache(hs),
+        config.wits_tariffs_cache(hs),
+        config.wits_competitor_tariffs_cache(hs),
+        config.WDI_CACHE_FILE,
+        config.GEODIST_CSV,
+        config.HS_REFERENCE_CSV,
+    ]
+
+
+def _source_provenance(hs: str, source: str) -> list[dict[str, object]]:
+    """Registros de hash/consulta de cada insumo disponible."""
+    records = [provenance_record(path, config.ROOT_DIR) for path in _source_cache_paths(hs, source)]
+    return [record for record in records if record is not None]
 
 
 def _notify(on_stage: OnStage, stage: str) -> None:
@@ -314,26 +358,7 @@ def build_snapshot(
     # WITS — no agrega llamadas a la red.
     tariff_detail = indices.tariff_profile(data.tariffs)
 
-    _notify(on_stage, "Escribiendo el snapshot")
-    config.processed_dir(hs).mkdir(parents=True, exist_ok=True)
-    validated.to_parquet(config.ranking_parquet(hs), index=False)
-    imports.to_parquet(config.imports_timeseries_parquet(hs), index=False)
-    if supplier_table is not None:
-        supplier_table.to_parquet(config.competitors_parquet(hs), index=False)
-    if unit_values is not None:
-        unit_values.to_parquet(config.unit_values_parquet(hs), index=False)
-    if not tariff_detail.empty:
-        tariff_profile_schema.validate(tariff_detail).to_parquet(
-            config.tariff_profile_parquet(hs), index=False
-        )
-    # Macro crudo compartido (indicadores por país y año): la ficha del
-    # destino lo usa para mostrar inflación/PIB/cuenta corriente/LPI con su
-    # año. Es independiente del producto; reescribirlo es idempotente.
-    macro.to_parquet(config.macro_context_parquet(), index=False)
-
     hs_label = hs_codes.hs_label(hs)
-    _write_narrative(hs, validated, dict(config.WEIGHTS), config.MARKET_SIZE_YEARS, hs_label)
-
     meta = {
         "hs_code": hs,
         "hs_label": hs_label,
@@ -360,10 +385,56 @@ def build_snapshot(
         "macro_floor": config.MACRO_FLOOR,
         "macro_years": config.MACRO_YEARS,
     }
-    config.snapshot_meta_json(hs).write_text(
-        json.dumps(meta, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
-        encoding="utf-8",
-    )
+
+    _notify(on_stage, "Escribiendo el snapshot")
+    target = config.processed_dir(hs)
+    staging = create_staging_dir(target)
+    try:
+        validated.to_parquet(staging / "ranking.parquet", index=False)
+        imports.to_parquet(staging / "imports_timeseries.parquet", index=False)
+        if supplier_table is not None:
+            supplier_table.to_parquet(staging / "competitors.parquet", index=False)
+        if unit_values is not None:
+            unit_values.to_parquet(staging / "unit_values.parquet", index=False)
+        if not tariff_detail.empty:
+            tariff_profile_schema.validate(tariff_detail).to_parquet(
+                staging / "tariff_profile.parquet", index=False
+            )
+        _write_narrative(
+            hs,
+            validated,
+            dict(config.WEIGHTS),
+            config.MARKET_SIZE_YEARS,
+            hs_label,
+            output_path=staging / "narrative.json",
+        )
+        (staging / "meta.json").write_text(
+            json.dumps(meta, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
+        write_manifest(
+            staging,
+            source_inputs=_source_provenance(hs, source),
+            parameters={
+                "hs_code": hs,
+                "source": source,
+                "import_years": list(config.IMPORT_YEARS),
+                "basket_year": config.BASKET_YEAR,
+                "wits_years": list(config.WITS_YEARS),
+                "wdi_date_range": config.WDI_DATE_RANGE,
+                "weights": dict(config.WEIGHTS),
+            },
+        )
+        # El macro es compartido entre productos reales. El stub nunca debe
+        # sobrescribirlo: hacerlo mezclaría contexto sintético con los otros
+        # 14 snapshots versionados.
+        if source == "comtrade":
+            atomic_write_parquet(macro, config.macro_context_parquet())
+        publish_snapshot(staging, target)
+    except BaseException:
+        if staging.exists():
+            shutil.rmtree(staging)
+        raise
     logger.info("Snapshot escrito en %s (%d mercados)", config.processed_dir(hs), len(validated))
     return validated
 
@@ -374,6 +445,7 @@ def _write_narrative(
     weights: dict[str, float],
     window_years: int,
     hs_label: str,
+    output_path: Path | None = None,
 ) -> None:
     """Serializa ``narrative.json`` bilingüe: ``{"es": {...}, "en": {...}}``.
 
@@ -393,7 +465,8 @@ def _write_narrative(
         )
         for lang in LANGS
     }
-    config.narrative_json(hs).write_text(
+    destination = output_path or config.narrative_json(hs)
+    destination.write_text(
         json.dumps(narrative, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
@@ -475,7 +548,8 @@ def refresh_unit_values(hs: str) -> None:
         comtrade.load_bilateral_weights(hs),
         list(ranking[config.COL_COUNTRY]),
     )
-    table.to_parquet(config.unit_values_parquet(hs), index=False)
+    atomic_write_parquet(table, config.unit_values_parquet(hs))
+    refresh_manifest(config.processed_dir(hs))
     logger.info("Valores unitarios de %s escritos en %s", hs, config.unit_values_parquet(hs))
 
 
@@ -501,6 +575,7 @@ def refresh_narrative(hs: str) -> None:
         int(meta["market_size_years"]),
         str(meta["hs_label"]),
     )
+    refresh_manifest(config.processed_dir(hs))
     logger.info("Narrativa de %s regenerada en %s", hs, config.narrative_json(hs))
 
 
@@ -528,10 +603,14 @@ def ensure_snapshot(hs: str, source: str = "comtrade", on_stage: OnStage = None)
     hs = hs_codes.normalize_hs(hs)
     if not hs_codes.is_valid_hs(hs):
         raise ValueError(f"Partida HS inválida: {hs!r}; se esperan 2, 4 o 6 dígitos")
-    if config.ranking_parquet(hs).exists() and config.snapshot_meta_json(hs).exists():
-        logger.info("Snapshot de %s ya existe; no se reconstruye", hs)
-        return hs
-    build_snapshot(source=source, hs=hs, on_stage=on_stage)
+    lock_path = config.PROCESSED_DIR / f".{hs}.build.lock"
+    with exclusive_lock(lock_path):
+        # Repetir el chequeo dentro del lock: otra sesión pudo terminar el
+        # mismo producto entre el primer clic y la adquisición del lock.
+        if config.ranking_parquet(hs).exists() and config.snapshot_meta_json(hs).exists():
+            logger.info("Snapshot de %s ya existe; no se reconstruye", hs)
+            return hs
+        build_snapshot(source=source, hs=hs, on_stage=on_stage)
     return hs
 
 

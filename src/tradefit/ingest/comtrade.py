@@ -10,11 +10,10 @@ del MVP, pero se registra una advertencia). Cualquier cambio de formato de la
 fuente falla ruidosamente aquí, nunca silenciosamente aguas abajo.
 """
 
-import json
 import logging
 import os
 import time
-from collections.abc import Callable
+from collections.abc import Callable, Mapping
 from pathlib import Path
 from typing import Any
 
@@ -29,6 +28,7 @@ from tradefit.contracts import (
     flow_weights_schema,
     imports_schema,
 )
+from tradefit.ingest.cache import load_json_cache
 
 logger = logging.getLogger(__name__)
 
@@ -527,16 +527,22 @@ def _load_cached(
     fetch: Callable[[], dict[str, Any]],
     parse: Callable[[dict[str, Any]], pd.DataFrame],
     force: bool = False,
+    *,
+    source: str,
+    parameters: Mapping[str, Any],
 ) -> pd.DataFrame:
-    """Descarga (solo si no hay caché), cachea el JSON crudo y parsea."""
-    if force or not cache_file.exists():
-        payload = fetch()
-        cache_file.parent.mkdir(parents=True, exist_ok=True)
-        cache_file.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+    """Carga JSON crudo compatible con la consulta y lo normaliza."""
+    cached, fetched = load_json_cache(
+        cache_file,
+        fetch,
+        source=source,
+        parameters=parameters,
+        force=force,
+    )
+    if fetched:
         logger.info("Respuesta cruda de Comtrade cacheada en %s", cache_file)
     else:
         logger.info("Usando caché de Comtrade: %s", cache_file)
-    cached: dict[str, Any] = json.loads(cache_file.read_text(encoding="utf-8"))
     return parse(cached)
 
 
@@ -555,7 +561,14 @@ def load_comtrade_imports(
         DataFrame validado contra ``imports_schema``.
     """
     cache = cache_file or config.comtrade_imports_cache(hs)
-    return _load_cached(cache, lambda: fetch_comtrade_imports(hs), parse_comtrade_response, force)
+    return _load_cached(
+        cache,
+        lambda: fetch_comtrade_imports(hs),
+        parse_comtrade_response,
+        force,
+        source="un_comtrade_imports",
+        parameters={"hs": hs, "years": list(config.IMPORT_YEARS)},
+    )
 
 
 def load_bilateral_imports(
@@ -567,7 +580,18 @@ def load_bilateral_imports(
         DataFrame validado contra ``bilateral_schema``.
     """
     cache = cache_file or config.comtrade_bilateral_cache(hs)
-    return _load_cached(cache, lambda: fetch_bilateral_imports(hs), parse_bilateral_response, force)
+    return _load_cached(
+        cache,
+        lambda: fetch_bilateral_imports(hs),
+        parse_bilateral_response,
+        force,
+        source="un_comtrade_bilateral",
+        parameters={
+            "hs": hs,
+            "origin": config.ORIGIN_ISO3,
+            "years": list(config.IMPORT_YEARS),
+        },
+    )
 
 
 def load_historical_imports(
@@ -586,7 +610,12 @@ def load_historical_imports(
     """
     cache = cache_file or config.comtrade_imports_hist_cache(hs, years)
     return _load_cached(
-        cache, lambda: fetch_comtrade_imports(hs, years), parse_comtrade_response, force
+        cache,
+        lambda: fetch_comtrade_imports(hs, years),
+        parse_comtrade_response,
+        force,
+        source="un_comtrade_imports",
+        parameters={"hs": hs, "years": list(years)},
     )
 
 
@@ -603,7 +632,12 @@ def load_historical_bilateral(
     """
     cache = cache_file or config.comtrade_bilateral_hist_cache(hs, years)
     return _load_cached(
-        cache, lambda: fetch_bilateral_imports(hs, years), parse_bilateral_response, force
+        cache,
+        lambda: fetch_bilateral_imports(hs, years),
+        parse_bilateral_response,
+        force,
+        source="un_comtrade_bilateral",
+        parameters={"hs": hs, "origin": config.ORIGIN_ISO3, "years": list(years)},
     )
 
 
@@ -616,7 +650,14 @@ def load_import_weights(
         DataFrame validado contra ``flow_weights_schema``.
     """
     cache = cache_file or config.comtrade_imports_cache(hs)
-    return _load_cached(cache, lambda: fetch_comtrade_imports(hs), parse_flow_weights, force)
+    return _load_cached(
+        cache,
+        lambda: fetch_comtrade_imports(hs),
+        parse_flow_weights,
+        force,
+        source="un_comtrade_imports",
+        parameters={"hs": hs, "years": list(config.IMPORT_YEARS)},
+    )
 
 
 def load_bilateral_weights(
@@ -628,7 +669,18 @@ def load_bilateral_weights(
         DataFrame validado contra ``flow_weights_schema``.
     """
     cache = cache_file or config.comtrade_bilateral_cache(hs)
-    return _load_cached(cache, lambda: fetch_bilateral_imports(hs), parse_flow_weights, force)
+    return _load_cached(
+        cache,
+        lambda: fetch_bilateral_imports(hs),
+        parse_flow_weights,
+        force,
+        source="un_comtrade_bilateral",
+        parameters={
+            "hs": hs,
+            "origin": config.ORIGIN_ISO3,
+            "years": list(config.IMPORT_YEARS),
+        },
+    )
 
 
 def load_baskets(
@@ -642,7 +694,14 @@ def load_baskets(
     Returns:
         DataFrame validado contra ``basket_schema``.
     """
-    return _load_cached(cache_file, fetch_baskets, parse_baskets_response, force)
+    return _load_cached(
+        cache_file,
+        fetch_baskets,
+        parse_baskets_response,
+        force,
+        source="un_comtrade_baskets_hs2",
+        parameters={"basket_year": config.BASKET_YEAR, "origin": config.ORIGIN_ISO3},
+    )
 
 
 def load_export_totals(
@@ -655,5 +714,10 @@ def load_export_totals(
     """
     cache = cache_file or config.comtrade_exports_cache(hs)
     return _load_cached(
-        cache, lambda: fetch_export_totals(hs), lambda p: parse_export_totals_response(p, hs), force
+        cache,
+        lambda: fetch_export_totals(hs),
+        lambda p: parse_export_totals_response(p, hs),
+        force,
+        source="un_comtrade_export_totals",
+        parameters={"hs": hs, "years": list(config.IMPORT_YEARS)},
     )

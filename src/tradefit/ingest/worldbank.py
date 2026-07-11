@@ -7,7 +7,6 @@ de países separada por ``;``). Cualquier cambio de formato de la fuente
 falla ruidosamente aquí.
 """
 
-import json
 import logging
 from pathlib import Path
 from typing import Any
@@ -17,6 +16,7 @@ import requests
 
 from tradefit import config
 from tradefit.contracts import macro_schema
+from tradefit.ingest.cache import load_json_cache
 
 logger = logging.getLogger(__name__)
 
@@ -138,12 +138,19 @@ def load_wdi_macro(cache_file: Path = config.WDI_CACHE_FILE, force: bool = False
     Returns:
         DataFrame validado contra ``macro_schema``.
     """
-    if force or not cache_file.exists():
-        payload = fetch_wdi_indicators()
-        cache_file.parent.mkdir(parents=True, exist_ok=True)
-        cache_file.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+    cached, fetched = load_json_cache(
+        cache_file,
+        fetch_wdi_indicators,
+        source="world_bank_wdi",
+        parameters={
+            "countries": list(config.DESTINATIONS),
+            "date_range": config.WDI_DATE_RANGE,
+            "indicators": sorted({**config.WDI_INDICATORS, **config.WDI_CONTEXT_INDICATORS}),
+        },
+        force=force,
+    )
+    if fetched:
         logger.info("Respuesta cruda de WDI cacheada en %s", cache_file)
     else:
         logger.info("Usando caché de WDI: %s", cache_file)
-    cached: dict[str, Any] = json.loads(cache_file.read_text(encoding="utf-8"))
     return parse_wdi_response(cached)

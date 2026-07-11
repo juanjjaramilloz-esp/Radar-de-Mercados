@@ -161,5 +161,10 @@ def load_competitor_imports(
     """
     cache = cache_file or config.comtrade_competitors_cache(hs)
     return _load_cached(
-        cache, lambda: fetch_competitor_imports(hs), parse_competitor_imports, force
+        cache,
+        lambda: fetch_competitor_imports(hs),
+        parse_competitor_imports,
+        force,
+        source="un_comtrade_competitors",
+        parameters={"hs": hs, "years": list(config.IMPORT_YEARS)},
     )

@@ -103,6 +103,11 @@ def narrative_json(hs: str) -> Path:
     return processed_dir(hs) / "narrative.json"
 
 
+def snapshot_manifest_json(hs: str) -> Path:
+    """Manifiesto de hashes y procedencia del snapshot de ``hs``."""
+    return processed_dir(hs) / "manifest.json"
+
+
 def imports_timeseries_parquet(hs: str) -> Path:
     """Ruta de la serie anual de importaciones (por destino y año) de ``hs``."""
     return processed_dir(hs) / "imports_timeseries.parquet"

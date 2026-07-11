@@ -14,7 +14,6 @@ registros (p. ej. sin esquema preferencial hacia Colombia). Cualquier otro
 error HTTP o cambio de formato falla ruidosamente aquí.
 """
 
-import json
 import logging
 import math
 import xml.etree.ElementTree as ET
@@ -27,6 +26,7 @@ import requests
 
 from tradefit import config, hs_codes
 from tradefit.contracts import competitor_tariffs_schema, tariffs_schema
+from tradefit.ingest.cache import load_json_cache, metadata_path, read_json, write_json_cache
 
 logger = logging.getLogger(__name__)
 
@@ -234,14 +234,21 @@ def load_wits_tariffs(hs: str, cache_file: Path | None = None, force: bool = Fal
     """
     if cache_file is None:
         cache_file = config.wits_tariffs_cache(hs)
-    if force or not cache_file.exists():
-        payload = fetch_wits_tariffs(hs)
-        cache_file.parent.mkdir(parents=True, exist_ok=True)
-        cache_file.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+    cached, fetched = load_json_cache(
+        cache_file,
+        lambda: fetch_wits_tariffs(hs),
+        source="world_bank_wits_tariffs",
+        parameters={
+            "hs": hs,
+            "origin": config.ORIGIN_ISO3,
+            "years": list(config.WITS_YEARS),
+        },
+        force=force,
+    )
+    if fetched:
         logger.info("Respuesta cruda de WITS cacheada en %s", cache_file)
     else:
         logger.info("Usando caché de WITS: %s", cache_file)
-    cached: dict[str, Any] = json.loads(cache_file.read_text(encoding="utf-8"))
     return parse_wits_response(cached)
 
 
@@ -360,8 +367,10 @@ def load_competitor_tariffs(
     if cache_file is None:
         cache_file = config.wits_competitor_tariffs_cache(hs)
     stale = force or not cache_file.exists()
+    cached_payload: dict[str, Any] | None = None
+    cached_partners: dict[str, set[str]] = {}
     if not stale:
-        cached_payload: dict[str, Any] = json.loads(cache_file.read_text(encoding="utf-8"))
+        cached_payload = read_json(cache_file)
         cached_partners = {
             reporter: set(entry.get("partners", []))
             for reporter, entry in cached_payload.get("responses", {}).items()
@@ -370,12 +379,42 @@ def load_competitor_tariffs(
             set(partners) - cached_partners.get(reporter, set())
             for reporter, partners in partners_by_reporter.items()
         )
+        sidecar = metadata_path(cache_file)
+        if sidecar.exists():
+            cached_parameters = read_json(sidecar).get("parameters", {})
+            stale = stale or cached_parameters.get("years") != list(config.WITS_YEARS)
     if stale:
         payload = fetch_competitor_tariffs(hs, partners_by_reporter)
-        cache_file.parent.mkdir(parents=True, exist_ok=True)
-        cache_file.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+        write_json_cache(
+            cache_file,
+            payload,
+            source="world_bank_wits_competitor_tariffs",
+            parameters={
+                "hs": hs,
+                "partners_by_reporter": {
+                    reporter: sorted(set(partners))
+                    for reporter, partners in sorted(partners_by_reporter.items())
+                },
+                "years": list(config.WITS_YEARS),
+            },
+        )
         logger.info("Aranceles a competidores cacheados en %s", cache_file)
     else:
+        if cached_payload is not None and not metadata_path(cache_file).exists():
+            write_json_cache(
+                cache_file,
+                cached_payload,
+                source="world_bank_wits_competitor_tariffs",
+                parameters={
+                    "hs": hs,
+                    "partners_by_reporter": {
+                        reporter: sorted(partners)
+                        for reporter, partners in sorted(cached_partners.items())
+                    },
+                    "years": list(config.WITS_YEARS),
+                },
+                retrieved_at=None,
+            )
         logger.info("Usando caché de WITS (competidores): %s", cache_file)
-    cached: dict[str, Any] = json.loads(cache_file.read_text(encoding="utf-8"))
+    cached = read_json(cache_file)
     return parse_competitor_response(cached)

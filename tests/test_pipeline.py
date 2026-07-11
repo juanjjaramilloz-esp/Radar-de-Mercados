@@ -96,6 +96,20 @@ def test_build_sin_callback_no_falla(tmp_path: Path, monkeypatch: pytest.MonkeyP
     assert not ranking.empty
 
 
+def test_build_publica_manifiesto_y_stub_no_pisa_macro(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """El snapshot es verificable y el stub no contamina el macro compartido."""
+    monkeypatch.setattr(config, "PROCESSED_DIR", tmp_path)
+    macro_path = config.macro_context_parquet()
+    macro_path.write_bytes(b"macro-real-previo")
+
+    pipeline.build_snapshot(source="stub", hs=config.HS_CODE)
+
+    assert config.snapshot_manifest_json(config.HS_CODE).exists()
+    assert macro_path.read_bytes() == b"macro-real-previo"
+
+
 def test_narrativa_del_snapshot_es_bilingue(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:

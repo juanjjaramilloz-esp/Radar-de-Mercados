@@ -326,6 +326,10 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
         "es": "Análisis de la partida {hs} listo ✅",
         "en": "Analysis for {hs} ready ✅",
     },
+    "snapshot_invalid_error": {
+        "es": "El snapshot de {hs} está incompleto o alterado. Reconstrúyelo. Detalle: {error}",
+        "en": "The {hs} snapshot is incomplete or altered. Rebuild it. Detail: {error}",
+    },
     "recommendations_subheader": {
         "es": "Recomendación: dónde enfocarse",
         "en": "Recommendation: where to focus",

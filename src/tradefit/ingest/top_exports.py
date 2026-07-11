@@ -105,7 +105,14 @@ def load_top_exports(cache_file: Path | None = None, force: bool = False) -> pd.
         DataFrame de :func:`parse_top_exports`.
     """
     cache = cache_file or config.comtrade_top_exports_cache()
-    return _load_cached(cache, fetch_top_exports, parse_top_exports, force)
+    return _load_cached(
+        cache,
+        fetch_top_exports,
+        parse_top_exports,
+        force,
+        source="un_comtrade_top_exports_hs4",
+        parameters={"origin": config.ORIGIN_ISO3, "year": config.BASKET_YEAR},
+    )
 
 
 def _print_top(n: int = 20) -> None:

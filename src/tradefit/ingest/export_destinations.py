@@ -115,5 +115,10 @@ def load_export_destinations(
     """
     cache = cache_file or config.comtrade_destinations_cache(hs)
     return _load_cached(
-        cache, lambda: fetch_export_destinations(hs), parse_export_destinations, force
+        cache,
+        lambda: fetch_export_destinations(hs),
+        parse_export_destinations,
+        force,
+        source="un_comtrade_export_destinations",
+        parameters={"hs": hs, "origin": config.ORIGIN_ISO3, "year": config.BASKET_YEAR},
     )

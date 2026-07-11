@@ -12,12 +12,24 @@ ranking de 26 destinos (18 OCDE/Asia + 8 LATAM). Motor económico puro en
 `domain/`, snapshot Parquet como contrato, app Streamlit que solo lee el
 snapshot.
 
+## ✅ Última tanda — seguridad, integridad y refresh automático (2026-07-11)
+
+1. CORS y XSRF vuelven a estar activos; el dominio de un proxy propio se
+   configura con `STREAMLIT_BROWSER_SERVER_ADDRESS`.
+2. Los cachés crudos llevan sidecars con parámetros, vintage y SHA-256;
+   cambiar años invalida el caché. Los snapshots se preparan completos en
+   staging, llevan `manifest.json`, se publican por swap con lock y la app
+   verifica contrato + hashes. El stub no sobrescribe el macro compartido.
+3. `.github/workflows/data-refresh.yml` revisa mensualmente TTL por fuente
+   (Comtrade 60 días, WDI 90, WITS 180), reconstruye y abre una PR de datos
+   después de pasar la puerta completa. No empuja directamente a `main`.
+
 ## ✅ Última tanda — margen de preferencia + backtest (2026-07-09, COMPLETA)
 
 Tanda "1 y 3" aprobada por el usuario (las dos mejoras de comercio
 internacional priorizadas): margen de preferencia relativo y validación
-predictiva. Siguiente tanda acordada: **automatización del refresh según el
-calendario de publicación de cada fuente**.
+predictiva. La automatización del refresh que era el siguiente paso quedó
+completada el 2026-07-11 (ver tanda superior).
 
 1. **Margen de preferencia relativo** (`preference_margin`, pondera 0.05):
    arancel AHS promedio de los top-3 proveedores rivales de cada destino −
@@ -495,9 +507,8 @@ pytest ; ruff check . ; mypy src                # puerta de calidad
   suspendida se limpió (`gh auth logout`) porque causaba 403 confusos; si se
   necesita `gh` autenticado, correr `gh auth login` con la cuenta nueva
   (`juanjjaramilloz-esp`) — flujo OAuth interactivo, requiere el usuario.
-- Backlog: IMF SDMX como macro complementaria; automatización del refresh
-  de datos alineada al calendario de publicación de las fuentes (siguiente
-  tanda, ver arriba).
+- Backlog: IMF SDMX como macro complementaria. La automatización del refresh
+  quedó hecha el 2026-07-11 (workflow mensual + TTL por fuente + PR revisable).
 - ~~Backlog: `st.cache_data` en los loaders~~ HECHO 2026-07-08 con clave por mtime (ver última tanda). Detalle histórico: (`_load_snapshot`,
   `_load_imports_timeseries`, `_load_competitors`, `_load_macro_context`)
   — beneficio real (no releer parquet en cada rerun/slider) pero riesgo

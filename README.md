@@ -142,6 +142,24 @@ pre-commit install          # hooks: ruff + mypy + pytest antes de cada commit
 
 La misma puerta corre en [CI](.github/workflows/ci.yml) en cada push.
 
+### Actualización de datos
+
+El workflow `Data refresh` revisa las fuentes una vez al mes, conserva los
+cachés crudos entre ejecuciones y solo descarga una fuente cuando vence su
+política de frescura: Comtrade 60 días, WDI 90 y WITS 180. Si cambian los
+snapshots, abre o actualiza la PR `automation/data-refresh`; nunca escribe
+directamente sobre `main`. Requiere el secreto de repositorio
+`COMTRADE_API_KEY` y habilitar en GitHub **Settings → Actions → General →
+Allow GitHub Actions to create and approve pull requests**.
+
+```powershell
+# Ver qué fuentes vencerían, sin red ni escrituras
+python -m tradefit.pipeline.refresh --dry-run
+
+# Refresco manual completo
+python -m tradefit.pipeline.refresh --force
+```
+
 ---
 
 ## English summary

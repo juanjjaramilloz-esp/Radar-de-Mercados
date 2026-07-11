@@ -544,6 +544,17 @@ STUB_MACRO_CSV: Final = SAMPLE_DIR / "stub_macro.csv"
 WDI_DATE_RANGE: Final = "2021:2025"
 MACRO_YEARS: Final = 3
 
+# --- Política de actualización automática ---
+# El workflow corre mensualmente, pero solo toca una fuente cuando su caché
+# excede esta edad. Comtrade se revisa más seguido porque los reporters
+# completan/revisan el último año de forma escalonada; WDI trimestralmente y
+# WITS semestralmente por su publicación más rezagada.
+REFRESH_MAX_AGE_DAYS: Final[dict[str, int]] = {
+    "comtrade": 60,
+    "wdi": 90,
+    "wits": 180,
+}
+
 # Indicadores WDI del filtro (código → nombre corto usado en el contrato).
 WDI_INDICATORS: Final[dict[str, str]] = {
     "FP.CPI.TOTL.ZG": "inflation",  # inflación anual, precios al consumidor (%)

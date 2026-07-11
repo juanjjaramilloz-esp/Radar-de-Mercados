@@ -196,7 +196,10 @@ def _competitor_partner_plan(
 
 
 def _load_inputs(
-    source: str, hs: str, on_stage: OnStage = None
+    source: str,
+    hs: str,
+    on_stage: OnStage = None,
+    force_sources: frozenset[str] = frozenset(),
 ) -> tuple[MarketInputs, pd.DataFrame]:
     """Carga y valida los insumos del ranking + macro desde la fuente elegida.
 
@@ -204,16 +207,17 @@ def _load_inputs(
     con ``source="stub"`` todo sale de ``data/sample/`` (cero red).
     """
     if source == "comtrade":
+        force_comtrade = "comtrade" in force_sources
         _notify(on_stage, "Importaciones del producto por destino (UN Comtrade)")
-        imports = comtrade.load_comtrade_imports(hs)
+        imports = comtrade.load_comtrade_imports(hs, force=force_comtrade)
         _notify(on_stage, "Flujo bilateral desde el origen")
-        bilateral = comtrade.load_bilateral_imports(hs)
+        bilateral = comtrade.load_bilateral_imports(hs, force=force_comtrade)
         _notify(on_stage, "Canastas exportadora e importadora (complementariedad)")
         baskets = comtrade.load_baskets()
         _notify(on_stage, "Totales de exportación para el RCA")
-        export_totals = comtrade.load_export_totals(hs)
+        export_totals = comtrade.load_export_totals(hs, force=force_comtrade)
         _notify(on_stage, "Aranceles que enfrenta el origen (World Bank WITS)")
-        tariffs = wits.load_wits_tariffs(hs)
+        tariffs = wits.load_wits_tariffs(hs, force="wits" in force_sources)
         _notify(on_stage, "Indicadores macro (World Bank WDI)")
         macro = worldbank.load_wdi_macro()
     else:
@@ -244,7 +248,10 @@ def _load_inputs(
 
 
 def build_snapshot(
-    source: str = "comtrade", hs: str = config.HS_CODE, on_stage: OnStage = None
+    source: str = "comtrade",
+    hs: str = config.HS_CODE,
+    on_stage: OnStage = None,
+    force_sources: frozenset[str] = frozenset(),
 ) -> pd.DataFrame:
     """Construye y escribe el snapshot de un producto; devuelve el ranking.
 
@@ -257,6 +264,8 @@ def build_snapshot(
         on_stage: callback opcional de progreso; recibe la descripción de
             cada etapa cuando esta inicia (lo usa la app para pintar el
             avance — el pipeline sigue sin conocer Streamlit).
+        force_sources: fuentes producto-específicas a re-descargar
+            (``{"comtrade", "wits"}``); lo usa el refresh automatizado.
 
     Returns:
         DataFrame conforme a ``ranking_schema``, ya persistido en
@@ -269,12 +278,15 @@ def build_snapshot(
     """
     if source not in SOURCES:
         raise ValueError(f"Fuente desconocida: {source!r}; opciones: {SOURCES}")
+    unknown_force_sources = set(force_sources) - {"comtrade", "wits"}
+    if unknown_force_sources:
+        raise ValueError(f"Fuentes de refresh desconocidas: {sorted(unknown_force_sources)}")
     hs = hs_codes.normalize_hs(hs)
     if not hs_codes.is_valid_hs(hs):
         raise ValueError(f"Partida HS inválida: {hs!r}; se esperan 2, 4 o 6 dígitos")
     if source == "stub" and hs != config.HS_CODE:
         raise ValueError(f"El stub solo tiene datos del producto {config.HS_CODE}")
-    data, macro = _load_inputs(source, hs, on_stage)
+    data, macro = _load_inputs(source, hs, on_stage, force_sources)
     imports = data.imports
     logger.info(
         "Insumos cargados: %d filas de importaciones, %d mercados, RCA=%.2f",
@@ -289,7 +301,9 @@ def build_snapshot(
     export_shares: pd.Series[float] | None = None
     if source == "comtrade":
         _notify(on_stage, "Destinos de exportación del origen (concentración)")
-        destinations = export_destinations.load_export_destinations(hs)
+        destinations = export_destinations.load_export_destinations(
+            hs, force="comtrade" in force_sources
+        )
         if not destinations.empty:
             exports_series = destinations.set_index(config.COL_COUNTRY)[config.COL_VALUE]
             export_shares = indices.destination_shares(exports_series)
@@ -302,7 +316,9 @@ def build_snapshot(
     supplier_table: pd.DataFrame | None = None
     if source == "comtrade":
         _notify(on_stage, "Proveedores del producto en cada destino (competidores)")
-        competitor_imports = competitors.load_competitor_imports(hs)
+        competitor_imports = competitors.load_competitor_imports(
+            hs, force="comtrade" in force_sources
+        )
         if not competitor_imports.empty:
             supplier_table = competitors_schema.validate(
                 indices.supplier_shares(competitor_imports)
@@ -310,7 +326,9 @@ def build_snapshot(
     if supplier_table is not None:
         _notify(on_stage, "Aranceles que enfrentan los competidores (margen de preferencia)")
         by_reporter, by_destination, zero_rated = _competitor_partner_plan(supplier_table)
-        competitor_prefs = wits.load_competitor_tariffs(hs, by_reporter)
+        competitor_prefs = wits.load_competitor_tariffs(
+            hs, by_reporter, force="wits" in force_sources
+        )
         data = replace(
             data,
             competitor_tariff=indices.competitor_tariff_faced(

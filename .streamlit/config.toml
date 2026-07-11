@@ -7,14 +7,14 @@ secondaryBackgroundColor = "#F1F5F9"
 textColor = "#0F172A"
 font = "sans serif"
 
-# Server: para despliegue detrás de un dominio propio (Render + Cloudflare).
+# Server: seguro por defecto también detrás de un proxy inverso.
 # headless evita el prompt interactivo de bienvenida (cuelga el deploy sin TTY).
-# CORS/XSRF desactivados porque el dominio público difiere del host interno
-# de Render — sin esto el navegador bloquea el websocket de Streamlit.
+# En Render/Cloudflare se debe definir STREAMLIT_BROWSER_SERVER_ADDRESS con
+# el dominio público; Streamlit usa esa dirección para validar CORS/XSRF.
 [server]
 headless = true
-enableCORS = false
-enableXsrfProtection = false
+enableCORS = true
+enableXsrfProtection = true
 
 [browser]
 gatherUsageStats = false

@@ -34,3 +34,8 @@ dist/
 
 # Notebooks: checkpoints
 .ipynb_checkpoints/
+
+# Instrucciones de agentes de código (uso interno, no público)
+CLAUDE.md
+AGENTS.md
+.codex/

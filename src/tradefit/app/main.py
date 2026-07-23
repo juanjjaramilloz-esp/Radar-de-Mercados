@@ -241,8 +241,8 @@ def _sidebar_toggle_css() -> None:
             width: 2.25rem !important;
             height: 2.25rem !important;
             animation:
-                sidebar-toggle-pulse 4s ease-out infinite,
-                sidebar-toggle-nudge 4s ease-in-out infinite;
+                sidebar-toggle-pulse 3s ease-out infinite,
+                sidebar-toggle-nudge 3s ease-in-out infinite;
         }
         [data-testid="stExpandSidebarButton"] [data-testid="stIconMaterial"] {
             color: #FFFFFF !important;

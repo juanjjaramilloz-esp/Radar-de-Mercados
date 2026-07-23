@@ -172,6 +172,39 @@ def _product_select_css() -> None:
     )
 
 
+#: Ícono + estilos de la firma "Cauce", copiados 1:1 del header de
+#: juanjojaramillo.com (color de acento, pesos y tamaños de fuente) para que
+#: la tarjeta del sidebar se vea como el mismo componente, no una imitación.
+_CAUCE_BRAND_HTML: Final[str] = """
+<a href="https://juanjojaramillo.com" target="_blank" rel="noopener noreferrer"
+   style="display:flex;align-items:center;gap:9px;text-decoration:none;
+          margin-top:0.6rem;padding-top:0.6rem;border-top:1px solid rgba(15,23,42,0.08);">
+    <span style="color:#6494FF;flex-shrink:0;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+             stroke-linejoin="round" aria-hidden="true">
+            <path d="M16.5 5C10.3 4 5.5 7.8 5.5 12s4.8 8 11 7"></path>
+            <path d="M16.3 5.3 19 3.6"></path>
+            <circle cx="20.1" cy="2.9" r="1"></circle>
+            <path d="M16.1 18.7 18.8 20.4"></path>
+            <circle cx="19.9" cy="21" r="1"></circle>
+        </svg>
+    </span>
+    <span>
+        <span style="display:block;">
+            <span style="font-weight:800;color:#0F172A;font-size:0.95rem;">Cauce</span>
+            <span style="color:#64748B;font-size:0.72rem;font-weight:500;margin-left:0.35rem;">
+                {tagline}
+            </span>
+        </span>
+        <span style="display:block;color:#6494FF;font-size:0.68rem;font-weight:500;">
+            By Juan J. Jaramillo
+        </span>
+    </span>
+</a>
+"""
+
+
 def _about_sidebar() -> None:
     """Tarjeta de credibilidad: qué es el proyecto, con qué está hecho y dónde vive."""
     i18n.language_toggle()
@@ -179,7 +212,10 @@ def _about_sidebar() -> None:
         st.header(t("about_header"))
         st.markdown(t("about_body"))
         st.caption(t("about_caption"))
-        st.caption(t("about_epm_pitch"))
+        st.markdown(
+            _CAUCE_BRAND_HTML.format(tagline=t("cauce_tagline")),
+            unsafe_allow_html=True,
+        )
 
 
 def _catalog_products() -> dict[str, str]:

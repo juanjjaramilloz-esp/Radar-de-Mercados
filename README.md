@@ -2,9 +2,9 @@
 
 [![CI](https://github.com/juanjjaramilloz-esp/Radar-de-Mercados/actions/workflows/ci.yml/badge.svg)](https://github.com/juanjjaramilloz-esp/Radar-de-Mercados/actions/workflows/ci.yml)
 [![Python ≥3.11](https://img.shields.io/badge/python-%E2%89%A53.11-blue)](pyproject.toml)
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://radar-de-mercados.streamlit.app/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://radar.juanjojaramillo.com/)
 
-**Demo en vivo: <https://radar-de-mercados.streamlit.app/>** · *English summary [below](#english-summary).*
+**Demo en vivo: <https://radar.juanjojaramillo.com/>** · *English summary [below](#english-summary).*
 
 Screener de mercados de exportación: dado un **producto** (partida
 arancelaria HS) con origen **Colombia**, rankea 26 mercados destino
@@ -164,7 +164,7 @@ python -m tradefit.pipeline.refresh --force
 
 ## English summary
 
-**Live demo: <https://radar-de-mercados.streamlit.app/>** (language toggle in
+**Live demo: <https://radar.juanjojaramillo.com/>** (language toggle in
 the sidebar).
 
 Export-market screener: given a product (HS tariff line) originating in

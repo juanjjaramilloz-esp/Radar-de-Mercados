@@ -26,6 +26,7 @@ from tradefit import config, hs_codes
 from tradefit.app import i18n
 from tradefit.app.export import ranking_to_excel, ranking_to_pdf
 from tradefit.app.flags import flag_color, flag_emoji
+from tradefit.app.format import top_share_percent
 from tradefit.app.i18n import t
 from tradefit.contracts import ranking_schema
 from tradefit.domain import scoring
@@ -912,12 +913,14 @@ def _comparator_section(products: dict[str, str]) -> None:
                 )
             )
             top5 = ranking.nsmallest(5, config.COL_RANK)
+            market_count = len(ranking)
             for _, row in top5.iterrows():
+                rank = int(row[config.COL_RANK])
                 st.markdown(
-                    f"{int(row[config.COL_RANK])}. "
+                    f"{rank}. "
                     f"{flag_emoji(row[config.COL_COUNTRY])} "
                     f"{row[config.COL_COUNTRY_NAME]} — "
-                    f"**{i18n.fmt_number(row[config.COL_FINAL_SCORE], 3)}**"
+                    f"**{t('comparator_top_share', pct=top_share_percent(rank, market_count))}**"
                 )
 
 

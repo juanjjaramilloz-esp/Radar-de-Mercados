@@ -474,11 +474,13 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
     "comparator_caption": {
         "es": (
             "Elige dos o tres partidas ya analizadas y compara sus mejores "
-            "mercados; construye más partidas con el buscador avanzado."
+            "mercados. La posición es relativa a cada producto: sus scores "
+            "se normalizan por partida y no son comparables directamente."
         ),
         "en": (
             "Pick two or three already-analyzed tariff lines and compare "
-            "their best markets; build more with the advanced search."
+            "their best markets. Position is relative to each product: scores "
+            "are normalized by tariff line and are not directly comparable."
         ),
     },
     "comparator_needs_more_info": {

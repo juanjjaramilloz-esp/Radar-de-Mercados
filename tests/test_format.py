@@ -4,7 +4,9 @@ Valores calculados a mano: la convención española usa «.» para miles y «,»
 para decimales; la inglesa, la inversa.
 """
 
-from tradefit.app.format import format_number, format_pct, plotly_separators
+import pytest
+
+from tradefit.app.format import format_number, format_pct, plotly_separators, top_share_percent
 
 
 def test_format_number_es_miles_y_decimales() -> None:
@@ -37,3 +39,17 @@ def test_plotly_separators() -> None:
     # Plotly espera "<decimal><miles>": español = coma decimal, punto de miles.
     assert plotly_separators("es") == ",."
     assert plotly_separators("en") == ".,"
+
+
+@pytest.mark.parametrize(
+    ("rank", "population", "expected"),
+    [(1, 20, 5), (1, 3, 34), (5, 100, 5), (1, 500, 1), (7, 7, 100)],
+)
+def test_top_share_percent(rank: int, population: int, expected: int) -> None:
+    assert top_share_percent(rank, population) == expected
+
+
+@pytest.mark.parametrize(("rank", "population"), [(0, 10), (11, 10), (1, 0)])
+def test_top_share_percent_rechaza_posiciones_invalidas(rank: int, population: int) -> None:
+    with pytest.raises(ValueError):
+        top_share_percent(rank, population)

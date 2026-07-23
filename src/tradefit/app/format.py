@@ -1,4 +1,4 @@
-"""Formato numérico por idioma (presentación pura, sin Streamlit).
+"""Formato numérico y posiciones relativas (presentación pura, sin Streamlit).
 
 Convención española: «.» para miles y «,» para decimales (RAE, *Ortografía*,
 § apéndice de números); la inglesa es la inversa. Funciones puras y
@@ -7,6 +7,7 @@ los tests las usen pasando el idioma explícito; ``app/i18n.py`` expone
 wrappers que leen el idioma activo de la sesión.
 """
 
+from math import ceil
 from typing import Final, Literal
 
 Lang = Literal["es", "en"]
@@ -50,3 +51,24 @@ def format_pct(fraction: float, decimals: int = 1, lang: Lang = "es", signed: bo
 def plotly_separators(lang: Lang) -> str:
     """Cadena ``separators`` de Plotly (decimal + miles) para el idioma dado."""
     return ",." if lang == "es" else ".,"
+
+
+def top_share_percent(rank: int, population: int) -> int:
+    """Convierte un puesto en el porcentaje superior que ocupa en su universo.
+
+    Args:
+        rank: posición ordinal, empezando en 1.
+        population: número total de alternativas rankeadas.
+
+    Returns:
+        Porcentaje entero redondeado hacia arriba. Por ejemplo, el puesto 1
+        entre 20 mercados pertenece al ``top 5 %``.
+
+    Raises:
+        ValueError: si la posición o el tamaño del universo no son válidos.
+    """
+    if population < 1:
+        raise ValueError("population must be positive")
+    if rank < 1 or rank > population:
+        raise ValueError("rank must be between 1 and population")
+    return ceil(rank / population * 100)

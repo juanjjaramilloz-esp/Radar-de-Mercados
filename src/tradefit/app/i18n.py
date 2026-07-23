@@ -509,6 +509,10 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
         "es": "RCA del origen: {rca} · demanda {demand}",
         "en": "Origin's RCA: {rca} · demand {demand}",
     },
+    "comparator_top_share": {
+        "es": "top {pct} % de sus mercados",
+        "en": "top {pct}% of its markets",
+    },
     "methodology_expander_title": {
         "es": "📖 Metodología: de dónde sale cada número",
         "en": "📖 Methodology: where every number comes from",

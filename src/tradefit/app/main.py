@@ -205,6 +205,55 @@ _CAUCE_BRAND_HTML: Final[str] = """
 """
 
 
+def _sidebar_toggle_css() -> None:
+    """Marca el botón que abre el sidebar colapsado (``stExpandSidebarButton``).
+
+    El sidebar arranca colapsado (``initial_sidebar_state="collapsed"`` en
+    ``set_page_config``) para priorizar el ranking; sin esto el botón que lo
+    abre es un chevron gris casi invisible y la mayoría no lo encuentra. El
+    testid es interno del frontend de Streamlit (sin key propia posible),
+    igual que ``_product_select_css``. El ícono es una ligadura de fuente
+    (Material Symbols, no SVG — confirmado inspeccionando el DOM real), por
+    eso se colorea con ``color``, no ``fill``. Animación en dos capas: un
+    pulso (glow que crece y se desvanece) marca el botón todo el tiempo, y
+    un "nudge" (empujoncito horizontal, doble, hacia donde abre el panel)
+    corre cada pocos segundos para que el ojo lo note incluso sin mirar
+    fijo — sin forzar la apertura real del sidebar (eso pelearía con el
+    toggle manual del usuario y depende de una API interna no pública).
+    """
+    st.markdown(
+        """
+        <style>
+        @keyframes sidebar-toggle-pulse {
+            0%, 55%, 100% { box-shadow: 0 0 0 0 rgba(29, 78, 216, 0.55); }
+            75% { box-shadow: 0 0 0 12px rgba(29, 78, 216, 0); }
+        }
+        @keyframes sidebar-toggle-nudge {
+            0%, 80%, 100% { transform: translateX(0); }
+            85% { transform: translateX(6px); }
+            90% { transform: translateX(0); }
+            93% { transform: translateX(6px); }
+            97% { transform: translateX(0); }
+        }
+        [data-testid="stExpandSidebarButton"] {
+            background-color: #1D4ED8 !important;
+            border-radius: 999px !important;
+            width: 2.25rem !important;
+            height: 2.25rem !important;
+            animation:
+                sidebar-toggle-pulse 4s ease-out infinite,
+                sidebar-toggle-nudge 4s ease-in-out infinite;
+        }
+        [data-testid="stExpandSidebarButton"] [data-testid="stIconMaterial"] {
+            color: #FFFFFF !important;
+            font-size: 1.35rem !important;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
 def _about_sidebar() -> None:
     """Tarjeta de credibilidad: qué es el proyecto, con qué está hecho y dónde vive."""
     i18n.language_toggle()
@@ -2085,8 +2134,14 @@ def _top3_cards(ranking: pd.DataFrame) -> None:
 
 def main() -> None:
     """Renderiza la página principal: ranking de mercados destino."""
-    st.set_page_config(page_title=t("page_title"), page_icon="📡", layout="wide")
+    st.set_page_config(
+        page_title=t("page_title"),
+        page_icon="📡",
+        layout="wide",
+        initial_sidebar_state="collapsed",
+    )
     st.title(t("app_title"))
+    _sidebar_toggle_css()
     _about_sidebar()
     _hero_section()
 

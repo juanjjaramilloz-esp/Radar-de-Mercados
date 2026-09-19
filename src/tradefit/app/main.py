@@ -29,7 +29,7 @@ from tradefit.app.flags import flag_color, flag_emoji
 from tradefit.app.format import top_share_percent
 from tradefit.app.i18n import t
 from tradefit.contracts import ranking_schema
-from tradefit.domain import scoring
+from tradefit.domain import scoring, subsector
 from tradefit.domain.macro_filter import latest_indicator_value
 from tradefit.pipeline.build_snapshot import ensure_snapshot
 from tradefit.pipeline.snapshot_io import verify_manifest
@@ -47,6 +47,8 @@ _FOCUS_SELECT_KEY = "focus_market_select"
 _MAP_KEY = "map_select"
 _MAP_PROCESSED_KEY = "map_selection_processed"
 _TABLE_KEY = "ranking_table_select"
+#: Grupo CIIU elegido cuando la partida se reparte entre subsectores.
+_SUBSECTOR_CHOICE_KEY = "subsector_group_choice"
 _COMPARE_KEY = "compare_markets"
 _TABLE_PROCESSED_KEY = "ranking_table_selection_processed"
 #: Prefijos del panel «⚙️ Columnas»: cada columna tiene un checkbox
@@ -2132,6 +2134,221 @@ def _top3_cards(ranking: pd.DataFrame) -> None:
             )
 
 
+def _load_subsector_tables() -> dict[str, pd.DataFrame] | None:
+    """Tablas del Observatorio de subsectores, o ``None`` si no están.
+
+    Son cuatro artefactos independientes del producto (correspondencia HS4 →
+    CIIU, serie del subsector, socios y partidas destacadas). Si falta alguno,
+    la app degrada con gracia omitiendo la pestaña.
+    """
+    rutas = {
+        "hs4": config.hs4_subsector_parquet(),
+        "indicadores": config.subsector_indicadores_parquet(),
+        "socios": config.subsector_socios_parquet(),
+        "partidas": config.subsector_partidas_parquet(),
+    }
+    if not all(ruta.exists() for ruta in rutas.values()):
+        return None
+    return {nombre: _read_parquet(ruta) for nombre, ruta in rutas.items()}
+
+
+def _observatorio_meta() -> dict[str, object]:
+    """Procedencia del Observatorio; vacío si el archivo no está."""
+    ruta = config.observatorio_meta_json()
+    return _read_json(ruta) if ruta.exists() else {}
+
+
+def _partial_years(meta: dict[str, object]) -> set[int]:
+    """Años que el Observatorio declara incompletos (menos de doce meses)."""
+    corte = meta.get("ultimo_mes_comparable")
+    if not isinstance(corte, dict):
+        return set()
+    return {int(anio) for anio, mes in corte.items() if int(mes) < 12}
+
+
+def _subsector_choice(grupos: pd.DataFrame) -> str:
+    """Grupo CIIU a mostrar: el dominante, o el que elija quien consulta.
+
+    Una partida HS4 puede repartirse entre grupos —el café sin tostar cae
+    entre cultivo y trilla—, así que cuando hay más de uno con peso real se
+    ofrece elegir en vez de decidir por el usuario.
+    """
+    relevantes = grupos[grupos[subsector.COL_SHARE] >= 0.01]
+    if len(relevantes) <= 1:
+        return str(grupos[subsector.COL_GROUP].iloc[0])
+    opciones = {
+        str(fila[subsector.COL_GROUP]): t(
+            "subsector_option",
+            group=fila[subsector.COL_GROUP],
+            share=i18n.fmt_pct(float(fila[subsector.COL_SHARE])),
+        )
+        for _, fila in relevantes.iterrows()
+    }
+    choice = st.radio(
+        t("subsector_choice_label"),
+        options=list(opciones),
+        format_func=lambda code: opciones[code],
+        horizontal=True,
+        key=_SUBSECTOR_CHOICE_KEY,
+    )
+    return str(choice)
+
+
+def _subsector_kpis(fila: pd.Series, year: int) -> None:
+    """Exportaciones, importaciones, balanza y comercio intraindustrial del año."""
+    col_x, col_m, col_bal, col_gl = st.columns(4)
+    col_x.metric(t("subsector_kpi_x"), i18n.fmt_usd_compact(float(fila["X"])))
+    col_m.metric(t("subsector_kpi_m"), i18n.fmt_usd_compact(float(fila["M"])))
+    balanza = float(fila["balanza"])
+    col_bal.metric(
+        t("subsector_kpi_balance"),
+        i18n.fmt_usd_compact(abs(balanza)),
+        delta=t("subsector_surplus") if balanza >= 0 else t("subsector_deficit"),
+        delta_color="normal" if balanza >= 0 else "inverse",
+    )
+    gl = fila["gl_partida_socio"]
+    col_gl.metric(
+        t("subsector_kpi_gl"),
+        "—" if pd.isna(gl) else i18n.fmt_number(float(gl), 3),
+        help=t("subsector_gl_help"),
+    )
+
+
+def _subsector_series_chart(serie: pd.DataFrame, partial: set[int]) -> None:
+    """Barras de exportación e importación por año, con el GL como línea."""
+    anios = serie[subsector.COL_YEAR].astype(int)
+    etiquetas = [t("subsector_partial_year", year=a) if a in partial else str(a) for a in anios]
+    fig = go.Figure()
+    fig.add_bar(
+        x=etiquetas,
+        y=serie["X"],
+        name=t("subsector_exports"),
+        marker_color="#2a6f97",
+        hovertemplate="%{y:$,.0f}<extra>" + t("subsector_exports") + "</extra>",
+    )
+    fig.add_bar(
+        x=etiquetas,
+        y=serie["M"],
+        name=t("subsector_imports"),
+        marker_color="#c1666b",
+        hovertemplate="%{y:$,.0f}<extra>" + t("subsector_imports") + "</extra>",
+    )
+    fig.add_scatter(
+        x=etiquetas,
+        y=serie["gl_partida_socio"],
+        name=t("subsector_gl_short"),
+        mode="lines+markers",
+        yaxis="y2",
+        line={"color": "#111827", "width": 2},
+        hovertemplate="%{y:.3f}<extra>" + t("subsector_gl_short") + "</extra>",
+    )
+    fig.update_layout(
+        separators=i18n.active_plotly_separators(),
+        barmode="group",
+        height=380,
+        margin={"l": 0, "r": 0, "t": 60, "b": 0},
+        legend={"orientation": "h", "yanchor": "bottom", "y": 1.0, "title": None},
+        yaxis={"title": t("subsector_yaxis_usd")},
+        yaxis2={
+            "title": t("subsector_gl_short"),
+            "overlaying": "y",
+            "side": "right",
+            "range": [0, 1],
+            "showgrid": False,
+        },
+        hovermode="x unified",
+    )
+    st.plotly_chart(fig, use_container_width=True)
+
+
+def _subsector_partners(socios: pd.DataFrame, year: int) -> None:
+    """Tabla de socios del subsector: cuánto pesa cada uno y si hay ida y vuelta."""
+    if socios.empty:
+        return
+    tabla = pd.DataFrame(
+        {
+            t("subsector_col_partner"): [
+                i18n.country_name(str(iso3), str(iso3)) for iso3 in socios[subsector.COL_COUNTRY]
+            ],
+            # En millones: los totales del subsector son de miles de millones y
+            # la tabla se vuelve ilegible con el monto completo.
+            t("subsector_col_x"): socios["X"] / 1e6,
+            t("subsector_col_m"): socios["M"] / 1e6,
+            t("subsector_col_share_x"): socios["cuota_x"],
+            t("subsector_col_share_m"): socios["cuota_m"],
+            t("subsector_col_gl"): socios["gl_partida"],
+        }
+    )
+    st.caption(t("subsector_partners_caption", year=year))
+    st.dataframe(
+        tabla,
+        hide_index=True,
+        use_container_width=True,
+        column_config={
+            t("subsector_col_x"): st.column_config.NumberColumn(format="%.1f"),
+            t("subsector_col_m"): st.column_config.NumberColumn(format="%.1f"),
+            t("subsector_col_share_x"): st.column_config.NumberColumn(format="percent"),
+            t("subsector_col_share_m"): st.column_config.NumberColumn(format="percent"),
+            t("subsector_col_gl"): st.column_config.NumberColumn(format="%.3f"),
+        },
+    )
+
+
+def _subsector_tab(hs: str, tablas: dict[str, pd.DataFrame], meta: dict[str, object]) -> None:
+    """Contexto de subsector: cómo le va a Colombia en la industria del producto.
+
+    Presentación pura de las tablas del Observatorio (microdatos del DANE y
+    correlativa partida → CIIU Rev. 4 A.C.). Responde otra pregunta que el
+    ranking: no a qué mercado exportar, sino en qué posición está el país en
+    esa industria — si exporta más de lo que importa, con quién comercia en
+    los dos sentidos y qué tan concentrados están sus socios.
+    """
+    grupos = subsector.groups_for_product(tablas["hs4"], hs)
+    if grupos.empty:
+        st.info(t("subsector_no_match"))
+        return
+    grupo = _subsector_choice(grupos)
+    serie = subsector.series_for_group(tablas["indicadores"], grupo)
+    if serie.empty:
+        st.info(t("subsector_no_match"))
+        return
+
+    participacion = float(
+        grupos.loc[grupos[subsector.COL_GROUP] == grupo, subsector.COL_SHARE].iloc[0]
+    )
+    st.caption(
+        t("subsector_header", group=grupo, hs4=str(hs)[:4], share=i18n.fmt_pct(participacion))
+    )
+
+    parciales = _partial_years(meta)
+    anio = subsector.latest_full_year(serie, parciales)
+    if anio is not None:
+        st.caption(t("subsector_year_caption", year=anio))
+        _subsector_kpis(serie[serie[subsector.COL_YEAR] == anio].iloc[0], anio)
+    _subsector_series_chart(serie, parciales)
+    if anio is not None:
+        _subsector_partners(subsector.partners_for_group(tablas["socios"], grupo, anio), anio)
+
+    destacadas = subsector.highlights_for_group(tablas["partidas"], grupo)
+    if not destacadas.empty:
+        with st.expander(t("subsector_highlights_title")):
+            st.caption(t("subsector_highlights_caption"))
+            for _, fila in destacadas.iterrows():
+                st.markdown(
+                    f"- `{fila['partida']}` {fila['descripcion']} — "
+                    f"{i18n.fmt_usd_compact(float(fila['total']))}"
+                )
+    anios = meta.get("anios")
+    st.caption(
+        t(
+            "subsector_source",
+            source=meta.get("fuente", "DANE"),
+            correlativa=meta.get("correlativa", "—"),
+            years=" – ".join(str(a) for a in anios) if isinstance(anios, list) else "—",
+        )
+    )
+
+
 def main() -> None:
     """Renderiza la página principal: ranking de mercados destino."""
     st.set_page_config(
@@ -2244,6 +2461,7 @@ def main() -> None:
     compare = _compare_selector(view_ranking)
     timeseries = _load_imports_timeseries(hs)
     unit_values = _load_unit_values(hs)
+    subsector_tables = _load_subsector_tables()
     tab_labels = [
         t("tab_map"),
         t("tab_breakdown"),
@@ -2255,6 +2473,8 @@ def main() -> None:
         tab_labels.append(t("tab_unit_value"))
     if timeseries is not None:
         tab_labels.append(t("tab_evolution"))
+    if subsector_tables is not None:
+        tab_labels.append(t("tab_subsector"))
     tabs = st.tabs(tab_labels)
     with tabs[0]:
         _map_tab(view_ranking, focus_iso3, compare)
@@ -2275,6 +2495,10 @@ def main() -> None:
     if timeseries is not None:
         with tabs[next_tab]:
             _evolution_tab(view_ranking, view_meta, timeseries, compare)
+        next_tab += 1
+    if subsector_tables is not None:
+        with tabs[next_tab]:
+            _subsector_tab(hs, subsector_tables, _observatorio_meta())
 
     _focus_section(view_ranking, view_meta, narrative, timeseries, hs, product_label)
     built = {

@@ -1288,6 +1288,73 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
     "tab_size": {"es": "Tamaño de mercado", "en": "Market size"},
     "tab_evolution": {"es": "Evolución del mercado", "en": "Market evolution"},
     "tab_unit_value": {"es": "💲 Valor unitario", "en": "💲 Unit value"},
+    "tab_subsector": {"es": "🏭 Subsector", "en": "🏭 Subsector"},
+    "subsector_header": {
+        "es": "Subsector CIIU {group} · concentra el {share} del comercio de la partida {hs4}.",
+        "en": "ISIC subsector {group} · accounts for {share} of trade in heading {hs4}.",
+    },
+    "subsector_choice_label": {
+        "es": "Esta partida se reparte entre subsectores:",
+        "en": "This heading is split across subsectors:",
+    },
+    "subsector_option": {"es": "{group} ({share})", "en": "{group} ({share})"},
+    "subsector_no_match": {
+        "es": "Esta partida no tiene correspondencia con un subsector CIIU en la "
+        "correlativa del DANE.",
+        "en": "This heading has no ISIC subsector match in the DANE correspondence table.",
+    },
+    "subsector_kpi_x": {"es": "Exportaciones del subsector", "en": "Subsector exports"},
+    "subsector_kpi_m": {"es": "Importaciones del subsector", "en": "Subsector imports"},
+    "subsector_kpi_balance": {"es": "Balanza", "en": "Trade balance"},
+    "subsector_surplus": {"es": "superávit", "en": "surplus"},
+    "subsector_deficit": {"es": "déficit", "en": "deficit"},
+    "subsector_kpi_gl": {"es": "Comercio intraindustrial", "en": "Intra-industry trade"},
+    "subsector_gl_help": {
+        "es": "Índice de Grubel-Lloyd calculado por pares partida-socio: mide cuánto del comercio "
+        "es del mismo producto en los dos sentidos con el mismo país. 0 = solo se exporta o solo "
+        "se importa; 1 = perfectamente equilibrado. Calcularlo sobre los totales del subsector lo "
+        "infla, así que aquí no se usa esa versión.",
+        "en": "Grubel-Lloyd index computed over heading-partner pairs: how much trade is the same "
+        "product in both directions with the same country. 0 = one-way trade; 1 = perfectly "
+        "balanced. Computing it on subsector totals inflates it, so that version is not used here.",
+    },
+    "subsector_year_caption": {
+        "es": "Cifras del subsector en {year}, el último año completo.",
+        "en": "Subsector figures for {year}, the latest full year.",
+    },
+    "subsector_exports": {"es": "Exportaciones", "en": "Exports"},
+    "subsector_imports": {"es": "Importaciones", "en": "Imports"},
+    "subsector_gl_short": {"es": "Grubel-Lloyd", "en": "Grubel-Lloyd"},
+    "subsector_yaxis_usd": {"es": "USD FOB", "en": "USD FOB"},
+    "subsector_partial_year": {"es": "{year} (parcial)", "en": "{year} (partial)"},
+    "subsector_partners_caption": {
+        "es": "Principales socios del subsector en {year}. La última columna es el Grubel-Lloyd "
+        "con ese país, calculado partida por partida.",
+        "en": "Main subsector partners in {year}. The last column is the Grubel-Lloyd index with "
+        "that country, computed heading by heading.",
+    },
+    "subsector_col_partner": {"es": "Socio", "en": "Partner"},
+    "subsector_col_x": {"es": "Exporta (US$ mill.)", "en": "Exports (US$ mn)"},
+    "subsector_col_m": {"es": "Importa (US$ mill.)", "en": "Imports (US$ mn)"},
+    "subsector_col_share_x": {"es": "Cuota X", "en": "Share of X"},
+    "subsector_col_share_m": {"es": "Cuota M", "en": "Share of M"},
+    "subsector_col_gl": {"es": "GL", "en": "GL"},
+    "subsector_highlights_title": {
+        "es": "¿Qué hay en este subsector?",
+        "en": "What is in this subsector?",
+    },
+    "subsector_highlights_caption": {
+        "es": "Partidas que más comercia el subsector en toda la serie.",
+        "en": "Headings with the most trade in the subsector across the whole series.",
+    },
+    "subsector_source": {
+        "es": "Fuente: {source}, {years}. Correlativa {correlativa}. Valoración FOB en los dos "
+        "flujos y país de origen en las importaciones: no coincide con la balanza "
+        "oficial, que usa CIF.",
+        "en": "Source: {source}, {years}. Correspondence table {correlativa}. FOB on both "
+        "flows and "
+        "country of origin for imports: does not match the official balance, which uses CIF.",
+    },
     "uv_tab_caption": {
         "es": (
             "Valor unitario = valor importado ÷ peso neto (USD/kg, "

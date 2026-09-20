@@ -1,8 +1,9 @@
 {
-  "generado": "2026-09-19T23:26:39.094386+00:00",
+  "generado": "2026-09-20T00:02:35.125467+00:00",
   "fuente": "DANE, microdatos de exportaciones e importaciones",
   "correlativa": "DANE TOTPART v77, noviembre de 2025",
   "clasificacion": "CIIU Rev. 4 A.C., grupo de tres digitos",
+  "nombres_ciiu": "DANE, Estructura detallada CIIU Rev. 4 A.C. (2021)",
   "valoracion": "FOB USD en ambos flujos; no coincide con la balanza oficial, que usa CIF",
   "socio_importacion": "pais de origen",
   "ultimo_mes_comparable": {

@@ -1289,15 +1289,19 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
     "tab_evolution": {"es": "Evolución del mercado", "en": "Market evolution"},
     "tab_unit_value": {"es": "💲 Valor unitario", "en": "💲 Unit value"},
     "tab_subsector": {"es": "🏭 Subsector", "en": "🏭 Subsector"},
+    "subsector_title": {"es": "**{group} · {name}**", "en": "**{group} · {name}**"},
     "subsector_header": {
-        "es": "Subsector CIIU {group} · concentra el {share} del comercio de la partida {hs4}.",
-        "en": "ISIC subsector {group} · accounts for {share} of trade in heading {hs4}.",
+        "es": "Grupo CIIU Rev. 4 A.C.; concentra el {share} del comercio de la partida {hs4}. "
+        "El nombre del grupo es el de la estructura detallada del DANE.",
+        "en": "ISIC Rev. 4 group (Colombian adaptation); accounts for {share} of trade in heading "
+        "{hs4}. Group names come from the DANE detailed structure.",
     },
     "subsector_choice_label": {
         "es": "Esta partida se reparte entre subsectores:",
         "en": "This heading is split across subsectors:",
     },
-    "subsector_option": {"es": "{group} ({share})", "en": "{group} ({share})"},
+    "subsector_option": {"es": "{group} · {name} ({share})",
+                         "en": "{group} · {name} ({share})"},
     "subsector_no_match": {
         "es": "Esta partida no tiene correspondencia con un subsector CIIU en la "
         "correlativa del DANE.",

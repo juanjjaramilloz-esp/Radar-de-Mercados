@@ -2166,7 +2166,7 @@ def _partial_years(meta: dict[str, object]) -> set[int]:
     return {int(anio) for anio, mes in corte.items() if int(mes) < 12}
 
 
-def _subsector_choice(grupos: pd.DataFrame) -> str:
+def _subsector_choice(grupos: pd.DataFrame, indicadores: pd.DataFrame) -> str:
     """Grupo CIIU a mostrar: el dominante, o el que elija quien consulta.
 
     Una partida HS4 puede repartirse entre grupos —el café sin tostar cae
@@ -2180,6 +2180,7 @@ def _subsector_choice(grupos: pd.DataFrame) -> str:
         str(fila[subsector.COL_GROUP]): t(
             "subsector_option",
             group=fila[subsector.COL_GROUP],
+            name=subsector.group_name(indicadores, str(fila[subsector.COL_GROUP])),
             share=i18n.fmt_pct(float(fila[subsector.COL_SHARE])),
         )
         for _, fila in relevantes.iterrows()
@@ -2307,7 +2308,7 @@ def _subsector_tab(hs: str, tablas: dict[str, pd.DataFrame], meta: dict[str, obj
     if grupos.empty:
         st.info(t("subsector_no_match"))
         return
-    grupo = _subsector_choice(grupos)
+    grupo = _subsector_choice(grupos, tablas["indicadores"])
     serie = subsector.series_for_group(tablas["indicadores"], grupo)
     if serie.empty:
         st.info(t("subsector_no_match"))
@@ -2316,6 +2317,8 @@ def _subsector_tab(hs: str, tablas: dict[str, pd.DataFrame], meta: dict[str, obj
     participacion = float(
         grupos.loc[grupos[subsector.COL_GROUP] == grupo, subsector.COL_SHARE].iloc[0]
     )
+    nombre = subsector.group_name(tablas["indicadores"], grupo)
+    st.markdown(t("subsector_title", group=grupo, name=nombre) if nombre else f"**{grupo}**")
     st.caption(
         t("subsector_header", group=grupo, hs4=str(hs)[:4], share=i18n.fmt_pct(participacion))
     )

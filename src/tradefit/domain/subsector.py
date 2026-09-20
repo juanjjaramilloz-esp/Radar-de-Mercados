@@ -25,6 +25,7 @@ COL_HS4: Final = "hs4"
 COL_YEAR: Final = "anio"
 COL_SHARE: Final = "participacion"
 COL_COUNTRY: Final = "pais"
+COL_GROUP_NAME: Final = "grupo_nombre"
 
 
 def groups_for_product(hs4_map: pd.DataFrame, hs: str, min_share: float = 0.0) -> pd.DataFrame:
@@ -74,6 +75,23 @@ def partners_for_group(socios: pd.DataFrame, group: str, year: int, top: int = 8
     """
     filas = socios[(socios[COL_GROUP] == group) & (socios[COL_YEAR] == year)]
     return filas.nlargest(top, "total").reset_index(drop=True)
+
+
+def group_name(indicadores: pd.DataFrame, group: str) -> str:
+    """Nombre oficial del grupo CIIU, o el código solo si la tabla no lo trae.
+
+    Args:
+        indicadores: tabla de indicadores por año y grupo.
+        group: código del grupo CIIU.
+
+    Returns:
+        El nombre del grupo tal como lo publica el DANE en la estructura
+        detallada de la CIIU Rev. 4 A.C.; cadena vacía si no está.
+    """
+    if COL_GROUP_NAME not in indicadores.columns:
+        return ""
+    nombres = indicadores.loc[indicadores[COL_GROUP] == group, COL_GROUP_NAME].dropna()
+    return str(nombres.iloc[0]) if not nombres.empty else ""
 
 
 def highlights_for_group(partidas: pd.DataFrame, group: str, top: int = 5) -> pd.DataFrame:

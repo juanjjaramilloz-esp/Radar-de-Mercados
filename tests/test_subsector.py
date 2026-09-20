@@ -8,6 +8,7 @@ subsector y el ranking de socios de un año.
 import pandas as pd
 
 from tradefit.domain.subsector import (
+    group_name,
     groups_for_product,
     latest_full_year,
     partners_for_group,
@@ -28,6 +29,7 @@ INDICADORES = pd.DataFrame(
         "anio": [2025, 2024, 2026, 2024],
         "ciiu4_grupo": ["106", "106", "106", "222"],
         "gl_partida_socio": [0.21, 0.19, 0.11, 0.15],
+        "grupo_nombre": ["Elaboración de productos de café"] * 3 + ["Productos de plástico"],
     }
 )
 
@@ -70,6 +72,12 @@ def test_socios_del_ano_pedido_por_comercio_total():
     assert list(socios.pais) == ["USA", "DEU"]  # 2023 no entra aunque sea mayor
 
 
+def test_nombre_del_grupo():
+    assert group_name(INDICADORES, "106") == "Elaboración de productos de café"
+    assert group_name(INDICADORES, "999") == ""
+    assert group_name(INDICADORES.drop(columns="grupo_nombre"), "106") == ""
+
+
 def test_ultimo_ano_completo_ignora_el_parcial():
     assert latest_full_year(INDICADORES, partial_years={2026}) == 2025
     assert latest_full_year(INDICADORES, partial_years={2024, 2025, 2026}) is None
@@ -82,7 +90,8 @@ def test_los_archivos_versionados_cumplen_lo_que_la_app_espera():
     esperado = {
         config.hs4_subsector_parquet(): {"hs4", "ciiu4_grupo", "participacion"},
         config.subsector_indicadores_parquet(): {"anio", "ciiu4_grupo", "X", "M", "balanza",
-                                                 "gl_partida", "gl_partida_socio"},
+                                                 "gl_partida", "gl_partida_socio",
+                                                 "grupo_nombre"},
         config.subsector_socios_parquet(): {"anio", "ciiu4_grupo", "pais", "total",
                                             "gl_partida", "cuota_x", "cuota_m"},
         config.subsector_partidas_parquet(): {"ciiu4_grupo", "partida", "descripcion", "total"},

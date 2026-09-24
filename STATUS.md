@@ -12,6 +12,30 @@ ranking de 26 destinos (18 OCDE/Asia + 8 LATAM). Motor económico puro en
 `domain/`, snapshot Parquet como contrato, app Streamlit que solo lee el
 snapshot.
 
+## 🆕 Pestaña «Subsector» con datos del DANE (2026-09-19, rama `subsector`)
+
+Nueva pestaña que responde otra pregunta que el ranking: no a qué mercado
+exportar, sino en qué posición está Colombia en la industria del producto.
+Lee cuatro artefactos versionados en `data/processed/observatorio/`, que
+construye el repositorio `Observatorio-comercio` a partir de los microdatos de
+exportaciones e importaciones del DANE (2019–2026) y de la correlativa oficial
+partida → CIIU Rev. 4 A.C.
+
+1. Serie del subsector (exportaciones, importaciones, balanza, Grubel-Lloyd),
+   socios principales del último año completo y las partidas que más pesan.
+2. El Grubel-Lloyd se toma **por pares partida-socio**; la versión calculada
+   sobre los totales del subsector infla el comercio intraindustrial (0,23
+   puntos de diferencia en la mediana de 2024) y no se usa.
+3. Un HS4 puede repartirse entre grupos CIIU (el café sin tostar queda entre
+   cultivo y trilla): cuando hay más de uno con peso real, la pestaña deja
+   elegir y muestra la participación de cada uno.
+4. Valoración FOB en los dos flujos y país de origen en las importaciones, así
+   que no coincide con la balanza oficial del DANE, que usa CIF. La pestaña lo
+   dice al pie.
+
+Lógica pura en `domain/subsector.py` con tests; la app solo presenta. Si los
+archivos no están, la pestaña no aparece.
+
 ## ✅ Última tanda — seguridad, integridad y refresh automático (2026-07-11)
 
 1. CORS y XSRF vuelven a estar activos; el dominio de un proxy propio se

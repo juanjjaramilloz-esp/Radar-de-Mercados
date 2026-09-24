@@ -1,0 +1,31 @@
+{
+  "generado": "2026-09-24T01:27:22.416234+00:00",
+  "fuente": "DANE, microdatos de exportaciones e importaciones",
+  "correlativa": "DANE TOTPART v77, noviembre de 2025",
+  "clasificacion": "CIIU Rev. 4 A.C., grupo de tres digitos",
+  "nombres_ciiu": "DANE, Estructura detallada CIIU Rev. 4 A.C. (2021)",
+  "valoracion": "FOB USD en ambos flujos; no coincide con la balanza oficial, que usa CIF",
+  "socio_importacion": "pais de origen",
+  "ultimo_mes_comparable": {
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 12,
+    "2024": 12,
+    "2025": 12,
+    "2026": 6
+  },
+  "anios": [
+    2019,
+    2026
+  ],
+  "grubel_lloyd": "gl_hs6_socio, gl_partida_socio y gl_partida se calculan por pares; gl_totales va solo como referencia y sesga al alza",
+  "socios_nacionales": "zonas francas (XCF) y reimportaciones (COL) cuentan en X y M pero no son socios: fuera del GL, el HHI y la tabla de socios",
+  "filas": {
+    "subsector_indicadores.parquet": 824,
+    "subsector_socios.parquet": 7634,
+    "hs4_subsector.parquet": 1400,
+    "subsector_partidas.parquet": 471
+  }
+}

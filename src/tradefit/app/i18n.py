@@ -1300,8 +1300,7 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
         "es": "Esta partida se reparte entre subsectores:",
         "en": "This heading is split across subsectors:",
     },
-    "subsector_option": {"es": "{group} · {name} ({share})",
-                         "en": "{group} · {name} ({share})"},
+    "subsector_option": {"es": "{group} · {name} ({share})", "en": "{group} · {name} ({share})"},
     "subsector_no_match": {
         "es": "Esta partida no tiene correspondencia con un subsector CIIU en la "
         "correlativa del DANE.",

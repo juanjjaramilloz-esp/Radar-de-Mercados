@@ -89,11 +89,25 @@ def test_los_archivos_versionados_cumplen_lo_que_la_app_espera():
 
     esperado = {
         config.hs4_subsector_parquet(): {"hs4", "ciiu4_grupo", "participacion"},
-        config.subsector_indicadores_parquet(): {"anio", "ciiu4_grupo", "X", "M", "balanza",
-                                                 "gl_partida", "gl_partida_socio",
-                                                 "grupo_nombre"},
-        config.subsector_socios_parquet(): {"anio", "ciiu4_grupo", "pais", "total",
-                                            "gl_partida", "cuota_x", "cuota_m"},
+        config.subsector_indicadores_parquet(): {
+            "anio",
+            "ciiu4_grupo",
+            "X",
+            "M",
+            "balanza",
+            "gl_partida",
+            "gl_partida_socio",
+            "grupo_nombre",
+        },
+        config.subsector_socios_parquet(): {
+            "anio",
+            "ciiu4_grupo",
+            "pais",
+            "total",
+            "gl_partida",
+            "cuota_x",
+            "cuota_m",
+        },
         config.subsector_partidas_parquet(): {"ciiu4_grupo", "partida", "descripcion", "total"},
     }
     for ruta, columnas in esperado.items():

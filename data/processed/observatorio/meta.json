@@ -1,5 +1,5 @@
 {
-  "generado": "2026-09-24T01:27:22.416234+00:00",
+  "generado": "2026-09-28T20:19:31.526341+00:00",
   "fuente": "DANE, microdatos de exportaciones e importaciones",
   "correlativa": "DANE TOTPART v77, noviembre de 2025",
   "clasificacion": "CIIU Rev. 4 A.C., grupo de tres digitos",
@@ -22,10 +22,36 @@
   ],
   "grubel_lloyd": "gl_hs6_socio, gl_partida_socio y gl_partida se calculan por pares; gl_totales va solo como referencia y sesga al alza",
   "socios_nacionales": "zonas francas (XCF) y reimportaciones (COL) cuentan en X y M pero no son socios: fuera del GL, el HHI y la tabla de socios",
+  "ficha": {
+    "hs4": [
+      "0603",
+      "0803",
+      "0804",
+      "0901",
+      "1511",
+      "1701",
+      "2101",
+      "3004",
+      "3304",
+      "3808",
+      "3902",
+      "3904",
+      "3923",
+      "7202",
+      "7404",
+      "7610",
+      "8504"
+    ],
+    "min_registros": 3,
+    "registros": "lineas de declaracion (una declaracion con varias partidas cuenta varias veces)",
+    "confidencialidad": "ficha_mensual solo trae celdas con min_registros o mas; la ficha aplica el mismo umbral al año"
+  },
   "filas": {
     "subsector_indicadores.parquet": 824,
     "subsector_socios.parquet": 7634,
     "hs4_subsector.parquet": 1400,
-    "subsector_partidas.parquet": 471
+    "subsector_partidas.parquet": 471,
+    "ficha_anual.parquet": 29458,
+    "ficha_mensual.parquet": 55521
   }
 }

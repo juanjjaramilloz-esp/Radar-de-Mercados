@@ -6,6 +6,7 @@ el pipeline falla aquí, temprano y con un mensaje claro.
 """
 
 from dataclasses import dataclass
+from typing import Final
 
 import pandas as pd
 import pandera.pandas as pa
@@ -335,3 +336,155 @@ class MarketInputs:
     distances: "pd.Series[float] | None" = None
     lpi: "pd.Series[float] | None" = None
     competitor_tariff: "pd.Series[float] | None" = None
+
+
+# --- Observatorio de subsectores (contrato "observatorio-radar", versión 1) ---
+#
+# Tablas que produce el repositorio Observatorio-comercio a partir de los
+# microdatos del DANE. Los nombres de columna vienen en español desde allá y no
+# se renombran. ``strict=False``: el Observatorio puede agregar columnas sin
+# romper la app; quitar o cambiar una de estas exige subir la versión del
+# contrato en ambos repositorios. Radar las importa con
+# ``tradefit.pipeline.import_observatorio``, que valida contra estos esquemas.
+
+#: Versiones del contrato que esta versión de Radar sabe leer.
+OBSERVATORIO_CONTRACT: Final = "observatorio-radar"
+OBSERVATORIO_CONTRACT_VERSIONS: Final = frozenset({1})
+
+_ANIO = pa.Column(int, pa.Check.in_range(1990, 2100))
+_GRUPO = pa.Column(str, pa.Check.str_matches(r"^\d{3}$"))
+_USD = pa.Column(float, pa.Check.ge(0))
+_INDICE_01 = pa.Column(float, pa.Check.in_range(0.0, 1.0), nullable=True)
+_CUOTA = pa.Column(float, pa.Check.in_range(0.0, 1.0), nullable=True)
+
+observatorio_indicadores_schema = pa.DataFrameSchema(
+    {
+        "anio": _ANIO,
+        "ciiu4_grupo": _GRUPO,
+        "X": _USD,
+        "M": _USD,
+        "balanza": pa.Column(float),
+        # Cobertura X/M: NaN cuando M = 0 (no se inventa un infinito).
+        "cobertura": pa.Column(float, pa.Check.ge(0), nullable=True),
+        "saldo_normalizado": pa.Column(float, pa.Check.in_range(-1.0, 1.0), nullable=True),
+        "gl_partida_socio": _INDICE_01,
+        "gl_hs6_socio": _INDICE_01,
+        "gl_partida": _INDICE_01,
+        "gl_totales": _INDICE_01,
+        "hhi_socios_expo": _INDICE_01,
+        "hhi_socios_impo": _INDICE_01,
+        "x_socios_nacionales": _USD,
+        "m_socios_nacionales": _USD,
+        "partidas": pa.Column(int, pa.Check.ge(0)),
+        "grupo_nombre": pa.Column(str, nullable=True, required=False),
+    },
+    unique=["anio", "ciiu4_grupo"],
+    coerce=True,
+    strict=False,
+    name="observatorio_indicadores",
+)
+
+observatorio_socios_schema = pa.DataFrameSchema(
+    {
+        "anio": _ANIO,
+        "ciiu4_grupo": _GRUPO,
+        # Solo otros países: zonas francas (XCF) y reimportaciones (COL) no son socios.
+        "pais": pa.Column(str, [pa.Check.str_length(3, 3), pa.Check.notin(["XCF", "COL"])]),
+        "X": _USD,
+        "M": _USD,
+        "total": _USD,
+        "gl_partida": _INDICE_01,
+        "cuota_x": _CUOTA,
+        "cuota_m": _CUOTA,
+    },
+    unique=["anio", "ciiu4_grupo", "pais"],
+    coerce=True,
+    strict=False,
+    name="observatorio_socios",
+)
+
+observatorio_hs4_schema = pa.DataFrameSchema(
+    {
+        "hs4": pa.Column(str, pa.Check.str_matches(r"^\d{4}$")),
+        "ciiu4_grupo": _GRUPO,
+        "orden": pa.Column(int, pa.Check.ge(1)),
+        "participacion": pa.Column(float, pa.Check.in_range(0.0, 1.0)),
+        "X": _USD,
+        "M": _USD,
+    },
+    unique=["hs4", "ciiu4_grupo"],
+    coerce=True,
+    strict=False,
+    name="observatorio_hs4",
+    # La participación de los grupos de cada HS4 suma 1 (el reparto es exhaustivo).
+    checks=pa.Check(
+        lambda df: (df.groupby("hs4")["participacion"].sum() - 1).abs().max() < 1e-6,
+        error="la participacion de cada HS4 no suma 1",
+    ),
+)
+
+observatorio_partidas_schema = pa.DataFrameSchema(
+    {
+        "ciiu4_grupo": _GRUPO,
+        "partida": pa.Column(str, pa.Check.str_matches(r"^\d{10}$")),
+        "X": _USD,
+        "M": _USD,
+        "total": _USD,
+        "descripcion": pa.Column(str, nullable=True),
+    },
+    unique=["ciiu4_grupo", "partida"],
+    coerce=True,
+    strict=False,
+    name="observatorio_partidas",
+)
+
+#: Mínimo de registros para publicar un valor unitario: con menos, el «precio
+#: de referencia» es el precio de una empresa. El Observatorio no entrega meses
+#: por debajo del umbral y la ficha aplica el mismo al año.
+OBSERVATORIO_MIN_REGISTROS: Final = 3
+
+_HS6 = pa.Column(str, pa.Check.str_matches(r"^\d{6}$"))
+_PAIS_EXTRANJERO = pa.Column(str, [pa.Check.str_length(3, 3), pa.Check.notin(["XCF", "COL"])])
+
+#: Comercio de Colombia por HS6 y país, por año y flujo (ficha de operación).
+observatorio_ficha_anual_schema = pa.DataFrameSchema(
+    {
+        "flujo": pa.Column(str, pa.Check.isin(["X", "M"])),
+        "anio": _ANIO,
+        "hs6": _HS6,
+        "pais": _PAIS_EXTRANJERO,
+        "valor": _USD,
+        "kg": pa.Column(float, pa.Check.ge(0)),
+        "registros": pa.Column(int, pa.Check.ge(1)),
+    },
+    unique=["flujo", "anio", "hs6", "pais"],
+    coerce=True,
+    strict=False,
+    name="observatorio_ficha_anual",
+)
+
+#: Valor unitario mensual de exportación por HS6 y país, solo celdas publicables.
+observatorio_ficha_mensual_schema = pa.DataFrameSchema(
+    {
+        "anio": _ANIO,
+        "mes": pa.Column(int, pa.Check.in_range(1, 12)),
+        "hs6": _HS6,
+        "pais": _PAIS_EXTRANJERO,
+        "valor_unitario": pa.Column(float, pa.Check.gt(0)),
+        "registros": pa.Column(int, pa.Check.ge(OBSERVATORIO_MIN_REGISTROS)),
+    },
+    unique=["anio", "mes", "hs6", "pais"],
+    coerce=True,
+    strict=False,
+    name="observatorio_ficha_mensual",
+)
+
+#: Archivo del paquete → esquema. El nombre del archivo es parte del contrato.
+OBSERVATORIO_TABLES: Final = {
+    "subsector_indicadores.parquet": observatorio_indicadores_schema,
+    "subsector_socios.parquet": observatorio_socios_schema,
+    "hs4_subsector.parquet": observatorio_hs4_schema,
+    "subsector_partidas.parquet": observatorio_partidas_schema,
+    "ficha_anual.parquet": observatorio_ficha_anual_schema,
+    "ficha_mensual.parquet": observatorio_ficha_mensual_schema,
+}

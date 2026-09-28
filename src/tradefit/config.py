@@ -193,6 +193,21 @@ def observatorio_meta_json() -> Path:
     return OBSERVATORIO_DIR / "meta.json"
 
 
+def observatorio_manifest_json() -> Path:
+    """Manifiesto del paquete del Observatorio: hashes y commit que lo produjo."""
+    return OBSERVATORIO_DIR / "manifest.json"
+
+
+def ficha_anual_parquet() -> Path:
+    """Comercio de Colombia por HS6 y país, por año y flujo (ficha de operación)."""
+    return OBSERVATORIO_DIR / "ficha_anual.parquet"
+
+
+def ficha_mensual_parquet() -> Path:
+    """Valor unitario mensual de exportación por HS6 y país (solo celdas publicables)."""
+    return OBSERVATORIO_DIR / "ficha_mensual.parquet"
+
+
 def macro_context_parquet() -> Path:
     """Ruta del macro crudo compartido (indicadores por país y año, para la ficha).
 

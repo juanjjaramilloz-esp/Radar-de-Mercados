@@ -162,7 +162,10 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
             "defendible: **cada métrica cita su definición académica y "
             "tiene test con un valor calculado a mano**.\n\n"
             "**Stack** · Python · Streamlit · pandas\n\n"
-            "**Datos** · UN Comtrade Plus · World Bank WDI\n\n"
+            "**Datos** · UN Comtrade Plus · Banco Mundial (WDI) · WITS/UNCTAD "
+            "TRAINS · DANE (microdatos de comercio exterior) · CEPII\n\n"
+            "**Uso** · Herramienta académica, gratuita y sin fines de lucro, "
+            "parte de un trabajo de grado. No es una recomendación comercial.\n\n"
             "**Código** · [GitHub: radar-de-mercados]"
             "(https://github.com/juanjjaramilloz-esp/Radar-de-Mercados)"
         ),
@@ -171,7 +174,10 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
             "**every metric cites its academic definition and has a test "
             "with a hand-calculated value**.\n\n"
             "**Stack** · Python · Streamlit · pandas\n\n"
-            "**Data** · UN Comtrade Plus · World Bank WDI\n\n"
+            "**Data** · UN Comtrade Plus · World Bank (WDI) · WITS/UNCTAD "
+            "TRAINS · DANE (Colombian trade microdata) · CEPII\n\n"
+            "**Use** · A free, non-profit academic tool, part of an "
+            "undergraduate thesis. Not commercial advice.\n\n"
             "**Code** · [GitHub: radar-de-mercados]"
             "(https://github.com/juanjjaramilloz-esp/Radar-de-Mercados)"
         ),
@@ -1602,3 +1608,257 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
         "en": "Select at least one market to see its evolution.",
     },
 }
+
+
+# --- Ficha de operación (app/ficha.py) ---
+_FICHA_STRINGS: Final[dict[str, dict[Lang, str]]] = {
+    "ficha_nav_radar": {"es": "Radar de mercados", "en": "Market radar"},
+    "ficha_nav_ficha": {"es": "Ficha de operación", "en": "Operation sheet"},
+    "ficha_page_title": {"es": "Ficha de operación", "en": "Operation sheet"},
+    "ficha_title": {"es": "🧾 Ficha de operación", "en": "🧾 Operation sheet"},
+    "ficha_intro": {
+        "es": (
+            "Una exportación concreta, explicada con datos públicos: el mercado de destino, el "
+            "acceso, el precio de referencia, el subsector y el lado importador. Cada bloque dice "
+            "de dónde sale su dato. No es una recomendación comercial."
+        ),
+        "en": (
+            "One concrete export, explained with public data: the destination market, access, "
+            "the reference price, the subsector and the import side. Each block states where its "
+            "data comes from. This is not commercial advice."
+        ),
+    },
+    "ficha_open_link": {"es": "Abrir la ficha de operación", "en": "Open the operation sheet"},
+    "ficha_missing_package": {
+        "es": "Faltan las tablas del Observatorio para la ficha. Importe el paquete con "
+        "`python -m tradefit.pipeline.import_observatorio`.",
+        "en": "The Observatory tables for the sheet are missing. Import the package with "
+        "`python -m tradefit.pipeline.import_observatorio`.",
+    },
+    "ficha_no_hs6": {
+        "es": "Colombia no registró exportaciones de ninguna subpartida de HS {hs} en {year}.",
+        "en": "Colombia recorded no exports of any HS {hs} subheading in {year}.",
+    },
+    "ficha_hs6_label": {"es": "Subpartida (HS6)", "en": "Subheading (HS6)"},
+    "ficha_hs6_help": {
+        "es": "Subpartidas que Colombia exportó en {year}, de mayor a menor valor.",
+        "en": "Subheadings Colombia exported in {year}, largest first.",
+    },
+    "ficha_destination_label": {"es": "Destino", "en": "Destination"},
+    "ficha_quantity_label": {"es": "Cantidad (kg)", "en": "Quantity (kg)"},
+    "ficha_price_label": {"es": "Precio pactado (USD/kg)", "en": "Agreed price (USD/kg)"},
+    "ficha_incoterm_label": {"es": "Incoterm", "en": "Incoterm"},
+    "ficha_date_label": {"es": "Fecha estimada", "en": "Estimated date"},
+    "ficha_total_label": {"es": "Valor de la operación", "en": "Operation value"},
+    "ficha_privacy_note": {
+        "es": "Lo que escribe aquí no se guarda ni se mezcla con las estadísticas: vive solo en "
+        "esta sesión del navegador.",
+        "en": "What you type here is not stored or mixed with the statistics: it lives only in "
+        "this browser session.",
+    },
+    "ficha_pp": {"es": "{value} pp", "en": "{value} pp"},
+    "ficha_records": {"es": "registros", "en": "records"},
+    "ficha_market_header": {"es": "Mercado", "en": "Market"},
+    "ficha_market_headline": {
+        "es": "{country} es el **mercado n.º {rank} de {n}** que evalúa Radar para este producto; "
+        "Colombia tiene el **{share}** de lo que importa.",
+        "en": "{country} is **market no. {rank} of {n}** that Radar evaluates for this product; "
+        "Colombia holds **{share}** of its imports.",
+    },
+    "ficha_market_size": {"es": "Importa al año", "en": "Imports per year"},
+    "ficha_market_growth": {"es": "Crecimiento anual", "en": "Annual growth"},
+    "ficha_market_share": {"es": "Cuota de Colombia", "en": "Colombia's share"},
+    "ficha_market_stability": {"es": "Estabilidad macro (0–1)", "en": "Macro stability (0–1)"},
+    "ficha_market_suppliers": {
+        "es": "Proveedores del destino, {year}",
+        "en": "Destination's suppliers, {year}",
+    },
+    "ficha_market_note": {
+        "es": "El puntaje de Radar mide qué tan atractivo es el mercado; no pronostica ventas.",
+        "en": "Radar's score measures how attractive the market is; it does not forecast sales.",
+    },
+    "ficha_market_source": {
+        "es": "UN Comtrade + Banco Mundial (WDI) · HS {hs}, {min_year}–{max_year} · snapshot "
+        "de Radar",
+        "en": "UN Comtrade + World Bank (WDI) · HS {hs}, {min_year}–{max_year} · Radar snapshot",
+    },
+    "ficha_access_header": {"es": "Acceso", "en": "Access"},
+    "ficha_access_agreement": {
+        "es": "Hay **acuerdo vigente: {agreement}**. Pida el certificado de origen para usar la "
+        "preferencia.",
+        "en": "There is an **agreement in force: {agreement}**. Request the certificate of origin "
+        "to use the preference.",
+    },
+    "ficha_access_no_agreement": {
+        "es": "Colombia **no tiene acuerdo comercial vigente** con este destino: aplica el "
+        "arancel NMF.",
+        "en": "Colombia has **no trade agreement in force** with this destination: the MFN "
+        "tariff applies.",
+    },
+    "ficha_tariff_hs6": {"es": "Arancel, {hs6}", "en": "Tariff, {hs6}"},
+    "ficha_tariff_pref": {"es": "preferencial", "en": "preferential"},
+    "ficha_tariff_mfn": {"es": "NMF", "en": "MFN"},
+    "ficha_tariff_avg": {"es": "Promedio del producto", "en": "Product average"},
+    "ficha_pref_margin": {"es": "Margen frente a los rivales", "en": "Margin over competitors"},
+    "ficha_tariff_warning": {
+        "es": "El arancel de la subpartida es el último dato reportado a WITS ({year}). "
+        "Confírmelo con la agencia de aduanas antes de cotizar.",
+        "en": "The subheading tariff is the latest figure reported to WITS ({year}). "
+        "Confirm it with the customs broker before quoting.",
+    },
+    "ficha_distance": {
+        "es": "Distancia ponderada Colombia–destino: {km} km.",
+        "en": "Weighted Colombia–destination distance: {km} km.",
+    },
+    "ficha_access_source": {
+        "es": "WITS/UNCTAD TRAINS, arancel efectivamente aplicado por HS6 · acuerdos vigentes "
+        "· CEPII",
+        "en": "WITS/UNCTAD TRAINS, effectively applied tariff by HS6 · agreements in force · CEPII",
+    },
+    "ficha_price_header": {"es": "Precio de referencia", "en": "Reference price"},
+    "ficha_price_prompt": {
+        "es": "Escriba un precio pactado para compararlo con lo que Colombia declaró al exportar "
+        "esta subpartida a {country} en {year}.",
+        "en": "Enter an agreed price to compare it with what Colombia declared when exporting "
+        "this subheading to {country} in {year}.",
+    },
+    "ficha_price_headline": {
+        "es": "Su precio de **US${price}/kg** está {position} de lo que Colombia declaró al "
+        "exportar "
+        "a {country} en {year} ({diff} frente al promedio del año).",
+        "en": "Your price of **US${price}/kg** is {position} what Colombia declared when exporting "
+        "to {country} in {year} ({diff} versus the year's average).",
+    },
+    "ficha_price_debajo": {"es": "por debajo del rango habitual", "en": "below the usual range of"},
+    "ficha_price_dentro": {"es": "dentro del rango habitual", "en": "within the usual range of"},
+    "ficha_price_encima": {"es": "por encima del rango habitual", "en": "above the usual range of"},
+    "ficha_price_no_band": {
+        "es": "Su precio es **US${price}/kg**. No hay meses suficientes para dibujar un rango "
+        "habitual.",
+        "en": "Your price is **US${price}/kg**. There are not enough months to draw a usual range.",
+    },
+    "ficha_price_hidden": {
+        "es": "El precio de referencia hacia {country} en {year} no se muestra: hay menos de {n} "
+        "registros o no hay peso declarado, y con tan pocos datos el promedio sería el precio de "
+        "una empresa.",
+        "en": "The reference price to {country} in {year} is not shown: there are fewer than {n} "
+        "records or no declared weight, and with so few data the average would be one "
+        "company's price.",
+    },
+    "ficha_price_no_months": {
+        "es": "Ningún mes del año alcanza el mínimo de registros para publicarse.",
+        "en": "No month of the year reaches the minimum number of records to be published.",
+    },
+    "ficha_price_band": {"es": "rango habitual (p25–p75)", "en": "usual range (p25–p75)"},
+    "ficha_price_monthly": {"es": "Valor unitario mensual", "en": "Monthly unit value"},
+    "ficha_price_yours": {"es": "su precio {price}", "en": "your price {price}"},
+    "ficha_price_avg": {"es": "Promedio {year}", "en": "{year} average"},
+    "ficha_price_records": {"es": "{n} registros", "en": "{n} records"},
+    "ficha_price_trend": {"es": "Tendencia {years}", "en": "Trend {years}"},
+    "ficha_price_others": {"es": "Otros destinos (USD/kg)", "en": "Other destinations (USD/kg)"},
+    "ficha_price_note": {
+        "es": "Es una referencia estadística, no una cotización: el valor por kilo mezcla "
+        "variedades "
+        "de la misma subpartida. Solo se publican meses y países con {n} registros o más.",
+        "en": "A statistical reference, not a quote: value per kilo mixes varieties within the "
+        "same "
+        "subheading. Only months and countries with {n} or more records are published.",
+    },
+    "ficha_price_source": {
+        "es": "DANE, microdatos de exportaciones · US$ FOB por kg neto · HS {hs6}, {year} · "
+        "Observatorio {commit}",
+        "en": "DANE, export microdata · US$ FOB per net kg · HS {hs6}, {year} · Observatory "
+        "{commit}",
+    },
+    "ficha_subsector_header": {"es": "Subsector", "en": "Subsector"},
+    "ficha_subsector_missing": {
+        "es": "Faltan las tablas de subsector del Observatorio.",
+        "en": "The Observatory's subsector tables are missing.",
+    },
+    "ficha_subsector_headline": {"es": "CIIU {group} · {name}", "en": "ISIC {group} · {name}"},
+    "ficha_subsector_not_top": {
+        "es": "{country} no está entre los diez principales socios del subsector.",
+        "en": "{country} is not among the subsector's ten main partners.",
+    },
+    "ficha_subsector_to": {"es": "A {country}", "en": "To {country}"},
+    "ficha_subsector_from": {"es": "Desde {country}", "en": "From {country}"},
+    "ficha_subsector_share": {"es": "{share} de las exportaciones", "en": "{share} of exports"},
+    "ficha_subsector_gl": {"es": "Comercio en doble vía (GL)", "en": "Two-way trade (GL)"},
+    "ficha_subsector_source": {
+        "es": "DANE, EXPO e IMPO {year} · FOB–FOB · socio de importación: país de origen · sin "
+        "zonas "
+        "francas · Grubel-Lloyd por partida",
+        "en": "DANE, EXPO and IMPO {year} · FOB–FOB · import partner: country of origin · free "
+        "zones "
+        "excluded · Grubel-Lloyd by tariff line",
+    },
+    "ficha_import_header": {"es": "Importación", "en": "Imports"},
+    "ficha_import_none": {
+        "es": "Colombia no registró importaciones de {hs6} en {year}.",
+        "en": "Colombia recorded no imports of {hs6} in {year}.",
+    },
+    "ficha_import_headline": {
+        "es": "Colombia importó **{total}** de esta subpartida en {year}, de proveedores "
+        "**{concentration}** (HHI {hhi}).",
+        "en": "Colombia imported **{total}** of this subheading in {year}, from "
+        "**{concentration}** "
+        "suppliers (HHI {hhi}).",
+    },
+    "ficha_import_concentrated": {"es": "concentrados", "en": "concentrated"},
+    "ficha_import_diversified": {"es": "diversificados", "en": "diversified"},
+    "ficha_import_note": {
+        "es": "Sirve si la empresa compra insumos afuera o compite con importados en Colombia. "
+        "El valor unitario se oculta con menos de {n} registros.",
+        "en": "Useful if the company buys inputs abroad or competes with imports in Colombia. "
+        "The unit value is hidden with fewer than {n} records.",
+    },
+    "ficha_import_source": {
+        "es": "DANE, IMPO {year} · FOB · país de origen · HS {hs6}",
+        "en": "DANE, IMPO {year} · FOB · country of origin · HS {hs6}",
+    },
+    "ficha_docs_header": {"es": "Documentos", "en": "Documents"},
+    "ficha_docs_progress": {
+        "es": "**{done} de {total}** listos.",
+        "en": "**{done} of {total}** ready.",
+    },
+    "ficha_docs_note": {
+        "es": "Lista general, no reglas propias: los requisitos del producto se verifican en la "
+        "[VUCE]({vuce}) y el arancel colombiano en la [consulta de la DIAN]({dian}). Los "
+        "requisitos "
+        "del país de destino los confirma el importador.",
+        "en": "A general list, not our own rules: product requirements are checked at "
+        "[VUCE]({vuce}) and the Colombian tariff at the [DIAN lookup]({dian}). Destination "
+        "requirements are confirmed by the importer.",
+    },
+    "ficha_doc_invoice": {"es": "Factura comercial", "en": "Commercial invoice"},
+    "ficha_doc_packing": {"es": "Lista de empaque", "en": "Packing list"},
+    "ficha_doc_dex": {"es": "Declaración de exportación", "en": "Export declaration"},
+    "ficha_doc_origin": {"es": "Certificado de origen", "en": "Certificate of origin"},
+    "ficha_doc_product": {"es": "Vistos buenos del producto", "en": "Product permits"},
+    "ficha_doc_destination": {"es": "Requisitos en el destino", "en": "Destination requirements"},
+    "ficha_doc_always": {"es": "Toda exportación", "en": "Every export"},
+    "ficha_doc_origin_why": {
+        "es": "Hay acuerdo vigente ({agreement}); sin el certificado no aplica la preferencia",
+        "en": "Agreement in force ({agreement}); without the certificate the preference does "
+        "not apply",
+    },
+    "ficha_doc_vuce": {
+        "es": "Según el producto (ICA, INVIMA, ANLA…): verificar en la VUCE",
+        "en": "Depends on the product (ICA, INVIMA, ANLA…): check at VUCE",
+    },
+    "ficha_doc_destination_why": {
+        "es": "Registro del producto o licencias del país de destino",
+        "en": "Product registration or licences in the destination country",
+    },
+    "ficha_doc_company": {"es": "Empresa", "en": "Company"},
+    "ficha_doc_broker": {"es": "Agencia de aduanas", "en": "Customs broker"},
+    "ficha_doc_importer": {"es": "Importador en el destino", "en": "Importer at destination"},
+    "ficha_footer": {
+        "es": "Cada bloque indica fuente, período y versión. Observatorio: commit {commit} · "
+        "Radar: "
+        "snapshot HS {hs}. Lo que la empresa escribe no se mezcla con estas estadísticas.",
+        "en": "Each block states source, period and version. Observatory: commit {commit} · Radar: "
+        "HS {hs} snapshot. What the company types is not mixed with these statistics.",
+    },
+}
+_STRINGS.update(_FICHA_STRINGS)

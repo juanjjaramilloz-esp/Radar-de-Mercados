@@ -7,8 +7,8 @@
     },
     {
       "path": "meta.json",
-      "sha256": "6795c9806d841547828b414a063ba18433604a76e869fad03b9c3ee54aaf3e7e",
-      "size_bytes": 1126
+      "sha256": "0966524024902adb8d0af925bc6899ef9b9bc77b6744cef115affd8b1211fbe4",
+      "size_bytes": 1096
     },
     {
       "path": "subsector_indicadores.parquet",
@@ -28,7 +28,7 @@
   ],
   "parameters": {
     "cambios_sin_confirmar": false,
-    "commit": "00f01bdf72452ad4c2b30af8823caac5100e90b1",
+    "commit": "7cf519fb7a488f4e95d95d2de3fb31a2f4685e4b",
     "contrato": "observatorio-radar",
     "contrato_version": 1
   },

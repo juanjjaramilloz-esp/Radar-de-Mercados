@@ -144,6 +144,7 @@ def run_backtest(products: dict[str, str] | None = None) -> dict[str, object]:
     config.BACKTEST_JSON.write_text(
         json.dumps(payload, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
         encoding="utf-8",
+        newline="\n",
     )
     logger.info("Backtest escrito en %s (%d productos)", config.BACKTEST_JSON, len(per_product))
     return payload

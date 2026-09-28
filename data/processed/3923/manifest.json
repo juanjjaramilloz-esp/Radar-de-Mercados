@@ -12,13 +12,13 @@
     },
     {
       "path": "meta.json",
-      "sha256": "0d93ccc8405a419fcb86375b84c9f5c1c665641bd966b1aa18d039d2d51d9240",
-      "size_bytes": 1181
+      "sha256": "ad8341d3ccafe2c0ae52289e85281a879345deb0abdc20657f19814c6a870cc8",
+      "size_bytes": 1122
     },
     {
       "path": "narrative.json",
-      "sha256": "129e6a2a20617166379331ccf28305f67d509d3d87974d33b56f0bff51594b84",
-      "size_bytes": 50409
+      "sha256": "e0ec53a7c0cbc5931f6cdac1e18b118c4078af9865fb0289cfc262b97f606799",
+      "size_bytes": 49779
     },
     {
       "path": "ranking.parquet",

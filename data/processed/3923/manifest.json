@@ -1,0 +1,320 @@
+{
+  "artifacts": [
+    {
+      "path": "competitors.parquet",
+      "sha256": "9fb0f87b050fe4dbe9d34be75ba6ab8b978cd5893e2c1eb64b477ade542da755",
+      "size_bytes": 58656
+    },
+    {
+      "path": "imports_timeseries.parquet",
+      "sha256": "2378a5abf9d70a1b081e4dd39c4cc135a9a68237b5161dbdd6327f7949745ade",
+      "size_bytes": 4140
+    },
+    {
+      "path": "meta.json",
+      "sha256": "0d93ccc8405a419fcb86375b84c9f5c1c665641bd966b1aa18d039d2d51d9240",
+      "size_bytes": 1181
+    },
+    {
+      "path": "narrative.json",
+      "sha256": "129e6a2a20617166379331ccf28305f67d509d3d87974d33b56f0bff51594b84",
+      "size_bytes": 50409
+    },
+    {
+      "path": "ranking.parquet",
+      "sha256": "1af93efd7443176a90bb1c35a6bb86a2908039c4d9a984eaaaf5a8949f771f22",
+      "size_bytes": 16022
+    },
+    {
+      "path": "tariff_profile.parquet",
+      "sha256": "e6a378b71ae4597f693d9a523a4d18c609fc376dbfebaf8950ff851669dcf2be",
+      "size_bytes": 4010
+    },
+    {
+      "path": "unit_values.parquet",
+      "sha256": "cc8fe6bed65254e2ff69accd652023d47685c4138aca0e8ad817ae058666ba6a",
+      "size_bytes": 3790
+    }
+  ],
+  "parameters": {
+    "basket_year": 2024,
+    "hs_code": "3923",
+    "import_years": [
+      2023,
+      2024,
+      2025
+    ],
+    "source": "comtrade",
+    "wdi_date_range": "2021:2025",
+    "weights": {
+      "accessibility": 0.1,
+      "complementarity": 0.18,
+      "import_growth": 0.18,
+      "market_share": 0.14,
+      "market_size": 0.22,
+      "preference_margin": 0.05,
+      "share_trend": 0.08,
+      "tariff_faced": 0.05
+    },
+    "wits_years": [
+      2018,
+      2025
+    ]
+  },
+  "snapshot_schema_version": 1,
+  "source_inputs": [
+    {
+      "parameters": {
+        "hs": "3923",
+        "years": [
+          2023,
+          2024,
+          2025
+        ]
+      },
+      "path": "data/raw/comtrade_3923_imports.json",
+      "retrieved_at_utc": "2026-09-28T14:42:14.773244+00:00",
+      "sha256": "59bc0f84025c6a70ddc951b8dbcfe7f3cad0e968bec8ff520e5f35ec9f20e84e",
+      "size_bytes": 69145,
+      "source": "un_comtrade_imports"
+    },
+    {
+      "parameters": {
+        "hs": "3923",
+        "origin": "COL",
+        "years": [
+          2023,
+          2024,
+          2025
+        ]
+      },
+      "path": "data/raw/comtrade_3923_bilateral_COL.json",
+      "retrieved_at_utc": "2026-09-28T14:42:21.031024+00:00",
+      "sha256": "103feab98962d6042fcd7ed9b7c413fdcd7ff3d2bcc824a3b9daa39acc24ae16",
+      "size_bytes": 66720,
+      "source": "un_comtrade_bilateral"
+    },
+    {
+      "parameters": {
+        "basket_year": 2024,
+        "origin": "COL"
+      },
+      "path": "data/raw/comtrade_baskets_hs2.json",
+      "retrieved_at_utc": "2026-09-28T14:43:05.353061+00:00",
+      "sha256": "c799bb287a70107e207a39fd72adc73ffc320d1e5380bf9d9ef777a99d69a9c6",
+      "size_bytes": 2338448,
+      "source": "un_comtrade_baskets_hs2"
+    },
+    {
+      "parameters": {
+        "hs": "3923",
+        "years": [
+          2023,
+          2024,
+          2025
+        ]
+      },
+      "path": "data/raw/comtrade_3923_export_totals.json",
+      "retrieved_at_utc": "2026-09-28T14:43:18.613857+00:00",
+      "sha256": "666cfcfe212473f76028cf1a48d9c677c514aa6eeaa56908efb2d20cad9e6458",
+      "size_bytes": 754004,
+      "source": "un_comtrade_export_totals"
+    },
+    {
+      "parameters": {
+        "hs": "3923",
+        "origin": "COL",
+        "year": 2024
+      },
+      "path": "data/raw/comtrade_3923_destinos_COL.json",
+      "retrieved_at_utc": "2026-09-28T14:44:18.599362+00:00",
+      "sha256": "b6d03f3cc5d80501b54c1caed93c16259856efd59c75c5ba42148b084558a904",
+      "size_bytes": 60404,
+      "source": "un_comtrade_export_destinations"
+    },
+    {
+      "parameters": {
+        "hs": "3923",
+        "years": [
+          2023,
+          2024,
+          2025
+        ]
+      },
+      "path": "data/raw/comtrade_3923_competidores.json",
+      "retrieved_at_utc": "2026-09-28T14:45:00.773344+00:00",
+      "sha256": "8caa4b5abf252376b5cb8c4334161a57dd794d317b98ab03cfcd406c158098c1",
+      "size_bytes": 7788517,
+      "source": "un_comtrade_competitors"
+    },
+    {
+      "parameters": {
+        "hs": "3923",
+        "origin": "COL",
+        "years": [
+          2018,
+          2025
+        ]
+      },
+      "path": "data/raw/wits_3923_tariffs_COL.json",
+      "retrieved_at_utc": "2026-09-28T14:44:07.620238+00:00",
+      "sha256": "3ecd63b3a3d99d1f68e3cc2cde648672924254c1c20abc380e3bdf14373e833a",
+      "size_bytes": 701097,
+      "source": "world_bank_wits_tariffs"
+    },
+    {
+      "parameters": {
+        "hs": "3923",
+        "partners_by_reporter": {
+          "036": [
+            "156",
+            "458",
+            "764"
+          ],
+          "076": [
+            "156",
+            "840",
+            "858"
+          ],
+          "124": [
+            "156",
+            "484",
+            "840"
+          ],
+          "152": [
+            "076",
+            "156",
+            "604"
+          ],
+          "188": [
+            "222",
+            "320",
+            "840"
+          ],
+          "214": [
+            "156",
+            "484",
+            "840"
+          ],
+          "218": [
+            "156",
+            "484",
+            "604"
+          ],
+          "392": [
+            "156",
+            "704",
+            "764"
+          ],
+          "410": [
+            "156",
+            "704",
+            "840"
+          ],
+          "484": [
+            "156",
+            "840",
+            "918"
+          ],
+          "591": [
+            "156",
+            "188",
+            "840"
+          ],
+          "604": [
+            "152",
+            "156",
+            "484"
+          ],
+          "756": [
+            "918"
+          ],
+          "826": [
+            "156",
+            "792",
+            "918"
+          ],
+          "840": [
+            "124",
+            "156",
+            "484"
+          ],
+          "918": [
+            "156",
+            "578",
+            "756"
+          ]
+        },
+        "years": [
+          2018,
+          2025
+        ]
+      },
+      "path": "data/raw/wits_3923_tariffs_competidores.json",
+      "retrieved_at_utc": "2026-09-28T14:45:27.141256+00:00",
+      "sha256": "5b26fa75344c367242f86eced374296df8b810c0ac9260055e505b439101042b",
+      "size_bytes": 420965,
+      "source": "world_bank_wits_competitor_tariffs"
+    },
+    {
+      "parameters": {
+        "countries": [
+          "USA",
+          "DEU",
+          "ITA",
+          "FRA",
+          "JPN",
+          "CAN",
+          "BEL",
+          "NLD",
+          "ESP",
+          "GBR",
+          "KOR",
+          "CHE",
+          "POL",
+          "SWE",
+          "AUS",
+          "PRT",
+          "FIN",
+          "AUT",
+          "MEX",
+          "BRA",
+          "CHL",
+          "PER",
+          "ECU",
+          "CRI",
+          "PAN",
+          "DOM"
+        ],
+        "date_range": "2021:2025",
+        "indicators": [
+          "BN.CAB.XOKA.GD.ZS",
+          "FP.CPI.TOTL.ZG",
+          "LP.LPI.OVRL.XQ",
+          "NY.GDP.MKTP.KD.ZG"
+        ]
+      },
+      "path": "data/raw/wdi_macro.json",
+      "retrieved_at_utc": "2026-09-28T14:44:15.781889+00:00",
+      "sha256": "600e42c3235b8851b9730570fa784781a566f4830b9ed1246da9f37d06ee3dba",
+      "size_bytes": 117532,
+      "source": "world_bank_wdi"
+    },
+    {
+      "parameters": null,
+      "path": "data/sample/geodist_col.csv.gz",
+      "retrieved_at_utc": null,
+      "sha256": "ec5639327fc04c6b42890f7deb7670cdac17849b1b7ea9195e98b029edfcdfe9",
+      "size_bytes": 4619,
+      "source": null
+    },
+    {
+      "parameters": null,
+      "path": "data/sample/hs_reference.csv.gz",
+      "retrieved_at_utc": null,
+      "sha256": "8eecefdeb7efaaea2a7d4f54a57260348285e87c6478b595eaebb43ea354f069",
+      "size_bytes": 147198,
+      "source": null
+    }
+  ]
+}

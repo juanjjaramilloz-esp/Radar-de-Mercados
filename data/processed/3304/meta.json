@@ -1,0 +1,59 @@
+{
+  "accessibility_distance_bounds_km": [
+    20015.0,
+    100.0
+  ],
+  "accessibility_lpi_bounds": [
+    1.0,
+    5.0
+  ],
+  "basket_year": 2024,
+  "context_indicators": {
+    "LP.LPI.OVRL.XQ": "lpi"
+  },
+  "data_year_max": 2025,
+  "data_year_min": 2023,
+  "destination_hhi": 0.1369,
+  "hs_code": "3304",
+  "hs_label": "Cosméticos y maquillaje (HS 3304)",
+  "macro_bounds": {
+    "current_account": [
+      -5.0,
+      0.0
+    ],
+    "gdp_growth": [
+      -2.0,
+      3.0
+    ],
+    "inflation": [
+      15.0,
+      2.0
+    ]
+  },
+  "macro_floor": 0.5,
+  "macro_indicators": {
+    "BN.CAB.XOKA.GD.ZS": "current_account",
+    "FP.CPI.TOTL.ZG": "inflation",
+    "NY.GDP.MKTP.KD.ZG": "gdp_growth"
+  },
+  "macro_years": 3,
+  "market_size_years": 3,
+  "n_markets": 26,
+  "origin_iso3": "COL",
+  "rca_balassa": 1.8418,
+  "source": "comtrade",
+  "tariff_years": [
+    2018,
+    2025
+  ],
+  "weights": {
+    "accessibility": 0.1,
+    "complementarity": 0.18,
+    "import_growth": 0.18,
+    "market_share": 0.14,
+    "market_size": 0.22,
+    "preference_margin": 0.05,
+    "share_trend": 0.08,
+    "tariff_faced": 0.05
+  }
+}

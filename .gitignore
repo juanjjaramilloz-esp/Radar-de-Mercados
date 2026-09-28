@@ -15,6 +15,9 @@ data/processed/*/*
 !data/processed/*/manifest.json
 !data/processed/*/imports_timeseries.parquet
 !data/processed/*/competitors.parquet
+# Observatorio de subsectores (DANE): tablas chicas y estables que la app lee
+# para la pestana Subsector; se generan en el repo Observatorio-comercio.
+!data/processed/observatorio/*.parquet
 !data/processed/macro_context.parquet
 !data/processed/backtest.json
 

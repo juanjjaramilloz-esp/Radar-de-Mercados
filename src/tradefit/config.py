@@ -140,6 +140,52 @@ def tariff_profile_parquet(hs: str) -> Path:
     return processed_dir(hs) / "tariff_profile.parquet"
 
 
+#: Directorio del Observatorio de subsectores: tablas construidas a partir de
+#: los microdatos de comercio exterior del DANE (exportaciones e importaciones
+#: de Colombia por partida arancelaria y pais) y de la correlativa oficial
+#: partida -> CIIU Rev. 4 A.C. Son independientes del producto y del snapshot:
+#: un solo juego de archivos para toda la app.
+OBSERVATORIO_DIR: Final = PROCESSED_DIR / "observatorio"
+
+
+def subsector_indicadores_parquet() -> Path:
+    """Serie anual por subsector CIIU: balanza, cobertura, Grubel-Lloyd y HHI.
+
+    Una fila por año y grupo CIIU de tres dígitos. La app degrada con gracia
+    si el archivo no existe (omite la pestaña de subsector).
+    """
+    return OBSERVATORIO_DIR / "subsector_indicadores.parquet"
+
+
+def subsector_socios_parquet() -> Path:
+    """Principales socios comerciales de cada subsector y año."""
+    return OBSERVATORIO_DIR / "subsector_socios.parquet"
+
+
+def hs4_subsector_parquet() -> Path:
+    """Correspondencia HS4 → grupo CIIU con la participación de cada grupo.
+
+    Un HS4 puede repartirse entre grupos (el café sin tostar cae entre cultivo
+    y trilla), así que la tabla es larga: una fila por HS4 y grupo, ordenada
+    por peso en el comercio de ese HS4.
+    """
+    return OBSERVATORIO_DIR / "hs4_subsector.parquet"
+
+
+def subsector_partidas_parquet() -> Path:
+    """Partidas que más pesan en cada subsector, con su descripción arancelaria.
+
+    El DANE no publica el nombre del grupo CIIU en la correlativa, así que el
+    subsector se describe por los productos que más comercia.
+    """
+    return OBSERVATORIO_DIR / "subsector_partidas.parquet"
+
+
+def observatorio_meta_json() -> Path:
+    """Procedencia del Observatorio: fuente, período, valoración y correlativa."""
+    return OBSERVATORIO_DIR / "meta.json"
+
+
 def macro_context_parquet() -> Path:
     """Ruta del macro crudo compartido (indicadores por país y año, para la ficha).
 

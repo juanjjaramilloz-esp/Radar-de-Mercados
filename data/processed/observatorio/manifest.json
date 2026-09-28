@@ -1,0 +1,143 @@
+{
+  "artifacts": [
+    {
+      "path": "hs4_subsector.parquet",
+      "sha256": "f84ac7443505c2f7dfafb518844311143945405c14e3e3d159ea207afb05d4ad",
+      "size_bytes": 39561
+    },
+    {
+      "path": "meta.json",
+      "sha256": "6795c9806d841547828b414a063ba18433604a76e869fad03b9c3ee54aaf3e7e",
+      "size_bytes": 1126
+    },
+    {
+      "path": "subsector_indicadores.parquet",
+      "sha256": "df8f3056a13a9034af1cd094948478bbe52a6d7f3e25250827c558b1ba0f146c",
+      "size_bytes": 107582
+    },
+    {
+      "path": "subsector_partidas.parquet",
+      "sha256": "e7c99629b4255253946d06531ef2dcc16c4ca551f5039d728a032b0e5d8aa499",
+      "size_bytes": 42265
+    },
+    {
+      "path": "subsector_socios.parquet",
+      "sha256": "32522c979220cff0fa8f8d36159c8c9c8c45fdebc1da2cd470febc919397c376",
+      "size_bytes": 360419
+    }
+  ],
+  "parameters": {
+    "cambios_sin_confirmar": false,
+    "commit": "00f01bdf72452ad4c2b30af8823caac5100e90b1",
+    "contrato": "observatorio-radar",
+    "contrato_version": 1
+  },
+  "snapshot_schema_version": 1,
+  "source_inputs": [
+    {
+      "archivo": "Expo_2019.zip",
+      "fuente": "DANE EXPO (catálogos 472 y 859)",
+      "sha256": "338781f86d3898f4c6e7a20479b1603c169ab1ed9a807db9ac7fd10716e1358b"
+    },
+    {
+      "archivo": "Expo_2020.zip",
+      "fuente": "DANE EXPO (catálogos 472 y 859)",
+      "sha256": "42f385bcf2f296ec965a1a263d12c338a6445c6502aa33112aeb037e5a05ed7d"
+    },
+    {
+      "archivo": "Expo_2021.zip",
+      "fuente": "DANE EXPO (catálogos 472 y 859)",
+      "sha256": "f880b2497b4c5b1fb2e5809f351c1dfc4dd7695557ada1d1ff24e163d5f45bf3"
+    },
+    {
+      "archivo": "Expo_2022.zip",
+      "fuente": "DANE EXPO (catálogos 472 y 859)",
+      "sha256": "880a9463b645f6c166d10b4e523dba8e73bf6e4ff2c04654c4a5b4ff858c2a30"
+    },
+    {
+      "archivo": "Expo_2023.zip",
+      "fuente": "DANE EXPO (catálogos 472 y 859)",
+      "sha256": "a5ae185235afe1c826f6e82b377ec6dcda45a9ac7e57cb1422235c1c825cdee4"
+    },
+    {
+      "archivo": "Expo_2024.zip",
+      "fuente": "DANE EXPO (catálogos 472 y 859)",
+      "sha256": "09fe2f8a3292a3943b7fce11701257b5772c193d24959ffe5f379be51eda3549"
+    },
+    {
+      "archivo": "Expo_2025.zip",
+      "fuente": "DANE EXPO (catálogos 472 y 859)",
+      "sha256": "bcdb67e30d7768deba77ffd32f9b53551793575a9070ab5cc2c674f0c12804fd"
+    },
+    {
+      "archivo": "Expo_2026.zip",
+      "fuente": "DANE EXPO (catálogos 472 y 859)",
+      "sha256": "935cb7b5b4ee76bd44b33f2824e2354f38e3a6cbfdef7702096f110ed413d5fa"
+    },
+    {
+      "archivo": "Impo_2019.zip",
+      "fuente": "DANE IMPO (catálogos 473 y 856)",
+      "sha256": "feb8394809b513116f3be1a207ba9b69f2ab45e2d36c62ec8caf9452820c2d61"
+    },
+    {
+      "archivo": "Impo_2020.zip",
+      "fuente": "DANE IMPO (catálogos 473 y 856)",
+      "sha256": "83d10c3160d5e735489518fb341fcd51e7db271f7d948d02eef3315d6d303165"
+    },
+    {
+      "archivo": "Impo_2021_1.zip",
+      "fuente": "DANE IMPO (catálogos 473 y 856)",
+      "sha256": "fce48d8a9bf012f162507fdb5451bef1e45a57826433dbc5e6b2d9d523f97dda"
+    },
+    {
+      "archivo": "Impo_2021_2.zip",
+      "fuente": "DANE IMPO (catálogos 473 y 856)",
+      "sha256": "c86b3556e3c7b0e20a2cd250ed5ae780d1fe65e4383eeee75a240ffe42da1f05"
+    },
+    {
+      "archivo": "Impo_2022_1.zip",
+      "fuente": "DANE IMPO (catálogos 473 y 856)",
+      "sha256": "a4c51f9ce4df8c9cd312c9351257d4355de3a3251c1100524735bfe859bd010f"
+    },
+    {
+      "archivo": "Impo_2022_2.zip",
+      "fuente": "DANE IMPO (catálogos 473 y 856)",
+      "sha256": "91e3a92642d51329004da31e3b2dd15abb335b4e356876657ca9bdec2bbd8e17"
+    },
+    {
+      "archivo": "Impo_2023.zip",
+      "fuente": "DANE IMPO (catálogos 473 y 856)",
+      "sha256": "b301b9e217c690186487d1980e395cd0e06f302fea78c0d93e721d50a3fd84b3"
+    },
+    {
+      "archivo": "Impo_2024.zip",
+      "fuente": "DANE IMPO (catálogos 473 y 856)",
+      "sha256": "dc0e91f7055b4d3a6658481a07944c5a032e7c2924b899db9437f062fe8aec0a"
+    },
+    {
+      "archivo": "Impo_2025_1.zip",
+      "fuente": "DANE IMPO (catálogos 473 y 856)",
+      "sha256": "e9d131835c593c259f87f581b8e7adc4081880b026dc075d93ee444d9c3a1bc9"
+    },
+    {
+      "archivo": "Impo_2025_2.zip",
+      "fuente": "DANE IMPO (catálogos 473 y 856)",
+      "sha256": "38f72d180670d2332954a5d3d9e4ff291a2d5463257bab4cf9202a0444a875c8"
+    },
+    {
+      "archivo": "Impo_2026.zip",
+      "fuente": "DANE IMPO (catálogos 473 y 856)",
+      "sha256": "af9a37ea868976ae0e91a42edd9b4157b4b49212a7dd81c262302321f12b287e"
+    },
+    {
+      "archivo": "correlativa-TOTPARTv77-nov2025.xlsx",
+      "fuente": "DANE, tablas correlativas: TOTPART v77 (noviembre de 2025)",
+      "sha256": "85d6230cc05f814ce98c46d646e73d8d016d99a924e2da7c2071f8a0453e57b3"
+    },
+    {
+      "archivo": "estructura-ciiu4ac-2021.xlsx",
+      "fuente": "DANE, Estructura detallada CIIU Rev. 4 A.C. (2021)",
+      "sha256": "571b462c37274a9b445a07c1d187d0c02e172cebf5a4f5dc07d582726a5e04b5"
+    }
+  ]
+}

@@ -12,7 +12,22 @@ ranking de 26 destinos (18 OCDE/Asia + 8 LATAM). Motor económico puro en
 `domain/`, snapshot Parquet como contrato, app Streamlit que solo lee el
 snapshot.
 
-## 🆕 Pestaña «Subsector» con datos del DANE (2026-09-19, rama `subsector`)
+## 🆕 Contrato de datos con el Observatorio (2026-09-28, rama `contrato-observatorio`)
+
+Las tablas de `data/processed/observatorio/` ya no se copian a mano. El
+Observatorio las entrega con un `manifest.json` en el formato de los snapshots
+(SHA-256 y tamaño de cada archivo, versión del contrato, commit que las produjo
+y hash de cada zip del DANE de origen), y Radar las importa con
+
+    python -m tradefit.pipeline.import_observatorio ../Observatorio-comercio/data/processed/radar
+
+que verifica hashes, versión del contrato (`contracts.OBSERVATORIO_CONTRACT_VERSIONS`)
+y los esquemas pandera de las cuatro tablas (`contracts.OBSERVATORIO_TABLES`;
+entre otras reglas, zonas francas y reimportaciones no pueden aparecer como
+socios y la participación de cada HS4 suma 1) antes de publicar de forma
+atómica. Un test verifica en CI que el paquete versionado cumple el contrato.
+
+## Pestaña «Subsector» con datos del DANE (2026-09-19, integrada)
 
 Nueva pestaña que responde otra pregunta que el ranking: no a qué mercado
 exportar, sino en qué posición está Colombia en la industria del producto.

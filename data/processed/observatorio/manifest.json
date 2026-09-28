@@ -1,14 +1,24 @@
 {
   "artifacts": [
     {
+      "path": "ficha_anual.parquet",
+      "sha256": "d64a947cf1bbd9a0dd1938ea669da5e8f651f4d2d0bbb4615aa934e30398b8c0",
+      "size_bytes": 511983
+    },
+    {
+      "path": "ficha_mensual.parquet",
+      "sha256": "e6f8d3f9bbf388a4c866eab5b7e5b61fd02085819ab6fae4eff5f137ef4094d0",
+      "size_bytes": 672045
+    },
+    {
       "path": "hs4_subsector.parquet",
       "sha256": "f84ac7443505c2f7dfafb518844311143945405c14e3e3d159ea207afb05d4ad",
       "size_bytes": 39561
     },
     {
       "path": "meta.json",
-      "sha256": "0966524024902adb8d0af925bc6899ef9b9bc77b6744cef115affd8b1211fbe4",
-      "size_bytes": 1096
+      "sha256": "385c5e82a1c941c02a28d972097687cf051d370a2187a7c8a461b40c1346274d",
+      "size_bytes": 1687
     },
     {
       "path": "subsector_indicadores.parquet",
@@ -28,7 +38,7 @@
   ],
   "parameters": {
     "cambios_sin_confirmar": false,
-    "commit": "7cf519fb7a488f4e95d95d2de3fb31a2f4685e4b",
+    "commit": "198eaabc2c92b6988b5d0fdc1290db388c4557f7",
     "contrato": "observatorio-radar",
     "contrato_version": 1
   },

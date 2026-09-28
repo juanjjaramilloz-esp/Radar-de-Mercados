@@ -64,6 +64,27 @@ PARTIDAS = pd.DataFrame(
         "descripcion": ["Tapones, tapas, cápsulas"],
     }
 )
+FICHA_ANUAL = pd.DataFrame(
+    {
+        "flujo": ["X", "M"],
+        "anio": [2024, 2024],
+        "hs6": ["392350", "392350"],
+        "pais": ["ECU", "CHN"],
+        "valor": [1e6, 2e5],
+        "kg": [1e5, 4e4],
+        "registros": [40, 12],
+    }
+)
+FICHA_MENSUAL = pd.DataFrame(
+    {
+        "anio": [2024],
+        "mes": [1],
+        "hs6": ["392350"],
+        "pais": ["ECU"],
+        "valor_unitario": [10.0],
+        "registros": [4],
+    }
+)
 
 
 def _paquete(
@@ -72,6 +93,7 @@ def _paquete(
     version: int = 1,
     socios: pd.DataFrame = SOCIOS,
     hs4: pd.DataFrame = HS4,
+    mensual: pd.DataFrame = FICHA_MENSUAL,
 ) -> Path:
     package = root / "radar"
     package.mkdir()
@@ -79,6 +101,8 @@ def _paquete(
     socios.to_parquet(package / "subsector_socios.parquet", index=False)
     hs4.to_parquet(package / "hs4_subsector.parquet", index=False)
     PARTIDAS.to_parquet(package / "subsector_partidas.parquet", index=False)
+    FICHA_ANUAL.to_parquet(package / "ficha_anual.parquet", index=False)
+    mensual.to_parquet(package / "ficha_mensual.parquet", index=False)
     (package / "meta.json").write_text('{"ultimo_mes_comparable": {"2024": 12}}', encoding="utf-8")
     write_manifest(
         package,
@@ -143,3 +167,10 @@ def test_participacion_de_cada_hs4_suma_uno(tmp_path: Path) -> None:
 def test_el_paquete_versionado_cumple_el_contrato() -> None:
     """Lo que está en data/processed/observatorio entró por el importador, no a mano."""
     verify_package(config.OBSERVATORIO_DIR)
+
+
+def test_un_precio_mensual_con_pocos_registros_no_entra(tmp_path: Path) -> None:
+    """El umbral de confidencialidad es parte del contrato, no una convención."""
+    package = _paquete(tmp_path, mensual=FICHA_MENSUAL.assign(registros=[2]))
+    with pytest.raises(pandera.errors.SchemaErrors):
+        verify_package(package)

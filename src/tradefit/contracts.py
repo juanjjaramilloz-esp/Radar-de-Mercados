@@ -438,10 +438,53 @@ observatorio_partidas_schema = pa.DataFrameSchema(
     name="observatorio_partidas",
 )
 
+#: Mínimo de registros para publicar un valor unitario: con menos, el «precio
+#: de referencia» es el precio de una empresa. El Observatorio no entrega meses
+#: por debajo del umbral y la ficha aplica el mismo al año.
+OBSERVATORIO_MIN_REGISTROS: Final = 3
+
+_HS6 = pa.Column(str, pa.Check.str_matches(r"^\d{6}$"))
+_PAIS_EXTRANJERO = pa.Column(str, [pa.Check.str_length(3, 3), pa.Check.notin(["XCF", "COL"])])
+
+#: Comercio de Colombia por HS6 y país, por año y flujo (ficha de operación).
+observatorio_ficha_anual_schema = pa.DataFrameSchema(
+    {
+        "flujo": pa.Column(str, pa.Check.isin(["X", "M"])),
+        "anio": _ANIO,
+        "hs6": _HS6,
+        "pais": _PAIS_EXTRANJERO,
+        "valor": _USD,
+        "kg": pa.Column(float, pa.Check.ge(0)),
+        "registros": pa.Column(int, pa.Check.ge(1)),
+    },
+    unique=["flujo", "anio", "hs6", "pais"],
+    coerce=True,
+    strict=False,
+    name="observatorio_ficha_anual",
+)
+
+#: Valor unitario mensual de exportación por HS6 y país, solo celdas publicables.
+observatorio_ficha_mensual_schema = pa.DataFrameSchema(
+    {
+        "anio": _ANIO,
+        "mes": pa.Column(int, pa.Check.in_range(1, 12)),
+        "hs6": _HS6,
+        "pais": _PAIS_EXTRANJERO,
+        "valor_unitario": pa.Column(float, pa.Check.gt(0)),
+        "registros": pa.Column(int, pa.Check.ge(OBSERVATORIO_MIN_REGISTROS)),
+    },
+    unique=["anio", "mes", "hs6", "pais"],
+    coerce=True,
+    strict=False,
+    name="observatorio_ficha_mensual",
+)
+
 #: Archivo del paquete → esquema. El nombre del archivo es parte del contrato.
 OBSERVATORIO_TABLES: Final = {
     "subsector_indicadores.parquet": observatorio_indicadores_schema,
     "subsector_socios.parquet": observatorio_socios_schema,
     "hs4_subsector.parquet": observatorio_hs4_schema,
     "subsector_partidas.parquet": observatorio_partidas_schema,
+    "ficha_anual.parquet": observatorio_ficha_anual_schema,
+    "ficha_mensual.parquet": observatorio_ficha_mensual_schema,
 }

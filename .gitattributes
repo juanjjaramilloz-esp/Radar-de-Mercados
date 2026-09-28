@@ -1,0 +1,4 @@
+# Los artefactos del snapshot llevan su SHA-256 en manifest.json: Git no debe
+# convertir sus finales de linea, o el hash deja de coincidir en otro sistema
+# (los JSON se escriben siempre con LF; ver pipeline/snapshot_io.py).
+data/processed/** -text

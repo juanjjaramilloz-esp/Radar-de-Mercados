@@ -60,6 +60,7 @@ def write_manifest(
     path.write_text(
         json.dumps(payload, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
         encoding="utf-8",
+        newline="\n",
     )
     return path
 

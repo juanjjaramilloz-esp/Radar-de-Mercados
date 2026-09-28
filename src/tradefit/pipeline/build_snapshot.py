@@ -429,6 +429,7 @@ def build_snapshot(
         (staging / "meta.json").write_text(
             json.dumps(meta, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
             encoding="utf-8",
+            newline="\n",
         )
         write_manifest(
             staging,
@@ -487,6 +488,7 @@ def _write_narrative(
     destination.write_text(
         json.dumps(narrative, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
         encoding="utf-8",
+        newline="\n",
     )
 
 

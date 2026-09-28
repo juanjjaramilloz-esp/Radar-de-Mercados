@@ -71,3 +71,23 @@ def test_parquet_compartido_se_publica_atomicamente(tmp_path: Path) -> None:
     atomic_write_parquet(expected, path)
 
     pd.testing.assert_frame_equal(pd.read_parquet(path), expected)
+
+
+def test_manifiesto_se_escribe_con_lf(tmp_path: Path) -> None:
+    """El hash no puede depender del sistema donde se construyó el snapshot."""
+    snapshot = tmp_path / "3923"
+    snapshot.mkdir()
+    (snapshot / "ranking.parquet").write_bytes(b"x")
+    path = write_manifest(snapshot, source_inputs=[], parameters={"hs": "3923"})
+    assert b"\r\n" not in path.read_bytes()
+
+
+def test_snapshots_versionados_verifican_su_manifiesto() -> None:
+    """Lo que se versiona en data/processed/ debe pasar la misma verificación que hace la app.
+
+    Detecta, entre otras cosas, un hash calculado sobre un archivo que Git
+    entrega con otros finales de línea (el servidor lo rechazaría).
+    """
+    processed = Path(__file__).parents[1] / "data" / "processed"
+    for manifest in sorted(processed.glob("*/manifest.json")):
+        verify_manifest(manifest.parent)

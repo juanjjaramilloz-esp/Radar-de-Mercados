@@ -12,7 +12,28 @@ ranking de 26 destinos (18 OCDE/Asia + 8 LATAM). Motor económico puro en
 `domain/`, snapshot Parquet como contrato, app Streamlit que solo lee el
 snapshot.
 
-## 🆕 Contrato de datos con el Observatorio (2026-09-28, rama `contrato-observatorio`)
+## 🆕 Ficha de operación (2026-09-28, rama `contrato-observatorio`)
+
+Página propia (`st.navigation`, arriba: 📡 Radar · 🧾 Ficha), en
+`app/ficha.py`, con la lógica en `domain/ficha.py`. La empresa elige
+producto, subpartida HS6 y destino, y si quiere escribe cantidad y precio
+pactado (solo en la sesión, no se guarda). Bloques, como la maqueta de las
+entrevistas: Mercado (ranking y proveedores del destino), Acceso (arancel HS6
+de WITS, acuerdo, margen), Precio de referencia (valor unitario mensual de lo
+que Colombia exportó a ese destino, rango p25–p75 y dónde cae el precio
+pactado), Subsector, Importación (proveedores de Colombia) y Documentos (lista
+general con enlaces a VUCE y a la consulta de arancel de la DIAN, sin reglas
+propias).
+
+- **Confidencialidad:** ningún valor unitario con menos de 3 registros
+  (`contracts.OBSERVATORIO_MIN_REGISTROS`). El Observatorio no entrega esos
+  meses y el esquema lo exige.
+- Desde la ficha del destino en Radar, «🧾 Abrir la ficha de operación» la abre
+  con producto y destino precargados; la URL (`/ficha?hs=&hs6=&pais=`) es
+  compartible.
+- `app/paises.py`: nombre y bandera de los ~190 socios del Observatorio.
+
+## Contrato de datos con el Observatorio (2026-09-28, rama `contrato-observatorio`)
 
 Las tablas de `data/processed/observatorio/` ya no se copian a mano. El
 Observatorio las entrega con un `manifest.json` en el formato de los snapshots

@@ -2,6 +2,8 @@
 
 from typing import Final
 
+from tradefit.app import paises
+
 # ISO 3166-1 alpha-3 → alpha-2 de los países que usa la app (destinos del
 # MVP + origen). Un país fuera del mapeo simplemente no lleva bandera.
 _ISO3_TO_ISO2: Final[dict[str, str]] = {
@@ -101,7 +103,9 @@ def flag_emoji(iso3: str) -> str:
     Returns:
         La bandera emoji, o ``""`` si el país no está en el mapeo local.
     """
-    iso2 = _ISO3_TO_ISO2.get(iso3.upper())
+    # Los socios fuera de los destinos del MVP (ficha de operación) salen de la
+    # tabla completa de países.
+    iso2 = _ISO3_TO_ISO2.get(iso3.upper()) or paises.iso2(iso3)
     if iso2 is None:
         return ""
     return "".join(chr(_REGIONAL_INDICATOR_OFFSET + ord(char)) for char in iso2)

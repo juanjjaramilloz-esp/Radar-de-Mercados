@@ -23,7 +23,7 @@ import streamlit as st
 from dotenv import load_dotenv
 
 from tradefit import config, hs_codes
-from tradefit.app import i18n
+from tradefit.app import i18n, navegacion
 from tradefit.app.export import ranking_to_excel, ranking_to_pdf
 from tradefit.app.flags import flag_color, flag_emoji
 from tradefit.app.format import top_share_percent
@@ -894,6 +894,13 @@ def _focus_section(
     row = ranking.set_index(config.COL_COUNTRY).loc[selected]
     flag = flag_emoji(selected)
     st.markdown(f"### {flag} {names[selected]}".replace("  ", " "))
+    # La ficha de operación arranca con este producto y este destino.
+    st.page_link(
+        navegacion.pagina("ficha"),
+        label=t("ficha_open_link"),
+        icon="🧾",
+        query_params={"hs": hs, "pais": selected},
+    )
     _focus_header_metrics(ranking, row, selected)
     _focus_drivers_line(ranking, meta, selected)
     _focus_margin_line(row)

@@ -1,0 +1,624 @@
+{
+  "en": {
+    "markets": {
+      "AUS": [
+        "Australia imports USD 1,208 M a year of Cosmetics and make-up (HS 3304) (average of the last 3 years).",
+        "Demand grows at 1.9 % per year (CAGR).",
+        "Colombia already holds 0.1 % of the market and gains 0.0 pp of share over the window.",
+        "Australia absorbs 0.1 % of Colombia's exports of Cosmetics and make-up (HS 3304).",
+        "The export basket of Colombia fits the import demand of Australia at 0.40 (0–1 scale).",
+        "Cosmetics and make-up (HS 3304) faces an effectively applied tariff of 5.0 % in Australia.",
+        "Top competitors pay 1.7 % on average in Australia: Colombia faces a tariff disadvantage of 3.3 pp.",
+        "Australia is 14,797 km away from Colombia; logistics accessibility of 0.37 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Australia at 0.77: the filter leaves the score at 0.198 (raw 0.223)."
+      ],
+      "AUT": [
+        "Austria imports USD 672 M a year of Cosmetics and make-up (HS 3304) (average of the last 3 years).",
+        "Demand grows at 14.7 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Austria at 0.37 (0–1 scale).",
+        "Cosmetics and make-up (HS 3304) enters Austria duty-free (0 % effectively applied).",
+        "No tariff edge in Austria: top competitors pay the same as Colombia (0.0 %).",
+        "Austria is 9,534 km away from Colombia; logistics accessibility of 0.44 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Austria at 0.71: the filter leaves the score at 0.278 (raw 0.325)."
+      ],
+      "BEL": [
+        "Belgium imports USD 1,255 M a year of Cosmetics and make-up (HS 3304) (average of the last 3 years).",
+        "Demand shrinks at 0.5 % per year (CAGR).",
+        "Colombia already holds 0.6 % of the market and gains 0.3 pp of share over the window.",
+        "Belgium absorbs 1.8 % of Colombia's exports of Cosmetics and make-up (HS 3304).",
+        "The export basket of Colombia fits the import demand of Belgium at 0.45 (0–1 scale).",
+        "Cosmetics and make-up (HS 3304) enters Belgium duty-free (0 % effectively applied).",
+        "No tariff edge in Belgium: top competitors pay the same as Colombia (0.0 %).",
+        "Belgium is 8,749 km away from Colombia; logistics accessibility of 0.45 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Belgium at 0.80: the filter leaves the score at 0.299 (raw 0.332)."
+      ],
+      "BRA": [
+        "Brazil imports USD 267 M a year of Cosmetics and make-up (HS 3304) (average of the last 3 years).",
+        "Demand grows at 7.0 % per year (CAGR).",
+        "Colombia already holds 1.2 % of the market and gains 0.2 pp of share over the window.",
+        "Brazil absorbs 1.7 % of Colombia's exports of Cosmetics and make-up (HS 3304).",
+        "The export basket of Colombia fits the import demand of Brazil at 0.37 (0–1 scale).",
+        "Cosmetics and make-up (HS 3304) enters Brazil duty-free (0 % effectively applied).",
+        "Top competitors pay 18.0 % on average in Brazil: a preference margin of 18.0 pp in Colombia's favor.",
+        "Brazil is 4,306 km away from Colombia; logistics accessibility of 0.42 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Brazil at 0.77: the filter leaves the score at 0.262 (raw 0.296)."
+      ],
+      "CAN": [
+        "Canada imports USD 1,966 M a year of Cosmetics and make-up (HS 3304) (average of the last 3 years).",
+        "Demand shrinks at 1.4 % per year (CAGR).",
+        "Colombia already holds 0.1 % of the market and gains 0.0 pp of share over the window.",
+        "Canada absorbs 0.5 % of Colombia's exports of Cosmetics and make-up (HS 3304).",
+        "The export basket of Colombia fits the import demand of Canada at 0.37 (0–1 scale).",
+        "Cosmetics and make-up (HS 3304) enters Canada duty-free (0 % effectively applied).",
+        "Top competitors pay 1.9 % on average in Canada: a preference margin of 1.9 pp in Colombia's favor.",
+        "Canada is 4,893 km away from Colombia; logistics accessibility of 0.51 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Canada at 0.86: the filter leaves the score at 0.269 (raw 0.289)."
+      ],
+      "CHE": [
+        "Switzerland imports USD 717 M a year of Cosmetics and make-up (HS 3304) (average of the last 3 years).",
+        "Demand grows at 10.3 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
+        "Switzerland absorbs 0.0 % of Colombia's exports of Cosmetics and make-up (HS 3304).",
+        "The export basket of Colombia fits the import demand of Switzerland at 0.32 (0–1 scale).",
+        "Cosmetics and make-up (HS 3304) enters Switzerland duty-free (0 % effectively applied).",
+        "No tariff edge in Switzerland: top competitors pay the same as Colombia (0.0 %).",
+        "Switzerland is 8,974 km away from Colombia; logistics accessibility of 0.46 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Switzerland at 0.88: the filter leaves the score at 0.242 (raw 0.258)."
+      ],
+      "CHL": [
+        "Chile imports USD 339 M a year of Cosmetics and make-up (HS 3304) (average of the last 3 years).",
+        "Demand grows at 16.4 % per year (CAGR).",
+        "Colombia already holds 8.4 % of the market and loses 1.5 pp of share over the window.",
+        "Chile absorbs 9.0 % of Colombia's exports of Cosmetics and make-up (HS 3304).",
+        "The export basket of Colombia fits the import demand of Chile at 0.46 (0–1 scale).",
+        "Cosmetics and make-up (HS 3304) enters Chile duty-free (0 % effectively applied).",
+        "Top competitors pay 4.0 % on average in Chile: a preference margin of 4.0 pp in Colombia's favor.",
+        "Chile is 4,382 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Chile at 0.72: the filter leaves the score at 0.321 (raw 0.372)."
+      ],
+      "CRI": [
+        "Costa Rica imports USD 75 M a year of Cosmetics and make-up (HS 3304) (average of the last 3 years).",
+        "Demand grows at 11.0 % per year (CAGR).",
+        "Colombia already holds 14.3 % of the market and loses 0.9 pp of share over the window.",
+        "Costa Rica absorbs 2.4 % of Colombia's exports of Cosmetics and make-up (HS 3304).",
+        "The export basket of Colombia fits the import demand of Costa Rica at 0.37 (0–1 scale).",
+        "Cosmetics and make-up (HS 3304) faces an effectively applied tariff of 6.0 % in Costa Rica.",
+        "Top competitors pay 9.3 % on average in Costa Rica: a preference margin of 3.3 pp in Colombia's favor.",
+        "Costa Rica is 1,157 km away from Colombia; logistics accessibility of 0.51 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Costa Rica at 0.93: the filter leaves the score at 0.320 (raw 0.331)."
+      ],
+      "DEU": [
+        "Germany imports USD 3,401 M a year of Cosmetics and make-up (HS 3304) (average of the last 3 years).",
+        "Demand grows at 14.0 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
+        "Germany absorbs 0.0 % of Colombia's exports of Cosmetics and make-up (HS 3304).",
+        "The export basket of Colombia fits the import demand of Germany at 0.37 (0–1 scale).",
+        "Cosmetics and make-up (HS 3304) enters Germany duty-free (0 % effectively applied).",
+        "No tariff edge in Germany: top competitors pay the same as Colombia (0.0 %).",
+        "Germany is 9,137 km away from Colombia; logistics accessibility of 0.46 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Germany at 0.74: the filter leaves the score at 0.356 (raw 0.410)."
+      ],
+      "DOM": [
+        "Dominican Republic imports USD 80 M a year of Cosmetics and make-up (HS 3304) (average of the last 3 years).",
+        "Demand grows at 2.6 % per year (CAGR).",
+        "Colombia already holds 26.6 % of the market and gains 0.5 pp of share over the window.",
+        "Dominican Republic absorbs 2.8 % of Colombia's exports of Cosmetics and make-up (HS 3304).",
+        "The export basket of Colombia fits the import demand of Dominican Republic at 0.46 (0–1 scale).",
+        "Cosmetics and make-up (HS 3304) faces an effectively applied tariff of 20.0 % in Dominican Republic.",
+        "No tariff edge in Dominican Republic: top competitors pay the same as Colombia (20.0 %).",
+        "Dominican Republic is 1,527 km away from Colombia; logistics accessibility of 0.44 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Dominican Republic at 0.78: the filter leaves the score at 0.322 (raw 0.363)."
+      ],
+      "ECU": [
+        "Ecuador imports USD 163 M a year of Cosmetics and make-up (HS 3304) (average of the last 3 years).",
+        "Demand grows at 6.2 % per year (CAGR).",
+        "Colombia already holds 38.6 % of the market and loses 0.8 pp of share over the window.",
+        "Ecuador absorbs 13.2 % of Colombia's exports of Cosmetics and make-up (HS 3304).",
+        "The export basket of Colombia fits the import demand of Ecuador at 0.51 (0–1 scale).",
+        "Cosmetics and make-up (HS 3304) faces an effectively applied tariff of 20.0 % in Ecuador.",
+        "No tariff edge in Ecuador: top competitors pay the same as Colombia (20.0 %).",
+        "Ecuador is 980 km away from Colombia; logistics accessibility of 0.53 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Ecuador at 0.88: the filter leaves the score at 0.459 (raw 0.489)."
+      ],
+      "ESP": [
+        "Spain imports USD 1,738 M a year of Cosmetics and make-up (HS 3304) (average of the last 3 years).",
+        "Demand grows at 12.0 % per year (CAGR).",
+        "Colombia already holds 0.1 % of the market and gains 0.0 pp of share over the window.",
+        "Spain absorbs 0.7 % of Colombia's exports of Cosmetics and make-up (HS 3304).",
+        "The export basket of Colombia fits the import demand of Spain at 0.42 (0–1 scale).",
+        "Cosmetics and make-up (HS 3304) enters Spain duty-free (0 % effectively applied).",
+        "No tariff edge in Spain: top competitors pay the same as Colombia (0.0 %).",
+        "Spain is 8,065 km away from Colombia; logistics accessibility of 0.45 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Spain at 0.97: the filter leaves the score at 0.387 (raw 0.393)."
+      ],
+      "FIN": [
+        "Finland imports USD 238 M a year of Cosmetics and make-up (HS 3304) (average of the last 3 years).",
+        "Demand grows at 10.4 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Finland at 0.40 (0–1 scale).",
+        "Cosmetics and make-up (HS 3304) enters Finland duty-free (0 % effectively applied).",
+        "No tariff edge in Finland: top competitors pay the same as Colombia (0.0 %).",
+        "Finland is 9,955 km away from Colombia; logistics accessibility of 0.47 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Finland at 0.76: the filter leaves the score at 0.286 (raw 0.324)."
+      ],
+      "FRA": [
+        "France imports USD 2,848 M a year of Cosmetics and make-up (HS 3304) (average of the last 3 years).",
+        "Demand grows at 9.3 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of France at 0.42 (0–1 scale).",
+        "Cosmetics and make-up (HS 3304) enters France duty-free (0 % effectively applied).",
+        "No tariff edge in France: top competitors pay the same as Colombia (0.0 %).",
+        "France is 8,615 km away from Colombia; logistics accessibility of 0.44 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of France at 0.83: the filter leaves the score at 0.365 (raw 0.397)."
+      ],
+      "GBR": [
+        "United Kingdom imports USD 3,002 M a year of Cosmetics and make-up (HS 3304) (average of the last 3 years).",
+        "Demand grows at 7.9 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
+        "United Kingdom absorbs 0.0 % of Colombia's exports of Cosmetics and make-up (HS 3304).",
+        "The export basket of Colombia fits the import demand of United Kingdom at 0.43 (0–1 scale).",
+        "Cosmetics and make-up (HS 3304) enters United Kingdom duty-free (0 % effectively applied).",
+        "No tariff edge in United Kingdom: top competitors pay the same as Colombia (0.0 %).",
+        "United Kingdom is 8,388 km away from Colombia; logistics accessibility of 0.42 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of United Kingdom at 0.59: the filter leaves the score at 0.311 (raw 0.391)."
+      ],
+      "ITA": [
+        "Italy imports USD 1,658 M a year of Cosmetics and make-up (HS 3304) (average of the last 3 years).",
+        "Demand grows at 11.2 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Italy at 0.43 (0–1 scale).",
+        "Cosmetics and make-up (HS 3304) enters Italy duty-free (0 % effectively applied).",
+        "No tariff edge in Italy: top competitors pay the same as Colombia (0.0 %).",
+        "Italy is 9,315 km away from Colombia; logistics accessibility of 0.41 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Italy at 0.83: the filter leaves the score at 0.341 (raw 0.372)."
+      ],
+      "JPN": [
+        "Japan imports USD 1,749 M a year of Cosmetics and make-up (HS 3304) (average of the last 3 years).",
+        "Demand grows at 7.6 % per year (CAGR).",
+        "Colombia records no sales of Cosmetics and make-up (HS 3304) in Japan (0 % share).",
+        "The export basket of Colombia fits the import demand of Japan at 0.46 (0–1 scale).",
+        "Cosmetics and make-up (HS 3304) enters Japan duty-free (0 % effectively applied).",
+        "No tariff edge in Japan: top competitors pay the same as Colombia (0.0 %).",
+        "Japan is 14,300 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Japan at 0.81: the filter leaves the score at 0.336 (raw 0.371)."
+      ],
+      "KOR": [
+        "South Korea imports USD 944 M a year of Cosmetics and make-up (HS 3304) (average of the last 3 years).",
+        "Demand grows at 2.1 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
+        "South Korea absorbs 0.0 % of Colombia's exports of Cosmetics and make-up (HS 3304).",
+        "The export basket of Colombia fits the import demand of South Korea at 0.49 (0–1 scale).",
+        "Cosmetics and make-up (HS 3304) enters South Korea duty-free (0 % effectively applied).",
+        "Top competitors pay 4.3 % on average in South Korea: a preference margin of 4.3 pp in Colombia's favor.",
+        "South Korea is 14,747 km away from Colombia; logistics accessibility of 0.38 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of South Korea at 0.88: the filter leaves the score at 0.319 (raw 0.339)."
+      ],
+      "MEX": [
+        "Mexico imports USD 1,003 M a year of Cosmetics and make-up (HS 3304) (average of the last 3 years).",
+        "Demand grows at 11.9 % per year (CAGR).",
+        "Colombia already holds 12.8 % of the market and gains 0.5 pp of share over the window.",
+        "Mexico absorbs 28.1 % of Colombia's exports of Cosmetics and make-up (HS 3304).",
+        "The export basket of Colombia fits the import demand of Mexico at 0.32 (0–1 scale).",
+        "Cosmetics and make-up (HS 3304) enters Mexico duty-free (0 % effectively applied).",
+        "Top competitors pay 7.0 % on average in Mexico: a preference margin of 7.0 pp in Colombia's favor.",
+        "Mexico is 3,396 km away from Colombia; logistics accessibility of 0.40 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Mexico at 0.80: the filter leaves the score at 0.295 (raw 0.328)."
+      ],
+      "NLD": [
+        "Netherlands imports USD 1,680 M a year of Cosmetics and make-up (HS 3304) (average of the last 3 years).",
+        "Demand grows at 9.2 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and loses 0.0 pp of share over the window.",
+        "Netherlands absorbs 0.0 % of Colombia's exports of Cosmetics and make-up (HS 3304).",
+        "The export basket of Colombia fits the import demand of Netherlands at 0.46 (0–1 scale).",
+        "Cosmetics and make-up (HS 3304) enters Netherlands duty-free (0 % effectively applied).",
+        "No tariff edge in Netherlands: top competitors pay the same as Colombia (0.0 %).",
+        "Netherlands is 8,815 km away from Colombia; logistics accessibility of 0.46 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Netherlands at 0.81: the filter leaves the score at 0.374 (raw 0.413)."
+      ],
+      "PAN": [
+        "Panama imports USD 52 M a year of Cosmetics and make-up (HS 3304) (average of the last 3 years).",
+        "Demand grows at 4.5 % per year (CAGR).",
+        "Colombia already holds 16.4 % of the market and gains 0.9 pp of share over the window.",
+        "Panama absorbs 4.8 % of Colombia's exports of Cosmetics and make-up (HS 3304).",
+        "The export basket of Colombia fits the import demand of Panama at 0.45 (0–1 scale).",
+        "Cosmetics and make-up (HS 3304) faces an effectively applied tariff of 5.9 % in Panama.",
+        "No tariff edge in Panama: top competitors pay the same as Colombia (5.9 %).",
+        "Panama is 734 km away from Colombia; logistics accessibility of 0.57 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Panama at 0.94: the filter leaves the score at 0.433 (raw 0.447)."
+      ],
+      "PER": [
+        "Peru imports USD 195 M a year of Cosmetics and make-up (HS 3304) (average of the last 3 years).",
+        "Demand grows at 1.3 % per year (CAGR).",
+        "Colombia already holds 19.3 % of the market and loses 0.9 pp of share over the window.",
+        "Peru absorbs 13.3 % of Colombia's exports of Cosmetics and make-up (HS 3304).",
+        "The export basket of Colombia fits the import demand of Peru at 0.43 (0–1 scale).",
+        "Cosmetics and make-up (HS 3304) enters Peru duty-free (0 % effectively applied).",
+        "Top competitors pay 4.0 % on average in Peru: a preference margin of 4.0 pp in Colombia's favor.",
+        "Peru is 1,945 km away from Colombia; logistics accessibility of 0.47 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Peru at 0.91: the filter leaves the score at 0.318 (raw 0.333)."
+      ],
+      "POL": [
+        "Poland imports USD 1,810 M a year of Cosmetics and make-up (HS 3304) (average of the last 3 years).",
+        "Demand grows at 24.3 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Poland at 0.36 (0–1 scale).",
+        "Cosmetics and make-up (HS 3304) enters Poland duty-free (0 % effectively applied).",
+        "No tariff edge in Poland: top competitors pay the same as Colombia (0.0 %).",
+        "Poland is 9,790 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Poland at 0.84: the filter leaves the score at 0.365 (raw 0.397)."
+      ],
+      "PRT": [
+        "Portugal imports USD 425 M a year of Cosmetics and make-up (HS 3304) (average of the last 3 years).",
+        "Demand grows at 17.0 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Portugal at 0.39 (0–1 scale).",
+        "Cosmetics and make-up (HS 3304) enters Portugal duty-free (0 % effectively applied).",
+        "No tariff edge in Portugal: top competitors pay the same as Colombia (0.0 %).",
+        "Portugal is 7,506 km away from Colombia; logistics accessibility of 0.39 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Portugal at 0.93: the filter leaves the score at 0.321 (raw 0.332)."
+      ],
+      "SWE": [
+        "Sweden imports USD 650 M a year of Cosmetics and make-up (HS 3304) (average of the last 3 years).",
+        "Demand grows at 10.2 % per year (CAGR).",
+        "Colombia already holds 0.0 % of the market and gains 0.0 pp of share over the window.",
+        "The export basket of Colombia fits the import demand of Sweden at 0.37 (0–1 scale).",
+        "Cosmetics and make-up (HS 3304) enters Sweden duty-free (0 % effectively applied).",
+        "No tariff edge in Sweden: top competitors pay the same as Colombia (0.0 %).",
+        "Sweden is 9,491 km away from Colombia; logistics accessibility of 0.45 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of Sweden at 0.80: the filter leaves the score at 0.262 (raw 0.291)."
+      ],
+      "USA": [
+        "United States imports USD 7,367 M a year of Cosmetics and make-up (HS 3304) (average of the last 3 years).",
+        "Demand grows at 4.5 % per year (CAGR).",
+        "Colombia already holds 0.6 % of the market and gains 0.3 pp of share over the window.",
+        "United States absorbs 8.8 % of Colombia's exports of Cosmetics and make-up (HS 3304).",
+        "The export basket of Colombia fits the import demand of United States at 0.33 (0–1 scale).",
+        "Cosmetics and make-up (HS 3304) enters United States duty-free (0 % effectively applied).",
+        "No tariff edge in United States: top competitors pay the same as Colombia (0.0 %).",
+        "United States is 4,251 km away from Colombia; logistics accessibility of 0.50 (0–1 scale: gravity distance + LPI).",
+        "Macro stability of United States at 0.65: the filter leaves the score at 0.375 (raw 0.453)."
+      ]
+    },
+    "recommendations": [
+      {
+        "final_score": 0.459,
+        "iso3": "ECU",
+        "name": "Ecuador",
+        "reasons": [
+          "destination #1 by basket complementarity (index 0.51 (0–1 scale))",
+          "destination #1 by share already won (share of 38.6 %)"
+        ]
+      },
+      {
+        "final_score": 0.433,
+        "iso3": "PAN",
+        "name": "Panama",
+        "reasons": [
+          "destination #8 by basket complementarity (index 0.45 (0–1 scale))",
+          "destination #1 by logistics accessibility (index 0.57 (0–1 scale))"
+        ]
+      },
+      {
+        "final_score": 0.387,
+        "iso3": "ESP",
+        "name": "Spain",
+        "reasons": [
+          "destination #12 by basket complementarity (index 0.42 (0–1 scale))",
+          "destination #6 by demand growth (12.0 % per year)"
+        ]
+      }
+    ]
+  },
+  "es": {
+    "markets": {
+      "AUS": [
+        "Australia importa USD 1.208 M al año de Cosméticos y maquillaje (HS 3304) (promedio de los últimos 3 años).",
+        "La demanda crece al 1,9 % anual (CAGR).",
+        "Colombia ya tiene 0,1 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "Australia absorbe el 0,1 % de las exportaciones de Cosméticos y maquillaje (HS 3304) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Australia.",
+        "Cosméticos y maquillaje (HS 3304) paga en Australia un arancel efectivamente aplicado de 5,0 %.",
+        "Los principales competidores pagan en promedio 1,7 % en Australia: Colombia enfrenta una desventaja arancelaria de 3,3 pp.",
+        "Australia está a 14.797 km de Colombia; accesibilidad logística 0,37 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Australia 0,77: el filtro deja el score en 0,198 (bruto 0,223)."
+      ],
+      "AUT": [
+        "Austria importa USD 672 M al año de Cosméticos y maquillaje (HS 3304) (promedio de los últimos 3 años).",
+        "La demanda crece al 14,7 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Austria.",
+        "Cosméticos y maquillaje (HS 3304) entra a Austria sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Austria: los principales competidores pagan lo mismo que Colombia (0,0 %).",
+        "Austria está a 9.534 km de Colombia; accesibilidad logística 0,44 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Austria 0,71: el filtro deja el score en 0,278 (bruto 0,325)."
+      ],
+      "BEL": [
+        "Bélgica importa USD 1.255 M al año de Cosméticos y maquillaje (HS 3304) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 0,5 % anual (CAGR).",
+        "Colombia ya tiene 0,6 % del mercado y gana 0,3 pp de cuota en la ventana.",
+        "Bélgica absorbe el 1,8 % de las exportaciones de Cosméticos y maquillaje (HS 3304) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Bélgica.",
+        "Cosméticos y maquillaje (HS 3304) entra a Bélgica sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Bélgica: los principales competidores pagan lo mismo que Colombia (0,0 %).",
+        "Bélgica está a 8.749 km de Colombia; accesibilidad logística 0,45 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Bélgica 0,80: el filtro deja el score en 0,299 (bruto 0,332)."
+      ],
+      "BRA": [
+        "Brasil importa USD 267 M al año de Cosméticos y maquillaje (HS 3304) (promedio de los últimos 3 años).",
+        "La demanda crece al 7,0 % anual (CAGR).",
+        "Colombia ya tiene 1,2 % del mercado y gana 0,2 pp de cuota en la ventana.",
+        "Brasil absorbe el 1,7 % de las exportaciones de Cosméticos y maquillaje (HS 3304) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Brasil.",
+        "Cosméticos y maquillaje (HS 3304) entra a Brasil sin arancel (0 % efectivamente aplicado).",
+        "Los principales competidores pagan en promedio 18,0 % en Brasil: margen de preferencia de 18,0 pp a favor de Colombia.",
+        "Brasil está a 4.306 km de Colombia; accesibilidad logística 0,42 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Brasil 0,77: el filtro deja el score en 0,262 (bruto 0,296)."
+      ],
+      "CAN": [
+        "Canadá importa USD 1.966 M al año de Cosméticos y maquillaje (HS 3304) (promedio de los últimos 3 años).",
+        "La demanda se contrae al 1,4 % anual (CAGR).",
+        "Colombia ya tiene 0,1 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "Canadá absorbe el 0,5 % de las exportaciones de Cosméticos y maquillaje (HS 3304) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Canadá.",
+        "Cosméticos y maquillaje (HS 3304) entra a Canadá sin arancel (0 % efectivamente aplicado).",
+        "Los principales competidores pagan en promedio 1,9 % en Canadá: margen de preferencia de 1,9 pp a favor de Colombia.",
+        "Canadá está a 4.893 km de Colombia; accesibilidad logística 0,51 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Canadá 0,86: el filtro deja el score en 0,269 (bruto 0,289)."
+      ],
+      "CHE": [
+        "Suiza importa USD 717 M al año de Cosméticos y maquillaje (HS 3304) (promedio de los últimos 3 años).",
+        "La demanda crece al 10,3 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "Suiza absorbe el 0,0 % de las exportaciones de Cosméticos y maquillaje (HS 3304) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de Suiza.",
+        "Cosméticos y maquillaje (HS 3304) entra a Suiza sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Suiza: los principales competidores pagan lo mismo que Colombia (0,0 %).",
+        "Suiza está a 8.974 km de Colombia; accesibilidad logística 0,46 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Suiza 0,88: el filtro deja el score en 0,242 (bruto 0,258)."
+      ],
+      "CHL": [
+        "Chile importa USD 339 M al año de Cosméticos y maquillaje (HS 3304) (promedio de los últimos 3 años).",
+        "La demanda crece al 16,4 % anual (CAGR).",
+        "Colombia ya tiene 8,4 % del mercado y pierde 1,5 pp de cuota en la ventana.",
+        "Chile absorbe el 9,0 % de las exportaciones de Cosméticos y maquillaje (HS 3304) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Chile.",
+        "Cosméticos y maquillaje (HS 3304) entra a Chile sin arancel (0 % efectivamente aplicado).",
+        "Los principales competidores pagan en promedio 4,0 % en Chile: margen de preferencia de 4,0 pp a favor de Colombia.",
+        "Chile está a 4.382 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Chile 0,72: el filtro deja el score en 0,321 (bruto 0,372)."
+      ],
+      "CRI": [
+        "Costa Rica importa USD 75 M al año de Cosméticos y maquillaje (HS 3304) (promedio de los últimos 3 años).",
+        "La demanda crece al 11,0 % anual (CAGR).",
+        "Colombia ya tiene 14,3 % del mercado y pierde 0,9 pp de cuota en la ventana.",
+        "Costa Rica absorbe el 2,4 % de las exportaciones de Cosméticos y maquillaje (HS 3304) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Costa Rica.",
+        "Cosméticos y maquillaje (HS 3304) paga en Costa Rica un arancel efectivamente aplicado de 6,0 %.",
+        "Los principales competidores pagan en promedio 9,3 % en Costa Rica: margen de preferencia de 3,3 pp a favor de Colombia.",
+        "Costa Rica está a 1.157 km de Colombia; accesibilidad logística 0,51 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Costa Rica 0,93: el filtro deja el score en 0,320 (bruto 0,331)."
+      ],
+      "DEU": [
+        "Alemania importa USD 3.401 M al año de Cosméticos y maquillaje (HS 3304) (promedio de los últimos 3 años).",
+        "La demanda crece al 14,0 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "Alemania absorbe el 0,0 % de las exportaciones de Cosméticos y maquillaje (HS 3304) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Alemania.",
+        "Cosméticos y maquillaje (HS 3304) entra a Alemania sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Alemania: los principales competidores pagan lo mismo que Colombia (0,0 %).",
+        "Alemania está a 9.137 km de Colombia; accesibilidad logística 0,46 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Alemania 0,74: el filtro deja el score en 0,356 (bruto 0,410)."
+      ],
+      "DOM": [
+        "República Dominicana importa USD 80 M al año de Cosméticos y maquillaje (HS 3304) (promedio de los últimos 3 años).",
+        "La demanda crece al 2,6 % anual (CAGR).",
+        "Colombia ya tiene 26,6 % del mercado y gana 0,5 pp de cuota en la ventana.",
+        "República Dominicana absorbe el 2,8 % de las exportaciones de Cosméticos y maquillaje (HS 3304) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de República Dominicana.",
+        "Cosméticos y maquillaje (HS 3304) paga en República Dominicana un arancel efectivamente aplicado de 20,0 %.",
+        "Sin ventaja arancelaria en República Dominicana: los principales competidores pagan lo mismo que Colombia (20,0 %).",
+        "República Dominicana está a 1.527 km de Colombia; accesibilidad logística 0,44 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de República Dominicana 0,78: el filtro deja el score en 0,322 (bruto 0,363)."
+      ],
+      "ECU": [
+        "Ecuador importa USD 163 M al año de Cosméticos y maquillaje (HS 3304) (promedio de los últimos 3 años).",
+        "La demanda crece al 6,2 % anual (CAGR).",
+        "Colombia ya tiene 38,6 % del mercado y pierde 0,8 pp de cuota en la ventana.",
+        "Ecuador absorbe el 13,2 % de las exportaciones de Cosméticos y maquillaje (HS 3304) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,51 (escala 0–1) con la demanda importadora de Ecuador.",
+        "Cosméticos y maquillaje (HS 3304) paga en Ecuador un arancel efectivamente aplicado de 20,0 %.",
+        "Sin ventaja arancelaria en Ecuador: los principales competidores pagan lo mismo que Colombia (20,0 %).",
+        "Ecuador está a 980 km de Colombia; accesibilidad logística 0,53 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Ecuador 0,88: el filtro deja el score en 0,459 (bruto 0,489)."
+      ],
+      "ESP": [
+        "España importa USD 1.738 M al año de Cosméticos y maquillaje (HS 3304) (promedio de los últimos 3 años).",
+        "La demanda crece al 12,0 % anual (CAGR).",
+        "Colombia ya tiene 0,1 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "España absorbe el 0,7 % de las exportaciones de Cosméticos y maquillaje (HS 3304) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de España.",
+        "Cosméticos y maquillaje (HS 3304) entra a España sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en España: los principales competidores pagan lo mismo que Colombia (0,0 %).",
+        "España está a 8.065 km de Colombia; accesibilidad logística 0,45 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de España 0,97: el filtro deja el score en 0,387 (bruto 0,393)."
+      ],
+      "FIN": [
+        "Finlandia importa USD 238 M al año de Cosméticos y maquillaje (HS 3304) (promedio de los últimos 3 años).",
+        "La demanda crece al 10,4 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,40 (escala 0–1) con la demanda importadora de Finlandia.",
+        "Cosméticos y maquillaje (HS 3304) entra a Finlandia sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Finlandia: los principales competidores pagan lo mismo que Colombia (0,0 %).",
+        "Finlandia está a 9.955 km de Colombia; accesibilidad logística 0,47 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Finlandia 0,76: el filtro deja el score en 0,286 (bruto 0,324)."
+      ],
+      "FRA": [
+        "Francia importa USD 2.848 M al año de Cosméticos y maquillaje (HS 3304) (promedio de los últimos 3 años).",
+        "La demanda crece al 9,3 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,42 (escala 0–1) con la demanda importadora de Francia.",
+        "Cosméticos y maquillaje (HS 3304) entra a Francia sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Francia: los principales competidores pagan lo mismo que Colombia (0,0 %).",
+        "Francia está a 8.615 km de Colombia; accesibilidad logística 0,44 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Francia 0,83: el filtro deja el score en 0,365 (bruto 0,397)."
+      ],
+      "GBR": [
+        "Reino Unido importa USD 3.002 M al año de Cosméticos y maquillaje (HS 3304) (promedio de los últimos 3 años).",
+        "La demanda crece al 7,9 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "Reino Unido absorbe el 0,0 % de las exportaciones de Cosméticos y maquillaje (HS 3304) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Reino Unido.",
+        "Cosméticos y maquillaje (HS 3304) entra a Reino Unido sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Reino Unido: los principales competidores pagan lo mismo que Colombia (0,0 %).",
+        "Reino Unido está a 8.388 km de Colombia; accesibilidad logística 0,42 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Reino Unido 0,59: el filtro deja el score en 0,311 (bruto 0,391)."
+      ],
+      "ITA": [
+        "Italia importa USD 1.658 M al año de Cosméticos y maquillaje (HS 3304) (promedio de los últimos 3 años).",
+        "La demanda crece al 11,2 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Italia.",
+        "Cosméticos y maquillaje (HS 3304) entra a Italia sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Italia: los principales competidores pagan lo mismo que Colombia (0,0 %).",
+        "Italia está a 9.315 km de Colombia; accesibilidad logística 0,41 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Italia 0,83: el filtro deja el score en 0,341 (bruto 0,372)."
+      ],
+      "JPN": [
+        "Japón importa USD 1.749 M al año de Cosméticos y maquillaje (HS 3304) (promedio de los últimos 3 años).",
+        "La demanda crece al 7,6 % anual (CAGR).",
+        "Colombia no registra ventas de Cosméticos y maquillaje (HS 3304) en Japón (cuota 0 %).",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Japón.",
+        "Cosméticos y maquillaje (HS 3304) entra a Japón sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Japón: los principales competidores pagan lo mismo que Colombia (0,0 %).",
+        "Japón está a 14.300 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Japón 0,81: el filtro deja el score en 0,336 (bruto 0,371)."
+      ],
+      "KOR": [
+        "Corea del Sur importa USD 944 M al año de Cosméticos y maquillaje (HS 3304) (promedio de los últimos 3 años).",
+        "La demanda crece al 2,1 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "Corea del Sur absorbe el 0,0 % de las exportaciones de Cosméticos y maquillaje (HS 3304) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,49 (escala 0–1) con la demanda importadora de Corea del Sur.",
+        "Cosméticos y maquillaje (HS 3304) entra a Corea del Sur sin arancel (0 % efectivamente aplicado).",
+        "Los principales competidores pagan en promedio 4,3 % en Corea del Sur: margen de preferencia de 4,3 pp a favor de Colombia.",
+        "Corea del Sur está a 14.747 km de Colombia; accesibilidad logística 0,38 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Corea del Sur 0,88: el filtro deja el score en 0,319 (bruto 0,339)."
+      ],
+      "MEX": [
+        "México importa USD 1.003 M al año de Cosméticos y maquillaje (HS 3304) (promedio de los últimos 3 años).",
+        "La demanda crece al 11,9 % anual (CAGR).",
+        "Colombia ya tiene 12,8 % del mercado y gana 0,5 pp de cuota en la ventana.",
+        "México absorbe el 28,1 % de las exportaciones de Cosméticos y maquillaje (HS 3304) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,32 (escala 0–1) con la demanda importadora de México.",
+        "Cosméticos y maquillaje (HS 3304) entra a México sin arancel (0 % efectivamente aplicado).",
+        "Los principales competidores pagan en promedio 7,0 % en México: margen de preferencia de 7,0 pp a favor de Colombia.",
+        "México está a 3.396 km de Colombia; accesibilidad logística 0,40 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de México 0,80: el filtro deja el score en 0,295 (bruto 0,328)."
+      ],
+      "NLD": [
+        "Países Bajos importa USD 1.680 M al año de Cosméticos y maquillaje (HS 3304) (promedio de los últimos 3 años).",
+        "La demanda crece al 9,2 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y pierde 0,0 pp de cuota en la ventana.",
+        "Países Bajos absorbe el 0,0 % de las exportaciones de Cosméticos y maquillaje (HS 3304) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,46 (escala 0–1) con la demanda importadora de Países Bajos.",
+        "Cosméticos y maquillaje (HS 3304) entra a Países Bajos sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Países Bajos: los principales competidores pagan lo mismo que Colombia (0,0 %).",
+        "Países Bajos está a 8.815 km de Colombia; accesibilidad logística 0,46 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Países Bajos 0,81: el filtro deja el score en 0,374 (bruto 0,413)."
+      ],
+      "PAN": [
+        "Panamá importa USD 52 M al año de Cosméticos y maquillaje (HS 3304) (promedio de los últimos 3 años).",
+        "La demanda crece al 4,5 % anual (CAGR).",
+        "Colombia ya tiene 16,4 % del mercado y gana 0,9 pp de cuota en la ventana.",
+        "Panamá absorbe el 4,8 % de las exportaciones de Cosméticos y maquillaje (HS 3304) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,45 (escala 0–1) con la demanda importadora de Panamá.",
+        "Cosméticos y maquillaje (HS 3304) paga en Panamá un arancel efectivamente aplicado de 5,9 %.",
+        "Sin ventaja arancelaria en Panamá: los principales competidores pagan lo mismo que Colombia (5,9 %).",
+        "Panamá está a 734 km de Colombia; accesibilidad logística 0,57 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Panamá 0,94: el filtro deja el score en 0,433 (bruto 0,447)."
+      ],
+      "PER": [
+        "Perú importa USD 195 M al año de Cosméticos y maquillaje (HS 3304) (promedio de los últimos 3 años).",
+        "La demanda crece al 1,3 % anual (CAGR).",
+        "Colombia ya tiene 19,3 % del mercado y pierde 0,9 pp de cuota en la ventana.",
+        "Perú absorbe el 13,3 % de las exportaciones de Cosméticos y maquillaje (HS 3304) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,43 (escala 0–1) con la demanda importadora de Perú.",
+        "Cosméticos y maquillaje (HS 3304) entra a Perú sin arancel (0 % efectivamente aplicado).",
+        "Los principales competidores pagan en promedio 4,0 % en Perú: margen de preferencia de 4,0 pp a favor de Colombia.",
+        "Perú está a 1.945 km de Colombia; accesibilidad logística 0,47 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Perú 0,91: el filtro deja el score en 0,318 (bruto 0,333)."
+      ],
+      "POL": [
+        "Polonia importa USD 1.810 M al año de Cosméticos y maquillaje (HS 3304) (promedio de los últimos 3 años).",
+        "La demanda crece al 24,3 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,36 (escala 0–1) con la demanda importadora de Polonia.",
+        "Cosméticos y maquillaje (HS 3304) entra a Polonia sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Polonia: los principales competidores pagan lo mismo que Colombia (0,0 %).",
+        "Polonia está a 9.790 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Polonia 0,84: el filtro deja el score en 0,365 (bruto 0,397)."
+      ],
+      "PRT": [
+        "Portugal importa USD 425 M al año de Cosméticos y maquillaje (HS 3304) (promedio de los últimos 3 años).",
+        "La demanda crece al 17,0 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,39 (escala 0–1) con la demanda importadora de Portugal.",
+        "Cosméticos y maquillaje (HS 3304) entra a Portugal sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Portugal: los principales competidores pagan lo mismo que Colombia (0,0 %).",
+        "Portugal está a 7.506 km de Colombia; accesibilidad logística 0,39 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Portugal 0,93: el filtro deja el score en 0,321 (bruto 0,332)."
+      ],
+      "SWE": [
+        "Suecia importa USD 650 M al año de Cosméticos y maquillaje (HS 3304) (promedio de los últimos 3 años).",
+        "La demanda crece al 10,2 % anual (CAGR).",
+        "Colombia ya tiene 0,0 % del mercado y gana 0,0 pp de cuota en la ventana.",
+        "La canasta exportadora de Colombia encaja 0,37 (escala 0–1) con la demanda importadora de Suecia.",
+        "Cosméticos y maquillaje (HS 3304) entra a Suecia sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Suecia: los principales competidores pagan lo mismo que Colombia (0,0 %).",
+        "Suecia está a 9.491 km de Colombia; accesibilidad logística 0,45 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Suecia 0,80: el filtro deja el score en 0,262 (bruto 0,291)."
+      ],
+      "USA": [
+        "Estados Unidos importa USD 7.367 M al año de Cosméticos y maquillaje (HS 3304) (promedio de los últimos 3 años).",
+        "La demanda crece al 4,5 % anual (CAGR).",
+        "Colombia ya tiene 0,6 % del mercado y gana 0,3 pp de cuota en la ventana.",
+        "Estados Unidos absorbe el 8,8 % de las exportaciones de Cosméticos y maquillaje (HS 3304) de Colombia.",
+        "La canasta exportadora de Colombia encaja 0,33 (escala 0–1) con la demanda importadora de Estados Unidos.",
+        "Cosméticos y maquillaje (HS 3304) entra a Estados Unidos sin arancel (0 % efectivamente aplicado).",
+        "Sin ventaja arancelaria en Estados Unidos: los principales competidores pagan lo mismo que Colombia (0,0 %).",
+        "Estados Unidos está a 4.251 km de Colombia; accesibilidad logística 0,50 (escala 0–1: distancia gravitacional + LPI).",
+        "Estabilidad macro de Estados Unidos 0,65: el filtro deja el score en 0,375 (bruto 0,453)."
+      ]
+    },
+    "recommendations": [
+      {
+        "final_score": 0.459,
+        "iso3": "ECU",
+        "name": "Ecuador",
+        "reasons": [
+          "1.º destino por complementariedad de canastas (índice 0,51 (escala 0–1))",
+          "1.º destino por cuota ya ganada (cuota de 38,6 %)"
+        ]
+      },
+      {
+        "final_score": 0.433,
+        "iso3": "PAN",
+        "name": "Panamá",
+        "reasons": [
+          "8.º destino por complementariedad de canastas (índice 0,45 (escala 0–1))",
+          "1.º destino por accesibilidad logística (índice 0,57 (escala 0–1))"
+        ]
+      },
+      {
+        "final_score": 0.387,
+        "iso3": "ESP",
+        "name": "España",
+        "reasons": [
+          "12.º destino por complementariedad de canastas (índice 0,42 (escala 0–1))",
+          "6.º destino por crecimiento de la demanda (12,0 % anual)"
+        ]
+      }
+    ]
+  }
+}

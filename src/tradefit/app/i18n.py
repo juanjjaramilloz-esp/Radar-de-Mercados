@@ -222,7 +222,9 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
             "complementariedad).\n"
             "- **Producto**: el desplegable trae los 15 productos más "
             "exportados por Colombia (canasta no minero-energética, "
-            "UN Comtrade 2024); ¿otro producto? el **🔎 buscador avanzado** "
+            "UN Comtrade 2024), más envases de plástico (HS 3923) y "
+            "cosméticos (HS 3304) como productos de demostración; ¿otro "
+            "producto? el **🔎 buscador avanzado** "
             "analiza cualquier partida al momento.\n"
             "- **📖 Metodología**: la fórmula y la cita académica de cada "
             "métrica; el ranking se exporta a CSV, Excel o PDF."
@@ -234,7 +236,9 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
             "- **Recommendation**: the why behind each top pick, with the "
             "numbers (demand growth, share already won, complementarity).\n"
             "- **Product**: the dropdown lists Colombia's 15 top exports "
-            "(non-mining basket, UN Comtrade 2024); after something else? "
+            "(non-mining basket, UN Comtrade 2024) plus plastic packaging "
+            "(HS 3923) and cosmetics (HS 3304) as demo products; after "
+            "something else? "
             "the **🔎 advanced search** analyzes any tariff line on the "
             "spot.\n"
             "- **📖 Methodology**: the formula and academic citation behind "
@@ -908,13 +912,17 @@ _STRINGS: Final[dict[str, dict[Lang, str]]] = {
         "es": (
             "Top 15 de exportaciones de Colombia por partida HS4 "
             "(UN Comtrade 2024), excluyendo minero-energéticos (capítulos "
-            "27 y 71), en orden de valor exportado. ¿Otro producto? Usa el "
+            "27 y 71), en orden de valor exportado, más envases de plástico "
+            "(HS 3923) y cosméticos (HS 3304) como productos de "
+            "demostración. ¿Otro producto? Usa el "
             "buscador avanzado."
         ),
         "en": (
             "Colombia's top 15 exports by HS4 heading (UN Comtrade 2024), "
             "excluding mining and energy (chapters 27 and 71), ordered by "
-            "export value. Looking for something else? Use the advanced "
+            "export value, plus plastic packaging (HS 3923) and cosmetics "
+            "(HS 3304) as demo products. Looking for something else? Use "
+            "the advanced "
             "search."
         ),
     },

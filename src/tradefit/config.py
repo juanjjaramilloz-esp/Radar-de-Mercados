@@ -40,6 +40,9 @@ TOP_RECOMMENDATIONS: Final = 3
 # (café USD 3 545 M … polipropileno USD 290 M). La lista se regenera o
 # verifica con: python -m tradefit.ingest.top_exports
 # Las etiquetas son curadas a mano (presentación); el origen sigue fijo.
+# Excepción: 3923 (envases de plástico, CIIU 222) y 3304 (cosméticos, CIIU 202)
+# no están en el top 15; entran como productos de demostración de los
+# subsectores de la tesis (plan v3, 2026-09).
 PRODUCTS: Final[dict[str, str]] = {
     "0901": "Café (HS 0901)",
     "0603": "Flores cortadas (HS 0603)",
@@ -56,8 +59,10 @@ PRODUCTS: Final[dict[str, str]] = {
     "3904": "PVC en formas primarias (HS 3904)",
     "0804": "Aguacates, piñas y mangos (HS 0804)",
     "3902": "Polipropileno (HS 3902)",
+    "3923": "Envases y tapas de plástico (HS 3923)",
+    "3304": "Cosméticos y maquillaje (HS 3304)",
 }
-# Etiquetas en inglés de los mismos 15 productos curados, para el toggle de
+# Etiquetas en inglés de los mismos productos curados, para el toggle de
 # idioma de la app (presentación pura; las partidas construidas on-demand
 # usan la descripción del catálogo, que ya está en inglés).
 PRODUCTS_EN: Final[dict[str, str]] = {
@@ -76,6 +81,8 @@ PRODUCTS_EN: Final[dict[str, str]] = {
     "3904": "PVC in primary forms (HS 3904)",
     "0804": "Avocados, pineapples and mangoes (HS 0804)",
     "3902": "Polypropylene (HS 3902)",
+    "3923": "Plastic packaging and closures (HS 3923)",
+    "3304": "Cosmetics and make-up (HS 3304)",
 }
 HS_CODE: Final = "0901"  # producto por defecto (pipeline sin --hs, stub, tests)
 HS_LABEL: Final = PRODUCTS[HS_CODE]

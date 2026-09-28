@@ -270,7 +270,7 @@ def _about_sidebar() -> None:
 
 
 def _catalog_products() -> dict[str, str]:
-    """Catálogo del desplegable: los 15 curados de ``config.PRODUCTS``.
+    """Catálogo del desplegable: los curados de ``config.PRODUCTS``.
 
     En el orden de ``config`` (valor exportado descendente) y con etiqueta
     en el idioma activo, tengan o no snapshot construido (si falta, se
